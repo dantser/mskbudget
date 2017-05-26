@@ -1,41 +1,43 @@
 mixin taxPolicy()
   +b.taxPolicy&attributes(attributes)
-    +e.head
-      +e.head_descr Бюджетная система
-      +e.head_name налоговая политика москвы
-      +e.head_icons
-        +e.A(href="#").head_icons__item
-        +e.A(href="#").head_icons__item
-        +e.A(href="#").head_icons__item
-    +e.descr
+    .d-abs-content.budget-system-bg
+      .d-layer
+        +b.d-si.d-si__head
+          +e.head_descr Бюджетная система
+          +e.head_p-name налоговая политика москвы
+          +e.head_icons
+            +e.A(href="#").icons_item
+            +e.A(href="#").icons_item
+            +e.A(href="#").icons_item
+    .d-abs__head_descr
       | Совокупность мер, реализуемых органами государственной власти и направленных на повышение 
       | эффективности налоговой системы города Москвы
     +b.carousel#carousel
-      +e.ar-left
-      +e.count
-      +e.ar-right
-      +e.carousel-area__left
+      .ar-left
+      .carousel-count
+      .ar-right
+      .carousel-area__left
         +e(data-speed='1').carousel-area__left__zone
         +e(data-speed='2').carousel-area__left__zone
         +e(data-speed='3').carousel-area__left__zone
         +e(data-speed='4').carousel-area__left__zone
-      +e.carousel-area__right
-        +e(data-speed='1').carousel-area__right__zone
-        +e(data-speed='2').carousel-area__right__zone
-        +e(data-speed='3').carousel-area__right__zone
-        +e(data-speed='4').carousel-area__right__zone
-      +e.carousel-3d-container
-        +e.carousel-3d-slider
-          - for (var i = 0, i < 10 i++)
-              +e.carousel-3d-slide
+      .carousel-area__right
+        div(data-speed='1').carousel-area__right__zone
+        div(data-speed='2').carousel-area__right__zone
+        div(data-speed='3').carousel-area__right__zone
+        div(data-speed='4').carousel-area__right__zone
+      .carousel-3d-container
+        .carousel-3d-slider
+          - for (var i = 0, i < 10, i++)
+              .carousel-3d-slide
                 +b.d-slide.d-slide__politics
                   +e.head
                     h2 Поддержка малого и среднего предпринимательства
-                +e.body_list
-                  li
-                    | Сохранение до 2021 года налоговых канкул для перешедших на патентную или упрощенную систему
-                    | налогооблажения индивидуальных предпринимателей, впервые зарегистрированных после 25 марта 2015 года
-                    | и осуществляющих деятельность в производственной, научной и социальной сферах
-                  li
-                    | Расширение перечня видов предпринимательской деятельности, в отношении
-                    | которых возможно приминение патентной системы налогооблажения
+                  +e.body_list
+                    li
+                      | Сохранение до 2021 года налоговых канкул для перешедших на патентную или упрощенную систему
+                      | налогооблажения индивидуальных предпринимателей, впервые зарегистрированных после 25 марта 2015 года
+                      | и осуществляющих деятельность в производственной, научной и социальной сферах
+                    li
+                      | Расширение перечня видов предпринимательской деятельности, в отношении
+                      | которых возможно приминение патентной системы налогооблажения
