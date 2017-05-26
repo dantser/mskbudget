@@ -1,3 +1,34 @@
+// media queries https://www.sitepoint.com/sass-mixin-media-merging/
+@mixin media($queries) {
+  @if length($queries) == 0 {
+    @content;
+  }
+
+  @else {
+    $first-key: nth(map-keys($queries), 1);
+
+    @media ($first-key: map-get($queries, $first-key)) {
+      $queries: map-remove($queries, $first-key);
+
+      @include media($queries) {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin respond-to($breakpoint) {
+  $media: map-get($breakpoints, $breakpoint);
+
+  @if not $media {
+    @error "No query could be retrieved from `#{$breakpoint}`. " + "Please make sure it is defined in `$breakpoints` map.";
+  }
+
+  @media #{$media} {
+    @content;
+  }
+}
+
 /*
 Миксин для элементов, которые должны сохранять определенное соотношение сторон (напр., блок с видео)
 Пример использования:
