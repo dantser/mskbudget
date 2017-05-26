@@ -1,0 +1,1 @@
+$('#d-si-select, .d-sii__chbox').styler();
