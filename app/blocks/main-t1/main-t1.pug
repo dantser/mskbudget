@@ -1,0 +1,173 @@
+mixin main-t1()
+  +b.main-t1&attributes(attributes)
+    div(role="toolbar").sections.sections_fs.slick-initialized.slick-slider.slick-dotted.slick-vertical
+      // SECTIONS_ITEM(Banner)
+      div(aria-live="polite").slick-list
+        div(role="listbox").slick-track
+          div(data-slick-index="0", aria-hidden="false", tabindex="-1", role="option", aria-describedby="slick-slide00").sections__item.slick-slide.slick-current.slick-active
+            +b.cube
+              +e.side._current
+                +b.banner._ban-1
+                  +e.wrap.wrap
+                    .clearfix
+                      +e.DIV(data-delay="300").cat.load-anim-fade.load-anim-fade_on Бюджет Москвы
+                      button(tabindex="0").arrow.cube__arrow.cube__arrow_m.arrow_left.cube__arrow_next
+                      button(tabindex="0").arrow.cube__arrow.cube__arrow_m.arrow_right.cube__arrow_prev
+                    +e.A(href="#", tabindex="0").link
+                      +e.SPAN.title_b
+                        +e.SPAN(data-delay="900").row.banner__row_v10.load-anim-fade.load-anim-fade_on
+                          | Государственный долг
+                          br
+                          | на 01.12.2016
+                    +e.A(href="#", tabindex="0", data-delay="2100").button.button.load-anim-fade.load-anim-fade_on
+                      span Подробнее
+              +e.side._right
+                +b.banner._ban-2
+                  +e.wrap.wrap
+                    .clearfix
+                      +e.DIV(data-delay="300").cat Сервисы
+                      button(tabindex="0").arrow.cube__arrow.cube__arrow_m.arrow_left.cube__arrow_next
+                      button(tabindex="0").arrow.cube__arrow.cube__arrow_m.arrow_right.cube__arrow_prev
+                    +e.A(href="#", tabindex="0").link
+                      +e.SPAN.title_b
+                        +e.SPAN(data-delay="900").row.banner__row_v10.load-anim-fade.load-anim-fade_on
+                          | Бюджетный
+                          br
+                          | калькулятор
+                        +e.SPAN.row.banner__row_sub Создай свой бюджет!
+                    +e.A(href="#", tabindex="0").button.button
+                      span Подробнее
+                +e.side._left
+                  +b.banner._ban-3
+                    +e.wrap.wrap
+                      .clearfix
+                        +e.DIV(data-delay="300").cat Новости
+                        button(tabindex="0").arrow.cube__arrow.cube__arrow_m.arrow_left.cube__arrow_next
+                        button(tabindex="0").arrow.cube__arrow.cube__arrow_m.arrow_right.cube__arrow_prev
+                      +e.A(href="#", tabindex="0").link
+                        +e.SPAN.title_b
+                          +e.SPAN.row.banner__row_sub Департамент финансов города Москвы подвел итоги исполнения столичного бюджета за 9 месяцев 2016 года
+                      +e.A(href="#", tabindex="0").button.button.mt-30
+                        span Подробнее
+              +e.BUTTON(tabindex="0").arrow.arrow.arrow_right.cube__arrow_prev
+              +e.BUTTON(tabindex="0").arrow.arrow.arrow_left.cube__arrow_next
+          div(data-slick-index="1", aria-hidden="true", tabindex="-1", role="option", aria-describedby="slick-slide01").sections__item.sections__item_bg1.slick-slide
+            // DIAGRAMS_SLIDER
+            div(data-sides-900="2").slider.slider_diagrams.slick-initialized.slick-slider
+              button(type="button", data-role="none", aria-label="Previous", role="button").slick-prev.slick-arrow Previous
+              div(aria-live="polite").slick-list
+                div(role="listbox").slick-track
+                  div(tabindex="-1", role="option", data-slick-index="-1", aria-hidden="true").cube__side_new.cube__side_new-2.slick-slide.slick-cloned
+                    // AHEAD
+                    .sections__ahead.mb-40.viewport-900-lg
+                      .wrap
+                        h2.sections__title.mr-20.anim-fade-top Исполнение бюджета
+                        // CALENDAR
+                        .sections__datepicker
+                          span
+                            | По состоянию
+                            br
+                            | на
+                          +b.datepicker
+                            +e.INPUT(type="text", tabindex="-1", value="21.12.2016").show.jq-datepicker
+                    // DIAGRAM_CELL
+                    +b.grid.grid_col-2
+                      +e.col.grid-brick-2
+                        +b.large-diagram
+                          +e.P.caption доходы
+                          +e.svg
+                            +e.values
+                              +e.percent
+                                span(data-value="115,4").diagram-value 115,4
+                                | %
+                              +e.value._top
+                                | План
+                                +e.value-lightblue 1665,5
+                              +e.value._bottom
+                                +e.P(data-value="1921,7").value-blue.diagram-value 1921,7
+                                | факт
+                            .svg-wrap
+                              | svg
+                      +e.col.grid-brick-2
+                        +b.large-diagram
+                          +e.P.caption расходы
+                          +e.svg
+                            +e.values
+                              +e.percent
+                                span(data-value="73,1").diagram-value 73,1
+                                | %
+                              +e.value._top
+                                | План
+                                +e.value-lightblue 1865,5
+                              +e.value._bottom
+                                +e.P(data-value="1364,5").value-blue.diagram-value 1364,5
+                                | факт
+                            .svg-wrap
+                              | svg
+                  div(tabindex="-1", role="option", data-slick-index="0", aria-hidden="false").cube__side_new.cube__side_new-1.slick-slide.slick-current.slick-active
+                    // AHEAD
+                    .sections__ahead#diagrams-ahead-1
+                      .wrap
+                        h1.sections__title.anim-fade-top Основные показатели бюджета за 2016–2018 годы
+                        +b.legend.sections__legend.anim-fade-top
+                          +e.item._blue доходы
+                          +e.item._pink расходы
+                          +e.item._green дефицит/профицит
+                    +b.grid._col-3
+                      +e.col.grid-brick-3
+                        +b.comp-diagram._dash-1#diagram-1
+                          +e.year 2016
+                          +e.values
+                            +e.num._blue.diagram-value(data-value="1446,2")#value-path-diagram-1-2
+                            +e.num._pink.diagram-value(data-value="1598,9")#value-path-diagram-1-1
+                            +e.num._yellow.diagram-value(data-value="-152,7", data-pre-val="1599")#value-path-diagram-1-0
+                          .svg-wrap
+                            | svg
+                      +e.col.grid-brick-3
+                        +b.comp-diagram._dash-2#diagram-2
+                          +e.year 2017
+                          +e.values
+                            +e.num._blue.diagram-value(data-value="1446,2")#value-path-diagram-2-2
+                            +e.num._pink.diagram-value(data-value="1598,9")#value-path-diagram-2-1
+                            +e.num._yellow.diagram-value(data-value="-152,7", data-pre-val="1599")#value-path-diagram-2-0
+                          .svg-wrap
+                            | svg
+                      +e.col.grid-brick-3
+                        +b.comp-diagram._dash-1#diagram-3
+                          +e.year 2018
+                          +e.values
+                            +e.num._blue.diagram-value(data-value="1446,2")#value-path-diagram-3-2
+                            +e.num._pink.diagram-value(data-value="1598,9")#value-path-diagram-3-1
+                            +e.num._yellow.diagram-value(data-value="-152,7", data-pre-val="1599")#value-path-diagram-3-0
+                          .svg-wrap
+                            | svg
+                  div(tabindex="-1", role="option", data-slick-index="1", aria-hidden="true").cube__side_new.cube__side_new-2.slick-slide
+                    // AHEAD
+                    .sections__ahead#diagrams-ahead-2
+                      .wrap
+                        h1.sections__title.mr-20.anim-fade-top Исполнение бюджета
+                        // CALENDAR
+                        .sections__datepicker
+                          span
+                            | По состоянию
+                            br
+                            | на
+                          +b.datepicker
+                            +e.INPUT(type="text", tabindex="-1", value="21.12.2016").show.jq-datepicker
+                    +b.grid._col-2
+                      +e.col.grid-brick-2
+                        +b.large-diagram
+                          +e.P.caption расходы
+                          +e.svg
+                            +e.values
+                              +e.percent
+                                span(data-value="73,1").diagram-value 73,1
+                                | %
+                              +e.value._top
+                                | План
+                                +e.value-lightblue 1865,5
+                              +e.value._bottom
+                                +e.P(data-value="1364,5").value-blue.diagram-value 1364,5
+                                | факт
+                            .svg-wrap
+                              | svg
