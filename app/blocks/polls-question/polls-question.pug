@@ -1,0 +1,65 @@
+mixin polls-question()
+  +b.polls-question&attributes(attributes)
+
+    .sections._polls
+
+      .d-si-content
+
+        .d-layer
+
+          +b.d-si.d-si__head
+            +e.head_descr сервисы
+            +e.head_p-name опросы
+            +e.head_icons
+              +e.A.icons_item
+                | SVG Иконка
+              +e.A.icons_item
+                | SVG Иконка
+              +e.A.icons_item
+                | SVG Иконка
+          +b.d-si.d-si__quiz-container
+            .d-si__quiz-container_head
+              span Как сделать портал удобнее?
+              .d-si__quiz-container_head-cross
+            .d-si__quiz-container_body
+                form(action='#', id='d-sii__form').d-sii__form
+                  fieldset.d-sii__form_question
+                    legend КАКОВА ВАША ЦЕЛЬ ПОСЕЩЕНИЯ ПОРТАЛА &laquo;ОТКРЫТЫЙ БЮДЖЕТ ГОРОДА МОСКВЫ&raquo; СЕГОДНЯ?
+
+                    input(name='d-sq_radio', type='radio', id='d-rad-f').d-sq_radio
+                    label(for='d-rad-f') Поиск информации о&nbsp;бюджете города Москвы для подготовки учебных материалов рефератов, курсовых/дипломных работ
+
+                    input(name='d-sq_radio', type='radio', id='d-rad-s').d-sq_radio
+                    label(for='d-rad-f') Поиск информации о&nbsp;бюджете города Москвы, необходимой в&nbsp;профессиональной деятельности
+
+                    input(name='d-sq_radio', type='radio', value='2', id='d-rad-t').d-sq_radio
+                    label(for='d-rad-f') Изучение опыта города Москвы в&nbsp;части открытости бюджетных данных и&nbsp;представления бюджетных данных для граждан
+
+                    input(name='d-sq_radio', type='radio', value='3', id='d-rad-fo').d-sq_radio
+                    label(for='d-rad-f') Задать вопрос о&nbsp;бюджете города Москвы/дать предложение
+
+                  fieldset.d-sii__form_question
+                    legend
+                      | БЫЛО БЫ ВАМ ПРОЩЕ/ИНТЕРЕСНЕЕ СЛЕДИТЬ ЗА ОБНОВЛЕНИЯМИ ПОРТАЛА ЧЕРЕЗ СТРАНИЦЫ
+                      br
+                      | В СОЦИАЛЬНЫХ СЕТЯХ?
+
+                    input(type='checkbox', id='d-sii__chbox-s-first').d-sii__chbox
+                    label(for='d-sii__chbox-s-first') Поиск информации о бюджете города Москвы для подготовки учебных материалов рефератов, курсовых/дипломных работ
+
+                    input(type='checkbox', id='d-sii__chbox-s-second').d-sii__chbox
+                    label(for='d-sii__chbox-s-v') Поиск информации о бюджете города Москвы, необходимой в профессиональной деятельности
+
+                    input(type='checkbox', id='d-sii__chbox-s-third').d-sii__chbox
+                    label(for='d-sii__chbox-s-third') Изучение опыта города Москвы в части открытости бюджетных данных и представления бюджетных данных для граждан
+
+                    input(type='checkbox', id='d-sii__chbox-s-forth').d-sii__chbox
+                    label(for='d-sii__chbox-s-forth') Изучение бюджета и бюджетного процесса в общем формате
+
+                    input(type='checkbox', id='d-sii__chbox-s-fifth').d-sii__chbox
+                    label(for='d-sii__chbox-s-fifth') Задать вопрос о бюджете города Москвы/дать предложение
+
+                    input(type='checkbox', id='d-sii__chbox-s-sixth').d-sii__chbox
+                    label(for='d-sii__chbox-s-sixth') Другое
+
+                  input(type='text').d-sii__chbox-other_input
