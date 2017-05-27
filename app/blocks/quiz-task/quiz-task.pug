@@ -1,0 +1,24 @@
+mixin quiz-task()
+  +b.quiz-task&attributes(attributes)
+  .sections
+    .d-si-content._quiz
+      .d-layer
+        +b.d-si.d-si__head
+          +e.head_descr сервисы
+          +e.head_p-name Викторины
+          +e.head_icons
+            +e.A(href="#").icons_item
+            +e.A(href="#").icons_item
+        .d-min-layer
+          form(action="#").d-si__search-form
+            input(type="text", placeholder="Поиск").d-si__search
+            input(type="submit", value).d-si__submit
+          .d-si.d-si__quiz
+            - for (var i = 0; i < 5; i++)
+              .d-si__quiz_item
+                .d-si__quiz_head История бюджета города москвы во второй половине ХХ—начале ХХI века
+                .d-si__quiz_status Создана: 02.08.2016
+                a(href="/moscowbudget/quiz_question.html").d-si__quiz_button участвовать
+                i(aria-hidden-"true").fa.fa-angle-right
+          a(href="#").d-si__button_show-more показать еще
+          
