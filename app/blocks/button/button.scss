@@ -1,0 +1,55 @@
+.button {
+  padding-bottom: .25rem;
+  /*display: flex;*/
+  display: inline-block;
+  vertical-align: middle;
+  /*justify-content: center;*/
+  /*align-items: center;*/
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 2px;
+  background-color: #fff;
+  font-family: $PFDinDisplayPro;
+  font-size: 14px;
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+
+  will-change: color, background-color, box-shadow;
+  transition: color .25s ease-in-out, background-color .25s ease-in-out, box-shadow .25s ease-in-out;
+  outline: none;
+
+  &_kind {
+
+    &_blue {
+      background-color: #0061a0;
+      color: white;
+      box-shadow: inset 0 -2px 0 #0061a0;
+
+      &:hover {
+        box-shadow: inset 0 -2px 0 #004a7a, inset 2px 2px 5px #004a7a;
+      }
+    }
+
+    &_yellow {
+      background-color: #fee300;
+      color: white;
+
+      &:hover {
+        background-color: #e7ce00;
+        box-shadow: inset 0 -2px 0 #958500, inset 2px 2px 5px #958500;
+      }
+    }
+
+    &_transparent {
+      background-color: transparent;
+      color: #fee300;
+      border: 1px solid gray;
+
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+}
