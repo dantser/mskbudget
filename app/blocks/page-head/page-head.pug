@@ -1,0 +1,7 @@
+// заголовок страницы с категорией
+
+mixin page-head(title, category)
+  +b.page-head&attributes(attributes)
+    if category
+      +e.category= category
+    +e.title= title
