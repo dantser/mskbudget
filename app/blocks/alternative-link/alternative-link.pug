@@ -1,0 +1,8 @@
+//- вторая ссылка добавляется
+//- +e.title текст
+
+mixin alternative-link(title, subtitle)
+  +b.alternative-link&attributes(attributes)
+    +e.title= title
+    if subtitle
+      +e.subtitle= subtitle
