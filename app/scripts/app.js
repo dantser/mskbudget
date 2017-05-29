@@ -1,5 +1,6 @@
 import $ from 'jquery';
+import passedStages from '../blocks/passed-stages/passed-stages';
 
 $(() => {
-  // your code goes here
+  passedStages();
 });

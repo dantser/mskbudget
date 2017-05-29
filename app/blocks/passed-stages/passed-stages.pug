@@ -1,0 +1,7 @@
+mixin passed-stages(innertext, outertext)
+  +b.passed-stages&attributes(attributes)
+    +e.round
+      +e.CANVAS(width='78', height='78', default-fill='#413a62', stroke-width='7', sector-count='9', fill-sectors='0,2,3,5,8').sectored-round
+      +e.P.innertext= innertext
+    if outertext
+      +e.P.outertext= outertext
