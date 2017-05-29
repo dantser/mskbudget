@@ -1,0 +1,84 @@
+mixin news()
+  +b.news&attributes(attributes)
+
+    .sections
+
+      +b.main.news__
+        +e.SECTION.__page
+          .wrapper
+            +e.H1 Новости
+            a(href='/').header-link
+
+            +e.__wrapper
+              +e.__item
+                +e.A(href='/').__anons._budget
+                  .img-wrapper
+                    img(src='upload/news/1.jpg')
+                  +e.__anons._content
+                    +e.__label Новости бюджета
+                    p Подведены итоги предварительной апробации федеральной учебной программы &laquo;Бюджетная грамотность для старшеклассников&raquo;
+                +e.__anons._info
+                  +e.__date 8 августа 2016
+                  .tags
+                    span #итоги
+                    span #апробация
+                    span #старшеклассники
+                    span #еще теги
+                  .share-news
+              +e.__item
+                +e.A(href='/').__anons._moscow
+                  .img-wrapper
+                    img(src='upload/news/1.jpg')
+                  +e.__anons._content
+                    +e.__label Новости москвы
+                    p О&nbsp;выплатах купонного дохода по&nbsp;облигациям Городского облигационного (внутреннего) займа Москвы
+                +e.__anons._info
+                  +e.__date 8 августа 2016
+                  .tags
+                    span #итоги
+                    span #апробация
+                    span #старшеклассники
+                    span #еще теги
+                  .share-news
+              +e.__item
+                +e.A(href='/').__anons._moscow
+                  .img-wrapper
+                    img(src='upload/news/1.jpg')
+                  +e.__anons._content
+                    +e.__label Новости москвы
+                    p О&nbsp;выплатах купонного дохода по&nbsp;облигациям Городского облигационного (внутреннего) займа Москвы
+                +e.__anons._info
+                  +e.__date 8 августа 2016
+                  .tags
+                    span #итоги
+                    span #апробация
+                    span #старшеклассники
+                    span #еще теги
+                  .share-news
+              +e.__item
+                +e.A(href='/').__anons._federal
+                  .img-wrapper
+                    img(src='upload/news/1.jpg')
+                  +e.__anons._content
+                    +e.__label Новости бюджета
+                    p Итоги исполнения бюджета города Москвы за&nbsp;первое полугодие 2016 года
+                +e.__anons._info
+                  +e.__date 8 августа 2016
+                  .tags
+                    span #итоги
+                    span #апробация
+                    span #старшеклассники
+                    span #еще теги
+                  .share-news
+            .subscribe
+              form(id='subscribe', method='post', novalidate='true')
+                label
+                  | Подпишитесь
+                  br
+                  | на&nbsp;новости
+                input(type='email', name='email', placeholder='e-mail').text-input
+                button(type='submit')
+              p
+                | Для выбора параметров рассылки необходимо
+                a(href='/') зарегистрироваться
+                | на&nbsp;портале
