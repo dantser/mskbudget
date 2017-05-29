@@ -1,0 +1,11 @@
+include ../icon/icon
+//- ...buttons - названия svg-иконок по названию из папки icons
+//- Пример:
+//- +social('vk', 'fb', 'tw')
+mixin social(...buttons)
+  +b('ul').social&attributes(attributes)
+    each button in buttons
+      +e('li').item
+        +e('a')(href='#', class='__link_type_' + button)
+          +icon(button).icon
+
