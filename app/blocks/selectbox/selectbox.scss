@@ -1,0 +1,44 @@
+.selectbox {
+  position: relative;
+  height: 32px;
+  border-radius: 2px;
+  border: 1px solid #acacac;
+  background-color: rgba(#ebebeb, .5);
+  overflow: hidden;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: $PFDinCondensedPro;
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 32px;
+  transition: all .25s ease-in-out;
+
+  &__val {
+    padding: 0 12px;
+  }
+
+  &__list-item {
+    padding: 0 12px;
+
+    &.locked {
+      color: #ababab;
+      pointer-events: none;
+    }
+  }
+
+  &__arrow {
+    position: absolute;
+    right: 10px;
+    top: 12px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 5px 0;
+    border-color: #0d46a1 transparent transparent;
+  }
+
+  &.active {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .4);
+    background-color: #ebebeb;
+  }
+}

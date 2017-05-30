@@ -1,0 +1,48 @@
+.checkbox {
+  display: block;
+  font-size: 16px;
+  line-height: 1em;
+  color: $color-input;
+  cursor: pointer;
+
+  &__control {
+    display: none;
+
+    &:checked {
+
+      & + .checkbox__box {
+
+        & .checkbox__mark {
+          position: absolute;
+          top: calc(50% - 5px);
+          left: calc(50% - 5px);
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  &__box {
+    position: relative;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border: 1px solid #787e85;
+    border-radius: 2px;
+  }
+
+  &__mark {
+    display: none;
+    width: 10px;
+    height: 10px;
+    fill: #0d46a1;
+    stroke: #0d46a1;
+  }
+
+  &__text {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    margin-left: 7px;
+  }
+}

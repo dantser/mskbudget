@@ -1,0 +1,8 @@
+//- Модификаторы
+//- col - надпись над полем ввода
+
+mixin text-field()
+  +b.LABEL.text-field&attributes(attributes)
+    +e.SPAN.label
+      block
+    +e.INPUT(type='text').text
