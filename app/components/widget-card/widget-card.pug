@@ -1,0 +1,35 @@
+include ../../blocks/favor/favor
+include ../../blocks/arrow-button/arrow-button
+include ../../blocks/icon/icons
+
+mixin widget-card()
+  +b.widget-card&attributes(attributes)
+    block
+
+mixin widget-card-head(title, subtitle)
+  +e.head&attributes(attributes)
+    +e.P.title= title
+    if subtitle
+      +e.P.subtitle= subtitle
+    +favor().widget-card__favor
+      block
+
+mixin widget-card-content()
+  +e.content&attributes(attributes)
+    block
+
+mixin widget-card-info-block(desc, title, date)
+  +e.info-block&attributes(attributes)
+    +e.info-block-desc= desc
+    +e.info-block-title= title
+    if date
+      +e.info-block-date= date
+    +e.nav-buttons
+      +arrow-button()._prev.widget-card__arrow-button
+      +arrow-button().widget-card__arrow-button
+        block
+
+mixin widget-card-bottom-link()
+  +e.A(href="#").bottom-link&attributes(attributes) Подробнее
+    +icon('angle-arrow').bottom-link-icon
+      block
