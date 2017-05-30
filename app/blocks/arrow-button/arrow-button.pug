@@ -1,0 +1,9 @@
+include ../icon/icons
+
+mixin arrow-button(prev)
+  if prev
+    +b.A(href="#").arrow-button&attributes(attributes)._prev
+      +icon('angle-arrow').icon
+  else
+    +b.A(href="#").arrow-button&attributes(attributes)
+      +icon('angle-arrow').icon
