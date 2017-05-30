@@ -1,9 +1,9 @@
-mixin selectbox()
+mixin selectbox(name, data)
   +b.selectbox&attributes(attributes) 
-    +e.P.val Селект бокс
-    +e.UL.list
-      +e.LI.list-item Селект бокс
-      +e.LI.list-item Пункты селекта
-      +e.LI.list-item Еще пункт
-      +e.LI.list-item.locked Залоченный пункт
+    +e.SELECT.select(name=name)
+      each obj in data
+        if (obj.locked)
+          option(value=obj.val, data-locked)= obj.text
+        else
+          option(value=obj.val)= obj.text
     +e.SPAN.arrow

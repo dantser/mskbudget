@@ -8,7 +8,7 @@ mixin personal-cab-services()
       +widget-card().personal-cab-services__widget-card
         +widget-card-head('Бюджетный калькулятор','Предложенные Вами варианты бюджета')
         +widget-card-content()
-          +selectbox().widget-card__selectbox
+          +selectbox('select', getData('widget-card-selectbox')).widget-card__selectbox
           +e.budget-stats
             +e.budget-stat
               +e.P.budget-stat-title доходы

@@ -1,27 +1,40 @@
 import $ from 'jquery';
 
 export default function selectbox() {
-  $(document).ready(function(){
-    $('.selectbox__val').click(function(){
-      var selectbox = $(this).parent();
-      var ownHeight = $(this).outerHeight();
-      if (selectbox.hasClass('active')) {
-        selectbox.height(ownHeight);
-        selectbox.removeClass('active');
+  $('.selectbox').each(function () {
+    const wrapper = '<ul></ul>';
+    const selBox = $(this);
+    selBox.find('select').after(wrapper);
+    selBox.find('option').each(function () {
+      const ttext = $(this).text();
+      const vval = $(this).val();
+      if ($(this).attr('data-locked')) {
+        const li = `<li class="locked" data-val=${vval}>${ttext}</li>`;
+        selBox.find('ul').append(li);
       } else {
-        var height = selectbox.find('.selectbox__list').outerHeight();
-        height += ownHeight;
-        selectbox.height(height);
-        selectbox.addClass('active');
+        const li = `<li data-val=${vval}>${ttext}</li>`;
+        selBox.find('ul').append(li);
       }
     });
-    $('.selectbox__list-item').click(function(){
-      var selectbox = $(this).parents('.selectbox');
-      var ownHeight = selectbox.find('.selectbox__val').outerHeight();
-      var val = $(this).text();
-      selectbox.find('.selectbox__val').text(val);
-      selectbox.height(ownHeight);
-      selectbox.removeClass('active');
+    selBox.find('li').click(function () {
+      const newval = $(this).data('val');
+      selBox.find('select').val(newval);
+      const inputval = $(this).parent().parent().find('select option[value="+newval+"]')
+      .text();
+      selBox.find('input').val(inputval);
+    });
+    $(this).find('select').on('mousedown click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      this.blur();
+      window.focus();
+      selBox.addClass('active');
+    });
+    selBox.find('ul').click(function () {
+      $(this).removeClass('active');
+    });
+    $('html').click(() => {
+      $('.selectbox').removeClass('active');
     });
   });
 }
