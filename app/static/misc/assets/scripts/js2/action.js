@@ -30,9 +30,9 @@ $document.ready(function () {
         reflection: false,
         description: false,
         backOpacity: 1,
-        
+
        // carouselWidth:930,carouselHeight:330,directionNav:true,reflection: true,shadow:true,buttonNav:'bullets'
-        
+
         after: function(carousel) {
             $(".slides .slideItem").removeClass("_active").filter(":eq(" + carousel.current + ")").addClass("_active");
             //console.log(carousel.current);
