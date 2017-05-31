@@ -1,3 +1,43 @@
 .radio {
-  display: block;
+  display: inline-block;
+  cursor: pointer;
+  border: 1px solid $color-light-gray;
+  border-radius: 50%;
+  height: 14px;
+  width: 14px;
+
+  &__control {
+    display: none;
+
+    &:checked + .radio__box {
+      background-color: transparent;
+      border: 5px solid $color-link;
+
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__box {
+    display: block;
+    width: 14px;
+    height: 14px;
+    will-change: border-color, background-color;
+    transition: border-color .25s ease-in-out, background-color .25s ease-in-out;
+    border-radius: 50%;
+    background-color: transparent;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 10px;
+      height: 10px;
+      background-color: transparent;
+      border-radius: 50%;
+      opacity: 0;
+      will-change: opacity;
+      transition: opacity .25s ease-in-out;
+    }
+  }
 }
