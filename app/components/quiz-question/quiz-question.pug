@@ -1,6 +1,8 @@
 include ../../blocks/page-head/page-head
 include ../../blocks/icon/icons
 include ../../blocks/checkbox/checkbox
+include ../../blocks/radio/radio
+include ../../blocks/button/button
 
 mixin quiz-question()
   +b.d-si-content._quiz._result._question&attributes(attributes)
@@ -33,26 +35,24 @@ mixin quiz-question()
                   .jq-checkbox__div
             fieldset.d-sii__form_question
               legend КАКОВА ВАША ЦЕЛЬ ПОСЕЩЕНИЯ ПОРТАЛА «ОТКРЫТЫЙ БЮДЖЕТ ГОРОДА МОСКВЫ» СЕГОДНЯ?
-              .jq-radio.d-sq_radio(unselectable="on")#d-rad-f-styler
-                input(name="d-sq_radio", type="radio").d-sq_radio#d-rad-f
-                .jq-radio__div
-              label(for="d-rad-f") Поиск информации о бюджете города Москвы для подготовки учебных материалов рефератов, курсовых/дипломных работ
-              .jq-radio.d-sq_radio(unselectable="on")#d-rad-s-styler
-                input(name="d-sq_radio", type="radio").d-sq_radio#d-rad-s
-                .jq-radio__div
-              label(for="d-rad-s").d-sq_form-error-label Поиск информации о бюджете города Москвы, необходимой в профессиональной деятельности
-              .jq-radio.d-sq_radio(unselectable="on")#d-rad-t-styler
-                input(name="d-sq_radio", type="radio", value="2").d-sq_radio#d-rad-t
-                .jq-radio__div
-              label(for="d-rad-t") Изучение опыта города Москвы в части открытости бюджетных данных и представления бюджетных данных для граждан
-              .jq-radio.d-sq_radio(unselectable="on")#d-rad-fo-styler
-                input(name="d-sq_radio", type="radio", value="3").d-sq_radio#d-rad-fo
-                .jq-radio__div
-              label(for="d-rad-fo") Задать вопрос о бюджете города Москвы/дать предложение
-            a(href="/moscowbudget/quiz_result.html").d-sii__form_submit Ответить
-            .quiz-hint-trigger Получить подсказку
+              +e('label').field._type_radio
+                +radio({name: 'item1', value: '1', checked: true})
+                +e('span').label Поиск информации о бюджете города Москвы для подготовки учебных материалов рефератов, курсовых/дипломных работ
+              +e('label').field._type_radio
+                +radio({name: 'item1', value: '2'})
+                +e('span').label Поиск информации о бюджете города Москвы, необходимой в профессиональной деятельности
+              +e('label').field._type_radio
+                +radio({name: 'item1', value: '3'})
+                +e('span').label Изучение опыта города Москвы в части открытости бюджетных данных и представления бюджетных данных для граждан
+              +e('label').field._type_radio
+                +radio({name: 'item1', value: '4'})
+                +e('span').label Задать вопрос о бюджете города Москвы/дать предложение
+            +button(isSubmit)._kind_blue Ответить
+            .quiz-hint-trigger
+              | Получить подсказку
+              +icon('info').icon_info
             .quiz-hint
-              .quiz-hint-close
+              +icon('cross')(class='quiz-hint-close')
               strong Подсказка
               p Это не заработная плата и не социальная поддержка населения. Так что же это?
           .quiz-footer

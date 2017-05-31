@@ -1,8 +1,7 @@
 .d-si-content_question {
   display: block;
-  padding-top: 175px;
   width: 100%;
-  background: url('') no-repeat;
+  background: url('../../images/depfin-services-interview/content-bg.jpg') no-repeat;
   background-size: cover;
   padding: 40px 0 80px;
   font-family: $PFDinCondensedPro;
@@ -70,12 +69,37 @@
       padding: 0;
       margin: 0 0 48px;
 
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+
       legend {
         letter-spacing: .2px;
         font-size: 18px;
         text-transform: uppercase;
         margin-bottom: 25px;
         font-weight: 500;
+      }
+
+      .d-si-content__field {
+        display: block;
+        margin: 4px 0 14px;
+        cursor: pointer;
+
+        &:first-of-type {
+          margin-top: 0;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      .d-si-content__label {
+        margin-left: 11px;
+        margin-top: -2px;
+        font-weight: 300;
+        font-size: 16px;
       }
     }
   }
@@ -88,5 +112,69 @@
     &:last-of-type {
       margin-bottom: 0;
     }
+  }
+
+  .radio {
+    float: left;
+    clear: left;
+  }
+
+  .button {
+    text-transform: uppercase;
+    line-height: 28px;
+    width: 150px;
+    padding-bottom: 0;
+    display: block;
+    margin-top: 35px;
+  }
+
+  .quiz-hint-trigger {
+    color: $color-link;
+    font-size: 16px;
+    border: 1px solid #cfdaec;
+    margin-top: 38px;
+    position: relative;
+    cursor: pointer;
+    padding: 0 48px 0 47px;
+    display: inline-block;
+    line-height: 34px;
+  }
+
+  .d-si-content__icon_info {
+    position: absolute;
+    left: 16px;
+    top: 10px;
+    width: 14px;
+    height: 13px;
+    fill: $color-link;
+  }
+
+  .quiz-hint {
+    display: none;
+    position: relative;
+    background: #f5f2ed;
+    padding: 18px 22px 21px;
+    width: 51.5%;
+    margin-top: 38px;
+    font-size: 13px;
+
+    strong {
+      text-transform: uppercase;
+      font-weight: 700;
+      opacity: .4;
+    }
+
+    p {
+      margin-top: 24px;
+      line-height: 19px;
+    }
+  }
+
+  .d-si-content__quiz-hint-close {
+    width: 17px;
+    height: 17px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
   }
 }
