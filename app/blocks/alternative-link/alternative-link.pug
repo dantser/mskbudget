@@ -1,8 +1,14 @@
 //- вторая ссылка добавляется
-//- +e.title текст
+//- вторая ссылка --- +e.title
+
+//- Использование иконки
+//- +alternative-link()
+//-    +icon('share-option').icon
+include ../icon/icons
 
 mixin alternative-link(title, subtitle)
   +b.A.alternative-link&attributes(attributes)
     +e.title= title
     if subtitle
       +e.subtitle= subtitle
+    block

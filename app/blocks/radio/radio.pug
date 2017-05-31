@@ -1,0 +1,15 @@
+//- Аргументы
+//- data - объект
+//- data.name - имя чекбокса
+//- data.value - значение чекбокса
+//- data.checked - состояние checked чекбокса
+//- +radio({name: 'item5', value: '1', checked: true})
+mixin radio(data)
+  +b('label').radio&attributes(attributes)
+    - var params = data || {}
+    - var name = params.name || ''
+    - var value = params.value || ''
+    - var checked = params.checked || false
+    - var dataAttr = data.dataAttr = data.dataAttr || ''
+    +e('input')(type='radio' name=name value=value checked=checked).control
+    +e.box

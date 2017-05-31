@@ -6,14 +6,27 @@
   border: 1px solid $color-light-blue;
   border-radius: 2px;
   padding: 8px 30px 8px 16px;
+  position: relative;
+  text-transform: uppercase;
+  font-family: $PFDinCondensedPro;
+  font-weight: 500;
+
+  &__title {
+    display: block;
+
+    &:last-child {
+      margin-top: 28px;
+    }
+  }
 
   &__subtitle {
     font-size: 12px;
     line-height: 20px;
-    margin-bottom: 28px;
   }
 
-  &:last-child {
-    margin-bottom: 0;
+  &__icon {
+    display: inline-block;
+    flex-shrink: 0;
+    margin-right: 15px;
   }
 }

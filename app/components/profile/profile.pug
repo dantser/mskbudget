@@ -1,0 +1,56 @@
+include ../../blocks/icon/icons
+include ../../blocks/checkbox/checkbox
+include ../../blocks/link/link
+include ../../blocks/button/button
+include ../../blocks/favor/favor
+
+mixin profile()
+  +b.profile&attributes(attributes)
+    +e.info
+      +e.head
+        +e.H3.title Профиль
+        +e.A.edit
+          +e.edit-icon
+            +icon('pen')
+          +e.SPAN.edit-label Редактировать профиль
+      +e.main
+        +e.photo
+          +e.IMG(src='/').photo-img
+        +e.personal
+          +e.SPAN.nick ivanov_1980
+          +e.fio
+            +e.SPAN.name Константин
+            +e.SPAN.surname Константинопольский
+            +e.SPAN.last Константинович
+          +e.SPAN.email k.konstantinopolsky@gmail.com
+      +e.FORM.subscribe
+        +e.H4.title Подписка на рассылки
+        +e.checkbox
+          +checkbox()
+            | Рассылка портала &laquo;Открытый бюджет города Москвы&raquo; (новости)
+        +e.options
+          +e.option._schedule
+            +e.SPAN.options-label Как часто хотите получать?
+            +e.options-link
+              +link()._dashed
+                | Раз в неделю
+          +e.option._rubric
+            +e.SPAN.options-label Выберите рубрики
+            +e.options-link
+              +link()._dashed
+                | Новости Бюджета, Новости Москвы
+        +e.save
+          +button(isSubmit)._kind_yellow
+            | Сохранить
+
+    +e.favorite
+      +e.H3.title._right
+      +e.UL.list
+        - for (var i=0; i < 7; i++)
+          +e.LI.item
+            +e.A.link Рейтинг открытости бюджетных данных
+            +e.favor
+              +favor()
+            +e.delete
+              +icon('basket')
+      +e.P.note Для того, чтобы добавить страницу или документ в избранное, нажмите на звездочку.

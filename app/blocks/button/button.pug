@@ -1,4 +1,8 @@
 
-mixin button()
-    +b('button').button&attributes(attributes)
+mixin button(isSubmit)
+  if (isSubmit)
+    +b.BUTTON(type='submit').button&attributes(attributes)
+      block
+  else
+    +b.BUTTON.button&attributes(attributes)
       block
