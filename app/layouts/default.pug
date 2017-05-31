@@ -2,13 +2,15 @@ include ../../node_modules/bemto.pug/bemto
 include ../blocks/grid/grid
 include ../components/header/header
 include ../components/footer/footer
+include ../blocks/sections/sections
 
 doctype html
 html(lang='ru')
   include head
   body
     +header()
-    block content
-    +footer()
+    +sections()
+      block content
+      +footer()
     script(src='assets/scripts/app.min.js')
     include scripts
