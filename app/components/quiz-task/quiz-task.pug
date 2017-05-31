@@ -1,24 +1,25 @@
+include ../../components/page-header/page-header
+include ../../blocks/icon/icons
+include ../../blocks/checkbox/checkbox
+include ../../blocks/radio/radio
+include ../../blocks/button/button
+include ../../blocks/link/link
+
 mixin quiz-task()
-  +b.quiz-task&attributes(attributes)
-  .sections
-    .d-si-content._quiz
-      .d-layer
-        +b.d-si.d-si__head
-          +e.head_descr сервисы
-          +e.head_p-name Викторины
-          +e.head_icons
-            +e.A(href="#").icons_item
-            +e.A(href="#").icons_item
-        .d-min-layer
-          form(action="#").d-si__search-form
-            input(type="text", placeholder="Поиск").d-si__search
-            input(type="submit", value).d-si__submit
-          .d-si.d-si__quiz
-            - for (var i = 0; i < 5; i++)
-              .d-si__quiz_item
-                .d-si__quiz_head История бюджета города москвы во второй половине ХХ—начале ХХI века
-                .d-si__quiz_status Создана: 02.08.2016
-                a(href="/moscowbudget/quiz_question.html").d-si__quiz_button участвовать
-                i(aria-hidden-"true").fa.fa-angle-right
-          a(href="#").d-si__button_show-more показать еще
+  +b.d-si-content._quiz&attributes(attributes)
+    .d-layer
+      +page-header('сервисы', 'викторины').__header
+      .d-min-layer
+        form(action="#").d-si__search-form
+          input(type="text", placeholder="Поиск").d-si__search
+          +icon('icon-glass').glass
+        .d-si.d-si__quiz
+          - for (var i = 0; i < 5; i++)
+            .d-si__quiz_item
+              .d-si__quiz_head История бюджета города москвы во&nbsp;второй половине ХХ—начале ХХI века
+              .d-si__quiz_status Создана: 02.08.2016
+              a(href="/moscowbudget/quiz_question.html").d-si__quiz_button 
+                | участвовать
+                i.fa.fa-angle-right
+        a(href="#").d-si__button_show-more показать еще
           
