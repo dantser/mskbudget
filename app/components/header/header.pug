@@ -1,176 +1,25 @@
+include ../../blocks/logo/logo
+include ../../blocks/currency/currency
+include ../../blocks/menu/menu
+include ../../blocks/social/social
+include ../../blocks/search-form/search-form
+include ../../blocks/login/login
+
 mixin header()
   +b.HEADER.header&attributes(attributes)
     +e.wrap
       // LOGO/
-      +e.A(href="#").logo.logo
-        img(src="images/logo.png", alt="logo").logo__img
-        span.logo__lg Открытый бюджет
-        span.logo__sm города Москвы
-      // /LOGO
+      +logo('header').header__logo
       +e.drop
         +e.A(href="#").link-for-blind.link-for-blind Версия для слабовидящих
         // CURRENCY/
-        +e.currency.currency
-          .currency__item
-            span.currency_sign $
-            | 64.21
-            span.currency__diff.currency__diff_up +0.23
-          .currency__item.currency__item_right
-            span.currency_sign €
-            | 64.21
-            span.currency__diff.currency__diff_up -0.3
-        // /CURRENCY
+        +currency().header__currency
         // MENU/
-        +e.NAV.menu.menu
-          ul
-            li.menu__item
-              a(href="#").menu__a О бюджете
-            li.menu__item
-              a(href="#").menu__a Бюджет Москвы
-              .menu__sub-menu
-                ul.menu__sub-menu-ul
-                  li.menu__sub-menu-item
-                    a(href="#") Медиаматериалы
-                    ul.sub-menu
-                      li
-                        a(href="#") Фотографии
-                      li
-                        a(href="#") Фотографии
-                      li
-                        a(href="#") Фотографии
-                      li
-                        a(href="#") Фотографии
-                      li
-                        a(href="#") Фотографии
-                  li.menu__sub-menu-item
-                    a(href="#") Медиаматериалы
-                  li.menu__sub-menu-item
-                    a(href="#") Медиаматериалы
-                    ul.sub-menu
-                      li
-                        a(href="#") Фотографии
-                      li
-                        a(href="#") Фотографии
-                      li
-                        a(href="#") Фотографии
-                      li
-                        a(href="#") Фотографии
-                      li
-                        a(href="#") Фотографии
-                  li.menu__sub-menu-item
-                    a(href="#") Медиаматериалы
-                  li.menu__sub-menu-item
-                    a(href="#") Медиаматериалы
-                    ul.sub-menu
-                      li
-                        a(href="#") Фотографии
-                      li
-                        a(href="#") Фотографии
-                      li
-                        a(href="#") Фотографии
-                      li
-                        a(href="#") Фотографии
-                      li
-                        a(href="#") Фотографии
-                  li.menu__sub-menu-item
-                    a(href="#") Медиаматериалы
-                  li.menu__sub-menu-item
-                    a(href="#") Медиаматериалы
-                  li.menu__sub-menu-item
-                    a(href="#") Медиаматериалы
-                    ul.sub-menu
-                      li
-                        a(href="#") Фотографии
-                      li
-                        a(href="#") Фотографии
-                      li
-                        a(href="#") Фотографии
-                      li
-                        a(href="#") Фотографии
-                      li
-                        a(href="#") Фотографии
-                  li.menu__sub-menu-item
-                    a(href="#") Медиаматериалы
-                  li.menu__sub-menu-item
-                    a(href="#") Медиаматериалы
-                    ul.sub-menu
-                      li
-                        a(href="#") Фотографии
-                      li
-                        a(href="#") Фотографии
-                      li
-                        a(href="#") Фотографии
-                      li
-                        a(href="#") Фотографии
-                      li
-                        a(href="#") Фотографии
-            li.menu__item
-              a(href="#").menu__a Аналитика
-              .menu__sub-menu
-                ul.menu__sub-menu-ul
-                  li.menu__sub-menu-item
-                    a(href="#") Медиаматериалы
-                    ul.sub-menu
-                      li
-                        a(href="#") Фотографии
-                      li
-                        a(href="#") Фотографии
-                      li
-                        a(href="#") Фотографии
-                      li
-                        a(href="#") Фотографии
-                      li
-                        a(href="#") Фотографии
-                  li.menu__sub-menu-item
-                    a(href="#") Медиаматериалы
-                  li.menu__sub-menu-item
-                    a(href="#") Медиаматериалы
-                    ul.sub-menu
-                      li
-                        a(href="#") Фотографии
-                      li
-                        a(href="#") Фотографии
-                      li
-                        a(href="#") Фотографии
-                      li
-                        a(href="#") Фотографии
-                      li
-                        a(href="#") Фотографии
-            li.menu__item
-              a(href="#").menu__a Сервисы
-            li.menu__item
-              a(href="#").menu__a Открытость
-            li.menu__item
-              a(href="#").menu__a Медиацентр
-            li.menu__item
-              a(href="#").menu__a Обратная связь
-        // /MENU
+        +menu().header__menu
         // SOCIAL_BUTTONS/
-        +e.social.social
-          ul
-            li.social__item
-              a(href="#").social__a.social__a_fb
-            li.social__item
-              a(href="#").social__a.social__a_vk
-            li.social__item
-              a(href="#").social__a.social__a_tw
-            li.social__item
-              a(href="#").social__a.social__a_in
-            li.social__item
-              a(href="#").social__a.social__a_ok
-            li.social__item
-              a(href="#").social__a.social__a_yt
-        // /SOCIAL_BUTTONS
+        +social('fb', 'vk', 'tw', 'in', 'ok', 'yt').header__social
         // SEARCH_FORM/
-        +e.search-form.search-form
-          button.search-form__btn
-          form(action="s.php", method="POST").search-form__form
-            label(for="i-search").overlabel
-            input(id="i-search", type="text", name="search").search-form__text
-            input(type="submit", value="").search-form__submit
-        // /SEARCH_FORM
+        +search-form().header__search-form
         // LOGIN/
-        +e.login.login
-          a(href="#login").open-popup.login__btn
-        // /LOGIN
+        +login().header__login
     +e.BUTTON.open-menu
