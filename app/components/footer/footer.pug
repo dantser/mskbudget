@@ -1,10 +1,12 @@
+include ../../blocks/social/social
+
 mixin footer()
   +b.footer&attributes(attributes)
     //- FOOTER_NAVIGATION/
-    +e.wrap.wrap.anim-fade-top
+    +e.wrap.wrap.anim-fade-top.anim-fade-top_on
       +e.box.viewport-md-lg
         +e.NAV.column
-          +e.UL.nav-section._min-h
+          +e.UL.nav-section-min-h
             +e.LI.nav-item
               +e.A(href='#').nav-a._b О бюджете
             +e.LI.nav-item
@@ -55,7 +57,7 @@ mixin footer()
 
       +e.box.viewport-md-lg
         +e.NAV.column
-          +e.UL.nav-section._min-h
+          +e.UL.nav-section-min-h
             +e.LI.nav-item
               +e.A(href='#').nav-a._b Аналитика
             +e.LI.nav-item
@@ -104,7 +106,7 @@ mixin footer()
               +e.A.nav-a._b Сервисы
 
       +e.NAV.column._sh.viewport-md-lg
-        +e.UL.nav-section._min-h
+        +e.UL.nav-section-min-h
           +e.LI.nav-item
             +e.A(href='#').nav-a._b Медиацентр
           +e.LI.nav-item
@@ -124,9 +126,9 @@ mixin footer()
             +e.A(href='#').nav-a._b Обратная связь
           +e.LI.nav-item
             +e.A(href='#').nav-a Форум
-          +e.LI.nav-item
+          +e.LI.nav-item.viewport-md
             +e.A(href='#').nav-a О портале
-          +e.LI.nav-item
+          +e.LI.nav-item.viewport-md
             +e.A(href='#').nav-a Карта сайта
 
       //- footer-mob-menu
@@ -159,7 +161,7 @@ mixin footer()
           +e.column
             //- LOGO
             +b.A(href='#').logo.footer__logo
-              +e.IMG(src='images/logo-footer.png', alt='logo').img
+              +e.IMG(src='../static/images/logo-footer.png', alt='logo').img
               +e.SPAN.lg
                 | Департамент Финансов
                 br
@@ -167,7 +169,7 @@ mixin footer()
           +e.column
             //- LOGO
             +b.A(href='#').logo.footer__logo
-              +e.IMG(src='images/logo-footer-1.png', alt='logo').img
+              +e.IMG(src='../static/images/logo-footer-1.png', alt='logo').img
               +e.SPAN.lg
                 | Официальный портал Мэра
                 br
@@ -175,20 +177,7 @@ mixin footer()
 
         +e.box._m
           +e.column
-            +b.social.footer__social
-              +e.UL
-                +e.LI.item
-                  +e.A(href='#')
-                +e.LI.item
-                  +e.A(href='#')
-                +e.LI.item
-                  +e.A(href='#')
-                +e.LI.item
-                  +e.A(href='#')
-                +e.LI.item
-                  +e.A(href='#')
-                +e.LI.item
-                  +e.A(href='#')
+            +social('fb', 'vk', 'tw', 'inst', 'odnokl', 'yt').footer__social
           +e.column
             +b.application
               +e.SPAN
