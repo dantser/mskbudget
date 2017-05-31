@@ -28,6 +28,8 @@
     font-family: $PFDinDisplayPro;
     font-weight: 300;
 
+    @include clearfix;
+
     &_head {
       font-family: $PFDinCondensedPro;
       font-weight: 500;
@@ -176,5 +178,48 @@
     position: absolute;
     top: 15px;
     right: 15px;
+  }
+
+  .quiz-footer {
+    margin-top: 50px;
+    width: 100%;
+    background: #eeedeb;
+    padding: 34px 0 37px;
+
+    .d-si__quiz-container_body {
+      padding-left: 122px;
+    }
+
+    .answer-result {
+      position: relative;
+      font-size: 16px;
+      text-transform: uppercase;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 34px;
+    }
+
+    .d-si-content__answer-result {
+      width: 21px;
+      height: 21px;
+      position: absolute;
+      top: -4px;
+      left: -35px;
+
+      &_pass {
+        fill: #83ca14;
+      }
+
+      &_error {
+        fill: #eb212e;
+      }
+    }
+
+    .link {
+      text-transform: uppercase;
+      text-decoration: none;
+      font-family: $PFDinCondensedPro;
+      font-weight: 500;
+    }
   }
 }

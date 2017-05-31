@@ -3,6 +3,7 @@ include ../../blocks/icon/icons
 include ../../blocks/checkbox/checkbox
 include ../../blocks/radio/radio
 include ../../blocks/button/button
+include ../../blocks/link/link
 
 mixin quiz-question()
   +b.d-si-content._quiz._result._question&attributes(attributes)
@@ -52,13 +53,18 @@ mixin quiz-question()
               | Получить подсказку
               +icon('info').icon_info
             .quiz-hint
-              +icon('cross')(class='quiz-hint-close')
+              +icon('cross').quiz-hint-close
               strong Подсказка
               p Это не заработная плата и не социальная поддержка населения. Так что же это?
           .quiz-footer
             .d-si__quiz-container_body
-              p.answer-result._success Вы выбрали правильный ответ
-              p.answer-result._error Вы выбрали неправильный ответ
-              button(type="submit" form="d-sii__form")
-                a(href="/moscowbudget/quiz_result.html") Перейти к следующему вопросу
+              p.answer-result.answer-result_success 
+                +icon('green-daw').answer-result._pass
+                | Вы выбрали правильный ответ
+              p.answer-result.answer-result_error 
+                +icon('icon-error').answer-result._error
+                | Вы выбрали неправильный ответ
+              +link()
+                | Перейти к следующему вопросу
+                +icon('right-arrow').icon
                 
