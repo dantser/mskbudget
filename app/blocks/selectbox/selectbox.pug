@@ -1,9 +1,0 @@
-mixin selectbox(name, data)
-  +b.selectbox&attributes(attributes) 
-    +e.SELECT.select(name=name)
-      each obj in data
-        if (obj.locked)
-          option(value=obj.val, data-locked)= obj.text
-        else
-          option(value=obj.val)= obj.text
-    +e.SPAN.arrow
