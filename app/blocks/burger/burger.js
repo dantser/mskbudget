@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 export default () => {
   const burgerClass = '.js-burger';
   const activeBurgerClass = 'burger_active';
@@ -7,4 +9,4 @@ export default () => {
     e.preventDefault();
     burger.toggleClass(activeBurgerClass);
   });
-}
+};
