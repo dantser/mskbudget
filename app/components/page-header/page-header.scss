@@ -5,7 +5,9 @@
     margin-bottom: 16px;
     float: left;
     margin-left: 22px;
-    margin-top: 10px;
+    margin-top: 12px;
+
+    @include clearfix;
   }
 
   .favor__icon {
@@ -15,11 +17,24 @@
     height: 23px;
   }
 
+  .favor {
+    display: block;
+    float: left;
+    width: auto;
+  }
+
   &__icon {
-    fill: $color-white;
-    opacity: .5;
+    fill: #d0ccd3;
     width: 24px;
-    height: 24px;
-    stroke: $color-black;
+    height: 19px;
+    display: block;
+    float: left;
+    cursor: pointer;
+    margin-left: 11px;
+    margin-top: 3px;
+
+    &:hover {
+      fill: #fee300;
+    }
   }
 }
