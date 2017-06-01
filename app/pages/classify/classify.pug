@@ -1,5 +1,5 @@
 extends ../../layouts/default
-include ../../components/polls-result/polls-result
+include ../../components/classify/classify
 
 block head
   - var pageTitle = 'Versta Project Template'
@@ -8,9 +8,9 @@ block header
   +header()._budget
 
 block sections
-  +sections('_polls')
+  +sections()
 
     block content
-      +polls-result()
+      +classify()
       +popup-wrapper()
       +footer()

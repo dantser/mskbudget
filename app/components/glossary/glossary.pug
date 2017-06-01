@@ -21,13 +21,13 @@ mixin glossary()
           ul.letter__line
             li.letter__line-arrow.letter__line-arrow_l
               button(data-arrow="left").arrow.arrow_left.arrow_m
-            li.letter__line-item
+            li(data-index='0').letter__line-item.letter__line-item_first.letter__line-item_active.letter__line-item_current
               button.letter__btn а
-            li.letter__line-item
+            li(data-index='1').letter__line-item.letter__line-item_active
               button.letter__btn б
-            li.letter__line-item
+            li(data-index='2').letter__line-item.letter__line-item_active
               button.letter__btn в
-            li.letter__line-item
+            li(data-index='3').letter__line-item.letter__line-item_active
               button.letter__btn г
             li.letter__line-item
               button.letter__btn д
@@ -73,7 +73,7 @@ mixin glossary()
               button.letter__btn э
             li.letter__line-item
               button.letter__btn ю
-            li.letter__line-item
+            li.letter__line-item.letter__line-item_last
               button.letter__btn я
             li.letter__line-arrow.letter__line-arrow_r
               button(data-arrow="right").arrow.arrow_right.arrow_m
