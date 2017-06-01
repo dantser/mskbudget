@@ -1,86 +1,88 @@
 mixin edu-service()
   +b.edu-service&attributes(attributes)
 
-    +b.blackout
-      .popup
-        .close-popup
-        strong Вы&nbsp;уверены, что хотите очистить результаты?
-        p В&nbsp;этом случае вам прийдется проходить обучающий курс заново.
-        p.pupup-btns
-          a.ybtns Да, хочу
-          a.ybtns Нет, не&nbsp;хочу
+    //- .blackout
+    //-   .popup
+    //-     .close-popup
+    //-     strong Вы&nbsp;уверены, что хотите очистить результаты?
+    //-     p В&nbsp;этом случае вам прийдется проходить обучающий курс заново.
+    //-     p.pupup-btns
+    //-       a.ybtns Да, хочу
+    //-       a.ybtns Нет, не&nbsp;хочу
 
-    .sections
+    //- .sections
 
-      .d-abs-content
+    .d-si-content
 
-        .d-layer
-          +b.d-si.__head
-            +e.head_descr сервисы
-            +e.head_p-name обучающий сервис
-            +e.head_icons
-              +e.A(href='#').icons_item
-                | SVG Иконка
-              +e.A(href='#').icons_item
-                | SVG Иконка
-          +b.d-study.__descr_containder
-            +e.descr
-              +e.P
-                strong Цель сервиса
-                | &nbsp;— сформировать общее представление о бюджетной системе, повысить уровень бюджетной грамотности и понимания вопросов, связанных с общественными финансами. Кроме того, Вам будет легче работать с материалами, размещенными на портале Правительства Москвы &laquo;Открытый бюджет города Москвы&raquo;.
-            +e.A(href='#').clear-res
-              | Очистить
-              br
-              | результаты
+      .d-layer
+        .d-si__head
+          .d-si__head_descr сервисы
+          .d-si__head_p-name обучающий сервис
+          .d-si__head_icons
+            A(href='#').d-si__icons_item
+              svg(xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink", width="24.25px", height="23.25px")
+                path(fill-rule="evenodd", stroke="#d0ccd3", stroke-width="1.5px", stroke-linecap="butt", stroke-linejoin="miter", fill="none", d="M11.754,0.753 L16.158,6.282 L22.764,8.773 L18.880,14.680 L18.559,21.748 L11.754,19.870 L4.950,21.748 L4.628,14.680 L0.744,8.773 L7.350,6.282 L11.754,0.753 Z")
+            A(href='#').d-si__icons_item
+              svg(xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink", width="16px", height="19px")
+                path(fill-rule="evenodd", fill="#d0ccd3", d="M13.141,5.781 C12.504,5.781 11.921,5.564 11.446,5.208 L5.643,8.583 C5.689,8.788 5.719,9.000 5.719,9.219 C5.719,9.573 5.646,9.908 5.530,10.221 L11.390,13.664 C11.869,13.309 12.455,13.094 13.094,13.094 C14.699,13.094 16.000,14.416 16.000,16.047 C16.000,17.678 14.699,19.000 13.094,19.000 C11.489,19.000 10.188,17.678 10.188,16.047 C10.188,15.715 10.254,15.401 10.353,15.103 L4.426,11.620 C3.975,11.918 3.438,12.094 2.859,12.094 C1.280,12.094 -0.000,10.807 -0.000,9.219 C-0.000,7.631 1.280,6.344 2.859,6.344 C3.598,6.344 4.265,6.633 4.772,7.095 L10.439,3.799 C10.345,3.512 10.281,3.210 10.281,2.891 C10.281,1.294 11.561,-0.000 13.141,-0.000 C14.720,-0.000 16.000,1.294 16.000,2.891 C16.000,4.487 14.720,5.781 13.141,5.781 Z")
+        .dstudy__descr_containder
+          .d-study__descr
+            P
+              strong Цель сервиса
+              | &nbsp;— сформировать общее представление о бюджетной системе, повысить уровень бюджетной грамотности и понимания вопросов, связанных с общественными финансами. Кроме того, Вам будет легче работать с материалами, размещенными на портале Правительства Москвы &laquo;Открытый бюджет города Москвы&raquo;.
+          A(href='#').d-study__clear-res
+            | Очистить
+            br
+            | результаты
 
-          +b.d-study.__lessons
-            +e.lessons_row
-              +e.A(href='/moscowbudget/edu_service_question.html').lessons_item.d-lesson__done
-                .d-lesson_head урок 1:
-                .d-lesson_topic
-                  | что такое бюджетная
-                  br
-                  | система?
-              +e.A(href='/moscowbudget/edu_service_question.html').lessons_item
-                .d-lesson_head урок 2:
-                .d-lesson_topic Зачем используется бюджетная классификация?
-              +e.A(href='/moscowbudget/edu_service_question.html').lessons_item
-                .d-lesson_head урок 3:
-                .d-lesson_topic Как формируется бюджет?
+        .d-study__lessons
+          .d-study__lessons_row
+            A(href='/moscowbudget/edu_service_question.html').d-study__lessons_item.d-lesson__done
+              .d-lesson_head урок 1:
+              .d-lesson_topic
+                | что такое бюджетная
+                br
+                | система?
+            A(href='/moscowbudget/edu_service_question.html').d-study__lessons_item
+              .d-lesson_head урок 2:
+              .d-lesson_topic Зачем используется бюджетная классификация?
+            A(href='/moscowbudget/edu_service_question.html').d-study__lessons_item
+              .d-lesson_head урок 3:
+              .d-lesson_topic Как формируется бюджет?
 
-            +e.lessons_row
-              +e.A(href='/moscowbudget/edu_service_question.html').lessons_item
-                .d-lesson_head урок 4:
-                .d-lesson_topic
-                  | Что такое бюджет
-                  br
-                  | &nbsp;и из чего он состоит?
-              +e.A(href='/moscowbudget/edu_service_question.html').lessons_item
-                .d-lesson_head урок 5:
-                .d-lesson_topic
-                  | Что такое доходы
-                  br
-                  | &nbsp;и откуда они поступают?
-              +e.A(href='/moscowbudget/edu_service_question.html').lessons_item
-                .d-lesson_head урок 6:
-                .d-lesson_topic
-                  | Что такое расходы
-                  br
-                  | &nbsp;и на что они направлены?
+          .d-study__lessons_row
+            A(href='/moscowbudget/edu_service_question.html').d-study__lessons_item
+              .d-lesson_head урок 4:
+              .d-lesson_topic
+                | Что такое бюджет
+                br
+                | &nbsp;и из чего он состоит?
+            A(href='/moscowbudget/edu_service_question.html').d-study__lessons_item
+              .d-lesson_head урок 5:
+              .d-lesson_topic
+                | Что такое доходы
+                br
+                | &nbsp;и откуда они поступают?
+            A(href='/moscowbudget/edu_service_question.html').d-study__lessons_item
+              .d-lesson_head урок 6:
+              .d-lesson_topic
+                | Что такое расходы
+                br
+                | &nbsp;и на что они направлены?
 
-            +e.lessons_row
-              +e.A(href='/moscowbudget/edu_service_question.html').lessons_item.d-lesson__done
-                .d-lesson_head урок 7:
-                .d-lesson_topic Зачем нужны источники финансирования дефицита бюджета?
-              +e.A(href='/moscowbudget/edu_service_question.html').lessons_item
-                .d-lesson_head урок 8:
-                .d-lesson_topic
-                  | Что такое
-                  br
-                  | &nbsp;государственный долг?
-              +e.A(href='/moscowbudget/edu_service_question.html').lessons_item
-                .d-lesson_head урок 9:
-                .d-lesson_topic Что такое межбюджетные трансферты?
+          .d-study__lessons_row
+            A(href='/moscowbudget/edu_service_question.html').d-study__lessons_item.d-lesson__done
+              .d-lesson_head урок 7:
+              .d-lesson_topic Зачем нужны источники финансирования дефицита бюджета?
+            A(href='/moscowbudget/edu_service_question.html').d-study__lessons_item
+              .d-lesson_head урок 8:
+              .d-lesson_topic
+                | Что такое
+                br
+                | &nbsp;государственный долг?
+            A(href='/moscowbudget/edu_service_question.html').d-study__lessons_item
+              .d-lesson_head урок 9:
+              .d-lesson_topic Что такое межбюджетные трансферты?
 
 
 
