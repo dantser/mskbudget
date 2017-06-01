@@ -1,141 +1,142 @@
 mixin polls-result()
-  +b.polls-result&attributes(attributes)
-
-    .sections._polls
-
-      .d-si-content
-
-        .d-layer
-
-          +b.d-si.d-si__head
-            +e.head_descr сервисы
-            +e.head_p-name опросы
-            +e.head_icons
-              +e.A.icons_item
-                | SVG Иконка
-              +e.A.icons_item
-                | SVG Иконка
-              +e.A.icons_item
-                | SVG Иконка
-          +b.d-si.d-si__quiz-container
-            .d-si__quiz-container_head
-              span Как сделать портал удобнее?
-              .d-si__quiz-container_head-cross
-            .d-si__quiz-container_body.d-sr__body_p
-              +b.d-sr.__result
-                +e.result_data
-                  | Даты проведения опроса:
-                  +e.result_bold 20.02.2016 - 31.03.2016
-                +e.result_value
-                  | Всего проголосовало:
-                  +e.result_bold
-                    +e.vote_val 504
-                    | чел.
-              +b.d-sr.__stat-container
-                +e.progress_item
-                  +e.progress_va-fix
-                    +e.progress-descr Поиск информации о бюджете города Москвы для подготовки учебных материалов рефератов, курсовых/дипломных работ
-                    +e.progress-bar
-                      +e.SPAN(data-progress-percent='47').progress-bar_pb_empty
-                        +e.SPAN(style='width: 30px').pb_fill
-                    +e.progress-bar_val
-                      +e.SPAN.val_p 135
-                      | &#160;/&#160;
-                      +e.SPAN.val_p 47%
-                +e.progress_item
-                  +e.progress_va-fix
-                    +e.progress-descr Поиск информации о бюджете города Москвы, необходимой в профессиональной деятельности
-                    +e.progress-bar
-                      +e.SPAN(data-progress-percent='27').progress-bar_pb_empty
-                        +e.SPAN(style='width: 30px').pb_fill
-                    +e.progress-bar_val
-                      +e.SPAN.val_p 87
-                      | &#160;/&#160;
-                      +e.SPAN.val_p 27%
-                +e.progress_item
-                  +e.progress_va-fix
-                    +e.progress-descr Изучение опыта города Москвы в части открытости бюджетных данных и представления бюджетных данных для граждан
-                    +e.progress-bar
-                      +e.SPAN(data-progress-percent='12').progress-bar_pb_empty
-                        +e.SPAN(style='width: 30px').pb_fill
-                    +e.progress-bar_val
-                      +e.SPAN.val_p 34
-                      | &#160;/&#160;
-                      +e.SPAN.val_p 12%
-                +e.progress_item
-                  +e.progress_va-fix
-                    +e.progress-descr Изучение бюджета и бюджетного процесса в общем формате
-                    +e.progress-bar
-                      +e.SPAN(data-progress-percent='8').progress-bar_pb_empty
-                        +e.SPAN(style='width: 30px').pb_fill
-                    +e.progress-bar_val
-                      +e.SPAN.val_p 12
-                      | &#160;/&#160;
-                      +e.SPAN.val_p 8%
-                +e.progress_item
-                  +e.progress_va-fix
-                    +e.progress-descr Задать вопрос о бюджете города Москвы/дать предложение
-                    +e.progress-bar
-                      +e.SPAN(data-progress-percent='6').progress-bar_pb_empty
-                        +e.SPAN(style='width: 30px').pb_fill
-                    +e.progress-bar_val
-                      +e.SPAN.val_p 9
-                      | &#160;/&#160;
-                      +e.SPAN.val_p 6%
-                +e.progress_item
-                  +e.progress_va-fix
-                    +e.progress-descr
-                      +e.A.progress-descr_other Другое
-                    +e.progress-bar
-                      +e.SPAN(data-progress-percent='0').progress-bar_pb_empty
-                        +e.SPAN(style='width: 30px').pb_fill
-                    +e.progress-bar_val
-                      +e.SPAN.val_p 0
-                      | &#160;/&#160;
-                      +e.SPAN.val_p 0%
-              .other-info
-                p На&nbsp;что конкретно тратятся бюджетные деньги
-                p Параметры бюджетов города Москвы за&nbsp;прошедшие периоды (5-10 лет и&nbsp;более)
-              +b.d-sr.__stat-container.__stat-container_mt
-                +e.stat_head
-                  | БЫЛО БЫ ВАМ ПРОЩЕ/ИНТЕРЕСНЕЕ СЛЕДИТЬ ЗА ОБНОВЛЕНИЯМИ ПОРТАЛА ЧЕРЕЗ СТРАНИЦЫ
-                  br
-                  | В СОЦИАЛЬНЫХ СЕТЯХ?
-                +e.progress_item
-                  +e.progress_va-fix
-                    +e.progress-descr Я активный пользователей социальных сетей и основную информацию получаю именно там. Создание страниц Портала в социальных сетях необходимо
-                    +e.progress-bar
-                      +e.SPAN(data-progress-percent='34').progress-bar_pb_empty
-                        +e.SPAN(style='width: 30px').pb_fill
-                    +e.progress-bar_val
-                      +e.SPAN.val_p 90
-                      | &#160;/&#160;
-                      +e.SPAN.val_p 34%
-                +e.progress_item
-                  +e.progress_va-fix
-                    +e.progress-descr Да, это будет очень интересно, но не обязательно
-                    +e.progress-bar
-                      +e.SPAN(data-progress-percent='56').progress-bar_pb_empty
-                        +e.SPAN(style='width: 30px').pb_fill
-                    +e.progress-bar_val
-                      +e.SPAN.val_p 148
-                      | &#160;/&#160;
-                      +e.SPAN.val_p 56%
-                +e.progress_item
-                  +e.progress_va-fix
-                    +e.progress-descr Мне достаточно информации размещенной на данном портале и все новости я могу узнать, зайдя на Портал
-                    +e.progress-bar
-                      +e.SPAN(data-progress-percent='9').progress-bar_pb_empty
-                        +e.SPAN(style='width: 30px').pb_fill
-                    +e.progress-bar_val
-                      +e.SPAN.val_p 10
-                      | &#160;/&#160;
-                      +e.SPAN.val_p 9%
-              +b.d-sr.__social
-                +e.SPAN.social_txt Поделиться результатами:
-                +e.A.social_fb
-                  i(aria-hidden='true').fa.fa-facebook
-                +e.A.social_t
-                  i(aria-hidden='true').fa.fa-facebook
-                +e.A.social_vk В
-
+  .d-si-content
+    .d-layer
+      .d-si__head
+        .d-si__head_descr сервисы
+        .d-si__head_p-name опросы
+        .d-si__head_icons
+          a(href="#").d-si__icons_item
+            svg(xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink", width="24.25px", height="23.25px")
+              path(fill-rule="evenodd", stroke="#d0ccd3", stroke-width="1.5px", stroke-linecap="butt", stroke-linejoin="miter", fill="none", d="M11.754,0.753 L16.158,6.282 L22.764,8.773 L18.880,14.680 L18.559,21.748 L11.754,19.870 L4.950,21.748 L4.628,14.680 L0.744,8.773 L7.350,6.282 L11.754,0.753 Z")
+          a(href="#").d-si__icons_item
+            svg(xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink", width="16px", height="19px")
+              path(fill-rule="evenodd", fill="#d0ccd3", d="M13.141,5.781 C12.504,5.781 11.921,5.564 11.446,5.208 L5.643,8.583 C5.689,8.788 5.719,9.000 5.719,9.219 C5.719,9.573 5.646,9.908 5.530,10.221 L11.390,13.664 C11.869,13.309 12.455,13.094 13.094,13.094 C14.699,13.094 16.000,14.416 16.000,16.047 C16.000,17.678 14.699,19.000 13.094,19.000 C11.489,19.000 10.188,17.678 10.188,16.047 C10.188,15.715 10.254,15.401 10.353,15.103 L4.426,11.620 C3.975,11.918 3.438,12.094 2.859,12.094 C1.280,12.094 -0.000,10.807 -0.000,9.219 C-0.000,7.631 1.280,6.344 2.859,6.344 C3.598,6.344 4.265,6.633 4.772,7.095 L10.439,3.799 C10.345,3.512 10.281,3.210 10.281,2.891 C10.281,1.294 11.561,-0.000 13.141,-0.000 C14.720,-0.000 16.000,1.294 16.000,2.891 C16.000,4.487 14.720,5.781 13.141,5.781 Z")
+      .d-si__quiz-container
+        .d-si__quiz-container_head
+          span Как сделать портал удобнее?
+          .d-si__quiz-container_head-cross
+        .d-si__quiz-container_body.d-sr__body_p
+          .d-sr__result
+            span.d-sr__result_date Даты проведения опроса:
+              span.d-sr__result_bold 20.02.2016 - 31.03.2016
+            span.d-sr__result_value Всего проголосовало:
+              span.d-sr__result_bold
+                span.d-sr__vote_val 504
+                | чел.
+          .d-sr__stat-container
+            .d-sr__stat_head КАКОВА ВАША ЦЕЛЬ ПОСЕЩЕНИЯ ПОРТАЛА «ОТКРЫТЫЙ БЮДЖЕТ ГОРОДА МОСКВЫ» СЕГОДНЯ?                
+            .d-sr__progress_item
+              .d-sr__progres_va-fix
+                .d-sr__progress-descr Поиск информации о бюджете города Москвы для подготовки учебных материалов рефератов, курсовых/дипломных работ
+                .d-sr__progress-bar
+                  .d-sr__progress-bar_pb
+                    span(data-progress-percent='47').d-sr__pb_empty
+                      span(style='width: 30px').d-sr__pb_fill
+                  .d-sr__progress-bar_val
+                    span.d-sr__val_p 135
+                    | &#160;/&#160;
+                    span.d-sr__val_perc 47%
+            .d-sr__progress_item
+              .d-sr__progres_va-fix
+                .d-sr__progress-descr Поиск информации о бюджете города Москвы, необходимой в профессиональной деятельности
+                .d-sr__progress-bar
+                  .d-sr__progress-bar_pb
+                    span(data-progress-percent='27').d-sr__pb_empty
+                      span(style='width: 30px').d-sr__pb_fill
+                  .d-sr__progress-bar_val
+                    span.d-sr__val_p 87
+                    | &#160;/&#160;
+                    span.d-sr__val_perc 27%
+            .d-sr__progress_item
+              .d-sr__progres_va-fix
+                .d-sr__progress-descr Изучение опыта города Москвы в части открытости бюджетных данных и представления бюджетных данных для граждан
+                .d-sr__progress-bar
+                  .d-sr__progress-bar_pb
+                    span(data-progress-percent='12').d-sr__pb_empty
+                      span(style='width: 30px').d-sr__pb_fill
+                  .d-sr__progress-bar_val
+                    span.d-sr__val_p 34
+                    | &#160;/&#160;
+                    span.d-sr__val_perc 12%
+            .d-sr__progress_item
+              .d-sr__progres_va-fix
+                .d-sr__progress-descr Изучение бюджета и бюджетного процесса в общем формате
+                .d-sr__progress-bar
+                  .d-sr__progress-bar_pb
+                    span(data-progress-percent='8').d-sr__pb_empty
+                      span(style='width: 30px').d-sr__pb_fill
+                  .d-sr__progress-bar_val
+                    span.d-sr__val_p 12
+                    | &#160;/&#160;
+                    span.d-sr__val_perc 8%
+            .d-sr__progress_item
+              .d-sr__progres_va-fix
+                .d-sr__progress-descr Задать вопрос о бюджете города Москвы/дать предложение
+                .d-sr__progress-bar
+                  .d-sr__progress-bar_pb
+                    span(data-progress-percent='6').d-sr__pb_empty
+                      span(style='width: 30px').d-sr__pb_fill
+                  .d-sr__progress-bar_val
+                    span.d-sr__val_p 9
+                    | &#160;/&#160;
+                    span.d-sr__val_perc 6%
+            .d-sr__progress_item
+              .d-sr__progres_va-fix
+                .d-sr__progress-descr
+                  a.d-sr__progress-descr_other Другое
+                .d-sr__progress-bar
+                  .d-sr__progress-bar_pb
+                    span(data-progress-percent='0').d-sr__pb_empty
+                      span(style="width: 0; min-width: 0;").d-sr__pb_fill
+                  .d-sr__progress-bar_val.d-sr__val_zero
+                    span.d-sr__val_p 0
+                    | &#160;/&#160;
+                    span.d-sr__val_perc 0%
+          .other-info
+            p На&nbsp;что конкретно тратятся бюджетные деньги
+            p Параметры бюджетов города Москвы за&nbsp;прошедшие периоды (5-10 лет и&nbsp;более)
+          .d-sr__stat-container.ds-r__stat-container_mt
+            .d-sr__stat_head
+              | БЫЛО БЫ ВАМ ПРОЩЕ/ИНТЕРЕСНЕЕ СЛЕДИТЬ ЗА ОБНОВЛЕНИЯМИ ПОРТАЛА ЧЕРЕЗ СТРАНИЦЫ
+              br
+              | В СОЦИАЛЬНЫХ СЕТЯХ?
+            .d-sr__progress_item
+              .d-sr__progres_va-fix
+                .d-sr__progress-descr Я активный пользователей социальных сетей и основную информацию получаю именно там. Создание страниц Портала в социальных сетях необходимо
+                .d-sr__progress-bar
+                  .d-sr__progress-bar_pb
+                    span(data-progress-percent='34').d-sr__pb_empty
+                      span(style="width: 30px;").d-sr__pb_fill
+                  .d-sr__progress-bar_val
+                    span.d-sr__val_p 90
+                    | &#160;/&#160;
+                    span.d-sr__val_perc 34%
+            .d-sr__progress_item
+              .d-sr__progres_va-fix
+                .d-sr__progress-descr Да, это будет очень интересно, но не обязательно
+                .d-sr__progress-bar
+                  .d-sr__progress-bar_pb
+                    span(data-progress-percent='56').d-sr__pb_empty
+                      span(style="width: 30px;").d-sr__pb_fill
+                  .d-sr__progress-bar_val
+                    span.d-sr__val_p 148
+                    | &#160;/&#160;
+                    span.d-sr__val_perc 56%
+            .d-sr__progress_item
+              .d-sr__progres_va-fix
+                .d-sr__progress-descr Мне достаточно информации размещенной на данном портале и все новости я могу узнать, зайдя на Портал
+                .d-sr__progress-bar
+                  .d-sr__progress-bar_pb
+                    span(data-progress-percent='9').d-sr__pb_empty
+                      span(style="width: 30px;").d-sr__pb_fill
+                  .d-sr__progress-bar_val
+                    span.d-sr__val_p 10
+                    | &#160;/&#160;
+                    span.d-sr__val_perc 9%
+          .d-sr__social
+            span.d-sr__social_txt Поделиться результатами:
+            a(href="#").d-sr__social_fb
+              i(aria-hidden='true').fa.fa-facebook
+            a(href="#").d-sr__social_t
+              i(aria-hidden='true').fa.fa-twitter
+            a(href="#").d-sr__social_vk В
