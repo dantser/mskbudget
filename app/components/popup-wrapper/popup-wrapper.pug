@@ -1,0 +1,80 @@
+mixin popup-wrapper()
+  #popup-wrapper
+    // POPUP(Login)
+    .popup-login.popup-window#login
+      .tab
+        .tab__buttons
+          a(href="#tab1").tab__btn.tab__btn_active Войти
+          a(href="#tab2").tab__btn Регистрация
+        .popup-login__wrap
+          p.popup-login__p С помощью
+          ul.social-lg.popup-login__social-lg
+            li.social-lg__item
+              a(href="#").social-lg__a.social-lg__a_fb
+            li.social-lg__item
+              a(href="#").social-lg__a.social-lg__a_tw
+            li.social-lg__item
+              a(href="#").social-lg__a.social-lg__a_vk
+            li.social-lg__item
+              a(href="#").social-lg__a.social-lg__a_ok
+            li.social-lg__item
+              a(href="#").social-lg__a.social-lg__a_g
+            li.social-lg__item
+              a(href="#").social-lg__a.social-lg__a_ya
+            li.social-lg__item
+              a(href="#").social-lg__a.social-lg__a_sm
+          p.popup-login__p или
+          // TAB
+          .tab__content.tab__content_vis(id="tab1")
+            form(action="l.php").login-form
+              .login-form__field
+                label(for="i-email-2").overlabel e-mail
+                input(id="i-email-2", type="email").login-form__text
+              .login-form__field.mb-10
+                label(for="i-passw").overlabel пароль
+                input(id="i-passw", type="password").login-form__text
+              .mb-15
+                a(href="#restore").open-popup.login-form__a Я забыл пароль
+              input(type="submit", value="Войти").login-form__submit
+          // TAB
+          .tab__content(id="tab2")
+            form(action="l.php").login-form.mb-25
+              .login-form__field
+                label(for="i-fio-1").overlabel ФИО
+                input(id="i-fio-1", type="email").login-form__text
+              .login-form__field
+                label(for="i-email-3").overlabel e-mail
+                input(id="i-email-3", type="email").login-form__text
+              .login-form__field
+                label(for="i-passw-1").overlabel пароль
+                input(id="i-passw-1", type="password").login-form__text
+              input(type="submit", value="Зарегистрироваться").login-form__submit
+            +e.caption Нажимая на кнопку «Регистрация», вы подтверждаете свое согласие с условиями предоставления услуг (
+              a(href="#agreements").open-popup пользовательское соглашение
+              | )
+          // /TAB
+      a(href="#").close-popup
+    
+    // POPUP(Restore)
+    .popup-restore.popup-window#restore
+      .popup-restore__top Запрос на сброс пароля
+      .popup-restore__wrap
+        .popup-restore__p Пожалуйста, укажите Ваш адрес электронной почты.<br> На него будет выслана ссылка для сброса пароля.
+        form(action="r.php").login-form
+          .login-form__field.mb-30
+            label(for="i-email-32").overlabel e-mail
+            input(id="i-email-32", type="email").login-form__text
+          input(type="submit", value="Отправить").login-form__submit
+      a(href="#").close-popup
+    
+    // POPUP(agreements)
+    .popup-agreements.popup-window#agreements
+      .popup-agreements__wrap
+        .popup-agreements__tit Условия предоставления услуг
+        p Пользователь, регистрируясь на портале «Открытый бюджет города Москвы», обязуется принять настоящее Согласие на обработку персональных данных. Принятием (акцептом) оферты Согласия является регистрация на портале или предоставление персональных данных в формах обратной связи, размещенных на сайте.<br>Основанием для обработки персональных данных являются ст. 24 Конституции Российской Федерации, ст.6 Федерального закона от 27.07.2006 №152-ФЗ «О персональных данных», иные федеральные законы и нормативно-правовые акты.
+        p Пользователь дает согласие на обработку своих персональных данных, то есть совершение, в том числе, следующих действий: обработку (включая сбор, систематизацию, накопление, хранение, уточнение (обновление, изменение), использование, обезличивание, уничтожение персональных данных), при этом общее описание вышеуказанных способов обработки данных приведено в Федеральном законе от 27.07.2006 № 152-ФЗ, а также на передачу такой информации третьим лицам, в случаях, установленных нормативными документами вышестоящих органов и законодательством.
+        .bottom
+          a(href="#login").open-popup вернуться к регистрации
+      a(href="#").close-popup
+      
+    #mask

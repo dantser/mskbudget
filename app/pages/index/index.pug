@@ -4,6 +4,13 @@ include ../../components/questions/questions
 block head
   - var pageTitle = 'Versta Project Template'
 
-block content
-  +questions()
+block header
+  +header()._budget
 
+block sections
+  +sections()
+
+    block content
+      +questions()
+      +popup-wrapper()
+      +footer()
