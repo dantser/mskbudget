@@ -268,11 +268,10 @@
         <button class="header__open-menu"></button>
     </header>
     <div class="sections">
-        <div class="d-abs-content d-budjet-cards_bg">
-            <div class="d-layer">
-                <div class="d-si__head">
-                    <div class="d-si__head_descr">Бюджетная система</div>
-                    <div class="d-si__head_p-name">бюджетная политика москвы</div>
+        <div class="main _basic">
+            <section class="basic-budget">
+                <div class="wrapper">
+                    <h1>Основные показатели бюджета</h1>
                     <div class="d-si__head_icons">
                         <a class="d-si__icons_item" href="#">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24.25px" height="23.25px">
@@ -290,154 +289,118 @@
                             </svg>
                         </a>
                     </div>
-                </div>
-                <p class="d-abs__head_descr">Совокупность мер, реализуемых органами государственной власти и&nbsp;направленных на&nbsp;повышение эффективности управления общественными финансами города Москвы</p>
-                <div id="carousel">
-                    <div class="ar-left"></div>
-                    <div class="carousel-count"></div>
-                    <div class="ar-right"></div>
-                    <div class="carousel-area__left">
-                        <div class="carousel-area__left__zone" data-speed="1"></div>
-                        <div class="carousel-area__left__zone" data-speed="2"></div>
-                        <div class="carousel-area__left__zone" data-speed="3"></div>
-                        <div class="carousel-area__left__zone" data-speed="4"></div>
+                    <div class="article-controls">
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </div>
-                    <div class="carousel-area__right">
-                        <div class="carousel-area__right__zone" data-speed="4"></div>
-                        <div class="carousel-area__right__zone" data-speed="3"></div>
-                        <div class="carousel-area__right__zone" data-speed="2"></div>
-                        <div class="carousel-area__right__zone" data-speed="1"></div>
+                    <div class="analityc-widget">
+                        <div class="analityc-control-group _year">
+                            <span>Год</span>
+                            <select class="analityc-select">
+                                <option selected="selected">2017</option>
+                                <option>2016</option>
+                                <option>2015</option>
+                            </select>
+                        </div>
+                        <div class="analityc-control-group _stage">
+                            <span>Этап</span>
+                            <select class="analityc-select">
+                                <option selected="selected">Закон об исполнении</option>
+                                <option>Второй этап</option>
+                                <option>Заключительный этап</option>
+                            </select>
+                        </div>
+                        <div class="analityc-control-group _level">
+                            <span>Уровень</span>
+                            <select class="analityc-select">
+                                <option selected="selected">Бюджет москвы</option>
+                                <option>Бюджет области</option>
+                                <option>Бюджет региона</option>
+                            </select>
+                        </div>
+                        <div class="analityc-control-group _transfer">
+                            <span>Межбюджетные трансферы</span>
+                            <select class="analityc-select">
+                                <option selected="selected">Без межбюджетных трансфертов</option>
+                                <option>с трансфертами</option>
+                            </select>
+                        </div>
+                        <div class="analityc-control-group _dp">
+                            <input class="datepicker" placeholder="Выберите дату исполнения" />
+                        </div>
+                        <span class="analityc-widget-label">млрд. рублей</span>
+                        <div class="analityc-widget-rounds _active">
+                            <div class="legend">
+                                <div class="legend__item legend__item_blue">доходы</div>
+                                <div class="legend__item legend__item_pink">расходы</div>
+                                <div class="legend__item legend__item_green">дефицит/профицит</div>
+                            </div>
+                            <div class="analityc-widget-item">
+                                <div class="comp-diagram comp-diagram_dash-1" id="diagram-1">
+                                    <a href="#"></a>
+                                    <div class="comp-diagram__year">2017</div>
+                                </div>
+                            </div>
+                            <div class="analityc-widget-item">
+                                <div class="comp-diagram comp-diagram_dash-1" id="diagram-2">
+                                    <a href="#"></a>
+                                    <div class="comp-diagram__year">2018</div>
+                                </div>
+                            </div>
+                            <div class="analityc-widget-item">
+                                <div class="comp-diagram comp-diagram_dash-1" id="diagram-3">
+                                    <a href="#"></a>
+                                    <div class="comp-diagram__year">2019</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="analityc-widget-rounds">
+                            <div class="analityc-widget-item _incoming">
+                                <strong>доходы</strong>
+                                <div class="large-diagram__svg" id="diagram-4"></div>
+                            </div>
+                            <div class="analityc-widget-item _outlay">
+                                <strong>расходы</strong>
+                                <div class="large-diagram__svg" id="diagram-5"></div>
+                            </div>
+                        </div>
+                        <a class="analityc-more" href="/">Перейти в&nbsp;раздел аналитика</a>
                     </div>
-                    <carousel-3d :width="660" :height="600" :border="0" :display="9" :autoplay="false" :autoplayHoverPause="true" :space="83" :perspective="0" :inverse-scaling="4" :minSwipeDistance="0">
-                        <slide :index="0">
-                            <div class="d-slide d-slide__politics">
-                                <div class="d-slide__head">
-                                    <h2>Повышение доходного потенциала бюджета города Москвы</h2>
-                                </div>
-                                <ul class="d-slide__body_list">
-                                    <li>Поддержка инвестиционной и&nbsp;инновационной активности субъектов предпринимательской деятельности;</li>
-                                    <li>Создание стабильных и&nbsp;предсказуемых условий ведения экономической деятельности;</li>
-                                    <li>Совершенствование налогооблажения имущества юридических и&nbsp;физических лиц, учитывающего реальную стоимость объектов налогооблажения;</li>
-                                    <li>Развитие туристической деятельности;</li>
-                                    <li>Регулирование арендных ставок и&nbsp;условий предоставления городского имущества в&nbsp;аренду;</li>
-                                    <li>Продажа низкодоходной городской собственности;</li>
-                                </ul>
-                            </div>
-                        </slide>
-                        <slide :index="1">
-                            <div class="d-slide d-slide__politics">
-                                <div class="d-slide__head">
-                                    <h2>Обеспечение бюджетной стабильности и&nbsp;устойчивости</h2>
-                                </div>
-                                <ul class="d-slide__body_list">
-                                    <li>Выполнение в&nbsp;полном объеме принятых социальных обязательств;</li>
-                                    <li>Социальные выплаты, льготы и&nbsp;гарантии, предоставляемые гражданам;</li>
-                                    <li>Повышение адресности оказания социальной поддержки;</li>
-                                </ul>
-                            </div>
-                        </slide>
-                        <slide :index="2">
-                            <div class="d-slide d-slide__politics">
-                                <div class="d-slide__head">
-                                    <h2>Совершенствование межбюджетных отношений с&nbsp;внутригородскими муниципальными образованиями в&nbsp;городе Москве</h2>
-                                </div>
-                                <ul class="d-slide__body_list">
-                                    <li>Обеспечение устойчивого социально-экономического развития внутригородских муниципальных образований;</li>
-                                    <li>Обеспечение сбалансированности местных бюджетов;</li>
-                                    <li>Повышение финансовой самостоятельности внутригородских муниципальных образований;</li>
-                                </ul>
-                            </div>
-                        </slide>
-                        <slide :index="3">
-                            <div class="d-slide d-slide__politics">
-                                <div class="d-slide__head">
-                                    <h2>Обеспечение прозрачности и&nbsp;открытости бюджетного процесса</h2>
-                                </div>
-                                <ul class="d-slide__body_list">
-                                    <li>Совершенствование инструментов порталете Правительства Москвы &laquo;Открытый бюджета города Москвы&raquo;;</li>
-                                    <li>Конкурс проектов &laquo;Бюджет для граждан&raquo;;</li>
-                                    <li>Оперативная публикация информации о&nbsp;городском бюджете;</li>
-                                    <li>Предоставление информации о&nbsp;бюджете города в&nbsp;понятной и&nbsp;доступной форме;</li>
-                                    <li>Обратная связь с&nbsp;жителями города;</li>
-                                    <li>Повышения уровня бюджетной и&nbsp;финансовой грамотности населения;</li>
-                                </ul>
-                            </div>
-                        </slide>
-                        <slide :index="4">
-                            <div class="d-slide d-slide__politics">
-                                <div class="d-slide__head">
-                                    <h2>Совершенствование межбюджетных отношений с внутригородскими муниципальными образованиями в городе Москве</h2>
-                                </div>
-                                <ul class="d-slide__body_list">
-                                    <li>Обеспечение устойчивого социально-экономического развития внутригородских муниципальных образований</li>
-                                    <li>Обеспечение сбалансированности местных бюджетов</li>
-                                    <li>Повышение финансовой самостоятельности внутригородских муниципальных образований</li>
-                                </ul>
-                            </div>
-                        </slide>
-                        <slide :index="5">
-                            <div class="d-slide d-slide__politics">
-                                <div class="d-slide__head">
-                                    <h2>Совершенствование межбюджетных отношений с внутригородскими муниципальными образованиями в городе Москве</h2>
-                                </div>
-                                <ul class="d-slide__body_list">
-                                    <li>Обеспечение устойчивого социально-экономического развития внутригородских муниципальных образований</li>
-                                    <li>Обеспечение сбалансированности местных бюджетов</li>
-                                    <li>Повышение финансовой самостоятельности внутригородских муниципальных образований</li>
-                                </ul>
-                            </div>
-                        </slide>
-                        <slide :index="6">
-                            <div class="d-slide d-slide__politics">
-                                <div class="d-slide__head">
-                                    <h2>Совершенствование межбюджетных отношений с внутригородскими муниципальными образованиями в городе Москве</h2>
-                                </div>
-                                <ul class="d-slide__body_list">
-                                    <li>Обеспечение устойчивого социально-экономического развития внутригородских муниципальных образований</li>
-                                    <li>Обеспечение сбалансированности местных бюджетов</li>
-                                    <li>Повышение финансовой самостоятельности внутригородских муниципальных образований</li>
-                                </ul>
-                            </div>
-                        </slide>
-                        <slide :index="7">
-                            <div class="d-slide d-slide__politics">
-                                <div class="d-slide__head">
-                                    <h2>Совершенствование межбюджетных отношений с внутригородскими муниципальными образованиями в городе Москве</h2>
-                                </div>
-                                <ul class="d-slide__body_list">
-                                    <li>Обеспечение устойчивого социально-экономического развития внутригородских муниципальных образований</li>
-                                    <li>Обеспечение сбалансированности местных бюджетов</li>
-                                    <li>Повышение финансовой самостоятельности внутригородских муниципальных образований</li>
-                                </ul>
-                            </div>
-                        </slide>
-                        <slide :index="8">
-                            <div class="d-slide d-slide__politics">
-                                <div class="d-slide__head">
-                                    <h2>Совершенствование межбюджетных отношений с внутригородскими муниципальными образованиями в городе Москве</h2>
-                                </div>
-                                <ul class="d-slide__body_list">
-                                    <li>Обеспечение устойчивого социально-экономического развития внутригородских муниципальных образований</li>
-                                    <li>Обеспечение сбалансированности местных бюджетов</li>
-                                    <li>Повышение финансовой самостоятельности внутригородских муниципальных образований</li>
-                                </ul>
-                            </div>
-                        </slide>
-                        <slide :index="9">
-                            <div class="d-slide d-slide__politics">
-                                <div class="d-slide__head">
-                                    <h2>Совершенствование межбюджетных отношений с внутригородскими муниципальными образованиями в городе Москве</h2>
-                                </div>
-                                <ul class="d-slide__body_list">
-                                    <li>Обеспечение устойчивого социально-экономического развития внутригородских муниципальных образований</li>
-                                    <li>Обеспечение сбалансированности местных бюджетов</li>
-                                    <li>Повышение финансовой самостоятельности внутригородских муниципальных образований</li>
-                                </ul>
-                            </div>
-                        </slide>
-                    </carousel-3d>
                 </div>
-            </div>
+                <div class="dropdown-block">
+                    <div class="dropdown">
+                        <div class="dropdown-trigger">
+                            <div class="wrapper">
+                                <strong>Документы</strong>
+                            </div>
+                        </div>
+                        <div class="dropdown-content">
+                            <div class="wrapper">Документы</div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <div class="dropdown-trigger">
+                            <div class="wrapper">
+                                <strong>Новости по&nbsp;теме</strong>
+                            </div>
+                        </div>
+                        <div class="dropdown-content">
+                            <div class="wrapper">Новости</div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <div class="dropdown-trigger">
+                            <div class="wrapper">
+                                <strong>Сервисы</strong>
+                            </div>
+                        </div>
+                        <div class="dropdown-content">
+                            <div class="wrapper">Сервисы</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
         <div id="popup-wrapper">
             <!-- POPUP(Login)-->
