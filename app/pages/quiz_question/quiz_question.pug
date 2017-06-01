@@ -1,8 +1,12 @@
 extends ../../layouts/default
 include ../../components/quiz-question/quiz-question
+include ../../components/header/header
 
 block head
   - var pageTitle = 'Versta Project Template'
+
+block header
+  +header()._budget
 
 block content
   +quiz-question()
