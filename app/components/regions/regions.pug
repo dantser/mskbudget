@@ -1,107 +1,268 @@
 mixin regions()
-  +b.regions&attributes(attributes)
-    .d-si-content
-      .ar-left
-      .ar-right
-      .d-layer
-        +b.d-si__head
-          +e._descr Сервисы
-          +e._name москва и субъекты рф
-          +e._icons
-            +e.A(href="#")._icons__item
-            +e.A(href="#")._icons__item
-        +b.d-smr
-          +e.container
-            +e.container_body.d-sr__body_p
-              +e.stat_head
-                +e.stat_head_left
-                  +e.SPAN.form-label Год
-                  +b.jq-selectbox.jqselect.changed#d-si-select-styler
-                    select(name='d-si-select')#d-si-select
-                      option(value='1') 2015
-                      option(value='2') 2016
-                      option(value='3', selected) 2017
-                    +e.select
-                      +e.select-text 2017
-                      +e.trigger
-                        +e.trigger-arrow
-                    +e.dropdown
-                      ul 
-                        li 2015
-                        li 2016
-                        li.selected.sel 2017
-                +e.stat_head_right
-                  +e.form-label Добавить показатель на страницу
-                  +e.add-char
-                    +e.add-char-label Выберите показатель
-                    +e.add-char-block 
-                      +e.UL.add-char-list.scroll-pane
-                        +e.LI.add-char-item
-                          input(type='checkbox', name='a', value)#a
-                          label(for='a') Доходы
-                          +e.UL.char-sublist
-                            +e.LI.add-char-item
-                              input(type='checkbox', name='aa', value='aa')#aa
-                              label(for='aa') Доходы, всего
-                            +e.LI.add-char-item
-                              input(type='checkbox', name='ab', value='ab')#ab
-                              label(for='aс') Доходы в расчёте на 1 жителя
-                            +e.LI.add-char-item
-                              input(type='checkbox', name='ac', value='ac')#ac
-                              label(for='aс') Налоговые доходы
-                            +e.LI.add-char-item
-                              input(type='checkbox', name='ad', value='ad')#ad
-                              label(for='aс') Неналоговые доходы
-                            +e.LI.add-char-item
-                              input(type='checkbox', name='ae', value='ae')#ae
-                              label(for='aс') Безвозмездные поступления
-                        +e.LI.add-char-item
-                          input(type='checkbox', name='b', value)#b
-                          label(for='b') Расходы
-                          +e.UL.char-sublist
-                            +e.LI.add-char-item
-                              input(type='checkbox', name='ba', value='ba')#ba
-                              label(for='aa') Расходы, всего
-                            +e.LI.add-char-item
-                              input(type='checkbox', name='bb', value='bb')#bb
-                              label(for='aс') Расходы в расчёте на 1 жителя
-                            +e.LI.add-char-item
-                              input(type='checkbox', name='bc', value='bc')#bc
-                              label(for='aс') Общегосударственные вопросы
-              +e.chart-wrapper
-                +e.chart-wrapper
-                  +e.chart-header.d-smr__chart-row
-                    +e.chart-col Субъект Российской Федерации
-                    +e.chart-col(data-char='revenue')
-                      | Объем доходов бюджета субъекта Российской Федерации в расчете на 1 жителя, тыс руб.
-                      +e.SPAN.chart-controls
-                        a(href='#').sort_desc По убыванию
-                        a(href='#') Скрыть колонку
-                    +e.chart-col(data-char='expense')
-                      | Объем расходов бюджета субъекта Российской Федерации в расчете на 1 жителя, тыс руб.
-                      +e.SPAN.chart-controls
-                        a(href='#').sort_desc По убыванию
-                        a(href='#') Скрыть колонку
-                    +e.chart-col(data-char='death-rate')
-                      | Смертность населения (без показателя смертности от внешних причин (количество умерших на 100 тыс. человек)
-                      +e.SPAN.chart-controls
-                        a(href='#').sort_desc По убыванию
-                        a(href='#') Скрыть колонку
-                  - for (var i = 0, i < 11, i++)      
-                    +e.chart-row
-                      +e.chart-col г. Санкт-Петербург
-                      +e.chart-col(data-char='revenue')
-                        +b.SPAN.nmb.one 1
-                        +b.SPAN.graph
-                          +e.SPAN.bar(data-width='27%')
-                          span.coef 363,8
-                      +e.chart-col(data-char='expense')
-                        +b.SPAN.nmb.two 2
-                        +b.SPAN.graph
-                          +e.SPAN.bar(data-width='64%')
-                          span.coef 557
-                      +e.chart-col(data-char='death-rate')
-                        +b.SPAN.nmb.three 3
-                        +b.SPAN.graph
-                          +e.SPAN.bar(data-width='29%')
-                          span.coef 1117
+  .d-si-content
+    .ar-left
+    .ar-right
+    .d-layer
+      .d-si__head
+        .d-si__head_descr Сервисы
+        .d-si__head_p-name москва и субъекты рф
+        .d-si__head_icons
+          a(href="#").d-si__icons_item
+            svg(xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink", width="24.25px", height="23.25px")
+              path(fill-rule="evenodd", stroke="#d0ccd3", stroke-width="1.5px", stroke-linecap="butt", stroke-linejoin="miter", fill="none", d="M11.754,0.753 L16.158,6.282 L22.764,8.773 L18.880,14.680 L18.559,21.748 L11.754,19.870 L4.950,21.748 L4.628,14.680 L0.744,8.773 L7.350,6.282 L11.754,0.753 Z")
+          a(href="#").d-si__icons_item
+            svg(xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink", width="16px", height="19px")
+              path(fill-rule="evenodd", fill="#d0ccd3", d="M13.141,5.781 C12.504,5.781 11.921,5.564 11.446,5.208 L5.643,8.583 C5.689,8.788 5.719,9.000 5.719,9.219 C5.719,9.573 5.646,9.908 5.530,10.221 L11.390,13.664 C11.869,13.309 12.455,13.094 13.094,13.094 C14.699,13.094 16.000,14.416 16.000,16.047 C16.000,17.678 14.699,19.000 13.094,19.000 C11.489,19.000 10.188,17.678 10.188,16.047 C10.188,15.715 10.254,15.401 10.353,15.103 L4.426,11.620 C3.975,11.918 3.438,12.094 2.859,12.094 C1.280,12.094 -0.000,10.807 -0.000,9.219 C-0.000,7.631 1.280,6.344 2.859,6.344 C3.598,6.344 4.265,6.633 4.772,7.095 L10.439,3.799 C10.345,3.512 10.281,3.210 10.281,2.891 C10.281,1.294 11.561,-0.000 13.141,-0.000 C14.720,-0.000 16.000,1.294 16.000,2.891 C16.000,4.487 14.720,5.781 13.141,5.781 Z")
+      .d-smr__container
+        .d-smr__container_body
+          .d-smr__stat_head
+            .d-smr__stat_head_left
+              span.d-smr__form-label Год
+              select(name='d-si-select')#d-si-select
+                option(value='1') 2015
+                option(value='2') 2016
+                option(value='3', selected) 2017
+            .d-smr__stat_head_right
+              .d-smr__form-label Добавить показатель на страницу
+              .d-smr__add-char
+                .d-smr__add-char-label Выберите показатель
+                .d-smr__add-char-block
+                  ul.d-smr__add-char-list.scroll-pane
+                    li.d-smr__add-char-item
+                      input(type='checkbox', name='a', value)#a
+                      label(for='a') Доходы
+                      ul.d-smr__char-sublist
+                        li.d-smr__add-char-item
+                          input(type='checkbox', name='aa', value='aa')#aa
+                          label(for='aa') Доходы, всего
+                        li.d-smr__add-char-item
+                          input(type='checkbox', name='ab', value='ab')#ab
+                          label(for='aс') Доходы в расчёте на 1 жителя
+                        li.d-smr__add-char-item
+                          input(type='checkbox', name='ac', value='ac')#ac
+                          label(for='aс') Налоговые доходы
+                        li.d-smr__add-char-item
+                          input(type='checkbox', name='ad', value='ad')#ad
+                          label(for='aс') Неналоговые доходы
+                        li.d-smr__add-char-item
+                          input(type='checkbox', name='ae', value='ae')#ae
+                          label(for='aс') Безвозмездные поступления
+                    li.d-smr__add-char-item
+                      input(type='checkbox', name='b', value)#b
+                      label(for='b') Расходы
+                      ul.d-smr__char-sublist
+                        li.d-smr__add-char-item
+                          input(type='checkbox', name='ba', value='ba')#ba
+                          label(for='aa') Расходы, всего
+                        li.d-smr__add-char-item
+                          input(type='checkbox', name='bb', value='bb')#bb
+                          label(for='aс') Расходы в расчёте на 1 жителя
+                        li.d-smr__add-char-item
+                          input(type='checkbox', name='bc', value='bc')#bc
+                          label(for='aс') Общегосударственные вопросы
+          .d-smr__chart-wrapper
+            .d-smr__chart
+              .d-smr__chart-header.d-smr__chart-row
+                .d-smr__chart-col Субъект Российской Федерации
+                .d-smr__chart-col(data-char='revenue')
+                  | Объем доходов бюджета субъекта Российской Федерации в расчете на&nbsp;1&nbsp;жителя, тыс руб.
+                  .d-smr__chart-controls
+                    a(href='#').sort_desc По убыванию
+                    a(href='#') Скрыть колонку
+                .d-smr__chart-col(data-char='expense')
+                  | Объем расходов бюджета субъекта Российской Федерации в расчете на&nbsp;1&nbsp;жителя, тыс руб.
+                  .d-smr__chart-controls
+                    a(href='#').sort_desc По убыванию
+                    a(href='#') Скрыть колонку
+                .d-smr__chart-col(data-char='death-rate')
+                  | Смертность населения (без показателя смертности от внешних причин (количество умерших на 100 тыс. человек)
+                  .d-smr__chart-controls
+                    a(href='#').sort_desc По убыванию
+                    a(href='#') Скрыть колонку   
+              .d-smr__chart-row
+                .d-smr__chart-col г. Санкт-Петербург
+                .d-smr__chart-col(data-char='revenue')
+                  span.nmb.one 1
+                  span.graph
+                    span.graph__bar(data-width='27%')
+                    span.coef 363,8
+                .d-smr__chart-col(data-char='expense')
+                  span.nmb.two 2
+                  span.graph
+                    span.graph__bar(data-width='64%')
+                    span.coef 557
+                .d-smr__chart-col(data-char='death-rate')
+                  span.nmb.three 3
+                  span.graph
+                    span.graph__bar(data-width='29%')
+                    span.coef 1117
+              .d-smr__chart-row
+                .d-smr__chart-col г. Москва
+                .d-smr__chart-col(data-char='revenue')
+                  span.nmb.one 1
+                  span.graph
+                    span.graph__bar(data-width='18%')
+                    span.coef 363,8
+                .d-smr__chart-col(data-char='expense')
+                  span.nmb.two 2
+                  span.graph
+                    span.graph__bar(data-width='76%')
+                    span.coef 557
+                .d-smr__chart-col(data-char='death-rate')
+                  span.nmb.three 3
+                  span.graph
+                    span.graph__bar(data-width='55%')
+                    span.coef 1117
+              .d-smr__chart-row
+                .d-smr__chart-col Ярославская область
+                .d-smr__chart-col(data-char='revenue')
+                  span.nmb.one 1
+                  span.graph
+                    span.graph__bar(data-width='34%')
+                    span.coef 363,8
+                .d-smr__chart-col(data-char='expense')
+                  span.nmb.two 2
+                  span.graph
+                    span.graph__bar(data-width='78%')
+                    span.coef 557
+                .d-smr__chart-col(data-char='death-rate')
+                  span.nmb.three 3
+                  span.graph
+                    span.graph__bar(data-width='63%')
+                    span.coef 1117
+              .d-smr__chart-row
+                .d-smr__chart-col Ямало-Ненецкий АО
+                .d-smr__chart-col(data-char='revenue')
+                  span.nmb.one 1
+                  span.graph
+                    span.graph__bar(data-width='81%')
+                    span.coef 363,8
+                .d-smr__chart-col(data-char='expense')
+                  span.nmb.two 2
+                  span.graph
+                    span.graph__bar(data-width='5%')
+                    span.coef 557
+                .d-smr__chart-col(data-char='death-rate')
+                  span.nmb.three 3
+                  span.graph
+                    span.graph__bar(data-width='35%')
+                    span.coef 1117
+              .d-smr__chart-row
+                .d-smr__chart-col Южный ФО
+                .d-smr__chart-col(data-char='revenue')
+                  span.nmb.one 1
+                  span.graph
+                    span.graph__bar(data-width='100%')
+                    span.coef 363,8
+                .d-smr__chart-col(data-char='expense')
+                  span.nmb.two 2
+                  span.graph
+                    span.graph__bar(data-width='54%')
+                    span.coef 557
+                .d-smr__chart-col(data-char='death-rate')
+                  span.nmb.three 3
+                  span.graph
+                    span.graph__bar(data-width='99%')
+                    span.coef 1117        
+              .d-smr__chart-row
+                .d-smr__chart-col Ямало-Ненецкий АО
+                .d-smr__chart-col(data-char='revenue')
+                  span.nmb.one 1
+                  span.graph
+                    span.graph__bar(data-width='81%')
+                    span.coef 363,8
+                .d-smr__chart-col(data-char='expense')
+                  span.nmb.two 2
+                  span.graph
+                    span.graph__bar(data-width='5%')
+                    span.coef 557
+                .d-smr__chart-col(data-char='death-rate')
+                  span.nmb.three 3
+                  span.graph
+                    span.graph__bar(data-width='35%')
+                    span.coef 1117        
+              .d-smr__chart-row
+                .d-smr__chart-col Чукотский АО
+                .d-smr__chart-col(data-char='revenue')
+                  span.nmb.one 1
+                  span.graph
+                    span.graph__bar(data-width='13%')
+                    span.coef 363,8
+                .d-smr__chart-col(data-char='expense')
+                  span.nmb.two 2
+                  span.graph
+                    span.graph__bar(data-width='69%')
+                    span.coef 557
+                .d-smr__chart-col(data-char='death-rate')
+                  span.nmb.three 3
+                  span.graph
+                    span.graph__bar(data-width='25.5%')
+                    span.coef 1117        
+              .d-smr__chart-row
+                .d-smr__chart-col Чувашская республика
+                .d-smr__chart-col(data-char='revenue')
+                  span.nmb.one 1
+                  span.graph
+                    span.graph__bar(data-width='42%')
+                    span.coef 363,8
+                .d-smr__chart-col(data-char='expense')
+                  span.nmb.two 2
+                  span.graph
+                    span.graph__bar(data-width='56%')
+                    span.coef 557
+                .d-smr__chart-col(data-char='death-rate')
+                  span.nmb.three 3
+                  span.graph
+                    span.graph__bar(data-width='37%')
+                    span.coef 1117        
+              .d-smr__chart-row
+                .d-smr__chart-col Чеченская республика
+                .d-smr__chart-col(data-char='revenue')
+                  span.nmb.one 1
+                  span.graph
+                    span.graph__bar(data-width='68%')
+                    span.coef 363,8
+                .d-smr__chart-col(data-char='expense')
+                  span.nmb.two 2
+                  span.graph
+                    span.graph__bar(data-width='75%')
+                    span.coef 557
+                .d-smr__chart-col(data-char='death-rate')
+                  span.nmb.many 43
+                  span.graph
+                    span.graph__bar(data-width='28%')
+                    span.coef 1117        
+              .d-smr__chart-row
+                .d-smr__chart-col Центральный ФО
+                .d-smr__chart-col(data-char='revenue')
+                  span.nmb.many 18
+                  span.graph
+                    span.graph__bar(data-width='74%')
+                    span.coef 363,8
+                .d-smr__chart-col(data-char='expense')
+                  span.nmb.many 29
+                  span.graph
+                    span.graph__bar(data-width='82%')
+                    span.coef 557
+                .d-smr__chart-col(data-char='death-rate')
+                  span.nmb.many 38
+                  span.graph
+                    span.graph__bar(data-width='45%')
+                    span.coef 1117        
+              .d-smr__chart-row
+                .d-smr__chart-col Ханты-Мансийский АО
+                .d-smr__chart-col(data-char='revenue')
+                  span.nmb.one 1
+                  span.graph
+                    span.graph__bar(data-width='15%')
+                    span.coef 363,8
+                .d-smr__chart-col(data-char='expense')
+                  span.nmb.two 2
+                  span.graph
+                    span.graph__bar(data-width='32%')
+                    span.coef 557
+                .d-smr__chart-col(data-char='death-rate')
+                  span.nmb.three 3
+                  span.graph
+                    span.graph__bar(data-width='46%')
+                    span.coef 1117                
