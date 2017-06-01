@@ -1,0 +1,17 @@
+extends ../../layouts/default
+include ../../components/edu-service-result/edu-service-result
+
+block head
+  - var pageTitle = 'Versta Project Template'
+
+block header
+  +header()._budget
+
+block sections
+  +sections()
+
+    block content
+      +edu-service-result()
+
+    block footer
+      +footer()
