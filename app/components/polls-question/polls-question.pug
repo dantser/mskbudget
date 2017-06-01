@@ -1,65 +1,48 @@
 mixin polls-question()
-  +b.polls-question&attributes(attributes)
-
-    .sections._polls
-
-      .d-si-content
-
-        .d-layer
-
-          +b.d-si.d-si__head
-            +e.head_descr сервисы
-            +e.head_p-name опросы
-            +e.head_icons
-              +e.A.icons_item
-                | SVG Иконка
-              +e.A.icons_item
-                | SVG Иконка
-              +e.A.icons_item
-                | SVG Иконка
-          +b.d-si.d-si__quiz-container
-            .d-si__quiz-container_head
-              span Как сделать портал удобнее?
-              .d-si__quiz-container_head-cross
-            .d-si__quiz-container_body
-                form(action='#', id='d-sii__form').d-sii__form
-                  fieldset.d-sii__form_question
-                    legend КАКОВА ВАША ЦЕЛЬ ПОСЕЩЕНИЯ ПОРТАЛА &laquo;ОТКРЫТЫЙ БЮДЖЕТ ГОРОДА МОСКВЫ&raquo; СЕГОДНЯ?
-
-                    input(name='d-sq_radio', type='radio', id='d-rad-f').d-sq_radio
-                    label(for='d-rad-f') Поиск информации о&nbsp;бюджете города Москвы для подготовки учебных материалов рефератов, курсовых/дипломных работ
-
-                    input(name='d-sq_radio', type='radio', id='d-rad-s').d-sq_radio
-                    label(for='d-rad-f') Поиск информации о&nbsp;бюджете города Москвы, необходимой в&nbsp;профессиональной деятельности
-
-                    input(name='d-sq_radio', type='radio', value='2', id='d-rad-t').d-sq_radio
-                    label(for='d-rad-f') Изучение опыта города Москвы в&nbsp;части открытости бюджетных данных и&nbsp;представления бюджетных данных для граждан
-
-                    input(name='d-sq_radio', type='radio', value='3', id='d-rad-fo').d-sq_radio
-                    label(for='d-rad-f') Задать вопрос о&nbsp;бюджете города Москвы/дать предложение
-
-                  fieldset.d-sii__form_question
-                    legend
-                      | БЫЛО БЫ ВАМ ПРОЩЕ/ИНТЕРЕСНЕЕ СЛЕДИТЬ ЗА ОБНОВЛЕНИЯМИ ПОРТАЛА ЧЕРЕЗ СТРАНИЦЫ
-                      br
-                      | В СОЦИАЛЬНЫХ СЕТЯХ?
-
-                    input(type='checkbox', id='d-sii__chbox-s-first').d-sii__chbox
-                    label(for='d-sii__chbox-s-first') Поиск информации о бюджете города Москвы для подготовки учебных материалов рефератов, курсовых/дипломных работ
-
-                    input(type='checkbox', id='d-sii__chbox-s-second').d-sii__chbox
-                    label(for='d-sii__chbox-s-v') Поиск информации о бюджете города Москвы, необходимой в профессиональной деятельности
-
-                    input(type='checkbox', id='d-sii__chbox-s-third').d-sii__chbox
-                    label(for='d-sii__chbox-s-third') Изучение опыта города Москвы в части открытости бюджетных данных и представления бюджетных данных для граждан
-
-                    input(type='checkbox', id='d-sii__chbox-s-forth').d-sii__chbox
-                    label(for='d-sii__chbox-s-forth') Изучение бюджета и бюджетного процесса в общем формате
-
-                    input(type='checkbox', id='d-sii__chbox-s-fifth').d-sii__chbox
-                    label(for='d-sii__chbox-s-fifth') Задать вопрос о бюджете города Москвы/дать предложение
-
-                    input(type='checkbox', id='d-sii__chbox-s-sixth').d-sii__chbox
-                    label(for='d-sii__chbox-s-sixth') Другое
-
-                  input(type='text').d-sii__chbox-other_input
+  .d-si-content
+    .d-layer
+      .d-si__head
+        .d-si__head_descr сервисы
+        .d-si__head_p-name опросы
+        .d-si__head_icons
+          a(href="#").d-si__icons_item
+            svg(xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink", width="24.25px", height="23.25px")
+              path(fill-rule="evenodd", stroke="#d0ccd3", stroke-width="1.5px", stroke-linecap="butt", stroke-linejoin="miter", fill="none", d="M11.754,0.753 L16.158,6.282 L22.764,8.773 L18.880,14.680 L18.559,21.748 L11.754,19.870 L4.950,21.748 L4.628,14.680 L0.744,8.773 L7.350,6.282 L11.754,0.753 Z")
+          a(href="#").d-si__icons_item
+            svg(xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink", width="16px", height="19px")
+              path(fill-rule="evenodd", fill="#d0ccd3", d="M13.141,5.781 C12.504,5.781 11.921,5.564 11.446,5.208 L5.643,8.583 C5.689,8.788 5.719,9.000 5.719,9.219 C5.719,9.573 5.646,9.908 5.530,10.221 L11.390,13.664 C11.869,13.309 12.455,13.094 13.094,13.094 C14.699,13.094 16.000,14.416 16.000,16.047 C16.000,17.678 14.699,19.000 13.094,19.000 C11.489,19.000 10.188,17.678 10.188,16.047 C10.188,15.715 10.254,15.401 10.353,15.103 L4.426,11.620 C3.975,11.918 3.438,12.094 2.859,12.094 C1.280,12.094 -0.000,10.807 -0.000,9.219 C-0.000,7.631 1.280,6.344 2.859,6.344 C3.598,6.344 4.265,6.633 4.772,7.095 L10.439,3.799 C10.345,3.512 10.281,3.210 10.281,2.891 C10.281,1.294 11.561,-0.000 13.141,-0.000 C14.720,-0.000 16.000,1.294 16.000,2.891 C16.000,4.487 14.720,5.781 13.141,5.781 Z")
+      .d-si__quiz-container
+        .d-si__quiz-container_head
+          span Как сделать портал удобнее?
+          .d-si__quiz-container_head-cross
+        .d-si__quiz-container_body
+            form(action='#', id='d-sii__form').d-sii__form
+              fieldset.d-sii__form_question
+                legend КАКОВА ВАША ЦЕЛЬ ПОСЕЩЕНИЯ ПОРТАЛА &laquo;ОТКРЫТЫЙ БЮДЖЕТ ГОРОДА МОСКВЫ&raquo; СЕГОДНЯ?
+                input(name='d-sq_radio', type='radio', id='d-rad-f').d-sq_radio
+                label(for='d-rad-f') Поиск информации о&nbsp;бюджете города Москвы для подготовки учебных материалов рефератов, курсовых/дипломных работ
+                input(name='d-sq_radio', type='radio', id='d-rad-s').d-sq_radio
+                label(for='d-rad-s').d-sq_form-error-label Поиск информации о&nbsp;бюджете города Москвы, необходимой в&nbsp;профессиональной деятельности
+                input(name='d-sq_radio', type='radio', value='2', id='d-rad-t').d-sq_radio
+                label(for='d-rad-t').d-sq_form-success-label Изучение опыта города Москвы в&nbsp;части открытости бюджетных данных и&nbsp;представления бюджетных данных для граждан
+                input(name='d-sq_radio', type='radio', value='3', id='d-rad-fo').d-sq_radio
+                label(for='d-rad-fo') Задать вопрос о&nbsp;бюджете города Москвы/дать предложение
+              fieldset.d-sii__form_question
+                legend
+                  | БЫЛО БЫ ВАМ ПРОЩЕ/ИНТЕРЕСНЕЕ СЛЕДИТЬ ЗА ОБНОВЛЕНИЯМИ ПОРТАЛА ЧЕРЕЗ СТРАНИЦЫ
+                  br
+                  | В СОЦИАЛЬНЫХ СЕТЯХ?
+                input(type='checkbox', id='d-sii__chbox-s-first').d-sii__chbox
+                label(for='d-sii__chbox-s-first') Поиск информации о бюджете города Москвы для подготовки учебных материалов рефератов, курсовых/дипломных работ
+                input(type='checkbox', id='d-sii__chbox-s-second').d-sii__chbox
+                label(for='d-sii__chbox-s-v') Поиск информации о бюджете города Москвы, необходимой в профессиональной деятельности
+                input(type='checkbox', id='d-sii__chbox-s-third').d-sii__chbox
+                label(for='d-sii__chbox-s-third') Изучение опыта города Москвы в части открытости бюджетных данных и представления бюджетных данных для граждан
+                input(type='checkbox', id='d-sii__chbox-s-forth').d-sii__chbox
+                label(for='d-sii__chbox-s-forth') Изучение бюджета и бюджетного процесса в общем формате
+                input(type='checkbox', id='d-sii__chbox-s-fifth').d-sii__chbox
+                label(for='d-sii__chbox-s-fifth') Задать вопрос о бюджете города Москвы/дать предложение
+                input(type='checkbox', id='d-sii__chbox-s-sixth').d-sii__chbox
+                label(for='d-sii__chbox-s-sixth') Другое
+                input(type='text').d-sii__chbox-other_input
+              a(href="/moscowbudget/polls_result.html", class="d-sii__form_submit", style="display: block; text-decoration: none; line-height: 28px; text-align: center;") Отправить

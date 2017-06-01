@@ -3,6 +3,9 @@ mixin sections(type)
   if type == '_task'
     .sections._task&attributes(attributes)
       block
+  else if type == '_polls'
+    .sections._polls&attributes(attributes)
+      block
   else
     .sections&attributes(attributes)
       block

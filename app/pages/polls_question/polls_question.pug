@@ -1,0 +1,17 @@
+extends ../../layouts/default
+include ../../components/polls-question/polls-question
+
+block head
+  - var pageTitle = 'Versta Project Template'
+
+block header
+  +header()._budget
+
+block sections
+  +sections('_polls')
+
+    block content
+      +polls-question()
+
+    block footer
+      +footer()
