@@ -1,3 +1,8 @@
-mixin sections()
-  +b.sections&attributes(attributes)
-    block
+//- type - добавляемый к .sections класс
+mixin sections(type)
+  if type == '_task'
+    .sections._task&attributes(attributes)
+      block
+  else
+    .sections&attributes(attributes)
+      block
