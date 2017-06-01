@@ -1,6 +1,5 @@
 extends ../../layouts/default
-include ../../components/quiz-question/quiz-question
-include ../../components/header/header
+include ../../components/polls-task/polls-task
 
 block head
   - var pageTitle = 'Versta Project Template'
@@ -9,10 +8,10 @@ block header
   +header()._budget
 
 block sections
-  +sections()
+  +sections('_task')
 
     block content
-      +quiz-question()
+      +polls-task()
 
     block footer
       +footer()
