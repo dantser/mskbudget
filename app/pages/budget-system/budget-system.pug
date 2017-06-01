@@ -1,8 +1,12 @@
 extends ../../layouts/default
 include ../../components/budget-system/budget-system
+include ../../components/header/header
 
 block head
   - var pageTitle = 'Versta Project Template'
+
+block header
+  +header()._budget
 
 block content
   +budget-system()
