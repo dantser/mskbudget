@@ -1,7 +1,3 @@
-include ../blocks/page-head/page-head
-include ../blocks/text-field/text-field
-include ../blocks/selectbox/selectbox
-include ../blocks/calendar/calendar
 
 mixin documents()
   +b.documents&attributes(attributes)
@@ -11,55 +7,50 @@ mixin documents()
         .over-layer
           +b.wrap._sh
             +b.ahead
-              //- +e.H1(data-delay='1300').title.load-anim-fade Документы
-              //- +e.buttons
-              //-   +e.DIV(data-delay='1800').star.load-anim-fade
-              //-     +e.A(href='#', title='Добавить в избранное')
-              //-   +e.DIV(data-delay='2100').share.load-anim-fade
-              //-     +e.BUTTON.share-btn.share__btn
-              //-     +b.share.__panel
-              //-       +e.A(tabindex='0').a._fb
-              //-       +e.A(tabindex='0').a._vk
-              //-       +e.A(tabindex='0').a._tw
-              //-       +e.A(tabindex='0').a._ok
-              +page-head('Документы')
+              +e.H1(data-delay='1300').title.load-anim-fade Документы
+              +e.buttons
+                +e.DIV(data-delay='1800').star.load-anim-fade
+                  +e.A(href='#', title='Добавить в избранное')
+                +e.DIV(data-delay='2100').share.load-anim-fade
+                  +e.BUTTON.share-btn.share__btn
+                  +b.share.__panel
+                    +e.A(tabindex='0').a._fb
+                    +e.A(tabindex='0').a._vk
+                    +e.A(tabindex='0').a._tw
+                    +e.A(tabindex='0').a._ok
             +b.FORM(action='f.php', method='POST').form.mb-50
               .float-l.md-float-n
-                //- +e.field._d1
-                //-   +e.LABEL(for='i-doc-1').label Наименование документа
-                //-   +e.INPUT(id='i-doc-1', type='text', value='').text
-                //- +e.field._d1
-                //-   +e.LABEL(for='i-doc-2').label Номер документа
-                //-   +e.INPUT(id='i-doc-2', type='text', value='').text
-                +text-field().field.field_d1
-                +text-field().field.field_d1
+                +e.field._d1
+                  +e.LABEL(for='i-doc-1').label Наименование документа
+                  +e.INPUT(id='i-doc-1', type='text', value='').text
+                +e.field._d1
+                  +e.LABEL(for='i-doc-2').label Номер документа
+                  +e.INPUT(id='i-doc-2', type='text', value='').text
               .float-r.md-float-n
                 +e.field._d2
                   +e.LABEL.label Вид документа
-                  //- +e.select._w1
-                  //-   +e.BUTTON.select-btn Нормативно-правовые акты г. Москвы
-                  //-   +e.UL.select-drop
-                  //-     +e.LI
-                  //-       +e.A(href='#').select-a Нормативно-правовые акты г. Москвы
-                  //-     +e.LI
-                  //-       +e.A(href='#').select-a Правовые акты г. Москвы
-                  //-     +e.LI
-                  //-       +e.A(href='#').select-a Акты г. Москвы
-                  //-   +e.INPUT(type='hidden', name='docs', value='').select-input
-                  +selectbox('docType', getData('widget-card-selectbox')).select_w1
+                  +e.select._w1
+                    +e.BUTTON.select-btn Нормативно-правовые акты г. Москвы
+                    +e.UL.select-drop
+                      +e.LI
+                        +e.A(href='#').select-a Нормативно-правовые акты г. Москвы
+                      +e.LI
+                        +e.A(href='#').select-a Правовые акты г. Москвы
+                      +e.LI
+                        +e.A(href='#').select-a Акты г. Москвы
+                    +e.INPUT(type='hidden', name='docs', value='').select-input
                 +e.field._d2
                   +e.LABEL.label Формат документа
-                  //- +e.select
-                  //-   +e.BUTTON.select-btn DOC
-                  //-   +e.UL.select-drop
-                  //-     +e.LI
-                  //-       +e.A(href='#').select-a DOC
-                  //-     +e.LI
-                  //-       +e.A(href='#').select-a PDF
-                  //-     +e.LI
-                  //-       +e.A(href='#').select-a XLS
-                  //-   +e.INPUT(type='hidden', name='type', value='').select-input
-                  +selectbox('docType', getData('widget-card-selectbox')).select
+                  +e.select
+                    +e.BUTTON.select-btn DOC
+                    +e.UL.select-drop
+                      +e.LI
+                        +e.A(href='#').select-a DOC
+                      +e.LI
+                        +e.A(href='#').select-a PDF
+                      +e.LI
+                        +e.A(href='#').select-a XLS
+                    +e.INPUT(type='hidden', name='type', value='').select-input
               .clearfix
                 +e.field._d3.float-l.sm-float-n.mr-50
                   +e.LABEL.label._w1 Дата публикации
