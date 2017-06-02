@@ -1,11 +1,11 @@
 mixin menu()
-  +b.menu&attributes(attributes)
+  +b.NAV.menu&attributes(attributes)
     ul
       +e.LI.item
         +e.A(href="#").a О бюджете
       +e.LI.item
         +e.A(href="#").a Бюджет Москвы
-        +e.sub-menu
+        //+e.sub-menu
           +e.UL.sub-menu-ul
             +e.LI.sub-menu-item
               a(href="#") Медиаматериалы
@@ -84,7 +84,7 @@ mixin menu()
                   a(href="#") Фотографии
       +e.LI.item
         +e.A(href="#").a Аналитика
-        +e.sub-menu
+        //+e.sub-menu
           +e.UL.sub-menu-ul
             +e.LI.sub-menu-item
               a(href="#") Медиаматериалы
@@ -115,9 +115,9 @@ mixin menu()
                 li
                   a(href="#") Фотографии
       +e.LI.item
-        +e.A(href="#").a Сервисы
-      +e.LI.item
         +e.A(href="#").a Открытость
+      +e.LI.item
+        +e.A(href="#").a Сервисы      
       +e.LI.item
         +e.A(href="#").a Медиацентр
       +e.LI.item
