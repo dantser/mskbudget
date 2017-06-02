@@ -29,22 +29,6 @@
   }
 }
 
-@media (max-width: 1180px) {
-
-  .link-for-blind {
-    font-size: 0;
-    height: 19px;
-  }
-
-  .link-for-blind::before {
-    background-image: url('../images/sprite@2x.png');
-    -moz-background-size: 480px auto;
-    -o-background-size: 480px auto;
-    background-size: 480px auto;
-    background-repeat: no-repeat;
-  }
-}
-
 .header {
   position: fixed;
   top: -150px;
@@ -280,6 +264,13 @@
     }
   }
 
+  &_budget {
+    background: url('../images/background/menu.jpg') no-repeat 50% 0 !important;
+    -moz-background-size: 100% 100% !important;
+    -o-background-size: 100% 100% !important;
+    background-size: 100% 100% !important;
+  }
+  
   &_opened {
     background: rgba(0, 0, 0, .6) !important;
     border: none !important;
@@ -287,13 +278,6 @@
     .header__open-menu {
       border-left: 1px solid rgba(255, 255, 255, .2) !important;
     }
-  }
-
-  &_budget {
-    background: url('../images/background/menu.jpg') no-repeat 50% 0 !important;
-    -moz-background-size: 100% 100% !important;
-    -o-background-size: 100% 100% !important;
-    background-size: 100% 100% !important;
   }
 
   &_mob {
@@ -422,6 +406,19 @@
 }
 
 @media (max-width: 1180px) {
+
+  .link-for-blind {
+    font-size: 0;
+    height: 19px;
+  }
+
+  .link-for-blind::before {
+    background-image: url('../images/sprite@2x.png');
+    -moz-background-size: 480px auto;
+    -o-background-size: 480px auto;
+    background-size: 480px auto;
+    background-repeat: no-repeat;
+  }
 
   .header__menu {
     margin: 0 0 0 52px;
