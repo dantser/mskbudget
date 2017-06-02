@@ -1,263 +1,274 @@
 mixin main-t1()
   +b.main-t1&attributes(attributes)
-    +b.A(href="#", data-delay="2700", title="Путеводитель по бюджету").guide.load-anim-fade.load-anim-fade_on.guide_short
-      span
-        | Путеводитель
-        br
-        | по бюджету
-      +e.SPAN.icon
-    div(role="toolbar").sections.sections_fs.slick-initialized.slick-slider.slick-dotted.slick-vertical
-      // SECTIONS_ITEM(Banner)
-      div(aria-live="polite").slick-list
-        div(role="listbox").slick-track
-          div(data-slick-index="0", aria-hidden="false", tabindex="-1", role="option", aria-describedby="slick-slide00").sections__item.slick-slide.slick-current.slick-active
-            +b.cube
-              +e.side._current
-                +b.banner._ban-1
-                  +e.wrap.wrap
-                    .clearfix
-                      +e.DIV(data-delay="300").cat.load-anim-fade.load-anim-fade_on Бюджет Москвы
-                      button(tabindex="0").arrow.cube__arrow.cube__arrow_m.arrow_left.cube__arrow_next
-                      button(tabindex="0").arrow.cube__arrow.cube__arrow_m.arrow_right.cube__arrow_prev
-                    +e.A(href="#", tabindex="0").link
-                      +e.SPAN.title_b
-                        +e.SPAN(data-delay="900").row.banner__row_v10.load-anim-fade.load-anim-fade_on
-                          | Государственный долг
+    //- A(href="#", data-delay="2700", title="Путеводитель по бюджету").guide.load-anim-fade.load-anim-fade_on.guide_short
+    //-   span
+    //-     | Путеводитель
+    //-     br
+    //-     | по бюджету
+    //-   .SPAN.icon
+    //- div(role="toolbar").sections.sections_fs.slick-initialized.slick-slider.slick-dotted.slick-vertical
+    // SECTIONS_ITEM(Banner)
+    div(aria-live="polite").slick-list
+      div(role="listbox").slick-track
+        div(data-slick-index="0", aria-hidden="false", tabindex="-1", role="option", aria-describedby="slick-slide00").sections__item.slick-slide.slick-current.slick-active
+          .cube
+            .cube__side.cube__side_current
+              .banner.banner_ban-1
+                .wrap.banner__wrap
+                  .clearfix
+                    DIV(data-delay="300").banner__cat.load-anim-fade.load-anim-fade_on Бюджет Москвы
+                    button(tabindex="0").arrow.cube__arrow.cube__arrow_m.arrow_left.cube__arrow_next
+                    button(tabindex="0").arrow.cube__arrow.cube__arrow_m.arrow_right.cube__arrow_prev
+                  A(href="#", tabindex="0").banner__link
+                    SPAN.banner__title_b
+                      SPAN(data-delay="900").banner__row.banner__row_v10.load-anim-fade.load-anim-fade_on
+                        | Государственный долг
+                        br
+                        | на 01.12.2016
+                  A(href="#", tabindex="0", data-delay="2100").button.banner__button.load-anim-fade.load-anim-fade_on
+                    span Подробнее
+            .cube__side.cube__side_right
+              .banner.banner_ban-2
+                .wrap.banner__wrap
+                  .clearfix
+                    DIV(data-delay="300").banner__cat Сервисы
+                    button(tabindex="0").arrow.cube__arrow.cube__arrow_m.arrow_left.cube__arrow_next
+                    button(tabindex="0").arrow.cube__arrow.cube__arrow_m.arrow_right.cube__arrow_prev
+                  A(href="#", tabindex="0").banner__link
+                    SPAN.banner__title_b
+                      SPAN(data-delay="900").banner__row.banner__row_v10.load-anim-fade.load-anim-fade_on
+                        | Бюджетный
+                        br
+                        | калькулятор
+                      SPAN.row.banner__row_sub Создай свой бюджет!
+                  A(href="#", tabindex="0").button.banner__button
+                    span Подробнее
+            .cube__side.cube__side_left
+              .banner.banner_ban-3
+                .wrap.banner__wrap
+                  .clearfix
+                    DIV(data-delay="300").banner__cat Новости
+                    button(tabindex="0").arrow.cube__arrow.cube__arrow_m.arrow_left.cube__arrow_next
+                    button(tabindex="0").arrow.cube__arrow.cube__arrow_m.arrow_right.cube__arrow_prev
+                  A(href="#", tabindex="0").banner__link
+                    SPAN.banner__title_b
+                      SPAN(data-delay='900').banner__row.banner__row_v11.load-anim-fade.load-anim-fade_on
+                        | Опубликованы данные по
+                        br
+                        | исполнению бюджета города
+                        br
+                        | Москвы на 01.10.2016
+                    SPAN.banner__row.banner__row_sub Департамент финансов города Москвы подвел итоги исполнения столичного бюджета за 9 месяцев 2016 года
+                  A(href="#", tabindex="0").button.banner__button.mt-30
+                    span Подробнее
+
+            BUTTON(tabindex="0").arrow.cube__arrow.cube__arrow_right.cube__arrow_prev
+            BUTTON(tabindex="0").arrow.cube__arrow.cube__arrow_left.cube__arrow_next
+
+        div(data-slick-index="1", aria-hidden="true", tabindex="-1", role="option", aria-describedby="slick-slide01").sections__item.sections__item_bg1.slick-slide
+          // DIAGRAMS_SLIDER
+          div(data-sides-900="2").slider.slider_diagrams.slick-initialized.slick-slider
+            button(type="button", data-role="none", aria-label="Previous", role="button").slick-prev.slick-arrow Previous
+            div(aria-live="polite").slick-list
+              div(role="listbox").slick-track
+                div(tabindex="-1", role="option", data-slick-index="-1", aria-hidden="true").cube__side_new.cube__side_new-2.slick-slide.slick-cloned
+                  // AHEAD
+                  .sections__ahead.mb-40.viewport-900-lg
+                    .wrap
+                      h2.sections__title.mr-20.anim-fade-top.anim-fade-top_on Исполнение бюджета
+                      // CALENDAR
+                      .sections__datepicker
+                        span
+                          | По состоянию
                           br
-                          | на 01.12.2016
-                    +e.A(href="#", tabindex="0", data-delay="2100").button.button.load-anim-fade.load-anim-fade_on
-                      span Подробнее
-              +e.side._right
-                +b.banner._ban-2
-                  +e.wrap.wrap
-                    .clearfix
-                      +e.DIV(data-delay="300").cat Сервисы
-                      button(tabindex="0").arrow.cube__arrow.cube__arrow_m.arrow_left.cube__arrow_next
-                      button(tabindex="0").arrow.cube__arrow.cube__arrow_m.arrow_right.cube__arrow_prev
-                    +e.A(href="#", tabindex="0").link
-                      +e.SPAN.title_b
-                        +e.SPAN(data-delay="900").row.banner__row_v10.load-anim-fade.load-anim-fade_on
-                          | Бюджетный
+                          | на
+                        .datepicker
+                          INPUT(type="text", tabindex="-1", id='dp1496386581280', value="21.12.2016").datepicker__show.hasDatepicker.jq-datepicker
+                  // DIAGRAM_CELL
+                  .grid.grid_col-2
+                    .grid__col.grid-brick-2
+                      .large-diagram
+                        P.large-diagram__caption доходы
+                        .large-diagram__svg
+                          .large-diagram__values
+                            .large-diagram__percent
+                              span(id='', data-value="115,4").diagram-value 115,4
+                              | %
+                            .large-diagram__value.large-diagram__value_top
+                              | План
+                              P.large-diagram__value-lightblue 1665,5
+                            .large-diagram__value.large-diagram__value_bottom
+                              P(id='', data-value="1921,7").large-diagram__value-blue.diagram-value 1921,7
+                              | факт
+                          .svg-wrap
+                            !{'<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="390px" height="390px" viewBox="0 0 390 390" xml:space="preserve" class="svg"><circle fill="none" cx="195" cy="195" r="165" stroke="url(#svg-gradient_diagram-4-1)" stroke-width="60" stroke-opacity="0.3"></circle><g filter="url(#filter-diagram-4-0)"><path fill="none" stroke="#000" stroke-opacity="0.5" stroke-width="58" stroke-linecap="round" d="M 200.75841695591268 30.10051354184921 A 165 165 0 1 1 197.87964706215172 30.02513029919544 " class="anim-diagram anim-diagram_first" data-radius="165" stroke-dasharray="1034,1034" stroke-dashoffset="0"></path><rect x="0" y="0" width="100%" height="100%" fill="none"></rect></g><path fill="none" stroke="url(#svg-gradient_diagram-4-1)" stroke-width="60" stroke-linecap="round" d="M 195 30 A 165 165 0 1 1 192.12035293784822 30.02513029919544 " class="anim-diagram anim-diagram_first" data-radius="165" stroke-dasharray="1034,1034" stroke-dashoffset="0"></path><g filter="url(#filter-diagram-4-0)"><path fill="none" stroke="#000" stroke-opacity="0.5" stroke-width="58" stroke-linecap="round" d="M 200.75841695591268 30.10051354184921 A 165 165 0 0 1 333.97044619711573 106.04936715360274 " class="anim-diagram anim-diagram_second" data-radius="165" stroke-dasharray="160,160" stroke-dashoffset="0"></path><rect x="0" y="0" width="100%" height="100%" fill="none"></rect></g><g><path id="" fill="none" stroke="url(#svg-gradient_diagram-4-0)" stroke-width="60" stroke-linecap="round" d="M 195 30 A 165 165 0 0 1 330.78145683844 101.25355484696576 " class="anim-diagram anim-diagram_second anim-diagram_id" data-radius="165" stroke-dasharray="160,160" stroke-dashoffset="0"></path><rect x="0" y="0" width="100%" height="100%" fill="none"></rect></g><filter id=""><feGaussianBlur stdDeviation="2"></feGaussianBlur></filter><defs><linearGradient xmlns="http://www.w3.org/2000/svg" id="" gradientUnits="userSpaceOnUse" x1="360" y1="195" x2="30" y2="195.00000000000003"><stop offset="0" style="stop-color:#008ADF"></stop><stop offset="1" style="stop-color:#00E6F9"></stop></linearGradient></defs><defs><linearGradient xmlns="http://www.w3.org/2000/svg" id="" gradientUnits="userSpaceOnUse" x1="195" y1="360" x2="194.99999999999997" y2="30"><stop offset="0" style="stop-color:#008ADF"></stop><stop offset="1" style="stop-color:#00E6F9"></stop></linearGradient></defs></svg>'}
+
+                    .grid__col.grid-brick-2
+                      .large-diagram
+                        P.large-diagram__caption расходы
+                        .large-diagram__svg
+                          .large-diagram__values
+                            .large-diagram__percent
+                              span(id='', data-value="73,1").diagram-value 73,1
+                              | %
+                            .large-diagram__value.large-diagram__value_top
+                              | План
+                              P.large-diagram__value-pink 1865,5
+                            .large-diagram__value.large-diagram__value_bottom
+                              P(id='', data-value="1364,5").large-diagram__value-violet.diagram-value 1364,5
+                              | факт
+                          .svg-wrap
+                            !{'<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="390px" height="390px" viewBox="0 0 390 390" xml:space="preserve" class="svg"><circle fill="none" cx="195" cy="195" r="165" stroke="url(#svg-gradient_diagram-5-1)" stroke-width="60" stroke-opacity="0.3"></circle><g filter="url(#filter-diagram-5-0)"><path fill="none" stroke="#000" stroke-opacity="0.5" stroke-width="58" stroke-linecap="round" d="M 200.75841695591268 30.10051354184921 A 165 165 0 1 1 30.550557755650686 208.46777433440343 " class="anim-diagram anim-diagram_second" data-radius="165" stroke-dasharray="759,759" stroke-dashoffset="0"></path><rect x="0" y="0" width="100%" height="100%" fill="none"></rect></g><g><path id="" fill="none" stroke="url(#svg-gradient_diagram-5-0)" stroke-width="60" stroke-linecap="round" d="M 195 30 A 165 165 0 1 1 31.12075445856425 214.1987728975008 " class="anim-diagram anim-diagram_second anim-diagram_id" data-radius="165" stroke-dasharray="759,759" stroke-dashoffset="0"></path><rect x="0" y="0" width="100%" height="100%" fill="none"></rect></g><filter id=""><feGaussianBlur stdDeviation="2"></feGaussianBlur></filter><defs><linearGradient xmlns="http://www.w3.org/2000/svg" id="" gradientUnits="userSpaceOnUse" x1="360" y1="195" x2="30" y2="195.00000000000003"><stop offset="0" style="stop-color:#9D308A"></stop><stop offset="1" style="stop-color:#ED5F64"></stop></linearGradient></defs><defs><linearGradient xmlns="http://www.w3.org/2000/svg" id="" gradientUnits="userSpaceOnUse" x1="195" y1="360" x2="194.99999999999997" y2="30"><stop offset="0" style="stop-color:#9D308A"></stop><stop offset="1" style="stop-color:#ED5F64"></stop></linearGradient></defs></svg>'}
+
+                div(tabindex="-1", role="option", data-slick-index="0", aria-hidden="true").cube__side_new.cube__side_new-1.slick-slide
+                  // AHEAD
+                  div(id='diagrams-ahead-1').sections__ahead
+                    .wrap
+                      h1.sections__title.anim-fade-top.anim-fade-top_on Основные показатели бюджета за 2016–2018 годы
+                      .legend.sections__legend.anim-fade-top.anim-fade-top_on
+                        .legend__item.legend__item_blue доходы
+                        .legend__item.legend__item_pink расходы
+                        .legend__item.legend__item_green дефицит/профицит
+                  .grid.grid_col-3
+                    .grid__col.grid-brick-3
+                      div(id='iagram-1').comp-diagram.comp-diagram_dash-1
+                        .comp-diagramy__ear 2016
+                        .comp-diagram__values
+                          .comp-diagram__num.comp-diagram__num_blue.diagram-value(id='value-path-diagram-1-2', data-value="1446,2")
+                          .comp-diagram__num.comp-diagram__num_pink.diagram-value(id='value-path-diagram-1-1', data-value="1598,9")
+                          .comp-diagram__num.comp-diagram__num_yellow.diagram-value(id='value-path-diagram-1-0', data-value="-152,7", data-pre-val="1599")
+                        .svg-wrap
+                          !{'<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="270px" height="270px" viewBox="0 0 270 270" xml:space="preserve" class="svg"><g><path id="path-diagram-1-0" fill="none" stroke="url(#svg-gradient_diagram-1-0)" stroke-width="30" stroke-linecap="round" stroke-miterlimit="10" d="M 15 135.00000000000003 A 120 120 0 1 0 112.55037145840667 17.118643635456593" class="anim-diagram last" data-radius="120" stroke-dasharray="589,589" stroke-dashoffset="0"></path><rect x="0" y="0" width="100%" height="100%" fill="none"></rect></g><g><path id="path-diagram-1-2" fill="none" stroke="url(#svg-gradient_diagram-1-2)" stroke-width="30" stroke-linecap="round" stroke-miterlimit="10" d="M 15 135.00000000000003 A 120 120 0 1 0 168.1432585178204 19.667765066218692" class="anim-diagram" data-radius="120" stroke-dasharray="532,532" stroke-dashoffset="0"></path><rect x="0" y="0" width="100%" height="100%" fill="none"></rect></g><g filter="url(#f1)"><path fill="none" stroke="#000" stroke-opacity="0.5" stroke-width="20" stroke-linecap="round" stroke-miterlimit="10" d="M 35 135 A 100 100 0 1 0 116.29197621533889 36.765536362880496" class="anim-diagram" data-radius="100" stroke-dasharray="491,491" stroke-dashoffset="0"></path><rect x="0" y="0" width="100%" height="100%" fill="none"></rect></g><g><path id="path-diagram-1-1" fill="none" stroke="url(#svg-gradient_diagram-1-1)" stroke-width="30" stroke-linecap="round" stroke-miterlimit="10" d="M 45 135 A 90 90 0 1 0 118.162778593805 46.58898272659245" class="anim-diagram" data-radius="90" stroke-dasharray="442,442" stroke-dashoffset="0"></path><rect x="0" y="0" width="100%" height="100%" fill="none"></rect></g><filter id="f1"><feGaussianBlur stdDeviation="5"></feGaussianBlur></filter><defs><linearGradient xmlns="http://www.w3.org/2000/svg" id="svg-gradient_diagram-1-0" gradientUnits="userSpaceOnUse" x1="0" y1="134" x2="268" y2="154"><stop offset="0.4586" style="stop-color:#FEE300"></stop><stop offset="0.7107" style="stop-color:#30B069"></stop></linearGradient></defs><defs><linearGradient xmlns="http://www.w3.org/2000/svg" id="svg-gradient_diagram-1-1" gradientUnits="userSpaceOnUse" x1="224.0493" y1="185.9902" x2="54.2576" y2="87.9609"><stop offset="0.1748" style="stop-color:#9D308A"></stop><stop offset="1" style="stop-color:#FF695B"></stop></linearGradient></defs><defs><linearGradient id="svg-gradient_diagram-1-2" gradientUnits="userSpaceOnUse" x1="51.5933" y1="241.0088" x2="241.0492" y2="51.5528"><stop offset="0" style="stop-color:#00FFFF"></stop><stop offset="1" style="stop-color:#004CCF"></stop></linearGradient></defs></svg>'}
+                    .grid__col.grid-brick-3
+                      div(id='diagram-2').comp-diagram.comp-diagram_dash-2
+                        .comp-diagram__year 2017
+                        .comp-diagram__values
+                          .comp-diagram__num.comp-diagram__num_blue.diagram-value(id='value-path-diagram-2-2', data-value="1446,2")
+                          .comp-diagram__num.comp-diagram__num_pink.diagram-value(id='value-path-diagram-2-1', data-value="1598,9")
+                          .comp-diagram__num.comp-diagram__num_yellow.diagram-value(id='value-path-diagram-2-0', data-value="-152,7", data-pre-val="1599")
+                        .svg-wrap
+                          !{'<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="270px" height="270px" viewBox="0 0 270 270" xml:space="preserve" class="svg"><g><path id="path-diagram-2-0" fill="none" stroke="url(#svg-gradient_diagram-2-0)" stroke-width="30" stroke-linecap="round" stroke-miterlimit="10" d="M 15 135.00000000000003 A 120 120 0 1 0 112.55037145840667 17.118643635456593" class="anim-diagram last" data-radius="120" stroke-dasharray="589,589" stroke-dashoffset="0"></path><rect x="0" y="0" width="100%" height="100%" fill="none"></rect></g><g><path id="path-diagram-2-2" fill="none" stroke="url(#svg-gradient_diagram-2-2)" stroke-width="30" stroke-linecap="round" stroke-miterlimit="10" d="M 15 135.00000000000003 A 120 120 0 1 0 168.1432585178204 19.667765066218692" class="anim-diagram" data-radius="120" stroke-dasharray="532,532" stroke-dashoffset="0"></path><rect x="0" y="0" width="100%" height="100%" fill="none"></rect></g><g filter="url(#f1)"><path fill="none" stroke="#000" stroke-opacity="0.5" stroke-width="20" stroke-linecap="round" stroke-miterlimit="10" d="M 35 135 A 100 100 0 1 0 116.29197621533889 36.765536362880496" class="anim-diagram" data-radius="100" stroke-dasharray="491,491" stroke-dashoffset="0"></path><rect x="0" y="0" width="100%" height="100%" fill="none"></rect></g><g><path id="path-diagram-2-1" fill="none" stroke="url(#svg-gradient_diagram-2-1)" stroke-width="30" stroke-linecap="round" stroke-miterlimit="10" d="M 45 135 A 90 90 0 1 0 118.162778593805 46.58898272659245" class="anim-diagram" data-radius="90" stroke-dasharray="442,442" stroke-dashoffset="0"></path><rect x="0" y="0" width="100%" height="100%" fill="none"></rect></g><filter id="f1"><feGaussianBlur stdDeviation="5"></feGaussianBlur></filter><defs><linearGradient xmlns="http://www.w3.org/2000/svg" id="svg-gradient_diagram-2-0" gradientUnits="userSpaceOnUse" x1="0" y1="134" x2="268" y2="154"><stop offset="0.4586" style="stop-color:#FEE300"></stop><stop offset="0.7107" style="stop-color:#30B069"></stop></linearGradient></defs><defs><linearGradient xmlns="http://www.w3.org/2000/svg" id="svg-gradient_diagram-2-1" gradientUnits="userSpaceOnUse" x1="224.0493" y1="185.9902" x2="54.2576" y2="87.9609"><stop offset="0.1748" style="stop-color:#9D308A"></stop><stop offset="1" style="stop-color:#FF695B"></stop></linearGradient></defs><defs><linearGradient id="svg-gradient_diagram-2-2" gradientUnits="userSpaceOnUse" x1="51.5933" y1="241.0088" x2="241.0492" y2="51.5528"><stop offset="0" style="stop-color:#00FFFF"></stop><stop offset="1" style="stop-color:#004CCF"></stop></linearGradient></defs></svg>'}
+                    .grid__col.grid-brick-3
+                      div(id='diagram-3').comp-diagram.comp-diagram_dash-1
+                        .comp-diagram__year 2018
+                        .comp-diagram__values
+                          .comp-diagram__num.comp-diagram__num_blue.diagram-value(id='value-path-diagram-3-2', data-value="1446,2")
+                          .comp-diagram__num.comp-diagram__num_pink.diagram-value(id='value-path-diagram-3-1', data-value="1598,9")
+                          .comp-diagram__num.comp-diagram__num_yellow.diagram-value(id='value-path-diagram-3-0', data-value="-152,7", data-pre-val="1599")
+                        .svg-wrap
+                          !{'<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="270px" height="270px" viewBox="0 0 270 270" xml:space="preserve" class="svg"><g><path id="path-diagram-3-0" fill="none" stroke="url(#svg-gradient_diagram-3-0)" stroke-width="30" stroke-linecap="round" stroke-miterlimit="10" d="M 15 135.00000000000003 A 120 120 0 1 0 112.55037145840667 17.118643635456593" class="anim-diagram last" data-radius="120" stroke-dasharray="589,589" stroke-dashoffset="0"></path><rect x="0" y="0" width="100%" height="100%" fill="none"></rect></g><g><path id="path-diagram-3-2" fill="none" stroke="url(#svg-gradient_diagram-3-2)" stroke-width="30" stroke-linecap="round" stroke-miterlimit="10" d="M 15 135.00000000000003 A 120 120 0 1 0 168.1432585178204 19.667765066218692" class="anim-diagram" data-radius="120" stroke-dasharray="532,532" stroke-dashoffset="0"></path><rect x="0" y="0" width="100%" height="100%" fill="none"></rect></g><g filter="url(#f1)"><path fill="none" stroke="#000" stroke-opacity="0.5" stroke-width="20" stroke-linecap="round" stroke-miterlimit="10" d="M 35 135 A 100 100 0 1 0 116.29197621533889 36.765536362880496" class="anim-diagram" data-radius="100" stroke-dasharray="491,491" stroke-dashoffset="0"></path><rect x="0" y="0" width="100%" height="100%" fill="none"></rect></g><g><path id="path-diagram-3-1" fill="none" stroke="url(#svg-gradient_diagram-3-1)" stroke-width="30" stroke-linecap="round" stroke-miterlimit="10" d="M 45 135 A 90 90 0 1 0 118.162778593805 46.58898272659245" class="anim-diagram" data-radius="90" stroke-dasharray="442,442" stroke-dashoffset="0"></path><rect x="0" y="0" width="100%" height="100%" fill="none"></rect></g><filter id="f1"><feGaussianBlur stdDeviation="5"></feGaussianBlur></filter><defs><linearGradient xmlns="http://www.w3.org/2000/svg" id="svg-gradient_diagram-3-0" gradientUnits="userSpaceOnUse" x1="0" y1="134" x2="268" y2="154"><stop offset="0.4586" style="stop-color:#FEE300"></stop><stop offset="0.7107" style="stop-color:#30B069"></stop></linearGradient></defs><defs><linearGradient xmlns="http://www.w3.org/2000/svg" id="svg-gradient_diagram-3-1" gradientUnits="userSpaceOnUse" x1="224.0493" y1="185.9902" x2="54.2576" y2="87.9609"><stop offset="0.1748" style="stop-color:#9D308A"></stop><stop offset="1" style="stop-color:#FF695B"></stop></linearGradient></defs><defs><linearGradient id="svg-gradient_diagram-3-2" gradientUnits="userSpaceOnUse" x1="51.5933" y1="241.0088" x2="241.0492" y2="51.5528"><stop offset="0" style="stop-color:#00FFFF"></stop><stop offset="1" style="stop-color:#004CCF"></stop></linearGradient></defs></svg>'}
+                div(tabindex="-1", role="option", data-slick-index="1", aria-hidden="true").cube__side_new.cube__side_new-2.slick-slide
+                  // AHEAD
+                  div(id='diagrams-ahead-2').sections__ahead.mb-40.viewport-900-lg
+                    .wrap
+                      h2.sections__title.mr-20.anim-fade-top.anim-fade-top_on Исполнение бюджета
+                      // CALENDAR
+                      .sections__datepicker
+                        span
+                          | По состоянию
                           br
-                          | калькулятор
-                        +e.SPAN.row.banner__row_sub Создай свой бюджет!
-                    +e.A(href="#", tabindex="0").button.button
-                      span Подробнее
-                +e.side._left
-                  +b.banner._ban-3
-                    +e.wrap.wrap
-                      .clearfix
-                        +e.DIV(data-delay="300").cat Новости
-                        button(tabindex="0").arrow.cube__arrow.cube__arrow_m.arrow_left.cube__arrow_next
-                        button(tabindex="0").arrow.cube__arrow.cube__arrow_m.arrow_right.cube__arrow_prev
-                      +e.A(href="#", tabindex="0").link
-                        +e.SPAN.title_b
-                          +e.SPAN.row.banner__row_sub Департамент финансов города Москвы подвел итоги исполнения столичного бюджета за 9 месяцев 2016 года
-                      +e.A(href="#", tabindex="0").button.button.mt-30
-                        span Подробнее
-              +e.BUTTON(tabindex="0").arrow.arrow.arrow_right.cube__arrow_prev
-              +e.BUTTON(tabindex="0").arrow.arrow.arrow_left.cube__arrow_next
-          div(data-slick-index="1", aria-hidden="true", tabindex="-1", role="option", aria-describedby="slick-slide01").sections__item.sections__item_bg1.slick-slide
-            // DIAGRAMS_SLIDER
-            div(data-sides-900="2").slider.slider_diagrams.slick-initialized.slick-slider
-              button(type="button", data-role="none", aria-label="Previous", role="button").slick-prev.slick-arrow Previous
-              div(aria-live="polite").slick-list
-                div(role="listbox").slick-track
-                  div(tabindex="-1", role="option", data-slick-index="-1", aria-hidden="true").cube__side_new.cube__side_new-2.slick-slide.slick-cloned
-                    // AHEAD
-                    .sections__ahead.mb-40.viewport-900-lg
-                      .wrap
-                        h2.sections__title.mr-20.anim-fade-top Исполнение бюджета
-                        // CALENDAR
-                        .sections__datepicker
-                          span
-                            | По состоянию
-                            br
-                            | на
-                          +b.datepicker
-                            +e.INPUT(type="text", tabindex="-1", value="21.12.2016").show.jq-datepicker
-                    // DIAGRAM_CELL
-                    +b.grid.grid_col-2
-                      +e.col.grid-brick-2
-                        +b.large-diagram
-                          +e.P.caption доходы
-                          +e.svg
-                            +e.values
-                              +e.percent
-                                span(data-value="115,4").diagram-value 115,4
-                                | %
-                              +e.value._top
-                                | План
-                                +e.value-lightblue 1665,5
-                              +e.value._bottom
-                                +e.P(data-value="1921,7").value-blue.diagram-value 1921,7
-                                | факт
-                            .svg-wrap
-                              | svg
-                      +e.col.grid-brick-2
-                        +b.large-diagram
-                          +e.P.caption расходы
-                          +e.svg
-                            +e.values
-                              +e.percent
-                                span(data-value="73,1").diagram-value 73,1
-                                | %
-                              +e.value._top
-                                | План
-                                +e.value-lightblue 1865,5
-                              +e.value._bottom
-                                +e.P(data-value="1364,5").value-blue.diagram-value 1364,5
-                                | факт
-                            .svg-wrap
-                              | svg
-                  div(tabindex="-1", role="option", data-slick-index="0", aria-hidden="false").cube__side_new.cube__side_new-1.slick-slide.slick-current.slick-active
-                    // AHEAD
-                    .sections__ahead#diagrams-ahead-1
-                      .wrap
-                        h1.sections__title.anim-fade-top Основные показатели бюджета за 2016–2018 годы
-                        +b.legend.sections__legend.anim-fade-top
-                          +e.item._blue доходы
-                          +e.item._pink расходы
-                          +e.item._green дефицит/профицит
-                    +b.grid._col-3
-                      +e.col.grid-brick-3
-                        +b.comp-diagram._dash-1#diagram-1
-                          +e.year 2016
-                          +e.values
-                            +e.num._blue.diagram-value(data-value="1446,2")#value-path-diagram-1-2
-                            +e.num._pink.diagram-value(data-value="1598,9")#value-path-diagram-1-1
-                            +e.num._yellow.diagram-value(data-value="-152,7", data-pre-val="1599")#value-path-diagram-1-0
+                          | на
+                        .datepicker
+                          .INPUT(type="text", tabindex="-1", id='dp1496386581281', value="21.12.2016").datepicker__show.hasDatepicker.jq-datepicker
+                  .grid.grid_col-2
+                    .grid__col.grid-brick-2
+                      .large-diagram
+                        P.large-diagram__caption расходы
+                        div(id='diagram-4').large-diagram__svg
+                          .large-diagram__values
+                            .large-diagram__percent
+                              span(id='value-perc-path-diagram-4-0', data-value="115,4").diagram-value 0
+                              | %
+                            .large-diagram__value.large-diagram__value_top
+                              | План
+                              P.large-diagram__value-lightblue 1665,5
+                            .large-diagram__value.large-diagram__value_bottom
+                              P(id='value-path-diagram-4-0', data-value="1921,7").large-diagram__value-blue.diagram-value 1364,5
+                              | факт
                           .svg-wrap
-                            | svg
-                      +e.col.grid-brick-3
-                        +b.comp-diagram._dash-2#diagram-2
-                          +e.year 2017
-                          +e.values
-                            +e.num._blue.diagram-value(data-value="1446,2")#value-path-diagram-2-2
-                            +e.num._pink.diagram-value(data-value="1598,9")#value-path-diagram-2-1
-                            +e.num._yellow.diagram-value(data-value="-152,7", data-pre-val="1599")#value-path-diagram-2-0
+                            !{'<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="390px" height="390px" viewBox="0 0 390 390" xml:space="preserve" class="svg"><circle fill="none" cx="195" cy="195" r="165" stroke="url(#svg-gradient_diagram-4-1)" stroke-width="60" stroke-opacity="0.3"></circle><g filter="url(#filter-diagram-4-0)"><path fill="none" stroke="#000" stroke-opacity="0.5" stroke-width="58" stroke-linecap="round" d="M 200.75841695591268 30.10051354184921 A 165 165 0 1 1 197.87964706215172 30.02513029919544 " class="anim-diagram anim-diagram_first" data-radius="165" stroke-dasharray="1034,1034" stroke-dashoffset="0"></path><rect x="0" y="0" width="100%" height="100%" fill="none"></rect></g><path fill="none" stroke="url(#svg-gradient_diagram-4-1)" stroke-width="60" stroke-linecap="round" d="M 195 30 A 165 165 0 1 1 192.12035293784822 30.02513029919544 " class="anim-diagram anim-diagram_first" data-radius="165" stroke-dasharray="1034,1034" stroke-dashoffset="0"></path><g filter="url(#filter-diagram-4-0)"><path fill="none" stroke="#000" stroke-opacity="0.5" stroke-width="58" stroke-linecap="round" d="M 200.75841695591268 30.10051354184921 A 165 165 0 0 1 333.97044619711573 106.04936715360274 " class="anim-diagram anim-diagram_second" data-radius="165" stroke-dasharray="160,160" stroke-dashoffset="0"></path><rect x="0" y="0" width="100%" height="100%" fill="none"></rect></g><g><path id="path-diagram-4-0" fill="none" stroke="url(#svg-gradient_diagram-4-0)" stroke-width="60" stroke-linecap="round" d="M 195 30 A 165 165 0 0 1 330.78145683844 101.25355484696576 " class="anim-diagram anim-diagram_second anim-diagram_id" data-radius="165" stroke-dasharray="160,160" stroke-dashoffset="0"></path><rect x="0" y="0" width="100%" height="100%" fill="none"></rect></g><filter id="filter-diagram-4-0"><feGaussianBlur stdDeviation="2"></feGaussianBlur></filter><defs><linearGradient xmlns="http://www.w3.org/2000/svg" id="svg-gradient_diagram-4-0" gradientUnits="userSpaceOnUse" x1="360" y1="195" x2="30" y2="195.00000000000003"><stop offset="0" style="stop-color:#008ADF"></stop><stop offset="1" style="stop-color:#00E6F9"></stop></linearGradient></defs><defs><linearGradient xmlns="http://www.w3.org/2000/svg" id="svg-gradient_diagram-4-1" gradientUnits="userSpaceOnUse" x1="195" y1="360" x2="194.99999999999997" y2="30"><stop offset="0" style="stop-color:#008ADF"></stop><stop offset="1" style="stop-color:#00E6F9"></stop></linearGradient></defs></svg>'}
+                    .grid__col.grid-brick-2
+                      .large-diagram
+                        P.large-diagram__caption расходы
+                        div(id='diagram-5').large-diagram__svg
+                          .large-diagram__values
+                            .large-diagram__percent
+                              span(id='value-perc-path-diagram-5-0', data-value="73,1").diagram-value#value-perc-path-diagram-5-0 0
+                              | %
+                            .large-diagram__value.large-diagram__value_top
+                              | План
+                              P.large-diagram__value-pink 1865,5
+                            .large-diagram__value.large-diagram__value_bottom
+                              P(id='value-path-diagram-5-0', data-value="1921,7").large-diagram__value-violet.diagram-value 0
+                              | факт
                           .svg-wrap
-                            | svg
-                      +e.col.grid-brick-3
-                        +b.comp-diagram._dash-1#diagram-3
-                          +e.year 2018
-                          +e.values
-                            +e.num._blue.diagram-value(data-value="1446,2")#value-path-diagram-3-2
-                            +e.num._pink.diagram-value(data-value="1598,9")#value-path-diagram-3-1
-                            +e.num._yellow.diagram-value(data-value="-152,7", data-pre-val="1599")#value-path-diagram-3-0
-                          .svg-wrap
-                            | svg
-                  div(tabindex="-1", role="option", data-slick-index="1", aria-hidden="true").cube__side_new.cube__side_new-2.slick-slide
-                    // AHEAD
-                    .sections__ahead#diagrams-ahead-2
-                      .wrap
-                        h1.sections__title.mr-20.anim-fade-top Исполнение бюджета
-                        // CALENDAR
-                        .sections__datepicker
-                          span
-                            | По состоянию
-                            br
-                            | на
-                          +b.datepicker
-                            +e.INPUT(type="text", tabindex="-1", value="21.12.2016").show.jq-datepicker
-                    +b.grid._col-2
-                      +e.col.grid-brick-2
-                        +b.large-diagram
-                          +e.P.caption расходы
-                          +e.svg#diagram-4
-                            +e.values
-                              +e.percent
-                                span(data-value="115,4").diagram-value#value-perc-path-diagram-4-0 0
-                                | %
-                              +e.value._top
-                                | План
-                                +e.value-lightblue 1665,5
-                              +e.value._bottom
-                                +e.P(data-value="1921,7").value-blue.diagram-value#value-path-diagram-4-0 1364,5
-                                | факт
-                            .svg-wrap
-                              | svg
-                      +e.col.grid-brick-2
-                        +b.large-diagram
-                          +e.P.caption расходы
-                          +e.svg#diagram-5
-                            +e.values
-                              +e.percent
-                                span(data-value="73,1").diagram-value#value-perc-path-diagram-5-0 0
-                                | %
-                              +e.value._top
-                                | План
-                                +e.value-pink 1865,5
-                              +e.value._bottom
-                                +e.P(data-value="1921,7").value-violet.diagram-value#value-path-diagram-5-0 0
-                                | факт
-                            .svg-wrap
-                              | svg
-                  div(tabindex="-1", role="option", data-slick-index="2", aria-hidden="true").cube__side_new.cube__side_new-1.slick-slide.slick-cloned
-                    // AHEAD
-                    .sections__ahead
-                      .wrap
-                        h1.sections__title.anim-fade-top Основные показатели бюджета за 2016–2018 годы
-                        +b.legend.sections__legend.anim-fade-top
-                          +e.item.legend__item_blue доходы
-                          +e.item.legend__item_pink расходы
-                          +e.item.legend__item_green дефицит/профицит
-                    // DIAGRAM_CELL
-                    +b.grid.grid-col-3
-                      +e.col.grid-brick-3
-                        +b.comp-diagram.comp-diagram_dash-1
-                          +e.year 2016
-                          +e.values
-                            +e(data-value="1446,2").num._blue.diagram-value 1446,2
-                            +e(data-value="1598,9").num._pink.diagram-value 1598,9
-                            +e(data-value="-152,7", data-pre-val="1599").num._yellow.diagram-value -152,7
-                          .svg-wrap
-                            | svg
-                      +e.col.grid-brick-3
-                        +b.comp-diagram.comp-diagram_dash-2
-                          +e.year 2017
-                          +e.values
-                            +e(data-value="1446,2").num._blue.diagram-value 1446,2
-                            +e(data-value="1598,9").num._pink.diagram-value 1598,9
-                            +e(data-value="-152,7", data-pre-val="1599").num._yellow.diagram-value -152,7
-                          .svg-wrap
-                            | svg
-                      +e.col.grid-brick-3
-                        +b.comp-diagram.comp-diagram_dash-1
-                          +e.year 2018
-                          +e.values
-                            +e(data-value="1446,2").num._blue.diagram-value 1446,2
-                            +e(data-value="1598,9").num._pink.diagram-value 1598,9
-                            +e(data-value="-152,7", data-pre-val="1599").num._yellow.diagram-value -152,7
-                          .svg-wrap
-                            | svg
-              .button(type="button", data-role="none", aria-label="Next", role="button").slick-next.slick-arrow Next
-          div(data-slick-index="2", aria-hidden="true", tabindex="-1", role="option", aria-describedby="slick-slide02").sections__item.sections__item_bg2.slick-slide
-            // SERVICES_AHEAD
-            .sections__ahead.sections__ahead_ab
-              .wrap
-                h2.sections__title.anim-fade-top Сервисы
-                a(tabindex="-1").sections__all.anim-fade-top Все сервисы
-            div(data-sides-700="4", data-sides-900="3", data-sides-1100="2").slider.slick-initialized.slick-slider
-              button(type="button", tabindex="0", data-role="none", aria-label="Previous", role="button").slick-prev.slick-arrow Previous
-              div(aria-live="polite").slick-list
-                div(role="listbox").slick-track
-                  div(tabindex="-1", role="option", data-slick-index="-1", aria-hidden="true").cube__side_new.cube__side_new-2.slick-slide.slick-cloned
-                    +b.tile
-                      +e.item
-                        +e.inner.service
+                            !{'<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="390px" height="390px" viewBox="0 0 390 390" xml:space="preserve" class="svg"><circle fill="none" cx="195" cy="195" r="165" stroke="url(#svg-gradient_diagram-5-1)" stroke-width="60" stroke-opacity="0.3"></circle><g filter="url(#filter-diagram-5-0)"><path fill="none" stroke="#000" stroke-opacity="0.5" stroke-width="58" stroke-linecap="round" d="M 200.75841695591268 30.10051354184921 A 165 165 0 1 1 30.550557755650686 208.46777433440343 " class="anim-diagram anim-diagram_second" data-radius="165" stroke-dasharray="759,759" stroke-dashoffset="0"></path><rect x="0" y="0" width="100%" height="100%" fill="none"></rect></g><g><path id="path-diagram-5-0" fill="none" stroke="url(#svg-gradient_diagram-5-0)" stroke-width="60" stroke-linecap="round" d="M 195 30 A 165 165 0 1 1 31.12075445856425 214.1987728975008 " class="anim-diagram anim-diagram_second anim-diagram_id" data-radius="165" stroke-dasharray="759,759" stroke-dashoffset="0"></path><rect x="0" y="0" width="100%" height="100%" fill="none"></rect></g><filter id="filter-diagram-5-0"><feGaussianBlur stdDeviation="2"></feGaussianBlur></filter><defs><linearGradient xmlns="http://www.w3.org/2000/svg" id="svg-gradient_diagram-5-0" gradientUnits="userSpaceOnUse" x1="360" y1="195" x2="30" y2="195.00000000000003"><stop offset="0" style="stop-color:#9D308A"></stop><stop offset="1" style="stop-color:#ED5F64"></stop></linearGradient></defs><defs><linearGradient xmlns="http://www.w3.org/2000/svg" id="svg-gradient_diagram-5-1" gradientUnits="userSpaceOnUse" x1="195" y1="360" x2="194.99999999999997" y2="30"><stop offset="0" style="stop-color:#9D308A"></stop><stop offset="1" style="stop-color:#ED5F64"></stop></linearGradient></defs></svg>'}
+                div(tabindex="-1", role="option", data-slick-index="2", aria-hidden="true").cube__side_new.cube__side_new-1.slick-slide.slick-cloned
+                  // AHEAD
+                  .sections__ahead
+                    .wrap
+                      h1.sections__title.anim-fade-top.anim-fade-top_on Основные показатели бюджета за 2016–2018 годы
+                      .legend.sections__legend.anim-fade-top.anim-fade-top_on
+                        .legend__item.legend__item_blue доходы
+                        .legend__item.legend__item_pink расходы
+                        .legend__item.legend__item_green дефицит/профицит
+                  // DIAGRAM_CELL
+                  .grid.grid-col-3
+                    .grid__col.grid-brick-3
+                      .comp-diagram.comp-diagram_dash-1
+                        .comp-diagram__year 2016
+                        .comp-diagram__values
+                          .comp-diagram__num.comp-diagram__num_blue.diagram-value(data-value="1446,2") 1446,2
+                          .comp-diagram__num.comp-diagram__num_pink.diagram-value(data-value="1598,9") 1598,9
+                          .comp-diagram__num.comp-diagram__num_yellow.diagram-value(data-value="-152,7", data-pre-val="1599") -152,7
+                        .svg-wrap
+                          !{'<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="270px" height="270px" viewBox="0 0 270 270" xml:space="preserve" class="svg"><g><path id="" fill="none" stroke="url(#svg-gradient_diagram-1-0)" stroke-width="30" stroke-linecap="round" stroke-miterlimit="10" d="M 15 135.00000000000003 A 120 120 0 1 0 112.55037145840667 17.118643635456593" class="anim-diagram last" data-radius="120" stroke-dasharray="589,589" stroke-dashoffset="0"></path><rect x="0" y="0" width="100%" height="100%" fill="none"></rect></g><g><path id="" fill="none" stroke="url(#svg-gradient_diagram-1-2)" stroke-width="30" stroke-linecap="round" stroke-miterlimit="10" d="M 15 135.00000000000003 A 120 120 0 1 0 168.1432585178204 19.667765066218692" class="anim-diagram" data-radius="120" stroke-dasharray="532,532" stroke-dashoffset="0"></path><rect x="0" y="0" width="100%" height="100%" fill="none"></rect></g><g filter="url(#f1)"><path fill="none" stroke="#000" stroke-opacity="0.5" stroke-width="20" stroke-linecap="round" stroke-miterlimit="10" d="M 35 135 A 100 100 0 1 0 116.29197621533889 36.765536362880496" class="anim-diagram" data-radius="100" stroke-dasharray="491,491" stroke-dashoffset="0"></path><rect x="0" y="0" width="100%" height="100%" fill="none"></rect></g><g><path id="" fill="none" stroke="url(#svg-gradient_diagram-1-1)" stroke-width="30" stroke-linecap="round" stroke-miterlimit="10" d="M 45 135 A 90 90 0 1 0 118.162778593805 46.58898272659245" class="anim-diagram" data-radius="90" stroke-dasharray="442,442" stroke-dashoffset="0"></path><rect x="0" y="0" width="100%" height="100%" fill="none"></rect></g><filter id=""><feGaussianBlur stdDeviation="5"></feGaussianBlur></filter><defs><linearGradient xmlns="http://www.w3.org/2000/svg" id="" gradientUnits="userSpaceOnUse" x1="0" y1="134" x2="268" y2="154"><stop offset="0.4586" style="stop-color:#FEE300"></stop><stop offset="0.7107" style="stop-color:#30B069"></stop></linearGradient></defs><defs><linearGradient xmlns="http://www.w3.org/2000/svg" id="" gradientUnits="userSpaceOnUse" x1="224.0493" y1="185.9902" x2="54.2576" y2="87.9609"><stop offset="0.1748" style="stop-color:#9D308A"></stop><stop offset="1" style="stop-color:#FF695B"></stop></linearGradient></defs><defs><linearGradient id="" gradientUnits="userSpaceOnUse" x1="51.5933" y1="241.0088" x2="241.0492" y2="51.5528"><stop offset="0" style="stop-color:#00FFFF"></stop><stop offset="1" style="stop-color:#004CCF"></stop></linearGradient></defs></svg>'}
+                    .grid__col.grid-brick-3
+                      .comp-diagram.comp-diagram_dash-2
+                        .comp-diagram__year 2017
+                        .comp-diagram__values
+                          .comp-diagram__num.comp-diagram__num_blue.diagram-value(data-value="1446,2") 1446,2
+                          .comp-diagram__num.comp-diagram__num_pink.diagram-value(data-value="1598,9") 1598,9
+                          .comp-diagram__num.comp-diagram__num_yellow.diagram-value(data-value="-152,7", data-pre-val="1599") -152,7
+                        .svg-wrap
+                          !{'<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="270px" height="270px" viewBox="0 0 270 270" xml:space="preserve" class="svg"><g><path id="" fill="none" stroke="url(#svg-gradient_diagram-2-0)" stroke-width="30" stroke-linecap="round" stroke-miterlimit="10" d="M 15 135.00000000000003 A 120 120 0 1 0 112.55037145840667 17.118643635456593" class="anim-diagram last" data-radius="120" stroke-dasharray="589,589" stroke-dashoffset="0"></path><rect x="0" y="0" width="100%" height="100%" fill="none"></rect></g><g><path id="" fill="none" stroke="url(#svg-gradient_diagram-2-2)" stroke-width="30" stroke-linecap="round" stroke-miterlimit="10" d="M 15 135.00000000000003 A 120 120 0 1 0 168.1432585178204 19.667765066218692" class="anim-diagram" data-radius="120" stroke-dasharray="532,532" stroke-dashoffset="0"></path><rect x="0" y="0" width="100%" height="100%" fill="none"></rect></g><g filter="url(#f1)"><path fill="none" stroke="#000" stroke-opacity="0.5" stroke-width="20" stroke-linecap="round" stroke-miterlimit="10" d="M 35 135 A 100 100 0 1 0 116.29197621533889 36.765536362880496" class="anim-diagram" data-radius="100" stroke-dasharray="491,491" stroke-dashoffset="0"></path><rect x="0" y="0" width="100%" height="100%" fill="none"></rect></g><g><path id="" fill="none" stroke="url(#svg-gradient_diagram-2-1)" stroke-width="30" stroke-linecap="round" stroke-miterlimit="10" d="M 45 135 A 90 90 0 1 0 118.162778593805 46.58898272659245" class="anim-diagram" data-radius="90" stroke-dasharray="442,442" stroke-dashoffset="0"></path><rect x="0" y="0" width="100%" height="100%" fill="none"></rect></g><filter id=""><feGaussianBlur stdDeviation="5"></feGaussianBlur></filter><defs><linearGradient xmlns="http://www.w3.org/2000/svg" id="" gradientUnits="userSpaceOnUse" x1="0" y1="134" x2="268" y2="154"><stop offset="0.4586" style="stop-color:#FEE300"></stop><stop offset="0.7107" style="stop-color:#30B069"></stop></linearGradient></defs><defs><linearGradient xmlns="http://www.w3.org/2000/svg" id="" gradientUnits="userSpaceOnUse" x1="224.0493" y1="185.9902" x2="54.2576" y2="87.9609"><stop offset="0.1748" style="stop-color:#9D308A"></stop><stop offset="1" style="stop-color:#FF695B"></stop></linearGradient></defs><defs><linearGradient id="" gradientUnits="userSpaceOnUse" x1="51.5933" y1="241.0088" x2="241.0492" y2="51.5528"><stop offset="0" style="stop-color:#00FFFF"></stop><stop offset="1" style="stop-color:#004CCF"></stop></linearGradient></defs></svg>'}
+                    .grid__col.grid-brick-3
+                      .comp-diagram.comp-diagram_dash-1
+                        .comp-diagram__year 2018
+                        .comp-diagram__values
+                          .comp-diagram__num.comp-diagram__num_blue.diagram-value(data-value="1446,2") 1446,2
+                          .comp-diagram__num.comp-diagram__num_pink.diagram-value(data-value="1598,9") 1598,9
+                          .comp-diagram__num.comp-diagram__num_yellow.diagram-value(data-value="-152,7", data-pre-val="1599") -152,7
+                        .svg-wrap
+                          !{'<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="270px" height="270px" viewBox="0 0 270 270" xml:space="preserve" class="svg"><g><path id="" fill="none" stroke="url(#svg-gradient_diagram-3-0)" stroke-width="30" stroke-linecap="round" stroke-miterlimit="10" d="M 15 135.00000000000003 A 120 120 0 1 0 112.55037145840667 17.118643635456593" class="anim-diagram last" data-radius="120" stroke-dasharray="589,589" stroke-dashoffset="0"></path><rect x="0" y="0" width="100%" height="100%" fill="none"></rect></g><g><path id="" fill="none" stroke="url(#svg-gradient_diagram-3-2)" stroke-width="30" stroke-linecap="round" stroke-miterlimit="10" d="M 15 135.00000000000003 A 120 120 0 1 0 168.1432585178204 19.667765066218692" class="anim-diagram" data-radius="120" stroke-dasharray="532,532" stroke-dashoffset="0"></path><rect x="0" y="0" width="100%" height="100%" fill="none"></rect></g><g filter="url(#f1)"><path fill="none" stroke="#000" stroke-opacity="0.5" stroke-width="20" stroke-linecap="round" stroke-miterlimit="10" d="M 35 135 A 100 100 0 1 0 116.29197621533889 36.765536362880496" class="anim-diagram" data-radius="100" stroke-dasharray="491,491" stroke-dashoffset="0"></path><rect x="0" y="0" width="100%" height="100%" fill="none"></rect></g><g><path id="" fill="none" stroke="url(#svg-gradient_diagram-3-1)" stroke-width="30" stroke-linecap="round" stroke-miterlimit="10" d="M 45 135 A 90 90 0 1 0 118.162778593805 46.58898272659245" class="anim-diagram" data-radius="90" stroke-dasharray="442,442" stroke-dashoffset="0"></path><rect x="0" y="0" width="100%" height="100%" fill="none"></rect></g><filter id=""><feGaussianBlur stdDeviation="5"></feGaussianBlur></filter><defs><linearGradient xmlns="http://www.w3.org/2000/svg" id="" gradientUnits="userSpaceOnUse" x1="0" y1="134" x2="268" y2="154"><stop offset="0.4586" style="stop-color:#FEE300"></stop><stop offset="0.7107" style="stop-color:#30B069"></stop></linearGradient></defs><defs><linearGradient xmlns="http://www.w3.org/2000/svg" id="" gradientUnits="userSpaceOnUse" x1="224.0493" y1="185.9902" x2="54.2576" y2="87.9609"><stop offset="0.1748" style="stop-color:#9D308A"></stop><stop offset="1" style="stop-color:#FF695B"></stop></linearGradient></defs><defs><linearGradient id="" gradientUnits="userSpaceOnUse" x1="51.5933" y1="241.0088" x2="241.0492" y2="51.5528"><stop offset="0" style="stop-color:#00FFFF"></stop><stop offset="1" style="stop-color:#004CCF"></stop></linearGradient></defs></svg>'}
+            button(type="button", data-role="none", aria-label="Next", role="button", tabindex='-1').slick-next.slick-arrow Next
+
+        div(data-slick-index="2", aria-hidden="true", tabindex="-1", role="option", aria-describedby="slick-slide02").sections__item.sections__item_bg2.slick-slide
+          // SERVICES_AHEAD
+          .sections__ahead.sections__ahead_ab
+            .wrap
+              h2.sections__title.anim-fade-top.anim-fade-top_on Сервисы
+              a(tabindex="-1").sections__all.anim-fade-top.anim-fade-top_on Все сервисы
+          div(data-sides-700="4", data-sides-900="3", data-sides-1100="2").slider.slick-initialized.slick-slider
+            button(type="button", tabindex="-1", data-role="none", aria-label="Previous", role="button").slick-prev.slick-arrow Previous
+            div(aria-live="polite").slick-list
+              div(role="listbox").slick-track
+                div(tabindex="-1", role="option", data-slick-index="-1", aria-hidden="true").cube__side_new.cube__side_new-2.slick-slide.slick-cloned
+                  .tile
+                    .tile__item
+                      .tile__inner.service
                         .service__ahead.mb-10
                           h3.service__title Москва и города мира
                         p.fs-14.medium.mb-10 Выберите показатель
-                        +b.select.service__select
-                          +e.BUTTON(tabindex="-1").btn Доходы
-                          +e.UL.drop
+                        .select.service__select
+                          BUTTON(tabindex="-1").service__btn Доходы
+                          UL.service__drop
                             li
-                              +e.A(href="#pl111", tabindex="-1").a Доходы
+                              A(href="#pl111", tabindex="-1").service__a Доходы
                             li
-                              +e.A(href="#pl211", tabindex="-1").a Расходы
+                              A(href="#pl211", tabindex="-1").service__a Расходы
                             li
-                              +e.A(href="#pl311", tabindex="-1").a Население
+                              A(href="#pl311", tabindex="-1").service__a Население
                         .select-content.select-content_vis
                           .service__place 5 место
                           p.fs-14.medium.lh-1_2
@@ -277,369 +288,402 @@ mixin main-t1()
                             br
                             | по общему количеству населения
                         a(href="#", tabindex="-1").service__more Подробнее
-                      +e.item
-                        +e.inner.service
-                          .service__ahead.mb-10
-                            h3.service__title Москва и города мира
-                          p.fs-14.medium.mb-10 Выберите показатель
-                          +b.select.service__select
-                            +e.BUTTON(tabindex="-1").btn Доходы
-                            +e.UL.drop
+                    .tile__item
+                      .tile__inner.service
+                        .service__ahead.mb-10
+                          h3.service__title Москва и города мира
+                        p.fs-14.medium.mb-10 Выберите показатель
+                        .select.service__select
+                          BUTTON(tabindex="-1").select__btn Доходы
+                          UL.select__drop
+                            li
+                              A(href="#pl112", tabindex="-1").select__a Доходы
+                            li
+                              A(href="#pl212", tabindex="-1").select__a Расходы
+                            li
+                              A(href="#pl312", tabindex="-1").select__a Население
+                        .select-content.select-content_vis
+                          .service__place 5 место
+                          p.fs-14.medium.lh-1_2
+                            | из 8 крупнейших городов мира
+                            br
+                            | по общему объему доходов
+                        .select-content
+                          .service__place 4 место
+                          p.fs-14.medium.lh-1_2
+                            | из 8 крупнейших городов мира
+                            br
+                            | по общему объему расходов
+                        .select-content
+                          .service__place 3 место
+                          p.fs-14.medium.lh-1_2
+                            | из 8 крупнейших городов мира
+                            br
+                            | по общему количеству населения
+                        a(href="#", tabindex="-1").service__more Подробнее
+                    .tile__item
+                      .tile__inner.service
+                        .service__ahead.mb-10
+                          h3.service__title Москва и города мира
+                        p.fs-14.medium.mb-10 Выберите показатель
+                        .select.service__select
+                          BUTTON(tabindex="-1").select__btn Доходы
+                          UL.select__drop
+                            li
+                              A(href="#pl113", tabindex="-1").select__a Доходы
+                            li
+                              A(href="#pl213", tabindex="-1").select__a Расходы
+                            li
+                              A(href="#pl313", tabindex="-1").select__a Население
+                        .select-content.select-content_vis
+                          .service__place 5 место
+                          p.fs-14.medium.lh-1_2
+                            | из 8 крупнейших городов мира
+                            br
+                            | по общему объему доходов
+                        .select-content
+                          .service__place 4 место
+                          p.fs-14.medium.lh-1_2
+                            | из 8 крупнейших городов мира
+                            br
+                            | по общему объему расходов
+                        .select-content
+                          .service__place 3 место
+                          p.fs-14.medium.lh-1_2
+                            | из 8 крупнейших городов мира
+                            br
+                            | по общему количеству населения
+                        a(href="#", tabindex="-1").service__more Подробнее
+                    .tile__item
+                      .tile__inner.service
+                        .service__ahead.mb-10
+                          h3.service__title Москва и города мира
+                        p.fs-14.medium.mb-10 Выберите показатель
+                        .select.service__select
+                          BUTTON(tabindex="-1").select__btn Доходы
+                          UL.select__drop
+                            li
+                              A(href="#pl11", tabindex="-1").select__a Доходы
+                            li
+                              A(href="#pl21", tabindex="-1").select__a Расходы
+                            li
+                              A(href="#pl31", tabindex="-1").select__a Население
+                        .select-content.select-content_vis
+                          .service__place 5 место
+                          p.fs-14.medium.lh-1_2
+                            | из 8 крупнейших городов мира
+                            br
+                            | по общему объему доходов
+                        .select-content
+                          .service__place 4 место
+                          p.fs-14.medium.lh-1_2
+                            | из 8 крупнейших городов мира
+                            br
+                            | по общему объему расходов
+                        .select-content
+                          .service__place 3 место
+                          p.fs-14.medium.lh-1_2
+                            | из 8 крупнейших городов мира
+                            br
+                            | по общему количеству населения
+                        a(href="#", tabindex="-1").service__more Подробнее
+                div(tabindex="-1", role="option", data-slick-index="2", aria-hidden="true").cube__side_new.cube__side_new-2.slick-slide.slick-cloned
+                  .tile
+                    .item.anim-left.anim-left_on(data-delay="100")
+                      .inner.service
+                      .service__ahead
+                        h3.service__title Государственные программы
+                        .service__sub-title по состоянию на
+                        // datepicker
+                        .datepicker.service__datepicker
+                          BUTTON.show(tabindex="-1") 21.10.2016
+                          .panel
+                            UL.col._years
                               li
-                                +e.A(href="#pl112", tabindex="-1").a Доходы
+                                A(href="#", tabindex="-1").a 2011
                               li
-                                +e.A(href="#pl212", tabindex="-1").a Расходы
+                                A(href="#", tabindex="-1").a 2012
                               li
-                                +e.A(href="#pl312", tabindex="-1").a Население
-                          .select-content.select-content_vis
-                            .service__place 5 место
-                            p.fs-14.medium.lh-1_2
-                              | из 8 крупнейших городов мира
-                              br
-                              | по общему объему доходов
-                          .select-content
-                            .service__place 4 место
-                            p.fs-14.medium.lh-1_2
-                              | из 8 крупнейших городов мира
-                              br
-                              | по общему объему расходов
-                          .select-content
-                            .service__place 3 место
-                            p.fs-14.medium.lh-1_2
-                              | из 8 крупнейших городов мира
-                              br
-                              | по общему количеству населения
-                          a(href="#", tabindex="-1").service__more Подробнее
-                      +e.item
-                        +e.inner.service
-                          .service__ahead.mb-10
-                            h3.service__title Москва и города мира
-                          p.fs-14.medium.mb-10 Выберите показатель
-                          +b.select.service__select
-                            +e.BUTTON(tabindex="-1").btn Доходы
-                            +e.UL.drop
+                                A(href="#", tabindex="-1").a 2013
                               li
-                                +e.A(href="#pl113", tabindex="-1").a Доходы
+                                A(href="#", tabindex="-1").a 2014
                               li
-                                +e.A(href="#pl213", tabindex="-1").a Расходы
+                                A(href="#", tabindex="-1").a 2015
                               li
-                                +e.A(href="#pl313", tabindex="-1").a Население
-                          .select-content.select-content_vis
-                            .service__place 5 место
-                            p.fs-14.medium.lh-1_2
-                              | из 8 крупнейших городов мира
-                              br
-                              | по общему объему доходов
-                          .select-content
-                            .service__place 4 место
-                            p.fs-14.medium.lh-1_2
-                              | из 8 крупнейших городов мира
-                              br
-                              | по общему объему расходов
-                          .select-content
-                            .service__place 3 место
-                            p.fs-14.medium.lh-1_2
-                              | из 8 крупнейших городов мира
-                              br
-                              | по общему количеству населения
-                          a(href="#", tabindex="-1").service__more Подробнее
-                      +e.item
-                        +e.inner.service
-                          .service__ahead.mb-10
-                            h3.service__title Москва и города мира
-                          p.fs-14.medium.mb-10 Выберите показатель
-                          +b.select.service__select
-                            +e.BUTTON(tabindex="-1").btn Доходы
-                            +e.UL.drop
-                              li
-                                +e.A(href="#pl11", tabindex="-1").a Доходы
-                              li
-                                +e.A(href="#pl21", tabindex="-1").a Расходы
-                              li
-                                +e.A(href="#pl31", tabindex="-1").a Население
-                          .select-content.select-content_vis
-                            .service__place 5 место
-                            p.fs-14.medium.lh-1_2
-                              | из 8 крупнейших городов мира
-                              br
-                              | по общему объему доходов
-                          .select-content
-                            .service__place 4 место
-                            p.fs-14.medium.lh-1_2
-                              | из 8 крупнейших городов мира
-                              br
-                              | по общему объему расходов
-                          .select-content
-                            .service__place 3 место
-                            p.fs-14.medium.lh-1_2
-                              | из 8 крупнейших городов мира
-                              br
-                              | по общему количеству населения
-                          a(href="#", tabindex="-1").service__more Подробнее
-                  div(tabindex="-1", role="option", data-slick-index="2", aria-hidden="true").cube__side_new.cube__side_new-2.slick-slide.slick-cloned
-                    +b.tile
-                      +e.item.anim-left.anim-left_on(data-delay="100")
-                        +e.inner.service
+                                A(href="#", tabindex="-1").a._act 2016
+                            .col-wrap
+                              UL.col._months
+                                li
+                                  A(href="#", data-month="01" tabindex="-1").a январь
+                                li
+                                  A(href="#", data-month="02" tabindex="-1").a февраль
+                                li
+                                  A(href="#", data-month="03" tabindex="-1").a март
+                                li
+                                  A(href="#", data-month="04" tabindex="-1").a апрель
+                                li
+                                  A(href="#", data-month="05" tabindex="-1").a май
+                                li
+                                  A(href="#", data-month="06" tabindex="-1").a июнь
+                              UL.col._months
+                                li
+                                  A(href="#", data-month="07" tabindex="-1").a июль
+                                li
+                                  A(href="#", data-month="08" tabindex="-1").a август
+                                li
+                                  A(href="#", data-month="09" tabindex="-1").a сентябрь
+                                li
+                                  A(href="#", data-month="10" tabindex="-1").a._act октябрь
+                                li
+                                  A(href="#", data-month="11" tabindex="-1").a ноябрь
+                                li
+                                  A(href="#", data-month="12" tabindex="-1").a._dis декабрь
+                            BUTTON(tabindex="-1").close
+                        .dashed-diagram.service__dashed-diagram
+                          .diagram
+                            .value._top
+                              | план
+                              .value-p 1 637,3
+                            .value._bottom
+                              .value-p 1 167,7
+                              | факт
+                            .svg-wrap
+                              | svg
+                      a(href="#", tabindex="-1").service__more Подробнее
+                    .item.anim-left.anim-left_on(data-delay="300")
+                      .inner.service
                         .service__ahead
-                          h3.service__title Государственные программы
+                          h3.service__title Адресная инвестиционная программа
+                          p.service__sub-title на 2016 год, млрд. руб.
+                        .segment-diagram
+                          .value
+                          .floating._green
+                            | Строительство
+                            span 150,7
+                          .floating._violet
+                            | Образование
+                            span 60,8
+                          .floating._blue
+                            | Медицина
+                            span 35,2
+                          .floating._gray
+                            | Прочее
+                            span 100,5
+                          .svg-wrap
+                            | svg
+                        UL.diagram-tabs.service__diagram-tabs
+                          LI.item._green
+                            A(href="#", tabindex="-1").btn._house 150,7
+                              SPAN.span-hov
+                              SPAN.span-js
+                            .caption Строительство
+                          LI.item._violet
+                            A(href="#", tabindex="-1").btn._edu 60,8
+                              SPAN.span-hov
+                              SPAN.span-js
+                            .caption Образование
+                          LI.item._blue
+                            A(href="#", tabindex="-1").btn._med 35,2
+                              SPAN.span-hov
+                              SPAN.span-js
+                            .caption Медицина
+                          LI.item._gray
+                            A(href="#", tabindex="-1").btn._other 100,5
+                              SPAN.span-hov
+                              SPAN.span-js
+                            .caption Прочее
+                        a(href="#", tabindex="-1").service__more Подробнее
+                    .item.anim-left.anim-left_on(data-delay="600")
+                      .inner.service
+                        .service__ahead
+                          h3.service__title Государственный долг
                           .service__sub-title по состоянию на
                           // datepicker
-                          +b.datepicker.service__datepicker
-                            +e.BUTTON.show(tabindex="-1") 21.10.2016
-                            +e.panel
-                              +e.UL.col._years
+                        .datepicker.service__datepicker
+                          BUTTON.show(tabindex="-1") 21.10.2016
+                          .panel
+                            UL.col._years
+                              li
+                                A(href="#", tabindex="-1").a 2011
+                              li
+                                A(href="#", tabindex="-1").a 2012
+                              li
+                                A(href="#", tabindex="-1").a 2013
+                              li
+                                A(href="#", tabindex="-1").a 2014
+                              li
+                                A(href="#", tabindex="-1").a 2015
+                              li
+                                A(href="#", tabindex="-1").a._act 2016
+                            .col-wrap
+                              UL.col._months
                                 li
-                                  +e.A(href="#", tabindex="-1").a 2011
+                                  A(href="#", data-month="01" tabindex="-1").a январь
                                 li
-                                  +e.A(href="#", tabindex="-1").a 2012
+                                  A(href="#", data-month="02" tabindex="-1").a февраль
                                 li
-                                  +e.A(href="#", tabindex="-1").a 2013
+                                  A(href="#", data-month="03" tabindex="-1").a март
                                 li
-                                  +e.A(href="#", tabindex="-1").a 2014
+                                  A(href="#", data-month="04" tabindex="-1").a апрель
                                 li
-                                  +e.A(href="#", tabindex="-1").a 2015
+                                  A(href="#", data-month="05" tabindex="-1").a май
                                 li
-                                  +e.A(href="#", tabindex="-1").a._act 2016
-                              +e.col-wrap
-                                +e.UL.col._months
-                                  li
-                                    +e.A(href="#", data-month="01" tabindex="-1").a январь
-                                  li
-                                    +e.A(href="#", data-month="02" tabindex="-1").a февраль
-                                  li
-                                    +e.A(href="#", data-month="03" tabindex="-1").a март
-                                  li
-                                    +e.A(href="#", data-month="04" tabindex="-1").a апрель
-                                  li
-                                    +e.A(href="#", data-month="05" tabindex="-1").a май
-                                  li
-                                    +e.A(href="#", data-month="06" tabindex="-1").a июнь
-                                +e.UL.col._months
-                                  li
-                                    +e.A(href="#", data-month="07" tabindex="-1").a июль
-                                  li
-                                    +e.A(href="#", data-month="08" tabindex="-1").a август
-                                  li
-                                    +e.A(href="#", data-month="09" tabindex="-1").a сентябрь
-                                  li
-                                    +e.A(href="#", data-month="10" tabindex="-1").a._act октябрь
-                                  li
-                                    +e.A(href="#", data-month="11" tabindex="-1").a ноябрь
-                                  li
-                                    +e.A(href="#", data-month="12" tabindex="-1").a._dis декабрь
-                              +e.BUTTON(tabindex="-1").close
-                          +b.dashed-diagram.service__dashed-diagram
-                            +e.diagram
-                              +e.value._top
-                                | план
-                                +e.value-p 1 637,3
-                              +e.value._bottom
-                                +e.value-p 1 167,7
-                                | факт
-                              .svg-wrap
-                                | svg
+                                  A(href="#", data-month="06" tabindex="-1").a июнь
+                              UL.col._months
+                                li
+                                  A(href="#", data-month="07" tabindex="-1").a июль
+                                li
+                                  A(href="#", data-month="08" tabindex="-1").a август
+                                li
+                                  A(href="#", data-month="09" tabindex="-1").a сентябрь
+                                li
+                                  A(href="#", data-month="10" tabindex="-1").a._act октябрь
+                                li
+                                  A(href="#", data-month="11" tabindex="-1").a ноябрь
+                                li
+                                  A(href="#", data-month="12" tabindex="-1").a._dis декабрь
+                            BUTTON(tabindex="-1").close
+                        .segment-diagram
+                          .value
+                            | Всего
+                            P.value-num 77,2
+                          .floating._green
+                            | Бюджетные &nbsp; кредиты
+                            span 21,4
+                          .floating._blue
+                            | Внутренний &nbsp; долг
+                            span 28,8
+                          .floating._violet
+                            | Внешний &nbsp; долг
+                            span 48,4
+                          .svg-wrap
+                            | svg
+                        UL.diagram-tabs.service__diagram-tabs
+                          LI.item._green
+                            A(href="#", tabindex="-1").btn._bank 21,4
+                              SPAN.span-hov
+                              SPAN.span-js
+                            .caption Бюджетные кредиты
+                          LI.item._blue
+                            A(href="#", tabindex="-1").btn._bag 28,8
+                              SPAN.span-hov
+                              SPAN.span-js
+                            .caption Внутренний долг
+                          LI.item._violet
+                            A(href="#", tabindex="-1").btn._build 60,8
+                              SPAN.span-hov
+                              SPAN.span-js
+                            .caption Внешний долг
                         a(href="#", tabindex="-1").service__more Подробнее
-                      +e.item.anim-left.anim-left_on(data-delay="300")
-                        +e.inner.service
-                          .service__ahead
-                            h3.service__title Адресная инвестиционная программа
-                            p.service__sub-title на 2016 год, млрд. руб.
-                          +b.segment-diagram
-                            +e.value
-                            +e.floating._green
-                              | Строительство
-                              span 150,7
-                            +e.floating._violet
-                              | Образование
-                              span 60,8
-                            +e.floating._blue
-                              | Медицина
-                              span 35,2
-                            +e.floating._gray
-                              | Прочее
-                              span 100,5
-                            .svg-wrap
-                              | svg
-                          +b.UL.diagram-tabs.service__diagram-tabs
-                            +e.LI.item._green
-                              +e.A(href="#", tabindex="-1").btn._house 150,7
-                                +e.SPAN.span-hov
-                                +e.SPAN.span-js
-                              +e.caption Строительство
-                            +e.LI.item._violet
-                              +e.A(href="#", tabindex="-1").btn._edu 60,8
-                                +e.SPAN.span-hov
-                                +e.SPAN.span-js
-                              +e.caption Образование
-                            +e.LI.item._blue
-                              +e.A(href="#", tabindex="-1").btn._med 35,2
-                                +e.SPAN.span-hov
-                                +e.SPAN.span-js
-                              +e.caption Медицина
-                            +e.LI.item._gray
-                              +e.A(href="#", tabindex="-1").btn._other 100,5
-                                +e.SPAN.span-hov
-                                +e.SPAN.span-js
-                              +e.caption Прочее
-                          a(href="#", tabindex="-1").service__more Подробнее
-                      +e.item.anim-left.anim-left_on(data-delay="600")
-                        +e.inner.service
-                          .service__ahead
-                            h3.service__title Государственный долг
-                            .service__sub-title по состоянию на
-                            // datepicker
-                          +b.datepicker.service__datepicker
-                            +e.BUTTON.show(tabindex="-1") 21.10.2016
-                            +e.panel
-                              +e.UL.col._years
-                                li
-                                  +e.A(href="#", tabindex="-1").a 2011
-                                li
-                                  +e.A(href="#", tabindex="-1").a 2012
-                                li
-                                  +e.A(href="#", tabindex="-1").a 2013
-                                li
-                                  +e.A(href="#", tabindex="-1").a 2014
-                                li
-                                  +e.A(href="#", tabindex="-1").a 2015
-                                li
-                                  +e.A(href="#", tabindex="-1").a._act 2016
-                              +e.col-wrap
-                                +e.UL.col._months
-                                  li
-                                    +e.A(href="#", data-month="01" tabindex="-1").a январь
-                                  li
-                                    +e.A(href="#", data-month="02" tabindex="-1").a февраль
-                                  li
-                                    +e.A(href="#", data-month="03" tabindex="-1").a март
-                                  li
-                                    +e.A(href="#", data-month="04" tabindex="-1").a апрель
-                                  li
-                                    +e.A(href="#", data-month="05" tabindex="-1").a май
-                                  li
-                                    +e.A(href="#", data-month="06" tabindex="-1").a июнь
-                                +e.UL.col._months
-                                  li
-                                    +e.A(href="#", data-month="07" tabindex="-1").a июль
-                                  li
-                                    +e.A(href="#", data-month="08" tabindex="-1").a август
-                                  li
-                                    +e.A(href="#", data-month="09" tabindex="-1").a сентябрь
-                                  li
-                                    +e.A(href="#", data-month="10" tabindex="-1").a._act октябрь
-                                  li
-                                    +e.A(href="#", data-month="11" tabindex="-1").a ноябрь
-                                  li
-                                    +e.A(href="#", data-month="12" tabindex="-1").a._dis декабрь
-                              +e.BUTTON(tabindex="-1").close
-                          +b.segment-diagram
-                            +e.value 
-                              | Всего
-                              +e.P.value-num 77,2 
-                            +e.floating._green
-                              | Бюджетные &nbsp; кредиты
-                              span 21,4
-                            +e.floating._blue
-                              | Внутренний &nbsp; долг
-                              span 28,8
-                            +e.floating._violet
-                              | Внешний &nbsp; долг
-                              span 48,4
-                            .svg-wrap
-                              | svg
-                          +b.UL.diagram-tabs.service__diagram-tabs
-                            +e.LI.item._green
-                              +e.A(href="#", tabindex="-1").btn._bank 21,4
-                                +e.SPAN.span-hov
-                                +e.SPAN.span-js
-                              +e.caption Бюджетные кредиты
-                            +e.LI.item._blue
-                              +e.A(href="#", tabindex="-1").btn._bag 28,8
-                                +e.SPAN.span-hov
-                                +e.SPAN.span-js
-                              +e.caption Внутренний долг
-                            +e.LI.item._violet
-                              +e.A(href="#", tabindex="-1").btn._build 60,8
-                                +e.SPAN.span-hov
-                                +e.SPAN.span-js
-                              +e.caption Внешний долг
-                          a(href="#", tabindex="-1").service__more Подробнее
-                      +e.item.anim-left.anim-left_on(data-delay="900")
-                        +e.inner.service
-                          .service__ahead.mb-10
-                            h3.service__title Москва и города мира
-                          p.fs-14.medium.mb-10.xs-fs-11 Выберите показатель
-                          +b.select.service__select
-                            +e.BUTTON(tabindex="-1").btn Доходы
-                            +e.UL.drop
-                              li
-                                +e.A(href="#pl1", tabindex="-1").a Доходы
-                              li
-                                +e.A(href="#pl2", tabindex="-1").a Расходы
-                              li
-                                +e.A(href="#pl3", tabindex="-1").a Население
-                          .select-content.select-content_vis
-                            .service__place 5 место
-                            p.fs-14.medium.lh-1_2.xs-fs-9
-                              | из 8 крупнейших городов мира
-                              br
-                              | по общему объему доходов
-                          .select-content
-                            .service__place 4 место
-                            p.fs-14.medium.lh-1_2.xs-fs-9
-                              | из 8 крупнейших городов мира
-                              br
-                              | по общему объему расходов
-                          .select-content
-                            .service__place 3 место
-                            p.fs-14.medium.lh-1_2.xs-fs-9
-                              | из 8 крупнейших городов мира
-                              br
-                              | по общему количеству населения
-                          a(href="#", tabindex="-1").service__more Подробнее
-              button(type="button", data-role="none", aria-label="Next", role="button", tabindex="0").slick-next.slick-arrow Next
-          div(data-slick-index="3", aria-hidden="true", tabindex="-1", role="option", aria-describedby="slick-slide03").sections__item.sections__item_bg3.slick-slide
-            // NEWS_AHEAD
-            .sections__ahead.sections__ahead_ab.anim-fade-top_on
-              .wrap
-                h2.sections__title.anim-fade-top Новости
-                a(href="#", tabindex="0").sections__all.anim-fade-top.anim-fade-top_on Все Новости
-            // subscribe
-            +b.subscribe.sections__subscribe.viewport-md-lg
-              .wrap
-                +e.P.label
-                  | Подпишитесь
-                  br
-                  | на новости
-                +b.small-form.subscribe__small-form
-                  +e.FORM.form
-                    label(for="email").overlabel-apply email
-                    +e.INPUT(type="email", required, tabindex="0").text#email
-                    +e.submit
-                      input(type="submit" tabindex="0")
-                +e.P.caption Для выбора параметров рассылки необходимо
-                  a(href="#", tabindex="0").open-popup.yellow зарегистрироваться
-                  | на портале
-            div(data-sides-700="4", data-sides-900="3", data-sides-1100="2").slider.slick-initialized.slick-slider
-              button(type="button", tabindex="0", data-role="none", aria-label="Previous", role="button").slick-prev.slick-arrow Previous
-              div(aria-live="polite").slick-list
-                div(role="listbox").slick-track
-                  div(tabindex="-1", role="option", data-slick-index="-1", aria-hidden="true").cube__side_new.cube__side_new-2.slick-slide.slick-cloned
-                    +b.tile
-                      +e.item
-                        +e.inner.service
+                    .item.anim-left.anim-left_on(data-delay="900")
+                      .inner.service
+                        .service__ahead.mb-10
+                          h3.service__title Москва и города мира
+                        p.fs-14.medium.mb-10.xs-fs-11 Выберите показатель
+                        .select.service__select
+                          BUTTON(tabindex="-1").btn Доходы
+                          UL.drop
+                            li
+                              A(href="#pl1", tabindex="-1").a Доходы
+                            li
+                              A(href="#pl2", tabindex="-1").a Расходы
+                            li
+                              A(href="#pl3", tabindex="-1").a Население
+                        .select-content.select-content_vis
+                          .service__place 5 место
+                          p.fs-14.medium.lh-1_2.xs-fs-9
+                            | из 8 крупнейших городов мира
+                            br
+                            | по общему объему доходов
+                        .select-content
+                          .service__place 4 место
+                          p.fs-14.medium.lh-1_2.xs-fs-9
+                            | из 8 крупнейших городов мира
+                            br
+                            | по общему объему расходов
+                        .select-content
+                          .service__place 3 место
+                          p.fs-14.medium.lh-1_2.xs-fs-9
+                            | из 8 крупнейших городов мира
+                            br
+                            | по общему количеству населения
+                        a(href="#", tabindex="-1").service__more Подробнее
+            button(type="button", data-role="none", aria-label="Next", role="button", tabindex="0").slick-next.slick-arrow Next
+        div(data-slick-index="3", aria-hidden="true", tabindex="-1", role="option", aria-describedby="slick-slide03").sections__item.sections__item_bg3.slick-slide
+          // NEWS_AHEAD
+          .sections__ahead.sections__ahead_ab.anim-fade-top_on
+            .wrap
+              h2.sections__title.anim-fade-top Новости
+              a(href="#", tabindex="0").sections__all.anim-fade-top.anim-fade-top_on Все Новости
+          // subscribe
+          .subscribe.sections__subscribe.viewport-md-lg
+            .wrap
+              P.label
+                | Подпишитесь
+                br
+                | на новости
+              .small-form.subscribe__small-form
+                .FORM.form
+                  label(for="email").overlabel-apply email
+                  .INPUT(type="email", required, tabindex="0").text#email
+                  .submit
+                    input(type="submit" tabindex="0")
+              P.caption Для выбора параметров рассылки необходимо
+                a(href="#", tabindex="0").open-popup.yellow зарегистрироваться
+                | на портале
+          div(data-sides-700="4", data-sides-900="3", data-sides-1100="2").slider.slick-initialized.slick-slider
+            button(type="button", tabindex="0", data-role="none", aria-label="Previous", role="button").slick-prev.slick-arrow Previous
+            div(aria-live="polite").slick-list
+              div(role="listbox").slick-track
+                div(tabindex="-1", role="option", data-slick-index="-1", aria-hidden="true").cube__side_new.cube__side_new-2.slick-slide.slick-cloned
+                  .tile
+                    .item
+                      .inner.service
+                      .service__ahead.mb-10
+                        h3.service__title Москва и города мира
+                      p.fs-14.medium.mb-10 Выберите показатель
+                      .select.service__select
+                        BUTTON(tabindex="-1").btn Доходы
+                        UL.drop
+                          li
+                            A(href="#pl111", tabindex="-1").a Доходы
+                          li
+                            A(href="#pl211", tabindex="-1").a Расходы
+                          li
+                            A(href="#pl311", tabindex="-1").a Население
+                      .select-content.select-content_vis
+                        .service__place 5 место
+                        p.fs-14.medium.lh-1_2
+                          | из 8 крупнейших городов мира
+                          br
+                          | по общему объему доходов
+                      .select-content
+                        .service__place 4 место
+                        p.fs-14.medium.lh-1_2
+                          | из 8 крупнейших городов мира
+                          br
+                          | по общему объему расходов
+                      .select-content
+                        .service__place 3 место
+                        p.fs-14.medium.lh-1_2
+                          | из 8 крупнейших городов мира
+                          br
+                          | по общему количеству населения
+                      a(href="#", tabindex="-1").service__more Подробнее
+                    .item
+                      .inner.service
                         .service__ahead.mb-10
                           h3.service__title Москва и города мира
                         p.fs-14.medium.mb-10 Выберите показатель
-                        +b.select.service__select
-                          +e.BUTTON(tabindex="-1").btn Доходы
-                          +e.UL.drop
+                        .select.service__select
+                          BUTTON(tabindex="-1").btn Доходы
+                          UL.drop
                             li
-                              +e.A(href="#pl111", tabindex="-1").a Доходы
+                              A(href="#pl112", tabindex="-1").a Доходы
                             li
-                              +e.A(href="#pl211", tabindex="-1").a Расходы
+                              A(href="#pl212", tabindex="-1").a Расходы
                             li
-                              +e.A(href="#pl311", tabindex="-1").a Население
+                              A(href="#pl312", tabindex="-1").a Население
                         .select-content.select-content_vis
                           .service__place 5 место
                           p.fs-14.medium.lh-1_2
@@ -659,191 +703,159 @@ mixin main-t1()
                             br
                             | по общему количеству населения
                         a(href="#", tabindex="-1").service__more Подробнее
-                      +e.item
-                        +e.inner.service
-                          .service__ahead.mb-10
-                            h3.service__title Москва и города мира
-                          p.fs-14.medium.mb-10 Выберите показатель
-                          +b.select.service__select
-                            +e.BUTTON(tabindex="-1").btn Доходы
-                            +e.UL.drop
-                              li
-                                +e.A(href="#pl112", tabindex="-1").a Доходы
-                              li
-                                +e.A(href="#pl212", tabindex="-1").a Расходы
-                              li
-                                +e.A(href="#pl312", tabindex="-1").a Население
-                          .select-content.select-content_vis
-                            .service__place 5 место
-                            p.fs-14.medium.lh-1_2
-                              | из 8 крупнейших городов мира
-                              br
-                              | по общему объему доходов
-                          .select-content
-                            .service__place 4 место
-                            p.fs-14.medium.lh-1_2
-                              | из 8 крупнейших городов мира
-                              br
-                              | по общему объему расходов
-                          .select-content
-                            .service__place 3 место
-                            p.fs-14.medium.lh-1_2
-                              | из 8 крупнейших городов мира
-                              br
-                              | по общему количеству населения
-                          a(href="#", tabindex="-1").service__more Подробнее
-                      +e.item
-                        +e.inner.service
-                          .service__ahead.mb-10
-                            h3.service__title Москва и города мира
-                          p.fs-14.medium.mb-10 Выберите показатель
-                          +b.select.service__select
-                            +e.BUTTON(tabindex="-1").btn Доходы
-                            +e.UL.drop
-                              li
-                                +e.A(href="#pl113", tabindex="-1").a Доходы
-                              li
-                                +e.A(href="#pl213", tabindex="-1").a Расходы
-                              li
-                                +e.A(href="#pl313", tabindex="-1").a Население
-                          .select-content.select-content_vis
-                            .service__place 5 место
-                            p.fs-14.medium.lh-1_2
-                              | из 8 крупнейших городов мира
-                              br
-                              | по общему объему доходов
-                          .select-content
-                            .service__place 4 место
-                            p.fs-14.medium.lh-1_2
-                              | из 8 крупнейших городов мира
-                              br
-                              | по общему объему расходов
-                          .select-content
-                            .service__place 3 место
-                            p.fs-14.medium.lh-1_2
-                              | из 8 крупнейших городов мира
-                              br
-                              | по общему количеству населения
-                          a(href="#", tabindex="-1").service__more Подробнее
-                      +e.item
-                        +e.inner.service
-                          .service__ahead.mb-10
-                            h3.service__title Москва и города мира
-                          p.fs-14.medium.mb-10 Выберите показатель
-                          +b.select.service__select
-                            +e.BUTTON(tabindex="-1").btn Доходы
-                            +e.UL.drop
-                              li
-                                +e.A(href="#pl11", tabindex="-1").a Доходы
-                              li
-                                +e.A(href="#pl21", tabindex="-1").a Расходы
-                              li
-                                +e.A(href="#pl31", tabindex="-1").a Население
-                          .select-content.select-content_vis
-                            .service__place 5 место
-                            p.fs-14.medium.lh-1_2
-                              | из 8 крупнейших городов мира
-                              br
-                              | по общему объему доходов
-                          .select-content
-                            .service__place 4 место
-                            p.fs-14.medium.lh-1_2
-                              | из 8 крупнейших городов мира
-                              br
-                              | по общему объему расходов
-                          .select-content
-                            .service__place 3 место
-                            p.fs-14.medium.lh-1_2
-                              | из 8 крупнейших городов мира
-                              br
-                              | по общему количеству населения
-                          a(href="#", tabindex="-1").service__more Подробнее
-                  div(tabindex="-1", role="option", data-slick-index="2", aria-hidden="true").cube__side_new.cube__side_new-2.slick-slide.slick-cloned
-                    +b.tile
-                      +e.item
-                        +b.news._blue.tile__inner
-                          +e.A(href="#", tabindex="0").thumb
-                            img(src="images/post-thumb.jpg", alt="thumb")
-                          +e.A(href="#", tabindex="0").category Новости бюджета
-                          +e.A(href="#", tabindex="0").title Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»
-                          +e.bottom
-                            +e.P.date 8 августа 2016
-                            +e.tags
-                              a(href="#", tabindex="0") #итоги
-                              a(href="#", tabindex="0") #апробация
-                              a(href="#", tabindex="0") #старшеклассники
-                          button(tabindex="0").share__btn
-                          .share__panel
-                            a(href="#", tabindex="0").share__a.share__a_fb
-                            a(href="#", tabindex="0").share__a.share__a_vk
-                            a(href="#", tabindex="0").share__a.share__a_tw
-                            a(href="#", tabindex="0").share__a.share__a_ok
-                      +e.item
-                        +b.news._red.tile__inner
-                          +e.A(href="#", tabindex="0").thumb
-                            img(src="images/post-thumb.jpg", alt="thumb")
-                          +e.A(href="#", tabindex="0").category Новости бюджета
-                          +e.A(href="#", tabindex="0").title Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»
-                          +e.bottom
-                            +e.P.date 8 августа 2016
-                            +e.tags
-                              a(href="#", tabindex="0") #итоги
-                              a(href="#", tabindex="0") #апробация
-                              a(href="#", tabindex="0") #старшеклассники
-                          button(tabindex="0").share__btn
-                          .share__panel
-                            a(href="#", tabindex="0").share__a.share__a_fb
-                            a(href="#", tabindex="0").share__a.share__a_vk
-                            a(href="#", tabindex="0").share__a.share__a_tw
-                            a(href="#", tabindex="0").share__a.share__a_ok
+                    .item
+                      .inner.service
+                        .service__ahead.mb-10
+                          h3.service__title Москва и города мира
+                        p.fs-14.medium.mb-10 Выберите показатель
+                        .select.service__select
+                          BUTTON(tabindex="-1").btn Доходы
+                          UL.drop
+                            li
+                              A(href="#pl113", tabindex="-1").a Доходы
+                            li
+                              A(href="#pl213", tabindex="-1").a Расходы
+                            li
+                              A(href="#pl313", tabindex="-1").a Население
+                        .select-content.select-content_vis
+                          .service__place 5 место
+                          p.fs-14.medium.lh-1_2
+                            | из 8 крупнейших городов мира
+                            br
+                            | по общему объему доходов
+                        .select-content
+                          .service__place 4 место
+                          p.fs-14.medium.lh-1_2
+                            | из 8 крупнейших городов мира
+                            br
+                            | по общему объему расходов
+                        .select-content
+                          .service__place 3 место
+                          p.fs-14.medium.lh-1_2
+                            | из 8 крупнейших городов мира
+                            br
+                            | по общему количеству населения
                         a(href="#", tabindex="-1").service__more Подробнее
-                      +e.item
-                        +b.news._green.tile__inner
-                          +e.A(href="#", tabindex="0").thumb
-                            img(src="images/post-thumb.jpg", alt="thumb")
-                          +e.A(href="#", tabindex="0").category Новости бюджета
-                          +e.A(href="#", tabindex="0").title Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»
-                          +e.bottom
-                            +e.P.date 8 августа 2016
-                            +e.tags
-                              a(href="#", tabindex="0") #итоги
-                              a(href="#", tabindex="0") #апробация
-                              a(href="#", tabindex="0") #старшеклассники
-                          button(tabindex="0").share__btn
-                          .share__panel
-                            a(href="#", tabindex="0").share__a.share__a_fb
-                            a(href="#", tabindex="0").share__a.share__a_vk
-                            a(href="#", tabindex="0").share__a.share__a_tw
-                            a(href="#", tabindex="0").share__a.share__a_ok
-                      +e.item
-                        +b.news._blue.tile__inner
-                          +e.A(href="#", tabindex="0").thumb
-                            img(src="images/post-thumb.jpg", alt="thumb")
-                          +e.A(href="#", tabindex="0").category Новости бюджета
-                          +e.A(href="#", tabindex="0").title Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»
-                          +e.bottom
-                            +e.P.date 8 августа 2016
-                            +e.tags
-                              a(href="#", tabindex="0") #итоги
-                              a(href="#", tabindex="0") #апробация
-                              a(href="#", tabindex="0") #старшеклассники
-                          button(tabindex="0").share__btn
-                          .share__panel
-                            a(href="#", tabindex="0").share__a.share__a_fb
-                            a(href="#", tabindex="0").share__a.share__a_vk
-                            a(href="#", tabindex="0").share__a.share__a_tw
-                            a(href="#", tabindex="0").share__a.share__a_ok
+                    .item
+                      .inner.service
+                        .service__ahead.mb-10
+                          h3.service__title Москва и города мира
+                        p.fs-14.medium.mb-10 Выберите показатель
+                        .select.service__select
+                          BUTTON(tabindex="-1").btn Доходы
+                          UL.drop
+                            li
+                              A(href="#pl11", tabindex="-1").a Доходы
+                            li
+                              A(href="#pl21", tabindex="-1").a Расходы
+                            li
+                              A(href="#pl31", tabindex="-1").a Население
+                        .select-content.select-content_vis
+                          .service__place 5 место
+                          p.fs-14.medium.lh-1_2
+                            | из 8 крупнейших городов мира
+                            br
+                            | по общему объему доходов
+                        .select-content
+                          .service__place 4 место
+                          p.fs-14.medium.lh-1_2
+                            | из 8 крупнейших городов мира
+                            br
+                            | по общему объему расходов
+                        .select-content
+                          .service__place 3 место
+                          p.fs-14.medium.lh-1_2
+                            | из 8 крупнейших городов мира
+                            br
+                            | по общему количеству населения
                         a(href="#", tabindex="-1").service__more Подробнее
-          div(data-slick-index="4", aria-hidden="true", tabindex="-1", role="option", aria-describedby="slick-slide04").sections__item.sections__item_footer.slick-slide
-            +footer()
-      +b.UL(role="tablist").slick-dots
-        li(role="presentation", aria-hidden="true", aria-selected="true", aria-controls="navigation00")#slick-slide00
-          button(type="button", data-role="none", role="button", tabindex="0") 1
-        li(role="presentation", aria-hidden="true", aria-selected="true", aria-controls="navigation01")#slick-slide01
-          button(type="button", data-role="none", role="button", tabindex="0") 2
-        li(role="presentation", aria-hidden="true", aria-selected="true", aria-controls="navigation02")#slick-slide02
-          button(type="button", data-role="none", role="button", tabindex="0") 3
-        li(role="presentation", aria-hidden="true", aria-selected="true", aria-controls="navigation03")#slick-slide03
-          button(type="button", data-role="none", role="button", tabindex="0") 4
-        li(role="presentation", aria-hidden="true", aria-selected="true", aria-controls="navigation04")#slick-slide04
-          button(type="button", data-role="none", role="button", tabindex="0") 5
+                div(tabindex="-1", role="option", data-slick-index="2", aria-hidden="true").cube__side_new.cube__side_new-2.slick-slide.slick-cloned
+                  .tile
+                    .item
+                      .news._blue.tile__inner
+                        A(href="#", tabindex="0").thumb
+                          img(src="images/post-thumb.jpg", alt="thumb")
+                        A(href="#", tabindex="0").category Новости бюджета
+                        A(href="#", tabindex="0").title Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»
+                        .bottom
+                          P.date 8 августа 2016
+                          .tags
+                            a(href="#", tabindex="0") #итоги
+                            a(href="#", tabindex="0") #апробация
+                            a(href="#", tabindex="0") #старшеклассники
+                        button(tabindex="0").share__btn
+                        .share__panel
+                          a(href="#", tabindex="0").share__a.share__a_fb
+                          a(href="#", tabindex="0").share__a.share__a_vk
+                          a(href="#", tabindex="0").share__a.share__a_tw
+                          a(href="#", tabindex="0").share__a.share__a_ok
+                    .item
+                      .news._red.tile__inner
+                        A(href="#", tabindex="0").thumb
+                          img(src="images/post-thumb.jpg", alt="thumb")
+                        A(href="#", tabindex="0").category Новости бюджета
+                        A(href="#", tabindex="0").title Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»
+                        .bottom
+                          P.date 8 августа 2016
+                          .tags
+                            a(href="#", tabindex="0") #итоги
+                            a(href="#", tabindex="0") #апробация
+                            a(href="#", tabindex="0") #старшеклассники
+                        button(tabindex="0").share__btn
+                        .share__panel
+                          a(href="#", tabindex="0").share__a.share__a_fb
+                          a(href="#", tabindex="0").share__a.share__a_vk
+                          a(href="#", tabindex="0").share__a.share__a_tw
+                          a(href="#", tabindex="0").share__a.share__a_ok
+                      a(href="#", tabindex="-1").service__more Подробнее
+                    .item
+                      .news._green.tile__inner
+                        A(href="#", tabindex="0").thumb
+                          img(src="images/post-thumb.jpg", alt="thumb")
+                        A(href="#", tabindex="0").category Новости бюджета
+                        A(href="#", tabindex="0").title Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»
+                        .bottom
+                          P.date 8 августа 2016
+                          .tags
+                            a(href="#", tabindex="0") #итоги
+                            a(href="#", tabindex="0") #апробация
+                            a(href="#", tabindex="0") #старшеклассники
+                        button(tabindex="0").share__btn
+                        .share__panel
+                          a(href="#", tabindex="0").share__a.share__a_fb
+                          a(href="#", tabindex="0").share__a.share__a_vk
+                          a(href="#", tabindex="0").share__a.share__a_tw
+                          a(href="#", tabindex="0").share__a.share__a_ok
+                    .item
+                      .news._blue.tile__inner
+                        A(href="#", tabindex="0").thumb
+                          img(src="images/post-thumb.jpg", alt="thumb")
+                        A(href="#", tabindex="0").category Новости бюджета
+                        A(href="#", tabindex="0").title Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»
+                        .bottom
+                          P.date 8 августа 2016
+                          .tags
+                            a(href="#", tabindex="0") #итоги
+                            a(href="#", tabindex="0") #апробация
+                            a(href="#", tabindex="0") #старшеклассники
+                        button(tabindex="0").share__btn
+                        .share__panel
+                          a(href="#", tabindex="0").share__a.share__a_fb
+                          a(href="#", tabindex="0").share__a.share__a_vk
+                          a(href="#", tabindex="0").share__a.share__a_tw
+                          a(href="#", tabindex="0").share__a.share__a_ok
+                      a(href="#", tabindex="-1").service__more Подробнее
+        div(data-slick-index="4", aria-hidden="true", tabindex="-1", role="option", aria-describedby="slick-slide04").sections__item.sections__item_footer.slick-slide
+          +footer()
+
+    UL(role="tablist").slick-dots
+      li(role="presentation", aria-hidden="true", aria-selected="true", aria-controls="navigation00")#slick-slide00
+        button(type="button", data-role="none", role="button", tabindex="0") 1
+      li(role="presentation", aria-hidden="true", aria-selected="true", aria-controls="navigation01")#slick-slide01
+        button(type="button", data-role="none", role="button", tabindex="0") 2
+      li(role="presentation", aria-hidden="true", aria-selected="true", aria-controls="navigation02")#slick-slide02
+        button(type="button", data-role="none", role="button", tabindex="0") 3
+      li(role="presentation", aria-hidden="true", aria-selected="true", aria-controls="navigation03")#slick-slide03
+        button(type="button", data-role="none", role="button", tabindex="0") 4
+      li(role="presentation", aria-hidden="true", aria-selected="true", aria-controls="navigation04")#slick-slide04
+        button(type="button", data-role="none", role="button", tabindex="0") 5
