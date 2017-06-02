@@ -1,0 +1,22 @@
+extends ../../layouts/default
+include ../../components/main-dnd/main-dnd
+
+block head
+  - var pageTitle = 'Versta Project Template'
+
+block page
+  #whitescreen(style="display:none;")
+  .wrapper.wrapper_main
+    block header
+      +header()
+      // GUIDE_LINK
+      a(href="#", data-delay="2700", title="Путеводитель по бюджету").guide.load-anim-fade
+        span Путеводитель<br> по бюджету
+        span.guide__icon
+      block sections
+        +sections().sections_fs
+          block content
+            +main-dnd()
+            +footer()
+
+  +popup-wrapper()

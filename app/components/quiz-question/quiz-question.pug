@@ -12,19 +12,19 @@ mixin quiz-question()
       .d-si__quiz-container
         .d-si__quiz-container_head
           span ИСТОРИЯ БЮДЖЕТА ГОРОДА МОСКВЫ ВО ВТОРОЙ ПОЛОВИНЕ XX — НАЧАЛЕ ХХI ВЕКА
-          +icon('cross').cross
+          .d-si__quiz-container_head-cross
         form(action="#").d-sii__form#d-sii__form
           .d-si__quiz-container_body
             p.question-count Вопрос 1 из 5
             fieldset.d-sii__form_question
                 legend НА ЧТО РАСХОДОВАЛАСЬ БОЛЬШАЯ ЧАСТЬ БЮДЖЕТА ГОРОДА В 50-60-Е ГОДЫ XX ВЕКА?
                 //- .jq-checkbox.d-sii__chbox._success.checked(unselectable="on")#d-sii__chbox-first-styler
-                +checkbox()
+                +checkbox()._success
                   | Капитальные вложения (строительство, приобретение оборудования)
                   //- input(type="checkbox", checked).d-sii__chbox._success#d-sii__chbox-first
                   .jq-checkbox__div 
                 //- .jq-checkbox.d-sii__chbox._error.checked(unselectable="on")#d-sii__chbox-second-styler
-                +checkbox()
+                +checkbox()._error
                   | Заработную плату
                   //- input(type="checkbox", checked).d-sii__chbox._error#d-sii__chbox-second
                   .jq-checkbox__div
@@ -34,14 +34,14 @@ mixin quiz-question()
                   //- input(type="checkbox", checked).d-sii__chbox#d-sii__chbox-third
                   .jq-checkbox__div
             fieldset.d-sii__form_question
-              legend КАКОВА ВАША ЦЕЛЬ ПОСЕЩЕНИЯ ПОРТАЛА «ОТКРЫТЫЙ БЮДЖЕТ ГОРОДА МОСКВЫ» СЕГОДНЯ?
+              legend.legend-2 КАКОВА ВАША ЦЕЛЬ ПОСЕЩЕНИЯ ПОРТАЛА «ОТКРЫТЫЙ БЮДЖЕТ ГОРОДА МОСКВЫ» СЕГОДНЯ?
               +e('label').field._type_radio
                 +radio({name: 'item1', value: '1', checked: true})
                 +e('span').label Поиск информации о бюджете города Москвы для подготовки учебных материалов рефератов, курсовых/дипломных работ
-              +e('label').field._type_radio
+              +e('label').field._type_radio.d-sq_form-error-label
                 +radio({name: 'item1', value: '2'})
                 +e('span').label Поиск информации о бюджете города Москвы, необходимой в профессиональной деятельности
-              +e('label').field._type_radio
+              +e('label').field._type_radio.d-sq_form-success-label
                 +radio({name: 'item1', value: '3'})
                 +e('span').label Изучение опыта города Москвы в части открытости бюджетных данных и представления бюджетных данных для граждан
               +e('label').field._type_radio
@@ -52,7 +52,7 @@ mixin quiz-question()
               | Получить подсказку
               +icon('info').icon_info
             .quiz-hint
-              +icon('cross').quiz-hint-close
+              .quiz-hint-close
               strong Подсказка
               p Это не заработная плата и не социальная поддержка населения. Так что же это?
           .quiz-footer
