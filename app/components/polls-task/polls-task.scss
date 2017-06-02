@@ -4,24 +4,55 @@
 
 ._task {
 
-  .d-si__quiz {
-    margin-top: 43px;
+  .d-min-layer {
 
-    &_item {
-      margin-bottom: 27px;
+    .dropdown {
+      border: none;
+    }
 
-      &:last-child {
-        margin-bottom: 39px;
+    .d-si__form-label {
+      vertical-align: top;
+      transform: translateY(-2px);
+    }
+
+    .d-si__quiz {
+      margin-top: 43px;
+
+      @media screen and (max-width: 639px) {
+        margin-top: 49px;
       }
-    }
 
-    &-head {
-      line-height: 24px;
-    }
+      &_item {
+        margin-bottom: 27px;
 
-    &_status {
-      line-height: 14px;
-      margin-top: -1px;
+        @media screen and (max-width: 1024px) {
+          margin-bottom: 30px;
+        }
+
+        &:last-child {
+          margin-bottom: 39px;
+        }
+      }
+
+      &-head {
+        line-height: 24px;
+      }
+
+      &_status {
+        line-height: 14px;
+        margin-top: -1px;
+
+        @media screen and (max-width: 1024px) {
+          margin-top: 6px;
+        }
+      }
+
+      &_button {
+
+        @media screen and (max-width: 639px) {
+          top: 7px;
+        }
+      }
     }
   }
 }
