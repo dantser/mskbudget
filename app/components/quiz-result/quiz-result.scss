@@ -1,8 +1,83 @@
+.sections .d-si-content_result .d-layer {
+  @media screen and (max-width: 1190px) {
+    padding: 0 37px;
+  }
+
+  @media screen and (max-width: 639px) {
+    padding: 0 13px;
+  }
+}
+
 .d-si-content_result {
   display: block;
 
   .page-head__category {
     margin-bottom: -5px;
+
+    @media screen and (max-width: 760px) {
+      display: none;
+    }
+  }
+
+  .d-layer {
+    max-width: 1174px;
+    margin: 0 auto;
+    padding: 0 37px;
+
+    @media screen and (max-width: 1190px) {
+      padding: 0 37px;
+    }
+
+    @include respond-to('mobile') {
+      padding: 0 13px;
+    }
+
+    .d-si-content__header {
+
+      @media screen and (max-width: 970px) {
+        margin-bottom: 17px;
+      }
+
+      @media screen and (max-width: 960px) {
+        margin-bottom: 46px;
+      }
+
+      @media (min-width: 300px) and (max-width: 639px) {
+        margin-bottom: 17px;
+      }
+    }
+  }
+
+  .d-si-content__header {
+    position: relative;
+    margin-bottom: 51px;
+
+    @include clearfix;
+
+    @media screen and (max-width: 1190px) {
+      padding-left: 36px;
+    }
+
+    @media screen and (max-width: 760px) {
+      margin-bottom: 32px;
+      padding-left: 0;
+    }
+
+    @include respond-to('mobile') {
+      padding-left: 0;
+    }
+
+    .page-head__category {
+      margin-bottom: -4px;
+
+      @media screen and (max-width: 1190px) {
+        margin-bottom: -7px;
+      }
+
+      @media screen and (max-width: 760px) {
+        display: none;
+      }
+    }
   }
 
   .d-si-content__cross {
@@ -18,6 +93,166 @@
     strong {
       font-weight: 300;
     }
+  }
+
+  .d-si__quiz-container {
+    color: $color-black;
+    background-color: $color-white;
+    padding-bottom: 55px;
+    font-family: $PFDinDisplayPro;
+    font-weight: 300;
+
+    @include clearfix;
+
+    @media screen and (max-width: 1190px) {
+      padding-bottom: 53px;
+    }
+
+    @media screen and (max-width: 639px) {
+      padding-bottom: 38px;
+    }
+
+    &_head {
+      font-family: $PFDinCondensedPro;
+      font-weight: 500;
+      padding-left: 122px;
+      min-height: 64px;
+      line-height: 64px;
+      background-color: $color-yellow;
+      font-size: 24px;
+      color: $color-black;
+      text-transform: uppercase;
+      position: relative;
+
+      @media screen and (max-width: 1190px) {
+        min-height: auto;
+        line-height: 25px;
+        padding: 21px 55px 18px 46px;
+      }
+
+      @include respond-to('mobile') {
+        line-height: 29px;
+        padding: 32px 50px 37px 21px;
+      }
+
+      @media (max-width: 639px) {
+        padding: 20px 48px 20px 17px;
+      }
+    }
+
+    &_body {
+      padding-left: 122px;
+
+      @media screen and (max-width: 1190px) {
+        padding-left: 46px;
+      }
+
+      @include respond-to('mobile') {
+        padding: 0 21px;
+      }
+    }
+  }
+
+  .d-si__quiz-container_head-cross, .d-si-content__cross {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 23px;
+    right: 33px;
+    cursor: pointer;
+
+    @media screen and (max-width: 1190px) {
+      top: 22px;
+      right: 18px;
+      width: 22px;
+      height: 22px;
+    }
+
+    @media screen and (max-width: 639px) {
+      right: 23px;
+    }
+  }
+
+  .d-sr__result {
+    margin-top: 23px;
+
+    @media screen and (max-width: 639px) {
+      margin-top: 15px;
+    }
+
+    &_value {
+
+      @media screen and (max-width: 1190px) {
+        margin-left: 40px;
+      }
+
+      @media screen and (max-width: 639px) {
+        display: block;
+        margin-left: 0;
+        margin-top: 6px;
+      }
+    }
+  }
+
+  .d-layer .d-si__quiz-container .d-si__quiz-container_body {
+
+    @media screen and (max-width: 639px) {
+      padding: 0 18px;
+    }
+  }
+
+  .d-layer .d-sii__form .quiz-footer .d-si__quiz-container_body {
+    @media screen and (max-width: 639px) {
+      padding: 0 18px;
+      padding-left: 35px;
+    }
+  }
+
+  .quiz-result-text {
+    margin-top: 37px;
+
+    @media screen and (max-width: 1190px) {
+      margin-top: 44px;
+      margin-left: 8.4%;
+      width: calc(91% - 251px);
+    }
+
+    @media screen and (max-width: 760px) {
+      margin-left: 26px;
+      margin-top: 41px;
+      font-size: 20px;
+      line-height: 22px;
+    }
+
+    @media screen and (max-width: 639px) {
+      width: 100%;
+      margin: 0;
+      margin-top: 30px;
+    }
+  }
+
+  .quiz-result-round {
+    margin-top: 30px;
+  }
+
+  .num-list {
+    margin-top: 70px;
+
+    @media screen and (max-width: 760px) {
+      padding-right: 0;
+    }
+
+    @media screen and (max-width: 760px) {
+      margin-top: 45px;
+    }
+
+    ol {
+      margin-top: 20px;
+    }
+  }
+
+  .d-sr__social {
+    margin-top: 39px;
   }
 }
 
