@@ -1,9 +1,9 @@
-mixin main()
+mixin main-test()
   // SECTIONS_ITEM(Banner)/
   .sections__item
     .cube
       // BANNER/
-      .cube__side.cube__side_current
+      .cube__side
         .banner.banner_ban-1
           .wrap.banner__wrap
             .clearfix
@@ -11,7 +11,10 @@ mixin main()
               button.arrow.cube__arrow.cube__arrow_m.arrow_left.cube__arrow_next
               button.arrow.cube__arrow.cube__arrow_m.arrow_right.cube__arrow_prev
             a(href="#").banner__link
-              span.banner__title_b Государственный долг на 01.12.2016
+              span(data-delay="900").banner__row.banner__row_v1.load-anim-fade Государственный долг
+                span.viewport-sm на 1.12.2016
+              br
+              span(data-delay="1500").banner__row.banner__row_v2.load-anim-fade.viewport-md-lg на 1.12.2016
             a(href="#", data-delay="2100").button.banner__button.load-anim-fade
               span Подробнее
       // /BANNER
@@ -24,8 +27,11 @@ mixin main()
               button.arrow.cube__arrow.cube__arrow_m.arrow_left.cube__arrow_next
               button.arrow.cube__arrow.cube__arrow_m.arrow_right.cube__arrow_prev
             a(href="#").banner__link
-              span.banner__title_b Бюджетный калькулятор
-              span.banner__row.banner__row_sub Создай свой бюджет!
+              span.banner__row.banner__row_v9 Бюджетный
+              br
+              span.banner__row.banner__row_v2 калькулятор
+              br
+              span.banner__row.banner__row_v3 Создай свой бюджет!
             a(href="#").button.banner__button Подробнее
       // /BANNER
       // BANNER/
@@ -37,8 +43,15 @@ mixin main()
               button.arrow.cube__arrow.cube__arrow_m.arrow_left.cube__arrow_next
               button.arrow.cube__arrow.cube__arrow_m.arrow_right.cube__arrow_prev
             a(href="#").banner__link
-              span.banner__title_b Опубликованы данные по исполнению бюджета города Москвы на 01.10.2016
-              span.banner__row.banner__row_sub Департамент финансов города Москвы подвел итоги исполнения столичного бюджета за 9 месяцев 2016 года
+              span.banner__row.banner__row_v7 Опубликованы данные
+              br
+              span.banner__row.banner__row_v4 по исполнению бюджета
+              br
+              span.banner__row.banner__row_v6 города Москвы
+                br.viewport-sm
+                | на 01.10.2016
+              br
+              span.banner__row.banner__row_v5 Департамент финансов города Москвы подвел итоги<br> исполнения столичного бюджета за 9 месяцев 2016 года
             a(href="#").button.banner__button.mt-30 Подробнее
       // /BANNER
       button.arrow.cube__arrow.arrow_right.cube__arrow_prev
@@ -49,18 +62,17 @@ mixin main()
   .sections__item.sections__item_bg1
     .cube-brick(data-brick-900="1")
       // AHEAD/
-      .sections__ahead.sections__ahead_ab#diagrams-ahead-1
+      .sections__ahead#diagrams-ahead-1
         .wrap
-          h1.sections__title.anim-fade-top.mr-0 Основные показатели бюджета за 2016–2018 годы
+          h1.sections__title.anim-fade-top Основные показатели бюджета за 2016–2018 годы
           .legend.sections__legend.anim-fade-top
             .legend__item.legend__item_blue доходы
             .legend__item.legend__item_pink расходы
             .legend__item.legend__item_green дефицит/профицит 
-              span.ml-20 млрд. рублей
       // /AHEAD
     .cube-brick(data-brick-900="2")
       // AHEAD/
-      .sections__ahead.viewport-900-lg.sections__ahead_ab#diagrams-ahead-2
+      .sections__ahead.mb-40.viewport-900-lg#diagrams-ahead-2
         .wrap
           h2.sections__title.anim-fade-top.mr-20 Исполнение бюджета
           // CALENDAR/
@@ -75,48 +87,56 @@ mixin main()
     .slider.slider_diagrams(data-sides-900="2")
       .cube-brick(data-brick-900="1")
         // DIAGRAM_CELL/
-        .grid__col.grid__col_h.grid-brick-3
+        .grid__col.grid-brick-3
+          // TEST
+          #test-1(style="position: absolute; margin-top: -50px;")
+            form(action="#" method="POST")
+              label Доход:
+              input(type="text", name="inp1", value="1446.2", style="border: 1px solid #fff; width: 50px;")
+              label Расход:
+              input(type="text", name="inp2", value="1598.9", style="border: 1px solid #fff; width: 50px;")
+              label Максимально:
+              input(type="text", name="inp3", value="2050", style="border: 1px solid #fff; width: 50px;")
+              input(type="submit", value="Обновить", style="border: 1px solid #fff;")
           .comp-diagram.comp-diagram_dash-1#diagram-1
-            a(href="#")
             .comp-diagram__year 2016
         // /DIAGRAM_CELL
       .cube-brick(data-brick-900="1")
         // DIAGRAM_CELL/
-        .grid__col.grid__col_h.grid-brick-3
+        .grid__col.grid-brick-3
           .comp-diagram.comp-diagram_dash-2#diagram-2
-            a(href="#")
             .comp-diagram__year 2017
         // /DIAGRAM_CELL
       .cube-brick(data-brick-900="1")
         // DIAGRAM_CELL/
-        .grid__col.grid__col_h.grid-brick-3
+        .grid__col.grid-brick-3
           .comp-diagram.comp-diagram_dash-1#diagram-3
-            a(href="#")
             .comp-diagram__year 2018
         // /DIAGRAM_CELL
       .cube-brick(data-brick-900="2")
         // DIAGRAM_CELL/
-        .grid__col.grid__col_h.grid-brick-2
+        .grid__col.grid-brick-2
+          // TEST
+          #test-2(style="position: absolute; margin-top: -20px;")
+            form(action="#" method="POST")
+              label План:
+              input(type="text", name="inp1", value="1665.5", style="border: 1px solid #fff; width: 50px;")
+              label Факт:
+              input(type="text", name="inp2", value="1921.7", style="border: 1px solid #fff; width: 50px;")
+              input(type="submit", value="Обновить", style="border: 1px solid #fff;")          
           .large-diagram
-            a(href="#")
             p.large-diagram__caption доходы
             .large-diagram__svg#diagram-4
         // /DIAGRAM_CELL
       .cube-brick(data-brick-900="2")
         // DIAGRAM_CELL/
-        .grid__col.grid__col_h.grid-brick-2
+        .grid__col.grid-brick-2
           .large-diagram
-            a(href="#")
             p.large-diagram__caption расходы
-              span.yellow *
-              span.rub млрд. рублей
             .large-diagram__svg#diagram-5
-            p.large-diagram__note
-              span.yellow *
-              | без учета возвратов неиспользованных средств
         // /DIAGRAM_CELL
     // /DIAGRAMS_SLIDER
-  // DIAGRAMS_SECTION/
+  // /DIAGRAMS_SECTION
   
   // SERVICES_SECTION/
   .sections__item.sections__item_bg2
@@ -135,33 +155,64 @@ mixin main()
           .tile__inner.service
             .service__ahead
               h3.service__title Государственные программы
-                button
               .service__sub-title по состоянию на
                 .datepicker.service__datepicker
-                  input(type="text", value="21.10.2016").jq-datepicker
-                | , млрд. руб
-            .service-dot-cont.service-dot-cont_act#serv-d-2
-              .dashed-diagram.service__dashed-diagram
-                .dashed-diagram__diagram#diagram-8
-                  .dashed-diagram__value.dashed-diagram__value_top план
-                    p.dashed-diagram__value-p 1 637,3
-                  .dashed-diagram__value.dashed-diagram__value_bottom
-                    p.dashed-diagram__value-p 1 167,7
-                    | факт
-              .service__capt Программные расходы
-            .service-dot-cont#serv-d-1
-              .dashed-diagram.service__dashed-diagram
-                .dashed-diagram__diagram#diagram-9
-                  .dashed-diagram__value.dashed-diagram__value_top план
-                    p.dashed-diagram__value-p 113,4
-                  .dashed-diagram__value.dashed-diagram__value_bottom
-                    p.dashed-diagram__value-p 46,5
-                    | факт
-              .service__capt Непрограммные направления деятельности
-            .service-dots
-              button(data-cont="serv-d-1").service-dots__btn
-              button(data-cont="serv-d-2").service-dots__btn.active
-            a(href="#").service__more Подробнее
+                  button.datepicker__show 21.10.2016
+                  .datepicker__panel
+                    ul.datepicker__col.datepicker__col_years
+                      li
+                        a(href="#").datepicker__a 2011
+                      li
+                        a(href="#").datepicker__a 2012
+                      li
+                        a(href="#").datepicker__a 2013
+                      li
+                        a(href="#").datepicker__a 2014
+                      li
+                        a(href="#").datepicker__a 2015
+                      li
+                        a(href="#").datepicker__a.datepicker__a_act 2016
+                    .datepicker__col-wrap
+                      ul.datepicker__col.datepicker__col_months
+                        li
+                          a(href="#", data-month="01").datepicker__a январь
+                        li
+                          a(href="#", data-month="02").datepicker__a февраль
+                        li
+                          a(href="#", data-month="03").datepicker__a март
+                        li
+                          a(href="#", data-month="04").datepicker__a апрель
+                        li
+                          a(href="#", data-month="05").datepicker__a май
+                        li
+                          a(href="#", data-month="06").datepicker__a июнь
+                      ul.datepicker__col.datepicker__col_months
+                        li
+                          a(href="#", data-month="07").datepicker__a июль
+                        li
+                          a(href="#", data-month="08").datepicker__a август
+                        li
+                          a(href="#", data-month="09").datepicker__a сентябрь
+                        li
+                          a(href="#", data-month="10").datepicker__a.datepicker__a_act октябрь
+                        li
+                          a(href="#", data-month="11").datepicker__a ноябрь
+                        li
+                          a(href="#", data-month="12").datepicker__a.datepicker__a_act декабрь
+                    button.datepicker__close
+                | , млрд. руб                    
+            .dashed-diagram.service__dashed-diagram
+              .dashed-diagram__diagram#diagram-8
+                .dashed-diagram__value.dashed-diagram__value_top план
+                  p.dashed-diagram__value-p 1 637,3
+                .dashed-diagram__value.dashed-diagram__value_bottom
+                  p.dashed-diagram__value-p 1 167,7
+                  | факт
+            .service__capt Программные расходы
+            ul.service-dots
+              li.service-dots__g
+              li.service-dots__n
+            a(href="#").service__more Подробнее            
         // /SERVICE_ITEM
         
       .cube-brick(data-brick-700="1", data-brick-900="1", data-brick-1100="1")
@@ -170,8 +221,7 @@ mixin main()
           .tile__inner.service
             .service__ahead
               h3.service__title Адресная инвестиционная программа
-                button
-              .service__sub-title на 2016 год, млрд. руб.
+              p.service__sub-title на 2016 год, млрд. руб.
             .segment-diagram#diagram-6
               .segment-diagram__value Всего
                 p.segment-diagram__value-num 347,2
@@ -213,7 +263,6 @@ mixin main()
           .tile__inner.service
             .service__ahead
               h3.service__title Государственный долг
-                button
               .service__sub-title по состоянию на
                 .datepicker.service__datepicker
                   button.datepicker__show 21.10.2016
@@ -294,7 +343,6 @@ mixin main()
           .tile__inner.service
             .service__ahead.mb-10
               h3.service__title Москва и города мира
-                button
             p.fs-14.medium.mb-10.xs-fs-11 Выберите показатель
             .select.service__select
               button.select__btn Доходы
@@ -323,7 +371,6 @@ mixin main()
           .tile__inner.service
             .service__ahead.mb-10
               h3.service__title Москва и города мира
-                button
             p.fs-14.medium.mb-10 Выберите показатель
             .select.service__select
               button.select__btn Доходы
@@ -352,7 +399,6 @@ mixin main()
           .tile__inner.service
             .service__ahead.mb-10
               h3.service__title Москва и города мира
-                button
             p.fs-14.medium.mb-10 Выберите показатель
             .select.service__select
               button.select__btn Доходы
@@ -381,7 +427,6 @@ mixin main()
           .tile__inner.service
             .service__ahead.mb-10
               h3.service__title Москва и города мира
-                button
             p.fs-14.medium.mb-10 Выберите показатель
             .select.service__select
               button.select__btn Доходы
