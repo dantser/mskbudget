@@ -1,18 +1,20 @@
 include ../../blocks/grid/grid
 include ../../blocks/question/question
 include ../../blocks/icon/icons
-
+include ../../blocks/lk-nav/lk-nav
 
 mixin questions()
   +b.questions&attributes(attributes)
-    +grid()
-      +col(2)
-        +e.H2.title Вопросы
-        +e.UL.nav
-          +e.LI.nav__item Новые
-          +e.LI.nav__item Модерация
-          +e.LI.nav__item В работе
-          +e.LI.nav__item._active С ответом
-      +col(10)#scroll
-        - for (var i = 0; i < 6; i++)
-          +question()
+    .wrapper
+      +lk-nav('вопросы')
+      +grid()
+        +col(2)
+          +e.H2.title Вопросы
+          +e.UL.nav
+            +e.LI.nav__item Новые
+            +e.LI.nav__item Модерация
+            +e.LI.nav__item В работе
+            +e.LI.nav__item._active С ответом
+        +col(10)#scroll
+          - for (var i = 0; i < 6; i++)
+            +question()

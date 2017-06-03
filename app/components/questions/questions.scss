@@ -3,7 +3,6 @@
   width: 100%;
   background: url('../images/background-q.png') no-repeat;
   background-size: cover;
-  padding: 338px 0 110px;
   font-family: $PFDinCondensedPro;
   font-weight: 500;
   box-sizing: border-box;
@@ -15,23 +14,41 @@
   }
 
   @include respond-to('mobile') {
-    padding: 0 10px;
+    padding: 10px 0;
+  }
+
+  .wrapper {
+    margin: 0 auto 110px;
+    padding-top: 208px;
+
+    @include respond-to('mobile') {
+      padding-top: 100px;
+    }
+  }
+
+  .lk-nav {
+    margin: 0 auto 65px;
+    max-width: 1174px;
+
+    @include respond-to('mobile') {
+      padding-left: 10px;
+      margin-bottom: 30px;
+    }
   }
 
   .grid {
     position: relative;
-    padding: 30px 20px 0 40px;
     background-color: $color-white;
     margin: 0 auto;
 
     &__col {
-      padding: 27px 10px 0 13px;
+      padding: 29px 10px 0 34px;
 
       &_ten {
         overflow-y: scroll;
         max-height: 546px;
         background-color: #f4f4f4;
-        padding: 33px 32px 0 25px;
+        padding: 33px 32px 0 18px;
 
         @include respond-to('laptop') {
           width: 80%;
@@ -44,7 +61,9 @@
 
         @include respond-to('mobile') {
           width: 100%;
-          padding: 10px 5px 0;
+          padding: 23px 5px 0;
+          overflow-y: visible;
+          max-height: none;
         }
       }
 
@@ -62,7 +81,7 @@
 
         @include respond-to('mobile') {
           width: 100%;
-          padding: 0;
+          padding: 10px 0;
         }
       }
     }
@@ -90,7 +109,7 @@
       font-size: 30px;
       font-family: $PFDinCondensedPro;
       text-transform: uppercase;
-      margin-bottom: 57px;
+      margin-bottom: 58px;
       padding-left: 6px;
       color: $color-black;
 
@@ -120,8 +139,8 @@
         font-family: $PFDinCondensedPro;
         position: relative;
         display: inline-block;
-        padding: 2px 17px 2px 6px;
-        margin-bottom: 12px;
+        padding: 3px 17px 2px 6px;
+        margin-bottom: 13px;
         cursor: pointer;
 
         @include respond-to('tablet') {
