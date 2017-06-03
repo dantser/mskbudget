@@ -1,5 +1,5 @@
 mixin main-t1()
-  +b.main-t1&attributes(attributes)
+  //- +b.main-t1&attributes(attributes)
     //- A(href="#", data-delay="2700", title="Путеводитель по бюджету").guide.load-anim-fade.load-anim-fade_on.guide_short
     //-   span
     //-     | Путеводитель
@@ -7,6 +7,7 @@ mixin main-t1()
     //-     | по бюджету
     //-   .SPAN.icon
     //- div(role="toolbar").sections.sections_fs.slick-initialized.slick-slider.slick-dotted.slick-vertical
+
     // SECTIONS_ITEM(Banner)
     div(aria-live="polite").slick-list
       div(role="listbox").slick-track
@@ -193,7 +194,7 @@ mixin main-t1()
                         div(id='diagram-5').large-diagram__svg
                           .large-diagram__values
                             .large-diagram__percent
-                              span(id='value-perc-path-diagram-5-0', data-value="73,1").diagram-value#value-perc-path-diagram-5-0 0
+                              span(id='value-perc-path-diagram-5-0', data-value="73,1").diagram-value 0
                               | %
                             .large-diagram__value.large-diagram__value_top
                               | План
@@ -694,7 +695,7 @@ mixin main-t1()
                             br
                             | по общему количеству населения
                         a(href='#', tabindex='-1').service__more Подробнее
-                    //- STOP
+
                 div(tabindex="-1", role="option", data-slick-index="1", aria-hidden="true").cube__side_new.cube__side_new-2.slick-slide
                   .tile
                     .tile__item
