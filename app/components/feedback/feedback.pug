@@ -1,0 +1,30 @@
+include ../../blocks/icon/icons
+include ../../components/page-header/page-header
+
+mixin feedback()
+  +b.feedback&attributes(attributes)
+    .wrapper
+      +e.header
+        +page-header('Обратная связь')
+      +e.content
+        +e.left-side
+          +e.A(href="#").send-link Направить обращение
+          +e.contacts
+            +e.P.block-heading Департамент финансов города Москвы
+            p Единый телефон: +7 (499) 251-49-82
+            p Факс:  +7 (499) 250-21-46
+            p Электронная почта: 
+              a(href="#") info@fin.dep.mos.ru
+        +e.right-side
+          +e.P.block-heading Форум
+          +e.P.block-desc Предложения и пожелания по работе с Порталом
+          +e.forum
+            +e.P.forum-head Иван Иванов
+              span 19.09.2016
+            +e.P.forum-text Хотелось бы отдельный блок по данным, а то темы по этому вопросу разбросаны по форуму,
+            +e.A(href="#").forum-link
+              +icon('share-option').forum-link-icon
+              span Департамент финансов города Москвы
+              | Иван, спасибо за идею, но НЕТ
+        +e.map-block
+          +e.map#googlemap

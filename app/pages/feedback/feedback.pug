@@ -1,0 +1,56 @@
+extends ../../layouts/default
+include ../../components/feedback/feedback
+
+block head
+  - var pageTitle = 'Versta Project Template'
+
+block page
+  block header
+    +header()
+
+  block sections
+    +sections().sections_feedback
+
+      block content
+        +feedback()
+        +popup-wrapper()
+        +footer()
+        +button-top()
+        
+  script(src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCUaCNfcDZQL7nZK07DQmAHsEetCCMIQ5w")
+  script(src="assets/scripts/CustomGoogleMapMarker.js")
+  script.
+    function initialize() {
+
+      //Координаты маркеров
+      var myLatlng1 = new google.maps.LatLng(59.957006, 30.341755);
+
+      //Стили карты
+      var styles = [];
+
+      window.basiczoom = 12;
+
+      //Настройки карты
+      var mapOptions = {
+        zoom: basiczoom,
+        center: myLatlng1,
+        disableDefaultUI: true,
+        scrollwheel: false,
+      }
+
+      //карта
+      var map = new google.maps.Map(document.getElementById('googlemap'), mapOptions);
+      map.setOptions({styles: styles});
+
+      //Кастомные маркеры
+      overlay = new CustomMarker(
+        myLatlng1,
+        map,
+        {
+          marker_id: 'budget',
+          title: 'Департамент финансов города Москвы'
+        }
+      );
+    }
+    
+    google.maps.event.addDomListener(window, 'load', initialize);

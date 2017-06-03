@@ -78,3 +78,50 @@ html, body {
   margin-top: 0;
   padding-bottom: 0;
 }
+
+.map-marker {
+  &__content {
+    background-color: rgba(#fff, .9);
+    border-radius: 1000px 10px 10px 1000px;
+    width: 235px;
+    padding: 5px 15px 5px 30px;
+    position: relative;
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    letter-spacing: -0.02em;
+    
+    @media screen and (max-width: 480px) {
+      font-size: 0;
+      width: 26px;
+      height: 26px;
+      padding: 0;
+      border-radius: 1000px;
+    }
+  }
+  &__icon {
+    position: absolute;
+    width: 23px;
+    height: 23px;
+    border-radius: 1000px;
+    border: 3px solid #269bfc;
+    top: 0;
+    left: 2px;
+    bottom: 0;
+    margin: auto;
+    
+    span {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      width: 9px;
+      height: 9px;
+      border-radius: 1000px;
+      background-color: #269bfc;
+    }
+  }
+}
