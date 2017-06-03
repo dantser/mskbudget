@@ -1,0 +1,47 @@
+.lk-nav {
+  display: block;
+  font-weight: 500;
+  font-family: $PFDinCondensedPro;
+  font-size: 0;
+
+  &__item {
+    display: inline-block;
+    text-transform: uppercase;
+    padding: 6px 10px 6px 22px;
+    color: $color-white;
+    position: relative;
+    text-decoration: none;
+    font-size: 16px;
+
+    &:not(:last-child) {
+      margin-right: 62px;
+
+      @include respond-to('mobile') {
+        margin-right: 25px;
+      }
+    }
+
+    &_active {
+      color: $color-black;
+      background-color: $color-yellow;
+
+      &::after {
+        color: $color-black;
+      }
+
+      .lk-nav__item-num {
+        color: $color-black;
+        opacity: .3;
+      }
+    }
+  }
+
+  &__item-num {
+    position: absolute;
+    color: $color-yellow;
+    top: 6px;
+    left: 7px;
+    font-size: 10px;
+    font-weight: 400;
+  }
+}
