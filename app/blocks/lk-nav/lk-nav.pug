@@ -1,0 +1,10 @@
+//- secondTitle = второая ссылка - вопросы или документы
+
+mixin lk-nav(secondTitle)
+  +b.lk-nav&attributes(attributes)
+    +e.A(href="#").item._profile._active Профиль
+      +e.SPAN.item-num 01.
+    +e.A(href="#").item._documents=secondTitle
+      +e.SPAN.item-num 02.
+    +e.A(href="#").item._services Сервисы
+      +e.SPAN.item-num 03.
