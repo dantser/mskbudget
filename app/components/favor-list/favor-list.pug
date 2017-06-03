@@ -1,0 +1,17 @@
+include ../../blocks/favor/favor
+include ../../blocks/icon/icons
+
+mixin favor-list()
+  +b.favor-list&attributes(attributes)
+    +e.H3.title Избранное
+    +e.UL.list
+      - for (var i=0; i < 7; i++)
+        +e.LI.item
+          +e.A(href='#').link
+            +e.SPAN.label Рейтинг открытости бюджетных данных
+            +e.favor
+              +favor()._added
+            +e.remove
+              +icon('basket')
+    +e.P.note Для того, чтобы добавить страницу или документ в избранное, нажмите на звездочку.
+

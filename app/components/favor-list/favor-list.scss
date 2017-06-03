@@ -1,0 +1,76 @@
+.favor-list {
+  display: block;
+  position: relative;
+  height: 100%;
+  padding: 38px 29px 30px;
+  font-family: $PFDinTextPro;
+
+  &__title {
+    text-transform: uppercase;
+    font-size: 24px;
+    line-height: 1em;
+    font-weight: 500;
+    font-family: $PFDinCondensedPro;
+    color: #000;
+    margin-bottom: 29px;
+  }
+
+  &__list {
+    margin-bottom: 111px;
+  }
+
+  &__item {
+    margin-bottom: 5px;
+  }
+
+  &__link {
+    display: block;
+    position: relative;
+    padding: 0 36px 0 32px;
+    font-size: 16px;
+    line-height: 22px;
+    font-family: $PFDinTextPro;
+    color: $color-input;
+    text-decoration: none;
+    transition: all ease .25s;
+
+    &:hover{
+      cursor: url(../images/hand-cursor.png), pointer;
+    }
+
+    &:hover .favor-list__label{
+      color: #0d46a1;
+    }
+
+    &:hover .favor-list__remove{
+      display: block;
+    }
+  }
+
+  &__favor {
+    position: absolute;
+    left: 0;
+    width: 19px;
+    height: 18px;
+  }
+
+  &__remove {
+    display: none;
+    position: absolute;
+    right: 0;
+    width: 12px;
+    height: 12px;
+
+    & svg {
+      stroke: $color-input;
+      fill: $color-input;
+    }
+  }
+
+  &__note {
+    position: absolute;
+    max-width: 220px;
+    color: #color-input;
+    bottom: 0;
+  }
+}

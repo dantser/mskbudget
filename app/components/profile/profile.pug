@@ -2,7 +2,7 @@ include ../../blocks/icon/icons
 include ../../blocks/checkbox/checkbox
 include ../../blocks/link/link
 include ../../blocks/button/button
-include ../../blocks/favor/favor
+include ../favor-list/favor-list
 
 mixin profile()
   +b.profile&attributes(attributes)
@@ -44,13 +44,4 @@ mixin profile()
             | Сохранить
 
     +e.favorite
-      +e.H3.title._right
-      +e.UL.list
-        - for (var i=0; i < 7; i++)
-          +e.LI.item
-            +e.A.link Рейтинг открытости бюджетных данных
-            +e.favor
-              +favor()
-            +e.delete
-              +icon('basket')
-      +e.P.note Для того, чтобы добавить страницу или документ в избранное, нажмите на звездочку.
+      +favor-list()
