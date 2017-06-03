@@ -4,13 +4,18 @@ include ../../components/documents/documents
 block head
   - var pageTitle = 'Versta Project Template'
 
-block header
-  +header()._budget
+block page
+  .wrapper
+    block header
+      +header()._budget
 
-block sections
-  +sections()
+      block sections
+        +sections()
+          block content
+            +documents()
+            +footer()
 
-    block content
-      +documents()
-      +popup-wrapper()
-      +footer()
+  +popup-wrapper()
+  .range-datepicker
+    .range-datepicker__item.range-datepicker__item_min(data-range="min")
+    .range-datepicker__item.range-datepicker__item_max(data-range="max")
