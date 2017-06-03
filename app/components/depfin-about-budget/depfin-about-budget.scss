@@ -4,42 +4,407 @@
   padding-bottom: 16px;
 }
 
-.whatIsBudget {
-  padding-top: 131px;
+.whatIsBudget{
+    /*min-width:980px;*/
+    min-width:100%;
+    background:url(../images/what-is-budget/fon.jpg) center top no-repeat #282635;
+    -webkit-background-size:cover;
+    background-size:cover;
+    width:100%;
+    overflow:hidden;
+}
+.whatIsBudget {padding-top:155px;}
+
+.whatIsBudget-conception{max-width:976px;margin:0 auto;padding-left:142px;-webkit-box-sizing:border-box;box-sizing:border-box}
+
+.whatIsBudget-termin{font-family:PFDinCompressedPro;color:#fff;text-transform:uppercase;font-size:237px;margin-left:-11px}
+.whatIsBudget-termin h1{font-weight:500}
+
+.whatIsBudget-definition{font-family:PFDinCondensedPro}
+.whatIsBudget-definition{font-size:36px;color:#fff;letter-spacing:-.2px}
+
+.whatIsBudget-definition__accent{font-style:normal;padding:0 9px;position:relative}
+.whatIsBudget-definition__accent:before{position:absolute;content:"";left:0;top:2px;right:0;bottom:1px}
+.whatIsBudget-definition__accent._blue:before{background:-webkit-gradient(linear,left top, right top,color-stop(0, #004ccf),to(#0ff));background:-webkit-linear-gradient(left,#004ccf 0,#0ff 100%);background:linear-gradient(to right,#004ccf 0,#0ff 100%)}
+.whatIsBudget-definition__accent._red:before{background:-webkit-gradient(linear,left top, right top,color-stop(0, #ff695b),to(#9d308a));background:-webkit-linear-gradient(left,#ff695b 0,#9d308a 100%);background:linear-gradient(to right,#ff695b 0,#9d308a 100%)}
+.whatIsBudget-definition__accent span{position:relative}
+
+.budgetScales {
+    height: 283px;
+    position: relative;
+    margin-top: 228px
 }
 
-.whatIsBudget-definition {
-  margin-top: -23px;
-  line-height: 36px;
-
-  @media (max-width: 640px) {
-    font-size: 30px;
-    margin-right: 16px;
-  }
-
-  @media (max-width: 1150px) {
-    font-size: 29px;
-  }
+.budgetScales-legend__wrapper {
+    position: absolute;
+    max-width: 1100px;
+    width: 100%;
+    top: -51px;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    transform: translate(-50%, 0)
 }
 
+.budgetScales-legend {
+    text-transform: uppercase;
+    font-family: PFDinCondensedPro;
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff
+}
+.budgetScales-legend._center {
+    text-align: center
+}
+.budgetScales-legend._left {
+    max-width: 250px;
+    margin-top: 28px;
+    float: left
+}
+.budgetScales-legend._right {
+    max-width: 250px;
+    margin-top: 28px;
+    float: right;
+    text-align: right
+}
 
-.whatIsBudget-conception {
+.budgetScales-platform {
+    border-bottom: 5px solid #fff;
+    max-width: 1100px;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    left: 50%;
+    bottom: 0;
+    /*margin-left: -550px;*/
+    -webkit-transition: all 3s ease;
+    transition: all 3s ease;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+.budgetScales-platform[data-advantage=surplus] {
+    -webkit-transform: translateX(-50%) rotate(-4deg);
+    transform: translateX(-50%) rotate(-4deg)
+}
+.budgetScales-platform[data-advantage=surplus] + .budgetScales-rockerArm .budgetScales-rockerArm__indicate:after{
+    transform:rotate(-45deg);
+}
+.budgetScales-platform[data-advantage=deficit] {
+    -webkit-transform: translateX(-50%) rotate(4deg);
+    transform: translateX(-50%) rotate(4deg)
+}
 
-  @media (max-width: 1150px) {
+.budgetScales-pattern {
+    width: 546px;
+    height: 265px;
+    position: absolute;
+    bottom: 0;
+    background: center center/100% 100% no-repeat;
+    -webkit-transition: all 3s ease;
+    transition: all 3s ease;
+    pointer-events: none
+}
+.budgetScales-pattern._surplus {
+    left: 3px;
+    background-image: url(../images/what-is-budget/pattern-surplus.png)
+}
+.budgetScales-pattern._deficit {
+    right: 3px;
+    background-image: url(../images/what-is-budget/pattern-deficit.png)
+}
+[data-advantage=surplus] .budgetScales-pattern._surplus {
+    -webkit-transform: translate(7px, 0) skewX(-4deg);
+    -ms-transform: translate(7px, 0) skewX(-4deg);
+    transform: translate(7px, 0) skewX(-4deg)
+}
+[data-advantage=surplus] .budgetScales-pattern._deficit {
+    -webkit-transform: translate(12px, 0) skewX(-4deg);
+    -ms-transform: translate(12px, 0) skewX(-4deg);
+    transform: translate(12px, 0) skewX(-4deg)
+}
+[data-advantage=deficit] .budgetScales-pattern._surplus {
+    -webkit-transform: translate(-11px, 0) skewX(4deg);
+    -ms-transform: translate(-11px, 0) skewX(4deg);
+    transform: translate(-11px, 0) skewX(4deg)
+}
+[data-advantage=deficit] .budgetScales-pattern._deficit {
+    -webkit-transform: translate(-6px, 0) skewX(4deg);
+    -ms-transform: translate(-6px, 0) skewX(4deg);
+    transform: translate(-6px, 0) skewX(4deg)
+}
+
+.budgetScales-mainWeight{
+    bottom: 0;
+    text-transform: uppercase;
     text-align: center;
-    max-width: 98%;
-    padding-left: 0;
-  }
-
-  @media (max-width: 640px) {
-    max-width: 550px;
-    padding-left: 45px;
-  }
+    font-family: PFDinCondensedPro;
+    font-weight: 500;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+.budgetScales-mainWeight {
+    position: absolute;
+    width: 131px;
+    height: 132px;
+    background: center center/100% 100% no-repeat;
+    color: #fff;
+    font-size: 24px;
+    padding-top: 52px;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-transition: all 3s ease;
+    transition: all 3s ease;
+    -webkit-transform-origin: center bottom;
+    -ms-transform-origin: center bottom;
+    transform-origin: center bottom;
+    z-index: 1
+}
+.budgetScales-mainWeight._revenues {
+    left: 30px;
+    /*background-image: url(../images/what-is-budget/weight-revenues.svg)*/
+    background-image: url(../images/what-is-budget/weight-revenues.png)
+}
+.budgetScales-mainWeight._expenditures:before,
+.budgetScales-mainWeight._revenues:before {
+    left: 50%;
+    top: 50%;
+    content: "";
+    -webkit-transition: all 3s ease;
+    transition: all 3s ease;
+    position: absolute
+}
+.budgetScales-mainWeight._revenues:before {
+    opacity: 0;
+    width: 214px;
+    height: 226px;
+    background: url(../images/what-is-budget/weight-revenues-glow.png) center center/100% 100% no-repeat;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%)
+}
+.budgetScales-mainWeight._revenues[data-status=big] {
+    -webkit-transform: translateZ(0) scale(1.2);
+    transform: translateZ(0) scale(1.2)
+}
+.budgetScales-mainWeight._revenues[data-status=big]:before,
+.budgetScales-mainWeight._revenues[data-status=center]:before {
+    opacity: 1
+}
+.budgetScales-mainWeight._expenditures {
+    right: 30px;
+    /*background-image: url(../images/what-is-budget/weight-expenditures.svg)*/
+    background-image: url(../images/what-is-budget/weight-expenditures.png)
+}
+.budgetScales-mainWeight._expenditures:before {
+    opacity: 0;
+    width: 196px;
+    height: 198px;
+    background: url(../images/what-is-budget/weight-expenditures-glow.png) center center/100% 100% no-repeat;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%)
+}
+.budgetScales-mainWeight._expenditures[data-status=big] {
+    -webkit-transform: translateZ(0) scale(1.2);
+    transform: translateZ(0) scale(1.2)
+}
+.budgetScales-mainWeight._expenditures[data-status=big]:before,
+.budgetScales-mainWeight._expenditures[data-status=center]:before {
+    opacity: 1
 }
 
-.whatIsBudget-definition__accent {
-  padding-right: 2px;
+.budgetScales-supportingWeight {
+    bottom: 0;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: PFDinCondensedPro;
+    font-weight: 500;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
 }
+.budgetScales-supportingWeight {
+    position: absolute;
+    width: 139px;
+    height: 84px;
+    background: center center/100% 100% no-repeat;
+    font-size: 12px;
+    padding-top: 28px;
+    visibility: hidden;
+    opacity: 0
+}
+.budgetScales-supportingWeight._financingOfDeficit {
+    left: 172px;
+    color: #fff;
+    background-image: url(../images//what-is-budget/weight-financingOfDeficit.png)
+}
+.budgetScales-supportingWeight._useOfSurplus {
+    right: 172px;
+    color: #000;
+    background-image: url(../images//what-is-budget/weight-useOfSurplus.png)
+}
+
+.budgetScales-rockerArm:after,
+.budgetScales-rockerArm:before {
+    content: "";
+    -webkit-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+    left: 50%
+}
+.budgetScales-rockerArm {
+    width: 10px;
+    height: 278px;
+    background: #e0e0e0;
+    position: relative;
+    margin: 0 auto
+}
+.budgetScales-rockerArm:before {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: url(../images/what-is-budget/arrow-scales.svg) center center/100% 100% no-repeat;
+    top: 0;
+    /* * */
+    display:none;
+}
+.budgetScales-rockerArm:after {
+    position: absolute;
+    width: 1px;
+    height: 27px;
+    background: url(../images/what-is-budget/guide-scales.svg) top center/100% 100% no-repeat;
+    top: -28px
+}
+
+.budgetScales-rockerArm__indicate{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: -1px;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+    background: url(../images/what-is-budget/arrow-scales.png) 50% 50% no-repeat;
+}
+.budgetScales-rockerArm__indicate:after{
+    content:'';
+    background: url(../images/what-is-budget/arrow-scales__arrow.png) 50% 50% no-repeat;
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    transition:all 3s ease 0s;
+}
+.budgetScales-platform[data-advantage=surplus] + .budgetScales-rockerArm .budgetScales-rockerArm__indicate:after{
+    transform:rotate(-45deg);
+}
+.budgetScales-platform[data-advantage=deficit] + .budgetScales-rockerArm .budgetScales-rockerArm__indicate:after{
+    transform:rotate(45deg);
+}
+
+.budgetScales-rockerArm__pivot {
+
+}
+
+.budgetScales-activeZone__wrapper {
+    bottom: 0;
+    height: 265px;
+    position: absolute
+}
+.budgetScales-activeZone__wrapper {
+    max-width: 1100px;
+    width: 100%;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    transform: translate(-50%, 0)
+}
+.budgetScales-activeZone__wrapper._noactive {
+    pointer-events: none
+}
+
+.budgetScales-activeZone{
+    bottom: 0;
+    height: 265px;
+    position: absolute
+}
+.budgetScales-activeZone._surplus {
+    left: 0;
+    width: 48%
+}
+.budgetScales-activeZone._deficit {
+    right: 0;
+    width: 48%
+}
+.budgetScales-activeZone._balance {
+    left: 50%;
+    width: 4%;
+    -webkit-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    transform: translate(-50%, 0)
+}
+
+.whatIsBudget-characteristic__wrapper{
+    max-width:1100px;
+    margin:53px auto 0;
+    /*font-size:0;*/
+    text-align:justify;
+}
+.whatIsBudget-characteristic__wrapper:after{
+    width:100%;
+    /*height:0;
+    visibility:hidden;
+    overflow:hidden;*/
+    content:'';
+    display:inline-block;
+    vertical-align:top;
+}
+
+.whatIsBudget-characteristic{
+    display:inline-block;
+    vertical-align:top;
+    width:30.9%;
+    text-align:left;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+    transition:opacity 250ms ease 0s;
+    opacity:0.6;
+}
+.whatIsBudget-characteristic.active{
+    opacity:1;
+}
+.whatIsBudget-characteristic._surplus{color:#069ed3}
+.whatIsBudget-characteristic._balance{color:#8e8586}
+.whatIsBudget-characteristic._deficit{color:#a63685}
+
+.whatIsBudget-characteristic__termin{font-family:PFDinCondensedPro}
+.whatIsBudget-characteristic__termin{font-size:18px;height:45px;line-height:45px;font-weight:500;text-transform:uppercase;position:relative;padding:0 23px;border-left:2px solid;border-right:2px solid;border-top:2px solid}
+.whatIsBudget-characteristic__termin._show:before,
+.whatIsBudget-characteristic__termin:before{
+    position:absolute;
+    content:"";
+    height:2px;
+    left:0;
+    right:0;
+    bottom:0;
+    width:100%;
+    background-color:currentColor;
+}
+.whatIsBudget-characteristic__termin:before{-webkit-transition:all 1.5s ease;transition:all 1.5s ease}
+
+.whatIsBudget-characteristic__definition{font-size:15px;padding:5px 23px 24px;line-height:1.266;opacity:0;visibility:hidden;display:none;height:0;overflow:hidden;border-left:2px solid;border-right:2px solid;border-bottom:2px solid}.whatIsBudget-characteristic__definition._show{display:block!important;height:auto!important}
+.whatIsBudget-characteristic__definition p+p{margin-top:19px}
+.whatIsBudget-characteristic__definition div{color:#fff}
+
+.whatIsBudget-component__outer{overflow:hidden}
+.whatIsBudget-component__outer{
+    max-width:98%;
+    margin-left:auto;
+    margin-right:auto;
+    overflow:visible;
+}
+
 .whatIsBudget-component__wrapper{
     width:464px;
     margin:0 auto;
@@ -58,161 +423,295 @@
     display:inline-block;
     vertical-align:bottom;
 }
-.whatIsBudget-component__wrapper[data-active="0"],
-.whatIsBudget-component__wrapper[data-active="2"] {
-    transform: none;
-}
+.whatIsBudget-component__wrapper[data-active="0"]{-webkit-transform:translate(167px,0);-ms-transform:translate(167px,0);transform:translate(167px,0)}
+.whatIsBudget-component__wrapper[data-active="2"]{-webkit-transform:translate(-167px,0);-ms-transform:translate(-167px,0);transform:translate(-167px,0)}
 
-/*.whatIsBudget-revenues__wrapper {
-  display: block;
-}*/
-.budgetScales {
-  margin-top: 227px;
-}
-.budgetScales-mainWeight._revenues:before {
-    left: 50%;
-    top: 50%;
-    content: "";
-    -webkit-transition: all 3s ease;
-    transition: all 3s ease;
-    position: absolute
-}
-.budgetScales-mainWeight._revenues:before {
-    opacity: 0;
-    width: 214px;
-    height: 226px;
-    background: url(../images/what-is-budget/weight-revenues-glow.png) center center/100% 100% no-repeat;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%)
-}
-.budgetScales-mainWeight._revenues {
-    left: 30px;
-    /*background-image: url(../images/what-is-budget/weight-revenues.svg)*/
-    background-image: url(../images/what-is-budget/weight-revenues.png)
-}
-.budgetScales-mainWeight._revenues[data-status=big] {
-    -webkit-transform: translateZ(0) scale(1.2);
-    transform: translateZ(0) scale(1.2)
-}
-
-.budgetScales-mainWeight._revenues[data-status=big]:before,
-.budgetScales-mainWeight._revenues[data-status=center]:before {
-    opacity: 1
-}
-
-.budgetScales-mainWeight._expenditures:before {
-    left: 50%;
-    top: 50%;
-    content: "";
-    -webkit-transition: all 3s ease;
-    transition: all 3s ease;
-    position: absolute
-}
-.budgetScales-mainWeight._expenditures {
-    right: 30px;
-    /*background-image: url(../images/what-is-budget/weight-expenditures.svg)*/
-    background-image: url(../images/what-is-budget/weight-expenditures.png)
-}
-.budgetScales-mainWeight._expenditures[data-status=big] {
-    -webkit-transform: translateZ(0) scale(1.2);
-    transform: translateZ(0) scale(1.2)
-}
-
-.budgetScales-mainWeight._expenditures[data-status=big]:before,
-.budgetScales-mainWeight._expenditures[data-status=center]:before {
-    opacity: 1
-}
-.budgetScales-mainWeight._expenditures:before {
-    opacity: 0;
-    width: 196px;
-    height: 198px;
-    background: url(../images/what-is-budget/weight-expenditures-glow.png) center center/100% 100% no-repeat;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%)
-}
-
-.whatIsBudget-characteristic__termin{font-family:PFDinCondensedPro}
-.whatIsBudget-characteristic{
+.whatIsBudget-component{font-family:PFDinCondensedPro}
+.whatIsBudget-component:after{opacity:0}
+.whatIsBudget-component{
+    position:relative;
     display:inline-block;
-    vertical-align:top;
-    width:30.9%;
-    text-align:left;
-    -webkit-box-sizing:border-box;
-    box-sizing:border-box;
-    transition:opacity 250ms ease 0s;
-    opacity:0.6;
+    vertical-align:bottom;
+    width:130px;
+    height:132px;
+    text-align:center;
+    color:#6a6872;
+    text-transform:uppercase;
+    overflow:visible;
 }
-.whatIsBudget-characteristic.active{
-    opacity:1;
+.whatIsBudget-component:after,
+.whatIsBudget-component:before{position:absolute;width:inherit;height:inherit;left:0;top:0;background:center bottom/100% 100% no-repeat;-webkit-transition:all .3s ease;transition:all .3s ease;content:""}
+.whatIsBudget-component:nth-child(2){height:84px;width:139px;color:#1d1b25}
+.whatIsBudget-component:nth-child(1):before{background-image:url(../images/what-is-budget/weight-expenditures-gray.png)}
+.whatIsBudget-component:nth-child(2):before{background-image:url(../images/what-is-budget/weight-financingOfDeficit-gray.png)}
+.whatIsBudget-component:nth-child(3):before{background-image:url(../images/what-is-budget/weight-expenditures-gray.png)}
+.whatIsBudget-component:nth-child(1):after{background-image:url(../images/what-is-budget/weight-revenues.png)}
+.whatIsBudget-component:nth-child(2):after{background-image:url(../images/what-is-budget/weight-financingOfDeficit.png)}
+.whatIsBudget-component:nth-child(3):after{background-image:url(../images/what-is-budget/weight-expenditures.png)}
+.whatIsBudget-component:nth-child(1) .whatIsBudget-component__definition {
+    right: 100%;
+    margin-right: 30px;
+    text-align: right
 }
-.whatIsBudget-characteristic._surplus{color:#069ed3}
-.whatIsBudget-characteristic._balance{color:#8e8586}
-.whatIsBudget-characteristic._deficit{color:#a63685}
-.whatIsBudget-characteristic__wrapper{
-    max-width:1100px;
-    margin:53px auto 0;
-    /*font-size:0;*/
-    text-align:justify;
+.whatIsBudget-component:nth-child(3) .whatIsBudget-component__definition {
+    left: 100%;
+    margin-left: 30px;
+    text-align: left
 }
-.whatIsBudget-characteristic__wrapper:after{
-    width:100%;
-    /*height:0;
-    visibility:hidden;
-    overflow:hidden;*/
-    content:'';
-    display:inline-block;
-    vertical-align:top;
-}
-.whatIsBudget-characteristic__termin{font-size:18px;height:45px;line-height:45px;font-weight:500;text-transform:uppercase;position:relative;padding:0 23px;border-left:2px solid;border-right:2px solid;border-top:2px solid}
-.whatIsBudget-characteristic__termin._show:before,
-.whatIsBudget-characteristic__termin:before{
-    position:absolute;
-    content:"";
-    height:2px;
+
+.whatIsBudget-component__conception .whatIsBudget-component__definition{
+    bottom:100%;
+    right:auto;
     left:0;
-    right:0;
-    bottom:0;
-    width:100%;
-    background-color:currentColor;
+    margin:0 0 30px !important;
 }
 
-.whatIsBudget-characteristic__termin:before{-webkit-transition:all 1.5s ease;transition:all 1.5s ease}
-.whatIsBudget-characteristic__termin._show:before{opacity:1}
-.whatIsBudget-component:after,[data-active="0"] .whatIsBudget-component:nth-child(1):before{opacity:0}
-.whatIsBudget-characteristic__definition{font-size:15px;padding:5px 23px 24px;line-height:1.266;opacity:0;visibility:hidden;display:none;height:0;overflow:hidden;border-left:2px solid;border-right:2px solid;border-bottom:2px solid}.whatIsBudget-characteristic__definition._show{display:block!important;height:auto!important}
-.whatIsBudget-characteristic__definition p+p{margin-top:19px}
-.whatIsBudget-characteristic__definition div{color:#fff}
+.whatIsBudget-component__termin{font-size:24px;font-weight:500;position:relative;padding-top:52px;display:block;z-index:1}
 
-
-.whatIsBudget-financingOfDeficit__line5 {
-  top: 0;
-}
-.btn-close-b, .btn-close-c {
-  background: url('../images/sprite2.png') no-repeat -256px 0;
-}
-.whatIsBudget-financingOfDeficit__suitcase {
-  background: url('../images/what-is-budget/suitcase.svg')no-repeat;
-  background-position: 50% center;
-  background-size: 100% 100%;
+.whatIsBudget-component__definition {
+    position: absolute;
+    width: 250px;
+    font-size: 18px;
+    font-weight: 500;
+    bottom: 24px;
+    opacity: 0;
+    -webkit-transition: all .5s ease;
+    transition: all .5s ease
 }
 
-.whatIsBudget-financingOfDeficit__line3 {
-  height: 73px;
-  width: 0;
+.whatIsBudget-chart {
+    background: #282635
 }
 
-.whatIsBudget-financingOfDeficit__line1, .whatIsBudget-financingOfDeficit__line2 {
-  width: 117px;
+.whatIsBudget-revenues__wrapper {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-top: 54px;
+    position: relative;
+    display: none
 }
 
-.whatIsBudget-expenditures__wrapper {
-  margin-top: -19px;
+.clearfix { clear: both; }
+.clearfix:after { display: block; width: 100%; content: ""; clear: both; }
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden
+}
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+
+.whatIsBudget-revenues {
+    list-style-type: none;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
 }
 
+.whatIsBudget-revenues:nth-child(1) {
+    width: 366px;
+    float: right;
+    margin-bottom: 37px
+}
+
+.whatIsBudget-revenues:nth-child(2) {
+    width: 366px;
+    float: left;
+    margin-bottom: 37px;
+    margin-left: 90px
+}
+
+.whatIsBudget-revenues:nth-child(3) {
+    width: 464px;
+    padding-left: 58px;
+    margin: 0 auto;
+    clear: both
+}
+.whatIsBudget-revenues:nth-child(1) .whatIsBudget-revenues__title,
+.whatIsBudget-revenues:nth-child(2) .whatIsBudget-revenues__title {
+    max-width: 275px
+}
+.whatIsBudget-revenues:nth-child(3) .whatIsBudget-revenues__title {
+    max-width: 342px
+}
+.whatIsBudget-revenues:nth-child(1) .whatIsBudget-revenues__title .whatIsBudget-line {
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    margin-top: -1px;
+    background-color: #009ce4;
+    height: 2px
+}
+.whatIsBudget-revenues:nth-child(2) .whatIsBudget-revenues__title .whatIsBudget-line {
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    margin-top: -1px;
+    background-color: #009ce4;
+    height: 2px
+}
+.whatIsBudget-revenues:nth-child(3) .whatIsBudget-revenues__title .whatIsBudget-line {
+    width: 2px;
+    position: absolute;
+    background-color: #009ce4;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -1px
+}
+
+.whatIsBudget-revenues:nth-child(1) .whatIsBudget-revenues__examples {
+    right: 100%
+}
+.whatIsBudget-revenues:nth-child(2) .whatIsBudget-revenues__examples {
+    left: 100%
+}
+.whatIsBudget-revenues:nth-child(1) .whatIsBudget-revenues__examples:before {
+    background-image: url(../images/what-is-budget/arrow-revenues-to-left.svg);
+    right: 0
+}
+.whatIsBudget-revenues:nth-child(2) .whatIsBudget-revenues__examples:before {
+    background-image: url(../images/what-is-budget/arrow-revenues-to-right.svg);
+    left: -23px
+}
+
+.whatIsBudget-revenues__title{font-family:PFDinCondensedPro}
+.whatIsBudget-revenues__title {
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+    border: 2px solid #009ce4;
+    font-size: 24px;
+    font-weight: 500;
+    height: 52px;
+    line-height: 52px;
+    position: relative
+}
+.whatIsBudget-revenues__title:before {
+    position: absolute;
+    content: "";
+    background: #009CE4
+}
+
+.whatIsBudget-revenues__description {
+    font-size: 14px;
+    line-height: 1.43;
+    color: #909093;
+    margin-top: 6px
+}
+
+.whatIsBudget-revenues__list {
+    max-width: 275px;
+    margin-top: 11px
+}
+
+.whatIsBudget-revenues__item {
+    list-style-type: none;
+    background: #009ce4;
+    color: #fff;
+    margin-top: 2px;
+    position: relative
+}
+.whatIsBudget-revenues__item:first-child {
+    margin-top: 0
+}
+.whatIsBudget-revenues__item._active {
+    background: #fff;
+    color: #000;
+    box-shadow:0 16px 14px rgba(0, 0, 0, 0.4);
+    z-index:1;
+}
+.whatIsBudget-revenues__item {
+    margin-top: 4px
+}
+.whatIsBudget-revenues__item--direct-l .whatIsBudget-revenues__close{
+    right:auto;
+    left:20px;
+}
+
+.whatIsBudget-revenues__subtitle{font-family:PFDinCondensedPro}
+.whatIsBudget-revenues__subtitle {
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 17px 30px 17px 16px;
+    cursor: pointer
+}
+
+.whatIsBudget-revenues__examples {
+    display: none;
+    position: absolute;
+    width: 682px;
+    background: inherit;
+    top: 0;
+    font-size: 14px;
+    line-height: 1.43;
+    padding: 18px 48px 24px 22px;
+    z-index: 1;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+.whatIsBudget-revenues__examples:before {
+    position: absolute;
+    content: "";
+    top: 22px;
+    width: 23px;
+    height: 12px;
+    background: center center/100% 100% no-repeat
+}
+.whatIsBudget-revenues__examples p+p {
+    margin-top: 12px
+}
+._active .whatIsBudget-revenues__examples {
+    display: block
+}
+._active .whatIsBudget-expenditures__subtitle {
+    background: #fff;
+    color: #A63685
+}
+._active .whatIsBudget-expenditures__description {
+    opacity: 1;
+    visibility: visible;
+    background: #fff;
+    color: #000;
+}
+
+.whatIsBudget-revenues__close{
+    position:absolute;
+    top:20px;
+    right:20px;
+}
+
+/*++++++++++*/
 
 @media (max-width:1150px) {
+    .whatIsBudget-conception {
+        /*max-width: 800px;
+        padding-left: 123px*/
+        max-width:98%;
+        padding-left:0;
+        text-align:center;
+    }
+    .whatIsBudget-termin {
+        font-size: 192px;
+        margin-left: -9px
+    }
+    .whatIsBudget-definition {
+        font-size: 29px
+    }
+    .budgetScales-legend__wrapper {
+        max-width: 980px
+    }
+    .budgetScales-platform {
+        max-width: 980px;
+        /*margin-left: -490px*/
+    }
+    .budgetScales-pattern {
+        width: 488px;
+        height: 251px
+    }
+    .budgetScales-activeZone__wrapper{
+        max-width: 980px
+    }
     .whatIsBudget-characteristic__wrapper {
         max-width: 980px;
         margin: 48px auto 0
@@ -220,8 +719,36 @@
     .whatIsBudget-characteristic {
         width: 32.9%
     }
+    .whatIsBudget-revenues__examples {
+        width: 610px
+    }
 }
 @media screen and (max-width:1000px) {
+    .budgetScales-legend__wrapper{
+        max-width:98%;
+    }
+    .budgetScales-platform{
+        max-width:98%;
+    }
+    .budgetScales-pattern{
+        width:50%;
+    }
+    .budgetScales-activeZone__wrapper{
+        max-width:98%;
+    }
+    .whatIsBudget-line{
+        height:9999px !important;
+        width:45px !important;
+        bottom:calc(100% - 25px) !important;
+        right:100% !important;
+        left:auto !important;
+        top:auto !important;
+        background:none !important;
+        border-left:2px solid #009ce4;
+        border-bottom:2px solid #009ce4;
+        margin:0 !important;
+    }
+
     .whatIsBudget-characteristic__wrapper{
         max-width:98%;
         height:290px !important;
@@ -233,7 +760,7 @@
     .whatIsBudget-characteristic.active{
         z-index:1;
     }
-    .whatIsBudget-characteristic:nth-child(1) .whatIsBudget-characteristic__definition{
+      .whatIsBudget-characteristic:nth-child(1) .whatIsBudget-characteristic__definition{
         left:0;
     }
     .whatIsBudget-characteristic:nth-child(2) .whatIsBudget-characteristic__definition{
@@ -253,6 +780,82 @@
     .whatIsBudget-component__wrapper[data-active="0"]{
         transform:none !important;
     }
+    .whatIsBudget-component:nth-child(1) .whatIsBudget-component__definition{
+        text-align:left;
+    }
+    .whatIsBudget-component:nth-child(3) .whatIsBudget-component__definition{
+        text-align:right;
+        left:auto;
+        right:0;
+    }
+    .whatIsBudget-chart{
+        position:relative;
+    }
+    .whatIsBudget-revenues__wrapper{
+        max-width:464px;
+        padding:60px 0 60px 104px;
+        position:static;
+        overflow:hidden;
+    }
+    .whatIsBudget-revenues,
+    .whatIsBudget-revenues:nth-child(1),
+    .whatIsBudget-revenues:nth-child(2),
+    .whatIsBudget-revenues:nth-child(3){
+        width:100%;
+        float:none;
+        margin:22px 0 0;
+        padding:0;
+    }
+    .whatIsBudget-revenues:first-child{
+        margin:0;
+    }
+    .whatIsBudget-revenues:nth-child(1) .whatIsBudget-revenues__title,
+    .whatIsBudget-revenues:nth-child(2) .whatIsBudget-revenues__title{
+        max-width:100%;
+    }
+    .whatIsBudget-revenues:nth-child(2) .whatIsBudget-revenues__examples,
+    .whatIsBudget-revenues:nth-child(1) .whatIsBudget-revenues__examples{
+        right:0;
+        left:30px;
+    }
+    .whatIsBudget-revenues__title:before{
+        display:none !important;
+    }
+    .whatIsBudget-revenues__list{
+        max-width:100%;
+        margin-top:22px;
+    }
+    .whatIsBudget-revenues__item{
+        position:static;
+    }
+    .whatIsBudget-revenues__item .whatIsBudget-revenues__examples{
+        right:0 !important;
+        top:auto !important;
+        width:calc(100% - 30px) !important;
+        left:0 !important;
+        margin-left:30px !important;
+        transform:translateY(-70%);
+        box-shadow:0 0 0 0 rgba(0,0,0,0.6);
+    }
+     .whatIsBudget-revenues__item--direct-l .whatIsBudget-revenues__examples{
+        padding:18px 48px 24px 22px;
+    }
+    .whatIsBudget-revenues__item--direct-l .whatIsBudget-revenues__close{
+        right:20px;
+        left:auto;
+    }
+    .whatIsBudget-revenues__examples:before{
+        background:url("../images/what-is-budget/arrow-revenues-to-right.svg") no-repeat 100% 50% !important;
+        -webkit-background-size:auto !important;
+        background-size:auto !important;
+        left:auto !important;
+        right:100% !important;
+        top:0 !important;
+        width:30px !important;
+        height:56px !important;
+        background-color:inherit !important;
+        display:block !important;
+    }
 }
 @media screen and (max-width:767px) {
     .whatIsBudget-characteristic._deficit{
@@ -262,32 +865,115 @@
         left:0;
         transform:none;
     }
-    .whatIsBudget-characteristic__termin{
+      .whatIsBudget-characteristic__termin{
         padding-left:10px;
         padding-right:10px;
     }
 }
-@media (max-width: 640px) {
-  .budgetScales-mainWeight {
-    width: 110px;
-    height: 111px;
-    font-size: 20px;
-    padding-top: 44px;
-  }
-
-  .budgetScales-mainWeight._revenues {
-      left: 22px
-  }
-  .budgetScales-mainWeight._revenues:before {
-      width: 188px;
-      height: 190px
-  }
-  .budgetScales-mainWeight._expenditures {
-      right: 22px
-  }
+@media screen and (max-width:760px){
+.whatIsBudget {min-width:640px}
+}
+@media screen and (max-width:700px) {
+}
+@media screen and (max-width:640px){
+    .whatIsBudget-conception {
+        max-width: 550px;
+        padding-left: 45px
+    }
+    .whatIsBudget-termin {
+        font-size: 172px;
+        margin-left: -8px
+    }
+    .whatIsBudget-definition {
+        font-size: 30px;
+        margin-right: 16px
+    }
+    .whatIsBudget-definition__accent {
+        padding: 0 6px
+    }
+    .whatIsBudget-definition__accent:before {
+        top: 6px
+    }
+    .budgetScales {
+        height: 240px
+    }
+    .budgetScales-legend__wrapper {
+        max-width: 580px
+    }
+    .budgetScales-legend {
+        font-size: 15px
+    }
+    .budgetScales-legend._center {
+        font-size: 24px
+    }
+    .budgetScales-legend._left,
+    .budgetScales-legend._right {
+        margin-top: 24px;
+        max-width: 200px
+    }
+    .budgetScales-platform {
+        /*max-width: 624px;*/
+        max-width:96%;
+        /*margin-left: -312px*/
+    }
+    .budgetScales-pattern {
+        width: 307px;
+        height: 225px
+    }
+    .budgetScales-mainWeight {
+        width: 110px;
+        height: 111px;
+        font-size: 20px;
+        padding-top: 44px
+    }
+    .budgetScales-mainWeight._revenues {
+        left: 22px
+    }
+    .budgetScales-mainWeight._expenditures {
+        right: 22px
+    }
+    .budgetScales-mainWeight._revenues:before {
+        width: 188px;
+        height: 190px
+    }
+    .budgetScales-supportingWeight {
+        width: 109px;
+        height: 66px;
+        font-size: 10px;
+        padding-top: 22px
+    }
+    .budgetScales-supportingWeight._financingOfDeficit {
+        left: 165px
+    }
+    .budgetScales-supportingWeight._useOfSurplus {
+        right: 165px
+    }
+    .budgetScales-rockerArm {
+        height: 235px
+    }
+    .budgetScales-rockerArm:before {
+        width: 34px;
+        height: 34px
+    }
+    .budgetScales-activeZone__wrapper {
+        max-width: 624px
+    }
+    .whatIsBudget-line{
+        bottom:calc(100% - 40px) !important;
+    }
+    ._surplus .whatIsBudget-characteristic__definition {
+        width: 244px
+    }
+    ._deficit .whatIsBudget-characteristic__definition {
+        width: 244px;
+        margin-left: -64px
+    }
     .whatIsBudget-characteristic__wrapper {
         max-width: 624px;
         position: relative
+    }
+    .whatIsBudget-characteristic__wrapper{
+        height:264px !important;
     }
     .whatIsBudget-characteristic {
         position: absolute
@@ -314,11 +1000,8 @@
         font-size: 13px;
         padding: 10px 17px 16px 21px
     }
-.whatIsBudget-characteristic__definition p+p {
+    .whatIsBudget-characteristic__definition p+p {
         margin-top: 0
-    }
-    .whatIsBudget-characteristic__wrapper{
-        height:264px !important;
     }
     .whatIsBudget-characteristic__definition{
         top:100%;
@@ -332,4 +1015,102 @@
         -ms-transform: translate(0, 0);
         transform: translate(0, 0)
     }
+    .whatIsBudget-component {
+        width: 165px;
+        height: 166px
+    }
+    .whatIsBudget-component:nth-child(2) {
+        width: 170px;
+        height: 103px
+    }
+    .whatIsBudget-component__termin {
+        font-size: 30px;
+        padding-top: 65px
+    }
+    .whatIsBudget-component__definition {
+        width: 350px;
+        font-size: 24px;
+        bottom: 100%;
+        margin-bottom: 32px
+    }
+    .whatIsBudget-revenues__wrapper {
+        padding-left: 153px;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box
+    }
+    .whatIsBudget-revenues__wrapper{
+        max-width:590px;
+        padding-left:122px;
+    }
+    .whatIsBudget-revenues:nth-child(2) .whatIsBudget-revenues__title:before,
+    .whatIsBudget-revenues:nth-child(3) .whatIsBudget-revenues__title:before {
+        top: 50%;
+        -webkit-transform: translate(0, -50%);
+        -ms-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        height: 2px;
+        left: auto;
+        right: 100%;
+        width: 44px
+    }
+    .whatIsBudget-revenues {
+        float: none!important;
+        width: 460px!important;
+        margin-bottom: 0!important;
+        margin-left: 0!important;
+        padding-left: 0!important
+    }
+    .whatIsBudget-revenues+.whatIsBudget-revenues {
+        margin-top: 26px
+    }
+    .whatIsBudget-revenues:nth-child(1) .whatIsBudget-revenues__title:before {
+        top: 50%;
+        width: 44px;
+        height: 2px;
+        right: 100%;
+        -webkit-transform: translate(0, -50%);
+        -ms-transform: translate(0, -50%);
+        transform: translate(0, -50%)
+    }
+    .whatIsBudget-revenues:nth-child(3) .whatIsBudget-revenues__title:before {
+        bottom: auto
+    }
+    .whatIsBudget-revenues:nth-child(3) .whatIsBudget-revenues__title .whatIsBudget-line {
+        position: absolute;
+        content: "";
+        left: -44px;
+        background: #009CE4;
+        width: 2px
+    }
+    .whatIsBudget-revenues:nth-child(2) .whatIsBudget-revenues__item {
+        margin-right: 180px
+    }
+    .whatIsBudget-revenues:nth-child(1) .whatIsBudget-revenues__subtitle {
+        font-size: 30px;
+        padding: 15px 21px 17px
+    }
+    .whatIsBudget-revenues__title {
+        max-width: none!important;
+        height: 84px;
+        line-height: 84px;
+        font-size: 30px
+    }
+    .whatIsBudget-revenues__description {
+        margin-top: 19px;
+        font-size: 16px
+    }
+    .whatIsBudget-revenues__list {
+        max-width: none;
+        margin-top: 13px
+    }
+    .whatIsBudget-revenues__examples {
+        right: auto!important;
+        left: 0!important;
+        top: 100%;
+        width: 100%
+    }
+    .whatIsBudget-revenues__examples:before {
+        display: none
+    }
 }
+
