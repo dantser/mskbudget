@@ -1,0 +1,17 @@
+extends ../../layouts/default
+include ../../components/personal-cab-services/personal-cab-services
+include ../../components/header/header
+
+block head
+  - var pageTitle = 'Versta Project Template'
+
+block header
+  +header()._budget
+
+block sections
+  +sections()
+
+    block content
+      +personal-cab-services()
+      +popup-wrapper()
+      +footer()

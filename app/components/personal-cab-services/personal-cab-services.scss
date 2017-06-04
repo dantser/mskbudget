@@ -1,15 +1,52 @@
 .personal-cab-services {
   display: block;
+  background: url('../images/background-q.png') no-repeat;
+  background-size: cover;
+  background-position: center 0;
+  
+  @include clearfix;
+  
+  .wrapper {
+    margin: 0 auto 110px;
+    padding-top: 208px;
+
+    @include respond-to('mobile') {
+      padding-top: 100px;
+    }
+  }
+  
+  .lk-nav {
+    margin: 0 auto 65px;
+    max-width: 1174px;
+
+    @include respond-to('mobile') {
+      padding-left: 10px;
+      margin-bottom: 30px;
+    }
+  }
 
   &__widget-cards {
-    margin: 0 -5px;
+    margin: -5px;
     text-align: center;
+    font-size: 0;
+    
+    @media screen and (max-width: 1101px) {
+      padding: 0 140px;
+    }
+    
+    @media screen and (max-width: 901px) {
+      padding: 0 40px;
+    }
+    
+    @media screen and (max-width: 641px) {
+      padding: 0;
+    }
   }
 
   &__widget-card {
     display: inline-block;
     vertical-align: top;
     width: 267px;
-    margin: 0 5px;
+    margin: 5px;
   }
 }
