@@ -3,7 +3,8 @@ mixin selectbox(name, data)
     +e.SELECT.select(name=name)
       each obj in data
         if (obj.locked)
-          option(value=obj.val, data-locked)= obj.text
+          option(value=obj.val, data-locked, disabled)= obj.text
         else
           option(value=obj.val)= obj.text
     +e.SPAN.arrow
+      span

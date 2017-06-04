@@ -1,21 +1,25 @@
 extends ../../layouts/default
-include ../../components/polls-question/polls-question
+include ../../blocks/lk-nav/lk-nav
+include ../../components/lk-services/lk-services
+include ../../components/header/header
 
 block head
   - var pageTitle = 'Versta Project Template'
 
 block page
   block header
-    +header()._budget
+    +header()
 
   block sections
-    +sections('_polls')
+    +sections()
 
       block content
-        +polls-question()
+        .lk.lk_services
+          .wrapper_lk
+            +lk-nav('Вопросы')
+            +lk-services()
         +popup-wrapper()
         +footer()
-        +button-top()
 
   script(src="assets/scripts/js2/jquery-3.1.1.min.js")
   script(src="assets/scripts/js2/library.js")
@@ -34,6 +38,6 @@ block page
   script(src="assets/scripts/js2/header/letter.min.js")
   script(src="assets/scripts/js2/header/common.min.js")
   script(src="assets/scripts/js2/header/diagram.min.js")
-  script(src="assets/scripts/js2/owl.carousel.min.js")
   script(src="assets/scripts/js2/script.js")
+  script(src="assets/scripts/js2/owl.carousel.min.js")
   script(src="assets/scripts/js2/ez.js")
