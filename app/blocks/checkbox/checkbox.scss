@@ -4,6 +4,7 @@
   line-height: 1em;
   color: $color-input;
   cursor: pointer;
+  white-space: nowrap;
 
   &_font-color-white {
     color: $color-white;
@@ -18,7 +19,7 @@
 
         & .checkbox__mark {
           position: absolute;
-          top: calc(50% - 5px);
+          top: calc(50% - 6px);
           left: calc(50% - 5px);
           display: inline-block;
         }
@@ -33,6 +34,7 @@
     height: 15px;
     border: 1px solid #787e85;
     border-radius: 2px;
+    vertical-align: top;
   }
 
   &__mark {
@@ -44,8 +46,10 @@
 
   &__text {
     display: inline-block;
+    max-width: 90%;
     padding: 0;
     margin: 0;
     margin-left: 14px;
+    white-space: normal;
   }
 }

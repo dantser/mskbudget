@@ -8,7 +8,8 @@ mixin doc-cards(data)
       +e.card
         +e.SPAN.date= item.date
         +e.title-wrapper
-          +e.A(href='#').title= item.title
+          +e.SPAN.title-underline
+            +e.A(href='#').title= item.title
         +e.P.text= item.text
         +e.bottom-wrapper
           +e.A(href='#').download= 'Скачать (' + item.doc + 'Кб)'

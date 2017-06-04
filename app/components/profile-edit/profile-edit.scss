@@ -5,11 +5,21 @@
   font-size: 16px;
   color: $color-white;
 
+  @include respond-to('mobile') {
+    display: block;
+  }
+
   &__info {
     display: table-cell;
-    width: 70%;
+    width: 65.5%;
     padding: 31px 42px;
     background-color: #1f2935;
+
+    @include respond-to('mobile') {
+      display: block;
+      width: 100%;
+      padding: 31px 15px;
+    }
   }
 
   &__head {
@@ -31,6 +41,18 @@
     padding-left: 14px;
     margin-bottom: 81px;
     @include clearfix();
+
+    @include respond-to('laptop') {
+      padding-left: 5px;
+    }
+
+    @include respond-to('tablet') {
+      padding-left: 5px;
+    }
+
+    @include respond-to('mobile') {
+      padding-left: 0;
+    }
   }
 
   &__photo {
@@ -39,6 +61,15 @@
     width: 200px;
     height: 200px;
     text-align: center;
+
+    @include respond-to('tablet') {
+      margin-bottom: 10px;
+    }
+
+    @include respond-to('mobile') {
+      float: none;
+      margin: 0 auto;
+    }
   }
 
   &__image {
@@ -54,6 +85,19 @@
     float: left;
     padding-top: 10px;
     margin-left: 35px;
+
+    @include respond-to('laptop') {
+      margin-left: 5px;
+    }
+
+    @include respond-to('tablet') {
+      margin-left: 5px;
+    }
+
+    @include respond-to('mobile') {
+      float: none;
+      margin-left: 0;
+    }
   }
 
   &__nick {
@@ -80,6 +124,7 @@
 
     & .text-field__text {
       height: 40px;
+      min-width: 188px;
       color: $color-input;
       background-color: $color-white;
     }
@@ -92,6 +137,10 @@
 
       & .text-field__text {
         width: 188px;
+
+        @include respond-to('mobile') {
+          width: 100%;
+        }
       }
     }
 
@@ -101,11 +150,21 @@
 
     &_new {
       float: left;
+
+      @include respond-to('mobile') {
+        float: none;
+        margin-bottom: 16px;
+      }
     }
 
     &_repeat {
       float: right;
       margin-left: 19px;
+
+      @include respond-to('mobile') {
+        float: none;
+        margin-left: 0;
+      }
     }
   }
 
@@ -125,6 +184,11 @@
   &__cancel {
     float: left;
 
+    @include respond-to('mobile') {
+      float: none;
+      margin-bottom: 16px;
+    }
+
     .button {
       padding: 7px 20px 8px;
       text-transform: uppercase;
@@ -134,11 +198,15 @@
 
   &__cancel {
     margin-left: 13px;
+
+    @include respond-to('mobile') {
+      margin-left: 0;
+    }
   }
 
   &__favorite {
     display: table-cell;
-    width: 30%;
+    width: 34.5%;
     height: 100%;
   }
 

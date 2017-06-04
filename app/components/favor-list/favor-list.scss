@@ -20,7 +20,7 @@
   }
 
   &__list {
-
+    padding-bottom: 70px;
   }
 
   &__item {
@@ -50,6 +50,10 @@
     color: $color-input;
     text-decoration: none;
     cursor: url(../images/hand-cursor.png), pointer;
+
+    @include respond-to('tablet') {
+      padding-right: 15px;
+    }
   }
 
   &__label {
@@ -58,6 +62,7 @@
 
   &__favor {
     position: absolute;
+    top: 2px;
     left: 0;
     width: 19px;
     height: 18px;

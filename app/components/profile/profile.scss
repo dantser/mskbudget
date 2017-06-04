@@ -5,11 +5,21 @@
   font-size: 16px;
   color: $color-white;
 
+  @include respond-to('mobile') {
+    display: block;
+  }
+
   &__info {
     display: table-cell;
-    width: 70%;
+    width: 65.5%;
     padding: 31px 42px;
     background-color: #1f2935;
+
+    @include respond-to('mobile') {
+      display: block;
+      width: 100%;
+      padding: 31px 15px;
+    }
   }
 
   &__head {
@@ -44,6 +54,10 @@
       line-height: 1em;
       color: #7199c8;
       margin-left: 10px;
+
+      @include respond-to('mobile') {
+        display: none;
+      }
     }
   }
 
@@ -51,6 +65,18 @@
     padding-left: 14px;
     margin-bottom: 81px;
     @include clearfix();
+
+    @include respond-to('laptop') {
+      padding-left: 5px;
+    }
+
+    @include respond-to('tablet') {
+      padding-left: 5px;
+    }
+
+    @include respond-to('mobile') {
+      padding-left: 0;
+    }
   }
 
   &__photo {
@@ -58,12 +84,34 @@
     position: relative;
     width: 200px;
     height: 200px;
+
+    @include respond-to('tablet') {
+      margin-bottom: 10px;
+    }
+
+    @include respond-to('mobile') {
+      float: none;
+      margin: 0 auto;
+    }
   }
 
   &__personal {
     float: left;
     padding-top: 10px;
     margin-left: 35px;
+
+    @include respond-to('laptop') {
+      margin-left: 5px;
+    }
+
+    @include respond-to('tablet') {
+      margin-left: 5px;
+    }
+
+    @include respond-to('mobile') {
+      float: none;
+      margin-left: 0;
+    }
   }
 
   &__nick {
@@ -76,13 +124,22 @@
 
   &__fio {
     padding-left: 1px;
+    font-size: 36px;
+    line-height: 1em;
     color: $color-yellow;
+    text-transform: uppercase;
     margin-bottom: 22px;
+
+    @include respond-to('tablet') {
+      font-size: 26px;
+    }
+
+    @include respond-to('mobile') {
+      font-size: 16px;
+    }
 
     &-label {
       display: block;
-      font-size: 36px;
-      line-height: 1em;
       margin-bottom: 5px;
 
       &:last-child {
@@ -122,10 +179,22 @@
   &__option {
     float: left;
     min-width: 251px;
+
+    @include respond-to('tablet') {
+      margin-bottom: 10px;
+    }
+
+    @include respond-to('mobile') {
+      margin-bottom: 10px;
+    }
   }
 
   &__save {
     display: inline-block;
+
+    @include respond-to('mobile') {
+      width: 100%;
+    }
 
     .button {
       padding: 7px 20px 8px;
@@ -136,7 +205,7 @@
 
   &__favorite {
     display: table-cell;
-    width: 30%;
+    width: 34.5%;
     height: 100%;
   }
 }
