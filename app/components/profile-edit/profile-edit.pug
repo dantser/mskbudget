@@ -1,0 +1,48 @@
+include ../../blocks/button/button
+include ../favor-list/favor-list
+include ../../blocks/image-bg/image-bg
+include ../../blocks/text-field/text-field
+
+mixin profile-edit()
+  +b.profile-edit&attributes(attributes)
+    +e.info
+
+      +e.head
+        +e.H3.head-title Редактирование профиля
+
+      +e.main
+        +e.photo
+          +e.image
+            +image-bg('/assets/images/profile/photo.png')
+          +e.A(href='#').photo-edit
+
+        +e.personal
+          +e.SPAN.nick ivanov_1980
+          +e.SPAN.email k.konstantinopolsky@gmail.com
+
+          +e.FORM.profile-form
+            +e.field._fio
+              +text-field()._col
+                | ФИО
+            +e.SPAN.note Для смены пароля введите старый пароль и дважды новый
+            +e.field._pass._old
+              +text-field()._col
+                | Старый пароль
+            +e.field-wrapper
+              +e.field._pass._new
+                +text-field()._col
+                  | Новый пароль
+              +e.field._pass._repeat
+                +text-field()._col
+                  | Повторите новый пароль
+
+            +e.confirm
+              +e.submit
+                +button(true)._kind_yellow
+                  | Сохранить
+              +e.cancel
+                +button()._kind_transparent
+                  | Отменить
+
+    +e.favorite
+      +favor-list()

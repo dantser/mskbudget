@@ -1,5 +1,24 @@
 include ../icon/icons
 
-mixin favor()
+//- Звезда
+//-   Аргументы
+//-     isClassic ? классическая звезда (для favor-list) : широкая звезда (для page-header, doc-cards)
+
+//-   Модификаторы
+//-     _added - цвет золотой
+//-     _hover - цвет при наведении золотой
+
+//-     _stroke-color-gold - цвет обводки золотой
+//-     _stroke-color-gray - цвет обводки серый
+//-     _stroke-color-blue - цвет обводки синий
+//-     _stroke-color-black - цвет обводки черный
+
+//-     _fill-color-gold - цвет заливки золотой
+//-     _fill-color-transparent - цвет заливки прозрачный
+
+mixin favor(isClassic)
   +b.favor&attributes(attributes)
-    +icon('favor').icon
+    if (isClassic)
+      +icon('favor-classic').icon
+    else
+      +icon('favor').icon

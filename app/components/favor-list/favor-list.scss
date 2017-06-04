@@ -1,9 +1,13 @@
 .favor-list {
   display: block;
-  position: relative;
   height: 100%;
   padding: 38px 29px 30px;
   font-family: $PFDinTextPro;
+
+  &__wrapper {
+    position: relative;
+    height: 100%;
+  }
 
   &__title {
     text-transform: uppercase;
@@ -16,11 +20,24 @@
   }
 
   &__list {
-    margin-bottom: 111px;
+
   }
 
   &__item {
+    position: relative;
     margin-bottom: 5px;
+    list-style: none;
+
+    &:hover {
+
+      & .favor-list__label{
+        color: #0d46a1;
+      }
+
+      & .favor-list__remove{
+        display: block;
+      }
+    }
   }
 
   &__link {
@@ -32,19 +49,11 @@
     font-family: $PFDinTextPro;
     color: $color-input;
     text-decoration: none;
-    transition: all ease .25s;
+    cursor: url(../images/hand-cursor.png), pointer;
+  }
 
-    &:hover{
-      cursor: url(../images/hand-cursor.png), pointer;
-    }
-
-    &:hover .favor-list__label{
-      color: #0d46a1;
-    }
-
-    &:hover .favor-list__remove{
-      display: block;
-    }
+  &__label {
+    transition: all .25s ease;
   }
 
   &__favor {
@@ -58,19 +67,21 @@
     display: none;
     position: absolute;
     right: 0;
-    width: 12px;
-    height: 12px;
+    top: 4px;
+    text-decoration: none;
 
-    & svg {
-      stroke: $color-input;
-      fill: $color-input;
+    &-icon {
+      stroke: #0d46a1;
+      fill: #0d46a1;
+      width: 12px;
+      height: 12px;
     }
   }
 
   &__note {
     position: absolute;
     max-width: 220px;
-    color: #color-input;
+    color: #787e85;
     bottom: 0;
   }
 }

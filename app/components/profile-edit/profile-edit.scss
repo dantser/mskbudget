@@ -1,4 +1,4 @@
-.profile {
+.profile-edit {
   display: table;
   width: 100%;
   font-family: $PFDinTextPro;
@@ -14,11 +14,10 @@
 
   &__head {
     margin-bottom: 33px;
-    @include clearfix();
   }
 
   &__head-title {
-    float: left;
+    display: block;
     padding-left: 11px;
     font-family: $PFDinCondensedPro;
     font-size: 30px;
@@ -26,25 +25,6 @@
     font-weight: 500;
     text-transform: uppercase;
     color: $color-white;
-  }
-
-  &__edit {
-    float: right;
-    text-decoration: none;
-
-    &-icon {
-      width: 13px;
-      height: 13px;
-      fill: #7199c8;
-    }
-
-    &-label {
-      font-family: inherit;
-      font-size: inherit;
-      line-height: 1em;
-      color: #7199c8;
-      margin-left: 10px;
-    }
   }
 
   &__main {
@@ -58,6 +38,16 @@
     position: relative;
     width: 200px;
     height: 200px;
+    text-align: center;
+  }
+
+  &__image {
+    margin-bottom: 19px;
+  }
+
+  &__photo-edit {
+    color: #7199c8;
+    line-height: 1em;
   }
 
   &__personal {
@@ -71,61 +61,69 @@
     font-family: $PFDinCondensedPro;
     font-weight: 500;
     text-transform: uppercase;
-    margin-bottom: 20px;
-  }
-
-  &__fio {
-    padding-left: 1px;
-    color: $color-yellow;
-    margin-bottom: 22px;
-
-    &-label {
-      display: block;
-      font-size: 36px;
-      line-height: 1em;
-      margin-bottom: 5px;
-
-      &:last-child {
-        margin-bottom: 5px;
-      }
-    }
+    margin-bottom: 14px;
   }
 
   &__email {
     display: block;
     color: $color-yellow;
     line-height: 1em;
+    margin-bottom: 38px;
   }
 
-  &__subscribe {
+  &__field {
 
+    &-wrapper {
+      margin-bottom: 21px;
+      @include clearfix();
+    }
+
+    & .text-field__text {
+      height: 40px;
+      color: $color-input;
+      background-color: $color-white;
+    }
+
+    &_fio {
+      margin-bottom: 66px;
+    }
+
+    &_pass {
+
+      & .text-field__text {
+        width: 188px;
+      }
+    }
+
+    &_old {
+      margin-bottom: 16px;
+    }
+
+    &_new {
+      float: left;
+    }
+
+    &_repeat {
+      float: right;
+      margin-left: 19px;
+    }
   }
 
-  &__subscribe-title {
-    font-family: $PFDinCondensedPro;
-    font-size: 18px;
-    line-height: 1em;
-    margin-bottom: 17px;
-    text-transform: uppercase;
+  &__note {
+    display: block;
+    font-size: 14px;
+    line-height: 1.2em;
+    opacity: .4;
+    margin-bottom: 13px;
   }
 
-  &__checkbox {
-    padding-left: 1px;
-    margin-bottom: 20px;
-  }
-
-  &__options {
-    margin-bottom: 22px;
+  &__confirm {
     @include clearfix();
   }
 
-  &__option {
+  &__submit,
+  &__cancel {
     float: left;
-    min-width: 251px;
-  }
-
-  &__save {
-    display: inline-block;
 
     .button {
       padding: 7px 20px 8px;
@@ -134,9 +132,14 @@
     }
   }
 
+  &__cancel {
+    margin-left: 13px;
+  }
+
   &__favorite {
     display: table-cell;
     width: 30%;
     height: 100%;
   }
+
 }

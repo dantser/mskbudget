@@ -7,6 +7,8 @@
     width: 100%;
     height: 100%;
     stroke: $color-input;
+    fill: transparent;
+    transition: all 0.5s ease;
   }
 
   &_added {
@@ -16,10 +18,53 @@
     }
   }
 
+  &_hover {
+
+    &:hover .favor__icon{
+      stroke: #ffd400;
+      fill: #ffd400;
+    }
+  }
+
   &_stroke-color {
-    .favor__icon {
-      stroke: #aea7ae;
-      fill: #aea7ae;
+
+    &-gold {
+      .favor__icon {
+        stroke: #ffd400;
+      }
+    }
+
+    &-gray {
+      .favor__icon {
+        stroke: #aea7ae;
+      }
+    }
+
+    &-blue {
+      .favor__icon {
+        stroke: #81a2d0;
+      }
+    }
+
+    &-black {
+      .favor__icon {
+        stroke: $color-input;
+      }
+    }
+  }
+
+  &_fill-color {
+
+    &-gold {
+      .favor__icon {
+        fill: #ffd400;
+      }
+    }
+
+    &-transparent {
+      .favor__icon {
+        fill: transparent;
+      }
     }
   }
 }
