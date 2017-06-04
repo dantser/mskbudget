@@ -1,5 +1,6 @@
 extends ../../layouts/default
-include ../../components/personal-cab-services/personal-cab-services
+include ../../blocks/lk-nav/lk-nav
+include ../../components/lk-services/lk-services
 include ../../components/header/header
 
 block head
@@ -12,6 +13,9 @@ block sections
   +sections()
 
     block content
-      +personal-cab-services()
+      .lk.lk_services
+        .wrapper_lk
+          +lk-nav('Вопросы')
+          +lk-services()
       +popup-wrapper()
       +footer()
