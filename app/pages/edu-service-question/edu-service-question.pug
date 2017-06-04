@@ -4,14 +4,18 @@ include ../../components/edu-service-question/edu-service-question
 block head
   - var pageTitle = 'Versta Project Template'
 
-block header
-  +header()._budget
+block page
+  block header
+    +header()._budget
 
-block sections
-  +sections()
+  block sections
+    +sections()
 
-    block content
-      +edu-service-question()
-      +popup-wrapper()
-      +footer()
-      +button-top()
+      block content
+        +edu-service-question()
+        +popup-wrapper()
+        +footer()
+        +button-top()
+
+  script(src="assets/scripts/js2/jquery-3.1.1.min.js")
+  script(src="assets/scripts/js2/ez.js")
