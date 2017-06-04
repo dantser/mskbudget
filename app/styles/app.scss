@@ -91,7 +91,7 @@ html, body {
     overflow: hidden;
     text-overflow: ellipsis;
     letter-spacing: -0.02em;
-    
+
     @media screen and (max-width: 480px) {
       font-size: 0;
       width: 26px;
@@ -110,7 +110,7 @@ html, body {
     left: 2px;
     bottom: 0;
     margin: auto;
-    
+
     span {
       position: absolute;
       left: 0;
@@ -125,3 +125,42 @@ html, body {
     }
   }
 }
+
+.lk {
+  display: block;
+  width: 100%;
+  background: url('../images/background-q.png') no-repeat;
+  background-size: cover;
+  font-family: $PFDinCondensedPro;
+  font-weight: 500;
+  box-sizing: border-box;
+
+  @include clearfix;
+
+  @include respond-to('tablet') {
+    padding: 20px 10px 0 30px;
+  }
+
+  @include respond-to('mobile') {
+    padding: 10px 0;
+  }
+}
+
+.wrapper_lk {
+  margin: 0 auto 110px;
+  padding-top: 208px;
+
+  @include respond-to('mobile') {
+    padding-top: 70px;
+  }
+}
+
+  .lk-nav {
+    margin: 0 auto 65px;
+    max-width: 1174px;
+
+    @include respond-to('mobile') {
+      padding-left: 10px;
+      margin-bottom: 30px;
+    }
+  }
