@@ -1,95 +1,115 @@
 .feedback {
   display: block;
   padding-top: 134px;
-  background-image: url('../images/bg-feedback.png');
+  background-image: url('../images/bg-feedback.jpg');
   background-position: center 0;
   background-size: cover;
   padding-bottom: 174px;
-  
-  @media screen and (max-width: 639px) {
-    padding-top: 75px;
-    padding-bottom: 20px;
+
+  @media (max-width: 1179px) {
+    padding-bottom: 100px;
   }
-  
+
+  @media (max-width: 700px) {
+    padding-top: 93px;
+    padding-bottom: 40px !important;
+  }
+
   @media screen and (max-width: 480px) {
       padding-bottom: 0;
     }
-  
+
   a {
     transition: all .25s ease-in-out;
   }
-  
+
   a:hover {
     opacity: .7;
   }
-  
+
   .wrapper {
-    @media screen and (max-width: 1140px) {
-      margin: 0 20px;
-    }
-    
+
     @media screen and (max-width: 480px) {
       margin: 0;
     }
   }
-  
+
   &__header {
     margin-top: 30px;
     @include clearfix;
-    
+
+    @media (max-width: 700px) {
+      margin-top: 0;
+    }
+
     @media screen and (max-width: 480px) {
       padding: 0 20px;
     }
   }
-  
+
   &__content {
     margin-top: 47px;
     background-color: #fff;
     font-size: 0;
     color: #000000;
     clear: both;
+
+    @media (max-width: 700px) {
+      margin-top: 31px;
+    }
   }
-  
+
   &__left-side,
   &__right-side {
     display: inline-block;
     padding: 35px 40px 48px;
     vertical-align: top;
-    
+
     @media screen and (max-width: 1024px) {
       padding: 30px;
     }
+
+    @media screen and (max-width: 480px) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
   }
-  
+
   &__left-side {
     width: 55%;
-    
+
     @media screen and (max-width: 1024px) {
       width: 50%;
       padding-right: 15px;
     }
-    
+
     @media screen and (max-width: 768px) {
       width: 100%;
       padding-right: 30px;
     }
   }
-  
+
   &__right-side {
     width: 45%;
     padding-right: 63px;
-    
+
     @media screen and (max-width: 1024px) {
       width: 50%;
       padding-left: 15px;
     }
-    
+
     @media screen and (max-width: 768px) {
       width: 100%;
       padding-left: 30px;
     }
+
+    @media screen and (max-width: 480px) {
+      padding-left: 20px !important;
+      padding-right: 20px;
+      padding-top: 0;
+    }
   }
-  
+
   &__send-link {
     color: #0d46a1;
     font-family: $PFDinTextPro;
@@ -97,69 +117,69 @@
     font-weight: 500;
     text-decoration: none;
     border-bottom: 1px solid rgba(#0d46a1, .2);
-    
+
     @media screen and (max-width: 1024px) {
       font-size: 32px;
     }
-    
+
     @media screen and (max-width: 480px) {
       font-size: 26px;
     }
   }
-  
+
   &__contacts {
     margin-top: 59px;
     font-family: $PFDinTextPro;
     font-size: 18px;
-    
+
     @media screen and (max-width: 480px) {
       margin-top: 40px;
       font-size: 16px;
     }
-    
+
     p {
       margin-top: 11px;
     }
-    
+
     a {
       color: #0d46a1;
       text-decoration: underline;
     }
   }
-  
+
   &__block-heading {
     font-family: $PFDinCondensedPro;
     font-size: 24px;
     font-weight: 500;
     text-transform: uppercase;
-    
+
     @media screen and (max-width: 480px) {
       font-size: 20px;
     }
   }
-  
+
   &__block-desc {
-    opacity: 0.5;    
+    opacity: 0.5;
     font-family: $PFDinTextPro;
     font-size: 14px;
     margin-top: 7px;
   }
-  
+
   &__forum {
     margin-top: 26px;
   }
-  
+
   &__forum-head {
     opacity: 0.6;
     font-size: 14px;
     font-weight: 500;
     text-transform: uppercase;
-    
+
     span {
       margin-left: 10px;
     }
   }
-  
+
   &__forum-text {
     font-family: $PFDinTextPro;
     font-size: 18px;
@@ -167,8 +187,12 @@
     margin-top: 5px;
     line-height: 1.2;
     letter-spacing: .01em;
+
+    @media screen and (max-width: 480px) {
+      font-size: 16px;
+    }
   }
-  
+
   &__forum-link {
     display: block;
     border-radius: 2px;
@@ -180,11 +204,11 @@
     position: relative;
     margin-top: 10px;
     max-width: 400px;
-    
+
     @media screen and (max-width: 480px) {
       padding-right: 15px;
     }
-    
+
     span {
       display: block;
       opacity: 0.4;
@@ -194,7 +218,7 @@
       margin-bottom: 8px;
     }
   }
-  
+
   &__forum-link-icon {
     opacity: 0.4;
     width: 14px;
@@ -203,8 +227,16 @@
     top: 15px;
     left: 15px;
   }
-  
+
   &__map {
     height: 400px;
+
+    @media screen and (max-width: 480px) {
+      height: 300px;
+    }
+
+    iframe {
+      height: 100%;
+    }
   }
 }
