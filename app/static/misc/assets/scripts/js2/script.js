@@ -91,10 +91,7 @@ window.onload = function () {
 
         car_count.html(($dslide.filter(".current").index() + 1) + " из " + $dslide.length);
 
-        $("body").on("mouseover click mousemove", ".carousel-area__right__zone", function (event) {
-            car_count.html(($dslide.filter(".current").index() + 1) + " из " + $dslide.length);
-        });
-        $("body").on("mouseover click mousemove", ".carousel-area__left__zone", function (event) {
+        $("body").on("mouseover click mousemove", "#carousel", function (event) {
             car_count.html(($dslide.filter(".current").index() + 1) + " из " + $dslide.length);
         });
     }
