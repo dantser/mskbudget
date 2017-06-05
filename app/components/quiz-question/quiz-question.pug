@@ -22,7 +22,7 @@ mixin quiz-question()
                 +checkbox()._success
                   | Капитальные вложения (строительство, приобретение оборудования)
                   //- input(type="checkbox", checked).d-sii__chbox._success#d-sii__chbox-first
-                  .jq-checkbox__div 
+                  .jq-checkbox__div
                 //- .jq-checkbox.d-sii__chbox._error.checked(unselectable="on")#d-sii__chbox-second-styler
                 +checkbox()._error
                   | Заработную плату
@@ -47,7 +47,8 @@ mixin quiz-question()
               +e('label').field._type_radio
                 +radio({name: 'item1', value: '4'})
                 +e('span').label Задать вопрос о бюджете города Москвы/дать предложение
-            +button(isSubmit)._kind_blue Ответить
+            .quiz-question-submit
+              +button(isSubmit)._kind_blue Ответить
             .quiz-hint-trigger
               | Получить подсказку
               +icon('info').icon_info
@@ -57,13 +58,13 @@ mixin quiz-question()
               p Это не заработная плата и не социальная поддержка населения. Так что же это?
           .quiz-footer
             .d-si__quiz-container_body
-              p.answer-result.answer-result_success 
+              p.answer-result.answer-result_success
                 +icon('green-daw').answer-result._pass
                 | Вы выбрали правильный ответ
-              p.answer-result.answer-result_error 
+              p.answer-result.answer-result_error
                 +icon('icon-error').answer-result._error
                 | Вы выбрали неправильный ответ
               +link()
                 | Перейти к следующему вопросу
                 +icon('right-arrow').icon
-                
+
