@@ -226,6 +226,11 @@ svg:not(:root) {
     font-size: 24px;
     line-height: 1.2em;
 }
+.d-abs__nav li:nth-child(2) a span {
+    /*Шрифт уменьшен, чтобы уместить стрелку рядом с заголовокм*/
+    /*font-size: 24px;*/
+    font-size: 22px;
+}
 .d-abs__nav li:nth-child(6) a span, .d-abs__nav li:nth-child(7) a span {
     font-size: 18px;
     line-height: 1.2em;
@@ -454,7 +459,9 @@ svg:not(:root) {
     padding-top: 55px;
   }
   .d-abs__nav li:nth-child(4) a span {
-    font-size: 19px;
+    /*Шрифт уменьшен, чтобы уместить стрелку рядом с заголовокм*/
+    /*font-size: 19px;*/
+    font-size: 16px;
     line-height: 24px;
   }
   .d-abs__nav li:nth-child(4) a span i {
@@ -485,7 +492,9 @@ svg:not(:root) {
     padding-left: 30px;
   }
   .d-abs__nav li:nth-child(6) a span {
-    font-size: 19px;
+    /*Шрифт уменьшен, чтобы уместить стрелку рядом с заголовокм*/
+    /*font-size: 19px;*/
+    font-size: 18px;
     line-height: 24px;
   }
   .d-abs__nav li:nth-child(6) a span i {
@@ -557,10 +566,28 @@ svg:not(:root) {
     font-size: 16px !important;
     line-height: 24px !important;
   }
+
+/*Для предотвращения изменения высоты контента при появлении попапа пазла*/
+.budget-system-bg .d-abs__nav {
+  margin-bottom: 0px !important;
+}
+.budget-system-bg .d-abs__nav._active {
+  margin-bottom: 0px;
+}
 }
 
 @media screen and (max-width:760px) { /* для 640 */
-.d-abs-content {padding-top: 171px; padding-bottom:0}
+.d-abs-content {
+  padding-top: 171px;
+  padding-bottom:0;
+}
+
+.d-abs-content.budget-system-bg{
+  /*Для предотвращения изменения высоты контента при появлении попапа пазла*/
+  /*padding-bottom:0;*/
+  padding-bottom: 80px;
+}
+
 .d-layer {padding: 0 23px 0 23px;}
 .d-si__head_descr {font-size:19px; margin-bottom:9px; }
 .d-si__head_p-name {font-size:73px; float:none; display:inline; line-height:71px;}
@@ -593,6 +620,12 @@ svg:not(:root) {
 
 @media screen and (max-width:639px) { /* для 320 */
 .d-abs-content {padding-top:75px}
+
+/*Для предотвращения изменения высоты контента при появлении попапа пазла*/
+.d-abs-content.budget-system-bg {
+  overflow: visible;
+}
+
 .d-layer {padding: 0 15px 0 15px;}
 .d-si__head_descr {font-size:16px; margin-bottom:4px;}
 .d-si__head_p-name {font-size:53px; line-height:49px;}
@@ -615,7 +648,26 @@ svg:not(:root) {
   .puzzle-inner p {
     line-height: 17px !important;
   }
+
+  /*Для предотвращения изменения высоты контента при появлении попапа пазла*/
+  .budget-system-bg .d-abs__nav {
+    margin-bottom: 0px !important;
+  }
+  /*Для предотвращения изменения высоты контента при появлении попапа пазла*/
+  .budget-system-bg .d-abs__nav._active {
+    margin-bottom: 0px;
+  }
+
+  .d-abs__nav li:nth-child(2) a span {
+    /*Шрифт уменьшен, чтобы уместить стрелку рядом с заголовокм*/
+    /*font-size: 16px !important;*/
+    /*line-height: 16px !important;*/
+    font-size: 9px !important;
+    line-height: 9px !important;
+  }
 }
+
+
 
 @media screen and (max-width:510px) {
 }
