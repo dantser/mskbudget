@@ -4,6 +4,7 @@ import question from '../blocks/question/question';
 import questions from '../components/questions/questions';
 import burger from '../blocks/burger/burger';
 import lkNav from '../blocks/lk-nav/lkNav';
+import regions from '../components/regions/regions';
 
 $(() => {
   selectbox();
@@ -11,4 +12,5 @@ $(() => {
   questions();
   burger();
   lkNav();
+  regions();
 });
