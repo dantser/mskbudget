@@ -18,8 +18,108 @@
 
   .step {
     width: 19.7%;
+
+    @include respond-to('mobile') {
+      width: 100%;
+
+      &__head {
+        min-height: inherit;
+      }
+    }
   }
 }
+
+.sections_budget-preparation {
+
+  .cols-part__side {
+    @include respond-to('mobile') {
+      float: none;
+    }
+  }
+
+  .cols-part__side-col {
+    @include respond-to('mobile') {
+      float: none;
+      margin-bottom: 10px;
+    }
+  }
+
+  .cols__side {
+    @include respond-to('mobile') {
+      float: none;
+      margin-left: 0;
+    }
+
+    .list-indicate__item {
+      @include respond-to('mobile') {
+        padding-right: 0;
+      }
+    }
+  }
+
+  .btn-arrow--next::after {
+    -ms-transform: rotate(-45deg);
+  }
+
+  .btn-arrow--prev::after {
+    -ms-transform: rotate(45deg);
+  }
+
+  .arrowlight {
+
+    &::after {
+      -ms-transform: translateY(-3.5px) rotate(-45deg);
+    }
+
+    @include respond-to('mobile') {
+      right: 32px;
+    }
+  }
+
+  .title-mx {
+    @include respond-to('mobile') {
+      font-size: 16px;
+    }
+  }
+
+  .back-round {
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#604235', endColorstr='#282636')";
+  }
+
+  .graphic-table__table {
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#252525', endColorstr='#2c2c2c')";
+  }
+}
+
+.js-label-button-closed {
+  color: $color-yellow;
+  position: relative;
+
+  .btn-close {
+    background-image: none !important;
+  }
+
+  .js-section-tabs-hide {
+    position: absolute;
+    right: -30px;
+    top: 9px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #fee300;
+    transition: 0.3s;
+    margin-left: 0;
+  }
+
+  .js-section-tabs-hide:hover {
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    border-top: 6px solid white;
+  }
+}
+
+
 
 .owl-carousel.owl-loaded {
   display: block;
