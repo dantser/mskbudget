@@ -6,7 +6,6 @@ var $window = $(window),
 "use strict";
 window.onload = function () {
     var $carousel = $("#carousel");
-
     if ($carousel.length) {
         if (!$html.hasClass("mobile")) {
             new Vue({
@@ -87,6 +86,17 @@ window.onload = function () {
 
             $carousel_count.html(($d_slide.filter("._active").index() + 1) + " из " + $d_slide.length);
         }
+        var car_count = $("#count");
+        var $dslide = $(".carousel-3d-slide");
+
+        car_count.html(($dslide.filter(".current").index() + 1) + " из " + $dslide.length);
+
+        $("body").on("mouseover click mousemove", ".carousel-area__right__zone", function (event) {
+            car_count.html(($dslide.filter(".current").index() + 1) + " из " + $dslide.length);
+        });
+        $("body").on("mouseover click mousemove", ".carousel-area__left__zone", function (event) {
+            car_count.html(($dslide.filter(".current").index() + 1) + " из " + $dslide.length);
+        });
     }
 
     //$(".scroll-pane").mCustomScrollbar();
