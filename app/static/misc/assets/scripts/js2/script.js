@@ -6,7 +6,7 @@ var $window = $(window),
 "use strict";
 window.onload = function () {
     var $carousel = $("#carousel");
-    
+
     if ($carousel.length) {
         if (!$html.hasClass("mobile")) {
             new Vue({
@@ -28,18 +28,18 @@ window.onload = function () {
                 carousel_html = "",
                 touchstart_pos = null,
                 touchend_pos = null;
-        
+
             $("carousel-3d", $carousel).replaceWith('<div class="mobile-carousel"></div>');
             var $mobile_carousel = $(".mobile-carousel", $carousel);
-        
+
             carousel_data.each(function () {
                 carousel_html += $(this).html();
             });
             $mobile_carousel.append(carousel_html);
-        
+
             var $d_slide = $(".d-slide", $mobile_carousel);
             $d_slide.eq(0).addClass("_active");
-        
+
             var pointerEventToXY = function(e){
                 var out = {x:0, y:0};
                 if(e.type == 'touchstart' || e.type == 'touchmove' || e.type == 'touchend' || e.type == 'touchcancel'){
@@ -49,7 +49,7 @@ window.onload = function () {
                 }
                 return out;
             };
-        
+
             $mobile_carousel.on('touchstart', function(e) {
                 touchstart_pos = pointerEventToXY(e);
             }).on('touchend', function(e) {
@@ -62,33 +62,33 @@ window.onload = function () {
                     }
                 }
             });
-        
+
             $ar_right.on("click", function () {
                 var $next = $d_slide.filter("._active").next();
-            
+
                 if (!$next.length) {
                     $next = $d_slide.eq(0);
                 }
-            
+
                 $d_slide.removeClass("_active").filter($next).addClass("_active");
                 $carousel_count.html(($d_slide.filter("._active").index() + 1) + " из " + $d_slide.length);
             });
-        
+
             $ar_left.on("click", function () {
                 var $next = $d_slide.filter("._active").prev();
-            
+
                 if (!$next.length) {
                     $next = $d_slide.filter(":last-child");
                 }
-            
+
                 $d_slide.removeClass("_active").filter($next).addClass("_active");
                 $carousel_count.html(($d_slide.filter("._active").index() + 1) + " из " + $d_slide.length);
             });
-        
+
             $carousel_count.html(($d_slide.filter("._active").index() + 1) + " из " + $d_slide.length);
         }
     }
-    
+
     //$(".scroll-pane").mCustomScrollbar();
 };
 "use strict";$(".d-sq_radio, .d-sq_check").styler();
@@ -805,7 +805,6 @@ budget.extend("whatIsBudgetWeight", {
                         return $(this).height();
                 }).get()));
 
-                console.log(this.height.characteristic);
 
                 this.padding.definitionTop = parseInt(this.elements.$definition.css("paddingTop"), 10);
                 this.padding.definitionBottom = parseInt(this.elements.$definition.css("paddingBottom"), 10);

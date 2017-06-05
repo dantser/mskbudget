@@ -35,9 +35,6 @@ $document.ready(function () {
 
         after: function(carousel) {
             $(".slides .slideItem").removeClass("_active").filter(":eq(" + carousel.current + ")").addClass("_active");
-            //console.log(carousel.current);
         }
     });
-    console.log(1)
-    console.log($('.carousel-3d-slide'))
 });
