@@ -84,7 +84,9 @@
 
   &__menu {
     float: left;
-    margin: 80px 0 0 242px;
+    width: 100%;
+    padding: 80px 130px 0 242px;
+    margin: 0;
     position: relative;
     z-index: 3;
     -webkit-transition: 0.5s;
@@ -93,6 +95,26 @@
     -o-transition: 0.5s;
     transition: 0.5s;
     top: auto;
+    
+    ul {
+      text-align: justify;
+      
+      &:after {
+        content: '';
+        display: inline-block;
+        height: 0.0000000001px;
+        width: 100%;
+      }
+    }
+    
+    .menu__item {
+      float: none;
+      display: inline-block;
+      
+      &:last-child {
+        margin-right: 0;
+      }
+    }
   }
 
   &__currency {
@@ -127,6 +149,7 @@
     -ms-transition: 0.5s;
     -o-transition: 0.5s;
     transition: 0.5s;
+    z-index: 4;
   }
 
   &__login {
@@ -137,6 +160,7 @@
     -moz-transition: .5s;
     -o-transition: .5s;
     transition: .5s;
+    z-index: 10;
   }
 
   &__logged {
@@ -218,7 +242,7 @@
 
     .header__menu {
       top: auto;
-      margin-top: 35px;
+      padding-top: 35px;
     }
 
     .header__currency {
@@ -422,12 +446,14 @@
   }
 
   .header__menu {
-    margin: 0 0 0 52px;
+    padding: 0 130px 0 52px;
+    margin: 0;
     top: 90px;
   }
 
   .header_short .header__menu {
-    margin-left: 77px;
+    margin-left: 0;
+    padding-right: 80px;
   }
 
   .header__link-for-blind {
@@ -481,10 +507,23 @@
   }
 }
 
+@media (max-width: 950px) {
+  .header {
+    height: 175px;
+  }
+  .header_short {
+    height: 105px;
+  }
+}
+
 @media (max-width: 900px) {
 
   .header__menu {
     margin-left: 0;
+    
+    ul {
+      text-align: left;
+    }
   }
 
   .header_short .header__menu {
@@ -539,7 +578,7 @@
 @media (max-width: 700px) {
 
   .header {
-    height: 49px;
+    height: 59px !important;
   }
 
   .header__open-menu {
@@ -554,16 +593,17 @@
     width: 29px;
     height: auto;
     margin-right: 13px;
+    margin-top: 4px;
   }
 
   .header__logo .logo__lg {
-    font-size: 15px;
+    font-size: 18px;
     padding-top: 3px;
     bottom: 0 !important;
   }
 
   .header__logo .logo__sm {
-    font-size: 11px;
+    font-size: 13px;
     bottom: 0 !important;
   }
 
@@ -573,7 +613,7 @@
     width: 100%;
     bottom: 0;
     left: 0;
-    top: 49px;
+    top: 59px;
     border-top: 1px solid rgba(255, 255, 255, .2) !important;
   }
 
@@ -603,7 +643,7 @@
 
   .header__social {
     top: auto !important;
-    bottom: 16px;
+    bottom: 20px;
     right: 0 !important;
     left: 0;
     padding: 20px 20px 0;
@@ -633,9 +673,10 @@
   }
 
   .header__menu {
-    margin: 64px 0 0 !important;
+    margin: 74px 0 0 !important;
     top: 0 !important;
     width: 100%;
+    padding: 0 !important;
   }
 
   .header__menu .menu__item {
@@ -643,10 +684,11 @@
     margin: 0 0 15px;
     text-align: center;
     height: auto;
+    display: block;
   }
 
   .header__menu .menu__a {
-    font-size: 20px;
+    font-size: 24px;
   }
 
   .header__link-for-blind {
@@ -684,5 +726,74 @@
 
   .header__search-form .search-form__text {
     font-size: 15px !important;
+  }
+  
+  .header__social {
+    .social__a {
+      width: 24px;
+      height: 24px;
+    }
+    .social__a:after, .social__a:before {
+      background-size: 640px auto;
+    }
+    .social__a_fb:after {
+      background-position: 2px -121px;
+    }
+    .social__a_vk:before {
+      background-position: -29px 0;
+    }
+    .social__a_vk:after {
+      background-position: -29px -121px;
+    }
+    .social__a_tw:before {
+      background-position: -61px 0;
+    }
+    .social__a_tw:after {
+      background-position: -61px -121px;
+    }
+    .social__a_in:before {
+      background-position: -90px 0;
+    }
+    .social__a_in:after {
+      background-position: -90px -121px;
+    }
+    .social__a_ok:before {
+      background-position: -117px 0;
+    }
+    .social__a_ok:after {
+      background-position: -117px -121px;
+    }
+    .social__a_yt:before {
+      background-position: -147px 0;
+    }
+    .social__a_yt:after {
+      background-position: -147px -121px;
+    }
+  }
+  
+  .header__login {
+    .login__btn {
+      width: 24px;
+      height: 23px;
+    }
+    .login__btn:after, .login__btn:before {
+      background-size: 600px auto;
+    }
+    .login__btn:before {
+      background-position: -21px -23px;
+    }
+    .login__btn:after {
+      background-position: -96px -53px;
+    }
+  }
+  
+  .header__search-form {
+    .search-form__btn {
+      width: 24px;
+      height: 24px;
+    }
+    .search-form__btn:before {
+      background-position: 6px -21px;
+    }
   }
 }
