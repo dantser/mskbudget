@@ -4,8 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=9">
     <title>Versta Project Template</title>
+    <!--[if lt IE 9]><script type="text/javascript" src="assets/scripts/js/html5.min.js"></script><![endif]-->
     <meta name="description" content="">
     <meta name="keywords" content="">
     <link href="favicon.ico" rel="shortcut icon">
@@ -14,7 +15,7 @@
 
 <body>
     <header class="header header_budget">
-        <div class="header__wrap">
+        <div class="header__wrap wrap">
             <!-- LOGO/-->
             <a class="logo header__logo" href="#">
                 <img class="logo__img" src="assets/images/logo.png" alt="logo" title="" />
@@ -207,271 +208,243 @@
         <button class="header__open-menu"></button>
     </header>
     <div class="sections">
-        <div class="edu-service-question">
-            <div class="d-si-content _edu-question">
-                <div class="d-layer">
-                    <div class="d-si__head">
-                        <div class="d-si__head_descr">сервисы</div>
-                        <div class="d-si__head_p-name">обучающий сервис</div>
-                        <div class="d-si__head_icons">
-                            <A class="d-si__icons_item" href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24.25px" height="23.25px">
-                                    <path fill-rule="evenodd" stroke="#d0ccd3" stroke-width="1.5px" stroke-linecap="butt" stroke-linejoin="miter" fill="none" d="M11.754,0.753 L16.158,6.282 L22.764,8.773 L18.880,14.680 L18.559,21.748 L11.754,19.870 L4.950,21.748 L4.628,14.680 L0.744,8.773 L7.350,6.282 L11.754,0.753 Z"></path>
-                                </svg>
-                            </A>
-                            <A class="d-si__icons_item" href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="19px">
-                                    <path fill-rule="evenodd" fill="#d0ccd3" d="M13.141,5.781 C12.504,5.781 11.921,5.564 11.446,5.208 L5.643,8.583 C5.689,8.788 5.719,9.000 5.719,9.219 C5.719,9.573 5.646,9.908 5.530,10.221 L11.390,13.664 C11.869,13.309 12.455,13.094 13.094,13.094 C14.699,13.094 16.000,14.416 16.000,16.047 C16.000,17.678 14.699,19.000 13.094,19.000 C11.489,19.000 10.188,17.678 10.188,16.047 C10.188,15.715 10.254,15.401 10.353,15.103 L4.426,11.620 C3.975,11.918 3.438,12.094 2.859,12.094 C1.280,12.094 -0.000,10.807 -0.000,9.219 C-0.000,7.631 1.280,6.344 2.859,6.344 C3.598,6.344 4.265,6.633 4.772,7.095 L10.439,3.799 C10.345,3.512 10.281,3.210 10.281,2.891 C10.281,1.294 11.561,-0.000 13.141,-0.000 C14.720,-0.000 16.000,1.294 16.000,2.891 C16.000,4.487 14.720,5.781 13.141,5.781 Z"></path>
-                                </svg>
-                            </A>
-                        </div>
-                        <div class="d-sq__head_ss">
-                            <SPAN class="d-sq__head_ss-s">5 из 9</SPAN>
-                            <SPAN class="d-sq__head_ss-txt">уроков
-                                <br/>пройдено
-                                <br/>успешно</SPAN>
-                            <canvas class="sectored_round" width="78" height="78" default-fill="#413a62" stroke-width="7" sector-count="9" fill-sectors="0,2,3,5,8"></canvas>
-                        </div>
+        <div class="d-si-content _edu-question">
+            <div class="d-layer d-layer_small">
+                <div class="d-si__head">
+                    <div class="d-si__head_descr">сервисы</div>
+                    <div class="d-si__head_p-name">обучающий сервис</div>
+                    <div class="d-si__head_icons">
+                        <A class="d-si__icons_item" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24.25px" height="23.25px">
+                                <path fill-rule="evenodd" stroke="#d0ccd3" stroke-width="1.5px" stroke-linecap="butt" stroke-linejoin="miter" fill="none" d="M11.754,0.753 L16.158,6.282 L22.764,8.773 L18.880,14.680 L18.559,21.748 L11.754,19.870 L4.950,21.748 L4.628,14.680 L0.744,8.773 L7.350,6.282 L11.754,0.753 Z"></path>
+                            </svg>
+                        </A>
+                        <A class="d-si__icons_item" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="19px">
+                                <path fill-rule="evenodd" fill="#d0ccd3" d="M13.141,5.781 C12.504,5.781 11.921,5.564 11.446,5.208 L5.643,8.583 C5.689,8.788 5.719,9.000 5.719,9.219 C5.719,9.573 5.646,9.908 5.530,10.221 L11.390,13.664 C11.869,13.309 12.455,13.094 13.094,13.094 C14.699,13.094 16.000,14.416 16.000,16.047 C16.000,17.678 14.699,19.000 13.094,19.000 C11.489,19.000 10.188,17.678 10.188,16.047 C10.188,15.715 10.254,15.401 10.353,15.103 L4.426,11.620 C3.975,11.918 3.438,12.094 2.859,12.094 C1.280,12.094 -0.000,10.807 -0.000,9.219 C-0.000,7.631 1.280,6.344 2.859,6.344 C3.598,6.344 4.265,6.633 4.772,7.095 L10.439,3.799 C10.345,3.512 10.281,3.210 10.281,2.891 C10.281,1.294 11.561,-0.000 13.141,-0.000 C14.720,-0.000 16.000,1.294 16.000,2.891 C16.000,4.487 14.720,5.781 13.141,5.781 Z"></path>
+                            </svg>
+                        </A>
                     </div>
-                    <div class="d-study__question">
-                        <div class="burger-lessons-menu">
-                            <div class="close-lessons-burger"></div>
-                            <ul>
-                                <li class="edu-lesson-link disable" id="1">
-                                    <span>что такое бюджетная система?</span>
+                    <div class="d-sq__head_ss">
+                        <SPAN class="d-sq__head_ss-s">5 из 9</SPAN>
+                        <SPAN class="d-sq__head_ss-txt">уроков
+                            <br/>пройдено
+                            <br/>успешно</SPAN>
+                        <canvas class="sectored_round" width="78" height="78" default-fill="#413a62" stroke-width="7" sector-count="9" fill-sectors="0,2,3,5,8"></canvas>
+                    </div>
+                </div>
+                <div class="d-study__question">
+                    <div class="burger-lessons-menu">
+                        <div class="close-lessons-burger"></div>
+                        <ul>
+                            <li class="edu-lesson-link disable" id="1">
+                                <span>что такое бюджетная система?</span>
+                            </li>
+                            <li class="edu-lesson-link" id="2">
+                                <span>Зачем используется бюджетная классификация?</span>
+                            </li>
+                            <li class="edu-lesson-link done" id="3">
+                                <span>Как формируется бюджет?</span>
+                            </li>
+                            <li class="edu-lesson-link" id="4">
+                                <span>Что такое бюджет и&nbsp;из&nbsp;чего он&nbsp;состоит?</span>
+                            </li>
+                            <li class="edu-lesson-link done" id="5">
+                                <span>Что такое доходы и&nbsp;откуда они поступают?</span>
+                            </li>
+                            <li class="edu-lesson-link" id="6">
+                                <span>Что такое расходы и&nbsp;на&nbsp;что они направлены?</span>
+                            </li>
+                            <li class="edu-lesson-link" id="7">
+                                <span>Зачем нужны источники финансирования дефицита бюджета?</span>
+                            </li>
+                            <li class="edu-lesson-link" id="8">
+                                <span>то такое государственный долг?</span>
+                            </li>
+                            <li class="edu-lesson-link" id="9">
+                                <span>Что такое межбюджетные трансферты?</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="edu-content _active" id="1">
+                        <div class="d-study__question_head">
+                            <a class="d-question__head_menu" href="#"></a>
+                            <SPAN class="d-study__question_num">1:</SPAN>
+                            <SPAN class="d-study__question-name">что такое бюджетная система?</SPAN>
+                            <a class="d-sq__head_next" href="#"></a>
+                            <a class="d-sq__head_prev" href="#"></a>
+                        </div>
+                        <div class="d-study__question_body">
+                            <p class="d-sq__body-p">
+                                <strong>Бюджетная система Российской Федерации</strong> — основанная на экономических отношениях и государственном устройстве Российской Федерации, регулируемая нормами права совокупность федерального бюджета, бюджетов субъектов
+                                Российской Федерации, местных бюджетов и бюджетов государственных внебюджетных фондов.</strong>
+                            </p>
+                            <h5 class="d-sq__body-heading d-sq__body_fhm">Структура бюджетной системы Российской Федерации</h5>
+                            <ul class="d-sq__body-puzzle">
+                                <li>
+                                    <a href="">
+                                        <span>Консолидированный бюджет
+                                            <br/>российской федерации
+                                            <i class="d-abs__nav_ico"></i>
+                                        </span>
+                                    </a>
                                 </li>
-                                <li class="edu-lesson-link" id="2">
-                                    <span>Зачем используется бюджетная классификация?</span>
+                                <li>
+                                    <a href="">
+                                        <span>федеральные внебюджетные фонды
+                                            <i class="d-abs__nav_ico"></i>
+                                        </span>
+                                    </a>
                                 </li>
-                                <li class="edu-lesson-link done" id="3">
-                                    <span>Как формируется бюджет?</span>
+                                <li>
+                                    <a href="">
+                                        <span>федеральный
+                                            <br/>бюджет
+                                            <i class="d-abs__nav_ico"></i>
+                                        </span>
+                                    </a>
                                 </li>
-                                <li class="edu-lesson-link" id="4">
-                                    <span>Что такое бюджет и&nbsp;из&nbsp;чего он&nbsp;состоит?</span>
+                                <li>
+                                    <a href="">
+                                        <span>Консолидированный бюджет
+                                            <br/>субъекта российской федерации</span>
+                                    </a>
                                 </li>
-                                <li class="edu-lesson-link done" id="5">
-                                    <span>Что такое доходы и&nbsp;откуда они поступают?</span>
+                                <li>
+                                    <a href="">
+                                        <span>внебюджетные фонды субъектов российской федерации
+                                            <i class="d-abs__nav_ico"></i>
+                                        </span>
+                                    </a>
                                 </li>
-                                <li class="edu-lesson-link" id="6">
-                                    <span>Что такое расходы и&nbsp;на&nbsp;что они направлены?</span>
+                                <li>
+                                    <a href="">
+                                        <span>бюджет субъекта российской федерации
+                                            <i class="d-abs__nav_ico"></i>
+                                        </span>
+                                    </a>
                                 </li>
-                                <li class="edu-lesson-link" id="7">
-                                    <span>Зачем нужны источники финансирования дефицита бюджета?</span>
-                                </li>
-                                <li class="edu-lesson-link" id="8">
-                                    <span>то такое государственный долг?</span>
-                                </li>
-                                <li class="edu-lesson-link" id="9">
-                                    <span>Что такое межбюджетные трансферты?</span>
+                                <li>
+                                    <a href="">
+                                        <span>бюджет муниципального образования
+                                            <i class="d-abs__nav_ico"></i>
+                                        </span>
+                                    </a>
                                 </li>
                             </ul>
+                            <h5 class="d-sq__body-heading d-sq__body_shm">Принципы бюджетной системы Российской Федерации</h5>
+                            <p class="d-sq__body-p d-sq__body-pb">Функционирование бюджетной системы Российской Федерации основано на особых принципах, закрепленных в Бюджетном кодексе РФ. Являясь исходными положениями, данные принципы лежат в основе построения бюджетов всех уровней в единую
+                                систему и отражают специфику бюджетной деятельности как особого вида государственного управления.</p>
+                            <a class="d-sq__body_princips" href="#">Принципы бюджетной системы</a>
                         </div>
-                        <div class="edu-content _active" id="1">
-                            <div class="d-study__question_head">
-                                <a class="d-question__head_menu" href="#"></a>
-                                <SPAN class="d-study__question_num">1:</SPAN>
-                                <SPAN class="d-study__question_name">что такое бюджетная система?</SPAN>
-                                <a class="d-sq__head_next" href="#"></a>
-                                <a class="d-sq__head_prev" href="#"></a>
-                            </div>
-                            <div class="d-study__question_body">
-                                <p class="d-sq__body-p">
-                                    <strong>Бюджетная система Российской Федерации</strong> — основанная на экономических отношениях и государственном устройстве Российской Федерации, регулируемая нормами права совокупность федерального бюджета, бюджетов субъектов
-                                    Российской Федерации, местных бюджетов и бюджетов государственных внебюджетных фондов.</strong>
-                                </p>
-                                <h5 class="d-sq__body-heading d-sq__body_fhm">Структура бюджетной системы Российской Федерации</h5>
-                                <ul class="d-sq__body-puzzle">
-                                    <li>
-                                        <a href="">
-                                            <span>Консолидированный бюджет
-                                                <br/>российской федерации
-                                                <i class="d-abs__nav_ico"></i>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="">
-                                            <span>федеральные внебюджетные фонды
-                                                <i class="d-abs__nav_ico"></i>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="">
-                                            <span>федеральный
-                                                <br/>бюджет
-                                                <i class="d-abs__nav_ico"></i>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="">
-                                            <span>Консолидированный бюджет
-                                                <br/>субъекта российской федерации
-                                                <i class="d-abs__nav_ico"></i>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="">
-                                            <span>внебюджетные фонды субъектов российской федерации
-                                                <i class="d-abs__nav_ico"></i>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="">
-                                            <span>бюджет субъекта российской федерации
-                                                <i class="d-abs__nav_ico"></i>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="">
-                                            <span>бюджет муниципального образования
-                                                <i class="d-abs__nav_ico"></i>
-                                            </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <h5 class="d-sq__body-heading d-sq__body_shm">Принципы бюджетной системы Российской Федерации</h5>
-                                <p class="d-sq__body-p d-sq__body-pb">Функционирование бюджетной системы Российской Федерации основано на особых принципах, закрепленных в Бюджетном кодексе РФ. Являясь исходными положениями, данные принципы лежат в основе построения бюджетов всех уровней в
-                                    единую систему и отражают специфику бюджетной деятельности как особого вида государственного управления.</p>
-                                <a class="d-sq__body_princips" href="#">Принципы бюджетной системы</a>
-                            </div>
-                            <div class="d-study__question_ftr">
-                                <div class="d-sq__ftr_head">вопросы</div>
-                                <form class="d-sq__ftr_form" action="#">
-                                    <fieldset>
-                                        <legend>К какому уровню бюджетов бюджетной системы относится бюджет города Москвы?</legend>
-                                        <div class="d-sq_radio jq-radio" id="d-rad-f-styler" unselectable="on">
-                                            <input class="d-sq_radio" name="d-sq_radio" type="radio" id="d-rad-f" />
-                                            <div class="jq-radio__div"></div>
-                                        </div>
-                                        <label for="d-rad-f">Бюджет субъекта Российской Федерации</label>
-                                        <div class="d-sq_radio jq-radio" id="d-rad-s-styler" unselectable="on">
-                                            <input class="d-sq_radio" name="d-sq_radio" type="radio" id="d-rad-s" />
-                                            <div class="jq-radio__div"></div>
-                                        </div>
-                                        <label for="d-rad-s">Федеральный бюджет</label>
-                                        <div class="d-sq_radio jq-radio" id="d-rad-t-styler" unselectable="on">
-                                            <input class="d-sq_radio" name="d-sq_radio" type="radio" value="2" id="d-rad-t" />
-                                            <div class="jq-radio__div"></div>
-                                        </div>
-                                        <label for="d-rad-t">Местный бюджет</label>
-                                        <div class="d-sq_radio jq-radio" id="d-rad-fo-styler" unselectable="on">
-                                            <input class="d-sq_radio" name="d-sq_radio" type="radio" value="3" id="d-rad-fo" />
-                                            <div class="jq-radio__div"></div>
-                                        </div>
-                                        <label for="d-rad-fo">Бюджет государственного внебюджетного фонда</label>
-                                    </fieldset>
-                                    <fieldset class="d-sq-field-m">
-                                        <legend>Из каких бюджетов состоит консолидированный бюджет города Москвы?</legend>
-                                        <div class="d-sq_checkbox jq-checkbox" id="d-check-f-styler" unselectable="on">
-                                            <input class="d-sq_check" name="d-sq_check" type="checkbox" id="d-check-f" />
-                                            <div class="jq-checkbox__div"></div>
-                                        </div>
-                                        <label class="d-sq_form-error-label" for="d-check-f">Бюджет города Москвы</label>
-                                        <div class="d-sq_checkbox jq-checkbox" id="d-check-f-styler" unselectable="on">
-                                            <input class="d-sq_check" name="d-sq_check" type="checkbox" id="d-check-s" />
-                                            <div class="jq-checkbox__div"></div>
-                                        </div>
-                                        <label class="d-sq_form-success-label" for="d-check-s">Бюджет Московского городского фонда обязательного медицинского страхования</label>
-                                        <div class="d-sq_checkbox jq-checkbox" id="d-check-f-styler" unselectable="on">
-                                            <input class="d-sq_check" name="d-sq_check" type="checkbox" id="d-check-t" />
-                                            <div class="jq-checkbox__div"></div>
-                                        </div>
-                                        <label for="d-check-t">Бюджеты внутригородских муниципальных образований города Москвы</label>
-                                        <div class="d-sq_checkbox jq-checkbox" id="d-check-f-styler" unselectable="on">
-                                            <input class="d-sq_check" name="d-sq_check" type="checkbox" id="d-check-fo" />
-                                            <div class="jq-checkbox__div"></div>
-                                        </div>
-                                        <label class="d-sq_form-error-label" for="d-check-fo">Федеральный бюджет</label>
-                                    </fieldset>
-                                    <a class="d-sii__form_submit" href="/moscowbudget/edu_service_result.html">Ответить</a>
-                                </form>
-                                <div class="d-sq__ftr_error">К сожалению, Ваш ответ неверный. Попробуйте ответить еще раз.</div>
-                                <div class="quiz-footer _success">
-                                    <div class="d-si__quiz-container_body">
-                                        <p class="answer-result _success">Поздравляем, вы&nbsp;ответили верно!</p>
-                                        <button type="submit" form="d-sii__form">
-                                            <a href="/moscowbudget/edu_service_result.html">Перейти к&nbsp;следующему уроку</a>
-                                        </button>
-                                    </div>
+                        <div class="d-study__question_ftr">
+                            <div class="d-sq__ftr_head">вопросы</div>
+                            <form class="d-sq__ftr_form" action="#">
+                                <fieldset>
+                                    <legend>К какому уровню бюджетов бюджетной системы относится бюджет города Москвы?</legend>
+                                    <input class="d-sq_radio" name="d-sq_radio" type="radio" id="d-rad-f" />
+                                    <label for="d-rad-f">Бюджет субъекта Российской Федерации</label>
+                                    <input class="d-sq_radio" name="d-sq_radio" type="radio" id="d-rad-s" />
+                                    <label class="d-sq_form-error-label" for="d-rad-s">Федеральный бюджет</label>
+                                    <input class="d-sq_radio" name="d-sq_radio" type="radio" value="2" id="d-rad-t" />
+                                    <label class="d-sq_form-success-label" for="d-rad-t">Местный бюджет</label>
+                                    <input class="d-sq_radio" name="d-sq_radio" type="radio" value="3" id="d-rad-fo" />
+                                    <label for="d-rad-fo">Бюджет государственного внебюджетного фонда</label>
+                                </fieldset>
+                                <fieldset class="d-sq-field-m">
+                                    <legend>Из каких бюджетов состоит консолидированный бюджет города Москвы?</legend>
+                                    <input class="d-sq_check" name="d-sq_check" type="checkbox" id="d-check-f" />
+                                    <label class="d-sq_form-error-label" for="d-check-f">Бюджет города Москвы</label>
+                                    <input class="d-sq_check" name="d-sq_check" type="checkbox" id="d-check-s" />
+                                    <label class="d-sq_form-success-label" for="d-check-s">Бюджет Московского городского фонда обязательного медицинского страхования</label>
+                                    <input class="d-sq_check" name="d-sq_check" type="checkbox" id="d-check-t" />
+                                    <label for="d-check-t">Бюджеты внутригородских муниципальных образований города Москвы</label>
+                                    <input class="d-sq_check" name="d-sq_check" type="checkbox" id="d-check-fo" />
+                                    <label class="d-sq_form-error-label" for="d-check-fo">Федеральный бюджет</label>
+                                </fieldset>
+                                <a class="d-sii__form_submit" href="/moscowbudget/edu_service_result.html">Ответить</a>
+                            </form>
+                            <div class="d-sq__ftr_error">К сожалению, Ваш ответ неверный. Попробуйте ответить еще раз.</div>
+                            <div class="quiz-footer _success">
+                                <div class="d-si__quiz-container_body">
+                                    <p class="answer-result _success">Поздравляем, вы&nbsp;ответили верно!</p>
+                                    <button type="submit" form="d-sii__form">
+                                        <a href="/moscowbudget/edu_service_result.html" style="text-decoration:none;">Перейти к&nbsp;следующему уроку</a>
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                        <div class="edu__content" id="2">
-                            <div class="d-study__question_head">
-                                <a class="d-question__head_menu" href="#"></a>
-                                <SPAN class="d-study__question_num">2:</SPAN>
-                                <SPAN class="d-study__question_name">Зачем используется бюджетная классификация?</SPAN>
-                                <a class="d-sq__head_next" href="#"></a>
-                                <a class="d-sq__head_prev" href="#"></a>
-                            </div>
+                    </div>
+                    <div class="edu-content" id="2">
+                        <div class="d-study__question_head">
+                            <a class="d-question__head_menu" href="#"></a>
+                            <SPAN class="d-study__question_num">2:</SPAN>
+                            <SPAN class="d-study__question-name">Зачем используется бюджетная классификация?</SPAN>
+                            <a class="d-sq__head_next" href="#"></a>
+                            <a class="d-sq__head_prev" href="#"></a>
                         </div>
-                        <div class="edu__content" id="3">
-                            <div class="d-study__question_head">
-                                <a class="d-question__head_menu" href="#"></a>
-                                <SPAN class="d-study__question_num">3:</SPAN>
-                                <SPAN class="d-study__question_name">Как формируется бюджет?</SPAN>
-                                <a class="d-sq__head_next" href="#"></a>
-                                <a class="d-sq__head_prev" href="#"></a>
-                            </div>
+                    </div>
+                    <div class="edu-content" id="3">
+                        <div class="d-study__question_head">
+                            <a class="d-question__head_menu" href="#"></a>
+                            <SPAN class="d-study__question_num">3:</SPAN>
+                            <SPAN class="d-study__question-name">Как формируется бюджет?</SPAN>
+                            <a class="d-sq__head_next" href="#"></a>
+                            <a class="d-sq__head_prev" href="#"></a>
                         </div>
-                        <div class="edu__content" id="4">
-                            <div class="d-study__question_head">
-                                <a class="d-question__head_menu" href="#"></a>
-                                <SPAN class="d-study__question_num">4:</SPAN>
-                                <SPAN class="d-study__question_name">Что такое бюджет и из чего он состоит?</SPAN>
-                                <a class="d-sq__head_next" href="#"></a>
-                                <a class="d-sq__head_prev" href="#"></a>
-                            </div>
+                    </div>
+                    <div class="edu-content" id="4">
+                        <div class="d-study__question_head">
+                            <a class="d-question__head_menu" href="#"></a>
+                            <SPAN class="d-study__question_num">4:</SPAN>
+                            <SPAN class="d-study__question-name">Что такое бюджет и из чего он состоит?</SPAN>
+                            <a class="d-sq__head_next" href="#"></a>
+                            <a class="d-sq__head_prev" href="#"></a>
                         </div>
-                        <div class="edu__content" id="5">
-                            <div class="d-study__question_head">
-                                <a class="d-question__head_menu" href="#"></a>
-                                <SPAN class="d-study__question_num">5:</SPAN>
-                                <SPAN class="d-study__question_name">Что такое доходы и откуда они поступают?</SPAN>
-                                <a class="d-sq__head_next" href="#"></a>
-                                <a class="d-sq__head_prev" href="#"></a>
-                            </div>
+                    </div>
+                    <div class="edu-content" id="5">
+                        <div class="d-study__question_head">
+                            <a class="d-question__head_menu" href="#"></a>
+                            <SPAN class="d-study__question_num">5:</SPAN>
+                            <SPAN class="d-study__question-name">Что такое доходы и откуда они поступают?</SPAN>
+                            <a class="d-sq__head_next" href="#"></a>
+                            <a class="d-sq__head_prev" href="#"></a>
                         </div>
-                        <div class="edu__content" id="6">
-                            <div class="d-study__question_head">
-                                <a class="d-question__head_menu" href="#"></a>
-                                <SPAN class="d-study__question_num">6:</SPAN>
-                                <SPAN class="d-study__question_name">Что такое расходы и на что они направлены?</SPAN>
-                                <a class="d-sq__head_next" href="#"></a>
-                                <a class="d-sq__head_prev" href="#"></a>
-                            </div>
+                    </div>
+                    <div class="edu-content" id="6">
+                        <div class="d-study__question_head">
+                            <a class="d-question__head_menu" href="#"></a>
+                            <SPAN class="d-study__question_num">6:</SPAN>
+                            <SPAN class="d-study__question-name">Что такое расходы и на что они направлены?</SPAN>
+                            <a class="d-sq__head_next" href="#"></a>
+                            <a class="d-sq__head_prev" href="#"></a>
                         </div>
-                        <div class="edu__content" id="7">
-                            <div class="d-study__question_head">
-                                <a class="d-question__head_menu" href="#"></a>
-                                <SPAN class="d-study__question_num">7:</SPAN>
-                                <SPAN class="d-study__question_name">Зачем нужны источники финансирования дефицита бюджета?</SPAN>
-                                <a class="d-sq__head_next" href="#"></a>
-                                <a class="d-sq__head_prev" href="#"></a>
-                            </div>
+                    </div>
+                    <div class="edu-content" id="7">
+                        <div class="d-study__question_head">
+                            <a class="d-question__head_menu" href="#"></a>
+                            <SPAN class="d-study__question_num">7:</SPAN>
+                            <SPAN class="d-study__question-name">Зачем нужны источники финансирования дефицита бюджета?</SPAN>
+                            <a class="d-sq__head_next" href="#"></a>
+                            <a class="d-sq__head_prev" href="#"></a>
                         </div>
-                        <div class="edu__content" id="8">
-                            <div class="d-study__question_head">
-                                <a class="d-question__head_menu" href="#"></a>
-                                <SPAN class="d-study__question_num">8:</SPAN>
-                                <SPAN class="d-study__question_name">Что такое государственный долг?</SPAN>
-                                <a class="d-sq__head_next" href="#"></a>
-                                <a class="d-sq__head_prev" href="#"></a>
-                            </div>
+                    </div>
+                    <div class="edu-content" id="8">
+                        <div class="d-study__question_head">
+                            <a class="d-question__head_menu" href="#"></a>
+                            <SPAN class="d-study__question_num">8:</SPAN>
+                            <SPAN class="d-study__question-name">Что такое государственный долг?</SPAN>
+                            <a class="d-sq__head_next" href="#"></a>
+                            <a class="d-sq__head_prev" href="#"></a>
                         </div>
-                        <div class="edu__content" id="9">
-                            <div class="d-study__question_head">
-                                <a class="d-question__head_menu" href="#"></a>
-                                <SPAN class="d-study__question_num">9:</SPAN>
-                                <SPAN class="d-study__question_name">Что такое межбюджетные трансферты?</SPAN>
-                                <a class="d-sq__head_next" href="#"></a>
-                                <a class="d-sq__head_prev" href="#"></a>
-                            </div>
+                    </div>
+                    <div class="edu-content" id="9">
+                        <div class="d-study__question_head">
+                            <a class="d-question__head_menu" href="#"></a>
+                            <SPAN class="d-study__question_num">9:</SPAN>
+                            <SPAN class="d-study__question-name">Что такое межбюджетные трансферты?</SPAN>
+                            <a class="d-sq__head_next" href="#"></a>
+                            <a class="d-sq__head_prev" href="#"></a>
                         </div>
                     </div>
                 </div>
@@ -545,8 +518,8 @@
                                 </div>
                                 <input class="login-form__submit" type="submit" value="Зарегистрироваться" />
                             </form>
-                            <div class="caption">Нажимая на кнопку «Регистрация», вы подтверждаете свое согласие с условиями предоставления услуг (
-                                <a class="open-popup" href="#agreements">пользовательское соглашение</a>)</div>
+                            <div class="popup-login__caption">Нажимая на кнопку «Регистрация», вы подтверждаете свое согласие с условиями предоставления услуг (
+                                <a href="#agreements" class="open-popup">пользовательское соглашение</a>)</div>
                         </div>
                         <!-- /TAB-->
                     </div>
@@ -721,7 +694,7 @@
                         </NAV>
                     </div>
                     <NAV class="footer__column footer__column_sh viewport-md-lg">
-                        <UL class="footer__nav-section_min-h">
+                        <UL class="footer__nav-section footer__nav-section_min-h">
                             <LI class="footer__nav-item">
                                 <A class="footer__nav-a footer__nav-a_b" href="#">Медиацентр</A>
                             </LI>
@@ -797,7 +770,7 @@
                             <div class="footer__column">
                                 <A class="logo footer__logo" href="#">
                                     <IMG class="logo__img" src="assets/images/logo-footer.png" alt="logo"></IMG>
-                                    <SPAN class="logo_lg">Департамент Финансов
+                                    <SPAN class="logo__lg">Департамент Финансов
                                         <br/>города Москвы</SPAN>
                                 </A>
                             </div>
@@ -872,35 +845,15 @@
                 </div>
             </footer>
         </div>
+        <div class="button-top"></div>
     </div>
-    <!--script(src='assets/scripts/app.min.js')-->
-    <script src="assets/scripts/js/jquery-3.1.1.min.js"></script>
-    <script src="assets/scripts/js2/library.js"></script>
-    <script src="assets/scripts/js/animation.min.js"></script>
-    <script src="assets/scripts/js/banner.min.js"></script>
-    <script src="assets/scripts/js/common.min.js"></script>
-    <script src="assets/scripts/js/cube.min.js"></script>
-    <script src="assets/scripts/js/diagram.min.js"></script>
-    <script src="assets/scripts/js/drag-n-drop.min.js"></script>
-    <script src="assets/scripts/js/easing.min.js"></script>
-    <script src="assets/scripts/js/form.min.js"></script>
-    <script src="assets/scripts/js/glossary-page.js"></script>
-    <script src="assets/scripts/js/html5.min.js"></script>
-    <script src="assets/scripts/js/jquery-dnd.min.js"></script>
-    <script src="assets/scripts/js/jquery-ui.min.js"></script>
-    <script src="assets/scripts/js/label.min.js"></script>
-    <script src="assets/scripts/js/letter.min.js"></script>
-    <script src="assets/scripts/js/popup.min.js"></script>
-    <script src="assets/scripts/js/sections.min.js"></script>
-    <script src="assets/scripts/js/select.min.js"></script>
-    <script src="assets/scripts/js/share.min.js"></script>
-    <script src="assets/scripts/js/slick.min.js"></script>
-    <script src="assets/scripts/js/swipe.min.js"></script>
-    <!--script(src='assets/scripts/js2/action.js')-->
-    <script src="assets/scripts/js2/owl.carousel.min.js"></script>
-    <script src="assets/scripts/js2/script.js"></script>
+    <script src="assets/scripts/js2/jquery-3.1.1.min.js"></script>
     <script src="assets/scripts/js2/ez.js"></script>
-    <script src="assets/scripts/js/main-page.js"></script>
+    <script src="assets/scripts/app.min.js"></script>
+    <script src="assets/scripts/svg4everybody.min.js"></script>
+    <script>
+        svg4everybody();
+    </script>
 </body>
 
 </html>

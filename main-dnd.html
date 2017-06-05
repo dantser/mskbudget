@@ -14,6 +14,7 @@
 </head>
 
 <body>
+    <div id="whitescreen" style="display:none;"></div>
     <div class="wrapper wrapper_main">
         <header class="header">
             <div class="header__wrap wrap">
@@ -219,7 +220,7 @@
             <div class="sections__item">
                 <div class="cube">
                     <!-- BANNER/-->
-                    <div class="cube__side">
+                    <div class="cube__side cube__side_current">
                         <div class="banner banner_ban-1">
                             <div class="wrap banner__wrap">
                                 <div class="clearfix">
@@ -228,11 +229,7 @@
                                     <button class="arrow cube__arrow cube__arrow_m arrow_right cube__arrow_prev"></button>
                                 </div>
                                 <a class="banner__link" href="#">
-                                    <span class="banner__row banner__row_v1 load-anim-fade" data-delay="900">Государственный долг
-                                        <span class="viewport-sm">на 1.12.2016</span>
-                                    </span>
-                                    <br/>
-                                    <span class="banner__row banner__row_v2 load-anim-fade viewport-md-lg" data-delay="1500">на 1.12.2016</span>
+                                    <span class="banner__title_b">Государственный долг на 01.12.2016</span>
                                 </a>
                                 <a class="button banner__button load-anim-fade" href="#" data-delay="2100">
                                     <span>Подробнее</span>
@@ -251,11 +248,8 @@
                                     <button class="arrow cube__arrow cube__arrow_m arrow_right cube__arrow_prev"></button>
                                 </div>
                                 <a class="banner__link" href="#">
-                                    <span class="banner__row banner__row_v9">Бюджетный</span>
-                                    <br/>
-                                    <span class="banner__row banner__row_v2">калькулятор</span>
-                                    <br/>
-                                    <span class="banner__row banner__row_v3">Создай свой бюджет!</span>
+                                    <span class="banner__title_b">Бюджетный калькулятор</span>
+                                    <span class="banner__row banner__row_sub">Создай свой бюджет!</span>
                                 </a>
                                 <a class="button banner__button" href="#">Подробнее</a>
                             </div>
@@ -272,15 +266,8 @@
                                     <button class="arrow cube__arrow cube__arrow_m arrow_right cube__arrow_prev"></button>
                                 </div>
                                 <a class="banner__link" href="#">
-                                    <span class="banner__row banner__row_v7">Опубликованы данные</span>
-                                    <br/>
-                                    <span class="banner__row banner__row_v4">по исполнению бюджета</span>
-                                    <br/>
-                                    <span class="banner__row banner__row_v6">города Москвы
-                                        <br class="viewport-sm" />на 01.10.2016</span>
-                                    <br/>
-                                    <span class="banner__row banner__row_v5">Департамент финансов города Москвы подвел итоги
-                                        <br> исполнения столичного бюджета за 9 месяцев 2016 года</span>
+                                    <span class="banner__title_b">Опубликованы данные по исполнению бюджета города Москвы на 01.10.2016</span>
+                                    <span class="banner__row banner__row_sub">Департамент финансов города Москвы подвел итоги исполнения столичного бюджета за 9 месяцев 2016 года</span>
                                 </a>
                                 <a class="button banner__button mt-30" href="#">Подробнее</a>
                             </div>
@@ -296,13 +283,15 @@
             <div class="sections__item sections__item_bg1">
                 <div class="cube-brick" data-brick-900="1">
                     <!-- AHEAD/-->
-                    <div class="sections__ahead" id="diagrams-ahead-1">
+                    <div class="sections__ahead sections__ahead_ab" id="diagrams-ahead-1">
                         <div class="wrap">
-                            <h1 class="sections__title anim-fade-top">Основные показатели бюджета за 2016–2018 годы</h1>
+                            <h1 class="sections__title anim-fade-top mr-0">Основные показатели бюджета за 2016–2018 годы</h1>
                             <div class="legend sections__legend anim-fade-top">
                                 <div class="legend__item legend__item_blue">доходы</div>
                                 <div class="legend__item legend__item_pink">расходы</div>
-                                <div class="legend__item legend__item_green">дефицит/профицит </div>
+                                <div class="legend__item legend__item_green">дефицит/профицит
+                                    <span class="ml-20">млрд. рублей</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -310,7 +299,7 @@
                 </div>
                 <div class="cube-brick" data-brick-900="2">
                     <!-- AHEAD/-->
-                    <div class="sections__ahead mb-40 viewport-900-lg" id="diagrams-ahead-2">
+                    <div class="sections__ahead viewport-900-lg sections__ahead_ab" id="diagrams-ahead-2">
                         <div class="wrap">
                             <h2 class="sections__title anim-fade-top mr-20">Исполнение бюджета</h2>
                             <!-- CALENDAR/-->
@@ -330,20 +319,9 @@
                 <div class="slider slider_diagrams" data-sides-900="2">
                     <div class="cube-brick" data-brick-900="1">
                         <!-- DIAGRAM_CELL/-->
-                        <div class="grid__col grid-brick-3">
-                            <!-- TEST-->
-                            <div id="test-1" style="position: absolute; margin-top: -50px;">
-                                <form action="#" method="POST">
-                                    <label>Доход:</label>
-                                    <input type="text" name="inp1" value="1446.2" style="border: 1px solid #fff; width: 50px;" />
-                                    <label>Расход:</label>
-                                    <input type="text" name="inp2" value="1598.9" style="border: 1px solid #fff; width: 50px;" />
-                                    <label>Максимально:</label>
-                                    <input type="text" name="inp3" value="2050" style="border: 1px solid #fff; width: 50px;" />
-                                    <input type="submit" value="Обновить" style="border: 1px solid #fff;" />
-                                </form>
-                            </div>
+                        <div class="grid__col grid__col_h grid-brick-3">
                             <div class="comp-diagram comp-diagram_dash-1" id="diagram-1">
+                                <a href="#"></a>
                                 <div class="comp-diagram__year">2016</div>
                             </div>
                         </div>
@@ -351,8 +329,9 @@
                     </div>
                     <div class="cube-brick" data-brick-900="1">
                         <!-- DIAGRAM_CELL/-->
-                        <div class="grid__col grid-brick-3">
+                        <div class="grid__col grid__col_h grid-brick-3">
                             <div class="comp-diagram comp-diagram_dash-2" id="diagram-2">
+                                <a href="#"></a>
                                 <div class="comp-diagram__year">2017</div>
                             </div>
                         </div>
@@ -360,8 +339,9 @@
                     </div>
                     <div class="cube-brick" data-brick-900="1">
                         <!-- DIAGRAM_CELL/-->
-                        <div class="grid__col grid-brick-3">
+                        <div class="grid__col grid__col_h grid-brick-3">
                             <div class="comp-diagram comp-diagram_dash-1" id="diagram-3">
+                                <a href="#"></a>
                                 <div class="comp-diagram__year">2018</div>
                             </div>
                         </div>
@@ -369,18 +349,9 @@
                     </div>
                     <div class="cube-brick" data-brick-900="2">
                         <!-- DIAGRAM_CELL/-->
-                        <div class="grid__col grid-brick-2">
-                            <!-- TEST-->
-                            <div id="test-2" style="position: absolute; margin-top: -20px;">
-                                <form action="#" method="POST">
-                                    <label>План:</label>
-                                    <input type="text" name="inp1" value="1665.5" style="border: 1px solid #fff; width: 50px;" />
-                                    <label>Факт:</label>
-                                    <input type="text" name="inp2" value="1921.7" style="border: 1px solid #fff; width: 50px;" />
-                                    <input type="submit" value="Обновить" style="border: 1px solid #fff;" />
-                                </form>
-                            </div>
+                        <div class="grid__col grid__col_h grid-brick-2">
                             <div class="large-diagram">
+                                <a href="#"></a>
                                 <p class="large-diagram__caption">доходы</p>
                                 <div class="large-diagram__svg" id="diagram-4"></div>
                             </div>
@@ -389,10 +360,16 @@
                     </div>
                     <div class="cube-brick" data-brick-900="2">
                         <!-- DIAGRAM_CELL/-->
-                        <div class="grid__col grid-brick-2">
+                        <div class="grid__col grid__col_h grid-brick-2">
                             <div class="large-diagram">
-                                <p class="large-diagram__caption">расходы</p>
+                                <a href="#"></a>
+                                <p class="large-diagram__caption">расходы
+                                    <span class="yellow">*</span>
+                                    <span class="rub">млрд. рублей</span>
+                                </p>
                                 <div class="large-diagram__svg" id="diagram-5"></div>
+                                <p class="large-diagram__note">
+                                    <span class="yellow">*</span>без учета возвратов неиспользованных средств</p>
                             </div>
                         </div>
                         <!-- /DIAGRAM_CELL-->
@@ -400,7 +377,7 @@
                 </div>
                 <!-- /DIAGRAMS_SLIDER-->
             </div>
-            <!-- /DIAGRAMS_SECTION-->
+            <!-- DIAGRAMS_SECTION/-->
             <!-- SERVICES_SECTION/-->
             <div class="sections__item sections__item_bg2">
                 <!-- SERVICES_AHEAD/-->
@@ -418,92 +395,43 @@
                         <div class="tile__item anim-left" data-delay="100">
                             <div class="tile__inner service">
                                 <div class="service__ahead">
-                                    <h3 class="service__title">Государственные программы</h3>
+                                    <h3 class="service__title">Государственные программы
+                                        <button></button>
+                                    </h3>
                                     <div class="service__sub-title">по состоянию на
                                         <div class="datepicker service__datepicker">
-                                            <button class="datepicker__show">21.10.2016</button>
-                                            <div class="datepicker__panel">
-                                                <ul class="datepicker__col datepicker__col_years">
-                                                    <li>
-                                                        <a class="datepicker__a" href="#">2011</a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="datepicker__a" href="#">2012</a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="datepicker__a" href="#">2013</a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="datepicker__a" href="#">2014</a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="datepicker__a" href="#">2015</a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="datepicker__a datepicker__a_act" href="#">2016</a>
-                                                    </li>
-                                                </ul>
-                                                <div class="datepicker__col-wrap">
-                                                    <ul class="datepicker__col datepicker__col_months">
-                                                        <li>
-                                                            <a class="datepicker__a" href="#" data-month="01">январь</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="datepicker__a" href="#" data-month="02">февраль</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="datepicker__a" href="#" data-month="03">март</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="datepicker__a" href="#" data-month="04">апрель</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="datepicker__a" href="#" data-month="05">май</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="datepicker__a" href="#" data-month="06">июнь</a>
-                                                        </li>
-                                                    </ul>
-                                                    <ul class="datepicker__col datepicker__col_months">
-                                                        <li>
-                                                            <a class="datepicker__a" href="#" data-month="07">июль</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="datepicker__a" href="#" data-month="08">август</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="datepicker__a" href="#" data-month="09">сентябрь</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="datepicker__a datepicker__a_act" href="#" data-month="10">октябрь</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="datepicker__a" href="#" data-month="11">ноябрь</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="datepicker__a datepicker__a_act" href="#" data-month="12">декабрь</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <button class="datepicker__close"></button>
+                                            <input class="jq-datepicker" type="text" value="21.10.2016" />
+                                        </div>, млрд. руб</div>
+                                </div>
+                                <div class="service-dot-cont service-dot-cont_act" id="serv-d-2">
+                                    <div class="dashed-diagram service__dashed-diagram">
+                                        <div class="dashed-diagram__diagram" id="diagram-8">
+                                            <div class="dashed-diagram__value dashed-diagram__value_top">план
+                                                <p class="dashed-diagram__value-p">1 637,3</p>
                                             </div>
-                                        </div>, млрд. руб </div>
-                                </div>
-                                <div class="dashed-diagram service__dashed-diagram">
-                                    <div class="dashed-diagram__diagram" id="diagram-8">
-                                        <div class="dashed-diagram__value dashed-diagram__value_top">план
-                                            <p class="dashed-diagram__value-p">1 637,3</p>
+                                            <div class="dashed-diagram__value dashed-diagram__value_bottom">
+                                                <p class="dashed-diagram__value-p">1 167,7</p>факт</div>
                                         </div>
-                                        <div class="dashed-diagram__value dashed-diagram__value_bottom">
-                                            <p class="dashed-diagram__value-p">1 167,7</p>факт</div>
                                     </div>
+                                    <div class="service__capt">Программные расходы</div>
                                 </div>
-                                <div class="service__capt">Программные расходы</div>
-                                <ul class="service-dots">
-                                    <li class="service-dots__g"></li>
-                                    <li class="service-dots__n"></li>
-                                </ul>
-                                <a class="service__more" href="#">Подробнее </a>
+                                <div class="service-dot-cont" id="serv-d-1">
+                                    <div class="dashed-diagram service__dashed-diagram">
+                                        <div class="dashed-diagram__diagram" id="diagram-9">
+                                            <div class="dashed-diagram__value dashed-diagram__value_top">план
+                                                <p class="dashed-diagram__value-p">113,4</p>
+                                            </div>
+                                            <div class="dashed-diagram__value dashed-diagram__value_bottom">
+                                                <p class="dashed-diagram__value-p">46,5</p>факт</div>
+                                        </div>
+                                    </div>
+                                    <div class="service__capt">Непрограммные направления деятельности</div>
+                                </div>
+                                <div class="service-dots">
+                                    <button class="service-dots__btn" data-cont="serv-d-1"></button>
+                                    <button class="service-dots__btn active" data-cont="serv-d-2"></button>
+                                </div>
+                                <a class="service__more" href="#">Подробнее</a>
                             </div>
                         </div>
                         <!-- /SERVICE_ITEM-->
@@ -513,8 +441,10 @@
                         <div class="tile__item anim-left" data-delay="300">
                             <div class="tile__inner service">
                                 <div class="service__ahead">
-                                    <h3 class="service__title">Адресная инвестиционная программа</h3>
-                                    <p class="service__sub-title">на 2016 год, млрд. руб.</p>
+                                    <h3 class="service__title">Адресная инвестиционная программа
+                                        <button></button>
+                                    </h3>
+                                    <div class="service__sub-title">на 2016 год, млрд. руб.</div>
                                 </div>
                                 <div class="segment-diagram" id="diagram-6">
                                     <div class="segment-diagram__value">Всего
@@ -573,7 +503,9 @@
                         <div class="tile__item anim-left" data-delay="600">
                             <div class="tile__inner service">
                                 <div class="service__ahead">
-                                    <h3 class="service__title">Государственный долг</h3>
+                                    <h3 class="service__title">Государственный долг
+                                        <button></button>
+                                    </h3>
                                     <div class="service__sub-title">по состоянию на
                                         <div class="datepicker service__datepicker">
                                             <button class="datepicker__show">21.10.2016</button>
@@ -691,7 +623,9 @@
                         <div class="tile__item anim-left" data-delay="900">
                             <div class="tile__inner service">
                                 <div class="service__ahead mb-10">
-                                    <h3 class="service__title">Москва и города мира</h3>
+                                    <h3 class="service__title">Москва и города мира
+                                        <button></button>
+                                    </h3>
                                 </div>
                                 <p class="fs-14 medium mb-10 xs-fs-11">Выберите показатель</p>
                                 <div class="select service__select">
@@ -733,7 +667,9 @@
                         <div class="tile__item">
                             <div class="tile__inner service">
                                 <div class="service__ahead mb-10">
-                                    <h3 class="service__title">Москва и города мира</h3>
+                                    <h3 class="service__title">Москва и города мира
+                                        <button></button>
+                                    </h3>
                                 </div>
                                 <p class="fs-14 medium mb-10">Выберите показатель</p>
                                 <div class="select service__select">
@@ -775,7 +711,9 @@
                         <div class="tile__item">
                             <div class="tile__inner service">
                                 <div class="service__ahead mb-10">
-                                    <h3 class="service__title">Москва и города мира</h3>
+                                    <h3 class="service__title">Москва и города мира
+                                        <button></button>
+                                    </h3>
                                 </div>
                                 <p class="fs-14 medium mb-10">Выберите показатель</p>
                                 <div class="select service__select">
@@ -817,7 +755,9 @@
                         <div class="tile__item">
                             <div class="tile__inner service">
                                 <div class="service__ahead mb-10">
-                                    <h3 class="service__title">Москва и города мира</h3>
+                                    <h3 class="service__title">Москва и города мира
+                                        <button></button>
+                                    </h3>
                                 </div>
                                 <p class="fs-14 medium mb-10">Выберите показатель</p>
                                 <div class="select service__select">
@@ -1020,7 +960,7 @@
                     <div class="cube-brick" data-brick-700="2" data-brick-900="2" data-brick-1100="1">
                         <!-- NEWS_ITEM/-->
                         <div class="tile__item anim-left" data-delay="900">
-                            <div class="tile__inner news news_blue">
+                            <div class="tile__inner news news_green">
                                 <a class="news__thumb" href="#">
                                     <img src="assets/images/post-thumb.jpg" alt="thumb" />
                                 </a>
@@ -1047,8 +987,8 @@
                     </div>
                     <div class="cube-brick" data-brick-700="3" data-brick-900="2" data-brick-1100="2">
                         <!-- NEWS_ITEM/-->
-                        <div class="tile__item">
-                            <div class="tile__inner news news_blue">
+                        <div class="tile__item anim-left" data-delay="900">
+                            <div class="tile__inner news news_green">
                                 <a class="news__thumb" href="#">
                                     <img src="assets/images/post-thumb.jpg" alt="thumb" />
                                 </a>
@@ -1075,35 +1015,7 @@
                     </div>
                     <div class="cube-brick" data-brick-700="3" data-brick-900="2" data-brick-1100="2">
                         <!-- NEWS_ITEM/-->
-                        <div class="tile__item">
-                            <div class="tile__inner news news_red">
-                                <a class="news__thumb" href="#">
-                                    <img src="assets/images/post-thumb.jpg" alt="thumb" />
-                                </a>
-                                <a class="news__category" href="#">Новости бюджета</a>
-                                <a class="news__title" href="#">Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»</a>
-                                <div class="news__bottom">
-                                    <p class="news__date">8 августа 2016</p>
-                                    <div class="news__tags">
-                                        <a href="#">#итоги</a>
-                                        <a href="#">#апробация</a>
-                                        <a href="#">#старшеклассники</a>
-                                    </div>
-                                </div>
-                                <button class="share__btn"></button>
-                                <div class="share__panel">
-                                    <a class="share__a share__a_fb" href="#"></a>
-                                    <a class="share__a share__a_vk" href="#"></a>
-                                    <a class="share__a share__a_tw" href="#"></a>
-                                    <a class="share__a share__a_ok" href="#"></a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /NEWS_ITEM-->
-                    </div>
-                    <div class="cube-brick" data-brick-700="4" data-brick-900="3" data-brick-1100="2">
-                        <!-- NEWS_ITEM/-->
-                        <div class="tile__item">
+                        <div class="tile__item anim-left" data-delay="900">
                             <div class="tile__inner news news_green">
                                 <a class="news__thumb" href="#">
                                     <img src="assets/images/post-thumb.jpg" alt="thumb" />
@@ -1131,8 +1043,36 @@
                     </div>
                     <div class="cube-brick" data-brick-700="4" data-brick-900="3" data-brick-1100="2">
                         <!-- NEWS_ITEM/-->
-                        <div class="tile__item">
-                            <div class="tile__inner news news_blue">
+                        <div class="tile__item anim-left" data-delay="900">
+                            <div class="tile__inner news news_green">
+                                <a class="news__thumb" href="#">
+                                    <img src="assets/images/post-thumb.jpg" alt="thumb" />
+                                </a>
+                                <a class="news__category" href="#">Новости бюджета</a>
+                                <a class="news__title" href="#">Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»</a>
+                                <div class="news__bottom">
+                                    <p class="news__date">8 августа 2016</p>
+                                    <div class="news__tags">
+                                        <a href="#">#итоги</a>
+                                        <a href="#">#апробация</a>
+                                        <a href="#">#старшеклассники</a>
+                                    </div>
+                                </div>
+                                <button class="share__btn"></button>
+                                <div class="share__panel">
+                                    <a class="share__a share__a_fb" href="#"></a>
+                                    <a class="share__a share__a_vk" href="#"></a>
+                                    <a class="share__a share__a_tw" href="#"></a>
+                                    <a class="share__a share__a_ok" href="#"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /NEWS_ITEM-->
+                    </div>
+                    <div class="cube-brick" data-brick-700="4" data-brick-900="3" data-brick-1100="2">
+                        <!-- NEWS_ITEM/-->
+                        <div class="tile__item anim-left" data-delay="900">
+                            <div class="tile__inner news news_green">
                                 <a class="news__thumb" href="#">
                                     <img src="assets/images/post-thumb.jpg" alt="thumb" />
                                 </a>
@@ -1563,15 +1503,18 @@
     <script src="assets/scripts/js/swipe.min.js"></script>
     <script src="assets/scripts/js/slick.min.js"></script>
     <script src="assets/scripts/js/jquery-ui.min.js"></script>
+    <script src="assets/scripts/js/jquery-dnd.min.js"></script>
     <script src="assets/scripts/js/sections.min.js"></script>
+    <script src="assets/scripts/javascript/drag-n-drop.js"></script>
     <script src="assets/scripts/js/cube.min.js"></script>
+    <script src="assets/scripts/js/banner.min.js"></script>
     <script src="assets/scripts/js/animation.min.js"></script>
     <script src="assets/scripts/js/label.min.js"></script>
     <script src="assets/scripts/js/select.min.js"></script>
     <script src="assets/scripts/js/popup.min.js"></script>
     <script src="assets/scripts/js/share.min.js"></script>
     <script src="assets/scripts/js/form.min.js"></script>
-    <script src="assets/scripts/javascript/diagram.js"></script>
+    <script src="assets/scripts/js/diagram.min.js"></script>
     <script src="assets/scripts/js/letter.min.js"></script>
     <script src="assets/scripts/js/common.min.js"></script>
     <script>
@@ -1670,45 +1613,6 @@
         });
     </script>
     <script src="assets/scripts/js/main-page.js"></script>
-    <!-- ScritForTest-->
-    <script>
-        $(document).ready(function() {
-            (function() {
-                var _ = $('#test-1');
-                _.find('form').submit(function() {
-                    var inp1 = +_.find('input[name="inp1"]').val(),
-                        inp2 = +_.find('input[name="inp2"]').val(),
-                        inp3 = +_.find('input[name="inp3"]').val();
-                    diagram('#diagram-1', {
-                        stroke: 30,
-                        kind: 'triple',
-                        data: [inp1, inp2],
-                        animate: true,
-                        maxValue: inp3
-                    });
-                    return false;
-                });
-            }());
-            (function() {
-                var _ = $('#test-2');
-                _.find('form').submit(function() {
-                    var inp1 = +_.find('input[name="inp1"]').val(),
-                        inp2 = +_.find('input[name="inp2"]').val();
-                    diagram('#diagram-4', {
-                        viewBox: 390,
-                        stroke: 60,
-                        kind: 'ifinite',
-                        data: [inp2],
-                        gradient: ['#008ADF', '#00E6F9'],
-                        valClass: ['large-diagram__value-lightblue', 'large-diagram__value-blue'],
-                        maxValue: inp1,
-                        animate: true,
-                    });
-                    return false;
-                });
-            }());
-        });
-    </script>
     <script src="assets/scripts/app.min.js"></script>
     <script src="assets/scripts/svg4everybody.min.js"></script>
     <script>

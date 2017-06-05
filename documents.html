@@ -4,8 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=9">
     <title>Versta Project Template</title>
+    <!--[if lt IE 9]><script type="text/javascript" src="assets/scripts/js/html5.min.js"></script><![endif]-->
     <meta name="description" content="">
     <meta name="keywords" content="">
     <link href="favicon.ico" rel="shortcut icon">
@@ -14,7 +15,7 @@
 
 <body>
     <header class="header header_budget">
-        <div class="header__wrap">
+        <div class="header__wrap wrap">
             <!-- LOGO/-->
             <a class="logo header__logo" href="#">
                 <img class="logo__img" src="assets/images/logo.png" alt="logo" title="" />
@@ -446,8 +447,8 @@
                                 </div>
                                 <input class="login-form__submit" type="submit" value="Зарегистрироваться" />
                             </form>
-                            <div class="caption">Нажимая на кнопку «Регистрация», вы подтверждаете свое согласие с условиями предоставления услуг (
-                                <a class="open-popup" href="#agreements">пользовательское соглашение</a>)</div>
+                            <div class="popup-login__caption">Нажимая на кнопку «Регистрация», вы подтверждаете свое согласие с условиями предоставления услуг (
+                                <a href="#agreements" class="open-popup">пользовательское соглашение</a>)</div>
                         </div>
                         <!-- /TAB-->
                     </div>
@@ -622,7 +623,7 @@
                         </NAV>
                     </div>
                     <NAV class="footer__column footer__column_sh viewport-md-lg">
-                        <UL class="footer__nav-section_min-h">
+                        <UL class="footer__nav-section footer__nav-section_min-h">
                             <LI class="footer__nav-item">
                                 <A class="footer__nav-a footer__nav-a_b" href="#">Медиацентр</A>
                             </LI>
@@ -698,7 +699,7 @@
                             <div class="footer__column">
                                 <A class="logo footer__logo" href="#">
                                     <IMG class="logo__img" src="assets/images/logo-footer.png" alt="logo"></IMG>
-                                    <SPAN class="logo_lg">Департамент Финансов
+                                    <SPAN class="logo__lg">Департамент Финансов
                                         <br/>города Москвы</SPAN>
                                 </A>
                             </div>
@@ -773,35 +774,27 @@
                 </div>
             </footer>
         </div>
+        <div class="button-top"></div>
     </div>
-    <!--script(src='assets/scripts/app.min.js')-->
     <script src="assets/scripts/js/jquery-3.1.1.min.js"></script>
-    <script src="assets/scripts/js2/library.js"></script>
-    <script src="assets/scripts/js/animation.min.js"></script>
-    <script src="assets/scripts/js/banner.min.js"></script>
-    <script src="assets/scripts/js/common.min.js"></script>
-    <script src="assets/scripts/js/cube.min.js"></script>
-    <script src="assets/scripts/js/diagram.min.js"></script>
-    <script src="assets/scripts/js/drag-n-drop.min.js"></script>
     <script src="assets/scripts/js/easing.min.js"></script>
-    <script src="assets/scripts/js/form.min.js"></script>
-    <script src="assets/scripts/js/glossary-page.js"></script>
-    <script src="assets/scripts/js/html5.min.js"></script>
-    <script src="assets/scripts/js/jquery-dnd.min.js"></script>
     <script src="assets/scripts/js/jquery-ui.min.js"></script>
+    <script src="assets/scripts/js/animation.min.js"></script>
     <script src="assets/scripts/js/label.min.js"></script>
-    <script src="assets/scripts/js/letter.min.js"></script>
-    <script src="assets/scripts/js/popup.min.js"></script>
-    <script src="assets/scripts/js/sections.min.js"></script>
     <script src="assets/scripts/js/select.min.js"></script>
+    <script src="assets/scripts/js/popup.min.js"></script>
     <script src="assets/scripts/js/share.min.js"></script>
-    <script src="assets/scripts/js/slick.min.js"></script>
-    <script src="assets/scripts/js/swipe.min.js"></script>
-    <!--script(src='assets/scripts/js2/action.js')-->
-    <script src="assets/scripts/js2/owl.carousel.min.js"></script>
-    <script src="assets/scripts/js2/script.js"></script>
-    <script src="assets/scripts/js2/ez.js"></script>
-    <script src="assets/scripts/js/main-page.js"></script>
+    <script src="assets/scripts/js/form.min.js"></script>
+    <script src="assets/scripts/js/common.min.js"></script>
+    <div class="range-datepicker">
+        <div class="range-datepicker__item range-datepicker__item_min" data-range="min"></div>
+        <div class="range-datepicker__item range-datepicker__item_max" data-range="max"></div>
+    </div>
+    <script src="assets/scripts/app.min.js"></script>
+    <script src="assets/scripts/svg4everybody.min.js"></script>
+    <script>
+        svg4everybody();
+    </script>
 </body>
 
 </html>

@@ -4,8 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=9">
     <title>Versta Project Template</title>
+    <!--[if lt IE 9]><script type="text/javascript" src="assets/scripts/js/html5.min.js"></script><![endif]-->
     <meta name="description" content="">
     <meta name="keywords" content="">
     <link href="favicon.ico" rel="shortcut icon">
@@ -13,8 +14,8 @@
 </head>
 
 <body>
-    <header class="header header_budget">
-        <div class="header__wrap">
+    <header class="header">
+        <div class="header__wrap wrap">
             <!-- LOGO/-->
             <a class="logo header__logo" href="#">
                 <img class="logo__img" src="assets/images/logo.png" alt="logo" title="" />
@@ -207,119 +208,134 @@
         <button class="header__open-menu"></button>
     </header>
     <div class="sections">
-        <div class="questions">
-            <div class="grid">
-                <div class="grid__col grid__col_two">
-                    <h2 class="grid__title">Вопросы</h2>
-                    <ul class="grid__nav">
-                        <li class="grid__nav__item">Новые</li>
-                        <li class="grid__nav__item">Модерация</li>
-                        <li class="grid__nav__item">В работе</li>
-                        <li class="grid__nav__item grid__nav__item_active">С ответом</li>
-                    </ul>
+        <div class="lk lk_questions">
+            <div class="wrapper_lk">
+                <div class="lk-nav">
+                    <a class="lk-nav__item lk-nav__item_profile" href="profile.html">Профиль
+                        <span class="lk-nav__item-num">01.</span>
+                    </a>
+                    <a class="lk-nav__item lk-nav__item_documents lk-nav__item_active" href="#">Вопросы
+                        <span class="lk-nav__item-num">02.</span>
+                    </a>
+                    <a class="lk-nav__item lk-nav__item_services" href="lk-services.html">Сервисы
+                        <span class="lk-nav__item-num">03.</span>
+                    </a>
                 </div>
-                <div class="grid__col grid__col_ten" id="scroll">
-                    <div class="question">
-                        <div class="question__row">
-                            <div class="question__name">Иван Иванов</div>
-                            <div class="question__date">19.09.2016</div>
+                <div class="questions">
+                    <div class="grid">
+                        <div class="grid__col grid__col_two">
+                            <h2 class="grid__title">Вопросы</h2>
+                            <ul class="grid__nav">
+                                <li class="grid__nav__item">Новые</li>
+                                <li class="grid__nav__item">Модерация</li>
+                                <li class="grid__nav__item">В работе</li>
+                                <li class="grid__nav__item grid__nav__item_active">С ответом</li>
+                            </ul>
                         </div>
-                        <p class="question__message"> Почему осенью убирают листья в мешки? Листьям там не нравится, им так скучно и темно! Плюс вопрос необходимого удобрения почты для перегноя, вы что? Прекратите собирать листья! </p>
-                        <div class="question__row">
-                            <svg class="question__icon"><use xlink:href="assets/images/icon.svg#icon_share-option"></use></svg>
-                            <div class="question__reply-name">Департамент финансов города Москвы</div>
+                        <div class="grid__col grid__col_ten" id="scroll">
+                            <div class="question">
+                                <div class="question__row">
+                                    <div class="question__name">Иван Иванов</div>
+                                    <div class="question__date">19.09.2016</div>
+                                </div>
+                                <p class="question__message"> Почему осенью убирают листья в мешки? Листьям там не нравится, им так скучно и темно! Плюс вопрос необходимого удобрения почты для перегноя, вы что? Прекратите собирать листья! </p>
+                                <div class="question__row">
+                                    <svg class="question__icon"><use xlink:href="assets/images/icon.svg#icon_share-option"></use></svg>
+                                    <div class="question__reply-name">Департамент финансов города Москвы</div>
+                                </div>
+                                <p class="question__reply">Листья, опадающие осенью с деревьев – не мусор. Разлагаясь в почве, они добавляют в нее минеральные и органические вещества, накопленные за лето. Медленно разлагающиеся части листа (жилки, черенки), структурируют почву,
+                                    улучшая ее качество. Постепенная деструкция опавшей листвы создает условия для развития почвенной микрофлоры и фауны, которая, с одной стороны, выполняет работу по переработке листьев, с другой стороны, препятствует
+                                    развитию патогенных для деревьев организмов (грибковые, бактериальные заболевания деревьев). Городские деревья очень подвержены различным заболеваниям. Редко встретишь здоровое дерево, а как трудно вырастить молодое
+                                    дерево! Лишь немногие из саженцев приживаются в городской среде и достигают «взрослого» возраста. Одна из главных причин этого – качество городских почв. В лесу никто не готовит почву – природа делает её сама из ежегодно
+                                    получаемого материала – опавшей листвы. Лесная подстилка – фабрика по изготовлению лесной почвы, питающей деревья и оберегающая их здоровье. </p>
+                                <a class="link link_dashed question__link" href="#">Раскрыть полностью</a>
+                            </div>
+                            <div class="question">
+                                <div class="question__row">
+                                    <div class="question__name">Иван Иванов</div>
+                                    <div class="question__date">19.09.2016</div>
+                                </div>
+                                <p class="question__message"> Почему осенью убирают листья в мешки? Листьям там не нравится, им так скучно и темно! Плюс вопрос необходимого удобрения почты для перегноя, вы что? Прекратите собирать листья! </p>
+                                <div class="question__row">
+                                    <svg class="question__icon"><use xlink:href="assets/images/icon.svg#icon_share-option"></use></svg>
+                                    <div class="question__reply-name">Департамент финансов города Москвы</div>
+                                </div>
+                                <p class="question__reply">Листья, опадающие осенью с деревьев – не мусор. Разлагаясь в почве, они добавляют в нее минеральные и органические вещества, накопленные за лето. Медленно разлагающиеся части листа (жилки, черенки), структурируют почву,
+                                    улучшая ее качество. Постепенная деструкция опавшей листвы создает условия для развития почвенной микрофлоры и фауны, которая, с одной стороны, выполняет работу по переработке листьев, с другой стороны, препятствует
+                                    развитию патогенных для деревьев организмов (грибковые, бактериальные заболевания деревьев). Городские деревья очень подвержены различным заболеваниям. Редко встретишь здоровое дерево, а как трудно вырастить молодое
+                                    дерево! Лишь немногие из саженцев приживаются в городской среде и достигают «взрослого» возраста. Одна из главных причин этого – качество городских почв. В лесу никто не готовит почву – природа делает её сама из ежегодно
+                                    получаемого материала – опавшей листвы. Лесная подстилка – фабрика по изготовлению лесной почвы, питающей деревья и оберегающая их здоровье. </p>
+                                <a class="link link_dashed question__link" href="#">Раскрыть полностью</a>
+                            </div>
+                            <div class="question">
+                                <div class="question__row">
+                                    <div class="question__name">Иван Иванов</div>
+                                    <div class="question__date">19.09.2016</div>
+                                </div>
+                                <p class="question__message"> Почему осенью убирают листья в мешки? Листьям там не нравится, им так скучно и темно! Плюс вопрос необходимого удобрения почты для перегноя, вы что? Прекратите собирать листья! </p>
+                                <div class="question__row">
+                                    <svg class="question__icon"><use xlink:href="assets/images/icon.svg#icon_share-option"></use></svg>
+                                    <div class="question__reply-name">Департамент финансов города Москвы</div>
+                                </div>
+                                <p class="question__reply">Листья, опадающие осенью с деревьев – не мусор. Разлагаясь в почве, они добавляют в нее минеральные и органические вещества, накопленные за лето. Медленно разлагающиеся части листа (жилки, черенки), структурируют почву,
+                                    улучшая ее качество. Постепенная деструкция опавшей листвы создает условия для развития почвенной микрофлоры и фауны, которая, с одной стороны, выполняет работу по переработке листьев, с другой стороны, препятствует
+                                    развитию патогенных для деревьев организмов (грибковые, бактериальные заболевания деревьев). Городские деревья очень подвержены различным заболеваниям. Редко встретишь здоровое дерево, а как трудно вырастить молодое
+                                    дерево! Лишь немногие из саженцев приживаются в городской среде и достигают «взрослого» возраста. Одна из главных причин этого – качество городских почв. В лесу никто не готовит почву – природа делает её сама из ежегодно
+                                    получаемого материала – опавшей листвы. Лесная подстилка – фабрика по изготовлению лесной почвы, питающей деревья и оберегающая их здоровье. </p>
+                                <a class="link link_dashed question__link" href="#">Раскрыть полностью</a>
+                            </div>
+                            <div class="question">
+                                <div class="question__row">
+                                    <div class="question__name">Иван Иванов</div>
+                                    <div class="question__date">19.09.2016</div>
+                                </div>
+                                <p class="question__message"> Почему осенью убирают листья в мешки? Листьям там не нравится, им так скучно и темно! Плюс вопрос необходимого удобрения почты для перегноя, вы что? Прекратите собирать листья! </p>
+                                <div class="question__row">
+                                    <svg class="question__icon"><use xlink:href="assets/images/icon.svg#icon_share-option"></use></svg>
+                                    <div class="question__reply-name">Департамент финансов города Москвы</div>
+                                </div>
+                                <p class="question__reply">Листья, опадающие осенью с деревьев – не мусор. Разлагаясь в почве, они добавляют в нее минеральные и органические вещества, накопленные за лето. Медленно разлагающиеся части листа (жилки, черенки), структурируют почву,
+                                    улучшая ее качество. Постепенная деструкция опавшей листвы создает условия для развития почвенной микрофлоры и фауны, которая, с одной стороны, выполняет работу по переработке листьев, с другой стороны, препятствует
+                                    развитию патогенных для деревьев организмов (грибковые, бактериальные заболевания деревьев). Городские деревья очень подвержены различным заболеваниям. Редко встретишь здоровое дерево, а как трудно вырастить молодое
+                                    дерево! Лишь немногие из саженцев приживаются в городской среде и достигают «взрослого» возраста. Одна из главных причин этого – качество городских почв. В лесу никто не готовит почву – природа делает её сама из ежегодно
+                                    получаемого материала – опавшей листвы. Лесная подстилка – фабрика по изготовлению лесной почвы, питающей деревья и оберегающая их здоровье. </p>
+                                <a class="link link_dashed question__link" href="#">Раскрыть полностью</a>
+                            </div>
+                            <div class="question">
+                                <div class="question__row">
+                                    <div class="question__name">Иван Иванов</div>
+                                    <div class="question__date">19.09.2016</div>
+                                </div>
+                                <p class="question__message"> Почему осенью убирают листья в мешки? Листьям там не нравится, им так скучно и темно! Плюс вопрос необходимого удобрения почты для перегноя, вы что? Прекратите собирать листья! </p>
+                                <div class="question__row">
+                                    <svg class="question__icon"><use xlink:href="assets/images/icon.svg#icon_share-option"></use></svg>
+                                    <div class="question__reply-name">Департамент финансов города Москвы</div>
+                                </div>
+                                <p class="question__reply">Листья, опадающие осенью с деревьев – не мусор. Разлагаясь в почве, они добавляют в нее минеральные и органические вещества, накопленные за лето. Медленно разлагающиеся части листа (жилки, черенки), структурируют почву,
+                                    улучшая ее качество. Постепенная деструкция опавшей листвы создает условия для развития почвенной микрофлоры и фауны, которая, с одной стороны, выполняет работу по переработке листьев, с другой стороны, препятствует
+                                    развитию патогенных для деревьев организмов (грибковые, бактериальные заболевания деревьев). Городские деревья очень подвержены различным заболеваниям. Редко встретишь здоровое дерево, а как трудно вырастить молодое
+                                    дерево! Лишь немногие из саженцев приживаются в городской среде и достигают «взрослого» возраста. Одна из главных причин этого – качество городских почв. В лесу никто не готовит почву – природа делает её сама из ежегодно
+                                    получаемого материала – опавшей листвы. Лесная подстилка – фабрика по изготовлению лесной почвы, питающей деревья и оберегающая их здоровье. </p>
+                                <a class="link link_dashed question__link" href="#">Раскрыть полностью</a>
+                            </div>
+                            <div class="question">
+                                <div class="question__row">
+                                    <div class="question__name">Иван Иванов</div>
+                                    <div class="question__date">19.09.2016</div>
+                                </div>
+                                <p class="question__message"> Почему осенью убирают листья в мешки? Листьям там не нравится, им так скучно и темно! Плюс вопрос необходимого удобрения почты для перегноя, вы что? Прекратите собирать листья! </p>
+                                <div class="question__row">
+                                    <svg class="question__icon"><use xlink:href="assets/images/icon.svg#icon_share-option"></use></svg>
+                                    <div class="question__reply-name">Департамент финансов города Москвы</div>
+                                </div>
+                                <p class="question__reply">Листья, опадающие осенью с деревьев – не мусор. Разлагаясь в почве, они добавляют в нее минеральные и органические вещества, накопленные за лето. Медленно разлагающиеся части листа (жилки, черенки), структурируют почву,
+                                    улучшая ее качество. Постепенная деструкция опавшей листвы создает условия для развития почвенной микрофлоры и фауны, которая, с одной стороны, выполняет работу по переработке листьев, с другой стороны, препятствует
+                                    развитию патогенных для деревьев организмов (грибковые, бактериальные заболевания деревьев). Городские деревья очень подвержены различным заболеваниям. Редко встретишь здоровое дерево, а как трудно вырастить молодое
+                                    дерево! Лишь немногие из саженцев приживаются в городской среде и достигают «взрослого» возраста. Одна из главных причин этого – качество городских почв. В лесу никто не готовит почву – природа делает её сама из ежегодно
+                                    получаемого материала – опавшей листвы. Лесная подстилка – фабрика по изготовлению лесной почвы, питающей деревья и оберегающая их здоровье. </p>
+                                <a class="link link_dashed question__link" href="#">Раскрыть полностью</a>
+                            </div>
                         </div>
-                        <p class="question__reply">Листья, опадающие осенью с деревьев – не мусор. Разлагаясь в почве, они добавляют в нее минеральные и органические вещества, накопленные за лето. Медленно разлагающиеся части листа (жилки, черенки), структурируют почву, улучшая
-                            ее качество. Постепенная деструкция опавшей листвы создает условия для развития почвенной микрофлоры и фауны, которая, с одной стороны, выполняет работу по переработке листьев, с другой стороны, препятствует развитию патогенных
-                            для деревьев организмов (грибковые, бактериальные заболевания деревьев). Городские деревья очень подвержены различным заболеваниям. Редко встретишь здоровое дерево, а как трудно вырастить молодое дерево! Лишь немногие из саженцев
-                            приживаются в городской среде и достигают «взрослого» возраста. Одна из главных причин этого – качество городских почв. В лесу никто не готовит почву – природа делает её сама из ежегодно получаемого материала – опавшей листвы.
-                            Лесная подстилка – фабрика по изготовлению лесной почвы, питающей деревья и оберегающая их здоровье. </p>
-                        <a class="link link_dashed question__link" href="#">Раскрыть полностью</a>
-                    </div>
-                    <div class="question">
-                        <div class="question__row">
-                            <div class="question__name">Иван Иванов</div>
-                            <div class="question__date">19.09.2016</div>
-                        </div>
-                        <p class="question__message"> Почему осенью убирают листья в мешки? Листьям там не нравится, им так скучно и темно! Плюс вопрос необходимого удобрения почты для перегноя, вы что? Прекратите собирать листья! </p>
-                        <div class="question__row">
-                            <svg class="question__icon"><use xlink:href="assets/images/icon.svg#icon_share-option"></use></svg>
-                            <div class="question__reply-name">Департамент финансов города Москвы</div>
-                        </div>
-                        <p class="question__reply">Листья, опадающие осенью с деревьев – не мусор. Разлагаясь в почве, они добавляют в нее минеральные и органические вещества, накопленные за лето. Медленно разлагающиеся части листа (жилки, черенки), структурируют почву, улучшая
-                            ее качество. Постепенная деструкция опавшей листвы создает условия для развития почвенной микрофлоры и фауны, которая, с одной стороны, выполняет работу по переработке листьев, с другой стороны, препятствует развитию патогенных
-                            для деревьев организмов (грибковые, бактериальные заболевания деревьев). Городские деревья очень подвержены различным заболеваниям. Редко встретишь здоровое дерево, а как трудно вырастить молодое дерево! Лишь немногие из саженцев
-                            приживаются в городской среде и достигают «взрослого» возраста. Одна из главных причин этого – качество городских почв. В лесу никто не готовит почву – природа делает её сама из ежегодно получаемого материала – опавшей листвы.
-                            Лесная подстилка – фабрика по изготовлению лесной почвы, питающей деревья и оберегающая их здоровье. </p>
-                        <a class="link link_dashed question__link" href="#">Раскрыть полностью</a>
-                    </div>
-                    <div class="question">
-                        <div class="question__row">
-                            <div class="question__name">Иван Иванов</div>
-                            <div class="question__date">19.09.2016</div>
-                        </div>
-                        <p class="question__message"> Почему осенью убирают листья в мешки? Листьям там не нравится, им так скучно и темно! Плюс вопрос необходимого удобрения почты для перегноя, вы что? Прекратите собирать листья! </p>
-                        <div class="question__row">
-                            <svg class="question__icon"><use xlink:href="assets/images/icon.svg#icon_share-option"></use></svg>
-                            <div class="question__reply-name">Департамент финансов города Москвы</div>
-                        </div>
-                        <p class="question__reply">Листья, опадающие осенью с деревьев – не мусор. Разлагаясь в почве, они добавляют в нее минеральные и органические вещества, накопленные за лето. Медленно разлагающиеся части листа (жилки, черенки), структурируют почву, улучшая
-                            ее качество. Постепенная деструкция опавшей листвы создает условия для развития почвенной микрофлоры и фауны, которая, с одной стороны, выполняет работу по переработке листьев, с другой стороны, препятствует развитию патогенных
-                            для деревьев организмов (грибковые, бактериальные заболевания деревьев). Городские деревья очень подвержены различным заболеваниям. Редко встретишь здоровое дерево, а как трудно вырастить молодое дерево! Лишь немногие из саженцев
-                            приживаются в городской среде и достигают «взрослого» возраста. Одна из главных причин этого – качество городских почв. В лесу никто не готовит почву – природа делает её сама из ежегодно получаемого материала – опавшей листвы.
-                            Лесная подстилка – фабрика по изготовлению лесной почвы, питающей деревья и оберегающая их здоровье. </p>
-                        <a class="link link_dashed question__link" href="#">Раскрыть полностью</a>
-                    </div>
-                    <div class="question">
-                        <div class="question__row">
-                            <div class="question__name">Иван Иванов</div>
-                            <div class="question__date">19.09.2016</div>
-                        </div>
-                        <p class="question__message"> Почему осенью убирают листья в мешки? Листьям там не нравится, им так скучно и темно! Плюс вопрос необходимого удобрения почты для перегноя, вы что? Прекратите собирать листья! </p>
-                        <div class="question__row">
-                            <svg class="question__icon"><use xlink:href="assets/images/icon.svg#icon_share-option"></use></svg>
-                            <div class="question__reply-name">Департамент финансов города Москвы</div>
-                        </div>
-                        <p class="question__reply">Листья, опадающие осенью с деревьев – не мусор. Разлагаясь в почве, они добавляют в нее минеральные и органические вещества, накопленные за лето. Медленно разлагающиеся части листа (жилки, черенки), структурируют почву, улучшая
-                            ее качество. Постепенная деструкция опавшей листвы создает условия для развития почвенной микрофлоры и фауны, которая, с одной стороны, выполняет работу по переработке листьев, с другой стороны, препятствует развитию патогенных
-                            для деревьев организмов (грибковые, бактериальные заболевания деревьев). Городские деревья очень подвержены различным заболеваниям. Редко встретишь здоровое дерево, а как трудно вырастить молодое дерево! Лишь немногие из саженцев
-                            приживаются в городской среде и достигают «взрослого» возраста. Одна из главных причин этого – качество городских почв. В лесу никто не готовит почву – природа делает её сама из ежегодно получаемого материала – опавшей листвы.
-                            Лесная подстилка – фабрика по изготовлению лесной почвы, питающей деревья и оберегающая их здоровье. </p>
-                        <a class="link link_dashed question__link" href="#">Раскрыть полностью</a>
-                    </div>
-                    <div class="question">
-                        <div class="question__row">
-                            <div class="question__name">Иван Иванов</div>
-                            <div class="question__date">19.09.2016</div>
-                        </div>
-                        <p class="question__message"> Почему осенью убирают листья в мешки? Листьям там не нравится, им так скучно и темно! Плюс вопрос необходимого удобрения почты для перегноя, вы что? Прекратите собирать листья! </p>
-                        <div class="question__row">
-                            <svg class="question__icon"><use xlink:href="assets/images/icon.svg#icon_share-option"></use></svg>
-                            <div class="question__reply-name">Департамент финансов города Москвы</div>
-                        </div>
-                        <p class="question__reply">Листья, опадающие осенью с деревьев – не мусор. Разлагаясь в почве, они добавляют в нее минеральные и органические вещества, накопленные за лето. Медленно разлагающиеся части листа (жилки, черенки), структурируют почву, улучшая
-                            ее качество. Постепенная деструкция опавшей листвы создает условия для развития почвенной микрофлоры и фауны, которая, с одной стороны, выполняет работу по переработке листьев, с другой стороны, препятствует развитию патогенных
-                            для деревьев организмов (грибковые, бактериальные заболевания деревьев). Городские деревья очень подвержены различным заболеваниям. Редко встретишь здоровое дерево, а как трудно вырастить молодое дерево! Лишь немногие из саженцев
-                            приживаются в городской среде и достигают «взрослого» возраста. Одна из главных причин этого – качество городских почв. В лесу никто не готовит почву – природа делает её сама из ежегодно получаемого материала – опавшей листвы.
-                            Лесная подстилка – фабрика по изготовлению лесной почвы, питающей деревья и оберегающая их здоровье. </p>
-                        <a class="link link_dashed question__link" href="#">Раскрыть полностью</a>
-                    </div>
-                    <div class="question">
-                        <div class="question__row">
-                            <div class="question__name">Иван Иванов</div>
-                            <div class="question__date">19.09.2016</div>
-                        </div>
-                        <p class="question__message"> Почему осенью убирают листья в мешки? Листьям там не нравится, им так скучно и темно! Плюс вопрос необходимого удобрения почты для перегноя, вы что? Прекратите собирать листья! </p>
-                        <div class="question__row">
-                            <svg class="question__icon"><use xlink:href="assets/images/icon.svg#icon_share-option"></use></svg>
-                            <div class="question__reply-name">Департамент финансов города Москвы</div>
-                        </div>
-                        <p class="question__reply">Листья, опадающие осенью с деревьев – не мусор. Разлагаясь в почве, они добавляют в нее минеральные и органические вещества, накопленные за лето. Медленно разлагающиеся части листа (жилки, черенки), структурируют почву, улучшая
-                            ее качество. Постепенная деструкция опавшей листвы создает условия для развития почвенной микрофлоры и фауны, которая, с одной стороны, выполняет работу по переработке листьев, с другой стороны, препятствует развитию патогенных
-                            для деревьев организмов (грибковые, бактериальные заболевания деревьев). Городские деревья очень подвержены различным заболеваниям. Редко встретишь здоровое дерево, а как трудно вырастить молодое дерево! Лишь немногие из саженцев
-                            приживаются в городской среде и достигают «взрослого» возраста. Одна из главных причин этого – качество городских почв. В лесу никто не готовит почву – природа делает её сама из ежегодно получаемого материала – опавшей листвы.
-                            Лесная подстилка – фабрика по изготовлению лесной почвы, питающей деревья и оберегающая их здоровье. </p>
-                        <a class="link link_dashed question__link" href="#">Раскрыть полностью</a>
                     </div>
                 </div>
             </div>
@@ -392,8 +408,8 @@
                                 </div>
                                 <input class="login-form__submit" type="submit" value="Зарегистрироваться" />
                             </form>
-                            <div class="caption">Нажимая на кнопку «Регистрация», вы подтверждаете свое согласие с условиями предоставления услуг (
-                                <a class="open-popup" href="#agreements">пользовательское соглашение</a>)</div>
+                            <div class="popup-login__caption">Нажимая на кнопку «Регистрация», вы подтверждаете свое согласие с условиями предоставления услуг (
+                                <a href="#agreements" class="open-popup">пользовательское соглашение</a>)</div>
                         </div>
                         <!-- /TAB-->
                     </div>
@@ -568,7 +584,7 @@
                         </NAV>
                     </div>
                     <NAV class="footer__column footer__column_sh viewport-md-lg">
-                        <UL class="footer__nav-section_min-h">
+                        <UL class="footer__nav-section footer__nav-section_min-h">
                             <LI class="footer__nav-item">
                                 <A class="footer__nav-a footer__nav-a_b" href="#">Медиацентр</A>
                             </LI>
@@ -644,7 +660,7 @@
                             <div class="footer__column">
                                 <A class="logo footer__logo" href="#">
                                     <IMG class="logo__img" src="assets/images/logo-footer.png" alt="logo"></IMG>
-                                    <SPAN class="logo_lg">Департамент Финансов
+                                    <SPAN class="logo__lg">Департамент Финансов
                                         <br/>города Москвы</SPAN>
                                 </A>
                             </div>
@@ -720,34 +736,31 @@
             </footer>
         </div>
     </div>
-    <!--script(src='assets/scripts/app.min.js')-->
-    <script src="assets/scripts/js/jquery-3.1.1.min.js"></script>
+    <script src="assets/scripts/js2/jquery-3.1.1.min.js"></script>
     <script src="assets/scripts/js2/library.js"></script>
-    <script src="assets/scripts/js/animation.min.js"></script>
-    <script src="assets/scripts/js/banner.min.js"></script>
-    <script src="assets/scripts/js/common.min.js"></script>
-    <script src="assets/scripts/js/cube.min.js"></script>
-    <script src="assets/scripts/js/diagram.min.js"></script>
-    <script src="assets/scripts/js/drag-n-drop.min.js"></script>
-    <script src="assets/scripts/js/easing.min.js"></script>
-    <script src="assets/scripts/js/form.min.js"></script>
-    <script src="assets/scripts/js/glossary-page.js"></script>
-    <script src="assets/scripts/js/html5.min.js"></script>
-    <script src="assets/scripts/js/jquery-dnd.min.js"></script>
-    <script src="assets/scripts/js/jquery-ui.min.js"></script>
-    <script src="assets/scripts/js/label.min.js"></script>
-    <script src="assets/scripts/js/letter.min.js"></script>
-    <script src="assets/scripts/js/popup.min.js"></script>
-    <script src="assets/scripts/js/sections.min.js"></script>
-    <script src="assets/scripts/js/select.min.js"></script>
-    <script src="assets/scripts/js/share.min.js"></script>
-    <script src="assets/scripts/js/slick.min.js"></script>
-    <script src="assets/scripts/js/swipe.min.js"></script>
-    <!--script(src='assets/scripts/js2/action.js')-->
-    <script src="assets/scripts/js2/owl.carousel.min.js"></script>
+    <script src="assets/scripts/js2/header/easing.min.js"></script>
+    <script src="assets/scripts/js2/header/swipe.min.js"></script>
+    <script src="assets/scripts/js2/header/slick.min.js"></script>
+    <script src="assets/scripts/js2/header/jquery-ui.min.js"></script>
+    <script src="assets/scripts/js2/header/sections.min.js"></script>
+    <script src="assets/scripts/js2/header/cube.min.js"></script>
+    <script src="assets/scripts/js2/header/animation.min.js"></script>
+    <script src="assets/scripts/js2/header/label.min.js"></script>
+    <script src="assets/scripts/js2/header/select.min.js"></script>
+    <script src="assets/scripts/js2/header/popup.min.js"></script>
+    <script src="assets/scripts/js2/header/share.min.js"></script>
+    <script src="assets/scripts/js2/header/form.min.js"></script>
+    <script src="assets/scripts/js2/header/letter.min.js"></script>
+    <script src="assets/scripts/js2/header/common.min.js"></script>
+    <script src="assets/scripts/js2/header/diagram.min.js"></script>
     <script src="assets/scripts/js2/script.js"></script>
+    <script src="assets/scripts/js2/owl.carousel.min.js"></script>
     <script src="assets/scripts/js2/ez.js"></script>
-    <script src="assets/scripts/js/main-page.js"></script>
+    <script src="assets/scripts/app.min.js"></script>
+    <script src="assets/scripts/svg4everybody.min.js"></script>
+    <script>
+        svg4everybody();
+    </script>
 </body>
 
 </html>

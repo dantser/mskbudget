@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <header class="header header_budget">
+    <header class="header">
         <div class="header__wrap wrap">
             <!-- LOGO/-->
             <a class="logo header__logo" href="#">
@@ -207,80 +207,176 @@
         </div>
         <button class="header__open-menu"></button>
     </header>
-    <div class="sections _task">
-        <div class="d-si-content">
-            <div class="d-layer d-layer_small">
-                <div class="d-si__head">
-                    <div class="d-si__head_descr">сервисы</div>
-                    <div class="d-si__head_p-name">опросы</div>
-                    <div class="d-si__head_icons">
-                        <a class="d-si__icons_item" href="#">
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24.25px" height="23.25px">
-                                <path fill-rule="evenodd" stroke="#d0ccd3" stroke-width="1.5px" stroke-linecap="butt" stroke-linejoin="miter" fill="none" d="M11.754,0.753 L16.158,6.282 L22.764,8.773 L18.880,14.680 L18.559,21.748 L11.754,19.870 L4.950,21.748 L4.628,14.680 L0.744,8.773 L7.350,6.282 L11.754,0.753 Z"></path>
-                            </svg>
-                        </a>
-                        <div class="d-si__icons_item">
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="19px">
-                                <path fill-rule="evenodd" fill="#d0ccd3" d="M13.141,5.781 C12.504,5.781 11.921,5.564 11.446,5.208 L5.643,8.583 C5.689,8.788 5.719,9.000 5.719,9.219 C5.719,9.573 5.646,9.908 5.530,10.221 L11.390,13.664 C11.869,13.309 12.455,13.094 13.094,13.094 C14.699,13.094 16.000,14.416 16.000,16.047 C16.000,17.678 14.699,19.000 13.094,19.000 C11.489,19.000 10.188,17.678 10.188,16.047 C10.188,15.715 10.254,15.401 10.353,15.103 L4.426,11.620 C3.975,11.918 3.438,12.094 2.859,12.094 C1.280,12.094 -0.000,10.807 -0.000,9.219 C-0.000,7.631 1.280,6.344 2.859,6.344 C3.598,6.344 4.265,6.633 4.772,7.095 L10.439,3.799 C10.345,3.512 10.281,3.210 10.281,2.891 C10.281,1.294 11.561,-0.000 13.141,-0.000 C14.720,-0.000 16.000,1.294 16.000,2.891 C16.000,4.487 14.720,5.781 13.141,5.781 Z"></path>
-                            </svg>
-                            <div class="share__panel">
-                                <a class="share__a share__a_fb" href="#"></a>
-                                <a class="share__a share__a_vk" href="#"></a>
-                                <a class="share__a share__a_tw" href="#"></a>
-                                <a class="share__a share__a_ok" href="#"></a>
+    <div class="sections">
+        <div class="lk lk_services">
+            <div class="wrapper_lk">
+                <div class="lk-nav">
+                    <a class="lk-nav__item lk-nav__item_profile lk-nav__item_active" href="profile.html">Профиль
+                        <span class="lk-nav__item-num">01.</span>
+                    </a>
+                    <a class="lk-nav__item lk-nav__item_documents" href="#">Документы
+                        <span class="lk-nav__item-num">02.</span>
+                    </a>
+                    <a class="lk-nav__item lk-nav__item_services" href="lk-services.html">Сервисы
+                        <span class="lk-nav__item-num">03.</span>
+                    </a>
+                </div>
+                <div class="profile">
+                    <div class="profile__info">
+                        <div class="profile__head">
+                            <h3 class="profile__head-title">Профиль</h3>
+                            <a class="profile__edit" href="#">
+                                <svg class="profile__edit-icon"><use xlink:href="assets/images/icon.svg#icon_pen"></use></svg>
+                                <span class="profile__edit-label">Редактировать профиль</span>
+                            </a>
+                        </div>
+                        <div class="profile__main">
+                            <div class="profile__photo">
+                                <div class="image-bg">
+                                    <img class="image-bg__img" alt="" src="/assets/images/profile/photo.png" role="presentation" />
+                                </div>
+                            </div>
+                            <div class="profile__personal">
+                                <span class="profile__nick">ivanov_1980</span>
+                                <div class="profile__fio">
+                                    <span class="profile__fio-label">Константин</span>
+                                    <span class="profile__fio-label">Константинопольский</span>
+                                    <span class="profile__fio-label">Константинович</span>
+                                </div>
+                                <span class="profile__email">k.konstantinopolsky@gmail.com</span>
+                            </div>
+                        </div>
+                        <form class="profile__subscribe">
+                            <h4 class="profile__subscribe-title">Подписка на рассылки</h4>
+                            <div class="profile__checkbox">
+                                <label class="checkbox checkbox_font-color-white">
+                                    <input class="checkbox__control" type="checkbox" id="d-sii__chbox-s-first" />
+                                    <span class="checkbox__box">
+                                        <svg class="checkbox__mark"><use xlink:href="assets/images/icon.svg#icon_icon-ok-ch"></use></svg>
+                                    </span>
+                                    <p class="checkbox__text">Рассылка портала &laquo;Открытый бюджет города Москвы&raquo; (новости)</p>
+                                </label>
+                            </div>
+                            <div class="profile__options">
+                                <div class="profile__option profile__option_schedule">
+                                    <span class="profile__options-label">Как часто хотите получать?</span>
+                                    <div class="profile__options-link">
+                                        <a class="link link_dashed link_light-yellow" href="#">Раз в неделю</a>
+                                    </div>
+                                </div>
+                                <div class="profile__option profile__option_rubric">
+                                    <span class="profile__options-label">Выберите рубрики</span>
+                                    <div class="profile__options-link">
+                                        <a class="link link_dashed link_light-yellow" href="#">Новости Бюджета, Новости Москвы</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="profile__save">
+                                <button class="button button_kind_yellow" type="submit">Сохранить</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="profile__favorite">
+                        <div class="favor-list">
+                            <div class="favor-list__wrapper">
+                                <h3 class="favor-list__title">Избранное</h3>
+                                <ul class="favor-list__list">
+                                    <li class="favor-list__item">
+                                        <a class="favor-list__link" href="#">
+                                            <span class="favor-list__label">Рейтинг открытости бюджетных данных</span>
+                                            <span class="favor-list__favor">
+                                                <span class="favor favor_added">
+                                                    <svg class="favor__icon"><use xlink:href="assets/images/icon.svg#icon_favor-classic"></use></svg>
+                                                </span>
+                                            </span>
+                                        </a>
+                                        <a class="favor-list__remove" href="#">
+                                            <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_basket"></use></svg>
+                                        </a>
+                                    </li>
+                                    <li class="favor-list__item">
+                                        <a class="favor-list__link" href="#">
+                                            <span class="favor-list__label">Рейтинг открытости бюджетных данных</span>
+                                            <span class="favor-list__favor">
+                                                <span class="favor favor_added">
+                                                    <svg class="favor__icon"><use xlink:href="assets/images/icon.svg#icon_favor-classic"></use></svg>
+                                                </span>
+                                            </span>
+                                        </a>
+                                        <a class="favor-list__remove" href="#">
+                                            <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_basket"></use></svg>
+                                        </a>
+                                    </li>
+                                    <li class="favor-list__item">
+                                        <a class="favor-list__link" href="#">
+                                            <span class="favor-list__label">Рейтинг открытости бюджетных данных</span>
+                                            <span class="favor-list__favor">
+                                                <span class="favor favor_added">
+                                                    <svg class="favor__icon"><use xlink:href="assets/images/icon.svg#icon_favor-classic"></use></svg>
+                                                </span>
+                                            </span>
+                                        </a>
+                                        <a class="favor-list__remove" href="#">
+                                            <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_basket"></use></svg>
+                                        </a>
+                                    </li>
+                                    <li class="favor-list__item">
+                                        <a class="favor-list__link" href="#">
+                                            <span class="favor-list__label">Рейтинг открытости бюджетных данных</span>
+                                            <span class="favor-list__favor">
+                                                <span class="favor favor_added">
+                                                    <svg class="favor__icon"><use xlink:href="assets/images/icon.svg#icon_favor-classic"></use></svg>
+                                                </span>
+                                            </span>
+                                        </a>
+                                        <a class="favor-list__remove" href="#">
+                                            <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_basket"></use></svg>
+                                        </a>
+                                    </li>
+                                    <li class="favor-list__item">
+                                        <a class="favor-list__link" href="#">
+                                            <span class="favor-list__label">Рейтинг открытости бюджетных данных</span>
+                                            <span class="favor-list__favor">
+                                                <span class="favor favor_added">
+                                                    <svg class="favor__icon"><use xlink:href="assets/images/icon.svg#icon_favor-classic"></use></svg>
+                                                </span>
+                                            </span>
+                                        </a>
+                                        <a class="favor-list__remove" href="#">
+                                            <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_basket"></use></svg>
+                                        </a>
+                                    </li>
+                                    <li class="favor-list__item">
+                                        <a class="favor-list__link" href="#">
+                                            <span class="favor-list__label">Рейтинг открытости бюджетных данных</span>
+                                            <span class="favor-list__favor">
+                                                <span class="favor favor_added">
+                                                    <svg class="favor__icon"><use xlink:href="assets/images/icon.svg#icon_favor-classic"></use></svg>
+                                                </span>
+                                            </span>
+                                        </a>
+                                        <a class="favor-list__remove" href="#">
+                                            <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_basket"></use></svg>
+                                        </a>
+                                    </li>
+                                    <li class="favor-list__item">
+                                        <a class="favor-list__link" href="#">
+                                            <span class="favor-list__label">Рейтинг открытости бюджетных данных</span>
+                                            <span class="favor-list__favor">
+                                                <span class="favor favor_added">
+                                                    <svg class="favor__icon"><use xlink:href="assets/images/icon.svg#icon_favor-classic"></use></svg>
+                                                </span>
+                                            </span>
+                                        </a>
+                                        <a class="favor-list__remove" href="#">
+                                            <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_basket"></use></svg>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <p class="favor-list__note">Для того, чтобы добавить страницу или документ в избранное, нажмите на звездочку.</p>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="d-min-layer">
-                    <form class="d-si__search-form" action="#">
-                        <span class="d-si__form-label">Выберите год</span>
-                        <select class="d-si-select" id="d-si-select">
-                            <option value="1">2015</option>
-                            <option value="2">2016</option>
-                            <option value="3">2017</option>
-                        </select>
-                        <input class="d-si__search" type="text" placeholder="Поиск" />
-                        <input class="d-si__submit" type="submit" value="" />
-                    </form>
-                    <div class="d-si__quiz">
-                        <div class="d-si__quiz_item">
-                            <div class="d-si__quiz_head">Как сделать портал удобнее?</div>
-                            <div class="d-si__quiz_status">Дата проведения опроса: 02.08.2016 - 30.09.2016</div>
-                            <a class="d-si__quiz_button" href="/moscowbudget/polls_question.html">пройти опрос
-                                <i class="fa fa-angle-right" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                        <div class="d-si__quiz_item">
-                            <div class="d-si__quiz_head">Как сделать портал интереснее?</div>
-                            <div class="d-si__quiz_status">Завершен: 10.02.2016</div>
-                            <a class="d-si__quiz_button" href="/moscowbudget/polls_question.html">пройти опрос
-                                <i class="fa fa-angle-right" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                        <div class="d-si__quiz_item">
-                            <div class="d-si__quiz_head">Как сделать портал интереснее?</div>
-                            <div class="d-si__quiz_status">Завершен: 10.02.2016</div>
-                            <a class="d-si__quiz_button" href="/moscowbudget/polls_question.html">пройти опрос
-                                <i class="fa fa-angle-right" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                        <div class="d-si__quiz_item">
-                            <div class="d-si__quiz_head">Как сделать портал интереснее?</div>
-                            <div class="d-si__quiz_status">Завершен: 10.02.2016</div>
-                            <a class="d-si__quiz_button" href="/moscowbudget/polls_question.html">пройти опрос
-                                <i class="fa fa-angle-right" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                        <div class="d-si__quiz_item">
-                            <div class="d-si__quiz_head">Как сделать портал интереснее?</div>
-                            <div class="d-si__quiz_status">Завершен: 10.02.2016</div>
-                            <a class="d-si__quiz_button" href="/moscowbudget/polls_question.html">пройти опрос
-                                <i class="fa fa-angle-right" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <a class="d-si__button_show-more" href="#">показать еще</a>
                 </div>
             </div>
         </div>
@@ -679,7 +775,6 @@
                 </div>
             </footer>
         </div>
-        <div class="button-top"></div>
     </div>
     <script src="assets/scripts/js2/jquery-3.1.1.min.js"></script>
     <script src="assets/scripts/js2/library.js"></script>
@@ -698,8 +793,8 @@
     <script src="assets/scripts/js2/header/letter.min.js"></script>
     <script src="assets/scripts/js2/header/common.min.js"></script>
     <script src="assets/scripts/js2/header/diagram.min.js"></script>
-    <script src="assets/scripts/js2/owl.carousel.min.js"></script>
     <script src="assets/scripts/js2/script.js"></script>
+    <script src="assets/scripts/js2/owl.carousel.min.js"></script>
     <script src="assets/scripts/js2/ez.js"></script>
     <script src="assets/scripts/app.min.js"></script>
     <script src="assets/scripts/svg4everybody.min.js"></script>
