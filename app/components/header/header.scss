@@ -95,10 +95,10 @@
     -o-transition: 0.5s;
     transition: 0.5s;
     top: auto;
-    
+
     ul {
       text-align: justify;
-      
+
       &:after {
         content: '';
         display: inline-block;
@@ -106,11 +106,11 @@
         width: 100%;
       }
     }
-    
+
     .menu__item {
       float: none;
       display: inline-block;
-      
+
       &:last-child {
         margin-right: 0;
       }
@@ -149,7 +149,7 @@
     -ms-transition: 0.5s;
     -o-transition: 0.5s;
     transition: 0.5s;
-    
+
     .search-form__btn {
       z-index: 4;
     }
@@ -301,7 +301,7 @@
     -o-background-size: 100% 100% !important;
     background-size: 100% 100% !important;
   }
-  
+
   &_opened {
     background: rgba(0, 0, 0, .6) !important;
     border: none !important;
@@ -482,18 +482,12 @@
     top: 32px;
   }
 
-  .header__search-form {
-    top: 90px;
-    right: 40px;
-    left: 0;
-  }
-
   .header_short .header__search-form {
     left: 54px;
   }
 
-  .header__login {
-    top: 90px;
+  .header__login, .header__search-form  {
+    top: 88px;
   }
 
   .header__logo {
@@ -523,6 +517,18 @@
   .header__search-form .search-form__btn {
     margin-bottom: 40px;
   }
+
+  .menu__a {
+    font-size: 16px;
+  }
+
+  .menu__item {
+    margin-right: 10px;
+  }
+
+  .header_short .menu__item {
+    margin-right: 15px;
+  }
 }
 
 @media (max-width: 900px) {
@@ -530,9 +536,10 @@
   .header__menu {
     margin-left: 0;
     padding-left: 0;
-    
+    padding-right: 0 !important;
+
     ul {
-      text-align: left;
+      text-align: justify;
     }
   }
 
@@ -549,7 +556,7 @@
   }
 
   .header__social {
-    right: 0;
+    right: 128px  ;
   }
 
   .header__login {
@@ -585,7 +592,7 @@
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
 
   .header {
     height: 59px !important;
@@ -738,7 +745,7 @@
   .header__search-form .search-form__text {
     font-size: 15px !important;
   }
-  
+
   .header__social {
     .social__a {
       width: 24px;
@@ -781,7 +788,7 @@
       background-position: -147px -121px;
     }
   }
-  
+
   .header__login {
     .login__btn {
       width: 24px;
@@ -797,7 +804,7 @@
       background-position: -96px -53px;
     }
   }
-  
+
   .header__search-form {
     .search-form__btn {
       width: 24px;
