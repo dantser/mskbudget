@@ -1144,14 +1144,36 @@
         font-size: 13px;
         padding: 10px 17px 16px 21px
     }
+
+    /*Выравнивание блоков*/
+    .whatIsBudget-characteristic._surplus,
+    .whatIsBudget-characteristic._balance,
+    .whatIsBudget-characteristic._deficit {
+      display: block;
+      width: 100% !important;
+      text-align: left !important;
+    }
+
     .whatIsBudget-characteristic__definition p+p {
         margin-top: 0
     }
     .whatIsBudget-characteristic__definition{
         top:100%;
     }
+
+    .whatIsBudget-characteristic__definition{
+        position: relative !important;
+        width: 100% !important;
+        margin-left: 0px !important
+    }
+
+    /*Выравнивание блоков*/
+    .whatIsBudget-characteristic__definition:before {
+      display: none;
+    }
+
     .whatIsBudget-component__wrapper {
-        width: 590px
+        width: 310px !important;
     }
     .whatIsBudget-component__wrapper[data-active="0"],
     .whatIsBudget-component__wrapper[data-active="2"] {
@@ -1160,17 +1182,22 @@
         transform: translate(0, 0)
     }
     .whatIsBudget-component {
-        width: 165px;
-        height: 166px
+        width: 100px !important;
+        height: 100px !important;
     }
     .whatIsBudget-component:nth-child(2) {
-        width: 170px;
-        height: 103px
+        height: 55px !important;
     }
     .whatIsBudget-component__termin {
-        font-size: 30px;
-        padding-top: 65px
+        font-size: 14px !important;
+        padding-top: 50px !important;
     }
+
+    .whatIsBudget-component:nth-child(2) .whatIsBudget-component__termin {
+        font-size: 10px !important;
+        padding-top: 20px !important;
+    }
+
     .whatIsBudget-component__definition {
         width: 350px;
         font-size: 24px;
@@ -1178,13 +1205,12 @@
         margin-bottom: 32px
     }
     .whatIsBudget-revenues__wrapper {
-        padding-left: 153px;
         -webkit-box-sizing: border-box;
         box-sizing: border-box
     }
     .whatIsBudget-revenues__wrapper{
         max-width:590px;
-        padding-left:122px;
+        padding-left:128px!important;
     }
     .whatIsBudget-revenues:nth-child(2) .whatIsBudget-revenues__title:before,
     .whatIsBudget-revenues:nth-child(3) .whatIsBudget-revenues__title:before {
