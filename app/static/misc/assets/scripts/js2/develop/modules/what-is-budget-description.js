@@ -6,7 +6,7 @@
 budget.extend("whatIsBudgetDescription", {
 
     init() {
-        
+
         this.elements = {};
         this.elements.$components = $(".whatIsBudget-component__wrapper");
 
@@ -67,7 +67,7 @@ budget.extend("whatIsBudgetDescription", {
         });
 
         this.elements.$expendituresTitle.on("click", event => {
-            this.expendituresTitleTriggered($(event.currentTarget)); 
+            this.expendituresTitleTriggered($(event.currentTarget));
         });
 
         this.elements.close.revenues.on("click", event => {
@@ -227,5 +227,5 @@ budget.extend("whatIsBudgetDescription", {
         this.elements.$expendituresList.eq($element.attr("data-item")).css("display","block");
 
     }
-    
+
 });
