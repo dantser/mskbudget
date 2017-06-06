@@ -26,9 +26,9 @@ budget.init = function(){
 budget.extend("common", {
 
     init: function () {
-    
+
 		var self = this;
-		
+
 		$('.blackout').on('click', function() {
 			$(this).fadeOut();
 		})
@@ -38,28 +38,28 @@ budget.extend("common", {
 		$('.popup').find('.close-popup').on('click', function() {
 			$('.blackout').fadeOut();
 		})
-		
+
 		$('.d-study__clear-res').on('click', function() {
 			$('.blackout').fadeIn();
 		})
-		
+
 		$('.edu-lesson-link').on('click', function() {
 			$('.edu-content').removeClass('_active');
-			
+
 			var id = $(this).attr('id');
-			
+
 			$('.edu-content[id="'+id+'"]').addClass('_active');
-			
+
 			$('.edu-lesson-link').removeClass('disable');
-			
+
 			$(this).addClass('disable');
-			
+
 			$('.close-lessons-burger').trigger('click');
 		})
-		
+
 		$('.d-sq__head_next').on('click', function() {
 			var $active = $('.edu-lesson-link.disable');
-			
+
 			if ($active.next('.edu-lesson-link').length) {
 				$active.next('.edu-lesson-link').trigger('click');
 			} else {
@@ -68,7 +68,7 @@ budget.extend("common", {
 		})
 		$('.d-sq__head_prev').on('click', function() {
 			var $active = $('.edu-lesson-link.disable');
-			
+
 			if ($active.prev('.edu-lesson-link').length) {
 				$active.prev('.edu-lesson-link').trigger('click');
 			} else {
@@ -77,19 +77,19 @@ budget.extend("common", {
 		})
 
 		setTimeout(function() {
-        
+
             self.current_slide = 1;
             self.slide_count = $('.carousel-3d-slide').length;
-            
-        
+
+
 			$('#carousel').find('.ar-right').on('click', function() {
 				var $current = $('.carousel-3d-slide.current');
-				
+
 				if ($current.next('.carousel-3d-slide').length) {
 					$current.next('.carousel-3d-slide').click();
 				} else {
 					$('.carousel-3d-slide:first').click();
-				}  
+				}
 			})
 			$('#carousel').find('.ar-left').on('click', function() {
 				var $current = $('.carousel-3d-slide.current');
@@ -106,11 +106,11 @@ budget.extend("common", {
 
                 //$('.carousel-count').html(self.current_slide+'&nbsp;из&nbsp;'+self.slide_count);
             })
-            
+
              //$('.carousel-count').html('1&nbsp;из&nbsp;'+self.slide_count);
-            
+
 		},0)
-	
+
 		if ($( ".datepicker" ).length) {
 			$( ".datepicker" ).datepicker();
 			$.datepicker.regional['ru'] = {
@@ -131,34 +131,34 @@ budget.extend("common", {
 			};
 			$.datepicker.setDefaults($.datepicker.regional['ru']);
 		}
-	
+
         $('.dropdown-trigger').on('click', function() {
 
             if ($(this).parents('.dropdown').hasClass('_open')) {
                 $(this).parents('.dropdown').removeClass('_open');
-                
+
                 $(this).next('.dropdown-content').slideUp();
-                
+
             } else {
                 $(this).parents('.dropdown').addClass('_open');
                 $(this).next('.dropdown-content').slideDown();
             }
         })
-        
+
         $('.quiz-hint-trigger').on('click', function() {
             $(this).next('.quiz-hint').show();
             $(this).hide();
         })
         $('.quiz-hint-close').on('click', function() {
             var $parent = $(this).parents('.quiz-hint');
-            
+
             $parent.prev().show();
             $parent.hide();
-        
+
         })
-    
+
         $('.d-sr__progress-descr_other').on('click', function() {
-        
+
             if ($(this).hasClass('_active')) {
                 $(this).parents('.d-sr__stat-container').next('.other-info').hide();
                 $(this).removeClass('_active')
@@ -167,18 +167,18 @@ budget.extend("common", {
                 $(this).addClass('_active');
             }
         })
-        
+
         $('.d-question__head_menu').on('click', function() {
             $(this).parents('.d-study__question').find('.burger-lessons-menu').show();
         })
-        
+
         $('.close-lessons-burger').on('click', function() {
             $(this).parents('.burger-lessons-menu').hide();
         })
-        		
-		
+
+
         self.setRounds();
-		
+
         $(window).on('resize', function() {
             self.setRounds();
             if ($('.sectored_round').length) {
@@ -186,93 +186,92 @@ budget.extend("common", {
             }
         })
 
-        
+
         if ($('.sectored_round').length) {
             self.correctSectoredRounds();
         }
 
     },
-    
+
     correctSectoredRounds: function() {
-    
+
         var self = this;
-        
+
         $('.sectored_round').each(function() {
-            
+
             var count = parseInt($(this).attr('sector-count'));
-            
+
             var datalist = [];
-            
+
             for (var i = 0; i < count; i++) {
                 datalist[i] = 1;
             }
-            
+
             var fill_sectors = $(this).attr('fill-sectors');
-            
+
             var fill = [];
             if (fill_sectors.length) {
                 fill = fill_sectors.split(',');
             }
-            
+
             $(this).attr('width', parseInt($(this).css('width')));
             $(this).attr('height', parseInt($(this).css('height')));
-        
+
             var canvas = $(this).get(0);
             var ctx = canvas.getContext('2d');
-        
+
             var stroke_width = parseInt($(this).attr('stroke-width'));
-            
-            self.setSectoredCircle(ctx, canvas.width, canvas.height, datalist, fill, stroke_width); 
-            
+
+            self.setSectoredCircle(ctx, canvas.width, canvas.height, datalist, fill, stroke_width);
+
         })
     },
-    
+
     setRounds: function() {
         var self = this;
         $('.circle').each(function() {
-			
+
 			var timeout = 400;
 
 			$(this).find('.progress').each(function() {
-            
-         
+
+
 				var proc = $(this).attr('data-val');
-				
+
 				var $progress = $(this);
 
 				setTimeout(function() {
 					self.setCircle($progress, proc);
 				}, timeout)
-				
+
 				timeout += 400;
 			})
 
 		})
     },
-        
+
     setSectoredCircle: function(ctx, w, h, datalist, fill_sectors, stroke_width) {
-        
+
         var default_fill = $(ctx.canvas).attr('default-fill') || '#e4e4e4';
-        
+
         var radius = h / 2 - stroke_width/2;
         var centerx = w / 2;
         var centery = h / 2;
         var total = 0;
-        
-        for(x=0; x < datalist.length; x++) { total += datalist[x]; }; 
-        
+
+        for(x=0; x < datalist.length; x++) { total += datalist[x]; };
+
         var between = stroke_width / 400;
-        
+
         if (between < 0.05) between = 0.07;
-        
-        console.log(between)
-        
+
+
         var lastend = between / 2;
         var offset = Math.PI / 2;
-        
+
         for (x=0; x < datalist.length; x++) {
 
-            var thispart = datalist[x]; 
+            var thispart = datalist[x];
             ctx.beginPath();
 
             var grd=ctx.createLinearGradient(0,0,0,250);
@@ -284,62 +283,61 @@ budget.extend("common", {
             ctx.lineWidth = stroke_width;
 
             var fill = false;
-            
+
             for (var j = 0; j < fill_sectors.length; j++) {
                 if (fill_sectors[j] == x) {
-                
+
                     fill = true;
                     break;
-                    
+
                 }
             }
-            
+
             if (fill) {
                 ctx.strokeStyle = grd;
             } else {
                 ctx.strokeStyle = default_fill;
             }
-            
-            
+
+
             ctx.stroke();
-            ctx.closePath();		
+            ctx.closePath();
             lastend += arcsector + between;
         }
     },
-    
-	
+
+
 	setCircle: function($circle, value) {
-		console.log('setcircle')
 		var self = this;
-		
+
 		var $svg = $circle.parents('svg');
-		
+
 		var total = 100;
-		
+
 		var val = ((value/total)*100);
-		
-		
+
+
 		var r = parseInt($circle.css('r')) || parseInt($circle.attr('r'));
-		
+
 		var c = Math.PI*(r*2);
-		
+
 		var over = false;
-		
+
 		if (val < 0) { val = 0;}
-		if (val > 100) { 
+		if (val > 100) {
 			val = 100;
 		}
-		
+
 		var pct = ((100-val)/100)*c;
-		
-		$circle.css({strokeDashoffset: pct});   
-		
+
+		$circle.css({strokeDashoffset: pct});
+
 	},
-	
+
 	createCircle: function($svg, type, val) {
-		
+
 		var elem = '<circle stroke="url(#linearColors'+type+'-2)" data-val="'+val+'" class="progress" r="165" cx="200" cy="200" stroke-linecap="round" fill="transparent" stroke-dasharray="1037" stroke-dashoffset="1037" style="stroke-dashoffset: 1037px;" stroke-width="60"></circle>';
-		
+
 		$svg.append(elem)
 
 		this.setCircle($svg.find('.progress:last'), val);
@@ -388,8 +386,11 @@ basicBudgetFiguresDiagrams();
 
 //
 function tabsLine(){
-	$('.js-section-tabs-hide').click(function(){
-		$('.section-tabs').remove();
+	$('.js-label-button').click(function(){
+    $('.section-tabs__nav').slideToggle();
+    $('.section-tabs__content').slideToggle();
+    $(this).toggleClass('js-label-button-closed');
+    $('.section-tabs__head').toggleClass('section-tabs__head_closed')
 		return false
 		/*
 		если понадобиться скрывать пункты в навигации табов,
@@ -456,7 +457,7 @@ function basicBudgetFiguresDiagrams () {
         animate: true,
         maxValue: 2050
     }).animate();
-    
+
     diagram( '#diagram-2', {
         stroke: 30,
         kind: 'triple',
@@ -464,7 +465,7 @@ function basicBudgetFiguresDiagrams () {
         animate: true,
         maxValue: 2050
     }).animate();
-    
+
     diagram('#diagram-3', {
         stroke: 30,
         kind: 'triple',
@@ -472,7 +473,7 @@ function basicBudgetFiguresDiagrams () {
         animate: true,
         maxValue: 2050
     }).animate();
-    
+
     var diagram_4 = diagram('#diagram-4', {
         viewBox: 390,
         stroke: 60,
@@ -483,7 +484,7 @@ function basicBudgetFiguresDiagrams () {
         maxValue: 1665.5,
         animate: true
     });
-    
+
     var diagram_5 = diagram('#diagram-5', {
         viewBox: 390,
         stroke: 60,
@@ -494,11 +495,11 @@ function basicBudgetFiguresDiagrams () {
         maxValue: 1865.5,
         animate: true
     });
-	
-	
+
+
     $(".analityc-control-group._stage .analityc-select").on("change", function () {
         var $this = $(this);
-    
+
         $(".analityc-widget-rounds").removeClass("_active");
         if ($this.val() === "Закон об исполнении") {
             $(".analityc-widget-rounds:eq(0)").addClass("_active");

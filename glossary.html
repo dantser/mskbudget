@@ -219,11 +219,11 @@
                         </div>
                         <div class="ahead__share load-anim-fade" data-delay="2100">
                             <button class="ahead__share-btn share__btn"></button>
-                            <div class="share__panel">
-                                <a class="share__a share__a_fb" href="#" tabindex="0"></a>
-                                <a class="share__a share__a_vk" href="#" tabindex="0"></a>
-                                <a class="share__a share__a_tw" href="#" tabindex="0"></a>
-                                <a class="share__a share__a_ok" href="#" tabindex="0"></a>
+                            <div class="share__panel" tilte="Поделиться">
+                                <a class="share__a share__a_fb" href="#" tabindex="0" title="facebook"></a>
+                                <a class="share__a share__a_vk" href="#" tabindex="0" title="ВКонтакте"></a>
+                                <a class="share__a share__a_tw" href="#" tabindex="0" title="Twitter"></a>
+                                <a class="share__a share__a_ok" href="#" tabindex="0" title="Одноклассники"></a>
                             </div>
                         </div>
                     </div>
@@ -1285,116 +1285,6 @@
                 </div>
             </div>
         </div>
-        <div id="popup-wrapper">
-            <!-- POPUP(Login)-->
-            <div class="popup-login popup-window" id="login">
-                <div class="tab">
-                    <div class="tab__buttons">
-                        <a class="tab__btn tab__btn_active" href="#tab1">Войти</a>
-                        <a class="tab__btn" href="#tab2">Регистрация</a>
-                    </div>
-                    <div class="popup-login__wrap">
-                        <p class="popup-login__p">С помощью</p>
-                        <ul class="social-lg popup-login__social-lg">
-                            <li class="social-lg__item">
-                                <a class="social-lg__a social-lg__a_fb" href="#"></a>
-                            </li>
-                            <li class="social-lg__item">
-                                <a class="social-lg__a social-lg__a_tw" href="#"></a>
-                            </li>
-                            <li class="social-lg__item">
-                                <a class="social-lg__a social-lg__a_vk" href="#"></a>
-                            </li>
-                            <li class="social-lg__item">
-                                <a class="social-lg__a social-lg__a_ok" href="#"></a>
-                            </li>
-                            <li class="social-lg__item">
-                                <a class="social-lg__a social-lg__a_g" href="#"></a>
-                            </li>
-                            <li class="social-lg__item">
-                                <a class="social-lg__a social-lg__a_ya" href="#"></a>
-                            </li>
-                            <li class="social-lg__item">
-                                <a class="social-lg__a social-lg__a_sm" href="#"></a>
-                            </li>
-                        </ul>
-                        <p class="popup-login__p">или</p>
-                        <!-- TAB-->
-                        <div class="tab__content tab__content_vis" id="tab1">
-                            <form class="login-form" action="l.php">
-                                <div class="login-form__field">
-                                    <label class="overlabel" for="i-email-2">e-mail</label>
-                                    <input class="login-form__text" id="i-email-2" type="email" />
-                                </div>
-                                <div class="login-form__field mb-10">
-                                    <label class="overlabel" for="i-passw">пароль</label>
-                                    <input class="login-form__text" id="i-passw" type="password" />
-                                </div>
-                                <div class="mb-15">
-                                    <a class="open-popup login-form__a" href="#restore">Я забыл пароль</a>
-                                </div>
-                                <input class="login-form__submit" type="submit" value="Войти" />
-                            </form>
-                        </div>
-                        <!-- TAB-->
-                        <div class="tab__content" id="tab2">
-                            <form class="login-form mb-25" action="l.php">
-                                <div class="login-form__field">
-                                    <label class="overlabel" for="i-fio-1">ФИО</label>
-                                    <input class="login-form__text" id="i-fio-1" type="email" />
-                                </div>
-                                <div class="login-form__field">
-                                    <label class="overlabel" for="i-email-3">e-mail</label>
-                                    <input class="login-form__text" id="i-email-3" type="email" />
-                                </div>
-                                <div class="login-form__field">
-                                    <label class="overlabel" for="i-passw-1">пароль</label>
-                                    <input class="login-form__text" id="i-passw-1" type="password" />
-                                </div>
-                                <input class="login-form__submit" type="submit" value="Зарегистрироваться" />
-                            </form>
-                            <div class="popup-login__caption">Нажимая на кнопку «Регистрация», вы подтверждаете свое согласие с условиями предоставления услуг (
-                                <a href="#agreements" class="open-popup">пользовательское соглашение</a>)</div>
-                        </div>
-                        <!-- /TAB-->
-                    </div>
-                </div>
-                <a class="close-popup" href="#"></a>
-            </div>
-            <!-- POPUP(Restore)-->
-            <div class="popup-restore popup-window" id="restore">
-                <div class="popup-restore__top">Запрос на сброс пароля</div>
-                <div class="popup-restore__wrap">
-                    <div class="popup-restore__p">Пожалуйста, укажите Ваш адрес электронной почты.
-                        <br> На него будет выслана ссылка для сброса пароля.</div>
-                    <form class="login-form" action="r.php">
-                        <div class="login-form__field mb-30">
-                            <label class="overlabel" for="i-email-32">e-mail</label>
-                            <input class="login-form__text" id="i-email-32" type="email" />
-                        </div>
-                        <input class="login-form__submit" type="submit" value="Отправить" />
-                    </form>
-                </div>
-                <a class="close-popup" href="#"></a>
-            </div>
-            <!-- POPUP(agreements)-->
-            <div class="popup-agreements popup-window" id="agreements">
-                <div class="popup-agreements__wrap">
-                    <div class="popup-agreements__tit">Условия предоставления услуг</div>
-                    <p>Пользователь, регистрируясь на портале «Открытый бюджет города Москвы», обязуется принять настоящее Согласие на обработку персональных данных. Принятием (акцептом) оферты Согласия является регистрация на портале или предоставление
-                        персональных данных в формах обратной связи, размещенных на сайте.
-                        <br>Основанием для обработки персональных данных являются ст. 24 Конституции Российской Федерации, ст.6 Федерального закона от 27.07.2006 №152-ФЗ «О персональных данных», иные федеральные законы и нормативно-правовые акты.</p>
-                    <p>Пользователь дает согласие на обработку своих персональных данных, то есть совершение, в том числе, следующих действий: обработку (включая сбор, систематизацию, накопление, хранение, уточнение (обновление, изменение), использование,
-                        обезличивание, уничтожение персональных данных), при этом общее описание вышеуказанных способов обработки данных приведено в Федеральном законе от 27.07.2006 № 152-ФЗ, а также на передачу такой информации третьим лицам, в случаях,
-                        установленных нормативными документами вышестоящих органов и законодательством.</p>
-                    <div class="bottom">
-                        <a class="open-popup" href="#login">вернуться к регистрации</a>
-                    </div>
-                </div>
-                <a class="close-popup" href="#"></a>
-            </div>
-            <div id="mask"></div>
-        </div>
         <div class="sections__item sections__item_footer">
             <footer class="footer footer footer_b">
                 <div class="wrap footer__wrap anim-fade-top">
@@ -1670,9 +1560,9 @@
                     <div class="footer__bar-bottom">
                         <div class="wrap">
                             <div class="footer__copy">Все материалы сайта доступны по лицензии
-                                <a href="#">Creative Commons Attribution 3.0</a>
-                                <br/>при условии ссылки на первоисточник (в случае использования материалов
-                                <br/>сайта в сети Интернет – интерактивная ссылка).</div>
+                                <a href="#">Creative Commons Attribution 3.0</a>&nbsp;при условии
+                                <br/>ссылки на первоисточник (в случае использования материалов сайта
+                                <br/>в сети Интернет – интерактивная ссылка).</div>
                             <div class="footer__stat">832 уникальных посетителя сегодня.
                                 <br/>Всего порталы Москвы посетило 1004547.</div>
                         </div>
@@ -1681,6 +1571,116 @@
             </footer>
         </div>
         <div class="button-top"></div>
+    </div>
+    <div id="popup-wrapper">
+        <!-- POPUP(Login)-->
+        <div class="popup-login popup-window" id="login">
+            <div class="tab">
+                <div class="tab__buttons">
+                    <a class="tab__btn tab__btn_active" href="#tab1">Войти</a>
+                    <a class="tab__btn" href="#tab2">Регистрация</a>
+                </div>
+                <div class="popup-login__wrap">
+                    <p class="popup-login__p">С помощью</p>
+                    <ul class="social-lg popup-login__social-lg">
+                        <li class="social-lg__item">
+                            <a class="social-lg__a social-lg__a_fb" href="#"></a>
+                        </li>
+                        <li class="social-lg__item">
+                            <a class="social-lg__a social-lg__a_tw" href="#"></a>
+                        </li>
+                        <li class="social-lg__item">
+                            <a class="social-lg__a social-lg__a_vk" href="#"></a>
+                        </li>
+                        <li class="social-lg__item">
+                            <a class="social-lg__a social-lg__a_ok" href="#"></a>
+                        </li>
+                        <li class="social-lg__item">
+                            <a class="social-lg__a social-lg__a_g" href="#"></a>
+                        </li>
+                        <li class="social-lg__item">
+                            <a class="social-lg__a social-lg__a_ya" href="#"></a>
+                        </li>
+                        <li class="social-lg__item">
+                            <a class="social-lg__a social-lg__a_sm" href="#"></a>
+                        </li>
+                    </ul>
+                    <p class="popup-login__p">или</p>
+                    <!-- TAB-->
+                    <div class="tab__content tab__content_vis" id="tab1">
+                        <form class="login-form" action="l.php">
+                            <div class="login-form__field">
+                                <label class="overlabel" for="i-email-2">e-mail</label>
+                                <input class="login-form__text" id="i-email-2" type="email" />
+                            </div>
+                            <div class="login-form__field mb-10">
+                                <label class="overlabel" for="i-passw">пароль</label>
+                                <input class="login-form__text" id="i-passw" type="password" />
+                            </div>
+                            <div class="mb-15">
+                                <a class="open-popup login-form__a" href="#restore">Я забыл пароль</a>
+                            </div>
+                            <input class="login-form__submit" type="submit" value="Войти" />
+                        </form>
+                    </div>
+                    <!-- TAB-->
+                    <div class="tab__content" id="tab2">
+                        <form class="login-form mb-25" action="l.php">
+                            <div class="login-form__field">
+                                <label class="overlabel" for="i-fio-1">ФИО</label>
+                                <input class="login-form__text" id="i-fio-1" type="email" />
+                            </div>
+                            <div class="login-form__field">
+                                <label class="overlabel" for="i-email-3">e-mail</label>
+                                <input class="login-form__text" id="i-email-3" type="email" />
+                            </div>
+                            <div class="login-form__field">
+                                <label class="overlabel" for="i-passw-1">пароль</label>
+                                <input class="login-form__text" id="i-passw-1" type="password" />
+                            </div>
+                            <input class="login-form__submit" type="submit" value="Зарегистрироваться" />
+                        </form>
+                        <div class="popup-login__caption">Нажимая на кнопку «Регистрация», вы подтверждаете свое согласие с условиями предоставления услуг (
+                            <a href="#agreements" class="open-popup">пользовательское соглашение</a>)</div>
+                    </div>
+                    <!-- /TAB-->
+                </div>
+            </div>
+            <a class="close-popup" href="#"></a>
+        </div>
+        <!-- POPUP(Restore)-->
+        <div class="popup-restore popup-window" id="restore">
+            <div class="popup-restore__top">Запрос на сброс пароля</div>
+            <div class="popup-restore__wrap">
+                <div class="popup-restore__p">Пожалуйста, укажите Ваш адрес электронной почты.
+                    <br> На него будет выслана ссылка для сброса пароля.</div>
+                <form class="login-form" action="r.php">
+                    <div class="login-form__field mb-30">
+                        <label class="overlabel" for="i-email-32">e-mail</label>
+                        <input class="login-form__text" id="i-email-32" type="email" />
+                    </div>
+                    <input class="login-form__submit" type="submit" value="Отправить" />
+                </form>
+            </div>
+            <a class="close-popup" href="#"></a>
+        </div>
+        <!-- POPUP(agreements)-->
+        <div class="popup-agreements popup-window" id="agreements">
+            <div class="popup-agreements__wrap">
+                <div class="popup-agreements__tit">Условия предоставления услуг</div>
+                <p>Пользователь, регистрируясь на портале «Открытый бюджет города Москвы», обязуется принять настоящее Согласие на обработку персональных данных. Принятием (акцептом) оферты Согласия является регистрация на портале или предоставление персональных
+                    данных в формах обратной связи, размещенных на сайте.
+                    <br>Основанием для обработки персональных данных являются ст. 24 Конституции Российской Федерации, ст.6 Федерального закона от 27.07.2006 №152-ФЗ «О персональных данных», иные федеральные законы и нормативно-правовые акты.</p>
+                <p>Пользователь дает согласие на обработку своих персональных данных, то есть совершение, в том числе, следующих действий: обработку (включая сбор, систематизацию, накопление, хранение, уточнение (обновление, изменение), использование, обезличивание,
+                    уничтожение персональных данных), при этом общее описание вышеуказанных способов обработки данных приведено в Федеральном законе от 27.07.2006 № 152-ФЗ, а также на передачу такой информации третьим лицам, в случаях, установленных нормативными
+                    документами вышестоящих органов и законодательством.</p>
+                <div class="bottom">
+                    <a class="open-popup" href="#login">вернуться к регистрации</a>
+                </div>
+            </div>
+            <a class="close-popup" href="#"></a>
+        </div>
+        <div id="mask"></div>
     </div>
     <script src="assets/scripts/js/jquery-3.1.1.min.js"></script>
     <script src="assets/scripts/js/easing.min.js"></script>
