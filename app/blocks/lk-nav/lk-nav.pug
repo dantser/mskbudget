@@ -2,24 +2,28 @@
 
 mixin lk-nav(secondTitle, active)
   +b.lk-nav&attributes(attributes)
-    if active == 1
-      +e.A(href="profile.html").item._profile._active Профиль
-        +e.SPAN.item-num 01.
-      +e.A(href="#").item._documents=secondTitle
-        +e.SPAN.item-num 02.
-      +e.A(href="lk-services.html").item._services Сервисы
-        +e.SPAN.item-num 03.
-    if active == 2
-      +e.A(href="profile.html").item._profile Профиль
-        +e.SPAN.item-num 01.
-      +e.A(href="#").item._documents._active=secondTitle
-        +e.SPAN.item-num 02.
-      +e.A(href="lk-services.html").item._services Сервисы
-        +e.SPAN.item-num 03.
-    if active == 3
-      +e.A(href="profile.html").item._profile Профиль
-        +e.SPAN.item-num 01.
-      +e.A(href="#").item._documents=secondTitle
-        +e.SPAN.item-num 02.
-      +e.A(href="lk-services.html").item._services._active Сервисы
-        +e.SPAN.item-num 03.
+    - var activeClassOne = ""
+    - var activeClassTwo = ""
+    - var activeClassThree = ""
+    - var activeClassFour = ""
+    
+    if active === 1
+      - activeClassOne = "_active"
+  
+    if active === 2
+      - activeClassTwo = "_active"
+      
+    if active === 3
+      - activeClassThree = "_active"
+      
+    if active === 4
+      - activeClassFour = "_active"
+    
+    +e.A.item._profile(href="#" class=activeClassOne data-tab-target="profile") Профиль
+      +e.SPAN.item-num 01.
+    +e.A.item._documents(href="#" class=activeClassTwo data-tab-target="questions") Вопросы
+      +e.SPAN.item-num 02.
+    +e.A.item._services(href="#" class=activeClassThree data-tab-target="services") Сервисы
+      +e.SPAN.item-num 03.
+    +e.A.item._services(href="#" class=activeClassFour data-tab-target="cards") Документы
+      +e.SPAN.item-num 04.

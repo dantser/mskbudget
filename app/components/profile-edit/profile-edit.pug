@@ -4,7 +4,7 @@ include ../../blocks/image-bg/image-bg
 include ../../blocks/text-field/text-field
 
 mixin profile-edit()
-  +b.profile-edit&attributes(attributes)
+  +b.profile.profile_edit&attributes(attributes)
     +e.info
 
       +e.head
@@ -26,22 +26,22 @@ mixin profile-edit()
                 | ФИО
             +e.SPAN.note Для смены пароля введите старый пароль и дважды новый
             +e.field._pass._old
-              +text-field()._col
+              +text-field('password')._col
                 | Старый пароль
             +e.field-wrapper
               +e.field._pass._new
-                +text-field()._col
+                +text-field('password')._col
                   | Новый пароль
               +e.field._pass._repeat
-                +text-field()._col
+                +text-field('password')._col
                   | Повторите новый пароль
 
             +e.confirm
               +e.submit
-                +button(true)._kind_yellow
+                +button(true)._kind_yellow(data-tab-target="profile")
                   | Сохранить
               +e.cancel
-                +button()._kind_transparent
+                +button()._kind_transparent(data-tab-target="profile")
                   | Отменить
 
     +e.favorite

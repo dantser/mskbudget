@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import selectbox from '../blocks/selectbox/selectbox';
+import tabs from '../blocks/tabs/tabs';
 import question from '../blocks/question/question';
 import questions from '../components/questions/questions';
 import burger from '../blocks/burger/burger';
@@ -13,4 +14,5 @@ $(() => {
   burger();
   lkNav();
   regions();
+  tabs();
 });

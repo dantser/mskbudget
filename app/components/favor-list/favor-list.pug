@@ -6,12 +6,61 @@ mixin favor-list()
     +e.wrapper
       +e.H3.title Избранное
       +e.UL.list
-        - for (var i=0; i < 7; i++)
-          +e.LI.item
-            +e.A(href='#').link
-              +e.SPAN.label Рейтинг открытости бюджетных данных
-              +e.favor
-                +favor(true)._added
-            +e.A(href='#' title="Удалить").remove
-                +icon('basket').remove-icon
+    
+        +e.LI.item
+          +e.A(href='#').link
+            +e.SPAN.label Избранное
+            +e.favor
+              +favor(true)._added
+          +e.A(href='#').remove
+              +icon('basket').remove-icon
+      
+        +e.LI.item
+          +e.A(href='#').link
+            +e.SPAN.label Бюджетный калькулятор
+            +e.favor
+              +favor(true)._added
+          +e.A(href='#').remove
+              +icon('basket').remove-icon
+
+        +e.LI.item
+          +e.A(href='#').link
+            +e.SPAN.label Обучающий сервис
+            +e.favor
+              +favor(true)._added
+          +e.A(href='#').remove
+              +icon('basket').remove-icon
+
+        +e.LI.item
+          +e.A(href='#').link
+            +e.SPAN.label Открытые данные
+            +e.favor
+              +favor(true)._added
+          +e.A(href='#').remove
+              +icon('basket').remove-icon
+      
+        +e.LI.item
+          +e.A(href='#').link
+            +e.SPAN.label Путеводитель по бюджету города Москвы
+            +e.favor
+              +favor(true)._added
+          +e.A(href='#').remove
+              +icon('basket').remove-icon
+      
+        +e.LI.item
+          +e.A(href='#').link
+            +e.SPAN.label Рейтинг открытости бюджетных данных
+            +e.favor
+              +favor(true)._added
+          +e.A(href='#').remove
+              +icon('basket').remove-icon
+              
+        +e.LI.item
+          +e.A(href='#').link
+            +e.SPAN.label Доходы
+            +e.favor
+              +favor(true)._added
+          +e.A(href='#').remove
+              +icon('basket').remove-icon
+                
       +e.P.note Для того, чтобы добавить страницу или документ в избранное, нажмите на звездочку.
