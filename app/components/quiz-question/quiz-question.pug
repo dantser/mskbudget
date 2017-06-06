@@ -10,7 +10,7 @@ mixin quiz-question()
     .d-layer
       +page-header('сервисы', 'викторины').__header
       .d-si__quiz-container
-        .d-si__quiz-container_head
+        p.d-si__quiz-container_head
           span ИСТОРИЯ БЮДЖЕТА ГОРОДА МОСКВЫ ВО ВТОРОЙ ПОЛОВИНЕ XX — НАЧАЛЕ ХХI ВЕКА
           .d-si__quiz-container_head-cross(title="Закрыть")
         form(action="#").d-sii__form#d-sii__form
@@ -49,7 +49,7 @@ mixin quiz-question()
                 +e('span').label Задать вопрос о бюджете города Москвы/дать предложение
             .quiz-question-submit
               +button(isSubmit)._kind_blue Ответить
-            .quiz-hint-trigger
+            p.quiz-hint-trigger
               | Получить подсказку
               +icon('info').icon_info
             .quiz-hint
