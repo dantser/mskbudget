@@ -9,10 +9,14 @@
     display: block;
   }
 
+  &__options-link {
+    margin-top: 4px;
+  }
+
   &__info {
     display: table-cell;
     width: 65.5%;
-    padding: 31px 31px; // 31px 42px
+    padding: 29px 50px 29px 29px; // 31px 42px
     background-color: #1f2935;
 
     @include respond-to('mobile') {
@@ -23,7 +27,7 @@
   }
 
   &__head {
-    margin-bottom: 33px;
+    margin-bottom: 28px;
     @include clearfix();
   }
 
@@ -41,6 +45,10 @@
   &__edit {
     float: right;
     text-decoration: none;
+    margin-top: 5px;
+    transition: all .25s ease-in-out;
+
+    &:hover { opacity: .5; }
 
     &-icon {
       width: 13px;
@@ -62,8 +70,11 @@
   }
 
   &__main {
-    padding-left: 14px;
-    margin-bottom: 81px;
+    padding-left: 216px;
+    margin-bottom: 79px;
+    position: relative;
+    min-height: 200px;
+
     @include clearfix();
 
     @include respond-to('laptop') {
@@ -80,10 +91,13 @@
   }
 
   &__photo {
-    float: left;
-    position: relative;
+    position: absolute;
     width: 200px;
     height: 200px;
+    border-radius: 100px;
+    overflow: hidden;
+    left: 16px;
+    top: 0;
 
     @include respond-to('tablet') {
       margin-bottom: 10px;
@@ -95,10 +109,18 @@
     }
   }
 
+  &__image {
+    margin-bottom: 19px;
+  }
+
+  &__photo-edit {
+    color: #7199c8;
+    line-height: 1em;
+  }
+
   &__personal {
-    float: left;
-    padding-top: 10px;
-    margin-left: 18px; //35px
+    padding-top: 9px;
+    margin-left: 33px; //35px
 
     @include respond-to('laptop') {
       margin-left: 5px;
@@ -119,16 +141,18 @@
     font-family: $PFDinCondensedPro;
     font-weight: 500;
     text-transform: uppercase;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
   }
 
   &__fio {
     padding-left: 1px;
     font-size: 36px;
-    line-height: 1em;
+    line-height: 1.05em;
     color: $color-yellow;
     text-transform: uppercase;
-    margin-bottom: 22px;
+    margin-bottom: 16px;
+    font-family: $PFDinCondensedPro;
+    font-weight: 500;
 
     @include respond-to('tablet') {
       font-size: 26px;
@@ -162,17 +186,17 @@
     font-family: $PFDinCondensedPro;
     font-size: 18px;
     line-height: 1em;
-    margin-bottom: 17px;
+    margin-bottom: 16px;
     text-transform: uppercase;
   }
 
   &__checkbox {
-    padding-left: 1px;
-    margin-bottom: 20px;
+    padding-left: 0px;
+    margin-bottom: 18px;
   }
 
   &__options {
-    margin-bottom: 22px;
+    margin-bottom: 19px;
     @include clearfix();
   }
 
@@ -207,5 +231,126 @@
     display: table-cell;
     width: 34.5%;
     height: 100%;
+    vertical-align: top;
+  }
+
+
+
+
+
+  &_edit {
+
+    .text-field__label {font-size: 16px;}
+
+    .text-field__text {
+      height: 40px;
+      min-width: 0;
+      color: $color-input;
+      background-color: $color-white;
+      font-size: 18px;
+    }
+
+    .text-field_col .text-field__text {margin-top: 6px;}
+
+    .profile {
+      &__nick {margin-bottom: 13px; }
+
+      &__main { margin-bottom: 0; }
+
+      &__email {
+        margin-bottom: 38px;
+      }
+
+      &__field {
+        width: 48%;
+
+        &-wrapper {
+          margin-bottom: 21px;
+          @include clearfix();
+        }
+
+        &_fio {
+          margin-bottom: 64px;
+          width: 100%;
+        }
+
+        &_pass {
+
+          & .text-field__text {
+            width: 100%;
+
+            @include respond-to('mobile') {
+              width: 100%;
+            }
+          }
+        }
+
+        &_old {
+          margin-bottom: 16px;
+        }
+
+        &_new {
+          float: left;
+
+
+          @include respond-to('mobile') {
+            float: none;
+            margin-bottom: 16px;
+          }
+        }
+
+        &_repeat {
+          float: right;
+          margin-left: 4%;
+
+          @include respond-to('mobile') {
+            float: none;
+            margin-left: 0;
+          }
+        }
+      }
+
+      &__note {
+        display: block;
+        font-size: 14px;
+        line-height: 1.2em;
+        opacity: .4;
+        margin-bottom: 11px;
+      }
+
+      &__confirm {
+        @include clearfix();
+      }
+
+      &__submit,
+      &__cancel {
+        float: left;
+
+        @include respond-to('mobile') {
+          float: none;
+          margin-bottom: 16px;
+        }
+
+        .button {
+          padding: 7px 20px 8px;
+          text-transform: uppercase;
+          font-family: $PFDinCondensedPro;
+
+          &.button_kind_transparent {
+            padding-top: 6px;
+            padding-bottom: 7px;
+          }
+        }
+      }
+
+      &__cancel {
+        margin-left: 13px;
+
+        @include respond-to('mobile') {
+          margin-left: 0;
+        }
+      }
+    }
+
   }
 }

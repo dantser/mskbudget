@@ -30,22 +30,6 @@ html, body {
   box-sizing: border-box;
 }
 
-.d-si-content_polls-result {
-  background-size: 100% 1900px;
-
-  @media screen and (max-width: 1101px) {
-    background-size: 100% 2100px;
-  }
-
-  @media screen and (max-width: 901px) {
-    background-size: 100% 2300px;
-  }
-
-  @media screen and (max-width: 641px) {
-    background-size: 100% 2500px;
-  }
-}
-
 .d-layer {
   /*max-width: 1174px;*/
   max-width: none;
@@ -79,12 +63,6 @@ html, body {
   }
 }
 
-.carousel-count {
-  display: inline-block !important;
-  margin-bottom: -10px;
-  margin-top: 20px;
-}
-
 @media screen and (max-width: 760px) {
   .d-layer {
     padding: 0 23px !important;
@@ -107,8 +85,6 @@ html, body {
   background: url('../images/background-q.png') no-repeat;
   background-size: cover;
   background-position: center 0;
-  font-family: $PFDinCondensedPro;
-  font-weight: 500;
   box-sizing: border-box;
 
   @include clearfix;
@@ -130,6 +106,8 @@ html, body {
   max-width: 1100px;
   margin: 0 auto 110px;
   padding-top: 208px;
+  position: relative;
+  z-index: 2;
 
   @include respond-to('mobile') {
     padding-top: 70px;
@@ -155,20 +133,5 @@ html, body {
 
   @media (max-width: 700px) {
     margin: 0 20px;
-  }
-}
-
-#popup-wrapper {
-  z-index: 2001;
-}
-
-@media (max-width: 699px) {
-  .popup-window {
-    width: 100%!important;
-    height: 100%;
-    top: 0;
-    left: 0;
-    margin: 0!important;
-    overflow: auto;
   }
 }
