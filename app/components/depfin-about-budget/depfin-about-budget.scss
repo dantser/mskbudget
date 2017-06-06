@@ -472,10 +472,7 @@
 }
 
 .whatIsBudget-component__conception .whatIsBudget-component__definition{
-    bottom:100%;
     right:auto;
-    left:0;
-    margin:0 0 30px !important;
 }
 
 .whatIsBudget-component__termin{font-size:24px;font-weight:500;position:relative;padding:52px 0 32px;display:block;z-index:1}
@@ -494,6 +491,11 @@
 .whatIsBudget-chart {
     background: #282635
 }
+
+.whatIsBudget-chart .whatIsBudget-revenues__wrapper {
+    overflow: hidden;
+}
+
 
 .whatIsBudget-revenues__wrapper {
     max-width: 980px;
@@ -835,6 +837,7 @@
     .whatIsBudget-characteristic__wrapper{
         max-width:98%;
         height:290px !important;
+        margin-bottom: 20px;
     }
     .whatIsBudget-characteristic{
         position:relative;
@@ -871,6 +874,18 @@
         left:auto;
         right:0;
     }
+
+    .whatIsBudget-component__definition {
+      bottom: 100%;
+      right: auto;
+      left: 0;
+    }
+
+    .whatIsBudget-component:first-child .whatIsBudget-component__definition,
+    .whatIsBudget-component:last-child .whatIsBudget-component__definition {
+      margin: 0 0 10px!important;
+    }
+
     .whatIsBudget-chart{
         position:relative;
     }
@@ -954,9 +969,9 @@
     }
 }
 @media screen and (max-width:760px){
-/*Конфликт стилей*/
-/*.whatIsBudget {min-width:640px}*/
-.whatIsBudget {min-width:auto}
+  /*Конфликт стилей*/
+  /*.whatIsBudget {min-width:640px}*/
+  .whatIsBudget {min-width:auto}
 }
 @media screen and (max-width:700px) {
 }
@@ -1000,6 +1015,7 @@
         /*max-width: 624px;*/
         max-width:96%;
         /*margin-left: -312px*/
+        margin-left: auto;
     }
     .budgetScales-pattern {
         width: 307px;

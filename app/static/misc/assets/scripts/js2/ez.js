@@ -386,8 +386,11 @@ basicBudgetFiguresDiagrams();
 
 //
 function tabsLine(){
-	$('.js-section-tabs-hide').click(function(){
-		$('.section-tabs').remove();
+	$('.js-label-button').click(function(){
+    $('.section-tabs__nav').slideToggle();
+    $('.section-tabs__content').slideToggle();
+    $(this).toggleClass('js-label-button-closed');
+    $('.section-tabs__head').toggleClass('section-tabs__head_closed')
 		return false
 		/*
 		если понадобиться скрывать пункты в навигации табов,
