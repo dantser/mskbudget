@@ -89,14 +89,6 @@ html, body {
 
   @include clearfix;
 
-  @include respond-to('tablet') {
-    padding: 20px 10px 0 30px;
-  }
-
-  @include respond-to('mobile') {
-    padding: 10px 0;
-  }
-
   &_services {
     background-image: url('../images/bg-services.png');
   }
@@ -109,17 +101,21 @@ html, body {
   position: relative;
   z-index: 2;
 
-  @include respond-to('mobile') {
-    padding-top: 70px;
+  @media (max-width: 1180px) {
+    margin-bottom: 80px;
+  }
+
+  @media (max-width: 700px) {
+    padding-top: 85px;
+    margin-bottom: 45px !important;
   }
 }
 
   .lk-nav {
-    margin: 0 auto 65px;
+    margin: 0 auto 55px;
     max-width: 1174px;
 
-    @include respond-to('mobile') {
-      padding-left: 10px;
+    @media (max-width: 700px) {
       margin-bottom: 30px;
     }
   }
@@ -128,11 +124,13 @@ html, body {
   @media (max-width: 1179px) {
     width: auto;
     max-width: 100%;
-    margin: 0 40px;
+    margin-left: 40px;
+    margin-right: 40px;
   }
 
   @media (max-width: 700px) {
-    margin: 0 20px;
+    margin-left: 20px !important;
+    margin-right: 20px !important;
   }
 }
 

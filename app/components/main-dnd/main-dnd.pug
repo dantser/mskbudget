@@ -7,7 +7,7 @@ mixin main-dnd()
         .banner.banner_ban-1
           .wrap.banner__wrap
             .clearfix
-              .banner__cat.load-anim-fade(data-delay="300") Бюджет Москвы
+              p.banner__cat.load-anim-fade(data-delay="300") Бюджет Москвы
               button.arrow.cube__arrow.cube__arrow_m.arrow_left.cube__arrow_next
               button.arrow.cube__arrow.cube__arrow_m.arrow_right.cube__arrow_prev
             a(href="#").banner__link
@@ -20,7 +20,7 @@ mixin main-dnd()
         .banner.banner_ban-2
           .wrap.banner__wrap
             .clearfix
-              .banner__cat Сервисы
+              p.banner__cat Сервисы
               button.arrow.cube__arrow.cube__arrow_m.arrow_left.cube__arrow_next
               button.arrow.cube__arrow.cube__arrow_m.arrow_right.cube__arrow_prev
             a(href="#").banner__link
@@ -33,7 +33,7 @@ mixin main-dnd()
         .banner.banner_ban-3
           .wrap.banner__wrap
             .clearfix
-              .banner__cat Новости
+              p.banner__cat Новости
               button.arrow.cube__arrow.cube__arrow_m.arrow_left.cube__arrow_next
               button.arrow.cube__arrow.cube__arrow_m.arrow_right.cube__arrow_prev
             a(href="#").banner__link
@@ -78,21 +78,21 @@ mixin main-dnd()
         .grid__col.grid__col_h.grid-brick-3
           .comp-diagram.comp-diagram_dash-1#diagram-1
             a(href="#")
-            .comp-diagram__year 2016
+            p.comp-diagram__year 2016
         // /DIAGRAM_CELL
       .cube-brick(data-brick-900="1")
         // DIAGRAM_CELL/
         .grid__col.grid__col_h.grid-brick-3
           .comp-diagram.comp-diagram_dash-2#diagram-2
             a(href="#")
-            .comp-diagram__year 2017
+            p.comp-diagram__year 2017
         // /DIAGRAM_CELL
       .cube-brick(data-brick-900="1")
         // DIAGRAM_CELL/
         .grid__col.grid__col_h.grid-brick-3
           .comp-diagram.comp-diagram_dash-1#diagram-3
             a(href="#")
-            .comp-diagram__year 2018
+            p.comp-diagram__year 2018
         // /DIAGRAM_CELL
       .cube-brick(data-brick-900="2")
         // DIAGRAM_CELL/
@@ -136,7 +136,8 @@ mixin main-dnd()
             .service__ahead
               h3.service__title Государственные программы
                 button
-              .service__sub-title по состоянию на
+              .service__sub-title
+                span по состоянию на
                 .datepicker.service__datepicker
                   input(type="text", value="21.10.2016").jq-datepicker
                 | , млрд. руб
@@ -148,7 +149,7 @@ mixin main-dnd()
                   .dashed-diagram__value.dashed-diagram__value_bottom
                     p.dashed-diagram__value-p 1 167,7
                     | факт
-              .service__capt Программные расходы
+              p.service__capt Программные расходы
             .service-dot-cont#serv-d-1
               .dashed-diagram.service__dashed-diagram
                 .dashed-diagram__diagram#diagram-9
@@ -157,7 +158,7 @@ mixin main-dnd()
                   .dashed-diagram__value.dashed-diagram__value_bottom
                     p.dashed-diagram__value-p 46,5
                     | факт
-              .service__capt Непрограммные направления деятельности
+              p.service__capt Непрограммные направления деятельности
             .service-dots
               button(data-cont="serv-d-1").service-dots__btn
               button(data-cont="serv-d-2").service-dots__btn.active
@@ -171,39 +172,40 @@ mixin main-dnd()
             .service__ahead
               h3.service__title Адресная инвестиционная программа
                 button
-              .service__sub-title на 2016 год, млрд. руб.
+              p.service__sub-title на 2016 год, млрд. руб.
             .segment-diagram#diagram-6
-              .segment-diagram__value Всего
+              .segment-diagram__value
+                span Всего
                 p.segment-diagram__value-num 347,2
-              .segment-diagram__floating.segment-diagram__floating_green#floating_diagram-6-0 Строительство
+              p.segment-diagram__floating.segment-diagram__floating_green#floating_diagram-6-0 Строительство
                 span 150,7
-              .segment-diagram__floating.segment-diagram__floating_violet#floating_diagram-6-1 Образование
+              p.segment-diagram__floating.segment-diagram__floating_violet#floating_diagram-6-1 Образование
                 span 60,8
-              .segment-diagram__floating.segment-diagram__floating_blue#floating_diagram-6-2 Медицина
+              p.segment-diagram__floating.segment-diagram__floating_blue#floating_diagram-6-2 Медицина
                 span 35,2
-              .segment-diagram__floating.segment-diagram__floating_gray#floating_diagram-6-3 Прочее
+              p.segment-diagram__floating.segment-diagram__floating_gray#floating_diagram-6-3 Прочее
                 span 100,5
             ul.diagram-tabs.service__diagram-tabs
               li.diagram-tabs__item.diagram-tabs__item_green
                 a(href="#").diagram-tabs__btn.diagram-tabs__btn_house#button_diagram-6-0 150,7
                   span.diagram-tabs__span-hov
                   span.diagram-tabs__span-js
-                .diagram-tabs__caption Строительство
+                p.diagram-tabs__caption Строительство
               li.diagram-tabs__item.diagram-tabs__item_violet
                 a(href="#").diagram-tabs__btn.diagram-tabs__btn_edu#button_diagram-6-1 60,8
                   span.diagram-tabs__span-hov
                   span.diagram-tabs__span-js
-                .diagram-tabs__caption Образование
+                p.diagram-tabs__caption Образование
               li.diagram-tabs__item.diagram-tabs__item_blue
                 a(href="#").diagram-tabs__btn.diagram-tabs__btn_med#button_diagram-6-2 35,2
                   span.diagram-tabs__span-hov
                   span.diagram-tabs__span-js
-                .diagram-tabs__caption Медицина
+                p.diagram-tabs__caption Медицина
               li.diagram-tabs__item.diagram-tabs__item_gray
                 a(href="#").diagram-tabs__btn.diagram-tabs__btn_other#button_diagram-6-3 100,5
                   span.diagram-tabs__span-hov
                   span.diagram-tabs__span-js
-                .diagram-tabs__caption Прочее
+                p.diagram-tabs__caption Прочее
             a(href="#").service__more Подробнее
         // /SERVICE_ITEM
         
@@ -214,7 +216,8 @@ mixin main-dnd()
             .service__ahead
               h3.service__title Государственный долг
                 button
-              .service__sub-title по состоянию на
+              .service__sub-title
+                span по состоянию на
                 .datepicker.service__datepicker
                   button.datepicker__show 21.10.2016
                   .datepicker__panel
@@ -261,30 +264,31 @@ mixin main-dnd()
                     button.datepicker__close
                 | , млрд. руб                      
             .segment-diagram#diagram-7
-              .segment-diagram__value Всего
+              .segment-diagram__value
+                span Всего
                 p.segment-diagram__value-num 77,2
-              .segment-diagram__floating.segment-diagram__floating_green#floating_diagram-7-0 Бюджетные&nbsp;кредиты
+              p.segment-diagram__floating.segment-diagram__floating_green#floating_diagram-7-0 Бюджетные&nbsp;кредиты
                 span 21,4
-              .segment-diagram__floating.segment-diagram__floating_blue#floating_diagram-7-1 Внутренний&nbsp;долг
+              p.segment-diagram__floating.segment-diagram__floating_blue#floating_diagram-7-1 Внутренний&nbsp;долг
                 span 28,8
-              .segment-diagram__floating.segment-diagram__floating_violet#floating_diagram-7-2 Внешний&nbsp;долг
+              p.segment-diagram__floating.segment-diagram__floating_violet#floating_diagram-7-2 Внешний&nbsp;долг
                 span 48,4
             ul.diagram-tabs.service__diagram-tabs
               li.diagram-tabs__item.diagram-tabs__item_green
                 a(href="#").diagram-tabs__btn.diagram-tabs__btn_bank#button_diagram-7-0 21,4
                   span.diagram-tabs__span-hov
                   span.diagram-tabs__span-js
-                .diagram-tabs__caption Бюджетные кредиты
+                p.diagram-tabs__caption Бюджетные кредиты
               li.diagram-tabs__item.diagram-tabs__item_blue
                 a(href="#").diagram-tabs__btn.diagram-tabs__btn_bag#button_diagram-7-1 28,8
                   span.diagram-tabs__span-hov
                   span.diagram-tabs__span-js
-                .diagram-tabs__caption Внутренний долг
+                p.diagram-tabs__caption Внутренний долг
               li.diagram-tabs__item.diagram-tabs__item_violet
                 a(href="#").diagram-tabs__btn.diagram-tabs__btn_build#button_diagram-7-2 48,4
                   span.diagram-tabs__span-hov
                   span.diagram-tabs__span-js
-                .diagram-tabs__caption Внешний долг
+                p.diagram-tabs__caption Внешний долг
             a(href="#").service__more Подробнее
         // /SERVICE_ITEM
         
@@ -306,13 +310,13 @@ mixin main-dnd()
                 li
                   a(href="#pl3").select__a Население
             .select-content.select-content_vis#pl1
-              .service__place 5 место
+              p.service__place 5 место
               p.fs-14.medium.lh-1_2.xs-fs-9 из 8 крупнейших городов мира<br> по общему объему доходов
             .select-content#pl2
-              .service__place 4 место
+              p.service__place 4 место
               p.fs-14.medium.lh-1_2.xs-fs-9 из 8 крупнейших городов мира<br> по общему объему расходов
             .select-content#pl3
-              .service__place 3 место
+              p.service__place 3 место
               p.fs-14.medium.lh-1_2.xs-fs-9 из 8 крупнейших городов мира<br> по общему количеству населения
             a(href="#").service__more Подробнее
         // /SERVICE_ITEM
@@ -335,13 +339,13 @@ mixin main-dnd()
                 li
                   a(href="#pl311").select__a Население
             .select-content.select-content_vis#pl111
-              .service__place 5 место
+              p.service__place 5 место
               p.fs-14.medium.lh-1_2 из 8 крупнейших городов мира<br> по общему объему доходов
             .select-content#pl211
-              .service__place 4 место
+              p.service__place 4 место
               p.fs-14.medium.lh-1_2 из 8 крупнейших городов мира<br> по общему объему расходов
             .select-content#pl311
-              .service__place 3 место
+              p.service__place 3 место
               p.fs-14.medium.lh-1_2 из 8 крупнейших городов мира<br> по общему количеству населения
             a(href="#").service__more Подробнее
         // /SERVICE_ITEM
@@ -364,13 +368,13 @@ mixin main-dnd()
                 li
                   a(href="#pl312").select__a Население
             .select-content.select-content_vis#pl112
-              .service__place 5 место
+              p.service__place 5 место
               p.fs-14.medium.lh-1_2 из 8 крупнейших городов мира<br> по общему объему доходов
             .select-content#pl212
-              .service__place 4 место
+              p.service__place 4 место
               p.fs-14.medium.lh-1_2 из 8 крупнейших городов мира<br> по общему объему расходов
             .select-content#pl312
-              .service__place 3 место
+              p.service__place 3 место
               p.fs-14.medium.lh-1_2 из 8 крупнейших городов мира<br> по общему количеству населения
             a(href="#").service__more Подробнее
         // /SERVICE_ITEM
@@ -393,13 +397,13 @@ mixin main-dnd()
                 li
                   a(href="#pl313").select__a Население
             .select-content.select-content_vis#pl113
-              .service__place 5 место
+              p.service__place 5 место
               p.fs-14.medium.lh-1_2 из 8 крупнейших городов мира<br> по общему объему доходов
             .select-content#pl213
-              .service__place 4 место
+              p.service__place 4 место
               p.fs-14.medium.lh-1_2 из 8 крупнейших городов мира<br> по общему объему расходов
             .select-content#pl313
-              .service__place 3 место
+              p.service__place 3 место
               p.fs-14.medium.lh-1_2 из 8 крупнейших городов мира<br> по общему количеству населения
             a(href="#").service__more Подробнее
         // /SERVICE_ITEM
@@ -422,13 +426,13 @@ mixin main-dnd()
                 li
                   a(href="#pl31").select__a Население
             .select-content.select-content_vis#pl11
-              .service__place 5 место
+              p.service__place 5 место
               p.fs-14.medium.lh-1_2 из 8 крупнейших городов мира<br> по общему объему доходов
             .select-content#pl21
-              .service__place 4 место
+              p.service__place 4 место
               p.fs-14.medium.lh-1_2 из 8 крупнейших городов мира<br> по общему объему расходов
             .select-content#pl31
-              .service__place 3 место
+              p.service__place 3 место
               p.fs-14.medium.lh-1_2 из 8 крупнейших городов мира<br> по общему количеству населения
             a(href="#").service__more Подробнее
         // /SERVICE_ITEM            
@@ -549,7 +553,7 @@ mixin main-dnd()
         
       .cube-brick(data-brick-700="3", data-brick-900="2", data-brick-1100="2")
         // NEWS_ITEM/
-        .tile__item.anim-left(data-delay="900")
+        .tile__item
           .tile__inner.news.news_green
             a(href="#").news__thumb
               img(src="assets/images/post-thumb.jpg", alt="thumb")
@@ -571,7 +575,7 @@ mixin main-dnd()
         
       .cube-brick(data-brick-700="3", data-brick-900="2", data-brick-1100="2")
         // NEWS_ITEM/
-        .tile__item.anim-left(data-delay="900")
+        .tile__item
           .tile__inner.news.news_green
             a(href="#").news__thumb
               img(src="assets/images/post-thumb.jpg", alt="thumb")
@@ -593,7 +597,7 @@ mixin main-dnd()
         
       .cube-brick(data-brick-700="4", data-brick-900="3", data-brick-1100="2")
         // NEWS_ITEM/
-        .tile__item.anim-left(data-delay="900")
+        .tile__item
           .tile__inner.news.news_green
             a(href="#").news__thumb
               img(src="assets/images/post-thumb.jpg", alt="thumb")
@@ -615,7 +619,7 @@ mixin main-dnd()
         
       .cube-brick(data-brick-700="4", data-brick-900="3", data-brick-1100="2")
         // NEWS_ITEM/
-        .tile__item.anim-left(data-delay="900")
+        .tile__item
           .tile__inner.news.news_green
             a(href="#").news__thumb
               img(src="assets/images/post-thumb.jpg", alt="thumb")
