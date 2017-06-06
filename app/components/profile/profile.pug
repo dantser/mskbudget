@@ -13,11 +13,12 @@ mixin profile()
         +e.H3.head-title Профиль
         +e.A(href='#').edit
           +icon('pen').edit-icon
-          +e.SPAN.edit-label Редактировать профиль
+          +e.SPAN.edit-label(data-tab-target="profile-edit") Редактировать профиль
 
       +e.main
         +e.photo
-          +image-bg('/assets/images/profile/photo.png')
+          +e.photo-img
+            img(src="assets/images/profile/person.jpg")
         +e.personal
           +e.SPAN.nick ivanov_1980
           +e.fio

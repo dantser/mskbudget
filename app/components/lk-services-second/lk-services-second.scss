@@ -1,0 +1,56 @@
+.lk-services-second {
+  display: block;
+
+  @include clearfix;
+
+  &__cards {
+    margin: -5px;
+    text-align: center;
+    font-size: 0;
+    float: left;
+
+    @media (max-width: 700px) {
+      margin: 0;
+    }
+  }
+
+  .tile__item {
+    display: inline-block;
+    vertical-align: top;
+    width: 25%;
+    text-align: left;
+
+    @media (max-width: 1180px) {
+      width: 33.333%;
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 700px) {
+      margin-bottom: 10px !important;
+
+      .tile__inner {width: 100%;}
+    }
+  }
+
+  .tile__inner {
+    position: relative;
+    margin: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: 5px;
+  }
+}
+
+.service__title {
+  padding-right: 40px;
+}
+
+.ui-datepicker {
+  position: absolute;
+  display: none !important;
+}
+
+.service__ahead {
+  z-index: 4;
+}

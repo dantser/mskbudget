@@ -5,25 +5,36 @@
   font-size: 16px;
   color: $color-white;
 
-  @include respond-to('mobile') {
+  @media (max-width: 700px) {
     display: block;
+  }
+
+  &__options-link {
+    margin-top: 4px;
   }
 
   &__info {
     display: table-cell;
     width: 65.5%;
-    padding: 31px 31px; // 31px 42px
+    padding: 29px 50px 29px 29px; // 31px 42px
     background-color: #1f2935;
 
-    @include respond-to('mobile') {
-      display: block;
+    @media (max-width: 1180px) {
+      width: auto;
+    }
+
+    @media (max-width: 900px) {
+      padding-right: 29px;
+    }
+
+    @media screen and (max-width: 700px) {
       width: 100%;
-      padding: 31px 15px;
+      display: block;
     }
   }
 
   &__head {
-    margin-bottom: 33px;
+    margin-bottom: 28px;
     @include clearfix();
   }
 
@@ -36,11 +47,25 @@
     font-weight: 500;
     text-transform: uppercase;
     color: $color-white;
+
+    @media (max-width: 900px) {
+      padding-left: 0 !important;
+    }
   }
 
   &__edit {
     float: right;
     text-decoration: none;
+    margin-top: 5px;
+    transition: all .25s ease-in-out;
+
+    @media (max-width: 840px) {
+      float: left;
+      clear: both;
+      margin-top: 10px;
+    }
+
+    &:hover { opacity: .5; }
 
     &-icon {
       width: 13px;
@@ -54,62 +79,82 @@
       line-height: 1em;
       color: #7199c8;
       margin-left: 10px;
-
-      @include respond-to('mobile') {
-        display: none;
-      }
     }
   }
 
   &__main {
-    padding-left: 14px;
-    margin-bottom: 81px;
+    padding-left: 216px;
+    margin-bottom: 79px;
+    position: relative;
+    min-height: 200px;
+
     @include clearfix();
 
-    @include respond-to('laptop') {
-      padding-left: 5px;
+    @media (max-width: 980px) {
+      padding-left: 166px;
+      margin-bottom: 50px;
+      min-height: 150px;
     }
 
-    @include respond-to('tablet') {
-      padding-left: 5px;
-    }
-
-    @include respond-to('mobile') {
-      padding-left: 0;
+    @media (max-width: 900px) {
+      padding-left: 0 !important;
     }
   }
 
   &__photo {
-    float: left;
-    position: relative;
+    position: absolute;
     width: 200px;
-    height: 200px;
+    left: 16px;
+    top: 0;
+    text-align: center;
 
-    @include respond-to('tablet') {
-      margin-bottom: 10px;
+    @media (max-width: 980px) {
+      width: 150px;
     }
 
-    @include respond-to('mobile') {
-      float: none;
-      margin: 0 auto;
+    @media (max-width: 900px) {
+      position: relative;
+      margin-bottom: 30px;
+      left: 0;
+    }
+  }
+
+  &__photo-img {
+    width: 100%;
+    padding-bottom: 100%;
+    border-radius: 100px;
+    overflow: hidden;
+    position: relative;
+
+    img {
+      @include fill-img;
+    }
+  }
+
+  &__image {
+    margin-bottom: 19px;
+  }
+
+  &__photo-edit {
+    color: #7199c8;
+    line-height: 1em;
+    font-size: 16px;
+    margin-top: 17px;
+    transition: all .25s ease-in-out;
+    display: inline-block;
+    text-decoration: none;
+
+    &:hover {
+      opacity: .5;
     }
   }
 
   &__personal {
-    float: left;
-    padding-top: 10px;
-    margin-left: 18px; //35px
+    padding-top: 9px;
+    margin-left: 33px; //35px
 
-    @include respond-to('laptop') {
-      margin-left: 5px;
-    }
-
-    @include respond-to('tablet') {
-      margin-left: 5px;
-    }
-
-    @include respond-to('mobile') {
-      float: none;
+    @media (max-width: 900px) {
+      padding-top: 0;
       margin-left: 0;
     }
   }
@@ -119,23 +164,21 @@
     font-family: $PFDinCondensedPro;
     font-weight: 500;
     text-transform: uppercase;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
   }
 
   &__fio {
     padding-left: 1px;
     font-size: 36px;
-    line-height: 1em;
+    line-height: 1.05em;
     color: $color-yellow;
     text-transform: uppercase;
-    margin-bottom: 22px;
+    margin-bottom: 16px;
+    font-family: $PFDinCondensedPro;
+    font-weight: 500;
 
-    @include respond-to('tablet') {
-      font-size: 26px;
-    }
-
-    @include respond-to('mobile') {
-      font-size: 16px;
+    @media (max-width: 1180px) {
+      font-size: 24px;
     }
 
     &-label {
@@ -162,39 +205,31 @@
     font-family: $PFDinCondensedPro;
     font-size: 18px;
     line-height: 1em;
-    margin-bottom: 17px;
+    margin-bottom: 16px;
     text-transform: uppercase;
   }
 
   &__checkbox {
-    padding-left: 1px;
-    margin-bottom: 20px;
+    padding-left: 0px;
+    margin-bottom: 18px;
   }
 
   &__options {
-    margin-bottom: 22px;
     @include clearfix();
   }
 
   &__option {
     float: left;
     min-width: 251px;
+    margin-bottom: 19px;
 
-    @include respond-to('tablet') {
-      margin-bottom: 10px;
-    }
-
-    @include respond-to('mobile') {
-      margin-bottom: 10px;
+    &:not(:last-child) {
+      margin-right: 20px;
     }
   }
 
   &__save {
     display: inline-block;
-
-    @include respond-to('mobile') {
-      width: 100%;
-    }
 
     .button {
       padding: 7px 20px 8px;
@@ -207,5 +242,133 @@
     display: table-cell;
     width: 34.5%;
     height: 100%;
+    vertical-align: top;
+
+    @media (max-width: 1180px) {
+      width: 290px;
+    }
+
+    @media screen and (max-width: 700px) {
+      width: 100% !important;
+      display: block;
+      height: auto;
+    }
+  }
+
+
+
+
+
+  &_edit {
+
+    .text-field__label {font-size: 16px;}
+
+    .text-field__text {
+      height: 40px;
+      min-width: 0;
+      color: $color-input;
+      background-color: $color-white;
+      font-size: 18px;
+    }
+
+    .text-field_col .text-field__text {margin-top: 6px;}
+
+    .profile {
+      &__nick {margin-bottom: 13px; }
+
+      &__main { margin-bottom: 0; }
+
+      &__email {
+        margin-bottom: 38px;
+
+        @media (max-width: 1180px) {
+          margin-bottom: 14px;
+        }
+      }
+
+      &__field {
+        width: 48%;
+
+        @media (max-width: 1180px) {
+          width: 100%;
+          max-width: 190px;
+        }
+
+        &-wrapper {
+          margin-bottom: 21px;
+          @include clearfix();
+        }
+
+        &_fio {
+          margin-bottom: 64px;
+          width: 100% !important;
+          max-width: 100% !important;
+
+          @media (max-width: 1180px) {
+            margin-bottom: 30px;
+          }
+        }
+
+        &_pass {
+
+          & .text-field__text {
+            width: 100%;
+          }
+        }
+
+        &_old {
+          margin-bottom: 16px;
+        }
+
+        &_new {
+          float: left;
+        }
+
+        &_repeat {
+          float: right;
+          margin-left: 4%;
+
+          @media (max-width: 1180px) {
+            float: left;
+            clear: left;
+            margin-left: 0;
+            margin-top: 16px;
+          }
+        }
+      }
+
+      &__note {
+        display: block;
+        font-size: 14px;
+        line-height: 1.2em;
+        opacity: .4;
+        margin-bottom: 11px;
+      }
+
+      &__confirm {
+        @include clearfix();
+      }
+
+      &__submit,
+      &__cancel {
+        float: left;
+
+        .button {
+          padding: 7px 20px 8px;
+          text-transform: uppercase;
+          font-family: $PFDinCondensedPro;
+
+          &.button_kind_transparent {
+            padding-top: 6px;
+            padding-bottom: 7px;
+          }
+        }
+      }
+
+      &__cancel {
+        margin-left: 13px;
+      }
+    }
+
   }
 }

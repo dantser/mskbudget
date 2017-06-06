@@ -1,7 +1,7 @@
 .favor-list {
   display: block;
   height: 100%;
-  padding: 38px 29px 30px;
+  padding: 35px 27px 28px;
   font-family: $PFDinTextPro;
   background-color: $color-white;
 
@@ -17,7 +17,7 @@
     font-weight: 500;
     font-family: $PFDinCondensedPro;
     color: #000;
-    margin-bottom: 29px;
+    margin-bottom: 21px;
   }
 
   &__list {
@@ -26,7 +26,7 @@
 
   &__item {
     position: relative;
-    margin-bottom: 5px;
+    margin-bottom: 14px;
     list-style: none;
 
     &:hover {
@@ -36,7 +36,7 @@
       }
 
       & .favor-list__remove{
-        display: block;
+        opacity: 1;
       }
     }
   }
@@ -44,50 +44,58 @@
   &__link {
     display: block;
     position: relative;
-    padding: 0 36px 0 32px;
+    padding: 0 36px 0 34px;
     font-size: 16px;
     line-height: 22px;
     font-family: $PFDinTextPro;
     color: $color-input;
     text-decoration: none;
-    cursor: url(../images/hand-cursor.png), pointer;
-
-    @include respond-to('tablet') {
-      padding-right: 15px;
-    }
+    cursor: pointer;
   }
 
   &__label {
-    transition: all .25s ease;
+    transition: all .25s ease-in-out;
   }
 
   &__favor {
     position: absolute;
-    top: 2px;
-    left: 0;
+    top: 1px;
+    left: 2px;
     width: 19px;
     height: 18px;
   }
 
   &__remove {
-    display: none;
+    opacity: 0;
     position: absolute;
     right: 0;
     top: 4px;
     text-decoration: none;
+    transition: all .25s ease-in-out;
 
     &-icon {
       stroke: #0d46a1;
       fill: #0d46a1;
       width: 12px;
       height: 12px;
+
+      @media (max-width: 1180px) {
+        stroke: rgba(black,.2);
+        fill: rgba(black,.2);
+      }
+    }
+
+    @media (max-width: 1180px) {
+      opacity: 1;
     }
   }
 
   &__note {
     position: absolute;
-    max-width: 220px;
-    color: #787e85;
+    color: #b3b3b3;
+    font-size: 14px;
+    line-height: (18/14);
     bottom: 0;
+    left: 0;
   }
 }
