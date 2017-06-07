@@ -1,0 +1,124 @@
+.depfin-about {
+  display: block;
+  background-color: #1f1b3d;
+  font-family: $PFDinTextPro;
+  font-size: 16px;
+  line-height: (20/16)*1em;
+  font-weight: 400;
+  color: $color-white;
+
+  @include respond-to('mobile'){
+    padding: 0 15px;
+  }
+
+  &__head {
+    margin-bottom: 28px;
+    @include clearfix;
+  }
+
+  &__main {
+    margin-bottom: 91px;
+
+    @include respond-to('mobile'){
+      margin-bottom: 50px;
+    }
+  }
+
+  &__wrapper {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  &__main-subtitle {
+    display: block;
+    font-size: 24px;
+    line-height: (30/24)*1em;
+    margin-bottom: 50px;
+
+    @include respond-to('mobile'){
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__paragraph {
+    margin-bottom: 49px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include respond-to('mobile'){
+      margin-bottom: 40px;
+    }
+  }
+
+  &__subtitle {
+    line-height: (22/16)*1em;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 17px;
+  }
+
+  &__list {
+    list-style: none;
+
+    @include respond-to('mobile'){
+      padding-left: 30px;
+    }
+
+    &_marked {
+
+      & .depfin-about__item {
+
+        &:before {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 9px;
+          left: -30px;
+          width: 20px;
+          height: 1px;
+          background-color: $color-yellow;
+        }
+      }
+    }
+
+    &_num {
+
+    }
+
+    &_nested {
+      padding-left: 30px;
+      margin-top: 13px;
+    }
+  }
+
+  &__text,
+  &__item {
+    margin-bottom: 12px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__item {
+    position: relative;
+
+    &-num {
+      position: absolute;
+      top: 0;
+      left: -30px;
+      width: 30px;
+      text-align: center;
+      opacity: .4;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $color-yellow;
+  }
+
+}
