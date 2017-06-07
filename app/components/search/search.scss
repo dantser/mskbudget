@@ -1,0 +1,368 @@
+.search {
+  display: block;
+  padding-top: 134px;
+  background-image: url('../images/depfin-search/depfin-search.jpg');
+  background-position: center 0;
+  background-size: cover;
+
+  &__header {
+    margin-top: 27px;
+
+    .page-head {
+      font-family: $PFDinCondensedPro;
+      letter-spacing: -1.1px;
+    }
+
+    .d-si__head_icons {
+      margin-left: 23px;
+      margin-top: 7px;
+    }
+  }
+
+  &__content {
+    margin-top: 41px;
+    clear: both;
+  }
+
+  &__search-field {
+    margin-bottom: 35px;
+  }
+
+  .d-si__search-form {
+    display: inline-block;
+    vertical-align: super;
+    margin-right: 21px;
+  }
+
+  .d-si__search {
+    width: 771px;
+    border-color: rgba(255, 255, 255, .5);
+    float: none;
+    font-size: 30px;
+    padding-bottom: 7px;
+    letter-spacing: 0.3px;
+
+    &::placeholder {
+      color: $color-white;
+      font-size: 30px;
+      font-weight: 400;
+      font-family: $PFDinTextPro;
+    }
+  }
+
+  .d-si__search, .d-si__submit {
+    height: inherit;
+  }
+
+  .d-si__submit {
+    top: 18px;
+  }
+
+  &__filter {
+    display: inline-block;
+    vertical-align: sub;
+    font-size: 14px;
+    position: relative;
+  }
+
+  .link_extra {
+    margin-right: 22px;
+  }
+
+  .link_extra.active {
+    color: $color-black;
+    background-color: $color-white;
+    border-bottom: none;
+    padding: 0 9px 0 10px;
+    text-decoration: none;
+
+    & + .extra-search {
+      display: block;
+    }
+  }
+
+  .link {
+    z-index: 2;
+    height: 43px;
+    border-bottom: none;
+    text-decoration: underline;
+    text-decoration-style: dashed;
+    font-size: 14px;
+  }
+
+  .link_tags.active {
+    color: $color-black;
+    background-color: $color-white;
+    border-bottom: none;
+    padding: 0 21px 0 17px;
+    margin-left: -17px;
+    text-decoration: none;
+
+    & + .tags {
+      display: block;
+    }
+  }
+// extra-search start
+  .extra-search, .tags {
+    display: none;
+    position: absolute;
+    top: 43px;
+    background-color: $color-white;
+    color: $color-black;
+    box-shadow: 0 21px 40px rgba(0, 0, 0, 0.5);
+    right: -21px;
+  }
+
+  .tags {
+    display: none;
+    width: 1051px;
+    white-space: normal;
+    margin-top: 0;
+    overflow: inherit;
+    font-size: 0;
+    right: 0;
+
+    &::before {
+      display: none;
+    }
+
+    &__wrapper {
+      padding: 33px 89px 28px 29px;
+    }
+
+    &__list {
+      margin-bottom: 24px;
+    }
+
+    &__title {
+      font-family: $PFDinCondensedPro;
+      font-weight: 500;
+      text-transform: uppercase;
+      font-size: 14px;
+      margin-bottom: 21px;
+    }
+
+    .tag {
+      margin-right: 5px;
+      margin-bottom: 10px;
+    }
+
+    .button {
+      width: 150px;
+      box-shadow: 0 2px 0 #004a7a;
+      text-transform: uppercase;
+      font-weight: 500;
+      padding: 9px 50px;
+      margin: 0 25px 0 0;
+    }
+
+    input {
+      color: $color-link;
+      font-family: $PFDinTextPro;
+      font-size: 14px;
+      font-weight: 400;
+      vertical-align: middle;
+    }
+  }
+
+  .modal {
+    z-index: 5;
+  }
+
+  .extra-search {
+    width: 538px;
+
+    &__wrapper {
+      padding-bottom: 15px;
+    }
+
+    &__cols {
+      border-bottom: 1px solid #e1e1e1;
+      margin-bottom: 12px;
+      font-size: 0;
+    }
+
+    &__col {
+      display: inline-block;
+      vertical-align: top;
+      padding: 33px 0 23px 31px;
+
+      &_min {
+        display: none;
+        padding: 33px 49px 33px 141px;
+      }
+
+      &_one {
+        padding-right: 27px;
+      }
+
+      &_two {
+        padding-left: 36px;
+        border-left: 1px solid #e1e1e1;
+      }
+    }
+
+    &__title {
+      font-family: $PFDinCondensedPro;
+      font-weight: 500;
+      text-transform: uppercase;
+      font-size: 14px;
+      margin-bottom: 21px;
+      margin-left: -2px;
+    }
+// date
+
+    .form__date-range {
+      margin-bottom: 18px;
+      padding: 0 1px 5px 8px;
+      width: 202px;
+
+      &_focus {
+
+        .form__date-range-icon {
+          background: $color-yellow;
+        }
+      }
+    }
+
+    .form__date-range-input {
+      padding: 2px 1px !important;
+      width: 62px;
+      vertical-align: baseline;
+    }
+
+    .form__date-range-icon {
+      top: -2px;
+      right: 1px;
+    }
+
+    .form__date-range-input, .form__date-range-sep {
+      color: rgba(0, 0, 0, .4);
+      font-size: 14px;
+      padding:  8px 11px 0 3px;
+    }
+
+    .form__date-range-icon::before {
+      background-position: -209px -117px;
+    }
+// date end
+    .checkbox {
+      font-family: $PFDinTextPro;
+
+      &__text {
+        margin-left: 5px;
+        font-size: 14px;
+        margin-bottom: 9px;
+        position: relative;
+        letter-spacing: 0.1px;
+        max-width: none;
+      }
+
+      &__icon {
+        position: absolute;
+        right: -19px;
+        top: 3px;
+        width: 10px;
+        height: 6px;
+        fill: $color-black;
+        stroke: $color-black;
+      }
+    }
+
+    .button {
+      width: 150px;
+      box-shadow: 0 2px 0 #004a7a;
+      text-transform: uppercase;
+      font-weight: 500;
+      padding: 9px 50px;
+      margin: 0 23px 0 31px;
+    }
+
+    input {
+      color: $color-link;
+      font-family: $PFDinTextPro;
+      font-size: 14px;
+      font-weight: 400;
+      vertical-align: middle;
+    }
+  }
+
+// extra-search end
+
+  &__found-title {
+    color: #a1a1a1;
+    font-size: 14px;
+    margin-left: 189px;
+    margin-bottom: 20px;
+    font-family: $PFDinTextPro;
+  }
+
+  &__item {
+    @include clearfix;
+
+    margin-bottom: 43px;
+  }
+
+  &__article-title {
+    float: left;
+    text-transform: uppercase;
+    font-family: $PFDinCondensedPro;
+    font-size: 30px;
+    font-weight: 500;
+  }
+
+  &__article {
+    float: none;
+    padding-left: 189px;
+  }
+
+  .article-preview {
+    margin-bottom: 12px;
+    max-width: 644px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &__title {
+      transform: translateY(-3px);
+      margin-bottom: 4px;
+    }
+
+    &__text {
+      margin-bottom: 6px;
+    }
+  }
+
+  .search__news {
+    margin-bottom: 49px;
+  }
+
+  &__news, &__contests {
+
+    .article-preview {
+      max-width: none;
+
+      &__title {
+        margin-bottom: 0;
+      }
+
+      &__text {
+        margin-bottom: 2px;
+      }
+    }
+  }
+
+  &__more-wrap {
+    margin-left: 189px;
+    padding-bottom: 90px;
+    max-width: 692px;
+  }
+
+  .button-more {
+    text-transform: uppercase;
+    padding: 11px 0 10px 3px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+}

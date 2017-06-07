@@ -1,6 +1,12 @@
 .page-header {
   display: block;
 
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
   .d-si__head_icons {
     margin-bottom: 16px;
     float: left;
@@ -39,7 +45,7 @@
     display: block;
     float: left;
     width: auto;
-    
+
     &:hover {
       .favor__icon {
         stroke: #fee300;

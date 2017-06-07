@@ -13,6 +13,10 @@
 //-   | Текст кнопки
 //-   +icon('right-arrow').icon
 
-mixin link()
-  +b.A(href="#").link&attributes(attributes)
-    block
+mixin link(isButton)
+  if isButton
+    +b.BUTTON.link&attributes(attributes)
+      block
+  else
+    +b.A(href="#").link&attributes(attributes)
+      block
