@@ -1,28 +1,23 @@
+include ../page-header/page-header
+
 mixin depfin_about_budget_preparation()
   .d-abs-content
     .d-layer.d-layer_small
       .d-si__head
-        p.d-si__title-sub Бюджетная система
-        h1.d-si__head_p-name этапы подготовки бюджета
-        .d-si__head_icons
-          a(href="#" title="Добавить в избранное").d-si__icons_item
-            svg(xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink", width="24.25px", height="23.25px")
-              path(fill-rule="evenodd", stroke="#d0ccd3", stroke-width="1.5px", stroke-linecap="butt", stroke-linejoin="miter", fill="none", d="M11.754,0.753 L16.158,6.282 L22.764,8.773 L18.880,14.680 L18.559,21.748 L11.754,19.870 L4.950,21.748 L4.628,14.680 L0.744,8.773 L7.350,6.282 L11.754,0.753 Z")
-          a(href="#" title="Поделиться").d-si__icons_item
-            svg(xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink", width="16px", height="19px")
-              path(fill-rule="evenodd", fill="#d0ccd3", d="M13.141,5.781 C12.504,5.781 11.921,5.564 11.446,5.208 L5.643,8.583 C5.689,8.788 5.719,9.000 5.719,9.219 C5.719,9.573 5.646,9.908 5.530,10.221 L11.390,13.664 C11.869,13.309 12.455,13.094 13.094,13.094 C14.699,13.094 16.000,14.416 16.000,16.047 C16.000,17.678 14.699,19.000 13.094,19.000 C11.489,19.000 10.188,17.678 10.188,16.047 C10.188,15.715 10.254,15.401 10.353,15.103 L4.426,11.620 C3.975,11.918 3.438,12.094 2.859,12.094 C1.280,12.094 -0.000,10.807 -0.000,9.219 C-0.000,7.631 1.280,6.344 2.859,6.344 C3.598,6.344 4.265,6.633 4.772,7.095 L10.439,3.799 C10.345,3.512 10.281,3.210 10.281,2.891 C10.281,1.294 11.561,-0.000 13.141,-0.000 C14.720,-0.000 16.000,1.294 16.000,2.891 C16.000,4.487 14.720,5.781 13.141,5.781 Z")
+        +page-header('этапы подготовки бюджета', 'Бюджетная система')
+
       p.d-abs__head_descr
         strong.font-PFDinPro-bold Бюджетный процесс
         |  — деятельность по подготовке проектов бюджетов, утверждению, исполнению бюджетов, контролю исполнения, осуществлению бюджетного учета, составлению, внешней проверке, рассмотрению и утверждению бюджетной отчетности.
       .d-abs__foot
         p.d-abs__foot-side Выберите уровень бюджетной системы
-        .d-abs__foot-content 
+        .d-abs__foot-content
           +b.buttons-set
             +e.item
               a(href="#").button-light.button-light--fill Бюджет Москвы
             +e.item
               a(href="#").button-light Бюджет Москвы
-  // d-abs-content 
+  // d-abs-content
   +b.graphic-table
     +e.frame
       +e.holder
@@ -128,7 +123,7 @@ mixin depfin_about_budget_preparation()
                   +e.title
                     +e.P.title-count I
                     +e.P.title-content
-                      | составление проекта 
+                      | составление проекта
                       br
                       | Бюджета
               +e.TD.table-td
@@ -158,7 +153,7 @@ mixin depfin_about_budget_preparation()
             +e.STRONG.num I
             +e.H6.title Составление проекта&nbsp;бюджета
           +e.descr
-            p  
+            p
               | Начальный этап бюджетного процесса. На этом этапе составляется прогноз
               | социально-экономического развития, определяются основные характеристики бюджета, налоговая
               | и бюджетная политика на очередной финансовый год и на плановый период, основные методы и направления
@@ -179,8 +174,8 @@ mixin depfin_about_budget_preparation()
         +b.step
           +e.head
             +e.STRONG.num III
-            +e.H6.title 
-              | Исполнение 
+            +e.H6.title
+              | Исполнение
               br
               | бюджета
           +e.descr
@@ -205,7 +200,7 @@ mixin depfin_about_budget_preparation()
           +e.head
             +e.STRONG.num V
             +e.H6.title
-              | Финансовый 
+              | Финансовый
               br
               | контроль
           +e.descr
@@ -236,7 +231,7 @@ mixin depfin_about_budget_preparation()
               +e.A(href="#", data-section-tab-for="section-tab_01").nav-btn Мэр Москвы
           .owl-item
             +e.nav-item
-              +e.A(href="#", data-section-tab-for="section-tab_02").nav-btn 
+              +e.A(href="#", data-section-tab-for="section-tab_02").nav-btn
                 | Московская
                 br
                 | городская дума
@@ -450,7 +445,7 @@ mixin depfin_about_budget_preparation()
                   .line-md
                     .cols__content-holder
                       p
-                        | Представляет свод предложений главных администраторов доходов бюджета и главных администраторов источников финансирования дефицита бюджета по изменению объемов доходной части бюджета города на очередной финансовый год и плановый период 
+                        | Представляет свод предложений главных администраторов доходов бюджета и главных администраторов источников финансирования дефицита бюджета по изменению объемов доходной части бюджета города на очередной финансовый год и плановый период
         +e.U.tab-button.btn-close-c.js-tab-close
       // section-tabs__tab
       +e.tab(data-section-tab="section-tab_04").section-tabs__tab--active

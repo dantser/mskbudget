@@ -4,7 +4,8 @@ include ../../blocks/icon/icons
 mixin quiz-result()
   +b.d-si-content._quiz._result&attributes(attributes)
     .d-layer
-      +page-header('сервисы', 'викторины').__header
+      .d-si__head
+        +page-header('Викторины', 'Сервисы')
       .d-si__quiz-container
         p.d-si__quiz-container_head
           span ИСТОРИЯ БЮДЖЕТА ГОРОДА МОСКВЫ ВО ВТОРОЙ ПОЛОВИНЕ XX — НАЧАЛЕ ХХI ВЕКА
@@ -23,7 +24,7 @@ mixin quiz-result()
               span 4
             canvas(width="250", height="250", stroke-width="20", sector-count="6", fill-sectors="0,5").sectored_round
           .quiz-result-text
-            strong 
+            strong
               | Вы правильно ответили
               | на 2 из 4 вопросов
             p
@@ -43,4 +44,4 @@ mixin quiz-result()
               a(href="#" title="twitter").d-sr__social_t
                 i(aria-hidden="true").fa.fa-twitter
               a(href="#" title="ВКонтакте").d-sr__social_vk В
-                
+
