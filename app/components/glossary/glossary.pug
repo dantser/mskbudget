@@ -1,3 +1,5 @@
+include ../page-header/page-header
+
 mixin glossary()
   //- +b.glossary&attributes(attributes)
   //- .sections
@@ -6,16 +8,8 @@ mixin glossary()
     .over-layer
       .wrap.wrap_sh
         .ahead.xs-ml-30
-          h1.ahead__title.load-anim-fade(data-delay="1300") Глоссарий
-          .ahead__star.load-anim-fade(data-delay="1800")
-            a(href="main-log.html", title="Добавить в избранное").ahead__star-btn
-          .ahead__share.load-anim-fade(data-delay="2100")
-            button.ahead__share-btn.share__btn
-            .share__panel(tilte="Поделиться")
-              a(href="#", tabindex="0" title="facebook").share__a.share__a_fb
-              a(href="#", tabindex="0" title="ВКонтакте").share__a.share__a_vk
-              a(href="#", tabindex="0" title="Twitter").share__a.share__a_tw
-              a(href="#", tabindex="0" title="Одноклассники").share__a.share__a_ok
+          +page-header('Глоссарий')
+
       .letter.load-anim-fade(id="letters-slider", data-delay="2700")
         .wrap.wrap_sh
           ul.letter__line

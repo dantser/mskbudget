@@ -1,3 +1,4 @@
+include ../page-header/page-header
 
 mixin documents()
   //- +b.documents&attributes(attributes)
@@ -7,17 +8,8 @@ mixin documents()
     .over-layer
       .wrap.wrap_sh
         .ahead
-          H1(data-delay='1300').ahead__title.load-anim-fade.load-anim-fade_on Документы
-          buttons.ahead__buttons
-            DIV(data-delay='1800').ahead__star.load-anim-fade.load-anim-fade_on
-              A(href='#', title='Добавить в избранное').ahead__star-btn
-            DIV(data-delay='2100').ahead__share.load-anim-fade.load-anim-fade_on
-              BUTTON.ahead__share-btn.share__btn
-              .share.__panel
-                A(href='#', tabindex='0').ahead__a.ahead__a_fb
-                A(href='#', tabindex='0').ahead__a.ahead__a_vk
-                A(href='#', tabindex='0').ahead__a.ahead__a_tw
-                A(href='#', tabindex='0').ahead__a.ahead__a_ok
+          +page-header('Документы')
+
         FORM(action='f.php', method='POST').form.mb-50
           .float-l.md-float-n
             .form__field.form__field_d1

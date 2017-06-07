@@ -8,7 +8,8 @@ include ../../blocks/link/link
 mixin quiz-task()
   +b.d-si-content._quiz&attributes(attributes)
     .d-layer
-      +page-header('сервисы', 'викторины').__header
+      .d-si__head
+        +page-header('Викторины', 'Сервисы')
       .d-min-layer
         form(action="#").d-si__search-form
           input(type="text", placeholder="Поиск").d-si__search
@@ -18,8 +19,8 @@ mixin quiz-task()
             .d-si__quiz_item
               p.d-si__quiz_head История бюджета города москвы во&nbsp;второй половине ХХ—начале ХХI века
               p.d-si__quiz_status Создана: 02.08.2016
-              a(href="/moscowbudget/quiz_question.html").d-si__quiz_button 
+              a(href="/moscowbudget/quiz_question.html").d-si__quiz_button
                 | участвовать
                 i.fa.fa-angle-right
         a(href="#").d-si__button_show-more показать еще
-          
+
