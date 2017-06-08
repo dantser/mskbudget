@@ -282,6 +282,7 @@
   height: 600px;
   background-color: #fff;
   padding-bottom: 10px;
+  text-align: center;
 }
 
 .carousel-3d-slide .d-slide {
@@ -296,6 +297,7 @@
 
 .d-slide__head {
   padding: 35px;
+  text-align: left;
 }
 
 .d-slide__tax .d-slide__head {
@@ -339,6 +341,7 @@
   display: block;
   overflow: hidden;
   list-style-type: none;
+  text-align: left;
 }
 
 .d-slide__tax .d-slide__body_list {
@@ -369,6 +372,10 @@
 
 .d-slide__body_list li:last-child {
   margin-bottom: 0;
+}
+
+.d-slide__more {
+  display: none;
 }
 
 .carousel-count {
@@ -555,6 +562,8 @@
 
   #carousel {
     margin-top: 26px;
+    margin-left: -23px;
+    margin-right: -23px;
   }
 
   #carousel .ar-left,
@@ -611,6 +620,7 @@
     max-width: 100% !important;
     width: 100%;
     height: auto;
+    padding-bottom: 20px;
   }
 
   .d-slide__head {
@@ -642,6 +652,23 @@
     background-size: 5px !important;
   }
 
+  .d-slide__more {
+    display: inline-block;
+    padding: 14px 19px;
+    font-size: 19px;
+    line-height: 1em;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #fee300;
+    background-color: #293a4a;
+    transition: all ease 0.5s;
+    margin-top: 14px;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
   .carousel-count {
     width: 100%;
     line-height: 54px;
@@ -667,6 +694,7 @@
 }
 
 @media screen and (max-width: 639px) {
+
   .carousel-count {
     width: 100%;
   }
