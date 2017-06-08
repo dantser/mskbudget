@@ -4,10 +4,19 @@
   color: $color-black;
   border: 1px solid #dcdcdc;
   border-radius: 2px;
-  padding: 7px 17px;
+
   display: inline-block;
 
-  &_active {
-    background-color: $color-yellow;
+  &__control {
+    display: none;
+
+    &:checked + .tag__text {
+      background-color: $color-yellow;
+    }
+  }
+
+  &__text {
+    display: inline-block;
+    padding: 7px 17px;
   }
 }

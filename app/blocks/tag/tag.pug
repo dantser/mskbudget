@@ -1,3 +1,4 @@
-mixin tag(tag)
-  +b.A.tag&attributes(attributes)
-    =tag
+mixin tag(tag, name)
+  +b.LABEL.tag&attributes(attributes)
+    +e.INPUT(type='checkbox' name= name).control
+    +e.SPAN.text= tag

@@ -5,6 +5,13 @@
   background-position: center 0;
   background-size: cover;
 
+
+  .wrapper {
+    @media (max-width: 450px) {
+      min-width: inherit;
+    }
+  }
+
   &__header {
     margin-top: 27px;
 
@@ -26,12 +33,34 @@
 
   &__search-field {
     margin-bottom: 35px;
+
+    @media (max-width: 450px) {
+      margin-bottom: 15px;
+    }
   }
 
   .d-si__search-form {
     display: inline-block;
     vertical-align: super;
     margin-right: 21px;
+
+    @media (max-width: 1280px) {
+      width: 100%;
+      margin-right: 0;
+      display: block;
+    }
+  }
+
+  &__search-line {
+    display: inline-block;
+    position: relative;
+    margin-right: 20px;
+
+    @media (max-width: 1280px) {
+      width: 100%;
+      margin-right: 0;
+      display: block;
+    }
   }
 
   .d-si__search {
@@ -42,11 +71,32 @@
     padding-bottom: 7px;
     letter-spacing: 0.3px;
 
+    @media (max-width: 1280px) {
+      width: 100%;
+      display: block;
+    }
+
+    @media (min-width: 451px) and (max-width: 700px) {
+      font-size: 26px;
+    }
+
+    @media (max-width: 450px) {
+      font-size: 18px;
+    }
+
     &::placeholder {
       color: $color-white;
       font-size: 30px;
       font-weight: 400;
       font-family: $PFDinTextPro;
+
+      @media (min-width: 451px) and (max-width: 700px) {
+        font-size: 26px;
+      }
+
+      @media (max-width: 450px) {
+        font-size: 18px;
+      }
     }
   }
 
@@ -56,6 +106,14 @@
 
   .d-si__submit {
     top: 18px;
+
+    @media (min-width: 451px) and (max-width: 700px) {
+      top: 12px;
+    }
+
+    @media (max-width: 450px) {
+      top: 6px;
+    }
   }
 
   &__filter {
@@ -64,17 +122,24 @@
     font-size: 14.1px;
     position: relative;
     z-index: 6;
+
+    @media (max-width: 1280px) {
+      text-align: right;
+      display: block;
+      margin-top: 5px;
+    }
   }
 
   .link_extra {
-    margin-right: 22px;
+    @media (max-width: 450px) {
+      transform: translateX(-7px);
+    }
   }
 
   .link_extra.active {
     color: $color-black;
     background-color: $color-white;
     border-bottom: none;
-    padding: 0 9px 0 10px;
     text-decoration: none;
 
     & + .extra-search {
@@ -89,14 +154,17 @@
     text-decoration: underline;
     text-decoration-style: dashed;
     font-size: 14.1px;
+    padding: 0 10px;
+  }
+
+  .link_tags {
+    padding: 0 21px 0 17px;
   }
 
   .link_tags.active {
     color: $color-black;
     background-color: $color-white;
     border-bottom: none;
-    padding: 0 21px 0 17px;
-    margin-left: -17px;
     text-decoration: none;
 
     & + .tags {
@@ -107,21 +175,23 @@
   .extra-search, .tags {
     display: none;
     position: absolute;
-    top: 43px;
     background-color: $color-white;
     color: $color-black;
     box-shadow: 0 21px 40px rgba(0, 0, 0, 0.5);
-    right: -21px;
+    right: 0;
   }
 
   .tags {
     display: none;
-    width: 1053px;
+    width: 1067px;
     white-space: normal;
     margin-top: 0;
     overflow: inherit;
     font-size: 0;
-    right: 0;
+
+    @media (max-width: 1280px) {
+      width: 100%;
+    }
 
     &::before {
       display: none;
@@ -129,6 +199,15 @@
 
     &__wrapper {
       padding: 33px 89px 28px 29px;
+
+
+      @media (min-width: 451px) and (max-width: 1280px) {
+        padding: 20px;
+      }
+
+      @media (max-width: 450px) {
+        padding: 10px;
+      }
     }
 
     &__list {
@@ -155,6 +234,15 @@
       font-weight: 500;
       padding: 9px 50px;
       margin: 0 25px 0 0;
+
+      @media (min-width: 451px) and (max-width: 1280px) {
+        margin-left: 0;
+      }
+
+      @media (min-width: 320px) and (max-width: 450px) {
+        margin-left: 0;
+        margin-right: 6px;
+      }
     }
 
     input {
@@ -168,10 +256,18 @@
 
   .modal {
     z-index: 5;
+
+    @media (max-width: 1280px) {
+      text-align: initial;
+    }
   }
 
   .extra-search {
     width: 538px;
+
+    @media (max-width: 700px) {
+      width: 100%;
+    }
 
     &__wrapper {
       padding-bottom: 15px;
@@ -188,18 +284,69 @@
       vertical-align: top;
       padding: 33px 0 23px 31px;
 
+      @media (min-width: 451px) and (max-width: 1280px) {
+        padding: 20px;
+      }
+
+      @media (max-width: 450px) {
+        padding: 10px;
+      }
+
       &_min {
         display: none;
         padding: 33px 49px 33px 141px;
+
+        @media (min-width: 451px) and (max-width: 1280px) {
+          padding: 20px;
+        }
+
+        @media (min-width: 320px) and (max-width: 450px) {
+          padding: 10px;
+        }
       }
 
       &_one {
         padding-right: 27px;
+
+        @media (min-width: 701px) and (max-width: 1280px) {
+          padding-right: 20px;
+        }
+
+        @media (min-width: 451px) and (max-width: 700px) {
+          width: 55%;
+        }
+
+        @media (min-width: 320px) and (max-width: 450px) {
+          width: 100%;
+          border-bottom: 1px solid #e1e1e1;
+          padding: 10px;
+        }
       }
 
       &_two {
         padding-left: 36px;
         border-left: 1px solid #e1e1e1;
+
+        @media (min-width: 701px) and (max-width: 1280px) {
+          padding-left: 20px;
+        }
+
+        @media (min-width: 451px) and (max-width: 700px) {
+          width: 45%;
+        }
+
+        @media (min-width: 320px) and (max-width: 450px) {
+          width: 100%;
+          border: none;
+          padding: 10px;
+        }
+
+        .checkbox {
+          @media (max-width: 450px) {
+            display: inline-block;
+            width: 47%;
+          }
+        }
       }
     }
 
@@ -224,6 +371,10 @@
           background: $color-yellow;
         }
       }
+
+      @media (max-width: 450px) {
+        width: 100%;
+      }
     }
 
     .form__date-range-input {
@@ -235,6 +386,12 @@
     .form__date-range-icon {
       top: -2px;
       right: 1px;
+
+      @media (max-width: 450px) {
+        right: -7px;
+        width: 35px;
+        height: 32px;
+      }
     }
 
     .form__date-range-input, .form__date-range-sep {
@@ -277,6 +434,15 @@
       font-weight: 500;
       padding: 9px 50px;
       margin: 0 23px 0 31px;
+
+      @media (min-width: 451px) and (max-width: 1280px) {
+        margin-left: 20px;
+      }
+
+      @media (min-width: 320px) and (max-width: 450px) {
+        margin-left: 10px;
+        margin-right: 6px;
+      }
     }
 
     input {
@@ -296,6 +462,14 @@
     margin-left: 189px;
     margin-bottom: 20px;
     font-family: $PFDinTextPro;
+
+    @media (max-width: 900px) {
+      margin-left: 150px;
+    }
+
+    @media (max-width: 900px) {
+      margin-left: 0;
+    }
   }
 
   &__item {
@@ -310,11 +484,28 @@
     font-family: $PFDinCondensedPro;
     font-size: 30px;
     font-weight: 500;
+
+    @media (max-width: 900px) {
+      font-size: 26px;
+    }
+
+    @media (max-width: 450px) {
+      float: none;
+      margin-bottom: 10px;
+    }
   }
 
   &__article {
     float: none;
-    padding-left: 189px;
+    margin-left: 189px;
+
+    @media (max-width: 900px) {
+      margin-left: 150px;
+    }
+
+    @media (max-width: 450px) {
+      margin-left: 0;
+    }
   }
 
   .article-preview {
@@ -358,6 +549,15 @@
     margin-left: 189px;
     padding-bottom: 90px;
     max-width: 692px;
+
+    @media (max-width: 900px) {
+      margin-left: 150px;
+    }
+
+    @media (max-width: 450px) {
+      margin-left: 0;
+      width: 100%;
+    }
   }
 
   .button-more {
@@ -365,5 +565,37 @@
     padding: 11px 0 10px 3px;
     font-size: 18px;
     font-weight: 500;
+
+    @media (max-width: 700px) {
+      width: 100% !important;
+    }
+  }
+
+  .button {
+
+    @media (max-width: 900px) {
+      font-size: 14.5px;
+    }
+
+    @media (min-width: 320px) and (max-width: 700px) {
+      line-height: normal;
+      width: inherit;
+      height: inherit;
+      font-size: 14.5px;
+    }
+  }
+
+  .btn-close {
+    position: absolute;
+    display: none;
+    top: 10px;
+    right: 10px;
+
+    &:hover {
+      background-position: -99px -44px;
+    }
+    @media (max-width: 700px) {
+      display: block;
+    }
   }
 }
