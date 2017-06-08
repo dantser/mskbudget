@@ -349,6 +349,7 @@ svg:not(:root) {
     text-transform: none;
     font-family: PFDinPro;
     padding-right: 0;
+    position: relative;
 }
 .puzzle-inner p + p {
     margin-top: 12px;
@@ -368,8 +369,8 @@ svg:not(:root) {
 }
 .puzzle-inner__btn {
     position: absolute;
-    top: 30px;
-    right: 20px;
+    top: 0;
+    right: 0;
 }
 .abs-box__overlay {
     position: absolute;
@@ -423,6 +424,10 @@ svg:not(:root) {
     margin: 0;
     transform: none;
     padding: 25px 50px 35px 30px;
+
+    .puzzle-inner__btn {
+      top: 5px;
+    }
   }
   .d-abs__nav li:nth-child(1) .puzzle-inner strong {
     font-size: 29px;
@@ -510,6 +515,10 @@ svg:not(:root) {
   .d-abs__nav li:nth-child(7) {
     width: 234px;
     height: 175px;
+
+    .puzzle-inner__btn {
+      top: 2px;
+    }
   }
   .d-abs__nav li:nth-child(7) a {
     padding-top: 45px;
@@ -536,8 +545,8 @@ svg:not(:root) {
     line-height: 16px;
   }
   .puzzle-inner__btn {
-    top: 15px;
-    right: 15px;
+    top: 0;
+    right: 0;
   }
 }
 
@@ -572,6 +581,17 @@ svg:not(:root) {
   .puzzle-inner p {
     font-size: 16px !important;
     line-height: 24px !important;
+  }
+
+  .d-abs__nav li:nth-child(7) {
+
+    .puzzle-inner__btn {
+      top: 8px;
+    }
+  }
+
+  .puzzle-inner__btn {
+    top: 8px;
   }
 
 /*Для предотвращения изменения высоты контента при появлении попапа пазла*/
@@ -654,6 +674,17 @@ svg:not(:root) {
   }
   .puzzle-inner p {
     line-height: 17px !important;
+  }
+
+  .puzzle-inner__btn {
+    top: 0;
+  }
+
+  .d-abs__nav li:nth-child(7) {
+
+    .puzzle-inner__btn {
+      top: 8px;
+    }
   }
 
   /*Для предотвращения изменения высоты контента при появлении попапа пазла*/
