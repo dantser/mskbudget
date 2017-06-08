@@ -10,73 +10,76 @@ mixin search()
   +b.search&attributes(attributes)
     .wrapper.page-content-wrapper
       +page-header('Поиск').search__header
-      +e.content
+      +e.content.load-anim-fade(data-delay="2400")
         +e.search-field
           form.d-si__search-form(action="#")
-            input.d-si__search(type="text", placeholder="Конкурс бюджет для граждан")
-            input.d-si__submit(type="submit" value="")
-          +e.filter
-            +link(true)._dashed._light-yellow._extra.active.filter-link Расширенный поиск
-            +b.extra-search.modal
-              +e.wrapper
-                +e.cols
-                  +e.col_min
-                    +e.title Вид документа
-                    +checkbox() текст
-                    +checkbox() инфографика
-                    +checkbox() таблица
-                    +checkbox() график
-                    +checkbox() фотографии
-                    +checkbox() видео
-                    +checkbox() события
-                  +e.col_one
-                    +e.title Дата публикации
-                    .form__date-range(id='rid-0')
-                      INPUT(type='text', value='дд.мм.гг').form__date-range-input.jq-f-datepicker.input-min
-                      SPAN.form__date-range-sep —
-                      INPUT(type='text', value='дд.мм.гг').form__date-range-input.jq-f-datepicker.input-max
-                      SPAN.form__date-range-icon
-                    +checkbox() искать только в заголовках страниц
-                    +checkbox() искать только в разделе Документы
-                    +checkbox() искать только в разделе Новости
-                  +e.col_two
-                    +e.title Раздел
-                    +checkbox() О бюджете
-                      +icon('caret').icon_about
-                    +checkbox() Бюджет Москвы
-                      +icon('caret').icon_budget
-                    +checkbox() Аналитика
-                      +icon('caret').icon_analysis
-                    +checkbox() Сервисы
-                    +checkbox() Открытость
-                      +icon('caret').icon_openness
-                    +checkbox() Медиацентр
-                      +icon('caret').icon_media
-                    +checkbox() Обратная связь
-                +button(true)._kind_blue Искать
-                +e.INPUT.reset(type="reset" value="Сбросить фильтр")
-            +link(true)._dashed._light-yellow._tags.filter-link Поиск по тэгам
-            +b.tags.modal
-              +e.wrapper
-                +e.title Тэги
-                +e.list
-                  - for (var i = 0; i<25; i++)
-                    +tag('Банки')
-                +button(true)._kind_blue Искать
-                +e.INPUT.reset(type="reset" value="Сбросить все фильтры")
+            +e.search-line
+              input.d-si__search(type="text", placeholder="Конкурс бюджет для граждан")
+              input.d-si__submit(type="submit" value="")
+            +e.filter
+              +link(true)._dashed._light-yellow._extra.active.filter-link Расширенный поиск
+              +b.extra-search.modal
+                +e.wrapper
+                  +e.cols
+                    +e.col_min
+                      +e.title Вид документа
+                      +checkbox() текст
+                      +checkbox() инфографика
+                      +checkbox() таблица
+                      +checkbox() график
+                      +checkbox() фотографии
+                      +checkbox() видео
+                      +checkbox() события
+                    +e.col_one
+                      +e.title Дата публикации
+                      .form__date-range(id='rid-0')
+                        INPUT(type='text', value='дд.мм.гг').form__date-range-input.jq-f-datepicker.input-min
+                        SPAN.form__date-range-sep —
+                        INPUT(type='text', value='дд.мм.гг').form__date-range-input.jq-f-datepicker.input-max
+                        SPAN.form__date-range-icon
+                      +checkbox() искать только в заголовках страниц
+                      +checkbox() искать только в разделе Документы
+                      +checkbox() искать только в разделе Новости
+                    +e.col_two
+                      +e.title Раздел
+                      +checkbox() О бюджете
+                        +icon('caret').icon_about
+                      +checkbox() Бюджет Москвы
+                        +icon('caret').icon_budget
+                      +checkbox() Аналитика
+                        +icon('caret').icon_analysis
+                      +checkbox() Сервисы
+                      +checkbox() Открытость
+                        +icon('caret').icon_openness
+                      +checkbox() Медиацентр
+                        +icon('caret').icon_media
+                      +checkbox() Обратная связь
+                  +button(true)._kind_blue Искать
+                  +e.INPUT.reset(type="reset" value="Сбросить фильтр")
+                  u.btn-close.js-close-modal
+              +link(true)._dashed._light-yellow._tags.filter-link Поиск по тэгам
+              +b.tags.modal
+                +e.wrapper
+                  +e.title Тэги
+                  +e.list
+                    - for (var i = 0; i<25; i++)
+                      +tag('Банки', 'searchTag')
+                  +button(true)._kind_blue Искать
+                  +e.INPUT.reset(type="reset" value="Сбросить все фильтры")
+                  u.btn-close.js-close-modal
         +e.found-title Найдено 9 результатов
         +e.found
           +e.events.search__item
-            +e.article-title События
+            +e.H2.article-title События
             +e.article
               +article-preview(getData('article-preview')[0])
           +e.news.search__item
-            +e.article-title Новости
+            +e.H2.article-title Новости
             +e.article
               +article-preview(getData('article-preview')[1])
               +article-preview(getData('article-preview')[1])
           +e.contests.search__item
-            +e.article-title Конкурсы
+            +e.H2.article-title Конкурсы
             +e.article
               +article-preview(getData('article-preview')[2])
               +article-preview(getData('article-preview')[2])

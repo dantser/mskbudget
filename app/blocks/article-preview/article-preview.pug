@@ -1,5 +1,6 @@
 mixin article-preview(data)
-  +b.article-preview&attributes(attributes)
-    +e.title=data.title
-    +e.text=data.text
-    +e.date=data.date
+  +b.ARTICLE.article-preview&attributes(attributes)
+    +e.A(href= data.link).link
+      +e.H3.title=data.title
+      +e.P.text=data.text
+      +e.TIME.date=data.date
