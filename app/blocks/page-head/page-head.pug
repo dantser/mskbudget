@@ -3,4 +3,4 @@ mixin page-head(title, category)
   +b.page-head&attributes(attributes)
     if category
       +e.P.category= category
-    +e.H1.title= title
+    +e.H1.title.load-anim-fade(data-delay="1300")= title
