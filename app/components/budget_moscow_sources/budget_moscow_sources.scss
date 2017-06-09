@@ -1,0 +1,379 @@
+.moscow-sources {
+  display: block;
+
+  .analityc-control-group._level {
+    margin-right: 30%;
+  }
+
+  .analityc-control-group._dp {
+    display: inline-block;
+    margin-top: 30px;
+    margin-left: 0;
+  }
+
+  .analityc-control-buttons {
+    margin-left: 0;
+    margin-right: 30px;
+  }
+
+  &__diagram-title {
+    font-family: $PFDinCondensedPro;
+    font-size: 30px;
+    text-transform: uppercase;
+    text-align: left;
+    margin-bottom: 45px;
+  }
+
+  &__diagram-content {
+    margin-bottom: 120px;
+  }
+
+  .linear-diagram {
+    font-weight: 500;
+    text-align: left;
+    margin-bottom: 6px;
+
+    &__sources {
+      color: #000000;
+      font-family: $PFDinTextPro;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 16px;
+      margin-right: 25px;
+      text-align: right;
+      display: inline-block;
+      vertical-align: middle;
+      width: 24%;
+
+      &_bold {
+        font-weight: 700;
+      }
+
+      &_violet {
+        color: #bb417b;
+      }
+
+      &_blue {
+        color: #00ade9;
+      }
+
+      &_pink {
+        color: #783ca8;
+      }
+
+      &_green {
+        color: #38b264;
+      }
+
+      &_italic {
+        font-style: italic;
+      }
+    }
+
+    &__block {
+      border: 1px solid $color-black;
+      width: 685px;
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    &__wave {
+      fill: $color-white;
+      stroke: #e1e0e0;
+      position: absolute;
+      width: 14px;
+      height: 37px;
+      left: 14px;
+      top: -3px;
+      z-index: 2;
+    }
+
+    &__fill {
+      width: 350px;
+      height: 30px;
+      background-image: linear-gradient(to right, #ff0036, #021398 100%);
+      position: relative;
+      cursor: pointer;
+
+      &_abs {
+        position: absolute;
+        width: 75px !important;
+        border-radius: 2px;
+        right: 100%;
+      }
+    }
+
+    &__value {
+      position: absolute;
+      right: 12px;
+      top: 8px;
+      color: $color-white;
+      font-family: $PFDinCondensedPro;
+      font-size: 14px;
+    }
+
+    &__val {
+      display: inline-block;
+      margin-left: 14px;
+      vertical-align: middle;
+      font-size: 14px;
+    }
+  }
+
+  .linear-diagram_shares {
+
+    .linear-diagram__block {
+      width: 215px;
+    }
+
+    .linear-diagram__fill {
+      background-image: linear-gradient(to right, #9d308a 0%, #ff695b 100%);
+      width: 105px;
+    }
+  }
+
+  .linear-diagram_budget-credits {
+    margin-bottom: 29px;
+
+    .linear-diagram__block {
+      width: 21px;
+    }
+
+    .linear-diagram__fill {
+      background-image: linear-gradient(to right, #00ffff 0%, #004ccf 100%);
+      width: 7px;
+    }
+  }
+
+  .linear-diagram_loans {
+    height: 30px;
+    margin-bottom: -6px;
+    padding-bottom: 6px;
+  }
+
+  .linear-diagram_calls, .linear-diagram_repayment {
+
+    .linear-diagram__block {
+      width: 485px;
+    }
+
+    .linear-diagram__fill {
+      background-image: linear-gradient(to right, #612292 0%, #bd84e9 100%);
+      width: 252px;
+    }
+  }
+
+  .linear-diagram_accumulation {
+
+    .linear-diagram__block {
+      width: 679px;
+    }
+
+    .linear-diagram__fill {
+      background-image: linear-gradient(to right, #32d197 0%, #11a360 100%);
+      width: 348px;
+    }
+  }
+
+  .analityc-more {
+    margin-top: 120px;
+  }
+
+// TABLE
+
+  .table, .table_accepted {
+    width: 100%;
+
+    &__head {
+      th {
+        padding-bottom: 35px;
+        font-size: 14px;
+      }
+    }
+
+    &__title {
+      display: table-cell;
+      font-size: 14px;
+    }
+
+    &__data {
+      font-size: 24px;
+      width: 27.3%;
+
+      &_red {
+        color: #ec1d48;
+        position: relative;
+
+        &:after {
+          position: absolute;
+          content: '';
+          height: 184px;
+          width: 1px;
+          right: calc(50% - 1px);
+          background-color: #c9c9c9;
+          top: 30px;
+        }
+      }
+
+      &_green {
+        color: #85c53e;
+        vertical-align: bottom;
+      }
+    }
+
+    td {
+      padding: 5px 0;
+    }
+
+    .linear-diagram {
+      text-align: center;
+      margin-bottom: 0;
+      position: relative;
+      transform: translateX(50%);
+      display: inline-block;
+
+      &__fill {
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      &__val {
+        font-size: 14px;
+      }
+
+      &__wave {
+        left: 4px;
+      }
+
+      &__sources {
+        width: 18%;
+      }
+    }
+
+    &__deficit, &__total {
+      .table__title {
+        font-weight: 500;
+      }
+    }
+
+    &__deficit {
+
+    }
+
+    &__shares {
+      td {
+
+        .linear-diagram__fill {
+          width: 10px;
+          background-image: linear-gradient(to right, #9d308a 0%, #ff695b 100%);
+        }
+
+        &:last-child {
+          .linear-diagram__fill {
+            width: 17px;
+          }
+        }
+      }
+    }
+
+    &__credits {
+       td {
+
+        .linear-diagram__fill {
+          width: 10px;
+          background-image: linear-gradient(to right, #00ffff 0%, #004ccf 100%);
+        }
+
+        &:nth-child(3) {
+          .linear-diagram__fill {
+            width: 21px;
+          }
+
+          .linear-diagram__value {
+            right: 3px;
+          }
+        }
+      }
+    }
+
+    &__loans {
+      td {
+
+        .linear-diagram__fill {
+          width: 123px;
+          background-image: linear-gradient(to right, #612292 0%, #bd84e9 100%);
+        }
+
+        &:nth-child(2) {
+          .linear-diagram {
+            transform: none;
+
+            &__wave {
+              left: 43px;
+
+              &:nth-child(2) {
+                right: 43px;
+                left: inherit;
+              }
+            }
+
+            &__value {
+
+              &:nth-child(4) {
+                left: 4px;
+                right: inherit;
+              }
+            }
+          }
+        }
+
+        &:nth-child(3) {
+          .linear-diagram__fill {
+            width: 44px;
+            transform: translateX(-100%);
+          }
+        }
+      }
+    }
+
+    &__sources {
+      td {
+
+        .linear-diagram__fill {
+          width: 121px;
+          background-image: linear-gradient(to right, #b3dd34 0%, #30b069 100%);
+        }
+
+        &:nth-child(3) {
+          .linear-diagram__fill {
+            width: 82px;
+          }
+        }
+
+        &:nth-child(4) {
+          .linear-diagram__fill {
+            width: 42px;
+          }
+        }
+      }
+    }
+
+    &__total {
+
+      .table__title {
+        padding-top: 20px;
+      }
+    }
+  }
+}
+
+// .linear-diagram__fill::before {
+//   position: absolute;
+//   content: '';
+//   width: 20px;
+//   height: 20px;
+//   top: 50%;
+//   transform: translateY(50%);
+//   border: 20px solid transparent;	border-left: 20px solid #0062d5;
+// }

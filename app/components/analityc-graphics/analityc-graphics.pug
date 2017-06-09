@@ -1,0 +1,141 @@
+mixin analityc-graphics-round()
+  +b.analityc-graphics&attributes(attributes)._round
+    +e.P.toptext
+      span Плановый период
+    +e.cols
+      +e.col
+        +e.P.year 2017
+        +e.graphic._round
+      +e.col
+        +e.SPAN.period-left
+        +e.P.year 2018
+        +e.graphic._round
+      +e.col
+        +e.SPAN.period-right
+        +e.P.year 2019
+        +e.graphic._round
+    +e.legend.legend
+      p.legend__item.legend__item_green Налог на доходы физических лиц
+      p.legend__item.legend__item_blue Неналоговые доходы
+      p.legend__item.legend__item_violet Налог на имущество организаций
+      p.legend__item.legend__item_pink Налог на прибыль организаций
+      p.legend__item.legend__item_grey Прочие налоговые доходы
+      
+mixin analityc-graphics-column()
+  +b.analityc-graphics&attributes(attributes)._column
+    +e.cols
+      +e.col
+        +e.P.year 2017
+        +e.graphic._column
+        +e.bottom
+          p Бюджет первоначальный
+          p Бюджет с учетом изменений
+      +e.col
+        +e.P.year 2018
+        +e.graphic._column
+        +e.bottom
+          p Бюджет первоначальный
+          p Бюджет с учетом изменений
+      +e.col
+        +e.P.year 2019
+        +e.graphic._column
+        +e.bottom
+          p Бюджет первоначальный
+          p Бюджет с учетом изменений
+    +e.legend.legend
+      p.legend__item.legend__item_green Налог на доходы физических лиц
+      p.legend__item.legend__item_blue Неналоговые доходы
+      p.legend__item.legend__item_violet Налог на имущество организаций
+      p.legend__item.legend__item_pink Налог на прибыль организаций
+      p.legend__item.legend__item_grey Прочие налоговые доходы
+
+mixin analityc-graphics-singleround()
+  +b.analityc-graphics&attributes(attributes)._singleround
+    +e.cols
+      +e.col
+        +e.P.year 2016
+        +e.graphic._round
+      +e.col
+        +e.legend._vert.legend
+          p.legend__item.legend__item_pink Налог на прибыль организаций
+          p.legend__item.legend__item_green Налог на доходы физических лиц
+          p.legend__item.legend__item_violet Налог на имущество организаций
+          p.legend__item.legend__item_grey Прочие налоговые доходы
+          p.legend__item.legend__item_blue Неналоговый доходы
+          p.legend__item.legend__item_altgreen Безвозмездные поступления
+
+mixin analityc-graphics-line()
+  +b.analityc-graphics&attributes(attributes)._line
+    +e.P.heading Исполнение доходов бюджета на 22.04.2017
+    +e.lines
+      +e.line._altblue
+        +e.P.line-title 
+          strong Доходы, всего
+        +e.line-values 
+          | 680,0
+          span /
+          | 36,6%
+        +e.line-bar
+          +e.line-total
+            +e.SPAN.line-bar-value 1 868,6
+          +e.line-fill
+      +e.line._pink
+        +e.P.line-title Налог на прибыль организаций
+        +e.line-values 
+          | 200,0
+          span /
+          | 38,1%
+        +e.line-bar
+          +e.line-total
+            +e.SPAN.line-bar-value 525,6
+          +e.line-fill
+      +e.line._green
+        +e.P.line-title Налог на доходы физических лиц
+        +e.line-values 
+          | 300,0
+          span /
+          | 38,1%
+        +e.line-bar._overwidth
+          +e.line-total
+            +e.SPAN.line-bar-value 787,4
+          +e.line-fill
+      +e.line._violet
+        +e.P.line-title Налог на имущество организаций
+        +e.line-values 
+          | 40,0
+          span /
+          | 39,1%
+        +e.line-bar
+          +e.line-total
+            +e.SPAN.line-bar-value 102,1
+          +e.line-fill
+      +e.line._grey
+        +e.P.line-title Прочие налоговые доходы
+        +e.line-values 
+          | 50,0
+          span /
+          | 31,0%
+        +e.line-bar
+          +e.line-total
+            +e.SPAN.line-bar-value 161,3
+          +e.line-fill
+      +e.line._blue
+        +e.P.line-title Неналоговый доход
+        +e.line-values 
+          | 70,0
+          span /
+          | 38,4%
+        +e.line-bar
+          +e.line-total
+            +e.SPAN.line-bar-value 182,2
+          +e.line-fill
+      +e.line._altgreen
+        +e.P.line-title Безвозмездные поступления
+        +e.line-values 
+          | 20,0
+          span /
+          | 20,0%
+        +e.line-bar
+          +e.line-total
+            +e.SPAN.line-bar-value 100,0
+          +e.line-fill

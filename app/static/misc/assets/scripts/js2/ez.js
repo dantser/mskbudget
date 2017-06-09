@@ -496,7 +496,6 @@ function basicBudgetFiguresDiagrams () {
         animate: true
     });
 
-
     $(".analityc-control-group._stage .analityc-select").on("change", function () {
         var $this = $(this);
 
@@ -508,10 +507,14 @@ function basicBudgetFiguresDiagrams () {
             diagram_4.animate();
             diagram_5.animate();
 		}
-		if ($this.val() === "Заключительный этап") {
+		if ($this.val() === "Заключительный этап" || $this.val() ===  "Исполнение на дату") {
             $(".analityc-control-group._dp").show();
-		} else {
+            $(".analityc-control-group._percent").hide();
+
+		}
+    else {
             $(".analityc-control-group._dp").hide();
+            $(".analityc-control-group._percent").show();
 		}
 	});
 }

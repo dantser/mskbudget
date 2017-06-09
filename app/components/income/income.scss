@@ -1,7 +1,7 @@
 .analityc-control-switcher {
   margin-top: 30px;
   display: inline-block;
-  vertical-align: top;
+  vertical-align: middle;
   border: 1px solid #0d46a1;
   border-radius: 2px;
   
@@ -18,5 +18,105 @@
       color: #fff;
       background-color: #0d46a1;
     }
+  }
+  
+  & + .analityc-control-buttons {
+    margin-left: 30px;
+  }
+}
+
+.analityc-control-buttons {
+  margin-top: 30px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.analityc-control-button {
+  display: inline-block;
+  vertical-align: middle;
+  transition: all .25s ease-in-out;
+  width: 30px;
+  height: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+  
+  & + & {
+    margin-left: 10px;
+  }
+  
+  &_graphics {
+    background-image: url(../images/temp/icon_graphics.png);
+    &:hover, &.active {
+      background-image: url(../images/temp/icon_graphics_act.png);
+    }
+  }
+  
+  &_table {
+    background-image: url(../images/temp/icon_table.png);
+    &:hover, &.active {
+      background-image: url(../images/temp/icon_table_act.png);
+    }
+  }
+}
+
+.analityc-widget {
+  .analityc-graphics_round {
+    margin-top: 63px;
+  }
+  .analityc-graphics_column {
+    margin-top: 20px;
+  }
+  .analityc-graphics_singleround {
+    margin-top: 46px;
+  }
+  .analityc-graphics_line {
+    margin-top: 37px;
+  }
+}
+
+.analityc-widget_income {
+  .analityc-control-group._dp {
+    display: inline-block;
+    margin-top: 30px;
+    margin-left: 2.9%;
+  }
+}
+
+
+@media screen and (max-width: 760px) {
+  .analityc-control-switcher a {
+    font-size: 23px;
+    padding: 0 40px;
+    line-height: 60px;
+  }
+  .analityc-control-button {
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+  }
+  .analityc-control-button + .analityc-control-button {
+    margin-left: 20px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .analityc-control-switcher {
+    margin-top: 25px;
+  }
+  .analityc-control-switcher a {
+    font-size: 14px;
+    padding: 0 30px;
+    line-height: 40px;
+  }
+  analityc-control-switcher + .analityc-control-buttons {
+    display: block;
+    margin-left: 0;
+  }
+  .analityc-control-button {
+    width: 30px;
+    height: 30px;
+  }
+  .analityc-widget .analityc-graphics_round {
+    margin-top: 50px;
   }
 }
