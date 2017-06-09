@@ -1,4 +1,5 @@
 include ../page-header/page-header
+include ../analityc-graphics/analityc-graphics
 
 mixin income()
   .main._basic
@@ -36,28 +37,10 @@ mixin income()
           .analityc-control-switcher
             a(href="#").active %
             a(href="#") млрд руб.
-          .analytic-control-buttons
-            a(href="#").analytic-control-button.analytic-control-button_graphics.active
-              img
-            a(href="#").analytic-control-button.analytic-control-button_table
-              img
-          .analityc-graphics.analityc-graphics_round
-            span.analityc-graphics__toptext Плановый период
-            .analityc-graphics__col
-              p.analityc-graphics__year 2017
-              .analityc-graphics__graphic
-            .analityc-graphics__col
-              span.analityc-graphics__period-left
-              p.analityc-graphics__year 2018
-              .analityc-graphics__graphic
-            .analityc-graphics__col
-              span.analityc-graphics__period-right
-              p.analityc-graphics__year 2019
-              .analityc-graphics__graphic
-          .legend.analityc-widget__legend
-            p.legend__item.legend__item_blue доходы
-            p.legend__item.legend__item_pink расходы
-            p.legend__item.legend__item_green дефицит/профицит
+          .analityc-control-buttons
+            a(href="#").analityc-control-button.analityc-control-button_graphics.active
+            a(href="#").analityc-control-button.analityc-control-button_table
+          +analityc-graphics()
           a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
           
       // Dropdown block

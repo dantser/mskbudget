@@ -1,0 +1,107 @@
+.analityc-graphics {
+  display: block;
+  position: relative;
+  
+  &__toptext {
+    font-size: 16px;
+    font-weight: 500;
+    color: #b8b8b8;
+    text-transform: uppercase;
+    position: absolute;
+    right: 0;
+    bottom: 100%;
+    width: 64%;
+    text-align: center;
+    z-index: 1;
+    margin-bottom: 10px;
+    
+    span {
+      background-color: #fff;
+      padding: 0 10px;
+    }
+  }
+  
+  &__cols {
+    text-align: justify;
+    margin-top: 63px;
+    &:after {
+      content: '';
+      display: inline-block;
+      width: 100%;
+      height: 0.0000000001px;
+    }
+  }
+  
+  &__col {
+    width: 28%;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    position: relative;
+  }
+  
+  &__year {
+    font-size: 16px;
+  }
+  
+  &__period-left,
+  &__period-right {
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    height: 13px;
+    border: 1px solid #d7d7d7;
+    border-bottom: 0;
+    margin-bottom: 7px;
+  }
+  
+  &__period-left {
+    left: 50%;
+    right: 0;
+    border-right: 0;
+  }
+  
+  &__period-right {
+    right: 50%;
+    left: 0;
+    border-left: 0;
+  }
+  
+  &__graphic {
+    margin-top: 11px;
+    width: 270px;
+    height: 270px;
+    background-color: #ccc;
+    display: inline-block;
+  }
+  
+  &__legend {
+    margin-top: 78px;
+    
+    .legend__item {
+      color: #000;
+      font-size: 14px;
+      font-weight: 400;
+      font-family: $PFDinTextPro;
+      display: inline-block;
+      vertical-align: middle;
+      width: 32%;
+      margin-bottom: 9px;
+      &:before {
+        margin-right: 11px;
+      }
+      
+      &_violet:before {
+        background: #a870d5;
+        background-image: -webkit-linear-gradient(right,#8449b4,#a870d5 65%);
+        background-image: linear-gradient(270deg,#8449b4,#a870d5 65%);
+      }
+      
+      &_grey:before {
+        background: #ccd0d7;
+        background-image: -webkit-linear-gradient(right,#bcc0ca,#ccd0d7 65%);
+        background-image: linear-gradient(270deg,#bcc0ca,#ccd0d7 65%);
+      }
+    }
+  }
+}
