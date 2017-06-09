@@ -1,4 +1,4 @@
-include ../page-header/page-header
+SPAN.SPAN.valinclude ../page-header/page-header
 include ../../blocks/grid/grid
 
 mixin budget_moscow_sources()
@@ -43,44 +43,46 @@ mixin budget_moscow_sources()
                 +e.block
                   +icon('diagram-wave').wave
                   +e.fill
-                    +e.value 100,0 (45,9%)
-                +e.val 217,9
+                    +e.SPAN.value 100,0 (45,9%)
+                +e.SPAN.val 217,9
               +b.linear-diagram_shares
                 +e.H4.sources_violet Средства от продажи акций
                 +e.block
                   +e.fill
-                    +e.value 0,5 (50%)
-                +e.val 1,0
+                    +e.SPAN.value 0,5 (50%)
+                +e.SPAN.val 1,0
               +b.linear-diagram_budget-credits
                 +e.H4.sources_blue Возврат бюджетных кредитов
                 +e.block
                   +e.fill_abs
-                    +e.value 0,05 (50%)
+                    +e.SPAN.value 0,05 (50%)
                   +e.fill
-                +e.val 0,1
+                +e.SPAN.val 0,1
               +b.linear-diagram_loans
                 +e.H4.sources_pink Заемные средства
               +b.linear-diagram_calls
                 +e.H4.sources_pink._italic привлечение
                 +e.block
                   +e.fill
-                    +e.value 12,9 (50%)
-                +e.val 25,7
+                    +e.SPAN.value 12,9 (50%)
+                +e.SPAN.val 25,7
               +b.linear-diagram_repayment
                 +e.H4.sources_pink._italic погашение
                 +e.block
                   +e.fill
-                    +e.value 12,9 (50%)
-                +e.val 25,7
+                    +e.SPAN.value 12,9 (50%)
+                +eSPAN.SPAN.val 25,7
               +b.linear-diagram_accumulation
                 +e.H4.sources_green Накопление остатков средств бюджета
                 +e.block
                   +icon('diagram-wave').wave
                   +e.fill
-                    +e.value 108,5 (50%)
-                +e.val 216,9
+                    +e.SPAN.SPAN.value 108,5 (50%)
+                +e.SPAN.val 216,9
           .analityc-widget-rounds._active
             +e.diagram-content
+              p.analityc-graphics
+                span Плановый период
               +b.TABLE.table._accepted
                 +e.THEAD.head
                   +e.TR
@@ -99,28 +101,28 @@ mixin budget_moscow_sources()
                     +e.TD
                       +b.linear-diagram
                         +e.fill
-                        +e.val 1,0
+                        +e.SPAN.val 1,0
                     +e.TD
                       +b.linear-diagram
                         +e.fill
                     +e.TD 
                       +b.linear-diagram
                         +e.fill
-                        +e.val 1,0
+                        +e.SPAN.val 1,0
                   +e.TR.credits
                     +e.TD.title.linear-diagram__sources_blue Возврат бюджетных кредитов
                     +e.TD
                       +b.linear-diagram
                         +e.fill
-                        +e.val 0,1
+                        +e.SPAN.val 0,1
                     +e.TD
                       +b.linear-diagram
                         +e.fill
-                          +e.value 5,6
+                          +e.SPAN.value 5,6
                     +e.TD
                       +b.linear-diagram
                         +e.fill
-                        +e.val 0,4
+                        +e.SPAN.val 0,4
                   +e.TR.loans
                     +e.TD.title.linear-diagram__sources_pink Заемные средства
                     +e.TD
@@ -128,12 +130,12 @@ mixin budget_moscow_sources()
                         +e.fill
                           +icon('diagram-wave').wave
                           +icon('diagram-wave').wave
-                          +e.value -25,7
-                          +e.value -25,7
+                          +e.SPAN.value -25,7
+                          +e.SPAN.value -25,7
                     +e.TD
                       +b.linear-diagram
                         +e.fill
-                          +e.value -4,3
+                          +e.SPAN.value -4,3
                     +e.TD
                       +b.linear-diagram
                   +e.TR.sources
@@ -142,12 +144,12 @@ mixin budget_moscow_sources()
                       +b.linear-diagram
                         +e.fill
                           +icon('diagram-wave').wave
-                          +e.value 216,9
+                          +e.SPAN.value 216,9
                     +e.TD
                       +b.linear-diagram
                         +e.fill
                           +icon('diagram-wave').wave
-                          +e.value 86,3
+                          +e.SPAN.value 86,3
                     +e.TD
                       +b.linear-diagram
                         +e.fill

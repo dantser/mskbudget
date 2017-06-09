@@ -189,12 +189,6 @@
       th {
         padding-bottom: 35px;
         font-size: 14px;
-
-        &::after {
-          height: 212px;
-          width: 2px;
-          color: #c9c9c9;
-        }
       }
     }
 
@@ -205,55 +199,74 @@
 
     &__data {
       font-size: 24px;
+      width: 27.3%;
 
       &_red {
         color: #ec1d48;
+        position: relative;
 
-        &::after {
+        &:after {
+          position: absolute;
+          content: '';
           height: 212px;
-          width: 2px;
-          color: #c9c9c9;
+          width: 1px;
+          right: calc(50% - 1px);
+          background-color: #c9c9c9;
+          top: 45px;
         }
       }
 
       &_green {
         color: #85c53e;
+        vertical-align: bottom;
       }
     }
 
-    tr {
-      margin-bottom: 13px;
-    }
-
     td {
-      padding: 10px 0;
+      padding: 5px 0;
     }
 
     .linear-diagram {
       text-align: center;
       margin-bottom: 0;
       position: relative;
+      transform: translateX(50%);
+      display: inline-block;
 
       &__fill {
         display: inline-block;
         vertical-align: middle;
-        transform: translateX(100%);
       }
 
       &__val {
         font-size: 14px;
-        transform: translateX(100%);
+      }
+
+      &__wave {
+        left: 4px;
+      }
+
+      &__sources {
+        width: 18%;
+      }
+    }
+
+    &__deficit, &__total {
+      .table__title {
+        font-weight: 500;
       }
     }
 
     &__shares {
-      .linear-diagram {
+      td {
 
-        &__fill {
+        .linear-diagram__fill {
           width: 10px;
           background-image: linear-gradient(to right, #9d308a 0%, #ff695b 100%);
+        }
 
-          &:last-of-type {
+        &:last-child {
+          .linear-diagram__fill {
             width: 17px;
           }
         }
@@ -261,61 +274,102 @@
     }
 
     &__credits {
-      .linear-diagram {
+       td {
 
-        &__fill {
+        .linear-diagram__fill {
           width: 10px;
           background-image: linear-gradient(to right, #00ffff 0%, #004ccf 100%);
+        }
 
-          &:nth-of-type(2) {
-            width: 16px;
+        &:nth-child(3) {
+          .linear-diagram__fill {
+            width: 21px;
+          }
+
+          .linear-diagram__value {
+            right: 3px;
           }
         }
       }
     }
 
     &__loans {
-      .linear-diagram {
+      td {
 
-        &__fill {
+        .linear-diagram__fill {
           width: 123px;
           background-image: linear-gradient(to right, #612292 0%, #bd84e9 100%);
         }
 
-        &:nth-of-type(2) {
+        &:nth-child(2) {
+          .linear-diagram {
+            transform: none;
 
-          &__fill {
+            &__wave {
+              left: 43px;
+
+              &:nth-child(2) {
+                right: 43px;
+                left: inherit;
+              }
+            }
+
+            &__value {
+
+              &:nth-child(4) {
+                left: 4px;
+                right: inherit;
+              }
+            }
+          }
+        }
+
+        &:nth-child(3) {
+          .linear-diagram__fill {
             width: 44px;
+            transform: translateX(-100%);
           }
         }
       }
     }
 
     &__sources {
-      .linear-diagram {
+      td {
 
-        &__fill {
+        .linear-diagram__fill {
           width: 121px;
           background-image: linear-gradient(to right, #b3dd34 0%, #30b069 100%);
+        }
 
-          &:nth-of-type(2) {
+        &:nth-child(3) {
+          .linear-diagram__fill {
             width: 82px;
           }
+        }
 
-          &:nth-of-type(3) {
+        &:nth-child(4) {
+          .linear-diagram__fill {
             width: 42px;
           }
         }
       }
     }
+
+    &__total {
+
+      .table__title {
+        padding-top: 20px;
+      }
+    }
   }
 }
 
-.linear-diagram__fill::before {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  top: 50%;
-  transform: translateY(50%);
-  border: 20px solid transparent;	border-left: 20px solid #0062d5;
-}
+// .linear-diagram__fill::before {
+//   position: absolute;
+//   content: '';
+//   width: 20px;
+//   height: 20px;
+//   top: 50%;
+//   transform: translateY(50%);
+//   border: 20px solid transparent;	border-left: 20px solid #0062d5;
+// }
