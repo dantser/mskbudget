@@ -5,6 +5,10 @@
   border: 1px solid #0d46a1;
   border-radius: 2px;
   
+  @media screen and (max-width: 550px) {
+    margin-top: 25px;
+  }
+  
   a {
     display: inline-block;
     font-size: 14px;
@@ -18,11 +22,31 @@
       color: #fff;
       background-color: #0d46a1;
     }
+    
+    @media screen and (max-width: 760px) {
+      font-size: 23px;
+      padding: 0 40px;
+      line-height: 60px;
+    }
+    
+    @media screen and (max-width: 550px) {
+      font-size: 14px;
+      padding: 0 30px;
+      line-height: 40px;
+    }
+  }
+  
+  & + .analityc-control-buttons {
+    margin-left: 30px;
+    
+    @media screen and (max-width: 550px) {
+      display: block;
+      margin-left: 0;
+    }
   }
 }
 
 .analityc-control-buttons {
-  margin-left: 30px;
   margin-top: 30px;
   display: inline-block;
   vertical-align: middle;
@@ -37,8 +61,23 @@
   background-repeat: no-repeat;
   background-position: center;
   
+  @media screen and (max-width: 760px) {
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+  }
+  
+  @media screen and (max-width: 550px) {
+    width: 30px;
+    height: 30px;
+  }
+  
   & + & {
     margin-left: 10px;
+    
+    @media screen and (max-width: 760px) {
+      margin-left: 20px;
+    }
   }
   
   &_graphics {
@@ -56,6 +95,15 @@
   }
 }
 
-.analityc-widget__graphics {
-  margin-top: 63px;
+.analityc-widget {
+  .analityc-graphics_round {
+    margin-top: 63px;
+    
+    @media screen and (max-width: 550px) {
+      margin-top: 50px;
+    }
+  }
+  .analityc-graphics_column {
+    margin-top: 20px;
+  }
 }

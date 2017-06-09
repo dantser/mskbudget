@@ -1,5 +1,5 @@
-mixin analityc-graphics()
-  +b.analityc-graphics._round
+mixin analityc-graphics-round()
+  +b.analityc-graphics&attributes(attributes)._round
     +e.P.toptext
       span Плановый период
     +e.cols
@@ -14,6 +14,34 @@ mixin analityc-graphics()
         +e.SPAN.period-right
         +e.P.year 2019
         +e.graphic
+    +e.legend.legend
+      p.legend__item.legend__item_green Налог на доходы физических лиц
+      p.legend__item.legend__item_blue Неналоговые доходы
+      p.legend__item.legend__item_violet Налог на имущество организаций
+      p.legend__item.legend__item_pink Налог на прибыль организаций
+      p.legend__item.legend__item_grey Прочие налоговые доходы
+      
+mixin analityc-graphics-column()
+  +b.analityc-graphics&attributes(attributes)._column
+    +e.cols
+      +e.col
+        +e.P.year 2017
+        +e.graphic
+        +e.bottom
+          p Бюджет первоначальный
+          p Бюджет с учетом изменений
+      +e.col
+        +e.P.year 2018
+        +e.graphic
+        +e.bottom
+          p Бюджет первоначальный
+          p Бюджет с учетом изменений
+      +e.col
+        +e.P.year 2019
+        +e.graphic
+        +e.bottom
+          p Бюджет первоначальный
+          p Бюджет с учетом изменений
     +e.legend.legend
       p.legend__item.legend__item_green Налог на доходы физических лиц
       p.legend__item.legend__item_blue Неналоговые доходы

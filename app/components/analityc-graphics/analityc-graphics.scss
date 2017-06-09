@@ -19,6 +19,18 @@
       background-color: #fff;
       padding: 0 10px;
     }
+    
+    @media screen and (min-width: 801px) and (max-width: 1100px) {
+      width: 60%;
+    }
+    
+    @media screen and (max-width: 800px) {
+      width: 64%;
+    }
+    
+    @media screen and (max-width: 760px) {
+      display: none;
+    }
   }
   
   &__cols {
@@ -29,6 +41,10 @@
       width: 100%;
       height: 0.0000000001px;
     }
+    
+    @media screen and (max-width: 760px) {
+      text-align: center;
+    }
   }
   
   &__col {
@@ -37,10 +53,29 @@
     vertical-align: top;
     text-align: center;
     position: relative;
+    
+    @media screen and (min-width: 761px) and (max-width: 1100px) {
+      width: 170px;
+    }
+    
+    @media screen and (max-width: 760px) {
+      display: block;
+      margin: 50px auto;
+      width: 400px;
+    }
+    
+    @media screen and (max-width: 550px) {
+      width: 250px;
+      margin: 30px auto;
+    }
   }
   
   &__year {
     font-size: 16px;
+    
+    @media screen and (max-width: 760px) {
+      font-size: 25px;
+    }
   }
   
   &__period-left,
@@ -52,6 +87,10 @@
     border: 1px solid #d7d7d7;
     border-bottom: 0;
     margin-bottom: 7px;
+    
+    @media screen and (max-width: 760px) {
+      display: none;
+    }
   }
   
   &__period-left {
@@ -68,14 +107,25 @@
   
   &__graphic {
     margin-top: 11px;
-    width: 270px;
-    height: 270px;
+    width: 100%;
     background-color: #ccc;
     display: inline-block;
   }
   
   &__legend {
     margin-top: 78px;
+    
+    @media screen and (max-width: 760px) {
+      margin-top: 20px;
+    }
+    
+    @media screen and (max-width: 700px) {
+      height: auto;
+    }
+    
+    @media screen and (max-width: 550px) {
+      margin-bottom: 30px;
+    }
     
     .legend__item {
       color: #000;
@@ -101,6 +151,135 @@
         background-image: -webkit-linear-gradient(right,#bcc0ca,#ccd0d7 65%);
         background-image: linear-gradient(270deg,#bcc0ca,#ccd0d7 65%);
       }
+      
+      @media screen and (min-width: 761px) and (max-width: 1100px) {
+        width: 50%;
+      }
+      
+      @media screen and (max-width: 760px) {
+        font-size: 18px;
+        width: 100%;
+        margin-bottom: 20px;
+      }
+      
+      @media screen and (max-width: 550px) {
+        font-size: 14px;
+      }
+    }
+  }
+  
+  &__bottom {
+    text-align: justify;
+    margin-top: 10px;
+    &:after {
+      content: '';
+      display: inline-block;
+      width: 100%;
+      height: 0.0000000001px;
+    }
+    
+    p {
+      font-size: 12px;
+      font-weight: 500;
+      color: #000;
+      max-width: 100px;
+      text-transform: uppercase;
+      display: inline-block;
+      line-height: 1.2;
+      text-align: left;
+      
+      @media screen and (min-width: 761px) and (max-width: 1100px) {
+        font-size: 10px;
+        max-width: 80px;
+      }
+      @media screen and (max-width: 760px) {
+        font-size: 14px;
+        max-width: 120px;
+      }
+      @media screen and (max-width: 550px) {
+        font-size: 12px;
+        max-width: 100px;
+      }
+    }
+  }
+  
+  &_round {
+    .analityc-graphics__graphic {
+      height: 270px;
+      
+      @media screen and (min-width: 1101px) and (max-width: 1140px) {
+        height: 243px;
+      }
+      
+      @media screen and (min-width: 761px) and (max-width: 1100px) {
+        height: 170px;
+      }
+      
+      @media screen and (max-width: 760px) {
+        height: 400px;
+      }
+      
+      @media screen and (max-width: 550px) {
+        height: 250px;
+      }
+    }
+  }
+  
+  &_column {
+    .analityc-graphics__cols {
+      padding-left: 33px;
+      padding-right: 21px;
+      
+      @media screen and (max-width: 1140px) {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+    .analityc-graphics__col {
+      text-align: left;
+      width: 26.5%;
+      
+      @media screen and (min-width: 761px) and (max-width: 1100px) {
+        width: 170px;
+      }
+      
+      @media screen and (max-width: 760px) {
+        display: block;
+        margin: 50px auto;
+        width: 400px;
+      }
+    
+      @media screen and (max-width: 550px) {
+        width: 250px;
+        margin: 30px auto;
+      }
+    }
+    .analityc-graphics__year {
+      font-size: 24px;
+      font-weight: 500;
+      letter-spacing: -0.05em;
+    }
+    .analityc-graphics__graphic {
+      height: 315px;
+      
+      @media screen and (min-width: 1101px) and (max-width: 1140px) {
+        height: 300px;
+      }
+      
+      @media screen and (min-width: 761px) and (max-width: 1100px) {
+        height: 212px;
+      }
+      
+      @media screen and (max-width: 760px) {
+        height: 500px;
+      }
+      
+      @media screen and (max-width: 550px) {
+        height: 312px;
+      }
+    }
+    .analityc-graphics__legend {
+      margin-top: 30px;
     }
   }
 }
