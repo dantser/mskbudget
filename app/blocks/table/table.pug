@@ -1,0 +1,101 @@
+//- Аргумент data - один из вариантов json данных income, income1, income2, income3 .json
+//- для каждого вида вкладок 02, 04, 06, 08 соотв.
+
+mixin table(data)
+  +b.table&attributes(attributes)
+
+    +e.row._caption
+      +e.col._four Виды доходов
+
+      if (data[0].year)
+        each item in data
+          +e.col._four= item.year
+      else
+        +e.col._four МЛРД РУБ.
+        +e.col._four %
+
+    if (typeof data[0].total === "object")
+      +e.row._subcaption
+        +e.col._four empty
+
+        +e.col._one Закон перво- начальный
+        +e.col._one Изменение
+        +e.col._one Закон с учетом Изменений
+
+        +e.col._one Закон перво- начальный
+        +e.col._one Изменение
+        +e.col._one Закон с учетом Изменений
+
+        +e.col._one Закон перво- начальный
+        +e.col._one Изменение
+        +e.col._one Закон с учетом Изменений
+
+    +e.row
+      +e.col._four Доходы, всего
+
+      each item in data
+        if (typeof data[0].total === "object")
+          +e.col._one= item.total.initial
+          +e.col._one= item.total.change
+          +e.col._one= item.total.final
+        else
+          +e.col._one= item.total
+
+    +e.row._opened
+      +e.col._four
+        +icon('angle-arrow').arrow
+        | Налоговые доходы, в том числе:
+
+      each item in data
+        if (typeof data[0].total === "object")
+          +e.col._one= item.tax.initial
+          +e.col._one= item.tax.change
+          +e.col._one= item.tax.final
+        else
+          +e.col._one= item.tax
+
+    +e.row
+      +e.col._four._subcol Налог на прибыль организаций
+
+      each item in data
+        if (typeof data[0].total === "object")
+          +e.col._one= item.org.initial
+          +e.col._one= item.org.change
+          +e.col._one= item.org.final
+        else
+          +e.col._one= item.org
+
+    +e.row
+      +e.col._four._subcol Налог на доходы физических лиц
+
+      each item in data
+        if (typeof data[0].total === "object")
+          +e.col._one= item.ndfl.initial
+          +e.col._one= item.ndfl.change
+          +e.col._one= item.ndfl.final
+        else
+          +e.col._one= item.ndfl
+
+    +e.row
+      +e.col._four ...
+
+      each item in data
+        if (typeof data[0].total === "object")
+          +e.col._one= item.other.initial
+          +e.col._one= item.other.change
+          +e.col._one= item.other.final
+        else
+          +e.col._one= item.other
+
+    +e.row
+      +e.col._four
+        +icon('angle-arrow').arrow
+        | Неналоговые доходы, в том числе:
+
+      each item in data
+        if (typeof data[0].total === "object")
+          +e.col._one= item.nonTax.initial
+          +e.col._one= item.nonTax.change
+          +e.col._one= item.nonTax.final
+        else
+          +e.col._one= item.nonTax

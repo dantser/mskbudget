@@ -1,11 +1,12 @@
 include ../page-header/page-header
+include ../../blocks/table/table
 
 mixin income()
   .main._basic
     section.basic-budget
       .wrapper
         +page-header('Доходы бюджета', false, true)
-        
+
         // Tab 1
         .analityc-widget
           .analityc-control-group._year
@@ -58,8 +59,9 @@ mixin income()
             p.legend__item.legend__item_blue доходы
             p.legend__item.legend__item_pink расходы
             p.legend__item.legend__item_green дефицит/профицит
+
           a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
-          
+
       // Dropdown block
       .dropdown-block
         .dropdown

@@ -1,0 +1,59 @@
+.table {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  color: $color-input;
+  background-color: yellow;
+
+  &__row {
+    display: table;
+    width: 100%;
+    border-bottom: 1px solid #e6e6e6;
+
+    &_caption {
+      font-size: 14px;
+      color: #898783;
+      border: none;
+    }
+
+    &_subcaption {
+      font-size: 11px;
+      color: #898783;
+      border-bottom: 2px solid #e6e6e6;
+    }
+
+    &_opened {
+
+      & .table__arrow {
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  &__col {
+    position: relative;
+    display: table-cell;
+    box-sizing: border-box;
+    vertical-align: middle;
+    /*padding: 19px 24px;*/
+    padding: 19px 0;
+
+    &_four { width: 25%; }
+
+    &_one { width: (1/9)*75%; }
+
+    &_subcol {
+      font-size: 14px;
+      padding-left: 20px;
+    }
+  }
+
+  &__arrow {
+    position: absolute;
+    top: calc(50% - 7px);
+    right: 0;
+    width: 14px;
+    height: 14px;
+    fill: #0d46a1;
+  }
+}
