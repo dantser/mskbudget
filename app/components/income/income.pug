@@ -136,7 +136,40 @@ mixin income()
             a(href="#").analityc-control-button.analityc-control-button_table
           .analityc-control-group._dp
             input(placeholder="Выберите дату исполнения").datepicker
-          +analityc-graphics-line()
+          +analityc-graphics-line('Исполнение доходов бюджета на 22.04.2017', getData('graphic-lines'))
+          a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
+          
+        // Tab 9
+        .analityc-widget.analityc-widget_income
+          .analityc-control-group._year
+            span Год
+            select.analityc-select
+              option(selected) 2017
+              option 2016
+              option 2015
+          .analityc-control-group._stage
+            span Этап
+            select.analityc-select
+              option(selected) Исполнение на дату
+              option Исполнение на дату
+              option Исполнение на дату
+          .analityc-control-group._level
+            span Уровень
+            select.analityc-select
+              option(selected) Бюджет москвы
+              option Бюджет области
+              option Бюджет региона
+          .analityc-control-group._transfer
+            span Классификация доходов
+            select.analityc-select
+              option(selected) Виды
+              option Виды
+          .analityc-control-buttons
+            a(href="#").analityc-control-button.analityc-control-button_graphics.active
+            a(href="#").analityc-control-button.analityc-control-button_table
+          .analityc-control-group._dp
+            input(placeholder="Выберите дату исполнения").datepicker
+          +analityc-graphics-line('Исполнение доходов бюджета на 1 февраля 2017', getData('graphic-lines-alt'))
           a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
 
       // Dropdown block
