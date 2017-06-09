@@ -1,0 +1,88 @@
+include ../page-header/page-header
+
+mixin income()
+  .main._basic
+    section.basic-budget
+      .wrapper
+        +page-header('Доходы бюджета', false, true)
+        
+        // Tab 1
+        .analityc-widget
+          .analityc-control-group._year
+            span Год
+            select.analityc-select
+              option(selected) 2017
+              option 2016
+              option 2015
+          .analityc-control-group._stage
+            span Этап
+            select.analityc-select
+              option(selected) Закон о бюджете утвержденный
+              option Закон о бюджете утвержденный
+              option Закон о бюджете утвержденный
+          .analityc-control-group._level
+            span Уровень
+            select.analityc-select
+              option(selected) Бюджет москвы
+              option Бюджет области
+              option Бюджет региона
+          .analityc-control-group._transfer
+            span Классификация доходов
+            select.analityc-select
+              option(selected) Виды
+              option Виды
+          .analityc-control-group._dp
+            input(placeholder="Выберите дату исполнения").datepicker
+          .analityc-control-switcher
+            a(href="#").active %
+            a(href="#") млрд руб.
+          .analytic-control-buttons
+            a(href="#").analytic-control-button.analytic-control-button_graphics.active
+              img
+            a(href="#").analytic-control-button.analytic-control-button_table
+              img
+          .analityc-graphics.analityc-graphics_round
+            span.analityc-graphics__toptext Плановый период
+            .analityc-graphics__col
+              p.analityc-graphics__year 2017
+              .analityc-graphics__graphic
+            .analityc-graphics__col
+              span.analityc-graphics__period-left
+              p.analityc-graphics__year 2018
+              .analityc-graphics__graphic
+            .analityc-graphics__col
+              span.analityc-graphics__period-right
+              p.analityc-graphics__year 2019
+              .analityc-graphics__graphic
+          .legend.analityc-widget__legend
+            p.legend__item.legend__item_blue доходы
+            p.legend__item.legend__item_pink расходы
+            p.legend__item.legend__item_green дефицит/профицит
+          a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
+          
+      // Dropdown block
+      .dropdown-block
+        .dropdown
+          .dropdown-trigger
+            .wrapper
+              span
+                strong Документы
+          .dropdown-content
+            .wrapper
+              span Документы
+        .dropdown
+          .dropdown-trigger
+            .wrapper
+              span
+                strong Новости по&nbsp;теме
+          .dropdown-content
+            .wrapper
+              span Новости
+        .dropdown
+          .dropdown-trigger
+            .wrapper
+              span
+                strong Сервисы
+          .dropdown-content
+            .wrapper
+              span Сервисы
