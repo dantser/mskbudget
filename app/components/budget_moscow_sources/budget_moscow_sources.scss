@@ -95,12 +95,24 @@
       background-image: linear-gradient(to right, #ff0036, #021398 100%);
       position: relative;
       cursor: pointer;
+      transition: all 1s ease;
 
       &_abs {
-        position: absolute;
+        position: absolute !important;
         width: 75px !important;
         border-radius: 2px;
-        right: 100%;
+        right: 27px;
+        z-index: 1;
+
+        display: none;
+
+        &::after {
+          @include pseudo;
+          top: 50%;
+          transform: translateY(-50%);
+          right: -17px;
+          border: 10px solid transparent;	border-left: 10px solid #0062d5;
+        }
       }
     }
 
@@ -111,11 +123,13 @@
       color: $color-white;
       font-family: $PFDinCondensedPro;
       font-size: 14px;
+      opacity: 1;
+      z-index: 1;
     }
 
     &__val {
       display: inline-block;
-      margin-left: 14px;
+      margin-left: 43px;
       vertical-align: middle;
       font-size: 14px;
     }
@@ -138,6 +152,12 @@
 
     .linear-diagram__block {
       width: 21px;
+
+      &:hover {
+        .linear-diagram__fill_abs {
+          display: block;
+        }
+      }
     }
 
     .linear-diagram__fill {
@@ -180,16 +200,21 @@
     margin-top: 120px;
   }
 
+  .analityc-graphics__toptext {
+    width: 55%;
+  }
+
 // TABLE
+  .section__diagram-content {
+    position: relative;
+  }
 
   .table, .table_accepted {
     width: 100%;
+    background-color: transparent;
 
-    &__head {
-      th {
-        padding-bottom: 35px;
-        font-size: 14px;
-      }
+    &__row {
+      border: none;
     }
 
     &__title {
@@ -198,44 +223,87 @@
     }
 
     &__data {
-      font-size: 24px;
       width: 27.3%;
+      display: table-cell;
+      padding: 5px 0;
+
+      &_year {
+        padding-bottom: 35px;
+        font-size: 16px;
+        position: relative;
+        color: $color-black;
+      }
 
       &_red {
         color: #ec1d48;
         position: relative;
+        font-size: 24px;
 
-        &:after {
-          position: absolute;
-          content: '';
+        &::after {
+          @include pseudo;
           height: 184px;
           width: 1px;
           right: calc(50% - 1px);
           background-color: #c9c9c9;
-          top: 30px;
+          top: 36px;
+        }
+
+        &::before {
+          @include pseudo;
+          top: 218px;
+          border: 2px solid transparent;	border-top: 5px solid #c9c9c9;
+          right: calc(50% - 2px);
         }
       }
 
       &_green {
         color: #85c53e;
         vertical-align: bottom;
+        font-size: 24px;
       }
     }
 
-    td {
-      padding: 5px 0;
+    &__period-left,
+    &__period-right {
+      position: absolute;
+      bottom: 100%;
+      right: 0;
+      height: 13px;
+      border: 1px solid #d7d7d7;
+      border-bottom: 0;
+      margin-bottom: 7px;
+    }
+
+    &__period-right {
+      right: 50%;
+      left: 0;
+      border-left: 0;
+    }
+
+    &__period-left {
+      left: 50%;
+      right: 0;
+      border-right: 0;
     }
 
     .linear-diagram {
       text-align: center;
       margin-bottom: 0;
       position: relative;
-      transform: translateX(50%);
       display: inline-block;
 
       &__fill {
         display: inline-block;
         vertical-align: middle;
+        left: 50%;
+        position: relative;
+
+        &_extra {
+          opacity: .5;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
       }
 
       &__val {
@@ -258,64 +326,136 @@
     }
 
     &__deficit {
-
+      margin-bottom: 10px;
     }
 
     &__shares {
-      td {
+      .table__data {
 
         .linear-diagram__fill {
           width: 10px;
           background-image: linear-gradient(to right, #9d308a 0%, #ff695b 100%);
+
+          &_extra {
+            width: 17px;
+          }
+        }
+
+        .linear-diagram__val_extra {
+          margin-left: 51px;
         }
 
         &:last-child {
-          .linear-diagram__fill {
-            width: 17px;
+          .linear-diagram {
+            &__fill {
+              width: 17px;
+
+              &_down {
+                background-image: none;
+                border: 1px solid $color-red;
+              }
+            }
           }
         }
       }
     }
 
     &__credits {
-       td {
 
-        .linear-diagram__fill {
-          width: 10px;
-          background-image: linear-gradient(to right, #00ffff 0%, #004ccf 100%);
+       .table__data {
+
+        .linear-diagram {
+          &__fill {
+            width: 10px;
+            background-image: linear-gradient(to right, #00ffff 0%, #004ccf 100%);
+
+            &_extra {
+              width: 17px;
+            }
+
+            &_abs {
+              width: 41px !important;
+              background-image: linear-gradient(to right, #00ffff 0%, #004ccf 100%);
+              position: relative;
+              cursor: pointer;
+              transition: all 1s ease;
+              height: 30px;
+              right: 40px;
+            }
+          }
+
+          &__val_extra {
+            margin-left: 81px;
+          }
+
+          &:hover {
+            .linear-diagram__fill_abs {
+              display: block;
+            }
+          }
         }
 
         &:nth-child(3) {
           .linear-diagram__fill {
             width: 21px;
+
+            &_extra {
+              width: 32px;
+            }
           }
 
           .linear-diagram__value {
             right: 3px;
           }
         }
+
+        &:last-child {
+          .linear-diagram__val {
+            margin-left: 35px;
+          }
+        }
       }
     }
 
     &__loans {
-      td {
+      .table__data {
 
         .linear-diagram__fill {
           width: 123px;
           background-image: linear-gradient(to right, #612292 0%, #bd84e9 100%);
+
+          .linear-diagram__wave {
+            &:nth-child(2) {
+              left: 64px;
+            }
+          }
         }
 
         &:nth-child(2) {
-          .linear-diagram {
-            transform: none;
+          .linear-diagram__fill {
+            left: inherit;
 
+            &_extra {
+              width: 130px;
+              left: 0;
+            }
+
+            &_loan {
+              left: 40px;
+            }
+          }
+
+          &__val {
+            margin-left: 50px;
+
+            &_extra {
+              margin-left: 45px;
+            }
+          }
+
+          .linear-diagram {
             &__wave {
               left: 43px;
-
-              &:nth-child(2) {
-                right: 43px;
-                left: inherit;
-              }
             }
 
             &__value {
@@ -329,25 +469,89 @@
         }
 
         &:nth-child(3) {
-          .linear-diagram__fill {
-            width: 44px;
-            transform: translateX(-100%);
+          .linear-diagram {
+
+            &__fill {
+              width: 44px;
+              left: -50%;
+
+              &_extra {
+                width: 61px;
+              }
+
+              &_loan2 {
+                left: -50%;
+              }
+            }
+
+            &__val {
+              margin-left: 0;
+              margin-right: 115px;
+            }
+          }
+        }
+
+        &:last-child {
+          .linear-diagram {
+
+            &__fill_extra {
+              width: 20px;
+              position: relative;
+              left: -50%;
+            }
+
+            &__val_extra {
+              margin-left: 0;
+              margin-right: 48px;
+            }
           }
         }
       }
     }
 
     &__sources {
-      td {
+      .table__data {
 
-        .linear-diagram__fill {
-          width: 121px;
-          background-image: linear-gradient(to right, #b3dd34 0%, #30b069 100%);
+        .linear-diagram {
+
+          &__fill {
+            width: 121px;
+            background-image: linear-gradient(to right, #b3dd34 0%, #30b069 100%);
+
+            &_extra {
+              width: 129px;
+            }
+          }
+
+          &__val_extra {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: -40px;
+          }
         }
 
         &:nth-child(3) {
-          .linear-diagram__fill {
-            width: 82px;
+          .linear-diagram {
+            &__fill {
+              width: 82px;
+
+              &_down {
+                position: absolute;
+                width: 13px;
+                background-image: none;
+                left: 100%;
+                border: 1px solid #30b069;
+                border-left: none;
+              }
+            }
+
+            &__val_down {
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+              right: -45px;
+            }
           }
         }
 
@@ -360,20 +564,77 @@
     }
 
     &__total {
+      margin-top: 10px;
 
       .table__title {
         padding-top: 20px;
       }
     }
   }
-}
 
-// .linear-diagram__fill::before {
-//   position: absolute;
-//   content: '';
-//   width: 20px;
-//   height: 20px;
-//   top: 50%;
-//   transform: translateY(50%);
-//   border: 20px solid transparent;	border-left: 20px solid #0062d5;
-// }
+  .table_proficit {
+    width: 42%;
+
+    .table {
+      &__data {
+        width: 58%;
+        position: relative;
+
+        &_arrowed {
+          &::after {
+            @include pseudo;
+            height: 184px;
+            width: 1px;
+            right: calc(50% - 1px);
+            background-color: #c9c9c9;
+            top: 36px;
+          }
+
+          &::before {
+            @include pseudo;
+            top: 218px;
+            border: 2px solid transparent;	border-top: 5px solid #c9c9c9;
+            right: calc(50% - 2px);
+          }
+        }
+      }
+
+      &__title {
+        width: 42%;
+      }
+
+      &__shares {
+
+        .linear-diagram {
+          &__fill {
+            width: 10px !important;
+          }
+        }
+      }
+
+      &__credits {
+        .linear-diagram {
+          &__fill {
+            width: 10px !important;
+            left: 36%;
+          }
+        }
+      }
+
+      &__loans {
+
+        .linear-diagram {
+          &__fill {
+            width: 62px !important;
+            left: -50% !important;
+          }
+
+          &__value {
+            left: -20px !important;
+            right: 0;
+          }
+        }
+      }
+    }
+  }
+}

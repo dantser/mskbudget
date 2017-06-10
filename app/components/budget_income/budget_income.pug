@@ -2,7 +2,7 @@ include ../page-header/page-header
 include ../analityc-widgethead/analityc-widgethead
 include ../analityc-graphics/analityc-graphics
 
-mixin income()
+mixin budget_income()
   .main._basic
     section.basic-budget
       .wrapper
@@ -11,31 +11,31 @@ mixin income()
         // Tab 1
         .analityc-widget.analityc-widget_income
           +analityc-widgethead-income(1)
-          +analityc-graphics-round()
+          +analityc-graphics-round('income1')
           a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
 
         // Tab 3
         .analityc-widget.analityc-widget_income
           +analityc-widgethead-income(2)
-          +analityc-graphics-column()
+          +analityc-graphics-column('income1')
           a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
 
         // Tab 5
         .analityc-widget.analityc-widget_income
           +analityc-widgethead-income(1)
-          +analityc-graphics-singleround()
+          +analityc-graphics-singleround('income2')
           a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
 
         // Tab 7
         .analityc-widget.analityc-widget_income
           +analityc-widgethead-income(4)
-          +analityc-graphics-line('Исполнение доходов бюджета на 22.04.2017', getData('graphic-lines'))
+          +analityc-graphics-line('Исполнение доходов бюджета на 22.04.2017', getData('graphic-lines-income1'))
           a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
           
         // Tab 9
         .analityc-widget.analityc-widget_income
           +analityc-widgethead-income(4)
-          +analityc-graphics-line('Исполнение доходов бюджета на 1 февраля 2017', getData('graphic-lines-alt'))
+          +analityc-graphics-line('Исполнение доходов бюджета на 1 февраля 2017', getData('graphic-lines-income2'))
           a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
 
       // Dropdown block

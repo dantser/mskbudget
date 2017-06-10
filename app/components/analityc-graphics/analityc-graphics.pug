@@ -1,4 +1,7 @@
-mixin analityc-graphics-round()
+include ../../blocks/legend/legend
+
+//- legendtype - тип легенды(json файл)
+mixin analityc-graphics-round(legendtype)
   +b.analityc-graphics&attributes(attributes)._round
     +e.P.toptext
       span Плановый период
@@ -14,15 +17,23 @@ mixin analityc-graphics-round()
         +e.SPAN.period-right
         +e.P.year 2019
         +e.graphic._round
-    +e.legend.legend
-      p.legend__item.legend__item_green Налог на доходы физических лиц
-      p.legend__item.legend__item_blue Неналоговые доходы
-      p.legend__item.legend__item_violet Налог на имущество организаций
-      p.legend__item.legend__item_pink Налог на прибыль организаций
-      p.legend__item.legend__item_grey Прочие налоговые доходы
+    if legendtype == 'income1'
+      +legend(getData('legend-income1')).analityc-graphics__legend
+    if legendtype == 'income2'
+      +legend(getData('legend-income2')).analityc-graphics__legend
+    if legendtype == 'expenses1'
+      +legend(getData('legend-expenses1')).analityc-graphics__legend
+    if legendtype == 'expenses2'
+      +legend(getData('legend-expenses2')).analityc-graphics__legend
+    if legendtype == 'expenses3'
+      +legend(getData('legend-expenses3')).analityc-graphics__legend
+    if legendtype == 'expenses4'
+      +legend(getData('legend-expenses4')).analityc-graphics__legend
+    if legendtype == 'expenses5'
+      +legend(getData('legend-expenses5')).analityc-graphics__legend
      
-     
-mixin analityc-graphics-column()
+//- legendtype - тип легенды(json файл)
+mixin analityc-graphics-column(legendtype)
   +b.analityc-graphics&attributes(attributes)._column
     +e.cols
       +e.col
@@ -43,29 +54,65 @@ mixin analityc-graphics-column()
         +e.bottom
           p Бюджет первоначальный
           p Бюджет с учетом изменений
-    +e.legend.legend
-      p.legend__item.legend__item_green Налог на доходы физических лиц
-      p.legend__item.legend__item_blue Неналоговые доходы
-      p.legend__item.legend__item_violet Налог на имущество организаций
-      p.legend__item.legend__item_pink Налог на прибыль организаций
-      p.legend__item.legend__item_grey Прочие налоговые доходы
+    if legendtype == 'income1'
+      +legend(getData('legend-income1')).analityc-graphics__legend
+    if legendtype == 'income2'
+      +legend(getData('legend-income2')).analityc-graphics__legend
+    if legendtype == 'expenses1'
+      +legend(getData('legend-expenses1')).analityc-graphics__legend
+    if legendtype == 'expenses2'
+      +legend(getData('legend-expenses2')).analityc-graphics__legend
+    if legendtype == 'expenses3'
+      +legend(getData('legend-expenses3')).analityc-graphics__legend
+    if legendtype == 'expenses4'
+      +legend(getData('legend-expenses4')).analityc-graphics__legend
+    if legendtype == 'expenses5'
+      +legend(getData('legend-expenses5')).analityc-graphics__legend
 
-
-mixin analityc-graphics-singleround()
+//- legendtype - тип легенды(json файл)
+mixin analityc-graphics-singleround(legendtype)
   +b.analityc-graphics&attributes(attributes)._singleround
     +e.cols
       +e.col
         +e.P.year 2016
         +e.graphic._round
       +e.col
-        +e.legend._vert.legend
-          p.legend__item.legend__item_pink Налог на прибыль организаций
-          p.legend__item.legend__item_green Налог на доходы физических лиц
-          p.legend__item.legend__item_violet Налог на имущество организаций
-          p.legend__item.legend__item_grey Прочие налоговые доходы
-          p.legend__item.legend__item_blue Неналоговый доходы
-          p.legend__item.legend__item_altgreen Безвозмездные поступления
+        if legendtype == 'income1'
+          +legend(getData('legend-income1')).analityc-graphics__legend.analityc-graphics__legend_vert
+        if legendtype == 'income2'
+          +legend(getData('legend-income2')).analityc-graphics__legend.analityc-graphics__legend_vert
+        if legendtype == 'expenses1'
+          +legend(getData('legend-expenses1')).analityc-graphics__legend.analityc-graphics__legend_vert
+        if legendtype == 'expenses2'
+          +legend(getData('legend-expenses2')).analityc-graphics__legend.analityc-graphics__legend_vert
+        if legendtype == 'expenses3'
+          +legend(getData('legend-expenses3')).analityc-graphics__legend.analityc-graphics__legend_vert
+        if legendtype == 'expenses4'
+          +legend(getData('legend-expenses4')).analityc-graphics__legend.analityc-graphics__legend_vert
+        if legendtype == 'expenses5'
+          +legend(getData('legend-expenses5')).analityc-graphics__legend.analityc-graphics__legend_vert
 
+//- legendtype - тип легенды(json файл)
+mixin analityc-graphics-singleround-alt(legendtype)
+  +b.analityc-graphics&attributes(attributes)._singleround
+    +e.cols
+      +e.col
+        +e.P.year 2016
+        +e.graphic._round
+    if legendtype == 'income1'
+      +legend(getData('legend-income1')).analityc-graphics__legend.analityc-graphics__legend_vert
+    if legendtype == 'income2'
+      +legend(getData('legend-income2')).analityc-graphics__legend.analityc-graphics__legend_vert
+    if legendtype == 'expenses1'
+      +legend(getData('legend-expenses1')).analityc-graphics__legend.analityc-graphics__legend_vert
+    if legendtype == 'expenses2'
+      +legend(getData('legend-expenses2')).analityc-graphics__legend.analityc-graphics__legend_vert
+    if legendtype == 'expenses3'
+      +legend(getData('legend-expenses3')).analityc-graphics__legend.analityc-graphics__legend_vert
+    if legendtype == 'expenses4'
+      +legend(getData('legend-expenses4')).analityc-graphics__legend.analityc-graphics__legend_vert
+    if legendtype == 'expenses5'
+      +legend(getData('legend-expenses5')).analityc-graphics__legend.analityc-graphics__legend_vert
 
 //- title - Заголовок графиков
 //- data - json файл с данными для графиков

@@ -1,4 +1,4 @@
-//- type - тип шапки (один из четырех)
+//- type - тип шапки доходов бюджета (один из четырех)
 mixin analityc-widgethead-income(type)
   +b.analityc-widgethead&attributes(attributes)
     .analityc-control-group._year
@@ -50,3 +50,56 @@ mixin analityc-widgethead-income(type)
         a(href="#").analityc-control-button.analityc-control-button_table
       .analityc-control-group._dp
         input(placeholder="Выберите дату исполнения").datepicker
+
+
+//- type - тип шапки расходов бюджета (один из трех)
+mixin analityc-widgethead-expenses(type)
+  +b.analityc-widgethead&attributes(attributes)
+    .analityc-control-group._year
+      span Год
+      select.analityc-select
+        option(selected) 2017
+        option 2016
+        option 2015
+    .analityc-control-group._stage
+      span Этап
+      select.analityc-select
+        option(selected) Закон о бюджете утвержденный
+        option Закон о внесении изменений
+        option Закон об исполнении
+        option Исполнение на дату
+    .analityc-control-group._level
+      span Уровень
+      select.analityc-select
+        option(selected) Бюджет москвы
+        option Бюджет области
+        option Бюджет региона
+        option Консолидированный бюджет
+    .analityc-control-group._transfer
+      span Межбюджетные трансферы
+      select.analityc-select
+        option(selected) Без межбюджетных трансфертов
+        option с трансфертами
+        p.analityc-popup Принятие закона о бюджете города Москвы происходит до принятия федерального бюджета, в котором установлены суммы межбюджетных трансфертов, поэтому в&nbsp;первоначальной версии бюджета города Москвы отсутствуют межбюджетные трансферты.
+    .analityc-control-buttons
+      a(href="#").analityc-control-button.analityc-control-button_graphics.active
+      a(href="#").analityc-control-button.analityc-control-button_table
+    if type == 1
+      .analityc-control-switcher
+        a(href="#").active доля от общей суммы, %
+        a(href="#") млрд руб.
+    if type == 2
+      .analityc-control-switcher
+        a(href="#").active млрд руб.
+        a(href="#") млн руб.
+    if type == 3
+      .analityc-control-group._dp
+        input(placeholder="Выберите дату исполнения").datepicker
+    .analityc-control-group._classify
+      span Классификация доходов
+      select.analityc-select
+        option(selected) Целевые статьи (программный и непрограммный тип)
+        option Разделы и подразделы
+        option Ведомства
+        option Виды
+        option Целевые статьи (программный и непрограммный тип)

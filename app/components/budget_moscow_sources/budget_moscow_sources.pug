@@ -79,86 +79,223 @@ mixin budget_moscow_sources()
                   +e.fill
                     +e.SPAN.SPAN.value 108,5 (50%)
                 +e.SPAN.val 216,9
+          .analityc-widget-rounds
+            +e.diagram-content
+              p.analityc-graphics__toptext
+                span Плановый период
+              +b.table._accepted
+                +e.row._caption
+                  +e.SPAN.title.linear-diagram__sources
+                  +e.SPAN.data._year 2017
+                  +e.SPAN.data._year 2018
+                    +e.SPAN.period-left
+                  +e.SPAN.data._year 2019
+                    +e.SPAN.period-right
+                +e.row.__deficit
+                  +e.title.linear-diagram__sources Дефицит
+                  +e.SPAN.data_red -217,9
+                  +e.SPAN.data_red -88,9
+                  +e.SPAN.data_red -9,7
+                +e.row.__shares
+                  +e.title.linear-diagram__sources_violet Средства от продажи акций
+                  +e.data
+                    +b.linear-diagram
+                      +e.fill
+                      +e.SPAN.val 1,0
+                  +e.data
+                    +b.linear-diagram
+                      +e.fill
+                      +e.SPAN.val 1,0
+                  +e.data 
+                    +b.linear-diagram
+                      +e.fill
+                      +e.SPAN.val 1,0
+                +e.row.__credits
+                  +e.title.linear-diagram__sources_blue Возврат бюджетных кредитов
+                  +e.data
+                    +b.linear-diagram
+                      +e.fill
+                      +e.SPAN.val 0,1
+                  +e.data
+                    +b.linear-diagram
+                      +e.fill
+                        +e.SPAN.value 5,6
+                  +e.data
+                    +b.linear-diagram
+                      +e.fill
+                      +e.SPAN.val 0,4
+                +e.row.__loans
+                  +e.title.linear-diagram__sources_pink Заемные средства
+                  +e.data
+                    +b.linear-diagram
+                      +e.fill
+                        +icon('diagram-wave').wave
+                        +icon('diagram-wave').wave
+                        +e.SPAN.value -25,7
+                        +e.SPAN.value -25,7
+                  +e.data
+                    +b.linear-diagram
+                      +e.fill
+                        +e.SPAN.value -4,3
+                  +e.data
+                    +b.linear-diagram
+                +e.row.__sources
+                  +e.title.linear-diagram__sources_green Использование остатков средств бюджета
+                  +e.data
+                    +b.linear-diagram
+                      +e.fill
+                        +icon('diagram-wave').wave
+                        +e.SPAN.value 216,9
+                  +e.data
+                    +b.linear-diagram
+                      +e.fill
+                        +icon('diagram-wave').wave
+                        +e.SPAN.value 86,3
+                  +e.data
+                    +b.linear-diagram
+                      +e.fill
+                        +e.value 8,4
+                +e.row.__total
+                  +e.title.linear-diagram__sources Всего по источникам финансирования дефицита
+                  +e.SPAN.data_green +217,9
+                  +e.SPAN.data_green +88,5
+                  +e.SPAN.data_green +9,7
           .analityc-widget-rounds._active
             +e.diagram-content
               p.analityc-graphics__toptext
                 span Плановый период
-              +b.TABLE.table._accepted
-                +e.THEAD.head
-                  +e.TR
-                    +e.TH
-                    +e.TH 2017
-                    +e.TH 2018
-                    +e.TH 2019
-                +e.TBODY
-                  +e.TR.deficit
-                    +e.TD.title.linear-diagram__sources Дефицит
-                    +e.TD.data_red -217,9
-                    +e.TD.data_red -217,9
-                    +e.TD.data_red -217,9
-                  +e.TR.shares
-                    +e.TD.title.linear-diagram__sources_violet Средства от продажи акций
-                    +e.TD
-                      +b.linear-diagram
-                        +e.fill
-                        +e.SPAN.val 1,0
-                    +e.TD
-                      +b.linear-diagram
-                        +e.fill
-                    +e.TD 
-                      +b.linear-diagram
-                        +e.fill
-                        +e.SPAN.val 1,0
-                  +e.TR.credits
-                    +e.TD.title.linear-diagram__sources_blue Возврат бюджетных кредитов
-                    +e.TD
-                      +b.linear-diagram
-                        +e.fill
-                        +e.SPAN.val 0,1
-                    +e.TD
-                      +b.linear-diagram
-                        +e.fill
-                          +e.SPAN.value 5,6
-                    +e.TD
-                      +b.linear-diagram
-                        +e.fill
-                        +e.SPAN.val 0,4
-                  +e.TR.loans
-                    +e.TD.title.linear-diagram__sources_pink Заемные средства
-                    +e.TD
-                      +b.linear-diagram
-                        +e.fill
-                          +icon('diagram-wave').wave
-                          +icon('diagram-wave').wave
-                          +e.SPAN.value -25,7
-                          +e.SPAN.value -25,7
-                    +e.TD
-                      +b.linear-diagram
-                        +e.fill
-                          +e.SPAN.value -4,3
-                    +e.TD
-                      +b.linear-diagram
-                  +e.TR.sources
-                    +e.TD.title.linear-diagram__sources_green Использование остатков средств бюджета
-                    +e.TD
-                      +b.linear-diagram
-                        +e.fill
-                          +icon('diagram-wave').wave
-                          +e.SPAN.value 216,9
-                    +e.TD
-                      +b.linear-diagram
-                        +e.fill
-                          +icon('diagram-wave').wave
-                          +e.SPAN.value 86,3
-                    +e.TD
-                      +b.linear-diagram
-                        +e.fill
-                          +e.value 8,4
-                  +e.TR.total
-                    +e.TD.title.linear-diagram__sources Всего по источникам финансирования дефицита
-                    +e.TD.data_green +217,9
-                    +e.TD.data_green +88,5
-                    +e.TD.data_green +9,7
+              +b.table._accepted
+                +e.row._caption
+                  +e.SPAN.title.linear-diagram__sources
+                  +e.SPAN.data._year 2017
+                  +e.SPAN.data._year 2018
+                    +e.SPAN.period-left
+                  +e.SPAN.data._year 2019
+                    +e.SPAN.period-right
+                +e.row.__deficit
+                  +e.title.linear-diagram__sources Дефицит
+                  +e.SPAN.data_red -217,9
+                  +e.SPAN.data_red -88,9
+                  +e.SPAN.data_red -9,7
+                +e.row.__shares
+                  +e.title.linear-diagram__sources_violet Средства от продажи акций
+                  +e.data
+                    +b.linear-diagram
+                      +e.fill
+                        +e.fill_extra
+                      +e.SPAN.val_extra +1,0
+                  +e.data
+                    +b.linear-diagram
+                      +e.fill
+                        +e.fill_extra
+                      +e.SPAN.val_extra +1,0
+                  +e.data 
+                    +b.linear-diagram
+                      +e.fill_down
+                      +e.SPAN.val_down -1,0
+                +e.row.__credits
+                  +e.title.linear-diagram__sources_blue Возврат бюджетных кредитов
+                  +e.data
+                    +b.linear-diagram
+                      +e.fill
+                        +e.fill_extra
+                      +e.SPAN.val_extra 0,1 (+0,1)
+                  +e.data
+                    +b.linear-diagram
+                      +e.fill
+                        +e.SPAN.value 5,6
+                        +e.fill_extra
+                      +e.SPAN.val_extra +1,0
+                  +e.data
+                    +b.linear-diagram
+                      .linear-diagram__fill_abs
+                        +e.SPAN.value 0,4
+                      +e.fill
+                      +e.SPAN.val 0,4
+                +e.row.__loans
+                  +e.title.linear-diagram__sources_pink Заемные средства
+                  +e.data
+                    +b.linear-diagram
+                      +e.fill_loan
+                        +icon('diagram-wave').wave
+                        +icon('diagram-wave').wave
+                        +e.SPAN.value -25,7
+                        +e.SPAN.value -25,7
+                        +e.fill_extra
+                      +e.SPAN.val_extra +25,0
+                  +e.data
+                    +b.linear-diagram
+                      +e.SPAN.val_extra +2,5
+                      +e.fill_loan2
+                        +e.SPAN.value -4,3
+                        +e.fill_extra
+                  +e.data
+                    +b.linear-diagram
+                      +e.SPAN.val_extra +2,5
+                      +e.fill_extra
+                +e.row.__sources
+                  +e.title.linear-diagram__sources_green Использование остатков средств бюджета
+                  +e.data
+                    +b.linear-diagram
+                      +e.fill
+                        +icon('diagram-wave').wave
+                        +e.SPAN.value 216,9
+                        +e.fill_extra
+                        +e.SPAN.val_extra +10,0
+                  +e.data
+                    +b.linear-diagram
+                      +e.fill
+                        +e.fill_down
+                        +icon('diagram-wave').wave
+                        +e.SPAN.value 86,3
+                        +e.SPAN.val_down -10,0
+                  +e.data
+                    +b.linear-diagram
+                      +e.fill
+                        +e.value 8,4
+                +e.row.__total
+                  +e.title.linear-diagram__sources Всего по источникам финансирования дефицита
+                  +e.SPAN.data_green +217,9
+                  +e.SPAN.data_green +88,5
+                  +e.SPAN.data_green +9,7
+          .analityc-widget-rounds
+            +e.diagram-content
+              +b.table._proficit
+                +e.row._caption
+                  +e.SPAN.title.linear-diagram__sources
+                  +e.SPAN.data._year 2015
+                +e.row.__deficit
+                  +e.title.linear-diagram__sources Профицит
+                  +e.SPAN.data_green._arrowed 143,4
+                +e.row.__shares
+                  +e.title.linear-diagram__sources_violet Средства от продажи акций
+                  +e.data
+                    +b.linear-diagram
+                      +e.fill
+                      +e.SPAN.val 0,9
+                +e.row.__credits
+                  +e.title.linear-diagram__sources_blue Возврат бюджетных кредитов
+                  +e.data
+                    +b.linear-diagram
+                      +e.fill
+                      +e.SPAN.val -1,2
+                +e.row.__loans
+                  +e.title.linear-diagram__sources_pink Заемные средства
+                  +e.data
+                    +b.linear-diagram
+                      +e.fill
+                        +icon('diagram-wave').wave
+                        +e.SPAN.value -22,1
+                +e.row.__sources
+                  +e.title.linear-diagram__sources_green Накопление остатков&nbsp;средств бюджета
+                  +e.data
+                    +b.linear-diagram
+                      +e.fill
+                        +icon('diagram-wave').wave
+                        +e.SPAN.value 122,2
+                +e.row.__total
+                  +e.title.linear-diagram__sources Всего по источникам финансирования дефицита
+                  +e.SPAN.data_green 143,4
           a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
       .dropdown-block
         .dropdown
