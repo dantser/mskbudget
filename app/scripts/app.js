@@ -7,6 +7,7 @@ import burger from '../blocks/burger/burger';
 import lkNav from '../blocks/lk-nav/lkNav';
 import regions from '../components/regions/regions';
 import searchPage from '../components/search/searchPage';
+import budget_income from '../components/budget_income/budget_income';
 
 $(() => {
   selectbox();
@@ -17,4 +18,5 @@ $(() => {
   regions();
   tabs();
   searchPage();
+  budget_income();
 });

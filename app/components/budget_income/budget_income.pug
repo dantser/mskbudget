@@ -1,6 +1,7 @@
 include ../page-header/page-header
 include ../analityc-widgethead/analityc-widgethead
 include ../analityc-graphics/analityc-graphics
+include ../../blocks/table/table
 
 mixin budget_income()
   .main._basic
@@ -9,31 +10,55 @@ mixin budget_income()
         +page-header('Доходы бюджета', false, true)
 
         // Tab 1
-        .analityc-widget.analityc-widget_income
+        .analityc-widget.analityc-widget_income.active(data-stage="утвержденный", data-type="graphics")
           +analityc-widgethead-income(1)
           +analityc-graphics-round('income1')
           a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
+          
+        // Tab 2
+        .analityc-widget.analityc-widget_income(data-stage="утвержденный", data-type="table")
+          +analityc-widgethead-income(1)
+          +table-income(getData('income')).analityc-widget__table
+          a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
 
         // Tab 3
-        .analityc-widget.analityc-widget_income
+        .analityc-widget.analityc-widget_income(data-stage="изменения", data-type="graphics")
           +analityc-widgethead-income(2)
           +analityc-graphics-column('income1')
           a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
+          
+        // Tab 4
+        .analityc-widget.analityc-widget_income(data-stage="изменения", data-type="table")
+          +analityc-widgethead-income(3)
+          +table-income(getData('income1')).analityc-widget__table
+          a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
 
         // Tab 5
-        .analityc-widget.analityc-widget_income
+        .analityc-widget.analityc-widget_income(data-stage="исполнение", data-type="graphics")
           +analityc-widgethead-income(1)
           +analityc-graphics-singleround('income2')
           a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
+          
+        // Tab 6
+        .analityc-widget.analityc-widget_income(data-stage="исполнение", data-type="table")
+          +analityc-widgethead-income(1)
+          +table-income(getData('income2')).analityc-widget__table
+          a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
 
         // Tab 7
-        .analityc-widget.analityc-widget_income
+        .analityc-widget.analityc-widget_income(data-stage="на_дату", data-type="graphics")
           +analityc-widgethead-income(4)
           +analityc-graphics-line('Исполнение доходов бюджета на 22.04.2017', getData('graphic-lines-income1'))
           a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
           
+        // Tab 8
+        .analityc-widget.analityc-widget_income(data-stage="на_дату", data-type="table")
+          +analityc-widgethead-income(4)
+          +table-income(getData('income3')).analityc-widget__table
+          a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
+          
         // Tab 9
-        .analityc-widget.analityc-widget_income
+        .analityc-widget.analityc-widget_income(data-stage="на_дату", data-type="graphics", data-date="01.02.2017")
           +analityc-widgethead-income(4)
           +analityc-graphics-line('Исполнение доходов бюджета на 1 февраля 2017', getData('graphic-lines-income2'))
           a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
