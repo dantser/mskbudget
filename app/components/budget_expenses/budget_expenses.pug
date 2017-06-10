@@ -1,0 +1,104 @@
+include ../page-header/page-header
+include ../analityc-widgethead/analityc-widgethead
+include ../analityc-graphics/analityc-graphics
+
+mixin budget_expenses()
+  .main._basic
+    section.basic-budget
+      .wrapper
+        +page-header('Расходы бюджета', false, true)
+
+        // Tab 1
+        .analityc-widget.analityc-widget_expenses
+          +analityc-widgethead-expenses(1)
+          +analityc-graphics-round('expenses1')
+          a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
+          p.analityc-bottomtip * Кроме того в плановом периоде учитываются 
+            span условно утвержденные расходы
+              span.analityc-popup Под условно утверждаемыми (утвержденными) расходами понимаются не распределенные в&nbsp;плановом периоде в соответствии с&nbsp;классификацией расходов бюджетов бюджетные ассигнования.
+            | на 2018 год в сумме 48,3 млрд рублей и на 2019 год в сумме 97,5 млрд рублей
+
+        // Tab 3
+        .analityc-widget.analityc-widget_expenses
+          +analityc-widgethead-expenses(1)
+          +analityc-graphics-round('expenses2')
+          a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
+          p.analityc-bottomtip * Кроме того в плановом периоде учитываются 
+            span условно утвержденные расходы
+              span.analityc-popup Под условно утверждаемыми (утвержденными) расходами понимаются не распределенные в&nbsp;плановом периоде в соответствии с&nbsp;классификацией расходов бюджетов бюджетные ассигнования.
+            | на 2018 год в сумме 48,3 млрд рублей и на 2019 год в сумме 97,5 млрд рублей
+
+        // Tab 5
+        .analityc-widget.analityc-widget_expenses
+          +analityc-widgethead-expenses(1)
+          +analityc-graphics-round('expenses3')
+          a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
+          p.analityc-bottomtip * Кроме того в плановом периоде учитываются 
+            span условно утвержденные расходы
+              span.analityc-popup Под условно утверждаемыми (утвержденными) расходами понимаются не распределенные в&nbsp;плановом периоде в соответствии с&nbsp;классификацией расходов бюджетов бюджетные ассигнования.
+            | на 2018 год в сумме 48,3 млрд рублей и на 2019 год в сумме 97,5 млрд рублей
+
+        // Tab 7
+        .analityc-widget.analityc-widget_expenses
+          +analityc-widgethead-expenses(1)
+          +analityc-graphics-round('expenses4')
+          a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
+          p.analityc-bottomtip * Кроме того в плановом периоде учитываются 
+            span условно утвержденные расходы
+              span.analityc-popup Под условно утверждаемыми (утвержденными) расходами понимаются не распределенные в&nbsp;плановом периоде в соответствии с&nbsp;классификацией расходов бюджетов бюджетные ассигнования.
+            | на 2018 год в сумме 48,3 млрд рублей и на 2019 год в сумме 97,5 млрд рублей
+          
+        // Tab 9
+        .analityc-widget.analityc-widget_expenses
+          +analityc-widgethead-expenses(1)
+          +analityc-graphics-column('expenses5')
+          a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
+          p.analityc-bottomtip * Кроме того в плановом периоде учитываются 
+            span условно утвержденные расходы
+              span.analityc-popup Под условно утверждаемыми (утвержденными) расходами понимаются не распределенные в&nbsp;плановом периоде в соответствии с&nbsp;классификацией расходов бюджетов бюджетные ассигнования.
+            | на 2018 год в сумме 48,3 млрд рублей и на 2019 год в сумме 97,5 млрд рублей
+            
+        // Tab 11
+        .analityc-widget.analityc-widget_expenses
+          +analityc-widgethead-expenses(1)
+          +analityc-graphics-singleround-alt('expenses5')
+          a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
+          
+        // Tab 13
+        .analityc-widget.analityc-widget_expenses
+          +analityc-widgethead-expenses(3)
+          +analityc-graphics-line('Исполнение расходов бюджета на 22.04.2017', getData('graphic-lines-expenses1'))
+          a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
+          
+        // Tab 15
+        .analityc-widget.analityc-widget_expenses
+          +analityc-widgethead-expenses(3)
+          +analityc-graphics-line('Исполнение расходов бюджета на 01.02.2017', getData('graphic-lines-expenses1'))
+          a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
+
+      // Dropdown block
+      .dropdown-block
+        .dropdown
+          .dropdown-trigger
+            .wrapper
+              span
+                strong Документы
+          .dropdown-content
+            .wrapper
+              span Документы
+        .dropdown
+          .dropdown-trigger
+            .wrapper
+              span
+                strong Новости по&nbsp;теме
+          .dropdown-content
+            .wrapper
+              span Новости
+        .dropdown
+          .dropdown-trigger
+            .wrapper
+              span
+                strong Сервисы
+          .dropdown-content
+            .wrapper
+              span Сервисы
