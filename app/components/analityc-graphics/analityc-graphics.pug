@@ -3,7 +3,7 @@ include ../../blocks/legend/legend
 //- legendtype - тип легенды(json файл)
 mixin analityc-graphics-round(legendtype)
   +b.analityc-graphics&attributes(attributes)._round
-    +e.P.toptext
+    +e.P.periodtext
       span Плановый период
     +e.cols
       +e.col
@@ -33,26 +33,40 @@ mixin analityc-graphics-round(legendtype)
       +legend(getData('legend-expenses5')).analityc-graphics__legend
      
 //- legendtype - тип легенды(json файл)
-mixin analityc-graphics-column(legendtype)
+mixin analityc-graphics-column(legendtype, expenses)
   +b.analityc-graphics&attributes(attributes)._column
+    +e.P.periodtext
+      span Плановый период
+    +e.P.toptext МЛРД РУБ.
     +e.cols
       +e.col
         +e.P.year 2017
         +e.graphic._column
         +e.bottom
-          p Бюджет первоначальный
+          if expenses
+            p Бюджет дейтсвующий
+          else
+            p Бюджет первоначальный
           p Бюджет с учетом изменений
       +e.col
+        +e.SPAN.period-left
         +e.P.year 2018
         +e.graphic._column
         +e.bottom
-          p Бюджет первоначальный
+          if expenses
+            p Бюджет дейтсвующий
+          else
+            p Бюджет первоначальный
           p Бюджет с учетом изменений
       +e.col
+        +e.SPAN.period-right
         +e.P.year 2019
         +e.graphic._column
         +e.bottom
-          p Бюджет первоначальный
+          if expenses
+            p Бюджет дейтсвующий
+          else
+            p Бюджет первоначальный
           p Бюджет с учетом изменений
     if legendtype == 'income1'
       +legend(getData('legend-income1')).analityc-graphics__legend
@@ -100,19 +114,19 @@ mixin analityc-graphics-singleround-alt(legendtype)
         +e.P.year 2016
         +e.graphic._round
     if legendtype == 'income1'
-      +legend(getData('legend-income1')).analityc-graphics__legend.analityc-graphics__legend_vert
+      +legend(getData('legend-income1')).analityc-graphics__legend
     if legendtype == 'income2'
-      +legend(getData('legend-income2')).analityc-graphics__legend.analityc-graphics__legend_vert
+      +legend(getData('legend-income2')).analityc-graphics__legend
     if legendtype == 'expenses1'
-      +legend(getData('legend-expenses1')).analityc-graphics__legend.analityc-graphics__legend_vert
+      +legend(getData('legend-expenses1')).analityc-graphics__legend
     if legendtype == 'expenses2'
-      +legend(getData('legend-expenses2')).analityc-graphics__legend.analityc-graphics__legend_vert
+      +legend(getData('legend-expenses2')).analityc-graphics__legend
     if legendtype == 'expenses3'
-      +legend(getData('legend-expenses3')).analityc-graphics__legend.analityc-graphics__legend_vert
+      +legend(getData('legend-expenses3')).analityc-graphics__legend
     if legendtype == 'expenses4'
-      +legend(getData('legend-expenses4')).analityc-graphics__legend.analityc-graphics__legend_vert
+      +legend(getData('legend-expenses4')).analityc-graphics__legend
     if legendtype == 'expenses5'
-      +legend(getData('legend-expenses5')).analityc-graphics__legend.analityc-graphics__legend_vert
+      +legend(getData('legend-expenses5')).analityc-graphics__legend
 
 //- title - Заголовок графиков
 //- data - json файл с данными для графиков
