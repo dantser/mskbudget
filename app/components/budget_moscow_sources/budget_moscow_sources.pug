@@ -1,5 +1,6 @@
 include ../page-header/page-header
 include ../../blocks/grid/grid
+include ../../blocks/table/table
 
 mixin budget_moscow_sources()
   .main._basic
@@ -33,12 +34,15 @@ mixin budget_moscow_sources()
           .analityc-control-buttons
             a(href="#").analityc-control-button.analityc-control-button_graphics.active
             a(href="#").analityc-control-button.analityc-control-button_table
+          .analityc-control-switcher
+            a(href="#").active %
+            a(href="#") млн руб.
           .analityc-control-group._dp
             input(placeholder="22.04.2017").datepicker
-          .analityc-widget-rounds
+          .analityc-widget-sources.analityc-widget-sources_date._active
             H3.moscow-sources__diagram-title Исполнение доходов бюджета на 22.04.2017
             +e.diagram-content
-              +b.linear-diagram
+              +b.linear-diagram_sources
                 +e.H4.sources_bold Всего по источникам финансирования дефицита
                 +e.block
                   +icon('diagram-wave').wave
@@ -79,7 +83,7 @@ mixin budget_moscow_sources()
                   +e.fill
                     +e.SPAN.SPAN.value 108,5 (50%)
                 +e.SPAN.val 216,9
-          .analityc-widget-rounds
+          .analityc-widget-sources.analityc-widget-sources_approved
             +e.diagram-content
               p.analityc-graphics__toptext
                 span Плановый период
@@ -160,7 +164,7 @@ mixin budget_moscow_sources()
                   +e.SPAN.data_green +217,9
                   +e.SPAN.data_green +88,5
                   +e.SPAN.data_green +9,7
-          .analityc-widget-rounds._active
+          .analityc-widget-sources.analityc-widget-sources_changes
             +e.diagram-content
               p.analityc-graphics__toptext
                 span Плановый период
@@ -258,7 +262,7 @@ mixin budget_moscow_sources()
                   +e.SPAN.data_green +217,9
                   +e.SPAN.data_green +88,5
                   +e.SPAN.data_green +9,7
-          .analityc-widget-rounds
+          .analityc-widget-sources.analityc-widget-sources_done
             +e.diagram-content
               +b.table._proficit
                 +e.row._caption
@@ -296,6 +300,9 @@ mixin budget_moscow_sources()
                 +e.row.__total
                   +e.title.linear-diagram__sources Всего по источникам финансирования дефицита
                   +e.SPAN.data_green 143,4
+          .analityc-widget-sources.analityc-widget-sources_table
+            +e.diagram-content
+              +table(getData('income1'))
           a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
       .dropdown-block
         .dropdown

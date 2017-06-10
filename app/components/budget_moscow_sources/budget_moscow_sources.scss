@@ -13,7 +13,27 @@
 
   .analityc-control-buttons {
     margin-left: 0;
-    margin-right: 30px;
+    margin-right: 29px;
+  }
+
+  .analityc-control-switcher {
+    display: none;
+    margin-left: 0;
+    margin-top: 29px;
+  }
+
+  .analityc-widget-sources {
+    margin-top: 78px;
+    text-align: center;
+    display: none;
+  }
+
+  .analityc-widget-sources_done._active,
+  .analityc-widget-sources_changes._active,
+  .analityc-widget-sources_approved._active,
+  .analityc-widget-sources_date._active,
+  .analityc-widget-sources_table._active {
+    display: block;
   }
 
   &__diagram-title {
@@ -103,15 +123,26 @@
         border-radius: 2px;
         right: 27px;
         z-index: 1;
-
         display: none;
+
+        @media (max-width: 1140px) {
+          left: 27px;
+          right: 0;
+        }
 
         &::after {
           @include pseudo;
           top: 50%;
           transform: translateY(-50%);
           right: -17px;
-          border: 10px solid transparent;	border-left: 10px solid #0062d5;
+          border: 10px solid transparent;
+          border-left: 10px solid #0062d5;
+
+          @media (max-width: 1140px) {
+            right: 73px;
+            border-left: none;
+            border-right: 10px solid #00f7fd;
+          }
         }
       }
     }
@@ -125,6 +156,12 @@
       font-size: 14px;
       opacity: 1;
       z-index: 1;
+
+      @media (max-width: 500px) {
+        font-size: 12px;
+        top: 9px;
+        right: 5px;
+      }
     }
 
     &__val {
@@ -134,16 +171,47 @@
       font-size: 14px;
     }
   }
+  .linear-diagram_sources {
+
+    .linear-diagram__block {
+      @media (max-width: 1140px) {
+        width: 85%;
+      }
+    }
+
+    .linear-diagram__fill {
+      @media (max-width: 1140px) {
+        width: 45.9%;
+      }
+    }
+  }
 
   .linear-diagram_shares {
 
     .linear-diagram__block {
       width: 215px;
+
+      @media (max-width: 1140px) {
+        width: 31%;
+      }
     }
 
     .linear-diagram__fill {
       background-image: linear-gradient(to right, #9d308a 0%, #ff695b 100%);
       width: 105px;
+
+      @media (max-width: 1140px) {
+        width: 50%;
+      }
+    }
+    .linear-diagram__value {
+      @media (max-width: 500px) {
+        font-size: 12px;
+        top: 4px;
+        right: 0;
+        left: 5px;
+        text-align: center;
+      }
     }
   }
 
@@ -158,11 +226,25 @@
           display: block;
         }
       }
+
+      @media (max-width: 1140px) {
+        width: 3%;
+      }
+    }
+
+    .linear-diagram__val {
+      @media (max-width: 768px) {
+        margin-left: 10px !important;
+      }
     }
 
     .linear-diagram__fill {
       background-image: linear-gradient(to right, #00ffff 0%, #004ccf 100%);
       width: 7px;
+
+      @media (max-width: 1140px) {
+        width: 50%;
+      }
     }
   }
 
@@ -176,11 +258,19 @@
 
     .linear-diagram__block {
       width: 485px;
+
+      @media (max-width: 1140px) {
+        width: 71%;
+      }
     }
 
     .linear-diagram__fill {
       background-image: linear-gradient(to right, #612292 0%, #bd84e9 100%);
       width: 252px;
+
+      @media (max-width: 1140px) {
+        width: 50%;
+      }
     }
   }
 
@@ -188,11 +278,19 @@
 
     .linear-diagram__block {
       width: 679px;
+
+      @media (max-width: 1140px) {
+        width: 93%;
+      }
     }
 
     .linear-diagram__fill {
       background-image: linear-gradient(to right, #32d197 0%, #11a360 100%);
       width: 348px;
+
+      @media (max-width: 1140px) {
+        width: 50%;
+      }
     }
   }
 
@@ -220,12 +318,25 @@
     &__title {
       display: table-cell;
       font-size: 14px;
+
+
     }
 
     &__data {
       width: 27.3%;
       display: table-cell;
       padding: 5px 0;
+
+        @media (max-width: 1024px) {
+          width: 100%;
+
+
+          &:not(:nth-child(2)) {
+            display: block;
+          }
+        }
+
+
 
       &_year {
         padding-bottom: 35px;
@@ -381,6 +492,11 @@
               transition: all 1s ease;
               height: 30px;
               right: 40px;
+
+              @media (max-width: 1140px) {
+                left: 30px;
+                right: 0;
+              }
             }
           }
 
@@ -575,6 +691,10 @@
   .table_proficit {
     width: 42%;
 
+    @media (max-width: 1140px) {
+      width: 100%;
+    }
+
     .table {
       &__data {
         width: 58%;
@@ -601,6 +721,11 @@
 
       &__title {
         width: 42%;
+
+        @media (max-width: 1280px) {
+          display: table-cell;
+          text-align: right;
+        }
       }
 
       &__shares {
@@ -627,13 +752,57 @@
           &__fill {
             width: 62px !important;
             left: -50% !important;
+
+            @media (max-width: 500px) {
+              width: 30px !important;
+            }
           }
 
           &__value {
             left: -20px !important;
             right: 0;
+
+            @media (max-width: 500px) {
+              left: 0 !important;
+            }
+          }
+
+          &__wave {
+            @media (max-width: 500px) {
+              display: none;
+            }
           }
         }
+      }
+
+      &__sources {
+
+        .linear-diagram__fill {
+          @media (max-width: 500px) {
+            width: 70px;
+          }
+        }
+      }
+    }
+  }
+
+  .analityc-widget-sources_date {
+
+    .linear-diagram__sources {
+      @media (max-width: 1140px) {
+        display: block;
+        width: 100%;
+        margin-right: 0;
+        text-align: left;
+        margin-bottom: 5px;
+      }
+    }
+
+    .linear-diagram__val {
+      margin-left: 10px;
+
+      @media (max-width: 768px) {
+        margin-left: -35px;
       }
     }
   }
