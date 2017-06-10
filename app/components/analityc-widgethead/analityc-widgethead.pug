@@ -1,0 +1,52 @@
+//- type - тип шапки (один из четырех)
+mixin analityc-widgethead-income(type)
+  +b.analityc-widgethead&attributes(attributes)
+    .analityc-control-group._year
+      span Год
+      select.analityc-select
+        option(selected) 2017
+        option 2016
+        option 2015
+    .analityc-control-group._stage
+      span Этап
+      select.analityc-select
+        option(selected) Закон о бюджете утвержденный
+        option Закон о внесении изменений
+        option Закон об исполнении
+        option Исполнение на дату
+    .analityc-control-group._level
+      span Уровень
+      select.analityc-select
+        option(selected) Бюджет москвы
+        option Бюджет области
+        option Бюджет региона
+        option Консолидированный бюджет
+    .analityc-control-group._transfer
+      span Классификация доходов
+      select.analityc-select
+        option(selected) Виды
+        option Виды
+    if type == 1
+      .analityc-control-switcher
+        a(href="#").active %
+        a(href="#") млрд руб.
+      .analityc-control-buttons
+        a(href="#").analityc-control-button.analityc-control-button_graphics.active
+        a(href="#").analityc-control-button.analityc-control-button_table
+    if type == 2
+      .analityc-control-buttons
+        a(href="#").analityc-control-button.analityc-control-button_graphics.active
+        a(href="#").analityc-control-button.analityc-control-button_table
+    if type == 3
+      .analityc-control-buttons
+        a(href="#").analityc-control-button.analityc-control-button_graphics.active
+        a(href="#").analityc-control-button.analityc-control-button_table
+      .analityc-control-switcher
+        a(href="#").active млрд руб.
+        a(href="#") млн руб.
+    if type == 4
+      .analityc-control-buttons
+        a(href="#").analityc-control-button.analityc-control-button_graphics.active
+        a(href="#").analityc-control-button.analityc-control-button_table
+      .analityc-control-group._dp
+        input(placeholder="Выберите дату исполнения").datepicker
