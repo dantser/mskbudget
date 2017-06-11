@@ -1,0 +1,181 @@
+.gov-program {
+  font-family: $PFDinTextPro;
+
+  .link {
+    text-decoration: underline;
+    font-family: $PFDinTextPro;
+  }
+
+  .d-si__quiz-container_head {
+    padding: 25px 0 22px 37px;
+
+    &::after {
+      @include clearfix;
+    }
+
+    span {
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1.2em;
+    }
+  }
+  .d-si__quiz-container_body {
+    padding-top: 40px;
+    padding-left: 0;
+    font-family: $PFDinCondensedPro;
+  }
+
+  &__head {
+    border-bottom: 1px solid #e6e6e6;
+    padding: 0 191px 38px 40px;
+  }
+
+  &__title {
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  &__description {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 26px;
+    margin-top: 13px;
+  }
+
+  &__content_one {
+    padding: 40px 40px 85px 120px;
+  }
+
+  &__col {
+    display: inline-block;
+    vertical-align: top;
+
+    &_one {
+      width: 52%;
+      margin-right: 53px;
+    }
+
+    &_two {
+      width: 39%;
+
+      .link {
+        margin-bottom: 40px;
+        margin-top: 17px;
+      }
+
+      &::after {
+        @include clearfix;
+      }
+    }
+  }
+
+  &__tasks, &__objectives {
+    margin-top: 15px;
+    counter-reset: myCounter;
+  }
+
+  .text {
+    font-size: 16px;
+    margin-bottom: 15px;
+    list-style: none;
+    position: relative;
+    padding-left: 20px;
+
+    &::before {
+      position: absolute;
+      left: 0;
+      counter-increment: myCounter;
+      content:counter(myCounter) '. ';
+      color: #999999;
+      font-size: 16px;
+    }
+
+    &:last-child {
+      &::before {
+        left: -8px;
+      }
+    }
+
+    &::after {
+      @include clearfix;
+    }
+  }
+
+  &__objectives {
+    margin-bottom: 48px;
+  }
+
+  &__person {
+    float: left;
+    margin-right: 20px;
+  }
+
+  &__person-descr {
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 45px;
+    font-family: $PFDinTextPro;
+    padding-left: 80px;
+
+    span {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 22px;
+    }
+  }
+
+//icons
+  &__icon-ball {
+    width: 54px;
+    height: 53px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 25px;
+  }
+
+  &__icon-basketball-ball {
+    width: 19px;
+    height: 19px;
+  }
+
+  &__icon-football-player {
+    width: 23px;
+    height: 25px;
+  }
+
+
+
+
+
+
+  // DROPDOWN
+  .d-si__quiz-container_head-cross_dropdown {
+    display: none;
+  }
+
+  .dropdown {
+    &_b {
+      border-top: 1px solid rgba(0, 97, 160, .2);
+    }
+
+    &__btn_b {
+      color: $color-link;
+      font-family: $PFDinCondensedPro;
+
+      &::after {
+        border-top-color: $color-link;
+      }
+    }
+
+    &__btn_active {
+      &::after {
+        display: none;
+      }
+
+      .d-si__quiz-container_head-cross_dropdown {
+        display: block;
+      }
+    }
+  }
+}
