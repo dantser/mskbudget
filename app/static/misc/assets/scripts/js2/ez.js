@@ -497,6 +497,7 @@ function basicBudgetFiguresDiagrams () {
     });
 
     $(".analityc-control-group._stage .analityc-select").on("change", function () {
+      if (!$(this).parents('.analityc-widget__income') && !$(this).parents('.analityc-widget__expenses')) {
         var $this = $(this);
 
         $(".analityc-widget-rounds").removeClass("_active");
@@ -516,9 +517,11 @@ function basicBudgetFiguresDiagrams () {
             $(".analityc-control-group._dp").hide();
             $(".analityc-control-group._percent").show();
 		}
+      }
 	});
 
   $(".analityc-control-button").on("click", function(e) {
+    if (!$(this).parents('.analityc-widget__income') && !$(this).parents('.analityc-widget__expenses')) {
     e.preventDefault();
     var table = $(".analityc-control-button_table");
     var $this = $(this);
@@ -532,9 +535,11 @@ function basicBudgetFiguresDiagrams () {
     } else {
       $(".analityc-widget-sources_table").removeClass("_active");
     }
+    }
   })
 
   $(".analityc-control-group._stage .analityc-select").on("change", function () {
+    if (!$(this).parents('.analityc-widget__income') && !$(this).parents('.analityc-widget__expenses')) {
       var $this = $(this);
       $(".analityc-widget-sources").removeClass("_active");
 
@@ -559,8 +564,300 @@ function basicBudgetFiguresDiagrams () {
       else {
               $(".analityc-control-group._dp").hide();
               $(".analityc-control-switcher").hide();
-      }
-
-
+      } 
+    }
   });
 }
+
+
+// переключение вкладок в Доходах бюджета (budget_income)
+$(document).ready(function(){
+  $(".analityc-widget_income .analityc-control-group._stage .analityc-select").on("change", function () {
+    var $this = $(this);
+    var income = $(".analityc-widget_income"),
+        incomeGraphics = income.find($('.analityc-graphics')),
+        incomeGraphicsApproved = income.find($('.analityc-graphics_approved')),
+        incomeGraphicsChanges = income.find($('.analityc-graphics_changes')),
+        incomeGraphicsDone = income.find($('.analityc-graphics_done')),
+        incomeGraphicsDateOne = income.find($('.analityc-graphics_date-one')),
+        incomeGraphicsButton = income.find($('.analityc-control-button_graphics')),
+        incomeTable = income.find($('.analityc-table')),
+        incomeTableButton = income.find($('.analityc-control-button_table'));
+    
+    incomeGraphics.removeClass('active');
+    incomeTable.removeClass('active');
+    incomeGraphicsButton.addClass('active');
+    incomeTableButton.removeClass('active');
+    
+    if ($this.val() ===  "Закон о бюджете утвержденный") {
+      incomeGraphicsApproved.addClass('active');
+      incomeHead(1);
+    } else if($this.val() ===  "Закон о внесении изменений") {
+      incomeGraphicsChanges.addClass('active');
+      incomeHead(2);
+    } else if($this.val() ===  "Закон об исполнении") {
+      incomeGraphicsDone.addClass('active');
+      incomeHead(1);
+    } else if($this.val() ===  "Исполнение на дату") {
+      incomeGraphicsDateOne.addClass('active');
+      incomeHead(4);
+    }
+
+  });
+  
+  function incomeHead(type) {
+    var incomeSwitcherDef = $('.analityc-widget_income .analityc-control-switcher_default'),
+        incomeButtons = $('.analityc-widget_income .analityc-control-buttons'),
+        incomeSwitcherBig = $('.analityc-widget_income .analityc-control-switcher_big'),
+        incomeDatepicker = $('.analityc-widget_income .analityc-control-group._dp');
+    
+    if (type === 1) {
+      incomeSwitcherDef.addClass('active');
+      incomeButtons.addClass('active');
+      incomeSwitcherBig.removeClass('active');
+      incomeDatepicker.removeClass('active');
+    } else if (type === 2) {
+      incomeSwitcherDef.removeClass('active');
+      incomeButtons.addClass('active');
+      incomeSwitcherBig.removeClass('active');
+      incomeDatepicker.removeClass('active');
+    } else if (type === 3) {
+      incomeSwitcherDef.removeClass('active');
+      incomeButtons.addClass('active');
+      incomeSwitcherBig.addClass('active');
+      incomeDatepicker.removeClass('active');
+    } else if (type === 4) {
+      incomeSwitcherDef.removeClass('active');
+      incomeButtons.addClass('active');
+      incomeSwitcherBig.removeClass('active');
+      incomeDatepicker.addClass('active');
+    }
+  }
+  
+  $(".analityc-widget_income .analityc-control-button").on("click", function (e) {
+    e.preventDefault();
+    var $this = $(this);
+    var income = $(".analityc-widget_income"),
+        incomeGraphics = income.find($('.analityc-graphics')),
+        incomeGraphicsActive = income.find($('.analityc-graphics.active')),
+        incomeGraphicsApproved = income.find($('.analityc-graphics_approved')),
+        incomeGraphicsChanges = income.find($('.analityc-graphics_changes')),
+        incomeGraphicsDone = income.find($('.analityc-graphics_done')),
+        incomeGraphicsDateOne = income.find($('.analityc-graphics_date-one')),
+        incomeTable = income.find($('.analityc-table')),
+        incomeTableActive = income.find($('.analityc-table.active')),
+        incomeTableApproved = income.find($('.analityc-table_approved')),
+        incomeTableChanges = income.find($('.analityc-table_changes')),
+        incomeTableDone = income.find($('.analityc-table_done')),
+        incomeTableDate = income.find($('.analityc-table_date'));
+    
+    if ($this.hasClass('analityc-control-button_graphics') && !$this.hasClass('active')) {
+      $this.siblings().removeClass('active');
+      $this.addClass('active');
+      if (incomeTableActive.hasClass('analityc-table_approved')) {
+        incomeTable.removeClass('active');
+        incomeGraphicsApproved.addClass('active');
+        incomeHead(1);
+      } else if (incomeTableActive.hasClass('analityc-table_changes')) {
+        incomeTable.removeClass('active');
+        incomeGraphicsChanges.addClass('active');
+        incomeHead(2);
+      } else if (incomeTableActive.hasClass('analityc-table_done')) {
+        incomeTable.removeClass('active');
+        incomeGraphicsDone.addClass('active');
+        incomeHead(1);
+      } else if (incomeTableActive.hasClass('analityc-table_date')) {
+        incomeTable.removeClass('active');
+        incomeGraphicsDateOne.addClass('active');
+        incomeHead(4);
+      }
+    } else if ($this.hasClass('analityc-control-button_table') && !$this.hasClass('active')) {
+      $this.siblings().removeClass('active');
+      $this.addClass('active');
+      if (incomeGraphicsActive.hasClass('analityc-graphics_approved')) {
+        incomeGraphics.removeClass('active');
+        incomeTableApproved.addClass('active');
+        incomeHead(1);
+      } else if (incomeGraphicsActive.hasClass('analityc-graphics_changes')) {
+        incomeGraphics.removeClass('active');
+        incomeTableChanges.addClass('active');
+        incomeHead(3);
+      } else if (incomeGraphicsActive.hasClass('analityc-graphics_done')) {
+        incomeGraphics.removeClass('active');
+        incomeTableDone.addClass('active');
+        incomeHead(1);
+      } else if (incomeGraphicsActive.hasClass('analityc-graphics_date-one')) {
+        incomeGraphics.removeClass('active');
+        incomeTableDate.addClass('active');
+        incomeHead(4);
+      }
+    }
+  });
+  
+  $(".analityc-widget_income .analityc-control-group._dp input").on("change", function () {
+    var income = $(".analityc-widget_income"),
+        incomeGraphics = income.find($('.analityc-graphics')),
+        incomeGraphicsActive = income.find($('.analityc-graphics.active')),
+        incomeGraphicsDateTwo = income.find($('.analityc-graphics_date-two'));
+    
+    if (incomeGraphicsActive.hasClass('analityc-graphics_date-one')) {
+      incomeGraphics.removeClass('active');
+      incomeGraphicsDateTwo.addClass('active');
+    }
+  });
+});
+
+
+
+// переключение вкладок в Расходах бюджета (budget_expenses)
+$(document).ready(function(){
+  $(".analityc-widget_expenses .analityc-control-group._stage .analityc-select").on("change", function () {
+    var $this = $(this);
+    var $classify = $(".analityc-widget_expenses .analityc-control-group._classify .analityc-select");
+    var expenses = $(".analityc-widget_expenses"),
+        expensesGraphics = expenses.find($('.analityc-graphics')),
+        expensesGraphicsChanges = expenses.find($('.analityc-graphics_changes')),
+        expensesGraphicsDone = expenses.find($('.analityc-graphics_done')),
+        expensesGraphicsDateOne = expenses.find($('.analityc-graphics_date-one')),
+        expensesGraphicsTargeted = expenses.find($('.analityc-graphics_targeted')),
+        expensesGraphicsSections = expenses.find($('.analityc-graphics_sections')),
+        expensesGraphicsDepartments = expenses.find($('.analityc-graphics_departments')),
+        expensesGraphicsKinds = expenses.find($('.analityc-graphics_kinds')),
+        expensesGraphicsButton = expenses.find($('.analityc-control-button_graphics')),
+        expensesTable = expenses.find($('.analityc-table')),
+        expensesTableButton = expenses.find($('.analityc-control-button_table')),
+        expensesBottomTip = expenses.find($('.analityc-bottomtip'));
+    
+    expensesGraphics.removeClass('active');
+    expensesTable.removeClass('active');
+    expensesGraphicsButton.addClass('active');
+    expensesTableButton.removeClass('active');
+    expensesBottomTip.removeClass('active');
+    
+    if ($this.val() ===  "Закон о бюджете утвержденный" && $classify.val() === "Целевые статьи (программный и непрограммный тип)") {
+      expensesGraphicsTargeted.addClass('active');
+      expensesBottomTip.addClass('active');
+      expensesHead(1);
+    } else if ($this.val() ===  "Закон о бюджете утвержденный" && $classify.val() === "Разделы и подразделы") {
+      expensesGraphicsSections.addClass('active');
+      expensesBottomTip.addClass('active');
+      expensesHead(1);
+    } else if ($this.val() ===  "Закон о бюджете утвержденный" && $classify.val() === "Ведомства") {
+      expensesGraphicsDepartments.addClass('active');
+      expensesBottomTip.addClass('active');
+      expensesHead(1);
+    } else if ($this.val() ===  "Закон о бюджете утвержденный" && $classify.val() === "Виды") {
+      expensesGraphicsKinds.addClass('active');
+      expensesBottomTip.addClass('active');
+      expensesHead(1);
+    } else if($this.val() ===  "Закон о внесении изменений") {
+      expensesGraphicsChanges.addClass('active');
+      expensesBottomTip.addClass('active');
+      expensesHead(1);
+    } else if($this.val() ===  "Закон об исполнении") {
+      expensesGraphicsDone.addClass('active');
+      expensesHead(1);
+    } else if($this.val() ===  "Исполнение на дату") {
+      expensesGraphicsDateOne.addClass('active');
+      expensesHead(3);
+    }
+
+  });
+  
+  function expensesHead(type) {
+    var expensesSwitcherLarge = $('.analityc-widget_expenses .analityc-control-switcher_large'),
+        expensesSwitcherBig = $('.analityc-widget_expenses .analityc-control-switcher_big'),
+        expensesDatepicker = $('.analityc-widget_expenses .analityc-control-group._dp');
+    
+    if (type === 1) {
+      expensesSwitcherLarge.addClass('active');
+      expensesSwitcherBig.removeClass('active');
+      expensesDatepicker.removeClass('active');
+    } else if (type === 2) {
+      expensesSwitcherLarge.removeClass('active');
+      expensesSwitcherBig.addClass('active');
+      expensesDatepicker.removeClass('active');
+    } else if (type === 3) {
+      expensesSwitcherLarge.removeClass('active');
+      expensesSwitcherBig.removeClass('active');
+      expensesDatepicker.addClass('active');
+    }
+  }
+  
+  $(".analityc-widget_expenses .analityc-control-button").on("click", function (e) {
+    e.preventDefault();
+    var $this = $(this);
+    var expenses = $(".analityc-widget_expenses"),
+        expensesGraphics = expenses.find($('.analityc-graphics')),
+        expensesGraphicsActive = expenses.find($('.analityc-graphics.active')),
+        expensesGraphicsChanges = expenses.find($('.analityc-graphics_changes')),
+        expensesTable = expenses.find($('.analityc-table')),
+        expensesTableActive = expenses.find($('.analityc-table.active')),
+        expensesTableChanges = expenses.find($('.analityc-table_changes'));
+    
+    if ($this.hasClass('analityc-control-button_graphics') && !$this.hasClass('active')) {
+      $this.siblings().removeClass('active');
+      $this.addClass('active');
+      if (expensesTableActive.hasClass('analityc-table_changes')) {
+        expensesTable.removeClass('active');
+        expensesGraphicsChanges.addClass('active');
+        expensesHead(2);
+      }
+    } else if ($this.hasClass('analityc-control-button_table') && !$this.hasClass('active')) {
+      $this.siblings().removeClass('active');
+      $this.addClass('active');
+      if (expensesGraphicsActive.hasClass('analityc-graphics_changes')) {
+        expensesGraphics.removeClass('active');
+        expensesTableChanges.addClass('active');
+        expensesHead(1);
+      }
+    }
+  });
+  
+  $(".analityc-widget_expenses .analityc-control-group._dp input").on("change", function () {
+    var expenses = $(".analityc-widget_expenses"),
+        expensesGraphics = expenses.find($('.analityc-graphics')),
+        expensesGraphicsActive = expenses.find($('.analityc-graphics.active')),
+        expensesGraphicsDateTwo = expenses.find($('.analityc-graphics_date-two'));
+    
+    if (expensesGraphicsActive.hasClass('analityc-graphics_date-one')) {
+      expensesGraphics.removeClass('active');
+      expensesGraphicsDateTwo.addClass('active');
+    }
+  });
+  
+  $(".analityc-widget_expenses .analityc-control-group._classify .analityc-select").on("change", function () {
+    var $this = $(this);
+    var expenses = $(".analityc-widget_expenses"),
+        expensesGraphics = expenses.find($('.analityc-graphics')),
+        expensesGraphicsTargeted = expenses.find($('.analityc-graphics_targeted')),
+        expensesGraphicsSections = expenses.find($('.analityc-graphics_sections')),
+        expensesGraphicsDepartments = expenses.find($('.analityc-graphics_departments')),
+        expensesGraphicsKinds = expenses.find($('.analityc-graphics_kinds')),
+        expensesGraphicsButton = expenses.find($('.analityc-control-button_graphics')),
+        expensesTable = expenses.find($('.analityc-table')),
+        expensesTableButton = expenses.find($('.analityc-control-button_table'));
+    
+    if ($(".analityc-widget_expenses .analityc-control-group._stage .analityc-select").val() === "Закон о бюджете утвержденный") {
+      
+      expensesGraphics.removeClass('active');
+      expensesTable.removeClass('active');
+      expensesGraphicsButton.addClass('active');
+      expensesTableButton.removeClass('active');
+      
+     if ($this.val() ===  "Целевые статьи (программный и непрограммный тип)") {
+        expensesGraphicsTargeted.addClass('active');
+        expensesHead(1);
+      } else if($this.val() ===  "Разделы и подразделы") {
+        expensesGraphicsSections.addClass('active');
+        expensesHead(1);
+      } else if($this.val() ===  "Ведомства") {
+        expensesGraphicsDepartments.addClass('active');
+        expensesHead(1);
+      } else if($this.val() ===  "Виды") {
+        expensesGraphicsKinds.addClass('active');
+        expensesHead(1);
+      }
+    }
+  });
+});
