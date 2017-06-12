@@ -4,6 +4,26 @@ include ../../blocks/link/link
 
 
 mixin depfin-services-social-support()
+
+  mixin list-item(iconNum, text)
+    +e.LI.item
+      +e.A(href='#').item-link
+        +e.item-icon
+          +e.IMG(src='assets/images/depfin-services-social-support/menu-icon'+ iconNum +'.png')
+        +e.SPAN.item-text= text
+      +e.UL.sublist
+        +e.LI.subitem
+          +e.A(href='#').subitem-link Молодые семьи
+        +e.LI.subitem
+          +e.A(href='#').subitem-link Многодетные семьи
+        +e.LI.subitem
+          +e.A(href='#').subitem-link Малоимущие семьи
+
+  mixin submenu-item(text)
+    +e.LI.submenu-item
+      +e.A(href='#').submenu-link= text
+
+
   +b.depfin-services-social-support&attributes(attributes)
     .wrapper.page-content-wrapper
       +e.head
@@ -13,45 +33,53 @@ mixin depfin-services-social-support()
 
         //- 01, 02
         +e.UL.list
-
-          - for (var i = 0; i < 12; i++)
-            +e.LI.item
-              +e.A(href='#').item-link
-                +e.item-icon
-                  +e.IMG(src='assets/images/depfin-services-social-support/item.png')
-                +e.SPAN.item-text Дети-сироты и их опекуны (усыновители)
-
-              +e.UL.sublist
-                +e.LI.subitem
-                  +e.A(href='#').subitem-link Молодые семьи
-                +e.LI.subitem
-                  +e.A(href='#').subitem-link Многодетные семьи
-                +e.LI.subitem
-                  +e.A(href='#').subitem-link Малоимущие семьи
+          +list-item(1, 'Дети и их родители')
+          +list-item(2, 'Семьи')
+          +list-item(3, 'Пенсионеры')
+          +list-item(4, 'военнослужащие и их семьи')
+          +list-item(5, 'Ветераны и инвалиды боевых действий')
+          +list-item(6, 'реабилитированные лица')
+          +list-item(7, 'инвалиды')
+          +list-item(8, 'дети-сироты и их опекуны (усыновители)')
+          +list-item(9, 'другие меры соцподдержки')
+          +list-item(10, 'Граждане, имеющие особые награды')
+          +list-item(11, 'Граждане, имеющие право на льготы')
+          +list-item(12, 'Почётные доноры')
 
         +e.SECTION.tab
           +e.H3.title Различные пособия семьям с детьми; Услуги, предоставляемые семьям и детям
 
           //- 03
           +e.UL.submenu
-            - for (var i = 0; i < 11; i++)
-              +e.LI.submenu-item
-                +e.A(href='#').submenu-link Ежемесячная компенсационная выплата на возмещение роста стоимости продуктов питания отдельным категориям граждан на детей в возрасте до трех лет
+            +submenu-item('Пособие по беременности и родам')
+            +submenu-item('Ежемесячные компенсационные выплаты лицам, находящимся в отпуске по уходу за ребенком до достижения им возраста 3 лет')
+            +submenu-item('Адресная социальная помощь')
+            +submenu-item('Единовременное пособие при рождении ребенка')
+            +submenu-item('Ежемесячное пособие по уходу за ребенком (до достижения им возраста полутора лет)')
+            +submenu-item('Помощь с организацией детского отдыха')
+            +submenu-item('Единовременная компенсационная выплата на возмещение расходов в связи с рождением ребенка')
+            +submenu-item('Ежемесячная компенсационная выплата на возмещение роста стоимости продуктов питания отдельным категориям граждан на детей в возрасте до трех лет')
+            +submenu-item('Материнский капитал')
+            +submenu-item('Единовременное пособие женщинам, вставшим на учет в медицинском учреждении в ранние сроки беременности')
+            +submenu-item('Льготы на проезд в общественном транспорте')
+            +submenu-item('Ежемесячная компенсационная выплата на возмещение расходов в связи с ростом стоимости жизни отдельным категориям семей с детьми')
+            +submenu-item('Льготы при посещении государственных дошкольных образовательных учреждений')
 
           //- 04
           +e.ARTICLE.article
             +e.burger
               +icon('burger').burger-icon
-              +icon('close').burger-close
 
-              +e.UL.burger-menu
-                - for (var i = 0; i < 12; i++)
-                  +e.LI.burger-item
-                    +e.A(href='#').burger-link
-                      | Ежемесячная компенсационная выплата на возмещение роста стоимости продуктов питания отдельным категориям граждан на детей в возрасте до трех лет
+              +e.burger-menu
+                +icon('close').burger-close
+                +e.UL.burger-list
+                  - for (var i = 0; i < 12; i++)
+                    +e.LI.burger-item
+                      +e.A(href='#').burger-link
+                        | Ежемесячная компенсационная выплата на возмещение роста стоимости продуктов питания отдельным категориям граждан на детей в возрасте до трех лет
 
             +e.content
-              +e.H4.content-title Пособие по беремености и родам
+              +e.H4.content-title Пособие по беременности и родам
               +e.info
                 +e.left
                   +e.P.definition
@@ -65,41 +93,60 @@ mixin depfin-services-social-support()
                           | В размере среднего заработка
                           +icon('close').icon
                       +e.type-description
-                        +e.type-text  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex possimus, ea, ullam debitis eos porro nemo labore itaque delectus culpa praesentium accusantium explicabo dignissimos cupiditate laudantium, esse quod sit atque!
-                        +e.A(href='#').type-link Федеральный закон от 19 05 1995 №81-ФЗ
+                        +e.type-text  в размере среднего заработка, на который начисляются страховые взносы на обязательное социальное страхование на случай временной нетрудоспособности и в связи с материнством, и с учетом иных условий, установленных законодательством РФ
+                        +e.A(href='#').type-link Федеральный закон от 19 05 1995 №81-ФЗ &laqua;о государственных пособиях гражданам, имеющим детей&laqua;
 
                     +e.LI.type
                       +e.type-label
                         +link()._dashed
-                          | В размере среднего заработка
+                          | 300 рублей
                           +icon('close').icon
                       +e.type-description
-                        +e.type-text  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex possimus, ea, ullam debitis eos porro nemo labore itaque delectus culpa praesentium accusantium explicabo dignissimos cupiditate laudantium, esse quod sit atque!
-                        +e.A(href='#').type-link Федеральный закон от 19 05 1995 №81-ФЗ
+                        +e.type-text  в размере среднего заработка, на который начисляются страховые взносы на обязательное социальное страхование на случай временной нетрудоспособности и в связи с материнством, и с учетом иных условий, установленных законодательством РФ
+                        +e.A(href='#').type-link Федеральный закон от 19 05 1995 №81-ФЗ &laqua;о государственных пособиях гражданам, имеющим детей&laqua;
 
                     +e.LI.type
                       +e.type-label
                         +link()._dashed
-                          | В размере среднего заработка
+                          | в размере стипендии
                           +icon('close').icon
                       +e.type-description
-                        +e.type-text  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex possimus, ea, ullam debitis eos porro nemo labore itaque delectus culpa praesentium accusantium explicabo dignissimos cupiditate laudantium, esse quod sit atque!
-                        +e.A(href='#').type-link Федеральный закон от 19 05 1995 №81-ФЗ
+                        +e.type-text  в размере среднего заработка, на который начисляются страховые взносы на обязательное социальное страхование на случай временной нетрудоспособности и в связи с материнством, и с учетом иных условий, установленных законодательством РФ
+                        +e.A(href='#').type-link Федеральный закон от 19 05 1995 №81-ФЗ &laqua;о государственных пособиях гражданам, имеющим детей&laqua;
+                    
+                    +e.LI.type
+                      +e.type-label
+                        +link()._dashed
+                          | в размере денежного довольствия
+                          +icon('close').icon
+                      +e.type-description
+                        +e.type-text  в размере среднего заработка, на который начисляются страховые взносы на обязательное социальное страхование на случай временной нетрудоспособности и в связи с материнством, и с учетом иных условий, установленных законодательством РФ
+                        +e.A(href='#').type-link Федеральный закон от 19 05 1995 №81-ФЗ &laqua;о государственных пособиях гражданам, имеющим детей&laqua;
+                    
+                    +e.LI.type
+                      +e.type-label
+                        +link()._dashed
+                          | 1500 рублей
+                          +icon('close').icon
+                      +e.type-description
+                        +e.type-text  в размере среднего заработка, на который начисляются страховые взносы на обязательное социальное страхование на случай временной нетрудоспособности и в связи с материнством, и с учетом иных условий, установленных законодательством РФ
+                        +e.A(href='#').type-link Федеральный закон от 19 05 1995 №81-ФЗ &laqua;о государственных пособиях гражданам, имеющим детей&laqua;
 
           //- 05
           +e.ARTICLE.article
             +e.burger
               +icon('burger').burger-icon
-              +icon('close').burger-close
 
-              +e.UL.burger-menu
-                - for (var i = 0; i < 12; i++)
-                  +e.LI.burger-item
-                    +e.A(href='#').burger-link
-                      | Ежемесячная компенсационная выплата на возмещение роста стоимости продуктов питания отдельным категориям граждан на детей в возрасте до трех лет
+              +e.burger-menu
+                +icon('close').burger-close
+                +e.UL.burger-list
+                  - for (var i = 0; i < 12; i++)
+                    +e.LI.burger-item
+                      +e.A(href='#').burger-link
+                        | Ежемесячная компенсационная выплата на возмещение роста стоимости продуктов питания отдельным категориям граждан на детей в возрасте до трех лет
 
             +e.content
-              +e.H4.content-title Единовременно пособие при рождении ребенка
+              +e.H4.content-title Единовременное пособие при рождении ребенка
               +e.info
                 +e.left
                   +e.P.definition
@@ -114,21 +161,7 @@ mixin depfin-services-social-support()
                           +icon('close').icon
                       +e.type-description
                         +e.type-text  при рождении ребенка
-                        +e.A(href='#').type-link Федеральный закон от 19 05 1995 №81-ФЗ
-
-
-//- Ежемесячные компенсационные выплаты лицам, находящимся в отпуске по уходу за ребенком до достижения им возраста 3 лет
-//- Адресная социальная помощь
-//- Единовременное пособие при рождении ребенка
-//- Ежемесячное пособие по уходу за ребенком (до достижения им возраста полутора лет)
-//- Помощь с организацией детского отдыха
-//- Единовременная компенсационная выплата на возмещение расходов в связи с рождением ребенка
-//- Ежемесячная компенсационная выплата на возмещение роста стоимости продуктов питания отдельным категориям граждан на детей в возрасте до трех лет
-//- Материнский капитал
-//- Единовременное пособие женщинам, вставшим на учет в медицинском учреждении в ранние сроки беременности
-//- Льготы на проезд в общественном транспорте
-//- Ежемесячная компенсационная выплата на возмещение расходов в связи с ростом стоимости жизни отдельным категориям семей с детьми
-//- Льготы при посещении государственных дошкольных образовательных учреждений
+                        +e.A(href='#').type-link Федеральный закон от 19 05 1995 №81-ФЗ &laqua;о государственных пособиях гражданам, имеющим детей&laqua;
 
 
 

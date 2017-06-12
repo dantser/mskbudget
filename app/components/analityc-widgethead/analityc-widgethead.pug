@@ -9,11 +9,11 @@ mixin analityc-widgethead-income(type)
         option 2015
     .analityc-control-group._stage
       span Этап
-      select.analityc-select(data-select="stage")
-        option(value="утвержденный", selected) Закон о бюджете утвержденный
-        option(value="изменения") Закон о внесении изменений
-        option(value="исполнение") Закон об исполнении
-        option(value="на_дату") Исполнение на дату
+      select.analityc-select
+        option(selected) Закон о бюджете утвержденный
+        option Закон о внесении изменений
+        option Закон об исполнении
+        option Исполнение на дату
     .analityc-control-group._level
       span Уровень
       select.analityc-select
@@ -26,30 +26,17 @@ mixin analityc-widgethead-income(type)
       select.analityc-select
         option(selected) Виды
         option Виды
-    if type == 1
-      .analityc-control-switcher
-        a(href="#").active %
-        a(href="#") млрд руб.
-      .analityc-control-buttons
-        a(href="#", data-type="graphics").analityc-control-button.analityc-control-button_graphics.active
-        a(href="#", data-type="table").analityc-control-button.analityc-control-button_table
-    if type == 2
-      .analityc-control-buttons
-        a(href="#", data-type="graphics").analityc-control-button.analityc-control-button_graphics.active
-        a(href="#", data-type="table").analityc-control-button.analityc-control-button_table
-    if type == 3
-      .analityc-control-buttons
-        a(href="#", data-type="graphics").analityc-control-button.analityc-control-button_graphics.active
-        a(href="#", data-type="table").analityc-control-button.analityc-control-button_table
-      .analityc-control-switcher.analityc-control-switcher_big
-        a(href="#").active млрд руб.
-        a(href="#") млн руб.
-    if type == 4
-      .analityc-control-buttons
-        a(href="#", data-type="graphics").analityc-control-button.analityc-control-button_graphics.active
-        a(href="#", data-type="table").analityc-control-button.analityc-control-button_table
-      .analityc-control-group._dp
-        input(placeholder="Выберите дату исполнения", data-select="date").datepicker
+    .analityc-control-switcher.analityc-control-switcher_default.active
+      a(href="#").active %
+      a(href="#") млрд руб.
+    .analityc-control-buttons.active
+      a(href="#").analityc-control-button.analityc-control-button_graphics.active
+      a(href="#").analityc-control-button.analityc-control-button_table
+    .analityc-control-switcher.analityc-control-switcher_big
+      a(href="#").active млрд руб.
+      a(href="#") млн руб.
+    .analityc-control-group._dp
+      input(placeholder="Выберите дату исполнения").datepicker
 
 
 //- type - тип шапки расходов бюджета (один из трех)
@@ -64,10 +51,10 @@ mixin analityc-widgethead-expenses(type)
     .analityc-control-group._stage
       span Этап
       select.analityc-select
-        option(data-stage="утвержденный", selected) Закон о бюджете утвержденный
-        option(data-stage="изменения") Закон о внесении изменений
-        option(data-stage="исполнение") Закон об исполнении
-        option(data-stage="на_дату") Исполнение на дату
+        option(selected) Закон о бюджете утвержденный
+        option Закон о внесении изменений
+        option Закон об исполнении
+        option Исполнение на дату
     .analityc-control-group._level
       span Уровень
       select.analityc-select
@@ -80,25 +67,22 @@ mixin analityc-widgethead-expenses(type)
       select.analityc-select
         option(selected) Без межбюджетных трансфертов
         option с трансфертами
-        p.analityc-popup Принятие закона о бюджете города Москвы происходит до принятия федерального бюджета, в котором установлены суммы межбюджетных трансфертов, поэтому в&nbsp;первоначальной версии бюджета города Москвы отсутствуют межбюджетные трансферты.
+      p.analityc-popup Принятие закона о бюджете города Москвы происходит до принятия федерального бюджета, в котором установлены суммы межбюджетных трансфертов, поэтому в&nbsp;первоначальной версии бюджета города Москвы отсутствуют межбюджетные трансферты.
     .analityc-control-buttons
-      a(href="#", data-type="graphics").analityc-control-button.analityc-control-button_graphics.active
-      a(href="#", data-type="table").analityc-control-button.analityc-control-button_table
-    if type == 1
-      .analityc-control-switcher.analityc-control-switcher_large
-        a(href="#").active доля от общей суммы, %
-        a(href="#") млрд руб.
-    if type == 2
-      .analityc-control-switcher.analityc-control-switcher_big
-        a(href="#").active млрд руб.
-        a(href="#") млн руб.
-    if type == 3
-      .analityc-control-group._dp
-        input(placeholder="Выберите дату исполнения").datepicker
+      a(href="#").analityc-control-button.analityc-control-button_graphics.active
+      a(href="#").analityc-control-button.analityc-control-button_table
+    .analityc-control-switcher.analityc-control-switcher_large.active
+      a(href="#").active доля от общей суммы, %
+      a(href="#") млрд руб.
+    .analityc-control-switcher.analityc-control-switcher_big
+      a(href="#").active млрд руб.
+      a(href="#") млн руб.
+    .analityc-control-group._dp
+      input(placeholder="Выберите дату исполнения").datepicker
     .analityc-control-group._classify
       span Классификация доходов
       select.analityc-select
-        option(data-class="целевые_статьи", selected) Целевые статьи (программный и непрограммный тип)
-        option(data-class="разделы") Разделы и подразделы
-        option(data-class="ведомства") Ведомства
-        option(data-class="виды") Виды
+        option(selected) Целевые статьи (программный и непрограммный тип)
+        option Разделы и подразделы
+        option Ведомства
+        option Виды

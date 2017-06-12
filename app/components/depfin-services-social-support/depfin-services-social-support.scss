@@ -5,13 +5,14 @@
   background-position: center 0;
   padding-top: 195px;
   padding-bottom: 60px;
+  font-family: $PFDinTextPro;
 
   @include respond-to('mobile'){
     padding: 100px 0 20px;
   }
 
   &__head {
-    margin-bottom: 80px;
+    margin-bottom: 262px;
   }
 
   &__wrapper {
@@ -38,8 +39,33 @@
   &__item {
     display: inline-block;
     position: relative;
+    vertical-align: top;
     width: (1/6)*100%;
-    padding: 10px;
+    padding: 10px 49px;
+    margin-bottom: 23px;
+
+    @include respond-to('laptop') {
+      padding: 10px 33px;
+    }
+
+    @include respond-to('tablet') {
+      padding: 10px 14px;
+    }
+
+    @include respond-to('mobile') {
+      width: (1/4)*100%;
+      padding: 10px 33px;
+    }    
+
+    @media (max-width: 570px) {
+      width: (1/2)*100%;
+      padding: 10px 33px;
+    }      
+
+    @media (max-width: 320px) {
+      width: 100%;
+      padding: 10px 49px;
+    }   
 
     &:hover {
       background: #fff656;
@@ -54,9 +80,11 @@
     }
 
     &-icon {
+      display: block;
       position: relative;
       width: 100%;
-      height: 51px;
+      height: 37px;
+      margin-bottom: 19px;
 
       & img {
         width: auto;
@@ -68,7 +96,9 @@
 
     &-text {
       display: block;
+      min-height: 48px;
       text-align: center;
+      font-family: $PFDinCondensedPro;
     }
 
     &-link {
@@ -77,6 +107,7 @@
       font-size: 14px;
       line-height: (16/14)*1em;
       color: $color-yellow;
+      text-transform: uppercase;
     }
   }
 
@@ -86,13 +117,19 @@
     top: 100%;
     left: 0;
     width: 100%;
-    padding: 10px;
+    padding: 20px 10px;
     list-style: none;
     background: $color-white;
     z-index: 1;
   }
 
   &__subitem {
+    display: block;
+    margin-bottom: 15px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
 
     &-link {
       display: block;
@@ -100,8 +137,10 @@
       font-family: $PFDinCondensedPro;
       font-size: 12px;
       line-height: (16/12)*1em;
+      font-weight: 500;
       text-align: center;
       color: $color-link;
+      text-transform: uppercase;
     }
   }
 
@@ -112,15 +151,25 @@
 
   &__title {
     font-family: $PFDinCondensedPro;
-    font-size: 24px;
+    font-size: 28px;
     line-height: (30/24)*1em;
-    margin-bottom: 50px;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+
+    @include respond-to('mobile') {
+      font-size: 12px;
+      line-height: (18/12)*1em;
+    }
   }
 
   &__submenu {
     font-size: 0;
     list-style: none;
-    margin: -10px;
+    margin: -5px;
+
+    @media (max-width: 320px) {
+      margin: -5px 0;
+    }
 
     &:after {
       width: 100%;
@@ -131,28 +180,54 @@
 
     &-item {
       display: inline-block;
-      box-sizing: border-box;
-      width: calc((1/3) * 100% - 20px);
-      min-height: 160px;
+      vertical-align: top;
+      width: calc((1/3) * 100% - 10px);
       border: 1px solid rgba(254, 227, 0, .7);
-      margin: 10px;
+      margin: 5px;
+
+      @include respond-to('tablet') {
+        width: calc(50% - 10px);
+      }
+
+      @include respond-to('mobile') {
+        width: calc(50% - 10px);
+      }
+
+      @media (max-width: 570px) {
+        width: 100%;
+      }  
+
+      @media (max-width: 320px) {
+        margin: 5px 0;
+      }
 
       &:hover {
         background-color: $color-yellow;
+
+        & .depfin-services-social-support__submenu-link {
+          color: $color-black;
+        }
       }
     }
 
     &-link {
       display: block;
+      /*min-height: 160px;*/
+      height: 160px;
       text-decoration: none;
       font-size: 18px;
-      line-height: (24/18)*1em;
-      padding: 20px;
+      line-height: 1.4em;
+      font-weight: 500;
+      padding: 20px 22px;
+      text-transform: uppercase;
 
+      @media (max-width: 1200px) {
+        font-size: 14px;
+      }
     }
   }
 
-/************ 04, 0,5 *************/
+/************ 04, 05 *************/
   &__article {
     display: table;
     position: relative;
@@ -161,7 +236,12 @@
 
   &__burger {
     display: table-cell;
-    padding: 20px;
+    padding: 25px;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+
+    @media (max-width: 320px) {
+      padding: 9px;
+    }
 
     &_active {
 
@@ -184,9 +264,17 @@
 
   &__burger-close {
     display: none;
-    width: 18px;
-    height: 18px;
+    position: absolute;
+    top: 26px;
+    left: 28px;
+    width: 16px;
+    height: 16px;
     fill: $color-black;
+
+    @media (max-width: 320px) {
+      top: 9px;
+      left: 8px;
+    }
   }
 
   &__burger-menu {
@@ -195,10 +283,13 @@
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px;
-    padding-left: 50px;
+    padding: 25px 30px 25px 90px;
     background-color: $color-white;
     z-index: 1;
+
+    @media (max-width: 320px) {
+      padding: 11px 32px;
+    }
   }
 
   &__burger-item {
@@ -215,40 +306,79 @@
   &__burger-link {
     font-size: 18px;
     line-height: (24/18)*1em;
+    font-weight: 500;
     text-decoration: none;
+    text-transform: uppercase;
     color: $color-link;
+
+    @include respond-to('mobile') {
+      font-size: 14px;
+      line-height: (20/14)*1em;
+    }
+
+    @media (max-width: 320px) {
+      font-size: 10px;
+      line-height: (16/10)*1em;
+    }
   }
 
   &__content {
-    display: teble-cell;
+    display: table-cell;
     color: $color-black;
   }
 
   &__content-title {
-    padding: 20px 30px;
+    padding: 25px 46px 21px;
     font-size: 24px;
     line-height: 1em;
+    font-weight: 500;
+    text-transform: uppercase;
     background-color: $color-yellow;
+
+    @media (max-width: 320px) {
+      padding: 9px 16px 9px;
+      font-size: 9px;
+    }
   }
 
   &__info {
-    padding: 30px;
+    padding: 36px 48px;
     @include clearfix;
+
+    @media (max-width: 320px) {
+      padding: 15px 16px;
+    }
   }
 
   &__left {
     float: left;
-    width: 30%;
+    width: 41%;
+
+    @include respond-to('mobile'){
+      float: none;
+      width: 100%;
+      margin-bottom: 29px;
+    }
   }
 
   &__definition {
     font-size: 24px;
     line-height: (34/24)*1em;
+
+    @media (max-width: 320px) {
+      font-size: 12px;
+      line-height: (22/12)*1em;
+    }
   }
 
   &__right {
     float: right;
-    width: 65%;
+    width: 55.5%;
+
+    @include respond-to('mobile'){
+      float: none;
+      width: 100%;
+    }
   }
 
   &__types {
@@ -256,15 +386,18 @@
   }
 
   &__type {
-    margin-bottom: 30px;
+    margin-bottom: 4px;
 
     &_active {
+      margin-bottom: 21px;
 
       & .depfin-services-social-support__type-label {
+        margin-bottom: 10px;
         background-color: $color-yellow;
 
         & .link {
           color: $color-black;
+          padding-right: 24px;
 
           &__icon {
             display: block;
@@ -282,18 +415,24 @@
     }
 
     &-label {
-      padding: 5px;
-      padding-right: 10px;
-      font-size: 24px;
-      margin-bottom: 10px;
+      display: inline-block;
+      padding: 7px 8px;
 
       & .link {
+        font-size: 18px;
+        text-transform: uppercase;
+        font-weight: 500;
+
+        @media (max-width: 320px) {
+          font-size: 12px;
+        }
 
         &__icon {
           display: none;
           top: 3px;
-          width: 10px;
-          height: 10px;
+          right: 0;
+          width: 8px;
+          height: 8px;
           fill: $color-black;
         }
       }
@@ -301,18 +440,32 @@
 
     &-description {
       display: none;
+      padding-left: 8px;
       margin-bottom: 10px;
     }
 
     &-text {
-      font-size: 14px;
-      line-height: (18/14)*1em;
+      font-size: 18px;
+      line-height: (24/18)*1em;
+      font-weight: 500;
+      margin-bottom: 10px;
+
+      @media (max-width: 320px) {
+        font-size: 11px;
+        line-height: (17/11)*1em;
+      }
     }
 
     &-link {
-      font-size: 12px;
-      line-height: (14/12)*1em;
+      font-size: 14px;
+      line-height: (16/12)*1em;
+      font-weight: 500;
       color: $color-link;
+
+      @media (max-width: 320px) {
+        font-size: 9px;
+        line-height: (15/9)*1em;
+      }
     }
   }
 }

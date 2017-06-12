@@ -20,7 +20,7 @@
     }
   }
   
-  & + .analityc-control-buttons {
+  &.active + .analityc-control-buttons {
     margin-left: 30px;
   }
 }
@@ -30,7 +30,7 @@
   display: inline-block;
   vertical-align: middle;
   
-  & + .analityc-control-switcher {
+  &.active + .analityc-control-switcher {
     margin-left: 30px;
   }
 }
@@ -64,7 +64,7 @@
 }
 
 .analityc-bottomtip {
-  display: inline-block;
+  display: none;
   float: right;
   @include clearfix;
   width: 61.5%;
@@ -87,6 +87,10 @@
         pointer-events: all;
       }
     }
+  }
+  
+  &.active {
+    display: inline-block;
   }
 }
 
@@ -183,16 +187,15 @@
     padding: 0 30px;
     line-height: 40px;
   }
-  .analityc-control-switcher + .analityc-control-buttons {
-    display: block;
+  .analityc-control-switcher.active + .analityc-control-buttons {
     margin-left: 0;
   }
   .analityc-control-button {
     width: 30px;
     height: 30px;
   }
-  .analityc-control-buttons+.analityc-control-switcher_big {
-    display: block;
+  .analityc-control-buttons.active + .analityc-control-switcher_big {
+    width: 100%;
     margin-left: 0;
     a {
       width: 50%;
