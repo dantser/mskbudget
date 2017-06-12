@@ -14,7 +14,7 @@ export default () => {
     });
 
     $(document).on('click', function(e) {
-      if (!$(e.target).closest(".search__filter").length) {
+      if (!$(e.target).closest('.search__filter').length) {
         TABS_LINK.removeClass(ACTIVE_CLASS);
       }
       e.stopPropagation();
