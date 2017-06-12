@@ -14,11 +14,11 @@ mixin depfin-services-social-support()
         //- 01, 02
         +e.UL.list
 
-          - for (var i = 0; i < 12; i++)
+          - for (var i = 1; i <= 12; i++)
             +e.LI.item
               +e.A(href='#').item-link
                 +e.item-icon
-                  +e.IMG(src='assets/images/depfin-services-social-support/item.png')
+                  +e.IMG(src='assets/images/depfin-services-social-support/menu-icon'+ i +'.png')
                 +e.SPAN.item-text Дети-сироты и их опекуны (усыновители)
 
               +e.UL.sublist
@@ -42,16 +42,17 @@ mixin depfin-services-social-support()
           +e.ARTICLE.article
             +e.burger
               +icon('burger').burger-icon
-              +icon('close').burger-close
 
-              +e.UL.burger-menu
-                - for (var i = 0; i < 12; i++)
-                  +e.LI.burger-item
-                    +e.A(href='#').burger-link
-                      | Ежемесячная компенсационная выплата на возмещение роста стоимости продуктов питания отдельным категориям граждан на детей в возрасте до трех лет
+              +e.burger-menu
+                +icon('close').burger-close
+                +e.UL.burger-list
+                  - for (var i = 0; i < 12; i++)
+                    +e.LI.burger-item
+                      +e.A(href='#').burger-link
+                        | Ежемесячная компенсационная выплата на возмещение роста стоимости продуктов питания отдельным категориям граждан на детей в возрасте до трех лет
 
             +e.content
-              +e.H4.content-title Пособие по беремености и родам
+              +e.H4.content-title Пособие по беременности и родам
               +e.info
                 +e.left
                   +e.P.definition
@@ -90,13 +91,14 @@ mixin depfin-services-social-support()
           +e.ARTICLE.article
             +e.burger
               +icon('burger').burger-icon
-              +icon('close').burger-close
 
-              +e.UL.burger-menu
-                - for (var i = 0; i < 12; i++)
-                  +e.LI.burger-item
-                    +e.A(href='#').burger-link
-                      | Ежемесячная компенсационная выплата на возмещение роста стоимости продуктов питания отдельным категориям граждан на детей в возрасте до трех лет
+              +e.burger-menu
+                +icon('close').burger-close
+                +e.UL.burger-list
+                  - for (var i = 0; i < 12; i++)
+                    +e.LI.burger-item
+                      +e.A(href='#').burger-link
+                        | Ежемесячная компенсационная выплата на возмещение роста стоимости продуктов питания отдельным категориям граждан на детей в возрасте до трех лет
 
             +e.content
               +e.H4.content-title Единовременно пособие при рождении ребенка
