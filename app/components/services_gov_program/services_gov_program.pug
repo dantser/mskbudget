@@ -3,6 +3,7 @@ include ../../blocks/link/link
 include ../../blocks/alternative-link/alternative-link
 include ../../blocks/button/button
 include ../../components/page-header/page-header
+include ../../blocks/table1/table1
 
 mixin services_gov_program()
   .main._basic
@@ -56,26 +57,43 @@ mixin services_gov_program()
                 +alternative-link('Перейти на страницу государственной программы «Спорт москвы»', 'раздела «Бюджет москвы» ')
             +e.content_two
               +e.H4.title Подпрограммы
-              +link() Массовая физкультурно-спортивная работа
+              +link()
                 +icon('basketball-ball').icon-basketball-ball
-              +link() Подготовка спортивного резерва, развитие спорта высших достижений
+                | Массовая физкультурно-спортивная работа
+              +link()
                 +icon('football-player').icon-football-player
+                | Подготовка спортивного резерва, развитие спорта высших достижений
             +e.content_three
               +e.H4.title Этапы реализации
               //-селект
           .dropdown.dropdown_b
             a(href="#").dropdown__btn.dropdown__btn_y.dropdown__btn_b.dropdown__btn_active Конечные результаты государственной программы
-              .d-si__quiz-container_head-cross_dropdown
+              +icon('delete').icon-close
             .dropdown__content.dropdown__content_db
+              +table1()
           .dropdown.dropdown_b
             a(href="#").dropdown__btn.dropdown__btn_y.dropdown__btn_b Финансовое обеспечение государственной программы
+              +icon('delete').icon-close
             .dropdown__content
+              .analityc-control-buttons
+                a(href="#").analityc-control-button.analityc-control-button_graphics.active
+                a(href="#").analityc-control-button.analityc-control-button_table
+              .analityc-control-switcher
+                a(href="#").active %
+                a(href="#") млн руб.
+              +table2()
           .dropdown.dropdown_b
             a(href="#").dropdown__btn.dropdown__btn_y.dropdown__btn_b Меры государственной поддержки в рамках государственной программы
+              +icon('delete').icon-close
             .dropdown__content
+              div Меры государственной поддержки в рамках государственной программы
           .dropdown.dropdown_b
             a(href="#").dropdown__btn.dropdown__btn_y.dropdown__btn_b Публичные нормативные обязательства
+              +icon('delete').icon-close
             .dropdown__content
+               div Публичные нормативные обязательства
           .dropdown.dropdown_b
             a(href="#").dropdown__btn.dropdown__btn_y.dropdown__btn_b Эффективность и результативность государственной программы
+              +icon('delete').icon-close
             .dropdown__content
+              div Эффективность и результативность государственной программы

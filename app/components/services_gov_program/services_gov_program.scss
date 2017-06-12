@@ -4,26 +4,37 @@
   .link {
     text-decoration: underline;
     font-family: $PFDinTextPro;
-  }
 
-  .d-si__quiz-container_head {
-    padding: 25px 0 22px 37px;
-
-    &::after {
-      @include clearfix;
-    }
-
-    span {
-      display: inline-block;
-      vertical-align: middle;
-      line-height: 1.2em;
+    &_dashed {
+      text-decoration: none;
     }
   }
-  .d-si__quiz-container_body {
-    padding-top: 40px;
-    padding-left: 0;
-    font-family: $PFDinCondensedPro;
+
+  .d-si__quiz-container {
+    padding-bottom: 0;
+
+    &_head {
+      padding: 25px 0 22px 37px;
+
+      &::after {
+        @include clearfix;
+      }
+
+      span {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: 1.2em;
+      }
+    }
+
+    &_body {
+      padding-top: 40px;
+      padding-left: 0;
+      font-family: $PFDinCondensedPro;
+    }
   }
+
+
 
   &__head {
     border-bottom: 1px solid #e6e6e6;
@@ -67,6 +78,10 @@
       &::after {
         @include clearfix;
       }
+
+      .gov-program__title {
+        margin-bottom: 10px;
+      }
     }
   }
 
@@ -104,6 +119,10 @@
 
   &__objectives {
     margin-bottom: 48px;
+
+    .text:last-child::before {
+      left: 0;
+    }
   }
 
   &__person {
@@ -134,29 +153,76 @@
     margin-right: 25px;
   }
 
-  &__icon-basketball-ball {
-    width: 19px;
-    height: 19px;
+  &__content_two {
+    background-color: #e7e6e4;
+    padding: 32px 72px 43px 120px;
+
+    .gov-program__title {
+      margin-bottom: 23px;
+    }
+
+    .link {
+      margin-right: 47px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &__icon-basketball-ball {
+        width: 19px;
+        height: 19px;
+        margin-right: 10px;
+        display: inline-block;
+        vertical-align: bottom;
+      }
+
+      &__icon-football-player {
+        width: 25px;
+        height: 27px;
+        margin-right: 5px;
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
   }
 
-  &__icon-football-player {
-    width: 23px;
-    height: 25px;
+  &__content_three {
+    padding: 40px 0 28px 40px;
   }
-
 
 
 
 
 
   // DROPDOWN
-  .d-si__quiz-container_head-cross_dropdown {
+  &__icon-close {
     display: none;
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    right: 0;
+    top: 22px;
+    fill: $color-link;
+    transition: all .5s ease;
+
+    &:hover {
+      fill: $color-black;
+    }
   }
 
   .dropdown {
+    padding-left: 40px;
+
+    &_active {
+      background: none;
+    }
+    &__content_db {
+      display: block;
+    }
+
     &_b {
       border-top: 1px solid rgba(0, 97, 160, .2);
+      background-color: #f6f6f5;
     }
 
     &__btn_b {
@@ -169,13 +235,24 @@
     }
 
     &__btn_active {
+
       &::after {
         display: none;
       }
 
-      .d-si__quiz-container_head-cross_dropdown {
+      .gov-program__icon-close {
         display: block;
       }
     }
+  }
+
+  .table1, .table2 {
+    margin-bottom: 70px;
+    padding-right: 38px;
+  }
+
+  .analityc-control-buttons, .analityc-control-switcher {
+    margin-top: 22px;
+    margin-bottom: 50px;
   }
 }
