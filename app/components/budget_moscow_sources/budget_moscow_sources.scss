@@ -176,6 +176,7 @@
       width: 350px;
       height: 30px;
       background-image: linear-gradient(to right, #ff0036, #021398 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#ff0036', endColorstr='#021398');
       position: relative;
       cursor: pointer;
       transition: all 1s ease;
@@ -265,6 +266,7 @@
 
     .linear-diagram__fill {
       background-image: linear-gradient(to right, #9d308a 0%, #ff695b 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#9d308a', endColorstr='#ff695b');
       width: 105px;
 
       @media (max-width: 1140px) {
@@ -307,6 +309,7 @@
 
     .linear-diagram__fill {
       background-image: linear-gradient(to right, #00ffff 0%, #004ccf 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#00ffff', endColorstr='#004ccf');
       width: 7px;
 
       @media (max-width: 1140px) {
@@ -333,6 +336,7 @@
 
     .linear-diagram__fill {
       background-image: linear-gradient(to right, #612292 0%, #bd84e9 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#612292', endColorstr='#bd84e9');
       width: 252px;
 
       @media (max-width: 1140px) {
@@ -353,6 +357,7 @@
 
     .linear-diagram__fill {
       background-image: linear-gradient(to right, #32d197 0%, #11a360 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#32d197', endColorstr='#11a360');
       width: 348px;
 
       @media (max-width: 1140px) {
@@ -372,6 +377,33 @@
       display: none;
     }
   }
+
+
+  .analityc-widget-sources_approved { //ie fix
+    .table__credits {
+      .table__data:nth-child(3) {
+        .linear-diagram__fill {
+            transform: translateX(50%);
+            left: 0;
+
+            @media (max-width: 680px) {
+              transform: none;
+            }
+        }
+      }
+    }
+  }
+  .analityc-widget-sources_changes {
+    .table__loans {
+      .table__data:nth-child(3) {
+        .linear-diagram__fill_loan2 {
+            left: -50%;
+            transform: none;
+        }
+      }
+    }
+  }
+
 
 // TABLE
   .section__diagram-content {
@@ -550,6 +582,7 @@
         .linear-diagram__fill {
           width: 10px;
           background-image: linear-gradient(to right, #9d308a 0%, #ff695b 100%);
+          filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#9d308a', endColorstr='#ff695b');
 
           &_extra {
             width: 17px;
@@ -571,6 +604,7 @@
 
               &_down {
                 background-image: none;
+                filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
                 border: 1px solid $color-red;
               }
             }
@@ -587,6 +621,7 @@
           &__fill {
             width: 10px;
             background-image: linear-gradient(to right, #00ffff 0%, #004ccf 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#00ffff', endColorstr='#004ccf');
 
             &_extra {
               width: 17px;
@@ -595,6 +630,7 @@
             &_abs {
               width: 41px !important;
               background-image: linear-gradient(to right, #00ffff 0%, #004ccf 100%);
+              filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#004ccf', endColorstr='#004ccf');
               position: relative;
               cursor: pointer;
               transition: all 1s ease;
@@ -637,6 +673,7 @@
           }
 
           .linear-diagram__val_extra {
+            margin-left: 75px;
             @media (max-width: 680px) {
               margin-left: 9px;
             }
@@ -661,6 +698,7 @@
         .linear-diagram__fill {
           width: 123px;
           background-image: linear-gradient(to right, #612292 0%, #bd84e9 100%);
+          filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#612292', endColorstr='#bd84e9');
 
           .linear-diagram__wave {
             &:nth-child(2) {
@@ -680,7 +718,9 @@
 
             &_loan {
               left: 40px;
+
               @media (max-width: 680px) {
+                margin-right: 7px;
                 left: 0;
               }
             }
@@ -691,6 +731,15 @@
 
             &_extra {
               margin-left: 45px;
+            }
+          }
+
+          .linear-diagram__val_extra {
+            margin-left: 46px;
+
+            @media (max-width: 680px) {
+              left: 0;
+              margin-left: 0;
             }
           }
 
@@ -714,31 +763,38 @@
 
             &__fill {
               width: 44px;
-              left: -50%;
+              left: 0;
+              transform: translateX(-50%);
+
+              @media (max-width: 680px) {
+                transform: none;
+              }
 
               &_extra {
                 width: 61px;
-              }
-
-              &_loan2 {
-                left: -50%;
+                transform: translateX(-25%);
               }
             }
 
             &__val {
               margin-left: 0;
               margin-right: 115px;
+              -ms-transform: translateX(0);
             }
           }
         }
 
         &:last-child {
           .linear-diagram {
+            &__fill {
+              -ms-transform: translateX(0)
+            }
 
             &__fill_extra {
               width: 20px;
               position: relative;
               left: -50%;
+              -ms-transform: translateX(0);
             }
 
             &__val_extra {
@@ -758,9 +814,17 @@
           &__fill {
             width: 121px;
             background-image: linear-gradient(to right, #b3dd34 0%, #30b069 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#b3dd34', endColorstr='#30b069');
+            transform: translateX(50%);
+            left: 0;
+
+            @media (max-width: 680px) {
+              transform: none;
+            }
 
             &_extra {
               width: 129px;
+              transform: none;
             }
           }
 
@@ -780,8 +844,9 @@
               &_down {
                 position: absolute;
                 width: 13px;
+                filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
                 background-image: none;
-                left: 100%;
+                left: 92%;
                 border: 1px solid #30b069;
                 border-left: none;
               }
@@ -791,7 +856,11 @@
               position: absolute;
               top: 50%;
               transform: translateY(-50%);
-              right: -45px;
+              left: 70%;
+
+              @media (max-width: 680px) {
+                left: 106%;
+              }
             }
           }
         }
@@ -835,10 +904,16 @@
             top: 36px;
           }
 
-          @media (max-width: 1024px) {
+          @media (max-width: 680px) {
             &::after, &::before {
               display: none;
             }
+          }
+
+          @media (min-width: 320px) and (max-width: 680px) {
+            width: 100% !important;
+            display: block !important;
+            text-align: left !important;
           }
 
           &::before {
@@ -857,6 +932,12 @@
           display: table-cell;
           text-align: right;
         }
+
+        @media (min-width: 320px) and (max-width: 680px) {
+          width: 100% !important;
+          display: block !important;
+          text-align: left !important;
+        }
       }
 
       &__shares {
@@ -873,6 +954,10 @@
           &__fill {
             width: 10px !important;
             left: 36%;
+
+            @media (min-width: 320px) and (max-width: 680px) {
+              left: 0;
+            }
           }
         }
       }
@@ -882,10 +967,16 @@
         .linear-diagram {
           &__fill {
             width: 62px !important;
-            left: -50% !important;
+            transform: translateX(-50%) !important;
+
+            @media (min-width: 501px) and (max-width: 680px) {
+              transform: none !important;
+              left: 0;
+            }
 
             @media (max-width: 500px) {
               width: 30px !important;
+              transform: none !important;
             }
           }
 
@@ -893,8 +984,12 @@
             left: -20px !important;
             right: 0;
 
+            @media (min-width: 501px) and (max-width: 680px) {
+              left: 6px !important;
+            }
+
             @media (max-width: 500px) {
-              left: 0 !important;
+              left: 2px !important;
             }
           }
 
