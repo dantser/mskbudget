@@ -259,6 +259,11 @@
     width: 16px;
     height: 16px;
     fill: $color-black;
+
+    @media (max-width: 320px) {
+      top: 9px;
+      left: 8px;
+    }
   }
 
   &__burger-menu {
@@ -270,6 +275,10 @@
     padding: 25px 30px 25px 90px;
     background-color: $color-white;
     z-index: 1;
+
+    @media (max-width: 320px) {
+      padding: 11px 32px;
+    }
   }
 
   &__burger-item {
@@ -290,6 +299,16 @@
     text-decoration: none;
     text-transform: uppercase;
     color: $color-link;
+
+    @include respond-to('mobile') {
+      font-size: 14px;
+      line-height: (20/14)*1em;
+    }
+
+    @media (max-width: 320px) {
+      font-size: 10px;
+      line-height: (16/10)*1em;
+    }
   }
 
   &__content {
