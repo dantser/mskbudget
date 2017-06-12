@@ -517,4 +517,50 @@ function basicBudgetFiguresDiagrams () {
             $(".analityc-control-group._percent").show();
 		}
 	});
+
+  $(".analityc-control-button").on("click", function(e) {
+    e.preventDefault();
+    var table = $(".analityc-control-button_table");
+    var $this = $(this);
+    $('.analityc-control-button').removeClass('active');
+    $this.toggleClass('active');
+    $(".analityc-widget-sources").removeClass("_active");
+
+     if (table.hasClass("active")) {
+
+        $(".analityc-widget-sources_table").addClass("_active");
+    } else {
+      $(".analityc-widget-sources_table").removeClass("_active");
+    }
+  })
+
+  $(".analityc-control-group._stage .analityc-select").on("change", function () {
+      var $this = $(this);
+      $(".analityc-widget-sources").removeClass("_active");
+
+      if ($this.val() ===  "Исполнение на дату") {
+          $(".analityc-widget-sources:eq(0)").addClass("_active");
+      } else if($this.val() ===  "Закон о бюджете утвержденный") {
+              $(".analityc-widget-sources:eq(1)").addClass("_active");
+      } else if($this.val() ===  "Закон о внесении изменений") {
+              $(".analityc-widget-sources:eq(2)").addClass("_active");
+      } else if($this.val() ===  "Закон об исполнении") {
+              $(".analityc-widget-sources:eq(3)").addClass("_active");
+      }
+
+      if ($this.val() ===  "Исполнение на дату") {
+              $(".analityc-control-group._dp").show();
+              $(".analityc-control-switcher").hide();
+
+      } else if ($this.val() ===  "Закон о внесении изменений") {
+              $(".analityc-control-group._dp").hide();
+              $(".analityc-control-switcher").css('display', 'inline-block');
+      }
+      else {
+              $(".analityc-control-group._dp").hide();
+              $(".analityc-control-switcher").hide();
+      }
+
+
+  });
 }

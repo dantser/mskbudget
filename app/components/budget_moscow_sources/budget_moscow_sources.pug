@@ -1,9 +1,12 @@
 include ../page-header/page-header
 include ../../blocks/grid/grid
+include ../../blocks/table/table
 
 mixin budget_moscow_sources()
   .main._basic
     +b.section.basic-budget.moscow-sources
+      .ar-left
+      .ar-right
       .wrapper
         +page-header('Источники финанасирования дефицита бюджета', false, true)
         .article-controls
@@ -33,15 +36,18 @@ mixin budget_moscow_sources()
           .analityc-control-buttons
             a(href="#").analityc-control-button.analityc-control-button_graphics.active
             a(href="#").analityc-control-button.analityc-control-button_table
+          .analityc-control-switcher
+            a(href="#").active %
+            a(href="#") млн руб.
           .analityc-control-group._dp
             input(placeholder="22.04.2017").datepicker
-          .analityc-widget-rounds
+          .analityc-widget-sources.analityc-widget-sources_date._active
             H3.moscow-sources__diagram-title Исполнение доходов бюджета на 22.04.2017
             +e.diagram-content
-              +b.linear-diagram
+              +b.linear-diagram_sources
                 +e.H4.sources_bold Всего по источникам финансирования дефицита
                 +e.block
-                  +icon('diagram-wave').wave
+                  +e.SPAN.wave
                   +e.fill
                     +e.SPAN.value 100,0 (45,9%)
                 +e.SPAN.val 217,9
@@ -75,13 +81,13 @@ mixin budget_moscow_sources()
               +b.linear-diagram_accumulation
                 +e.H4.sources_green Накопление остатков средств бюджета
                 +e.block
-                  +icon('diagram-wave').wave
+                  +e.SPAN.wave
                   +e.fill
                     +e.SPAN.SPAN.value 108,5 (50%)
                 +e.SPAN.val 216,9
-          .analityc-widget-rounds
+          .analityc-widget-sources.analityc-widget-sources_approved
             +e.diagram-content
-              p.analityc-graphics__toptext
+              p.analityc-graphics__periodtext
                 span Плановый период
               +b.table._accepted
                 +e.row._caption
@@ -129,8 +135,8 @@ mixin budget_moscow_sources()
                   +e.data
                     +b.linear-diagram
                       +e.fill
-                        +icon('diagram-wave').wave
-                        +icon('diagram-wave').wave
+                        +e.SPAN.wave
+                        +e.SPAN.wave
                         +e.SPAN.value -25,7
                         +e.SPAN.value -25,7
                   +e.data
@@ -144,12 +150,12 @@ mixin budget_moscow_sources()
                   +e.data
                     +b.linear-diagram
                       +e.fill
-                        +icon('diagram-wave').wave
+                        +e.SPAN.wave
                         +e.SPAN.value 216,9
                   +e.data
                     +b.linear-diagram
                       +e.fill
-                        +icon('diagram-wave').wave
+                        +e.SPAN.wave
                         +e.SPAN.value 86,3
                   +e.data
                     +b.linear-diagram
@@ -160,9 +166,9 @@ mixin budget_moscow_sources()
                   +e.SPAN.data_green +217,9
                   +e.SPAN.data_green +88,5
                   +e.SPAN.data_green +9,7
-          .analityc-widget-rounds._active
+          .analityc-widget-sources.analityc-widget-sources_changes
             +e.diagram-content
-              p.analityc-graphics__toptext
+              p.analityc-graphics__periodtext
                 span Плановый период
               +b.table._accepted
                 +e.row._caption
@@ -217,8 +223,8 @@ mixin budget_moscow_sources()
                   +e.data
                     +b.linear-diagram
                       +e.fill_loan
-                        +icon('diagram-wave').wave
-                        +icon('diagram-wave').wave
+                        +e.SPAN.wave
+                        +e.SPAN.wave
                         +e.SPAN.value -25,7
                         +e.SPAN.value -25,7
                         +e.fill_extra
@@ -238,7 +244,7 @@ mixin budget_moscow_sources()
                   +e.data
                     +b.linear-diagram
                       +e.fill
-                        +icon('diagram-wave').wave
+                        +e.SPAN.wave
                         +e.SPAN.value 216,9
                         +e.fill_extra
                         +e.SPAN.val_extra +10,0
@@ -246,7 +252,7 @@ mixin budget_moscow_sources()
                     +b.linear-diagram
                       +e.fill
                         +e.fill_down
-                        +icon('diagram-wave').wave
+                        +e.SPAN.wave
                         +e.SPAN.value 86,3
                         +e.SPAN.val_down -10,0
                   +e.data
@@ -258,7 +264,7 @@ mixin budget_moscow_sources()
                   +e.SPAN.data_green +217,9
                   +e.SPAN.data_green +88,5
                   +e.SPAN.data_green +9,7
-          .analityc-widget-rounds
+          .analityc-widget-sources.analityc-widget-sources_done
             +e.diagram-content
               +b.table._proficit
                 +e.row._caption
@@ -284,18 +290,21 @@ mixin budget_moscow_sources()
                   +e.data
                     +b.linear-diagram
                       +e.fill
-                        +icon('diagram-wave').wave
+                        +e.SPAN.wave
                         +e.SPAN.value -22,1
                 +e.row.__sources
                   +e.title.linear-diagram__sources_green Накопление остатков&nbsp;средств бюджета
                   +e.data
                     +b.linear-diagram
                       +e.fill
-                        +icon('diagram-wave').wave
+                        +e.SPAN.wave
                         +e.SPAN.value 122,2
                 +e.row.__total
                   +e.title.linear-diagram__sources Всего по источникам финансирования дефицита
                   +e.SPAN.data_green 143,4
+          .analityc-widget-sources.analityc-widget-sources_table
+            +e.diagram-content
+              +table-income(getData('income1'))
           a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
       .dropdown-block
         .dropdown

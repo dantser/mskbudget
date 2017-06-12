@@ -1,6 +1,7 @@
 include ../page-header/page-header
 include ../analityc-widgethead/analityc-widgethead
 include ../analityc-graphics/analityc-graphics
+include ../../blocks/table/table
 
 mixin budget_expenses()
   .main._basic
@@ -9,7 +10,7 @@ mixin budget_expenses()
         +page-header('Расходы бюджета', false, true)
 
         // Tab 1
-        .analityc-widget.analityc-widget_expenses
+        .analityc-widget.analityc-widget_expenses(data-stage="утвержденный", data-class="целевые_статьи", data-type="graphics")
           +analityc-widgethead-expenses(1)
           +analityc-graphics-round('expenses1')
           a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
@@ -19,7 +20,7 @@ mixin budget_expenses()
             | на 2018 год в сумме 48,3 млрд рублей и на 2019 год в сумме 97,5 млрд рублей
 
         // Tab 3
-        .analityc-widget.analityc-widget_expenses
+        .analityc-widget.analityc-widget_expenses(data-stage="утвержденный", data-class="разделы", data-type="graphics")
           +analityc-widgethead-expenses(1)
           +analityc-graphics-round('expenses2')
           a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
@@ -29,7 +30,7 @@ mixin budget_expenses()
             | на 2018 год в сумме 48,3 млрд рублей и на 2019 год в сумме 97,5 млрд рублей
 
         // Tab 5
-        .analityc-widget.analityc-widget_expenses
+        .analityc-widget.analityc-widget_expenses(data-stage="утвержденный", data-class="ведомства", data-type="graphics")
           +analityc-widgethead-expenses(1)
           +analityc-graphics-round('expenses3')
           a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
@@ -39,7 +40,7 @@ mixin budget_expenses()
             | на 2018 год в сумме 48,3 млрд рублей и на 2019 год в сумме 97,5 млрд рублей
 
         // Tab 7
-        .analityc-widget.analityc-widget_expenses
+        .analityc-widget.analityc-widget_expenses(data-stage="утвержденный", data-class="виды", data-type="graphics")
           +analityc-widgethead-expenses(1)
           +analityc-graphics-round('expenses4')
           a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
@@ -49,9 +50,19 @@ mixin budget_expenses()
             | на 2018 год в сумме 48,3 млрд рублей и на 2019 год в сумме 97,5 млрд рублей
           
         // Tab 9
-        .analityc-widget.analityc-widget_expenses
+        .analityc-widget.analityc-widget_expenses(data-stage="изменения", data-class="целевые_статьи", data-type="graphics")
           +analityc-widgethead-expenses(1)
-          +analityc-graphics-column('expenses5')
+          +analityc-graphics-column('expenses5', true)
+          a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
+          p.analityc-bottomtip * Кроме того в плановом периоде учитываются 
+            span условно утвержденные расходы
+              span.analityc-popup Под условно утверждаемыми (утвержденными) расходами понимаются не распределенные в&nbsp;плановом периоде в соответствии с&nbsp;классификацией расходов бюджетов бюджетные ассигнования.
+            | на 2018 год в сумме 48,3 млрд рублей и на 2019 год в сумме 97,5 млрд рублей
+            
+        // Tab 10
+        .analityc-widget.analityc-widget_expenses(data-stage="изменения", data-class="целевые_статьи", data-type="table")
+          +analityc-widgethead-expenses(1)
+          +table-expenses(getData('expenses1')).analityc-widget__table
           a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
           p.analityc-bottomtip * Кроме того в плановом периоде учитываются 
             span условно утвержденные расходы
@@ -59,19 +70,19 @@ mixin budget_expenses()
             | на 2018 год в сумме 48,3 млрд рублей и на 2019 год в сумме 97,5 млрд рублей
             
         // Tab 11
-        .analityc-widget.analityc-widget_expenses
+        .analityc-widget.analityc-widget_expenses(data-stage="исполнение", data-class="целевые_статьи", data-type="graphics")
           +analityc-widgethead-expenses(1)
           +analityc-graphics-singleround-alt('expenses5')
           a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
           
         // Tab 13
-        .analityc-widget.analityc-widget_expenses
+        .analityc-widget.analityc-widget_expenses(data-stage="на_дату", data-class="целевые_статьи", data-type="graphics")
           +analityc-widgethead-expenses(3)
           +analityc-graphics-line('Исполнение расходов бюджета на 22.04.2017', getData('graphic-lines-expenses1'))
           a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
           
         // Tab 15
-        .analityc-widget.analityc-widget_expenses
+        .analityc-widget.analityc-widget_expenses(data-stage="на_дату", data-class="целевые_статьи", data-type="graphics", data-date="01.02.2017")
           +analityc-widgethead-expenses(3)
           +analityc-graphics-line('Исполнение расходов бюджета на 01.02.2017', getData('graphic-lines-expenses1'))
           a(href="/").analityc-more Перейти в&nbsp;раздел аналитика

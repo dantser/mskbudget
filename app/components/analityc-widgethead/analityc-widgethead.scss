@@ -29,6 +29,10 @@
   margin-top: 30px;
   display: inline-block;
   vertical-align: middle;
+  
+  & + .analityc-control-switcher {
+    margin-left: 30px;
+  }
 }
 
 .analityc-control-button {
@@ -105,6 +109,7 @@
   opacity: 0;
   pointer-events: none;
   transition: all .25s ease-in-out;
+  z-index: 2;
   
   &:before {
     content: '';
@@ -121,36 +126,17 @@
   }
 }
 
-.analityc-widget_income {
-  .analityc-control-group._dp {
-    display: inline-block;
-    margin-top: 30px;
-    margin-left: 2.9%;
+@media screen and (min-width: 761px) and (max-width: 1140px) {
+  .analityc-control-switcher a {
+    line-height: 37px;
   }
 }
 
-.analityc-widget_expenses {
-  padding-bottom: 50px;
-  .analityc-control-buttons {
-    margin-top: 50px;
-  }
-  .analityc-control-switcher {
-    margin-top: 44px;
-    margin-left: 2.9%;
-  }
-  .analityc-control-group._classify {
-    margin-top: 25px;
-    margin-left: 2.9%;
-    width: 42.5%;
-  }
-  .analityc-graphics_round {
-    padding-top: 102px;
-  }
-  .analityc-graphics__legend {
-    margin-top: 49px;
-  }
-  .analityc-more {
-    margin-top: 68px;
+@media screen and (max-width: 1100px) {
+  .analityc-bottomtip {
+    width: 100%;
+    margin-top: 20px;
+    float: none;
   }
 }
 
@@ -168,6 +154,24 @@
   .analityc-control-button + .analityc-control-button {
     margin-left: 20px;
   }
+  .analityc-control-buttons + .analityc-control-switcher_large {
+    display: block;
+    margin-left: 0;
+    width: 100%;
+    a {
+      width: 100%;
+    }
+  }
+  .analityc-widget_expenses .analityc-control-group._classify {
+    width: 100%;
+  }
+  .analityc-control-group._classify {
+    .analityc-select {
+      box-sizing: border-box;
+      padding-right: 50px;
+      width: 100%;
+    }
+  }
 }
 
 @media screen and (max-width: 550px) {
@@ -179,7 +183,7 @@
     padding: 0 30px;
     line-height: 40px;
   }
-  analityc-control-switcher + .analityc-control-buttons {
+  .analityc-control-switcher + .analityc-control-buttons {
     display: block;
     margin-left: 0;
   }
@@ -187,7 +191,11 @@
     width: 30px;
     height: 30px;
   }
-  .analityc-widget .analityc-graphics_round {
-    margin-top: 50px;
+  .analityc-control-buttons+.analityc-control-switcher_big {
+    display: block;
+    margin-left: 0;
+    a {
+      width: 50%;
+    }
   }
 }

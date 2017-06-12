@@ -2,7 +2,7 @@
   display: block;
   position: relative;
   
-  &__toptext {
+  &__periodtext {
     font-size: 16px;
     font-weight: 500;
     color: #b8b8b8;
@@ -18,6 +18,15 @@
       background-color: #fff;
       padding: 0 10px;
     }
+  }
+  
+  &__toptext {
+    font-size: 14px;
+    font-weight: 500;
+    position: absolute;
+    right: 22px;
+    top: -20px;
+    color: #000;
   }
   
   &__cols {
@@ -90,29 +99,19 @@
       font-weight: 400;
       font-family: $PFDinTextPro;
       display: inline-block;
-      vertical-align: middle;
-      width: 32%;
-      margin-bottom: 9px;
+      vertical-align: top;
+      margin-bottom: 17px;
+      width: 33%;
+      padding-left: 34px;
+      position: relative;
+      height: 1.2em;
+      line-height: 1;
+      text-align: left;
+      
       &:before {
-        margin-right: 11px;
-      }
-      
-      &_violet:before {
-        background: #a870d5;
-        background-image: -webkit-linear-gradient(right,#8449b4,#a870d5 65%);
-        background-image: linear-gradient(270deg,#8449b4,#a870d5 65%);
-      }
-      
-      &_grey:before {
-        background: #ccd0d7;
-        background-image: -webkit-linear-gradient(right,#bcc0ca,#ccd0d7 65%);
-        background-image: linear-gradient(270deg,#bcc0ca,#ccd0d7 65%);
-      }
-      
-      &_altgreen:before {
-        background: #26c082;
-        background-image: -webkit-linear-gradient(right,#2dc98f,#26c082 65%);
-        background-image: linear-gradient(270deg,#2dc98f,#26c082 65%);
+        position: absolute;
+        left: 0;
+        top: -4px;
       }
     }
     
@@ -120,7 +119,7 @@
       margin-top: 72px;
       
       .legend__item {
-        width: 100%;
+        width: 100% !important;
         margin-bottom: 19px;
       }
     }
@@ -400,12 +399,8 @@
   
   &_column {
     padding-top: 20px;
-    .analityc-graphics__cols {
-      padding-left: 33px;
-      padding-right: 21px;
-    }
+    
     .analityc-graphics__col {
-      text-align: left;
       width: 26.5%;
     }
     .analityc-graphics__year {
@@ -435,26 +430,64 @@
 }
 
 
-
 @media screen and (max-width: 1140px) {
-  .analityc-graphics_column .analityc-graphics__cols {
-    padding-left: 0;
-    padding-right: 0;
+  .analityc-graphics__legend .legend__item {
+    height: auto;
   }
 }
 
 @media screen and (min-width: 1101px) and (max-width: 1140px) {
-  .analityc-graphics_round .analityc-graphics__graphic {
+  .analityc-graphics__graphic_round {
     height: 243px;
   }
-  .analityc-graphics_column .analityc-graphics__graphic {
+  .analityc-graphics__graphic_column {
     height: 300px;
+  }
+  .analityc-graphics__line-values {
+    width: 13%;
+  }
+  .analityc-graphics__line-bar {
+    width: 66%;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .analityc-graphics__legend_vert {
+    margin-top: 22px;
+  }
+  .analityc-graphics__heading {
+    font-size: 26px;
+  }
+  .analityc-graphics_column {
+    padding-top: 40px;
+  }
+  .analityc-graphics_column .analityc-graphics__legend {
+    margin-top: 50px;
   }
 }
 
 @media screen and (min-width: 801px) and (max-width: 1100px) {
-  .analityc-graphics__toptext {
+  .analityc-graphics__periodtext {
     width: 60%;
+  }
+  .analityc-graphics__line-title {
+    width: 22%;
+  }
+  .analityc-graphics__line-values {
+    padding-left: 15px;
+    width: 18%;
+  }
+  .analityc-graphics__line-bar {
+    width: 60%;
+  }
+  .analityc-graphics__line-bar-value {
+    margin-right: 3px;
+  }
+  .analityc-graphics__line {
+    margin-top: 10px;
+    &:first-child {
+      margin-top: 0;
+    }
   }
 }
 
@@ -469,25 +502,52 @@
     font-size: 10px;
     max-width: 80px;
   }
-  .analityc-graphics_round .analityc-graphics__graphic {
+  .analityc-graphics__graphic_round {
     height: 170px;
   }
   .analityc-graphics_column .analityc-graphics__col {
     width: 170px;
   }
-  .analityc-graphics_column .analityc-graphics__graphic {
+  .analityc-graphics__graphic_column {
     height: 212px;
+  }
+  .analityc-graphics__toptext {
+    top: -40px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .analityc-graphics__legend .legend__item:before {
+    width: 21px;
+    height: 21px;
   }
 }
 
 @media screen and (max-width: 800px) {
-  .analityc-graphics__toptext {
+  .analityc-graphics__periodtext {
     width: 64%;
+  }
+  .analityc-graphics__line-title {
+    width: auto;
+    text-align: left;
+  }
+  .analityc-graphics__line-values {
+    width: auto;
+  }
+  .analityc-graphics__line-bar {
+    width: 100%;
+    margin-top: 7px;
+  }
+  .analityc-graphics__line {
+    margin-top: 20px;
+    &:first-child {
+      margin-top: 0;
+    }
   }
 }
 
 @media screen and (max-width: 760px) {
-  .analityc-graphics__toptext {
+  .analityc-graphics__periodtext {
     display: none;
   }
   .analityc-graphics__cols {
@@ -517,7 +577,7 @@
     font-size: 14px;
     max-width: 120px;
   }
-  .analityc-graphics_round .analityc-graphics__graphic {
+  .analityc-graphics__graphic_round {
     height: 400px;
   }
   .analityc-graphics_column .analityc-graphics__col {
@@ -527,6 +587,26 @@
   }
   .analityc-graphics_column .analityc-graphics__graphic {
     height: 500px;
+  }
+  .analityc-graphics__toptext {
+    font-size: 18px;
+    top: -30px;
+  }
+  .analityc-graphics_singleround .analityc-graphics__col {
+    margin: 50px auto;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .analityc-graphics__line-title {
+    font-size: 18px;
+  }
+  .analityc-graphics__line-values {
+    font-size: 18px;
+  }
+  .analityc-graphics__line-bar-value {
+    font-size: 16px;
+    margin-right: 4px;
   }
 }
 
@@ -551,7 +631,7 @@
     font-size: 12px;
     max-width: 100px;
   }
-  .analityc-graphics_round .analityc-graphics__graphic {
+  .analityc-graphics__graphic_round {
     height: 250px;
   }
   .analityc-graphics_column .analityc-graphics__col {
@@ -560,5 +640,35 @@
   }
   .analityc-graphics_column .analityc-graphics__graphic {
     height: 312px;
+  }
+  .analityc-graphics_round {
+    padding-top: 30px;
+  }
+  .analityc-graphics__toptext {
+    top: -24px;
+  }
+  .analityc-graphics_singleround {
+    padding-top: 30px;
+  }
+  .analityc-graphics_singleround .analityc-graphics__col {
+    margin: 30px auto;
+  }
+  .analityc-graphics__heading {
+    font-size: 24px;
+  }
+  .analityc-graphics__line-title, .analityc-graphics__line-values {
+    font-size: 14px;
+  }
+  .analityc-graphics__line-bar-value {
+    display: none;
+  }
+  .analityc-graphics__line-values {
+    padding-left: 10px;
+  }
+  .analityc-graphics__line-title {
+    max-width: 60%;
+  }
+  .analityc-graphics__lines {
+    padding-bottom: 45px;
   }
 }
