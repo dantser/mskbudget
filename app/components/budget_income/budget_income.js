@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 export default () => {
-  
+  /*
   $('.analityc-widget_income [data-select="stage"]').change(function(){
     var currentTab = $('.analityc-widget_income.active');
     var stage = $(this).val();
@@ -40,5 +40,5 @@ export default () => {
       newTab.addClass('active');
     }
   });
-  
+  */
 }

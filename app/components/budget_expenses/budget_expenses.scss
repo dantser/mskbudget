@@ -1,10 +1,5 @@
 .analityc-widget_expenses {
   padding-bottom: 50px;
-  display: none;
-  
-  &.active {
-    display: block;
-  }
   
   .analityc-control-buttons {
     margin-top: 50px;
@@ -90,12 +85,18 @@
   .analityc-widget_expenses .analityc-graphics_singleround {
     padding-top: 70px;
   }
+  .basic-budget .analityc-widget_expenses {
+    padding-bottom: 35px;
+  }
 }
 
 @media screen and (min-width: 1101px) and (max-width: 1140px) {
   .analityc-widget_expenses .analityc-control-group._classify {
     margin-top: 0;
     width: 48.5%;
+  }
+  .analityc-widget_expenses .analityc-control-group._dp {
+    width: 37.4%;
   }
 }
 
@@ -110,29 +111,20 @@
   .analityc-widget_expenses .analityc-graphics_round {
     padding-top: 70px;
   }
-  .analityc-widget_expenses .analityc-control-group._dp {
-    margin-top: 29px;
-    width: 37.5%;
-  }
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (min-width: 761px) and (max-width: 1100px) {
   .analityc-widget_expenses .analityc-control-group._classify {
     display: block;
     margin-left: 0;
     width: 100%;
   }
+  .analityc-widget_expenses .analityc-control-group._dp {
+    width: calc(45.2% - 70px);
+  }
 }
 
 @media screen and (max-width: 760px) {
-  .analityc-widget_expenses .analityc-control-switcher {
-    display: block;
-    margin-left: 0;
-    width: 100%;
-    a {
-      width: 100%;
-    }
-  }
   .analityc-widget_expenses .analityc-graphics_round {
     padding-top: 50px;
   }
@@ -157,5 +149,17 @@
   }
   .analityc-widget_expenses .analityc-control-group._dp:before {
     top: 11px;
+  }
+  .analityc-widget_expenses .analityc-graphics_round {
+    padding-top: 30px;
+  }
+  .analityc-widget_expenses .analityc-more {
+    margin-top: 20px;
+  }
+  .analityc-widget_expenses .analityc-graphics_column {
+    padding-top: 30px;
+  }
+  .analityc-widget_expenses .analityc-graphics_singleround {
+    padding-top: 30px;
   }
 }
