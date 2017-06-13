@@ -1,0 +1,46 @@
+include ../page-header/page-header
+include ../analityc-widgethead/analityc-widgethead
+include ../analityc-graphics/analityc-graphics
+
+
+mixin depfin-analytics-main()
+	.main._basic
+		section.basic-budget
+			.wrapper
+				+page-header('Основные параметры', false, true)
+
+				// Tab 1
+				.analityc-widget.analityc-widget_params
+					+analityc-widgethead-main()
+
+					+analityc-graphics-line-vertical(getData('graphic-lines-main'))
+
+					a(href="/").analityc-more Перейти в&nbsp;раздел бюжет москвы
+
+
+			// Dropdown block
+			.dropdown-block
+				.dropdown
+					.dropdown-trigger
+						.wrapper
+							span
+								strong Документы
+				.dropdown-content
+					.wrapper
+						span Документы
+				.dropdown
+					.dropdown-trigger
+						.wrapper
+							span
+								strong Новости по&nbsp;теме
+				.dropdown-content
+					.wrapper
+						span Новости
+				.dropdown
+					.dropdown-trigger
+						.wrapper
+							span
+								strong Сервисы
+				.dropdown-content
+					.wrapper
+						span Сервисы

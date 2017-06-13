@@ -155,3 +155,29 @@ mixin analityc-graphics-line(title, data)
               +e.line-total
               +e.SPAN.line-bar-value= obj.barvalue
               +e.line-fill
+
+mixin analityc-graphics-line-vertical(data)
+  +b.analityc-graphics-line-vertical&attributes(attributes)
+
+    each item in data
+      +e.graphic
+        +e.lines
+
+          +e.line._blue
+            +e.line-bar-value= item.values[0]
+            +e.line-fill
+          +e.line._pink
+            +e.line-bar-value= item.values[1]
+            +e.line-fill
+          +e.line._green
+            +e.line-bar-value= item.values[2]
+            +e.line-fill
+
+        +e.caption
+          +e.STRONG.caption-year= item.year
+          +e.SPAN.caption-text= item.text
+
+
+    
+
+

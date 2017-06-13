@@ -1,0 +1,117 @@
+.analityc-widget_params {
+  padding-top: 22px;
+	padding-bottom: 35px;
+
+	& .analityc-control-frame {
+
+		&-title {
+			text-transform: uppercase;
+	    font-size: 18px;
+	    color: #000;
+		}
+
+		&_left {
+			float: left;
+			width: 40%;
+
+			& .analityc-control-group {
+				position: relative;
+				width: 100%;
+				padding-right: 27px;
+				margin-left: 0;
+				@include clearfix;
+
+				&:hover {
+					& .analityc-remove-group {
+						display: block;
+					}
+				}
+			}
+
+			& .analityc-select {
+
+				&_year {
+					float: left;
+					width: 30%;
+				}
+				
+				&_stage {
+					float: right;
+					width: 60%;
+				}
+			}
+
+			& .analityc-remove-group {
+				display: none;
+				position: absolute;
+				top: 11px;
+				right: 0;
+
+				& svg {
+					width: 15px;
+					height: 17px;
+					fill: $color-link;
+				}
+			}
+
+			& .analityc-add-group {
+				display: block;
+				width: 100%;
+				height: auto;
+				font-size: 14px;
+				color: $color-link;
+				text-transform: uppercase;
+				margin-top: 14px;
+			}
+		}
+
+		&_right {
+			position: relative;
+			float: right;
+			width: 50%;
+
+			& .frame-wrap {
+				@include clearfix;
+			}
+
+			& .analityc-control-group {
+				display: block;
+				margin-left: 0;
+
+				&_level {
+					float: left;
+					width: 45%;
+				}
+				
+				&_transfer {
+					float: right;
+					width: 45%;
+				}
+
+				&_buttons {
+					position: absolute;
+					right: -8px;
+					max-width: 100%;
+				}
+			}
+
+			& .analityc-select {
+				width: 100%;
+			}
+	
+			& .analityc-control-switcher {
+				margin-bottom: 20px;
+			}
+
+			& .analityc-control-legend {
+				font-size: 0;
+
+				& .legend__item {
+					display: inline-block;
+					margin-right: 33px;
+					color: $color-black;
+				}
+			}
+		}
+	}
+}

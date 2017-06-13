@@ -1,3 +1,5 @@
+include ../../blocks/legend/legend
+include ../../blocks/icon/icons
 //- type - тип шапки доходов бюджета (один из четырех)
 mixin analityc-widgethead-income(type)
   +b.analityc-widgethead&attributes(attributes)
@@ -86,3 +88,84 @@ mixin analityc-widgethead-expenses(type)
         option Разделы и подразделы
         option Ведомства
         option Виды
+
+//- Основные параметры
+mixin analityc-widgethead-main()
+  +b.analityc-widgethead&attributes(attributes)
+
+    .analityc-control-frame.analityc-control-frame_left
+      span.analityc-control-frame-title Выберите год и этап
+      .analityc-control-group
+        a(href='#').analityc-remove-group
+          +icon('basket', true)
+        select.analityc-select.analityc-select_year
+          option 2018
+          option 2017
+          option 2016
+          option(selected) 2015
+        select.analityc-select.analityc-select_stage
+          option(selected) Фактическое исполнение
+          option option#1
+          option option#2
+      .analityc-control-group
+        a(href='#').analityc-remove-group
+          +icon('basket', true)
+        select.analityc-select.analityc-select_year
+          option 2018
+          option 2017
+          option(selected) 2016
+          option 2015
+        select.analityc-select.analityc-select_stage
+          option(selected) Фактическое исполнение
+          option option#1
+          option option#2
+      .analityc-control-group
+        a(href='#').analityc-remove-group
+          +icon('basket', true)
+        select.analityc-select.analityc-select_year
+          option 2018
+          option(selected) 2017
+          option 2016
+          option 2015
+        select.analityc-select.analityc-select_stage
+          option(selected) Закон о бюджете (утвержденный)
+          option option#1
+          option option#2
+      .analityc-control-group
+        a(href='#').analityc-remove-group
+          +icon('basket', true)
+        select.analityc-select.analityc-select_year
+          option(selected) 2018
+          option 2017
+          option 2016
+          option 2015
+        select.analityc-select.analityc-select_stage
+          option(selected) Закон о бюджете (утвержденный)
+          option option#1
+          option option#2
+      a(href='#').analityc-add-group + Добавить год и этап
+
+    .analityc-control-frame.analityc-control-frame_right
+      .frame-wrap
+        .analityc-control-group.analityc-control-group_level
+          span Уровень
+          select.analityc-select
+            option(selected) Бюджет москвы
+            option Бюджет области
+            option Бюджет региона
+            option Консолидированный бюджет
+
+        .analityc-control-group.analityc-control-group_transfer
+          span Межбюджетные трансферты
+          select.analityc-select
+            option(selected) Без межбюджетных трансфертов
+            option с трансфертами
+      
+      .analityc-control-group.analityc-control-group_buttons
+        .analityc-control-switcher.analityc-control-switcher_large.active
+          a(href="#").active млрд. руб.
+          a(href="#") темп роста к предыдущему периоду, %
+
+        +legend(getData('legend-main1')).analityc-control-legend
+
+
