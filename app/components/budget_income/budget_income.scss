@@ -15,11 +15,25 @@
       padding-right: 21px;
     }
   }
+  
+  .analityc-graphics, .analityc-table {
+    display: none;
+    &.active {
+      display: block;
+    }
+  }
+  
+  .analityc-control-switcher_default,
+  .analityc-control-buttons,
+  .analityc-control-switcher_big,
+  .analityc-control-group._dp {
+    display: none;
+    &.active {
+      display: inline-block;
+    }
+  }  
 }
 
-.analityc-widget__table {
-  padding-top: 50px;
-}
 
 @media screen and (max-width: 1140px) {
   .analityc-widget_income .analityc-graphics_column .analityc-graphics__cols {
@@ -47,6 +61,9 @@
   .analityc-widget_income .analityc-control-group._dp {
     width: 100%;
   }
+}
+
+@media screen and (min-width: 551px) and (max-width: 760px) {
   .analityc-widget_income input.datepicker {
     height: 58px;
     line-height: 58;
