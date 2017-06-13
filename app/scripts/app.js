@@ -7,6 +7,7 @@ import lkNav from '../blocks/lk-nav/lkNav';
 import regions from '../components/regions/regions';
 import searchPage from '../components/search/searchPage';
 import sources from '../components/budget_moscow_sources/budget_moscow_sources';
+import govProgram from '../components/services_gov_program/services_gov_program';
 
 $(() => {
   selectbox();
@@ -17,4 +18,5 @@ $(() => {
   tabs();
   searchPage();
   sources();
+  govProgram();
 });
