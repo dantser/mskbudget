@@ -1,6 +1,7 @@
 include ../page-header/page-header
 include ../../blocks/grid/grid
 include ../../blocks/table/table
+include ../analityc-widgethead/analityc-widgethead
 
 mixin budget_moscow_sources()
   .main._basic
@@ -8,39 +9,13 @@ mixin budget_moscow_sources()
       .ar-left
       .ar-right
       .wrapper
-        +page-header('Источники финанасирования дефицита бюджета', false, true)
+        +page-header('Источники финансирования дефицита бюджета', false, true)
         .article-controls
           span
           span
           span
-        .analityc-widget
-          .analityc-control-group._year
-            span Год
-            select.analityc-select
-              option(selected) 2017
-              option 2016
-              option 2015
-          .analityc-control-group._stage
-            span Этап
-            select.analityc-select
-              option(selected) Исполнение на дату
-              option Закон об исполнении
-              option Закон о внесении изменений
-              option Закон о бюджете утвержденный
-          .analityc-control-group._level
-            span Уровень
-            select.analityc-select
-              option(selected) Бюджет москвы
-              option Бюджет области
-              option Бюджет региона
-          .analityc-control-buttons
-            a(href="#").analityc-control-button.analityc-control-button_graphics.active
-            a(href="#").analityc-control-button.analityc-control-button_table
-          .analityc-control-switcher
-            a(href="#").active %
-            a(href="#") млн руб.
-          .analityc-control-group._dp
-            input(placeholder="22.04.2017").datepicker
+        .analityc-widget.analityc-widget_sources
+          +analityc-widgethead-sources()
           .analityc-widget-sources.analityc-widget-sources_date._active
             H3.moscow-sources__diagram-title Исполнение доходов бюджета на 22.04.2017
             +e.diagram-content
@@ -85,6 +60,9 @@ mixin budget_moscow_sources()
                   +e.fill
                     +e.SPAN.SPAN.value 108,5 (50%)
                 +e.SPAN.val 216,9
+          .analityc-table.analityc-widget-sources-table_date
+            +e.diagram-content
+              +table-income(getData('income1'))
           .analityc-widget-sources.analityc-widget-sources_approved
             +e.diagram-content
               p.analityc-graphics__periodtext
@@ -166,6 +144,9 @@ mixin budget_moscow_sources()
                   +e.SPAN.data_green +217,9
                   +e.SPAN.data_green +88,5
                   +e.SPAN.data_green +9,7
+          .analityc-table.analityc-widget-sources-table_approved
+            +e.diagram-content
+              +table-income(getData('income1'))
           .analityc-widget-sources.analityc-widget-sources_changes
             +e.diagram-content
               p.analityc-graphics__periodtext
@@ -264,6 +245,9 @@ mixin budget_moscow_sources()
                   +e.SPAN.data_green +217,9
                   +e.SPAN.data_green +88,5
                   +e.SPAN.data_green +9,7
+          .analityc-table.analityc-widget-sources-table_changes
+            +e.diagram-content
+              +table-income(getData('income1'))
           .analityc-widget-sources.analityc-widget-sources_done
             +e.diagram-content
               +b.table._proficit
@@ -283,8 +267,8 @@ mixin budget_moscow_sources()
                   +e.title.linear-diagram__sources_blue Возврат бюджетных кредитов
                   +e.data
                     +b.linear-diagram
-                      +e.fill
                       +e.SPAN.val -1,2
+                      +e.fill
                 +e.row.__loans
                   +e.title.linear-diagram__sources_pink Заемные средства
                   +e.data
@@ -302,7 +286,7 @@ mixin budget_moscow_sources()
                 +e.row.__total
                   +e.title.linear-diagram__sources Всего по источникам финансирования дефицита
                   +e.SPAN.data_green 143,4
-          .analityc-widget-sources.analityc-widget-sources_table
+          .analityc-table.analityc-widget-sources-table_done
             +e.diagram-content
               +table-income(getData('income1'))
           a(href="/").analityc-more Перейти в&nbsp;раздел аналитика

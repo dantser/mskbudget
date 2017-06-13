@@ -25,6 +25,9 @@ mixin table-income(data)
 
 
   +b.table&attributes(attributes)
+  
+    +e.P.periodtext
+      span Плановый период
 
     +e.row._caption
       +e.col._four Виды доходов
@@ -32,6 +35,10 @@ mixin table-income(data)
       if (data[0].year)
         each item in data
           +e.col._four= item.year
+            if item.leftperiod
+              +e.SPAN.period-left
+            if item.rightperiod
+              +e.SPAN.period-right
       else
         +e.col._four МЛРД РУБ.
         +e.col._four %

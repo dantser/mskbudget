@@ -44,7 +44,7 @@ mixin services_gov_program()
                   li.text Совершенствование системы подготовки московских спортсменов высокого класса, осуществление научно-методического, медико-биологического, антидопингового и информационно-технологического обеспечения подготовки спортивного резерва
                   li.text Расширение сети объектов спорта, в том числе уникальных и специализированных, строительство и реконструкция спортивных объектов по приоритетным видам спорта.
                   li.text Развитие материально-технической базы организаций, подведомственных Москомспорту, в том числе обеспечение их доступности для лиц с ограниченными возможностями здоровья и инвалидов, совершенствование системы эксплуатации и содержания существующих объектов спорта
-                +link()._dashed Показать все 10 задач государственной программы
+                +link()._dashed.js-showhide Показать все 10 задач государственной программы
               +e.col_two
                 +e.H4.title Координатор
                 +e.IMG(src='../assets/images/Gorbenko.jpg').person
@@ -70,7 +70,8 @@ mixin services_gov_program()
             a(href="#").dropdown__btn.dropdown__btn_y.dropdown__btn_b.dropdown__btn_active Конечные результаты государственной программы
               +icon('delete').icon-close
             .dropdown__content.dropdown__content_db
-              +table1()
+              .table-wrapper
+                +table1()
           .dropdown.dropdown_b
             a(href="#").dropdown__btn.dropdown__btn_y.dropdown__btn_b Финансовое обеспечение государственной программы
               +icon('delete').icon-close
@@ -81,19 +82,21 @@ mixin services_gov_program()
               .analityc-control-switcher
                 a(href="#").active %
                 a(href="#") млн руб.
-              +table2()
+              .table-wrapper
+                +table2()
           .dropdown.dropdown_b
             a(href="#").dropdown__btn.dropdown__btn_y.dropdown__btn_b Меры государственной поддержки в рамках государственной программы
               +icon('delete').icon-close
             .dropdown__content
-              div Меры государственной поддержки в рамках государственной программы
+              div.text Меры государственной поддержки в рамках государственной программы
           .dropdown.dropdown_b
             a(href="#").dropdown__btn.dropdown__btn_y.dropdown__btn_b Публичные нормативные обязательства
               +icon('delete').icon-close
             .dropdown__content
-               div Публичные нормативные обязательства
+               div.text Публичные нормативные обязательства
           .dropdown.dropdown_b
             a(href="#").dropdown__btn.dropdown__btn_y.dropdown__btn_b Эффективность и результативность государственной программы
               +icon('delete').icon-close
             .dropdown__content
-              div Эффективность и результативность государственной программы
+              div.text Эффективность и результативность государственной программы
+        +link()._white._bottom Постановление Правительства Москвы от 10.10.2016 г. № 658-ПП «О внесении изменений в постановление Правительства Москвы от 20 сентября 2011 г. № 432-ПП»

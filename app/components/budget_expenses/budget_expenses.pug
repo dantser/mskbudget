@@ -1,6 +1,7 @@
 include ../page-header/page-header
 include ../analityc-widgethead/analityc-widgethead
 include ../analityc-graphics/analityc-graphics
+include ../analityc-table/analityc-table
 include ../../blocks/table/table
 
 mixin budget_expenses()
@@ -17,13 +18,14 @@ mixin budget_expenses()
           +analityc-graphics-round('expenses3')._approved._departments
           +analityc-graphics-round('expenses4')._approved._kinds
           +analityc-graphics-column('expenses5', true)._changes
-          +table-expenses(getData('expenses1')).analityc-table_changes
+          +analityc-table()._changes
+            +table-expenses(getData('expenses1'))
           +analityc-graphics-singleround-alt('expenses5')._done
           +analityc-graphics-line('Исполнение расходов бюджета на 22.04.2017', getData('graphic-lines-expenses1'))._date-one
           +analityc-graphics-line('Исполнение расходов бюджета на 01.02.2017', getData('graphic-lines-expenses1'))._date-two
           a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
           p.analityc-bottomtip.active * Кроме того в плановом периоде учитываются 
-            span условно утвержденные расходы
+            span условно утвержденные расходы 
               span.analityc-popup Под условно утверждаемыми (утвержденными) расходами понимаются не распределенные в&nbsp;плановом периоде в соответствии с&nbsp;классификацией расходов бюджетов бюджетные ассигнования.
             | на 2018 год в сумме 48,3 млрд рублей и на 2019 год в сумме 97,5 млрд рублей
 
