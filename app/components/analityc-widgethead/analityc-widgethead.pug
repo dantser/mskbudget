@@ -86,3 +86,34 @@ mixin analityc-widgethead-expenses(type)
         option Разделы и подразделы
         option Ведомства
         option Виды
+
+mixin analityc-widgethead-sources(type)
+  +b.analityc-widgethead&attributes(attributes)
+    .analityc-control-group._year
+      span Год
+      select.analityc-select
+        option(selected) 2017
+        option 2016
+        option 2015
+    .analityc-control-group._stage
+      span Этап
+      select.analityc-select
+        option Закон о бюджете утвержденный
+        option Закон о внесении изменений
+        option Закон об исполнении
+        option(selected) Исполнение на дату
+    .analityc-control-group._level
+      span Уровень
+      select.analityc-select
+        option(selected) Бюджет москвы
+        option Бюджет области
+        option Бюджет региона
+        option Консолидированный бюджет
+    .analityc-control-buttons.active
+      a(href="#").analityc-control-button.analityc-control-button_graphics.active
+      a(href="#").analityc-control-button.analityc-control-button_table
+    .analityc-control-switcher.analityc-control-switcher_big
+      a(href="#").active млрд руб.
+      a(href="#") млн руб.
+    .analityc-control-group._dp
+      input(placeholder="22.04.2017").datepicker
