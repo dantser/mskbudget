@@ -1,6 +1,7 @@
 include ../page-header/page-header
 include ../analityc-widgethead/analityc-widgethead
 include ../analityc-graphics/analityc-graphics
+include ../analityc-table/analityc-table
 include ../../blocks/table/table
 
 mixin budget_expenses()
@@ -17,7 +18,8 @@ mixin budget_expenses()
           +analityc-graphics-round('expenses3')._approved._departments
           +analityc-graphics-round('expenses4')._approved._kinds
           +analityc-graphics-column('expenses5', true)._changes
-          +table-expenses(getData('expenses1')).analityc-table_changes
+          +analityc-table()._changes
+            +table-expenses(getData('expenses1'))
           +analityc-graphics-singleround-alt('expenses5')._done
           +analityc-graphics-line('Исполнение расходов бюджета на 22.04.2017', getData('graphic-lines-expenses1'))._date-one
           +analityc-graphics-line('Исполнение расходов бюджета на 01.02.2017', getData('graphic-lines-expenses1'))._date-two
