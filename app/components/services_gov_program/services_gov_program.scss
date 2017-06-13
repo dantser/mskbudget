@@ -1,6 +1,10 @@
 .gov-program {
   font-family: $PFDinTextPro;
 
+  .page-header {
+    margin-bottom: 40px;
+  }
+
   .link {
     text-decoration: underline;
     font-family: $PFDinTextPro;
@@ -15,6 +19,15 @@
 
     &_head {
       padding: 25px 0 22px 37px;
+
+      @media (min-width: 501px) and (max-width: 700px) {
+        font-size: 18px;
+      }
+
+      @media (max-width: 500px) {
+        font-size: 18px;
+        padding-left: 15px;
+      }
 
       &::after {
         @include clearfix;
@@ -31,6 +44,10 @@
       padding-top: 40px;
       padding-left: 0;
       font-family: $PFDinCondensedPro;
+
+      @media (max-width: 760px) {
+        padding-right: 0;
+      }
     }
   }
 
@@ -39,6 +56,15 @@
   &__head {
     border-bottom: 1px solid #e6e6e6;
     padding: 0 191px 38px 40px;
+
+    @media (min-width: 501px) and (max-width: 960px) {
+      padding-right: 40px;
+    }
+
+    @media (max-width: 500px) {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
   }
 
   &__title {
@@ -56,6 +82,14 @@
 
   &__content_one {
     padding: 40px 40px 85px 120px;
+
+    @media (min-width: 501px) and (max-width: 960px) {
+      padding-left: 40px;
+    }
+
+    @media (max-width: 500px) {
+      padding: 40px 15px;
+    }
   }
 
   &__col {
@@ -65,10 +99,20 @@
     &_one {
       width: 52%;
       margin-right: 53px;
+
+      @media (max-width: 960px) {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 25px;
+      }
     }
 
     &_two {
       width: 39%;
+
+      @media (max-width: 960px) {
+        width: 100%;
+      }
 
       .link {
         margin-bottom: 40px;
@@ -144,18 +188,37 @@
     }
   }
 
-//icons
   &__icon-ball {
     width: 54px;
     height: 53px;
     display: inline-block;
     vertical-align: middle;
     margin-right: 25px;
+
+    @media (min-width: 501px) and (max-width: 700px) {
+      width: 44px;
+      height: 43px;
+      margin-right: 15px;
+    }
+
+    @media (max-width: 500px) {
+      display: none;
+    }
   }
 
   &__content_two {
     background-color: #e7e6e4;
     padding: 32px 72px 43px 120px;
+
+    @media (min-width: 501px) and (max-width: 960px) {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+
+    @media (max-width: 500px) {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
 
     .gov-program__title {
       margin-bottom: 23px;
@@ -164,15 +227,21 @@
     .link {
       margin-right: 47px;
 
+      @media (max-width: 700px) {
+        margin-bottom: 10px;
+      }
+
+      @include clearfix;
+
       &:last-child {
         margin-right: 0;
+        margin-bottom: 0;
       }
 
       &__icon-basketball-ball {
         width: 19px;
         height: 19px;
         margin-right: 10px;
-        display: inline-block;
         vertical-align: bottom;
       }
 
@@ -180,8 +249,15 @@
         width: 25px;
         height: 27px;
         margin-right: 5px;
-        display: inline-block;
         vertical-align: middle;
+      }
+
+      &__icon-football-player,  &__icon-basketball-ball {
+        display: inline-block;
+
+        @media (max-width: 700px) {
+          float: left;
+        }
       }
     }
   }
@@ -190,7 +266,9 @@
     padding: 40px 0 28px 40px;
   }
 
-
+  a {
+    outline: none;
+  }
 
 
 
@@ -205,6 +283,10 @@
     fill: $color-link;
     transition: all .5s ease;
 
+    @media (max-width: 700px) {
+      top: 13px;
+    }
+
     &:hover {
       fill: $color-black;
     }
@@ -214,8 +296,9 @@
     padding-left: 40px;
 
     &_active {
-      background: none;
+      background-color: $color-white !important;
     }
+
     &__content_db {
       display: block;
     }
@@ -223,6 +306,14 @@
     &_b {
       border-top: 1px solid rgba(0, 97, 160, .2);
       background-color: #f6f6f5;
+
+      @media (min-width: 501px) and (max-width: 960px) {
+        padding: 0 15px;
+      }
+
+      @media (max-width: 500px) {
+        padding: 10px 15px;
+      }
     }
 
     &__btn_b {
@@ -231,6 +322,23 @@
 
       &::after {
         border-top-color: $color-link;
+      }
+
+      @media (min-width: 701px) and (max-width: 960px) {
+        font-size: 15px;
+        padding-right: 15px;
+      }
+
+      @media (min-width: 501px) and (max-width: 700px) {
+        line-height: 16px;
+        font-size: 14px;
+        padding: 13px 15px 13px 0;
+      }
+
+      @media (max-width: 500px) {
+        font-size: 14px;
+        padding-right: 15px;
+        line-height: 1em;
       }
     }
 
@@ -268,5 +376,26 @@
 
   .analityc-control-buttons {
      margin-right: 30px;
+
+     @media screen and (max-width: 600px) {
+       margin-bottom: 0;
+     }
+  }
+
+
+  .analityc-control-switcher {
+    @media screen and (max-width: 600px) {
+      margin-bottom: 30px;
+      margin-right: 15px;
+    }
+  }
+
+  .gov-program__tasks .text:nth-child(n+3) {
+    display: none;
+  }
+
+  .link_bottom {
+    margin-top: 30px;
+    margin-bottom: 740px;
   }
 }
