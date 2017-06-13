@@ -261,7 +261,7 @@ budget.extend("carouselHover", {
 });
 'use strict';
 
-$('#d-si-select, .d-sii__chbox').styler();
+$('#d-si-select, .d-sii__chbox, .analityc-widgethead select.analityc-select').styler();
 "use strict";
 
 //*******************************************

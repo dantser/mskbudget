@@ -572,7 +572,7 @@ function basicBudgetFiguresDiagrams () {
 
 // переключение вкладок в Доходах бюджета (budget_income)
 $(document).ready(function(){
-  $(".analityc-widget_income .analityc-control-group._stage .analityc-select").on("change", function () {
+  $(".analityc-widget_income .analityc-control-group._stage select.analityc-select").on("change", function () {
     var $this = $(this);
     var income = $(".analityc-widget_income"),
         incomeGraphics = income.find($('.analityc-graphics')),
@@ -711,9 +711,11 @@ $(document).ready(function(){
 
 // переключение вкладок в Расходах бюджета (budget_expenses)
 $(document).ready(function(){
-  $(".analityc-widget_expenses .analityc-control-group._stage .analityc-select").on("change", function () {
+  $(".analityc-widget_expenses .analityc-control-group._stage select.analityc-select").on("change", function () {
     var $this = $(this);
-    var $classify = $(".analityc-widget_expenses .analityc-control-group._classify .analityc-select");
+    var $classify = $(".analityc-widget_expenses .analityc-control-group._classify select.analityc-select");
+    console.log($this.val());
+    console.log($classify.val());
     var expenses = $(".analityc-widget_expenses"),
         expensesGraphics = expenses.find($('.analityc-graphics')),
         expensesGraphicsChanges = expenses.find($('.analityc-graphics_changes')),
@@ -826,7 +828,7 @@ $(document).ready(function(){
     }
   });
   
-  $(".analityc-widget_expenses .analityc-control-group._classify .analityc-select").on("change", function () {
+  $(".analityc-widget_expenses .analityc-control-group._classify select.analityc-select").on("change", function () {
     var $this = $(this);
     var expenses = $(".analityc-widget_expenses"),
         expensesGraphics = expenses.find($('.analityc-graphics')),
@@ -838,7 +840,7 @@ $(document).ready(function(){
         expensesTable = expenses.find($('.analityc-table')),
         expensesTableButton = expenses.find($('.analityc-control-button_table'));
     
-    if ($(".analityc-widget_expenses .analityc-control-group._stage .analityc-select").val() === "Закон о бюджете утвержденный") {
+    if ($(".analityc-widget_expenses .analityc-control-group._stage select.analityc-select").val() === "Закон о бюджете утвержденный") {
       
       expensesGraphics.removeClass('active');
       expensesTable.removeClass('active');
@@ -859,5 +861,23 @@ $(document).ready(function(){
         expensesHead(1);
       }
     }
+    
+  });
+});
+
+// Подсказка на элементе селекта в Расходах бюджета
+$(document).ready(function(){
+  $(".analityc-widget_expenses .analityc-control-group._transfer .analityc-popup").each(function(){
+    if ($(this).length > 0) {
+      var popup = $(this);
+      var dropdown = popup.prev().find($('.jq-selectbox__dropdown'));
+      popup.appendTo(dropdown);
+    }
+  });
+  
+  $(".analityc-widget_expenses .analityc-control-group._transfer .jq-selectbox li.disabled").hover(function(){
+    $(".analityc-widget_expenses .analityc-control-group._transfer .analityc-popup").addClass('active');
+  }, function(){
+    $(".analityc-widget_expenses .analityc-control-group._transfer .analityc-popup").removeClass('active');
   });
 });
