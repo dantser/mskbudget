@@ -2,13 +2,13 @@
   font-family: $PFDinTextPro;
 
   .link {
-    text-decoration: underline;
-    font-family: $PFDinTextPro;
 
-    &_dashed {
-      text-decoration: none;
+    &_bottom {
+      padding-top: 32px;
+      padding-bottom: 740px;
     }
   }
+
 
   .d-si__quiz-container {
     padding-bottom: 0;
@@ -20,10 +20,20 @@
         @include clearfix;
       }
 
+      @media (max-width: 700px) {
+        font-size: 18px;
+        padding-left: 15px;
+      }
+
       span {
         display: inline-block;
         vertical-align: middle;
         line-height: 1.2em;
+        width: 50%;
+
+        @media (max-width: 900px) {
+          width: 100%;
+        }
       }
     }
 
@@ -31,14 +41,25 @@
       padding-top: 40px;
       padding-left: 0;
       font-family: $PFDinCondensedPro;
+
+      @media (max-width: 760px) {
+        padding: 21px 0 0;
+      }
     }
   }
-
-
 
   &__head {
     border-bottom: 1px solid #e6e6e6;
     padding: 0 191px 38px 40px;
+
+    @media (min-width: 701px) and (max-width: 900px) {
+      padding: 0 40px 40px;
+      width: 100%;
+    }
+
+    @media (max-width: 700px) {
+      padding: 0 15px 15px;
+    }
   }
 
   &__title {
@@ -56,6 +77,14 @@
 
   &__content_one {
     padding: 40px 40px 85px 120px;
+
+    @media (min-width: 701px) and (max-width: 900px) {
+      padding-left: 40px;
+    }
+
+    @media (max-width: 700px) {
+      padding: 40px 15px;
+    }
   }
 
   &__col {
@@ -65,10 +94,25 @@
     &_one {
       width: 52%;
       margin-right: 53px;
+
+      @media (min-width: 701px) and (max-width: 900px) {
+        margin-right: 40px;
+        width: 100%;
+      }
+
+      @media (max-width: 700px) {
+        margin-right: 15px;
+        width: 100%;
+      }
     }
 
     &_two {
       width: 39%;
+
+      @media (max-width: 900px) {
+        margin: 40px 40px 0 0;
+        width: 100%;
+      }
 
       .link {
         margin-bottom: 40px;
@@ -151,11 +195,31 @@
     display: inline-block;
     vertical-align: middle;
     margin-right: 25px;
+
+    @media (min-width: 501px) and (max-width: 900px) {
+      width: 44px;
+      height: 43px;
+      margin-right: 15px;
+    }
+
+    @media (max-width: 500px) {
+      width: 34px;
+      height: 33px;
+      margin-right: 10px;
+    }
   }
 
   &__content_two {
     background-color: #e7e6e4;
     padding: 32px 72px 43px 120px;
+
+    @media (min-width: 701px) and (max-width: 900px) {
+      padding: 32px 0 40px 40px;
+    }
+
+    @media (max-width: 700px) {
+      padding-left: 15px;
+    }
 
     .gov-program__title {
       margin-bottom: 23px;
@@ -164,8 +228,28 @@
     .link {
       margin-right: 47px;
 
+      @media (max-width: 900px) {
+        margin-bottom: 10px;
+      }
+
       &:last-child {
         margin-right: 0;
+
+        @media (max-width: 900px) {
+          margin-bottom: 0;
+        }
+      }
+
+      &::after {
+        @include clearfix;
+      }
+
+      &__icon-basketball-ball, &__icon-football-player {
+        display: inline-block;
+
+        @media (max-width: 700px) {
+          float: left;
+        }
       }
 
       &__icon-basketball-ball {
@@ -188,6 +272,10 @@
 
   &__content_three {
     padding: 40px 0 28px 40px;
+
+    @media (max-width: 700px) {
+      padding-left: 15px;
+    }
   }
 
   // DROPDOWN
@@ -208,6 +296,10 @@
 
   .dropdown {
     padding-left: 40px;
+
+    @media (max-width: 700px) {
+      padding-left: 15px;
+    }
 
     &_active {
       background: none;

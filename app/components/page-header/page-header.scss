@@ -1,5 +1,6 @@
 .page-header {
   display: block;
+  margin-left: -3px;
 
   &::after {
     content: "";
@@ -9,20 +10,17 @@
 
   .d-si__head_icons {
     margin-bottom: 16px;
-    float: left;
-    margin-left: 22px;
+    margin-left: 17px;
+    display: inline-block;
+    margin-top: 8px;
 
     @include clearfix;
 
-    @media screen and (max-width: 1024px) {
-      display: inline-block;
-      float: none;
+    @media (min-width: 761px) and (max-width: 1024px) {
       vertical-align: top;
     }
 
-    @media screen and (max-width: 760px) {
-      float: none;
-      display: inline-block;
+    @media (min-width: 639px) and (max-width: 760px) {
       vertical-align: top;
       margin-left: 6px;
       margin-top: 5px;
@@ -30,7 +28,9 @@
 
     @media screen and (max-width: 639px) {
       margin-top: 3px;
+      margin-left: 6px;
     }
+
   }
 
   .favor__icon {
@@ -38,6 +38,11 @@
     opacity: .5;
     width: 24px;
     height: 23px;
+
+    @media screen and (max-width: 639px) {
+      width: 22px;
+      height: 21px;
+    }
   }
 
   .favor {
