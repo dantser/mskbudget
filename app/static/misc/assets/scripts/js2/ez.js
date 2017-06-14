@@ -521,7 +521,7 @@ function basicBudgetFiguresDiagrams () {
 	});
 
   // $(".analityc-control-button").on("click", function(e) {
-  //   if (!$(this).parents('.analityc-widget__income') && !$(this).parents('.analityc-widget__expenses')) {
+  //   if (!$(this).parents('.analityc-widget__income') && !$(this).parents('.analityc-widget__expenses') && !$(this).parents('.analityc-widget_sources')) {
   //   e.preventDefault();
   //   var table = $(".analityc-control-button_table");
   //   var $this = $(this);
@@ -573,7 +573,7 @@ $(document).ready(function(){
   $('.analityc-widget_sources .analityc-control-group._dp').addClass('active');
   $(".analityc-widget_sources .analityc-control-group._stage .analityc-select").on("change", function () {
     var $this = $(this);
-    var sources = $(".analityc-widget_sources"),
+    var sources = $('.analityc-widget_sources'),
         sourcesGraphics = sources.find($('.analityc-widget-sources')),
         sourcesGraphicsApproved = sources.find($('.analityc-widget-sources_approved')),
         sourcesGraphicsChanges = sources.find($('.analityc-widget-sources_changes')),
@@ -940,7 +940,7 @@ $(document).ready(function(){
       expensesGraphicsDateTwo.addClass('active');
     }
   });
-  
+
   $(".analityc-widget_expenses .analityc-control-group._classify select.analityc-select").on("change", function () {
     var $this = $(this);
     var expenses = $(".analityc-widget_expenses"),
@@ -952,7 +952,7 @@ $(document).ready(function(){
         expensesGraphicsButton = expenses.find($('.analityc-control-button_graphics')),
         expensesTable = expenses.find($('.analityc-table')),
         expensesTableButton = expenses.find($('.analityc-control-button_table'));
-    
+
     if ($(".analityc-widget_expenses .analityc-control-group._stage select.analityc-select").val() === "Закон о бюджете утвержденный") {
 
       expensesGraphics.removeClass('active');
@@ -974,7 +974,7 @@ $(document).ready(function(){
         expensesHead(1);
       }
     }
-    
+
   });
 });
 
@@ -987,7 +987,7 @@ $(document).ready(function(){
       popup.appendTo(dropdown);
     }
   });
-  
+
   $(".analityc-widget_expenses .analityc-control-group._transfer .jq-selectbox li.disabled").hover(function(){
     $(".analityc-widget_expenses .analityc-control-group._transfer .analityc-popup").addClass('active');
   }, function(){
