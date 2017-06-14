@@ -18,7 +18,7 @@
     padding-bottom: 0;
 
     &_head {
-      padding: 25px 0 22px 37px;
+      padding: 16px 0 22px 37px;
 
       @media (min-width: 501px) and (max-width: 700px) {
         font-size: 18px;
@@ -55,7 +55,7 @@
 
   &__head {
     border-bottom: 1px solid #e6e6e6;
-    padding: 0 191px 38px 40px;
+    padding: 0 191px 37px 40px;
 
     @media (min-width: 501px) and (max-width: 960px) {
       padding-right: 40px;
@@ -74,14 +74,17 @@
   }
 
   &__description {
+    font-family: $PFDinTextPro;
     font-size: 18px;
     font-weight: 400;
     line-height: 26px;
-    margin-top: 13px;
+    margin-top: 11px;
+    letter-spacing: 0.0058em;
+    padding-left: 2px;
   }
 
   &__content_one {
-    padding: 40px 40px 85px 120px;
+    padding: 41px 0 89px 101px;
 
     @media (min-width: 501px) and (max-width: 960px) {
       padding-left: 40px;
@@ -97,18 +100,28 @@
     vertical-align: top;
 
     &_one {
-      width: 52%;
-      margin-right: 53px;
+      width: 57%;
+      margin-right: 39px;
 
       @media (max-width: 960px) {
         width: 100%;
         margin-right: 0;
         margin-bottom: 25px;
       }
+
+      .gov-program__title, .link {
+        margin-left: 20px;
+      }
+
+      .link {
+        line-height: 20px;
+        letter-spacing: 0.007em;
+        margin-top: 2px;
+      }
     }
 
     &_two {
-      width: 39%;
+      width: 37%;
 
       @media (max-width: 960px) {
         width: 100%;
@@ -116,7 +129,10 @@
 
       .link {
         margin-bottom: 40px;
-        margin-top: 17px;
+        margin-top: 1px;
+        line-height: 20px;
+        letter-spacing: 0.007em;
+        padding-right: 25px;
       }
 
       &::after {
@@ -124,26 +140,33 @@
       }
 
       .gov-program__title {
-        margin-bottom: 10px;
+        margin-bottom: 13px;
+      }
+      .alternative-link {
+        margin-right: 21px;
+        padding-bottom: 6px;
       }
     }
   }
 
   &__tasks, &__objectives {
-    margin-top: 15px;
+    margin-top: 12px;
     counter-reset: myCounter;
   }
 
   .text {
     font-size: 16px;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     list-style: none;
     position: relative;
     padding-left: 20px;
+    line-height: 22px;
+    font-family: PFDinTextPro;
+    letter-spacing: 0.007em;
 
     &::before {
       position: absolute;
-      left: 0;
+      left: -2px;
       counter-increment: myCounter;
       content:counter(myCounter) '. ';
       color: #999999;
@@ -162,24 +185,25 @@
   }
 
   &__objectives {
-    margin-bottom: 48px;
+    margin-bottom: 51px;
 
     .text:last-child::before {
-      left: 0;
+      left: -2px;
     }
   }
 
   &__person {
     float: left;
-    margin-right: 20px;
+    margin-right: 21px;
   }
 
   &__person-descr {
     font-size: 14px;
     line-height: 20px;
-    margin-bottom: 45px;
+    margin-bottom: 47px;
     font-family: $PFDinTextPro;
     padding-left: 80px;
+    letter-spacing: 0.007em;
 
     span {
       font-size: 16px;
@@ -208,7 +232,7 @@
 
   &__content_two {
     background-color: #e7e6e4;
-    padding: 32px 72px 43px 120px;
+    padding: 32px 72px 40px 120px;
 
     @media (min-width: 501px) and (max-width: 960px) {
       padding-left: 40px;
@@ -221,11 +245,12 @@
     }
 
     .gov-program__title {
-      margin-bottom: 23px;
+      margin-bottom: 20px;
     }
 
     .link {
-      margin-right: 47px;
+      margin-right: 50px;
+      letter-spacing: 0.007em;
 
       @media (max-width: 700px) {
         margin-bottom: 10px;
@@ -241,8 +266,8 @@
       &__icon-basketball-ball {
         width: 19px;
         height: 19px;
-        margin-right: 10px;
-        vertical-align: bottom;
+        margin-right: 12px;
+        vertical-align: sub;
       }
 
       &__icon-football-player {
@@ -263,14 +288,26 @@
   }
 
   &__content_three {
-    padding: 40px 0 28px 40px;
+    padding: 48px 0 24px 40px;
+    letter-spacing: 0.007em;
+
+    .gov-program__title {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 28px;
+    }
+
+    .analityc-control-group._stages {
+      vertical-align: middle;
+      width: 31.7%;
+      font-weight: 500;
+
+      .analityc-select {
+        background-color: $color-white;
+        letter-spacing: -0.4px;
+      }
+    }
   }
-
-  a {
-    outline: none;
-  }
-
-
 
   // DROPDOWN
   &__icon-close {
@@ -279,7 +316,7 @@
     width: 11px;
     height: 11px;
     right: 0;
-    top: 22px;
+    top: 17px;
     fill: $color-link;
     transition: all .5s ease;
 
@@ -290,6 +327,10 @@
     &:hover {
       fill: $color-black;
     }
+  }
+
+  .dropdown_active:nth-child(3) {
+    border-top: none;
   }
 
   .dropdown {
@@ -319,9 +360,15 @@
     &__btn_b {
       color: $color-link;
       font-family: $PFDinCondensedPro;
+      height: inherit;
+      padding: 12px 25px 18px 0;
+      line-height: normal;
+      letter-spacing: -.092px;
 
       &::after {
         border-top-color: $color-link;
+        top: 39%;
+        margin-top: 0;
       }
 
       @media (min-width: 701px) and (max-width: 960px) {
@@ -355,7 +402,7 @@
   }
 
   .table1, .table2 {
-    margin-bottom: 70px;
+    margin-bottom: 72px;
     padding-right: 38px;
 
     @media screen and (max-width: 1100px) {
@@ -372,16 +419,32 @@
   .analityc-control-buttons, .analityc-control-switcher {
     margin-top: 22px;
     margin-bottom: 50px;
+    font-family: $PFDinCondensedPro;
+
+    a {
+      padding: 0 14px;
+
+      &:last-child {
+        padding: 0 13px;
+      }
+    }
   }
 
   .analityc-control-buttons {
-     margin-right: 30px;
+     margin-right: 39px;
 
      @media screen and (max-width: 600px) {
        margin-bottom: 0;
      }
   }
 
+  .analityc-graphics.active, .analityc-table.active{
+    display: block;
+  }
+
+  .analityc-graphics, .analityc-table {
+    display: none;
+  }
 
   .analityc-control-switcher {
     @media screen and (max-width: 600px) {
@@ -395,7 +458,55 @@
   }
 
   .link_bottom {
-    margin-top: 30px;
-    margin-bottom: 740px;
+    margin: 30px 0 740px 38px;
+    font-size: 12px;
+  }
+
+  .analityc-graphics {
+    text-align: justify;
+    font-size: 1px;
+
+    &__col {
+      width: 27%;
+      display: inline-block;
+      vertical-align: top;
+      text-align: center;
+      margin: 0 15px;
+    }
+
+    &__year {
+      font-size: 16px;
+    }
+
+    &__graphic {
+      height: 270px;
+
+      &_round {
+        margin-top: 11px;
+        width: 100%;
+        background-color: #ccc;
+        display: inline-block;
+      }
+    }
+  }
+
+  .legend {
+    margin-top: 28px;
+
+    &__item {
+      color: #000;
+      font-size: 14px;
+      font-weight: 400;
+      font-family: $PFDinTextPro;
+      display: inline-block;
+      vertical-align: top;
+      margin-bottom: 17px;
+      width: 33%;
+      padding-left: 34px;
+      position: relative;
+      height: 1.2em;
+      text-align: left;
+      width: 100%;
+    }
   }
 }

@@ -568,6 +568,33 @@ function basicBudgetFiguresDiagrams () {
   //   }
   // });
 }
+$(document).ready(function(){
+ $(".gov-program .analityc-control-button").on("click", function (e) {
+  e.preventDefault();
+  var $this = $(this);
+  var program = $(".dropdown"),
+      programGraphics = program.find($('.analityc-graphics')),
+      programTable = program.find($('.analityc-table')),
+      programGraphicsActive = program.find($('.analityc-graphics.active')),
+      programTableActive = program.find($('.analityc-table.active'));
+
+  if ($this.hasClass('analityc-control-button_graphics') && !$this.hasClass('active')) {
+    $this.siblings().removeClass('active');
+    $this.addClass('active');
+    if (programTableActive.hasClass('analityc-table')) {
+      programTable.removeClass('active');
+      programGraphics.addClass('active');
+    }
+  } else if ($this.hasClass('analityc-control-button_table') && !$this.hasClass('active')) {
+    $this.siblings().removeClass('active');
+    $this.addClass('active');
+    if (programGraphicsActive.hasClass('analityc-graphics')) {
+      programGraphics.removeClass('active');
+      programTable.addClass('active');
+    }
+  }
+});
+});
 
 $(document).ready(function(){
   $('.analityc-widget_sources .analityc-control-group._dp').addClass('active');
