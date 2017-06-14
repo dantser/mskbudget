@@ -295,7 +295,7 @@
                         </div>
                     </div>
                     <!-- Tab 1-->
-                    <div class="analityc-widget analityc-widget_income active" data-stage="утвержденный" data-type="graphics">
+                    <div class="analityc-widget analityc-widget_income">
                         <div class="analityc-widgethead">
                             <div class="analityc-control-group _year">
                                 <span>Год</span>
@@ -307,11 +307,11 @@
                             </div>
                             <div class="analityc-control-group _stage">
                                 <span>Этап</span>
-                                <select class="analityc-select" data-select="stage">
-                                    <option value="утвержденный" selected="selected">Закон о бюджете утвержденный</option>
-                                    <option value="изменения">Закон о внесении изменений</option>
-                                    <option value="исполнение">Закон об исполнении</option>
-                                    <option value="на_дату">Исполнение на дату</option>
+                                <select class="analityc-select">
+                                    <option selected="selected">Закон о бюджете утвержденный</option>
+                                    <option>Закон о внесении изменений</option>
+                                    <option>Закон об исполнении</option>
+                                    <option>Исполнение на дату</option>
                                 </select>
                             </div>
                             <div class="analityc-control-group _level">
@@ -330,16 +330,23 @@
                                     <option>Виды</option>
                                 </select>
                             </div>
-                            <div class="analityc-control-switcher">
+                            <div class="analityc-control-switcher analityc-control-switcher_default active">
                                 <a class="active" href="#">%</a>
                                 <a href="#">млрд руб.</a>
                             </div>
-                            <div class="analityc-control-buttons">
-                                <a class="analityc-control-button analityc-control-button_graphics active" href="#" data-type="graphics"></a>
-                                <a class="analityc-control-button analityc-control-button_table" href="#" data-type="table"></a>
+                            <div class="analityc-control-buttons active">
+                                <a class="analityc-control-button analityc-control-button_graphics active" href="#"></a>
+                                <a class="analityc-control-button analityc-control-button_table" href="#"></a>
+                            </div>
+                            <div class="analityc-control-switcher analityc-control-switcher_big">
+                                <a class="active" href="#">млрд руб.</a>
+                                <a href="#">млн руб.</a>
+                            </div>
+                            <div class="analityc-control-group _dp">
+                                <input class="datepicker" placeholder="Выберите дату исполнения" />
                             </div>
                         </div>
-                        <div class="analityc-graphics analityc-graphics_round">
+                        <div class="analityc-graphics analityc-graphics_round analityc-graphics_approved active">
                             <p class="analityc-graphics__periodtext">
                                 <span>Плановый период</span>
                             </p>
@@ -367,143 +374,62 @@
                                 <p class="legend__item legend__item_grey">Прочие налоговые доходы</p>
                             </div>
                         </div>
-                        <a class="analityc-more" href="/">Перейти в&nbsp;раздел аналитика</a>
-                    </div>
-                    <!-- Tab 2-->
-                    <div class="analityc-widget analityc-widget_income" data-stage="утвержденный" data-type="table">
-                        <div class="analityc-widgethead">
-                            <div class="analityc-control-group _year">
-                                <span>Год</span>
-                                <select class="analityc-select">
-                                    <option selected="selected">2017</option>
-                                    <option>2016</option>
-                                    <option>2015</option>
-                                </select>
-                            </div>
-                            <div class="analityc-control-group _stage">
-                                <span>Этап</span>
-                                <select class="analityc-select" data-select="stage">
-                                    <option value="утвержденный" selected="selected">Закон о бюджете утвержденный</option>
-                                    <option value="изменения">Закон о внесении изменений</option>
-                                    <option value="исполнение">Закон об исполнении</option>
-                                    <option value="на_дату">Исполнение на дату</option>
-                                </select>
-                            </div>
-                            <div class="analityc-control-group _level">
-                                <span>Уровень</span>
-                                <select class="analityc-select">
-                                    <option selected="selected">Бюджет москвы</option>
-                                    <option>Бюджет области</option>
-                                    <option>Бюджет региона</option>
-                                    <option>Консолидированный бюджет</option>
-                                </select>
-                            </div>
-                            <div class="analityc-control-group _transfer">
-                                <span>Классификация доходов</span>
-                                <select class="analityc-select">
-                                    <option selected="selected">Виды</option>
-                                    <option>Виды</option>
-                                </select>
-                            </div>
-                            <div class="analityc-control-switcher">
-                                <a class="active" href="#">%</a>
-                                <a href="#">млрд руб.</a>
-                            </div>
-                            <div class="analityc-control-buttons">
-                                <a class="analityc-control-button analityc-control-button_graphics active" href="#" data-type="graphics"></a>
-                                <a class="analityc-control-button analityc-control-button_table" href="#" data-type="table"></a>
-                            </div>
-                        </div>
-                        <div class="table analityc-widget__table">
-                            <div class="table__row table__row_caption">
-                                <div class="table__col table__col_four">Виды доходов</div>
-                                <div class="table__col table__col_four">2017</div>
-                                <div class="table__col table__col_four">2018</div>
-                                <div class="table__col table__col_four">2019</div>
-                            </div>
-                            <div class="table__row">
-                                <div class="table__col table__col_four">Доходы, всего</div>
-                                <div class="table__col table__col_three">1 598,90</div>
-                                <div class="table__col table__col_three">1 598,90</div>
-                                <div class="table__col table__col_three">1 598,90</div>
-                            </div>
-                            <div class="table__row table__row_opened">
-                                <div class="table__col table__col_four">
-                                    <svg class="table__arrow"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>Налоговые доходы, в том числе:</div>
-                                <div class="table__col table__col_three">1 598,90</div>
-                                <div class="table__col table__col_three">1 598,90</div>
-                                <div class="table__col table__col_three">1 598,90</div>
-                            </div>
-                            <div class="table__row">
-                                <div class="table__col table__col_four table__col_subcol">Налог на прибыль организаций</div>
-                                <div class="table__col table__col_three">1 598,90</div>
-                                <div class="table__col table__col_three">1 598,90</div>
-                                <div class="table__col table__col_three">1 598,90</div>
-                            </div>
-                            <div class="table__row">
-                                <div class="table__col table__col_four table__col_subcol">Налог на доходы физических лиц</div>
-                                <div class="table__col table__col_three">1 598,90</div>
-                                <div class="table__col table__col_three">1 598,90</div>
-                                <div class="table__col table__col_three">1 598,90</div>
-                            </div>
-                            <div class="table__row">
-                                <div class="table__col table__col_four">...</div>
-                                <div class="table__col table__col_three">1 598,90</div>
-                                <div class="table__col table__col_three">1 598,90</div>
-                                <div class="table__col table__col_three">1 598,90</div>
-                            </div>
-                            <div class="table__row">
-                                <div class="table__col table__col_four">
-                                    <svg class="table__arrow"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>Неналоговые доходы, в том числе:</div>
-                                <div class="table__col table__col_three">1 598,90</div>
-                                <div class="table__col table__col_three">1 598,90</div>
-                                <div class="table__col table__col_three">1 598,90</div>
+                        <div class="analityc-table analityc-table_approved">
+                            <div class="table">
+                                <p class="table__periodtext">
+                                    <span>Плановый период</span>
+                                </p>
+                                <div class="table__row table__row_caption">
+                                    <div class="table__col table__col_four">Виды доходов</div>
+                                    <div class="table__col table__col_four">2017</div>
+                                    <div class="table__col table__col_four">2018
+                                        <span class="table__period-left"></span>
+                                    </div>
+                                    <div class="table__col table__col_four">2019
+                                        <span class="table__period-right"></span>
+                                    </div>
+                                </div>
+                                <div class="table__row">
+                                    <div class="table__col table__col_four">Доходы, всего</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                </div>
+                                <div class="table__row table__row_opened">
+                                    <div class="table__col table__col_four">
+                                        <svg class="table__arrow"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>Налоговые доходы, в том числе:</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                </div>
+                                <div class="table__row">
+                                    <div class="table__col table__col_four table__col_subcol">Налог на прибыль организаций</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                </div>
+                                <div class="table__row">
+                                    <div class="table__col table__col_four table__col_subcol">Налог на доходы физических лиц</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                </div>
+                                <div class="table__row">
+                                    <div class="table__col table__col_four">...</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                </div>
+                                <div class="table__row">
+                                    <div class="table__col table__col_four">
+                                        <svg class="table__arrow"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>Неналоговые доходы, в том числе:</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                </div>
                             </div>
                         </div>
-                        <a class="analityc-more" href="/">Перейти в&nbsp;раздел аналитика</a>
-                    </div>
-                    <!-- Tab 3-->
-                    <div class="analityc-widget analityc-widget_income" data-stage="изменения" data-type="graphics">
-                        <div class="analityc-widgethead">
-                            <div class="analityc-control-group _year">
-                                <span>Год</span>
-                                <select class="analityc-select">
-                                    <option selected="selected">2017</option>
-                                    <option>2016</option>
-                                    <option>2015</option>
-                                </select>
-                            </div>
-                            <div class="analityc-control-group _stage">
-                                <span>Этап</span>
-                                <select class="analityc-select" data-select="stage">
-                                    <option value="утвержденный" selected="selected">Закон о бюджете утвержденный</option>
-                                    <option value="изменения">Закон о внесении изменений</option>
-                                    <option value="исполнение">Закон об исполнении</option>
-                                    <option value="на_дату">Исполнение на дату</option>
-                                </select>
-                            </div>
-                            <div class="analityc-control-group _level">
-                                <span>Уровень</span>
-                                <select class="analityc-select">
-                                    <option selected="selected">Бюджет москвы</option>
-                                    <option>Бюджет области</option>
-                                    <option>Бюджет региона</option>
-                                    <option>Консолидированный бюджет</option>
-                                </select>
-                            </div>
-                            <div class="analityc-control-group _transfer">
-                                <span>Классификация доходов</span>
-                                <select class="analityc-select">
-                                    <option selected="selected">Виды</option>
-                                    <option>Виды</option>
-                                </select>
-                            </div>
-                            <div class="analityc-control-buttons">
-                                <a class="analityc-control-button analityc-control-button_graphics active" href="#" data-type="graphics"></a>
-                                <a class="analityc-control-button analityc-control-button_table" href="#" data-type="table"></a>
-                            </div>
-                        </div>
-                        <div class="analityc-graphics analityc-graphics_column">
+                        <div class="analityc-graphics analityc-graphics_column analityc-graphics_changes">
                             <p class="analityc-graphics__periodtext">
                                 <span>Плановый период</span>
                             </p>
@@ -544,195 +470,110 @@
                                 <p class="legend__item legend__item_grey">Прочие налоговые доходы</p>
                             </div>
                         </div>
-                        <a class="analityc-more" href="/">Перейти в&nbsp;раздел аналитика</a>
-                    </div>
-                    <!-- Tab 4-->
-                    <div class="analityc-widget analityc-widget_income" data-stage="изменения" data-type="table">
-                        <div class="analityc-widgethead">
-                            <div class="analityc-control-group _year">
-                                <span>Год</span>
-                                <select class="analityc-select">
-                                    <option selected="selected">2017</option>
-                                    <option>2016</option>
-                                    <option>2015</option>
-                                </select>
-                            </div>
-                            <div class="analityc-control-group _stage">
-                                <span>Этап</span>
-                                <select class="analityc-select" data-select="stage">
-                                    <option value="утвержденный" selected="selected">Закон о бюджете утвержденный</option>
-                                    <option value="изменения">Закон о внесении изменений</option>
-                                    <option value="исполнение">Закон об исполнении</option>
-                                    <option value="на_дату">Исполнение на дату</option>
-                                </select>
-                            </div>
-                            <div class="analityc-control-group _level">
-                                <span>Уровень</span>
-                                <select class="analityc-select">
-                                    <option selected="selected">Бюджет москвы</option>
-                                    <option>Бюджет области</option>
-                                    <option>Бюджет региона</option>
-                                    <option>Консолидированный бюджет</option>
-                                </select>
-                            </div>
-                            <div class="analityc-control-group _transfer">
-                                <span>Классификация доходов</span>
-                                <select class="analityc-select">
-                                    <option selected="selected">Виды</option>
-                                    <option>Виды</option>
-                                </select>
-                            </div>
-                            <div class="analityc-control-buttons">
-                                <a class="analityc-control-button analityc-control-button_graphics active" href="#" data-type="graphics"></a>
-                                <a class="analityc-control-button analityc-control-button_table" href="#" data-type="table"></a>
-                            </div>
-                            <div class="analityc-control-switcher">
-                                <a class="active" href="#">млрд руб.</a>
-                                <a href="#">млн руб.</a>
-                            </div>
-                        </div>
-                        <div class="table analityc-widget__table">
-                            <div class="table__row table__row_caption">
-                                <div class="table__col table__col_four">Виды доходов</div>
-                                <div class="table__col table__col_four">2017</div>
-                                <div class="table__col table__col_four">2018</div>
-                                <div class="table__col table__col_four">2019</div>
-                            </div>
-                            <div class="table__row table__row_subcaption">
-                                <div class="table__col table__col_four">empty</div>
-                                <div class="table__col table__col_one">Закон перво- начальный</div>
-                                <div class="table__col table__col_one">Изменение</div>
-                                <div class="table__col table__col_one">Закон с учетом Изменений</div>
-                                <div class="table__col table__col_one">Закон перво- начальный</div>
-                                <div class="table__col table__col_one">Изменение</div>
-                                <div class="table__col table__col_one">Закон с учетом Изменений</div>
-                                <div class="table__col table__col_one">Закон перво- начальный</div>
-                                <div class="table__col table__col_one">Изменение</div>
-                                <div class="table__col table__col_one">Закон с учетом Изменений</div>
-                            </div>
-                            <div class="table__row">
-                                <div class="table__col table__col_four">Доходы, всего</div>
-                                <div class="table__col table__col_one">1 598,90</div>
-                                <div class="table__col table__col_one">1 647,20</div>
-                                <div class="table__col table__col_one">1 692,60</div>
-                                <div class="table__col table__col_one">1 598,90</div>
-                                <div class="table__col table__col_one">1 647,20</div>
-                                <div class="table__col table__col_one">1 692,60</div>
-                                <div class="table__col table__col_one">1 598,90</div>
-                                <div class="table__col table__col_one">1 647,20</div>
-                                <div class="table__col table__col_one">1 692,60</div>
-                            </div>
-                            <div class="table__row table__row_opened">
-                                <div class="table__col table__col_four">
-                                    <svg class="table__arrow"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>Налоговые доходы, в том числе:</div>
-                                <div class="table__col table__col_one">1 751,00</div>
-                                <div class="table__col table__col_one">1 681,00</div>
-                                <div class="table__col table__col_one">1 746,50</div>
-                                <div class="table__col table__col_one">1 751,00</div>
-                                <div class="table__col table__col_one">1 681,00</div>
-                                <div class="table__col table__col_one">1 746,50</div>
-                                <div class="table__col table__col_one">1 751,00</div>
-                                <div class="table__col table__col_one">1 681,00</div>
-                                <div class="table__col table__col_one">1 746,50</div>
-                            </div>
-                            <div class="table__row">
-                                <div class="table__col table__col_four table__col_subcol">Налог на прибыль организаций</div>
-                                <div class="table__col table__col_one">–152,1</div>
-                                <div class="table__col table__col_one">–33,8</div>
-                                <div class="table__col table__col_one">–53,9</div>
-                                <div class="table__col table__col_one">–152,1</div>
-                                <div class="table__col table__col_one">–33,8</div>
-                                <div class="table__col table__col_one">–53,9</div>
-                                <div class="table__col table__col_one">–152,1</div>
-                                <div class="table__col table__col_one">–33,8</div>
-                                <div class="table__col table__col_one">–53,9</div>
-                            </div>
-                            <div class="table__row">
-                                <div class="table__col table__col_four table__col_subcol">Налог на доходы физических лиц</div>
-                                <div class="table__col table__col_one">1 598,90</div>
-                                <div class="table__col table__col_one">1 647,20</div>
-                                <div class="table__col table__col_one">1 692,60</div>
-                                <div class="table__col table__col_one">1 598,90</div>
-                                <div class="table__col table__col_one">1 647,20</div>
-                                <div class="table__col table__col_one">1 692,60</div>
-                                <div class="table__col table__col_one">1 598,90</div>
-                                <div class="table__col table__col_one">1 647,20</div>
-                                <div class="table__col table__col_one">1 692,60</div>
-                            </div>
-                            <div class="table__row">
-                                <div class="table__col table__col_four">...</div>
-                                <div class="table__col table__col_one">1 751,00</div>
-                                <div class="table__col table__col_one">1 681,00</div>
-                                <div class="table__col table__col_one">1 746,50</div>
-                                <div class="table__col table__col_one">1 751,00</div>
-                                <div class="table__col table__col_one">1 681,00</div>
-                                <div class="table__col table__col_one">1 746,50</div>
-                                <div class="table__col table__col_one">1 751,00</div>
-                                <div class="table__col table__col_one">1 681,00</div>
-                                <div class="table__col table__col_one">1 746,50</div>
-                            </div>
-                            <div class="table__row">
-                                <div class="table__col table__col_four">
-                                    <svg class="table__arrow"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>Неналоговые доходы, в том числе:</div>
-                                <div class="table__col table__col_one">–152,1</div>
-                                <div class="table__col table__col_one">–33,8</div>
-                                <div class="table__col table__col_one">–53,9</div>
-                                <div class="table__col table__col_one">–152,1</div>
-                                <div class="table__col table__col_one">–33,8</div>
-                                <div class="table__col table__col_one">–53,9</div>
-                                <div class="table__col table__col_one">–152,1</div>
-                                <div class="table__col table__col_one">–33,8</div>
-                                <div class="table__col table__col_one">–53,9</div>
+                        <div class="analityc-table analityc-table_changes">
+                            <div class="table">
+                                <p class="table__periodtext">
+                                    <span>Плановый период</span>
+                                </p>
+                                <div class="table__row table__row_caption">
+                                    <div class="table__col table__col_four">Виды доходов</div>
+                                    <div class="table__col table__col_four">2017</div>
+                                    <div class="table__col table__col_four">2018
+                                        <span class="table__period-left"></span>
+                                    </div>
+                                    <div class="table__col table__col_four">2019
+                                        <span class="table__period-right"></span>
+                                    </div>
+                                </div>
+                                <div class="table__row table__row_subcaption">
+                                    <div class="table__col table__col_four">empty</div>
+                                    <div class="table__col table__col_one">Закон перво- начальный</div>
+                                    <div class="table__col table__col_one">Изменение</div>
+                                    <div class="table__col table__col_one">Закон с учетом Изменений</div>
+                                    <div class="table__col table__col_one">Закон перво- начальный</div>
+                                    <div class="table__col table__col_one">Изменение</div>
+                                    <div class="table__col table__col_one">Закон с учетом Изменений</div>
+                                    <div class="table__col table__col_one">Закон перво- начальный</div>
+                                    <div class="table__col table__col_one">Изменение</div>
+                                    <div class="table__col table__col_one">Закон с учетом Изменений</div>
+                                </div>
+                                <div class="table__row">
+                                    <div class="table__col table__col_four">Доходы, всего</div>
+                                    <div class="table__col table__col_one">1 598,90</div>
+                                    <div class="table__col table__col_one">1 647,20</div>
+                                    <div class="table__col table__col_one">1 692,60</div>
+                                    <div class="table__col table__col_one">1 598,90</div>
+                                    <div class="table__col table__col_one">1 647,20</div>
+                                    <div class="table__col table__col_one">1 692,60</div>
+                                    <div class="table__col table__col_one">1 598,90</div>
+                                    <div class="table__col table__col_one">1 647,20</div>
+                                    <div class="table__col table__col_one">1 692,60</div>
+                                </div>
+                                <div class="table__row table__row_opened">
+                                    <div class="table__col table__col_four">
+                                        <svg class="table__arrow"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>Налоговые доходы, в том числе:</div>
+                                    <div class="table__col table__col_one">1 751,00</div>
+                                    <div class="table__col table__col_one">1 681,00</div>
+                                    <div class="table__col table__col_one">1 746,50</div>
+                                    <div class="table__col table__col_one">1 751,00</div>
+                                    <div class="table__col table__col_one">1 681,00</div>
+                                    <div class="table__col table__col_one">1 746,50</div>
+                                    <div class="table__col table__col_one">1 751,00</div>
+                                    <div class="table__col table__col_one">1 681,00</div>
+                                    <div class="table__col table__col_one">1 746,50</div>
+                                </div>
+                                <div class="table__row">
+                                    <div class="table__col table__col_four table__col_subcol">Налог на прибыль организаций</div>
+                                    <div class="table__col table__col_one">–152,1</div>
+                                    <div class="table__col table__col_one">–33,8</div>
+                                    <div class="table__col table__col_one">–53,9</div>
+                                    <div class="table__col table__col_one">–152,1</div>
+                                    <div class="table__col table__col_one">–33,8</div>
+                                    <div class="table__col table__col_one">–53,9</div>
+                                    <div class="table__col table__col_one">–152,1</div>
+                                    <div class="table__col table__col_one">–33,8</div>
+                                    <div class="table__col table__col_one">–53,9</div>
+                                </div>
+                                <div class="table__row">
+                                    <div class="table__col table__col_four table__col_subcol">Налог на доходы физических лиц</div>
+                                    <div class="table__col table__col_one">1 598,90</div>
+                                    <div class="table__col table__col_one">1 647,20</div>
+                                    <div class="table__col table__col_one">1 692,60</div>
+                                    <div class="table__col table__col_one">1 598,90</div>
+                                    <div class="table__col table__col_one">1 647,20</div>
+                                    <div class="table__col table__col_one">1 692,60</div>
+                                    <div class="table__col table__col_one">1 598,90</div>
+                                    <div class="table__col table__col_one">1 647,20</div>
+                                    <div class="table__col table__col_one">1 692,60</div>
+                                </div>
+                                <div class="table__row">
+                                    <div class="table__col table__col_four">...</div>
+                                    <div class="table__col table__col_one">1 751,00</div>
+                                    <div class="table__col table__col_one">1 681,00</div>
+                                    <div class="table__col table__col_one">1 746,50</div>
+                                    <div class="table__col table__col_one">1 751,00</div>
+                                    <div class="table__col table__col_one">1 681,00</div>
+                                    <div class="table__col table__col_one">1 746,50</div>
+                                    <div class="table__col table__col_one">1 751,00</div>
+                                    <div class="table__col table__col_one">1 681,00</div>
+                                    <div class="table__col table__col_one">1 746,50</div>
+                                </div>
+                                <div class="table__row">
+                                    <div class="table__col table__col_four">
+                                        <svg class="table__arrow"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>Неналоговые доходы, в том числе:</div>
+                                    <div class="table__col table__col_one">–152,1</div>
+                                    <div class="table__col table__col_one">–33,8</div>
+                                    <div class="table__col table__col_one">–53,9</div>
+                                    <div class="table__col table__col_one">–152,1</div>
+                                    <div class="table__col table__col_one">–33,8</div>
+                                    <div class="table__col table__col_one">–53,9</div>
+                                    <div class="table__col table__col_one">–152,1</div>
+                                    <div class="table__col table__col_one">–33,8</div>
+                                    <div class="table__col table__col_one">–53,9</div>
+                                </div>
                             </div>
                         </div>
-                        <a class="analityc-more" href="/">Перейти в&nbsp;раздел аналитика</a>
-                    </div>
-                    <!-- Tab 5-->
-                    <div class="analityc-widget analityc-widget_income" data-stage="исполнение" data-type="graphics">
-                        <div class="analityc-widgethead">
-                            <div class="analityc-control-group _year">
-                                <span>Год</span>
-                                <select class="analityc-select">
-                                    <option selected="selected">2017</option>
-                                    <option>2016</option>
-                                    <option>2015</option>
-                                </select>
-                            </div>
-                            <div class="analityc-control-group _stage">
-                                <span>Этап</span>
-                                <select class="analityc-select" data-select="stage">
-                                    <option value="утвержденный" selected="selected">Закон о бюджете утвержденный</option>
-                                    <option value="изменения">Закон о внесении изменений</option>
-                                    <option value="исполнение">Закон об исполнении</option>
-                                    <option value="на_дату">Исполнение на дату</option>
-                                </select>
-                            </div>
-                            <div class="analityc-control-group _level">
-                                <span>Уровень</span>
-                                <select class="analityc-select">
-                                    <option selected="selected">Бюджет москвы</option>
-                                    <option>Бюджет области</option>
-                                    <option>Бюджет региона</option>
-                                    <option>Консолидированный бюджет</option>
-                                </select>
-                            </div>
-                            <div class="analityc-control-group _transfer">
-                                <span>Классификация доходов</span>
-                                <select class="analityc-select">
-                                    <option selected="selected">Виды</option>
-                                    <option>Виды</option>
-                                </select>
-                            </div>
-                            <div class="analityc-control-switcher">
-                                <a class="active" href="#">%</a>
-                                <a href="#">млрд руб.</a>
-                            </div>
-                            <div class="analityc-control-buttons">
-                                <a class="analityc-control-button analityc-control-button_graphics active" href="#" data-type="graphics"></a>
-                                <a class="analityc-control-button analityc-control-button_table" href="#" data-type="table"></a>
-                            </div>
-                        </div>
-                        <div class="analityc-graphics analityc-graphics_singleround">
+                        <div class="analityc-graphics analityc-graphics_singleround analityc-graphics_done">
                             <div class="analityc-graphics__cols">
                                 <div class="analityc-graphics__col">
                                     <p class="analityc-graphics__year">2016</p>
@@ -750,132 +591,44 @@
                                 </div>
                             </div>
                         </div>
-                        <a class="analityc-more" href="/">Перейти в&nbsp;раздел аналитика</a>
-                    </div>
-                    <!-- Tab 6-->
-                    <div class="analityc-widget analityc-widget_income" data-stage="исполнение" data-type="table">
-                        <div class="analityc-widgethead">
-                            <div class="analityc-control-group _year">
-                                <span>Год</span>
-                                <select class="analityc-select">
-                                    <option selected="selected">2017</option>
-                                    <option>2016</option>
-                                    <option>2015</option>
-                                </select>
-                            </div>
-                            <div class="analityc-control-group _stage">
-                                <span>Этап</span>
-                                <select class="analityc-select" data-select="stage">
-                                    <option value="утвержденный" selected="selected">Закон о бюджете утвержденный</option>
-                                    <option value="изменения">Закон о внесении изменений</option>
-                                    <option value="исполнение">Закон об исполнении</option>
-                                    <option value="на_дату">Исполнение на дату</option>
-                                </select>
-                            </div>
-                            <div class="analityc-control-group _level">
-                                <span>Уровень</span>
-                                <select class="analityc-select">
-                                    <option selected="selected">Бюджет москвы</option>
-                                    <option>Бюджет области</option>
-                                    <option>Бюджет региона</option>
-                                    <option>Консолидированный бюджет</option>
-                                </select>
-                            </div>
-                            <div class="analityc-control-group _transfer">
-                                <span>Классификация доходов</span>
-                                <select class="analityc-select">
-                                    <option selected="selected">Виды</option>
-                                    <option>Виды</option>
-                                </select>
-                            </div>
-                            <div class="analityc-control-switcher">
-                                <a class="active" href="#">%</a>
-                                <a href="#">млрд руб.</a>
-                            </div>
-                            <div class="analityc-control-buttons">
-                                <a class="analityc-control-button analityc-control-button_graphics active" href="#" data-type="graphics"></a>
-                                <a class="analityc-control-button analityc-control-button_table" href="#" data-type="table"></a>
+                        <div class="analityc-table analityc-table_done">
+                            <div class="table">
+                                <p class="table__periodtext">
+                                    <span>Плановый период</span>
+                                </p>
+                                <div class="table__row table__row_caption">
+                                    <div class="table__col table__col_four">Виды доходов</div>
+                                    <div class="table__col table__col_four">2017</div>
+                                </div>
+                                <div class="table__row">
+                                    <div class="table__col table__col_four">Доходы, всего</div>
+                                    <div class="table__col table__col_one">1 598,90</div>
+                                </div>
+                                <div class="table__row table__row_opened">
+                                    <div class="table__col table__col_four">
+                                        <svg class="table__arrow"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>Налоговые доходы, в том числе:</div>
+                                    <div class="table__col table__col_one">1 598,90</div>
+                                </div>
+                                <div class="table__row">
+                                    <div class="table__col table__col_four table__col_subcol">Налог на прибыль организаций</div>
+                                    <div class="table__col table__col_one">1 598,90</div>
+                                </div>
+                                <div class="table__row">
+                                    <div class="table__col table__col_four table__col_subcol">Налог на доходы физических лиц</div>
+                                    <div class="table__col table__col_one">1 598,90</div>
+                                </div>
+                                <div class="table__row">
+                                    <div class="table__col table__col_four">...</div>
+                                    <div class="table__col table__col_one">1 598,90</div>
+                                </div>
+                                <div class="table__row">
+                                    <div class="table__col table__col_four">
+                                        <svg class="table__arrow"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>Неналоговые доходы, в том числе:</div>
+                                    <div class="table__col table__col_one">1 598,90</div>
+                                </div>
                             </div>
                         </div>
-                        <div class="table analityc-widget__table">
-                            <div class="table__row table__row_caption">
-                                <div class="table__col table__col_four">Виды доходов</div>
-                                <div class="table__col table__col_four">2017</div>
-                            </div>
-                            <div class="table__row">
-                                <div class="table__col table__col_four">Доходы, всего</div>
-                                <div class="table__col table__col_one">1 598,90</div>
-                            </div>
-                            <div class="table__row table__row_opened">
-                                <div class="table__col table__col_four">
-                                    <svg class="table__arrow"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>Налоговые доходы, в том числе:</div>
-                                <div class="table__col table__col_one">1 598,90</div>
-                            </div>
-                            <div class="table__row">
-                                <div class="table__col table__col_four table__col_subcol">Налог на прибыль организаций</div>
-                                <div class="table__col table__col_one">1 598,90</div>
-                            </div>
-                            <div class="table__row">
-                                <div class="table__col table__col_four table__col_subcol">Налог на доходы физических лиц</div>
-                                <div class="table__col table__col_one">1 598,90</div>
-                            </div>
-                            <div class="table__row">
-                                <div class="table__col table__col_four">...</div>
-                                <div class="table__col table__col_one">1 598,90</div>
-                            </div>
-                            <div class="table__row">
-                                <div class="table__col table__col_four">
-                                    <svg class="table__arrow"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>Неналоговые доходы, в том числе:</div>
-                                <div class="table__col table__col_one">1 598,90</div>
-                            </div>
-                        </div>
-                        <a class="analityc-more" href="/">Перейти в&nbsp;раздел аналитика</a>
-                    </div>
-                    <!-- Tab 7-->
-                    <div class="analityc-widget analityc-widget_income" data-stage="на_дату" data-type="graphics">
-                        <div class="analityc-widgethead">
-                            <div class="analityc-control-group _year">
-                                <span>Год</span>
-                                <select class="analityc-select">
-                                    <option selected="selected">2017</option>
-                                    <option>2016</option>
-                                    <option>2015</option>
-                                </select>
-                            </div>
-                            <div class="analityc-control-group _stage">
-                                <span>Этап</span>
-                                <select class="analityc-select" data-select="stage">
-                                    <option value="утвержденный" selected="selected">Закон о бюджете утвержденный</option>
-                                    <option value="изменения">Закон о внесении изменений</option>
-                                    <option value="исполнение">Закон об исполнении</option>
-                                    <option value="на_дату">Исполнение на дату</option>
-                                </select>
-                            </div>
-                            <div class="analityc-control-group _level">
-                                <span>Уровень</span>
-                                <select class="analityc-select">
-                                    <option selected="selected">Бюджет москвы</option>
-                                    <option>Бюджет области</option>
-                                    <option>Бюджет региона</option>
-                                    <option>Консолидированный бюджет</option>
-                                </select>
-                            </div>
-                            <div class="analityc-control-group _transfer">
-                                <span>Классификация доходов</span>
-                                <select class="analityc-select">
-                                    <option selected="selected">Виды</option>
-                                    <option>Виды</option>
-                                </select>
-                            </div>
-                            <div class="analityc-control-buttons">
-                                <a class="analityc-control-button analityc-control-button_graphics active" href="#" data-type="graphics"></a>
-                                <a class="analityc-control-button analityc-control-button_table" href="#" data-type="table"></a>
-                            </div>
-                            <div class="analityc-control-group _dp">
-                                <input class="datepicker" placeholder="Выберите дату исполнения" data-select="date" />
-                            </div>
-                        </div>
-                        <div class="analityc-graphics analityc-graphics_line">
+                        <div class="analityc-graphics analityc-graphics_line analityc-graphics_date-one">
                             <p class="analityc-graphics__heading">Исполнение доходов бюджета на 22.04.2017</p>
                             <div class="analityc-graphics__lines">
                                 <div class="analityc-graphics__line analityc-graphics__line_altblue">
@@ -952,138 +705,52 @@
                                 </div>
                             </div>
                         </div>
-                        <a class="analityc-more" href="/">Перейти в&nbsp;раздел аналитика</a>
-                    </div>
-                    <!-- Tab 8-->
-                    <div class="analityc-widget analityc-widget_income" data-stage="на_дату" data-type="table">
-                        <div class="analityc-widgethead">
-                            <div class="analityc-control-group _year">
-                                <span>Год</span>
-                                <select class="analityc-select">
-                                    <option selected="selected">2017</option>
-                                    <option>2016</option>
-                                    <option>2015</option>
-                                </select>
-                            </div>
-                            <div class="analityc-control-group _stage">
-                                <span>Этап</span>
-                                <select class="analityc-select" data-select="stage">
-                                    <option value="утвержденный" selected="selected">Закон о бюджете утвержденный</option>
-                                    <option value="изменения">Закон о внесении изменений</option>
-                                    <option value="исполнение">Закон об исполнении</option>
-                                    <option value="на_дату">Исполнение на дату</option>
-                                </select>
-                            </div>
-                            <div class="analityc-control-group _level">
-                                <span>Уровень</span>
-                                <select class="analityc-select">
-                                    <option selected="selected">Бюджет москвы</option>
-                                    <option>Бюджет области</option>
-                                    <option>Бюджет региона</option>
-                                    <option>Консолидированный бюджет</option>
-                                </select>
-                            </div>
-                            <div class="analityc-control-group _transfer">
-                                <span>Классификация доходов</span>
-                                <select class="analityc-select">
-                                    <option selected="selected">Виды</option>
-                                    <option>Виды</option>
-                                </select>
-                            </div>
-                            <div class="analityc-control-buttons">
-                                <a class="analityc-control-button analityc-control-button_graphics active" href="#" data-type="graphics"></a>
-                                <a class="analityc-control-button analityc-control-button_table" href="#" data-type="table"></a>
-                            </div>
-                            <div class="analityc-control-group _dp">
-                                <input class="datepicker" placeholder="Выберите дату исполнения" data-select="date" />
-                            </div>
-                        </div>
-                        <div class="table analityc-widget__table">
-                            <div class="table__row table__row_caption">
-                                <div class="table__col table__col_four">Виды доходов</div>
-                                <div class="table__col table__col_four">МЛРД РУБ.</div>
-                                <div class="table__col table__col_four">%</div>
-                            </div>
-                            <div class="table__row">
-                                <div class="table__col table__col_four">Доходы, всего</div>
-                                <div class="table__col table__col_two">1 598,90</div>
-                                <div class="table__col table__col_two">1 598,90</div>
-                            </div>
-                            <div class="table__row table__row_opened">
-                                <div class="table__col table__col_four">
-                                    <svg class="table__arrow"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>Налоговые доходы, в том числе:</div>
-                                <div class="table__col table__col_two">1 598,90</div>
-                                <div class="table__col table__col_two">1 598,90</div>
-                            </div>
-                            <div class="table__row">
-                                <div class="table__col table__col_four table__col_subcol">Налог на прибыль организаций</div>
-                                <div class="table__col table__col_two">1 598,90</div>
-                                <div class="table__col table__col_two">1 598,90</div>
-                            </div>
-                            <div class="table__row">
-                                <div class="table__col table__col_four table__col_subcol">Налог на доходы физических лиц</div>
-                                <div class="table__col table__col_two">1 598,90</div>
-                                <div class="table__col table__col_two">1 598,90</div>
-                            </div>
-                            <div class="table__row">
-                                <div class="table__col table__col_four">...</div>
-                                <div class="table__col table__col_two">1 598,90</div>
-                                <div class="table__col table__col_two">1 598,90</div>
-                            </div>
-                            <div class="table__row">
-                                <div class="table__col table__col_four">
-                                    <svg class="table__arrow"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>Неналоговые доходы, в том числе:</div>
-                                <div class="table__col table__col_two">1 598,90</div>
-                                <div class="table__col table__col_two">1 598,90</div>
+                        <div class="analityc-table analityc-table_date">
+                            <p class="analityc-table__heading">Исполнение доходов бюджета на 22.04.2017</p>
+                            <div class="table">
+                                <p class="table__periodtext">
+                                    <span>Плановый период</span>
+                                </p>
+                                <div class="table__row table__row_caption">
+                                    <div class="table__col table__col_four">Виды доходов</div>
+                                    <div class="table__col table__col_four">МЛРД РУБ.</div>
+                                    <div class="table__col table__col_four">%</div>
+                                </div>
+                                <div class="table__row">
+                                    <div class="table__col table__col_four">Доходы, всего</div>
+                                    <div class="table__col table__col_two">1 598,90</div>
+                                    <div class="table__col table__col_two">1 598,90</div>
+                                </div>
+                                <div class="table__row table__row_opened">
+                                    <div class="table__col table__col_four">
+                                        <svg class="table__arrow"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>Налоговые доходы, в том числе:</div>
+                                    <div class="table__col table__col_two">1 598,90</div>
+                                    <div class="table__col table__col_two">1 598,90</div>
+                                </div>
+                                <div class="table__row">
+                                    <div class="table__col table__col_four table__col_subcol">Налог на прибыль организаций</div>
+                                    <div class="table__col table__col_two">1 598,90</div>
+                                    <div class="table__col table__col_two">1 598,90</div>
+                                </div>
+                                <div class="table__row">
+                                    <div class="table__col table__col_four table__col_subcol">Налог на доходы физических лиц</div>
+                                    <div class="table__col table__col_two">1 598,90</div>
+                                    <div class="table__col table__col_two">1 598,90</div>
+                                </div>
+                                <div class="table__row">
+                                    <div class="table__col table__col_four">...</div>
+                                    <div class="table__col table__col_two">1 598,90</div>
+                                    <div class="table__col table__col_two">1 598,90</div>
+                                </div>
+                                <div class="table__row">
+                                    <div class="table__col table__col_four">
+                                        <svg class="table__arrow"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>Неналоговые доходы, в том числе:</div>
+                                    <div class="table__col table__col_two">1 598,90</div>
+                                    <div class="table__col table__col_two">1 598,90</div>
+                                </div>
                             </div>
                         </div>
-                        <a class="analityc-more" href="/">Перейти в&nbsp;раздел аналитика</a>
-                    </div>
-                    <!-- Tab 9-->
-                    <div class="analityc-widget analityc-widget_income" data-stage="на_дату" data-type="graphics" data-date="01.02.2017">
-                        <div class="analityc-widgethead">
-                            <div class="analityc-control-group _year">
-                                <span>Год</span>
-                                <select class="analityc-select">
-                                    <option selected="selected">2017</option>
-                                    <option>2016</option>
-                                    <option>2015</option>
-                                </select>
-                            </div>
-                            <div class="analityc-control-group _stage">
-                                <span>Этап</span>
-                                <select class="analityc-select" data-select="stage">
-                                    <option value="утвержденный" selected="selected">Закон о бюджете утвержденный</option>
-                                    <option value="изменения">Закон о внесении изменений</option>
-                                    <option value="исполнение">Закон об исполнении</option>
-                                    <option value="на_дату">Исполнение на дату</option>
-                                </select>
-                            </div>
-                            <div class="analityc-control-group _level">
-                                <span>Уровень</span>
-                                <select class="analityc-select">
-                                    <option selected="selected">Бюджет москвы</option>
-                                    <option>Бюджет области</option>
-                                    <option>Бюджет региона</option>
-                                    <option>Консолидированный бюджет</option>
-                                </select>
-                            </div>
-                            <div class="analityc-control-group _transfer">
-                                <span>Классификация доходов</span>
-                                <select class="analityc-select">
-                                    <option selected="selected">Виды</option>
-                                    <option>Виды</option>
-                                </select>
-                            </div>
-                            <div class="analityc-control-buttons">
-                                <a class="analityc-control-button analityc-control-button_graphics active" href="#" data-type="graphics"></a>
-                                <a class="analityc-control-button analityc-control-button_table" href="#" data-type="table"></a>
-                            </div>
-                            <div class="analityc-control-group _dp">
-                                <input class="datepicker" placeholder="Выберите дату исполнения" data-select="date" />
-                            </div>
-                        </div>
-                        <div class="analityc-graphics analityc-graphics_line">
+                        <div class="analityc-graphics analityc-graphics_line analityc-graphics_date-two">
                             <p class="analityc-graphics__heading">Исполнение доходов бюджета на 1 февраля 2017</p>
                             <div class="analityc-graphics__lines">
                                 <div class="analityc-graphics__line analityc-graphics__line_altblue">
