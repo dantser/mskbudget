@@ -1,12 +1,13 @@
 include ../page-header/page-header
 include ../analityc-widgethead/analityc-widgethead
 include ../analityc-graphics/analityc-graphics
-
+include ../analityc-table/analityc-table
+include ../../blocks/table/table
 
 mixin depfin-analytics-main()
 	.main._basic
 		section.basic-budget
-			.wrapper
+			.wrapper.wrapper_params
 				+page-header('Основные параметры', false, true)
 
 				// Tab 1
@@ -14,6 +15,11 @@ mixin depfin-analytics-main()
 					+analityc-widgethead-main()
 
 					+analityc-graphics-line-vertical(getData('graphic-lines-main'))
+
+					+analityc-graphics-classic()
+
+					+analityc-table()._params
+						+table-main(getData('main'))
 
 					a(href="/").analityc-more Перейти в&nbsp;раздел бюжет москвы
 

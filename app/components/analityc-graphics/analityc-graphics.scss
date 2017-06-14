@@ -432,9 +432,48 @@
 
 /*******************************************/
 
+@mixin analityc-graphics-lines($color, $height, $bg, $grad1, $grad2) {
+  &_#{$color} {
+    .analityc-graphics-line-vertical__line-fill {
+      height: $height;        
+      background: $bg;
+      background-image: -moz-linear-gradient( 90deg, $grad1 0%, $grad2 100%);
+      background-image: -webkit-linear-gradient( 90deg, $grad1 0%, $grad2 100%);
+      background-image: -ms-linear-gradient( 90deg, $grad1 0%, $grad2 100%);
+    }
+    .analityc-graphics-line-vertical__line-bar-value {
+      bottom: $height;
+    }
+
+    &.analityc-graphics-line-vertical__line_neg {
+
+      & .analityc-graphics-line-vertical__line-fill {
+        bottom: calc(-#{$height} - 1px);
+      }
+
+      .analityc-graphics-line-vertical__line-bar-value {
+        bottom: 0;
+      }
+    }
+  }
+}
+
 .analityc-graphics-line-vertical {
+  position: relative;
   text-align: justify;
+  padding: 0 18px;
   font-size: 0;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 270px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #dcdcdc;
+  }
 
   &:after {
     content: '';
@@ -445,11 +484,12 @@
 
   &__graphic {
     display: inline-block;
+    max-width: 95px;
+    vertical-align: top;
   }
 
   &__lines {
-    height: 500px;
-    border-bottom: 1px solid #dcdcdc;
+    height: 270px;
   }
 
   &__line {
@@ -463,77 +503,11 @@
       margin-right: 0;
     }
 
-    &_blue {
-      .analityc-graphics-line-vertical__line-fill {
-        height: 7%;        
-        background: #0051d0;
-        background-image: -moz-linear-gradient( 90deg, rgb(0,255,255) 0%, rgb(0,76,207) 100%);
-        background-image: -webkit-linear-gradient( 90deg, rgb(0,255,255) 0%, rgb(0,76,207) 100%);
-        background-image: -ms-linear-gradient( 90deg, rgb(0,255,255) 0%, rgb(0,76,207) 100%);
-      }
-      .analityc-graphics-line-vertical__line-bar-value {
-        bottom: 7%;
-      }
+    @include analityc-graphics-lines(altblue, 40%, #0051d0, rgb(0,76,207), rgb(0,255,255));
 
-      &.analityc-graphics-line-vertical__line_neg {
+    @include analityc-graphics-lines(pink, 45%, #9f3189, rgb(157,48,138), rgb(255,105,91));
 
-        & .analityc-graphics-line-vertical__line-fill {
-          bottom: -7%;
-        }
-
-        .analityc-graphics-line-vertical__line-bar-value {
-          bottom: 0;
-        }
-      }
-    }
-
-    &_pink {
-      .analityc-graphics-line-vertical__line-fill {
-        height: 19.5%;        
-        background: #9f3189;
-        background-image: -moz-linear-gradient( 90deg, rgb(157,48,138) 0%, rgb(255,105,91) 100%);
-        background-image: -webkit-linear-gradient( 90deg, rgb(157,48,138) 0%, rgb(255,105,91) 100%);
-        background-image: -ms-linear-gradient( 90deg, rgb(157,48,138) 0%, rgb(255,105,91) 100%);
-      }
-      .analityc-graphics-line-vertical__line-bar-value {
-        bottom: 19.5%;
-      }
-
-      &.analityc-graphics-line-vertical__line_neg {
-
-        & .analityc-graphics-line-vertical__line-fill {
-          bottom: -19.5%;
-        }
-
-        .analityc-graphics-line-vertical__line-bar-value {
-          bottom: 0;
-        }
-      }
-    }
-
-    &_green {
-      .analityc-graphics-line-vertical__line-fill {
-        height: 28.5%;
-        background: #32b168;
-        background-image: -moz-linear-gradient( 90deg, rgb(254,227,0) 0%, rgb(48,176,105) 100%);
-        background-image: -webkit-linear-gradient( 90deg, rgb(254,227,0) 0%, rgb(48,176,105) 100%);
-        background-image: -ms-linear-gradient( 90deg, rgb(254,227,0) 0%, rgb(48,176,105) 100%);
-      }
-      .analityc-graphics-line-vertical__line-bar-value {
-        bottom: 28.5%;
-      }
-
-      &.analityc-graphics-line-vertical__line_neg {
-
-        & .analityc-graphics-line-vertical__line-fill {
-          bottom: -28.5%;
-        }
-
-        .analityc-graphics-line-vertical__line-bar-value {
-          bottom: 0;
-        }
-      }
-    }
+    @include analityc-graphics-lines(green, 5%, #32b168, rgb(254,227,0), rgb(48,176,105));
   }
 
   &__line-bar-value,
@@ -556,7 +530,7 @@
   }
 
   &__caption {
-    margin-top: 20px;
+    margin-top: 19px;
     text-align: center;
 
     &-year,
@@ -566,16 +540,23 @@
 
     &-year {
       font-size: 16px;
-      line-height: (30/16)*1em;
+      line-height: 1em;
     }
 
     &-text {
       font-size: 12px;
-      line-height: (30/12)*1em;
+      line-height: (16/12)*1em;
       opacity: .4;
       text-transform: uppercase;
     }
   }
+}
+
+.analityc-graphics-classic {
+  display: none;
+  height: 232px;
+  width: 100%;
+  background: #ccc;
 }
 
 @media screen and (max-width: 1140px) {

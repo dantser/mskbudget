@@ -1,6 +1,26 @@
+
+.basic-budget .wrapper {
+	&_params {
+		@media (max-width: 1140px) {
+				padding-left: 40px !important;
+	  		padding-right: 41px !important;
+		}
+	}
+}
+
+
 .analityc-widget_params {
   padding-top: 22px;
 	padding-bottom: 35px;
+
+	& .analityc-widgethead {
+		padding-right: 24px;
+		min-height: 299px;
+
+		@media (max-width: 1140px) {
+			padding-right: 0;
+		}
+	}
 
 	& .analityc-control-frame {
 
@@ -12,14 +32,23 @@
 
 		&_left {
 			float: left;
-			width: 40%;
+			width: 413px;
+
+			@media (max-width: 1010px) {
+				float: none;
+			}
 
 			& .analityc-control-group {
 				position: relative;
 				width: 100%;
 				padding-right: 27px;
+				margin-top: 2px;
 				margin-left: 0;
 				@include clearfix;
+
+				@media (max-width: 1140px) {
+					margin-bottom: 0;
+				}
 
 				&:hover {
 					& .analityc-remove-group {
@@ -32,12 +61,16 @@
 
 				&_year {
 					float: left;
-					width: 30%;
+					width: 70.5px;
 				}
 				
 				&_stage {
 					float: right;
-					width: 60%;
+					width: 307px;
+
+					@media (max-width: 1140px) {
+						width: 300px;
+					}
 				}
 			}
 
@@ -68,7 +101,15 @@
 		&_right {
 			position: relative;
 			float: right;
-			width: 50%;
+			width: 530px;
+
+			@media (max-width: 1140px) {
+				width: 428px;
+			}
+
+			@media (max-width: 1010px) {
+				float: none;
+			}
 
 			& .frame-wrap {
 				@include clearfix;
@@ -80,17 +121,25 @@
 
 				&_level {
 					float: left;
-					width: 45%;
+					width: 233px;
+
+					@media (max-width: 1140px) {
+						float: none;
+					}
 				}
 				
 				&_transfer {
 					float: right;
-					width: 45%;
+					width: 265px;
+
+					@media (max-width: 1140px) {
+						float: none;
+					}
 				}
 
 				&_buttons {
 					position: absolute;
-					right: -8px;
+					right: 0;
 					max-width: 100%;
 				}
 			}
@@ -100,6 +149,7 @@
 			}
 	
 			& .analityc-control-switcher {
+				margin-top: 46px;
 				margin-bottom: 20px;
 			}
 

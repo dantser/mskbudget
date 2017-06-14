@@ -156,6 +156,7 @@ mixin analityc-graphics-line(title, data)
               +e.SPAN.line-bar-value= obj.barvalue
               +e.line-fill
 
+//- data - json файл с данными для графиков
 mixin analityc-graphics-line-vertical(data)
   +b.analityc-graphics-line-vertical&attributes(attributes)
 
@@ -163,13 +164,13 @@ mixin analityc-graphics-line-vertical(data)
       +e.graphic
         +e.lines
 
-          +e.line._blue
+          +e.line._altblue
             +e.line-bar-value= item.values[0]
             +e.line-fill
           +e.line._pink
             +e.line-bar-value= item.values[1]
             +e.line-fill
-          +e.line._green
+          +e.line._green._neg
             +e.line-bar-value= item.values[2]
             +e.line-fill
 
@@ -178,6 +179,9 @@ mixin analityc-graphics-line-vertical(data)
           +e.SPAN.caption-text= item.text
 
 
-    
+mixin analityc-graphics-classic()
+  +b.analityc-graphics-classic&attributes(attributes)
+    //- реализация на js
+
 
 
