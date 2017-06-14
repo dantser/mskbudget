@@ -26,6 +26,38 @@
         text-align: left;
       }
     }
+
+    &_data {
+
+      &:nth-child(2) {
+        .table1__col {
+          padding-bottom: 19px;
+        }
+
+        .table1__col_two {
+          padding-left: 20px;
+        }
+
+        .table1__col_three {
+          padding-top: 19px;
+          line-height: 19px;
+        }
+      }
+
+      &:nth-child(3) {
+        .table1__col_half {
+          padding-top: 14px;
+        }
+
+        .table1__col {
+          padding-bottom: 12px;
+        }
+
+        .table1__col_two {
+          padding-left: 20px;
+        }
+      }
+    }
   }
 
 
@@ -34,7 +66,7 @@
     display: table-cell;
     box-sizing: border-box;
     vertical-align: middle;
-    padding: 19px 17px;
+    padding: 9px 17px 12px;
 
     // padding: 13px 16px 12px 20px;
 
@@ -46,10 +78,14 @@
       font-weight: 700;
       padding: 0;
       font-family: $PFDinCondensedPro;
+
+      .table1__col_two {
+        padding-left: 21px;
+      }
     }
 
     &_one {
-      width: 8.8%;
+      width: 8.6%;
       text-align: center;
 
       &:nth-child(4) {
@@ -57,10 +93,10 @@
       }
     }
 
-    &_two { width: 74%; }
+    &_two { width: 12%; }
 
     &_three {
-      width: (1/3)*74%;
+      width: 24.7%;
     }
   }
 
@@ -80,9 +116,17 @@
       @include clearfix;
     }
   }
+
+  &__col_data {
+    vertical-align: top;
+    padding-top: 19px;
+    padding-right: 16px;
+  }
 }
 
 .table2 {
+  letter-spacing: -0.5px;
+  margin-bottom: 55px;
 
   &__col_four {
     padding-left: 0;
@@ -90,6 +134,7 @@
   }
 
   &__col_one {
+    width: 8.7%;
 
     &:nth-child(2) {
       background-color: #e9f0f6;
@@ -105,9 +150,31 @@
 
   }
 
+  &__row_caption {
+    .table2__col {
+      padding-bottom: 12px;
+      padding-top: 11px;
+
+      &_one {
+        padding-left: 25px;
+      }
+    }
+  }
+
   &__row_data {
     &:last-child {
       font-weight: 700;
+    }
+
+    .table1__col_three {
+      padding-top: 18px;
+      padding-left: 0;
+      line-height: 1.357em;
+    }
+
+    .table2__col_four {
+      padding-left: 2px;
+      padding-top: 19px;
     }
   }
 }
