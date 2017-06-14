@@ -3,7 +3,8 @@ import $ from 'jquery';
 export default () => {
   const SLIDE_TEXT = $('.gov-program__tasks .text:nth-child(n+3)');
   const SHOWHIDE = $('.js-showhide');
-  const DROPDOWN = '.dropdown';
+  const DROPDOWN = $('.dropdown');
+  const DROPDOWN_C = '.dropdown';
   const DROPDOWN_BTN = $('.dropdown__btn');
 
 
@@ -11,13 +12,14 @@ export default () => {
     return;
   }
 
-  DROPDOWN_BTN.each( function() {
+  DROPDOWN_BTN.each( function() { // eslint-disable-line
     const EL = $(this);
     const DROPDOWN_ACTIVE_CLASS = 'dropdown_active';
+
     EL.on('click', (e) => {
       e.preventDefault();
-      DROPDOWN.removeClass(DROPDOWN_ACTIVE_CLASS);
-      EL.parent(DROPDOWN).toggleClass(DROPDOWN_ACTIVE_CLASS);
+      EL.parent().siblings(DROPDOWN_C).removeClass(DROPDOWN_ACTIVE_CLASS);
+      EL.parent(DROPDOWN_C).toggleClass(DROPDOWN_ACTIVE_CLASS);
     });
   });
 
