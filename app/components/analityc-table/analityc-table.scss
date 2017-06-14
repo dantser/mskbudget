@@ -45,7 +45,7 @@
     .table__col {
       vertical-align: top;
       &:first-child {
-        font-size: 0;
+        font-size: 0 !important;
       }
     }
   }
@@ -231,6 +231,17 @@
   }
 }
 
+@media screen and (max-width: 1140px) {
+  .analityc-table .table__row .table__col:first-child {
+    font-size: 14px;
+  }
+  .analityc-table .table__row .table__col_subcol:first-child {
+    font-size: 12px;
+  }
+  .analityc-table_changes .table__row_subcaption .table__col {
+    padding: 5px 0 15px;
+  }
+}
 
 @media screen and (min-width: 1101px) and (max-width: 1140px) {
   .analityc-table_approved .table__row {
@@ -265,12 +276,6 @@
     width: 52.5%;
     right: 0;
     font-size: 11px;
-  }
-  .analityc-table_changes {
-    overflow-x: scroll;
-  }
-  .analityc-table_changes .table {
-    min-width: 1000px;
   }
   .analityc-table_date .table__row {
     padding-right: 0;
