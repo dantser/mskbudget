@@ -27,6 +27,18 @@
       & .table__arrow {
         transform: rotate(90deg);
       }
+
+      & + .table__row_subrow {
+        display: block;
+      }
+    }
+
+    &_subrow {
+      display: none;
+
+      & + .table__row_subrow {
+        display: none;
+      }
     }
   }
 
@@ -60,7 +72,7 @@
     height: 14px;
     fill: #0d46a1;
   }
-  
+
   &__periodtext {
     font-size: 12px;
     font-weight: 500;
@@ -73,13 +85,13 @@
     z-index: 1;
     margin-top: -27px;
     display: none;
-    
+
     span {
       background-color: #fff;
       padding: 0 10px;
     }
   }
-  
+
   &__period-left,
   &__period-right {
     position: absolute;
@@ -89,13 +101,13 @@
     border: 1px solid #d7d7d7;
     border-bottom: 0;
   }
-  
+
   &__period-left {
     left: 50%;
     right: 0;
     border-right: 0;
   }
-  
+
   &__period-right {
     right: 50%;
     left: 0;

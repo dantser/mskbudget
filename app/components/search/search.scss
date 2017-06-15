@@ -329,11 +329,6 @@
 
         @media (min-width: 701px) and (max-width: 1280px) {
           padding-left: 20px;
-          width: inherit;
-        }
-
-        @media (min-width: 451px) and (max-width: 700px) {
-          width: 45%;
         }
 
         @media (min-width: 320px) and (max-width: 450px) {
@@ -362,11 +357,19 @@
       z-index: 1;
       cursor: pointer;
       padding: 5px;
+
+      @media (min-width: 320px) and (max-width: 450px) {
+        left: 48%;
+      }
     }
 
     &__checkbox {
       position: relative;
       display: inline-block;
+
+      @media (min-width: 320px) and (max-width: 450px) {
+        display: block;
+      }
 
       &-group {
         padding-left: 20px;
@@ -408,8 +411,9 @@
     }
 
     .form__date-range-icon {
-      top: -2px;
-      right: 1px;
+      top: 0px;
+      right: 0px;
+      height: 32px;
 
       @media (max-width: 450px) {
         right: -7px;
