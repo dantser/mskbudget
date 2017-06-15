@@ -222,7 +222,12 @@
 
 
 	/*Letter Slider*/
-	.letter__line { list-style: none; margin-bottom: 45px; }
+	.letter__line { 
+		list-style: none; 
+		margin-bottom: 45px; 
+		padding: 0 62px;
+    position: relative;
+	}
 
 	.letter__line:after { display: block; width: 100%; content: ""; clear: both; }
 
@@ -238,17 +243,19 @@
 
 	.letter__line-arrow { 
 		display: block; 
-		position: relative;
-		float: left;
-		top: 2px;
+		float: none;
 		height: 40px;
+		position: absolute;
 
 		&_l {
-			margin-right: 22px;
+			top: 2px;
+			left: 0;
 		}
 
 		&_r {
-			margin-left: 22px
+			top: auto;
+			bottom: 2px;
+			right: 0px;
 		}
 	}
 
@@ -482,9 +489,9 @@
 
 	@media (max-width: 1180px) {
 	  .letter__btn { font-size: 27px; padding-bottom: 0; color: #fee300 !important; }
-	  .letter__line-arrow { display: block; float: left; height: 40px; position: relative; top: 2px; }
-	  .letter__line-arrow_l { margin-right: 22px; }
-	  .letter__line-arrow_r { margin-left: 22px; }
+	  .letter__line-arrow { display: block; float: none; height: 40px; position: absolute;}
+	  .letter__line-arrow_l { margin-right: 0;}
+	  .letter__line-arrow_r { margin-left: 0; bottom: 2px;}
 	  .letter__line-item { margin-bottom: 15px; }
 	  .letter__hover { display: none; } }
 
@@ -495,12 +502,16 @@
 	    height: 20px;
 	    padding: 0 6px;
 	  }
-	  .letter__line { margin-left: 30px; margin-right: 30px; }
+	  .letter__line { margin-left: 0; margin-right: 0; }
 	  .letter__line-item { height: 20px; margin-bottom: 5px; }
 	  .letter__line-arrow { height: 20px; }
-	  .letter__line-arrow_l { margin-right: 10px; }
-	  .letter__line-arrow_r { margin-left: 10px; }
-	  .letter__item { width: 125px; padding-right: 0; }
+	  .letter__line-arrow_l { margin-right: 0; }
+	  .letter__line-arrow_r { margin-left: 0; bottom: 2px;}
+	  .letter__item { 
+	  	min-width: 125px;
+	  	width: 125px; 
+	  	padding-right: 0; 
+	  }
 	  .letter__char { font-size: 36px; height: 50px; }
 	  .letter__a, .letter__tit, .letter__p { font-size: 12px; }
 	  .letter__slider { min-height: 300px; -webkit-mask-image: -webkit-linear-gradient(left, transparent 0.5%, black 10%, black 85%, transparent 99.5%); } }
@@ -515,8 +526,13 @@
 	  .arrow_m { width: 20px; height: 20px; }
 	  .arrow_m:after { width: 5px; height: 10px; top: 5px; } }
 
-	@media (max-width: 700px) { .dropdown__btn_y { font-size: 14px; height: 39px; line-height: 40px; }
+	@media (max-width: 700px) { 
+		.dropdown__btn_y { font-size: 14px; height: 39px; line-height: 40px; }
 	  .dropdown__btn_y:after { margin-top: -3px; }
+	}
+
+	@media (max-width: 320px) {
+		.letter__line { padding: 0 29px; }
 	}
 
 }

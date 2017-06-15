@@ -99,7 +99,8 @@
     margin-left: 30px;
 
     &::before {
-      background-position: -211px -116px;
+      background-position: -209px -116px;
+      right: 12px;
     }
 
     @media screen and (max-width: 760px) {
@@ -108,9 +109,12 @@
     }
   }
 
+  .datepicker {
+    padding-left: 16px;
+  }
+
   .analityc-control-group._dp.active {
     display: inline-block;
-
   }
   //
   // .analityc-control-group._dp {
@@ -138,6 +142,7 @@
     margin-top: 78px;
     text-align: center;
     display: none;
+    margin-bottom: 130px;
   }
 
   .analityc-widget-sources._active{
@@ -148,6 +153,7 @@
     display: none;
     padding-top: 46px;
     padding-left: 9px;
+    margin-bottom: 77px;
 
     @media screen and (max-width: 1100px) {
       overflow-x: scroll;
@@ -450,7 +456,6 @@
 
 
   .analityc-widget-sources_approved {
-    margin-top: 39px;
     .table__credits {
       .table__data:nth-child(3) { //ie fix
         .linear-diagram__fill {
@@ -467,7 +472,7 @@
 
   .analityc-widget-sources_changes {
     margin-top: 40px;
-    margin-bottom: 32px;
+    margin-bottom: 154px;
     .table__loans {
       .table__data:nth-child(3) {
         .linear-diagram__fill_loan2 {
@@ -478,9 +483,9 @@
     }
   }
 
-  .analityc-widget-sources_done {
+  .analityc-widget-sources_done, .analityc-widget-sources_approved {
     margin-top: 39px;
-    margin-bottom: 32px;
+    margin-bottom: 155px;
   }
 
 
@@ -1149,5 +1154,13 @@
         margin-left: -35px;
       }
     }
+  }
+
+  .analityc-more {
+    margin-top: 0;
+  }
+
+  .dropdown-block::before {
+    display: none;
   }
 }
