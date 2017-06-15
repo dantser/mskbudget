@@ -6,8 +6,8 @@ include ../analityc-widgethead/analityc-widgethead
 mixin budget_moscow_sources()
   .main._basic
     +b.section.basic-budget.moscow-sources
-      .ar-left
-      .ar-right
+      .ar.ar-left
+      .ar.ar-right
       .wrapper
         +page-header('Источники финансирования дефицита бюджета', false, true)
         .article-controls
@@ -16,6 +16,8 @@ mixin budget_moscow_sources()
           span
         .analityc-widget.analityc-widget_sources
           +analityc-widgethead-sources()
+          +icon('angle-arrow').ar._left
+          +icon('angle-arrow').ar._right
           .analityc-widget-sources.analityc-widget-sources_date._active
             H3.moscow-sources__diagram-title Исполнение доходов бюджета на 22.04.2017
             +e.diagram-content
