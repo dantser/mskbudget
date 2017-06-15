@@ -105,8 +105,7 @@ mixin analityc-widgethead-main()
           option(selected) 2015
         select.analityc-select.analityc-select_stage
           option(selected) Фактическое исполнение
-          option option#1
-          option option#2
+          option Закон о бюджете (утвержденный)
       .analityc-control-group
         a(href='#').analityc-remove-group
           +icon('basket', true)
@@ -117,8 +116,7 @@ mixin analityc-widgethead-main()
           option 2015
         select.analityc-select.analityc-select_stage
           option(selected) Фактическое исполнение
-          option option#1
-          option option#2
+          option Закон о бюджете (утвержденный)
       .analityc-control-group
         a(href='#').analityc-remove-group
           +icon('basket', true)
@@ -128,9 +126,9 @@ mixin analityc-widgethead-main()
           option 2016
           option 2015
         select.analityc-select.analityc-select_stage
+          option Фактическое исполнение
           option(selected) Закон о бюджете (утвержденный)
-          option option#1
-          option option#2
+
       .analityc-control-group
         a(href='#').analityc-remove-group
           +icon('basket', true)
@@ -140,9 +138,8 @@ mixin analityc-widgethead-main()
           option 2016
           option 2015
         select.analityc-select.analityc-select_stage
+          option Фактическое исполнение
           option(selected) Закон о бюджете (утвержденный)
-          option option#1
-          option option#2
       a(href='#').analityc-add-group + Добавить год и этап
 
     .analityc-control-frame.analityc-control-frame_right
@@ -163,8 +160,8 @@ mixin analityc-widgethead-main()
       
       .analityc-control-group.analityc-control-group_buttons
         .analityc-control-switcher.analityc-control-switcher_large.active
-          a(href="#").active млрд. руб.
-          a(href="#") темп роста к предыдущему периоду, %
+          a(href="#" data-type='line').active млрд. руб.
+          a(href="#" data-type='classic') темп роста к предыдущему периоду, %
 
         +legend(getData('legend-main')).analityc-control-legend
 
