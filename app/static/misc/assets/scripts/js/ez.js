@@ -600,9 +600,12 @@ $(document).ready(function(){
 
 $(document).ready(function(){
   $('.analityc-widget_sources .analityc-control-group._dp').addClass('active');
+  $('.ar').hide();
   $(".analityc-widget_sources .analityc-control-group._stage .analityc-select").on("change", function () {
     var $this = $(this);
     var sources = $('.analityc-widget_sources'),
+        arrow = $('.ar'),
+        tablearr = $('section__ar');
         sourcesGraphics = sources.find($('.analityc-widget-sources')),
         sourcesGraphicsApproved = sources.find($('.analityc-widget-sources_approved')),
         sourcesGraphicsChanges = sources.find($('.analityc-widget-sources_changes')),
@@ -616,19 +619,24 @@ $(document).ready(function(){
     sourcesTable.removeClass('_active');
     sourcesGraphicsButton.addClass('_active');
     sourcesTableButton.removeClass('_active');
+    tablearr.hide();
 
     if ($this.val() ===  "Закон о бюджете утвержденный") {
       sourcesGraphicsApproved.addClass('_active');
       sourcesHead(1);
+      arrow.show();
     } else if($this.val() ===  "Закон о внесении изменений") {
       sourcesGraphicsChanges.addClass('_active');
       sourcesHead(1);
+      arrow.show();
     } else if($this.val() ===  "Закон об исполнении") {
       sourcesGraphicsDone.addClass('_active');
       sourcesHead(1);
+      arrow.hide();
     } else if($this.val() ===  "Исполнение на дату") {
       sourcesGraphicsDate.addClass('_active');
       sourcesHead(3);
+      arrow.hide();
     }
 
   });
@@ -657,6 +665,8 @@ $(document).ready(function(){
     e.preventDefault();
     var $this = $(this);
     var sources = $(".analityc-widget_sources"),
+        arrow = $('.ar'),
+        tablearr = $('.section__ar'),
         sourcesGraphics = sources.find($('.analityc-widget-sources')),
         sourcesGraphicsActive = sources.find($('.analityc-widget-sources._active')),
         sourcesGraphicsApproved = sources.find($('.analityc-widget-sources_approved')),
@@ -677,18 +687,26 @@ $(document).ready(function(){
         sourcesTable.removeClass('_active');
         sourcesGraphicsApproved.addClass('_active');
         sourcesHead(1);
+        arrow.show();
+        tablearr.hide();
       } else if (sourcesTableActive.hasClass('analityc-widget-sources-table_changes')) {
         sourcesTable.removeClass('_active');
         sourcesGraphicsChanges.addClass('_active');
         sourcesHead(1);
+        arrow.show();
+        tablearr.hide();
       } else if (sourcesTableActive.hasClass('analityc-widget-sources-table_done')) {
         sourcesTable.removeClass('_active');
         sourcesGraphicsDone.addClass('_active');
         sourcesHead(1);
+        arrow.show();
+        tablearr.hide();
       } else if (sourcesTableActive.hasClass('analityc-widget-sources-table_date')) {
         sourcesTable.removeClass('_active');
         sourcesGraphicsDate.addClass('_active');
         sourcesHead(3);
+        arrow.show();
+        tablearr.hide();
       }
     } else if ($this.hasClass('analityc-control-button_table') && !$this.hasClass('active')) {
       $this.siblings().removeClass('active');
@@ -697,18 +715,26 @@ $(document).ready(function(){
         sourcesGraphics.removeClass('_active');
         sourcesTableApproved.addClass('_active');
         sourcesHead(2);
+        arrow.hide();
+        tablearr.show();
       } else if (sourcesGraphicsActive.hasClass('analityc-widget-sources_changes')) {
         sourcesGraphics.removeClass('_active');
         sourcesTableChanges.addClass('_active');
         sourcesHead(2);
+        arrow.hide();
+        tablearr.show();
       } else if (sourcesGraphicsActive.hasClass('analityc-widget-sources_done')) {
         sourcesGraphics.removeClass('_active');
         sourcesTableDone.addClass('_active');
         sourcesHead(2);
+        arrow.hide();
+        tablearr.show();
       } else if (sourcesGraphicsActive.hasClass('analityc-widget-sources_date')) {
         sourcesGraphics.removeClass('_active');
         sourcesTableDate.addClass('_active');
         sourcesHead(2);
+        arrow.hide();
+        tablearr.show();
       }
     }
   });
