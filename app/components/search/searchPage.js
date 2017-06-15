@@ -1,12 +1,32 @@
 import $ from 'jquery';
+import 'jquery-ui-bundle';
 
 export default () => {
   const TABS_LINK = $('.filter-link');
   const CLOSE_MODAL = $('.js-close-modal');
+  const OPEN_ICON = $('.js-icon');
   const ACTIVE_CLASS = 'active';
 
+  if (!TABS_LINK || !CLOSE_MODAL || !OPEN_ICON) {
+    return;
+  }
+
+//   //polyfill
+//   (function(e){
+//    e.closest = e.closest || function(css){
+//      var node = this;
+//
+//      while (node) {
+//         if (node.matches(css)) return node;
+//         else node = node.parentElement;
+//      }
+//      return null;
+//    }
+//
+// })(Element.prototype);
   TABS_LINK.each( function () { // eslint-disable-line
     const EL = $(this);
+
     EL.on('click', (e) => {
       e.preventDefault();
       TABS_LINK.removeClass(ACTIVE_CLASS);
@@ -23,10 +43,19 @@ export default () => {
 
   CLOSE_MODAL.each( function () { // eslint-disable-line
     const EL = $(this);
-
     EL.on('click', (e) => {
       e.preventDefault();
       $('.link').removeClass(ACTIVE_CLASS);
+    });
+  });
+
+  OPEN_ICON.each( function () { // eslint-disable-line
+    const EL = $(this);
+    const OPEN_GROUP = '.extra-search__checkbox-group';
+    EL.on('click', (e) => {
+      console.log('1');
+      e.preventDefault();
+      EL.next(OPEN_GROUP).slideToggle();
     });
   });
 }

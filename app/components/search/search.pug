@@ -17,7 +17,7 @@ mixin search()
               input.d-si__search(type="text", placeholder="Конкурс бюджет для граждан")
               input.d-si__submit(type="submit" value="")
             +e.filter
-              +link(true)._dashed._light-yellow._extra.active.filter-link Расширенный поиск
+              +link(true)._dashed._light-yellow._extra.filter-link Расширенный поиск
               +b.extra-search.modal
                 +e.wrapper
                   +e.cols
@@ -42,17 +42,47 @@ mixin search()
                       +checkbox() искать только в разделе Новости
                     +e.col_two
                       +e.title Раздел
-                      +checkbox() О бюджете
-                        +icon('caret').icon_about
-                      +checkbox() Бюджет Москвы
-                        +icon('caret').icon_budget
-                      +checkbox() Аналитика
-                        +icon('caret').icon_analysis
+                      +e.checkbox
+                        +checkbox() О бюджете
+                        +icon('caret').icon.js-icon
+                        +e.checkbox-group
+                          +checkbox() один
+                          +checkbox() два
+                          +checkbox() три
+                          +checkbox() четыре
+                      +e.checkbox
+                        +checkbox() Бюджет Москвы
+                        +icon('caret').icon.js-icon
+                        +e.checkbox-group
+                          +checkbox() один
+                          +checkbox() два
+                          +checkbox() три
+                          +checkbox() четыре
+                      +e.checkbox
+                        +checkbox() Аналитика
+                        +icon('caret').icon.js-icon
+                        +e.checkbox-group
+                          +checkbox() один
+                          +checkbox() два
+                          +checkbox() три
+                          +checkbox() четыре
                       +checkbox() Сервисы
-                      +checkbox() Открытость
-                        +icon('caret').icon_openness
-                      +checkbox() Медиацентр
-                        +icon('caret').icon_media
+                      +e.checkbox
+                        +checkbox() Открытость
+                        +icon('caret').icon.js-icon
+                        +e.checkbox-group
+                          +checkbox() один
+                          +checkbox() два
+                          +checkbox() три
+                          +checkbox() четыре
+                      +e.checkbox
+                        +checkbox() Медиацентр
+                        +icon('caret').icon.js-icon
+                        +e.checkbox-group
+                          +checkbox() один
+                          +checkbox() два
+                          +checkbox() три
+                          +checkbox() четыре
                       +checkbox() Обратная связь
                   +button(true)._kind_blue Искать
                   +e.INPUT.reset(type="reset" value="Сбросить фильтр")
