@@ -8,6 +8,7 @@ import regions from '../components/regions/regions';
 import searchPage from '../components/search/searchPage';
 import sources from '../components/budget_moscow_sources/budget_moscow_sources';
 import govProgram from '../components/services_gov_program/services_gov_program';
+import analyticsMain from '../components/depfin-analytics-main/depfin-analytics-main';
 
 $(() => {
   selectbox();
@@ -19,4 +20,5 @@ $(() => {
   searchPage();
   sources();
   govProgram();
+  analyticsMain();
 });
