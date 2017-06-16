@@ -8,9 +8,7 @@ export default () => {
   const TABLE_SUBROW = $('.table__row_subrow');
   const ACTIVE_TABLE = $('._active').find('.table');
 
-  if (!ARR_RIGHT || !ARR_LEFT) {
-    return;
-  };
+
 
   if (ACTIVE_TABLE.length) {
     $('.section__ar').show();
@@ -18,7 +16,7 @@ export default () => {
     $('.section__ar').hide();
   }
 
-  ARR_RIGHT.on('click', (e) => {
+  ARR_RIGHT.click( (e) => {
     e.preventDefault();
     if ($('.table__data:last-child').is(':visible')) {
       return;
@@ -28,7 +26,7 @@ export default () => {
         $('.table__data:visible').hide().next().css('display', 'block');
     }
     else {
-      $('.table__data:visible').hide().next().css('display', 'table-cell');
+      $('.table__data:visible[data-char]').hide().next().css('display', 'table-cell');
     }
   });
 
@@ -42,7 +40,7 @@ export default () => {
       $('.table__data:visible').hide().prev().css('display', 'block');
     }
     else {
-      $('.table__data:visible').hide().prev().css('display', 'table-cell');
+      $('.table__data:visible[data-char]').hide().prev().css('display', 'table-cell');
     }
   });
 

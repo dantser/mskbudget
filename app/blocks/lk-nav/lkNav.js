@@ -10,6 +10,6 @@ export default () => {
       e.preventDefault();
       TABLINK.removeClass(ACTIVE_CLASS);
       EL.toggleClass(ACTIVE_CLASS);
-    });
-  });
+    })
+  })
 }

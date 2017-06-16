@@ -1,4 +1,5 @@
 include ../page-header/page-header
+include ../../components/documents-cards/documents-cards
 
 mixin documents()
   //- +b.documents&attributes(attributes)
@@ -64,55 +65,8 @@ mixin documents()
           A(href='#').sort__a Дате публикации
           A(href='#').sort__a.sort__a_act Дате документа
 
-      .tile.tile_sh.mb-30
-        .tile__item
-          .tile__inner.document
-            p.document__date 26.09.2016
-            .document__tit-wrap
-              A(href='#').document__title Приказ Департамента финансов города Москвы от 17.09.2014 г. №130
-            P.document__excerpt В документе представлен Приказ Департамента финансов города Москвы от 17.09.2014 г. № 130 "Об утверждении перечней ответственных структурных подразделений Департамента финансов города Москвы"
-            .document__bottom
-              A(href='#1').document__dwnl Скачать (DOCX, 957,55 Кб)
-              A(href='#').document__star.document__star_cur
-            SPAN.document__bg.document__bg_t
-            SPAN.document__bg.document__bg_r
-            SPAN.document__cr
-        .tile__item
-          .tile__inner.document
-            p.document__date 26.09.2016
-            .document__tit-wrap
-              A(href='#3').document__title Бюджетный кодекс Российской Федерации от 31.07.1998 г. № 145-ФЗ
-            P.document__excerpt В документе представлен "Бюджетный кодекс Российской Федерации" от 31.07.1998 N 145-ФЗ (ред. от 26.12.2014) (с изм. и доп., вступ. в силу с 01.01.2015)
-            .document__bottom
-              A(href='#1').document__dwnl Скачать (DOCX, 957,55 Кб)
-              A(href='#').document__star.document__star
-            SPAN.document__bg.document__bg_t
-            SPAN.document__bg.document__bg_r
-            SPAN.document__cr
-        .tile__item
-          .tile__inner.document
-            p.document__date 26.09.2016
-            .document__tit-wrap
-              A(href='#').document__title Приказ Департамента финансов города Москвы от 17.09.2014 г. №130
-            P.document__excerpt В документе представлен Приказ Департамента финансов города Москвы от 17.09.2014 г. № 130 "Об утверждении перечней ответственных структурных подразделений Департамента финансов города Москвы"
-            .document__bottom
-              A(href='#1').document__dwnl Скачать (DOCX, 957,55 Кб)
-              A(href='#').document__star.document__star_cur
-            SPAN.document__bg.document__bg_t
-            SPAN.document__bg.document__bg_r
-            SPAN.document__cr
-        .tile__item.md-display-n.sm-display-b
-          .tile__inner.document
-            p.document__date 26.09.2016
-            .document__tit-wrap
-              A(href='#3').document__title Бюджетный кодекс Российской Федерации от 31.07.1998 г. № 145-ФЗ
-            P.document__excerpt В документе представлен "Бюджетный кодекс Российской Федерации" от 31.07.1998 N 145-ФЗ (ред. от 26.12.2014) (с изм. и доп., вступ. в силу с 01.01.2015)
-            .document__bottom
-              A(href='#1').document__dwnl Скачать (DOCX, 957,55 Кб)
-              A(href='#').document__star.document__star
-            SPAN.document__bg.document__bg_t
-            SPAN.document__bg.document__bg_r
-            SPAN.document__cr
+      .wrap.wrap_sh
+        +documents-page-cards().mb-30
 
       .wrap.wrap_sh
         .more
