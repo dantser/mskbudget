@@ -119,7 +119,7 @@ mixin depfin_about_budget_preparation()
           tbody
             +e.TR.table-tr
               +e.TD.table-td
-                +e.title-wrap
+                +e.title-wrap(data-step="1")
                   +e.title
                     +e.P.title-count I
                     +e.P.title-content
@@ -147,7 +147,7 @@ mixin depfin_about_budget_preparation()
                   
             +e.TR.table-tr
               +e.TD.table-td
-                +e.title-wrap
+                +e.title-wrap(data-step="2")
                   +e.title
                     +e.P.title-count II
                     +e.P.title-content
@@ -175,7 +175,7 @@ mixin depfin_about_budget_preparation()
                   
             +e.TR.table-tr
               +e.TD.table-td
-                +e.title-wrap
+                +e.title-wrap(data-step="3")
                   +e.title
                     +e.P.title-count III
                     +e.P.title-content
@@ -201,7 +201,7 @@ mixin depfin_about_budget_preparation()
                   
             +e.TR.table-tr
               +e.TD.table-td
-                +e.title-wrap
+                +e.title-wrap(data-step="4")
                   +e.title
                     +e.P.title-count IV
                     +e.P.title-content
@@ -231,7 +231,7 @@ mixin depfin_about_budget_preparation()
                   
             +e.TR.table-tr
               +e.TD.table-td
-                +e.title-wrap
+                +e.title-wrap(data-step="5")
                   +e.title
                     +e.P.title-count V
                     +e.P.title-content
@@ -256,9 +256,29 @@ mixin depfin_about_budget_preparation()
                   +e.P.line-output.type_01 2020-2021
   // graphic-table
   +b.steps.back-round
+    +e.mob-slider
+      +e.mob-slider-arrow._prev
+      +e.mob-slider-arrow._next
+      +e.mob-wrapper
+        +e.mob-slider-item(data-step="1")
+          +e.P.title-count I
+          +e.P.title-content составление проекта Бюджета
+        +e.mob-slider-item(data-step="2")
+          +e.P.title-count II
+          +e.P.title-content рассмотрение и утверждение бюджета
+        +e.mob-slider-item(data-step="3")
+          +e.P.title-count III
+          +e.P.title-content исполнение бюджета
+        +e.mob-slider-item(data-step="4")
+          +e.P.title-count IV
+          +e.P.title-content Подготовка и утверждение годового отчета об исполнении бюджета
+        +e.mob-slider-item(data-step="5")
+          +e.P.title-count V
+          +e.P.title-content Финансовый контроль
+        
     .wrap
       +e.holder
-        +b.step
+        +b.step(data-step="1")
           +e.head
             +e.STRONG.num I
             +e.H6.title Составление проекта&nbsp;бюджета
@@ -270,7 +290,7 @@ mixin depfin_about_budget_preparation()
               | покрытия дефицита, долговая политика, а также распределение бюджетных ассигнований
             p
               a(href="#").link-more Подробнее
-        +b.step
+        +b.step(data-step="2")
           +e.head
             +e.STRONG.num II
             +e.H6.title Рассмотрение и&nbsp;утверждение бюджета
@@ -281,7 +301,7 @@ mixin depfin_about_budget_preparation()
               | направляется на подпись Мэру Москвы. Принятый законодательно и подписанный Мэром Москвы проект бюджета становится законом города Москвы
             p
               a(href="#").link-more Подробнее
-        +b.step
+        +b.step(data-step="3")
           +e.head
             +e.STRONG.num III
             +e.H6.title
@@ -295,7 +315,7 @@ mixin depfin_about_budget_preparation()
               | на основе принципов единства кассы и подведомственности расходов
             p
               a(href="#").link-more Подробнее
-        +b.step
+        +b.step(data-step="4")
           +e.head
             +e.STRONG.num IV
             +e.H6.title Подготовка и&nbsp;утверждение годового&nbsp;отчета об&nbsp;исполнении бюджета
@@ -306,7 +326,7 @@ mixin depfin_about_budget_preparation()
               | затем на рассмотрение и утверждение в законодательные и представительные органы
             p
               a(href="#").link-more Подробнее
-        +b.step
+        +b.step(data-step="5")
           +e.head
             +e.STRONG.num V
             +e.H6.title
@@ -321,13 +341,403 @@ mixin depfin_about_budget_preparation()
             p
               a(href="#").link-more Подробнее
               
-    +b.steps-details(style="display:none;")
+    +b.steps-details
       +e.wrapper
-        +e.U.tab-button.btn-close-c.js-tab-close
+        +e.U.close-button.btn-close-c.js-steps-detail-close
         +e.content(data-step="1")
-          +e.main-text.title-mx.color-dark Начальный этап бюджетного процесса. На этом этапе составляется прогноз социально- экономического развития, определяются основные характеристики бюджета, налоговая и бюджетная политика на очередной финансовый год и на плановый период, основные методы и направления покрытия дефицита, долговая политика, а также распределение бюджетных ассигнований.
+          +e.P.mob-heading составление<br> проекта бюджета
+          +e.P.main-text.title-mx.color-dark STEP 1 Начальный этап бюджетного процесса.<br> На этом этапе составляется прогноз социально- экономического развития, определяются основные характеристики бюджета, налоговая и бюджетная политика на очередной финансовый год и на плановый период, основные методы и направления покрытия дефицита, долговая политика, а также распределение бюджетных ассигнований.
           +e.participants
-            h5.title-md.color-dark Участники бюджетного процесса
+            +e.H5.participants-heading Участники бюджетного процесса
+            +e.UL.participants-list
+              li
+                a(href="#") Бюджетная комиссия Правительства Москвы
+              li
+                a(href="#") Департамент финансов города Москвы
+              li
+                a(href="#") Департамент экономической политики и развития города Москвы
+              li
+                a(href="#") Департамент градостроительной политики города Москвы
+              li
+                a(href="#") Департамент городскогоимущества города Москвы
+              li
+                a(href="#") Главные распорядители бюджетных средств города Москвы
+              li
+                a(href="#") Главные администраторы доходов бюджета города Москвы
+              li
+                a(href="#") Главные администраторы источников финансирования дефицита бюджета города Москвы
+              li
+                a(href="#") Координаторы государственных программ города Москвы
+          +e.date-list-wrapper
+            +e.date-list-arrow._prev
+            +e.date-list-arrow._next
+            +e.UL.date-list
+              li.active
+                a(href="#") 1 января по 25 мая
+              li
+                a(href="#") 25 мая по 5 июня
+              li
+                a(href="#") 25 июня по 1 июля
+              li
+                a(href="#") 20 по 25 июля
+              li
+                a(href="#") 1 по 15 сентября
+          +e.activity
+            +b.cols-part
+              +e.side
+                +e.side-col.__head
+                  +e.STRONG.head-title 1 января по 15 мая
+                  | текущего финансового года
+              +e.content
+                .line-md
+                  +b.cols
+                    +e.side
+                      +b.UL.list-indicate.color-dark
+                        +e.LI.item
+                          | в Бюджетную комиссию Правительства Москвы
+                          u.arrowlight.arrowlight--right.mob.left
+                          u.arrowlight.arrowlight--right
+                          u.arrowlight.arrowlight--right.mob.right
+                    +e.content
+                      +e.content-holder
+                        p.department.title-md.color-dark Департамент экономической политики и развития города Москвы
+                        p
+                          | Формирует и предоставляет на рассмотрение и одобрение предложения по объему бюджетных ассигнований на реализацию адресной инвестиционной программы города Москвы
+                  .line-dots
+                    .line-dot
+                    .line-dot
+                    .line-dot
+                .line-md
+                  +b.cols
+                    +e.side
+                      +b.UL.list-indicate.color-dark
+                        +e.LI.item
+                          | в Департамент финансов города Москвы
+                          u.arrowlight.arrowlight--right.mob.left
+                          u.arrowlight.arrowlight--right
+                          u.arrowlight.arrowlight--right.mob.right
+                    +e.content
+                      +e.content-holder
+                        p.department.title-md.color-dark Департамент экономической политики и развития города Москвы
+                        p
+                          | Представляет проект основных направлений налоговой политики на очередной финансовый год и плановый период
+            +b.cols-part
+              +e.side
+                +e.side-col.__head
+                  +e.STRONG.head-title 15 мая по 25 мая
+                  | текущего финансового года
+              +e.content
+                .line-md
+                  +b.cols
+                    +e.side
+                    +e.content
+                      +e.content-holder
+                        p.department.title-md.color-dark Бюджетная комиссия Правительства Москвы
+                        p
+                          | Рассматривает и одобряет материалы и информацию по объему бюджетных ассигнований на реализацию адресной инвестиционной программы города Москвы
+                  .line-dots
+                    .line-dot
+                    .line-dot
+                    .line-dot
+                .line-md
+                  +b.cols
+                    +e.side
+                      +b.UL.list-indicate.color-dark
+                        +e.LI.item
+                          | в Бюджетную комиссию Правительства Москвы
+                          u.arrowlight.arrowlight--right.mob.left
+                          u.arrowlight.arrowlight--right
+                          u.arrowlight.arrowlight--right.mob.right
+                    +e.content
+                      +e.content-holder
+                        p.department.title-md.color-dark Департамент экономической политики и развития города Москвы
+                        p
+                          | Формирует и представляет на рассмотрение и одобрение предложения по объему бюджетных ассигнований на реализацию адресной инвестиционной программы города Москвы в разрезе государственных программ города Москвы и непрограммных направлений деятельности органов государственной власти города Москвы
+                          
+        +e.content(data-step="2")
+          +e.P.mob-heading рассмотрение и утверждение бюджета
+          +e.P.main-text.title-mx.color-dark STEP 2 Начальный этап бюджетного процесса.<br> На этом этапе составляется прогноз социально- экономического развития, определяются основные характеристики бюджета, налоговая и бюджетная политика на очередной финансовый год и на плановый период, основные методы и направления покрытия дефицита, долговая политика, а также распределение бюджетных ассигнований.
+          +e.participants
+            +e.H5.participants-heading Участники бюджетного процесса
+            +e.UL.participants-list
+              li
+                a(href="#") Бюджетная комиссия Правительства Москвы
+              li
+                a(href="#") Департамент финансов города Москвы
+              li
+                a(href="#") Департамент экономической политики и развития города Москвы
+              li
+                a(href="#") Департамент градостроительной политики города Москвы
+              li
+                a(href="#") Департамент городскогоимущества города Москвы
+              li
+                a(href="#") Главные распорядители бюджетных средств города Москвы
+              li
+                a(href="#") Главные администраторы доходов бюджета города Москвы
+              li
+                a(href="#") Главные администраторы источников финансирования дефицита бюджета города Москвы
+              li
+                a(href="#") Координаторы государственных программ города Москвы
+          +e.UL.date-list
+            li.active
+              a(href="#") 1 января по 25 мая
+            li
+              a(href="#") 25 мая по 5 июня
+            li
+              a(href="#") 25 июня по 1 июля
+            li
+              a(href="#") 20 по 25 июля
+            li
+              a(href="#") 1 по 15 сентября
+          +e.activity
+            +b.cols-part
+              +e.side
+                +e.side-col.__head
+                  +e.STRONG.head-title 1 января по 15 мая
+                  | текущего финансового года
+              +e.content
+                .line-md
+                  +b.cols
+                    +e.side
+                      +b.UL.list-indicate.color-dark
+                        +e.LI.item
+                          | в Бюджетную комиссию Правительства Москвы
+                          u.arrowlight.arrowlight--right
+                    +e.content
+                      +e.content-holder
+                        p.department.title-md.color-dark Департамент экономической политики и развития города Москвы
+                        p
+                          | Формирует и предоставляет на рассмотрение и одобрение предложения по объему бюджетных ассигнований на реализацию адресной инвестиционной программы города Москвы
+                .line-md
+                  +b.cols
+                    +e.side
+                      +b.UL.list-indicate.color-dark
+                        +e.LI.item
+                          | в Департамент финансов города Москвы
+                          u.arrowlight.arrowlight--right
+                    +e.content
+                      +e.content-holder
+                        p.department.title-md.color-dark Департамент экономической политики и развития города Москвы
+                        p
+                          | Представляет проект основных направлений налоговой политики на очередной финансовый год и плановый период
+            +b.cols-part
+              +e.side
+                +e.side-col.__head
+                  +e.STRONG.head-title 15 мая по 25 мая
+                  | текущего финансового года
+              +e.content
+                .line-md
+                  +b.cols
+                    +e.side
+                    +e.content
+                      +e.content-holder
+                        p.department.title-md.color-dark Бюджетная комиссия Правительства Москвы
+                        p
+                          | Рассматривает и одобряет материалы и информацию по объему бюджетных ассигнований на реализацию адресной инвестиционной программы города Москвы
+                .line-md
+                  +b.cols
+                    +e.side
+                      +b.UL.list-indicate.color-dark
+                        +e.LI.item
+                          | в Бюджетную комиссию Правительства Москвы
+                          u.arrowlight.arrowlight--right
+                    +e.content
+                      +e.content-holder
+                        p.department.title-md.color-dark Департамент экономической политики и развития города Москвы
+                        p
+                          | Формирует и представляет на рассмотрение и одобрение предложения по объему бюджетных ассигнований на реализацию адресной инвестиционной программы города Москвы в разрезе государственных программ города Москвы и непрограммных направлений деятельности органов государственной власти города Москвы
+                          
+        +e.content(data-step="3")
+          +e.P.mob-heading исполнение бюджета
+          +e.P.main-text.title-mx.color-dark STEP 3 Начальный этап бюджетного процесса.<br> На этом этапе составляется прогноз социально- экономического развития, определяются основные характеристики бюджета, налоговая и бюджетная политика на очередной финансовый год и на плановый период, основные методы и направления покрытия дефицита, долговая политика, а также распределение бюджетных ассигнований.
+          +e.participants
+            +e.H5.participants-heading Участники бюджетного процесса
+            +e.UL.participants-list
+              li
+                a(href="#") Бюджетная комиссия Правительства Москвы
+              li
+                a(href="#") Департамент финансов города Москвы
+              li
+                a(href="#") Департамент экономической политики и развития города Москвы
+              li
+                a(href="#") Департамент градостроительной политики города Москвы
+              li
+                a(href="#") Департамент городскогоимущества города Москвы
+              li
+                a(href="#") Главные распорядители бюджетных средств города Москвы
+              li
+                a(href="#") Главные администраторы доходов бюджета города Москвы
+              li
+                a(href="#") Главные администраторы источников финансирования дефицита бюджета города Москвы
+              li
+                a(href="#") Координаторы государственных программ города Москвы
+          +e.UL.date-list
+            li.active
+              a(href="#") 1 января по 25 мая
+            li
+              a(href="#") 25 мая по 5 июня
+            li
+              a(href="#") 25 июня по 1 июля
+            li
+              a(href="#") 20 по 25 июля
+            li
+              a(href="#") 1 по 15 сентября
+          +e.activity
+            +b.cols-part
+              +e.side
+                +e.side-col.__head
+                  +e.STRONG.head-title 1 января по 15 мая
+                  | текущего финансового года
+              +e.content
+                .line-md
+                  +b.cols
+                    +e.side
+                      +b.UL.list-indicate.color-dark
+                        +e.LI.item
+                          | в Бюджетную комиссию Правительства Москвы
+                          u.arrowlight.arrowlight--right
+                    +e.content
+                      +e.content-holder
+                        p.department.title-md.color-dark Департамент экономической политики и развития города Москвы
+                        p
+                          | Формирует и предоставляет на рассмотрение и одобрение предложения по объему бюджетных ассигнований на реализацию адресной инвестиционной программы города Москвы
+                .line-md
+                  +b.cols
+                    +e.side
+                      +b.UL.list-indicate.color-dark
+                        +e.LI.item
+                          | в Департамент финансов города Москвы
+                          u.arrowlight.arrowlight--right
+                    +e.content
+                      +e.content-holder
+                        p.department.title-md.color-dark Департамент экономической политики и развития города Москвы
+                        p
+                          | Представляет проект основных направлений налоговой политики на очередной финансовый год и плановый период
+            +b.cols-part
+              +e.side
+                +e.side-col.__head
+                  +e.STRONG.head-title 15 мая по 25 мая
+                  | текущего финансового года
+              +e.content
+                .line-md
+                  +b.cols
+                    +e.side
+                    +e.content
+                      +e.content-holder
+                        p.department.title-md.color-dark Бюджетная комиссия Правительства Москвы
+                        p
+                          | Рассматривает и одобряет материалы и информацию по объему бюджетных ассигнований на реализацию адресной инвестиционной программы города Москвы
+                .line-md
+                  +b.cols
+                    +e.side
+                      +b.UL.list-indicate.color-dark
+                        +e.LI.item
+                          | в Бюджетную комиссию Правительства Москвы
+                          u.arrowlight.arrowlight--right
+                    +e.content
+                      +e.content-holder
+                        p.department.title-md.color-dark Департамент экономической политики и развития города Москвы
+                        p
+                          | Формирует и представляет на рассмотрение и одобрение предложения по объему бюджетных ассигнований на реализацию адресной инвестиционной программы города Москвы в разрезе государственных программ города Москвы и непрограммных направлений деятельности органов государственной власти города Москвы
+                          
+        +e.content(data-step="4")
+          +e.P.mob-heading Подготовка и утверждение годового отчета об исполнении бюджета
+          +e.P.main-text.title-mx.color-dark STEP 4 Начальный этап бюджетного процесса.<br> На этом этапе составляется прогноз социально- экономического развития, определяются основные характеристики бюджета, налоговая и бюджетная политика на очередной финансовый год и на плановый период, основные методы и направления покрытия дефицита, долговая политика, а также распределение бюджетных ассигнований.
+          +e.participants
+            +e.H5.participants-heading Участники бюджетного процесса
+            +e.UL.participants-list
+              li
+                a(href="#") Бюджетная комиссия Правительства Москвы
+              li
+                a(href="#") Департамент финансов города Москвы
+              li
+                a(href="#") Департамент экономической политики и развития города Москвы
+              li
+                a(href="#") Департамент градостроительной политики города Москвы
+              li
+                a(href="#") Департамент городскогоимущества города Москвы
+              li
+                a(href="#") Главные распорядители бюджетных средств города Москвы
+              li
+                a(href="#") Главные администраторы доходов бюджета города Москвы
+              li
+                a(href="#") Главные администраторы источников финансирования дефицита бюджета города Москвы
+              li
+                a(href="#") Координаторы государственных программ города Москвы
+          +e.UL.date-list
+            li.active
+              a(href="#") 1 января по 25 мая
+            li
+              a(href="#") 25 мая по 5 июня
+            li
+              a(href="#") 25 июня по 1 июля
+            li
+              a(href="#") 20 по 25 июля
+            li
+              a(href="#") 1 по 15 сентября
+          +e.activity
+            +b.cols-part
+              +e.side
+                +e.side-col.__head
+                  +e.STRONG.head-title 1 января по 15 мая
+                  | текущего финансового года
+              +e.content
+                .line-md
+                  +b.cols
+                    +e.side
+                      +b.UL.list-indicate.color-dark
+                        +e.LI.item
+                          | в Бюджетную комиссию Правительства Москвы
+                          u.arrowlight.arrowlight--right
+                    +e.content
+                      +e.content-holder
+                        p.department.title-md.color-dark Департамент экономической политики и развития города Москвы
+                        p
+                          | Формирует и предоставляет на рассмотрение и одобрение предложения по объему бюджетных ассигнований на реализацию адресной инвестиционной программы города Москвы
+                .line-md
+                  +b.cols
+                    +e.side
+                      +b.UL.list-indicate.color-dark
+                        +e.LI.item
+                          | в Департамент финансов города Москвы
+                          u.arrowlight.arrowlight--right
+                    +e.content
+                      +e.content-holder
+                        p.department.title-md.color-dark Департамент экономической политики и развития города Москвы
+                        p
+                          | Представляет проект основных направлений налоговой политики на очередной финансовый год и плановый период
+            +b.cols-part
+              +e.side
+                +e.side-col.__head
+                  +e.STRONG.head-title 15 мая по 25 мая
+                  | текущего финансового года
+              +e.content
+                .line-md
+                  +b.cols
+                    +e.side
+                    +e.content
+                      +e.content-holder
+                        p.department.title-md.color-dark Бюджетная комиссия Правительства Москвы
+                        p
+                          | Рассматривает и одобряет материалы и информацию по объему бюджетных ассигнований на реализацию адресной инвестиционной программы города Москвы
+                .line-md
+                  +b.cols
+                    +e.side
+                      +b.UL.list-indicate.color-dark
+                        +e.LI.item
+                          | в Бюджетную комиссию Правительства Москвы
+                          u.arrowlight.arrowlight--right
+                    +e.content
+                      +e.content-holder
+                        p.department.title-md.color-dark Департамент экономической политики и развития города Москвы
+                        p
+                          | Формирует и представляет на рассмотрение и одобрение предложения по объему бюджетных ассигнований на реализацию адресной инвестиционной программы города Москвы в разрезе государственных программ города Москвы и непрограммных направлений деятельности органов государственной власти города Москвы
+                          
+        +e.content(data-step="5")
+          +e.P.mob-heading Финансовый контроль
+          +e.P.main-text.title-mx.color-dark STEP 5 Начальный этап бюджетного процесса.<br> На этом этапе составляется прогноз социально- экономического развития, определяются основные характеристики бюджета, налоговая и бюджетная политика на очередной финансовый год и на плановый период, основные методы и направления покрытия дефицита, долговая политика, а также распределение бюджетных ассигнований.
+          +e.participants
+            +e.H5.participants-heading Участники бюджетного процесса
             +e.UL.participants-list
               li
                 a(href="#") Бюджетная комиссия Правительства Москвы
@@ -418,7 +828,7 @@ mixin depfin_about_budget_preparation()
         
         
   // steps
-  +b.section-tabs
+  +b.section-tabs.active
     +e.head
       .wrap
         +b.UL.labels
@@ -432,7 +842,7 @@ mixin depfin_about_budget_preparation()
       +e.nav-rightbtn
         a.btn-arrow.btn-arrow--next next
       +e.nav-list
-        .owl-carousel.owl-loaded
+        .owl-carousel.owl-loaded.sections
           .owl-item
             +e.nav-item
               +e.A(href="#", data-section-tab-for="section-tab_01").nav-btn Мэр Москвы
@@ -873,3 +1283,62 @@ mixin depfin_about_budget_preparation()
       // section-tabs__tab
     // section-tabs__content
   // section-tabs
+  
+  +b.section-tabs._documents.active
+    +e.head
+      .wrap
+        +b.UL.labels
+          +e.LI.item
+            +b.SPAN.label.js-label-button
+              | Документы
+              +e.U.button.btn-close.js-section-tabs-hide
+    +e.nav
+      +e.nav-leftbtn
+        a.btn-arrow.btn-arrow--prev prev
+      +e.nav-rightbtn
+        a.btn-arrow.btn-arrow--next next
+      +e.nav-list
+        .owl-carousel.owl-loaded.documents
+          .owl-item
+            .tile__item
+              .tile__inner.document.document_alt.document_small
+                //.document__date 26.09.2016
+                .document__tit-wrap
+                  A(href='#').document__title Бюджетный кодекс РФ
+                //P.document__excerpt В документе представлен Приказ Департамента финансов города Москвы от 17.09.2014 г. № 130 "Об утверждении перечней ответственных структурных подразделений Департамента финансов города Москвы"
+                //.document__bottom
+                  A(href='#1').document__dwnl Скачать (DOCX, 957,55 Кб)
+                  A(href='#').document__star.document__star_cur
+                SPAN.document__bg.document__bg_t
+                SPAN.document__bg.document__bg_r
+                SPAN.document__cr
+          .owl-item
+            .tile__item
+              .tile__inner.document.document_alt.document_med
+                //.document__date 26.09.2016
+                .document__tit-wrap
+                  A(href='#').document__title Закон г. Москвы от 10 сентября 2008 г.<br> № 39 «О бюджетном устройстве и бюджетном процессе в городе Москве»
+                //P.document__excerpt В документе представлен Приказ Департамента финансов города Москвы от 17.09.2014 г. № 130 "Об утверждении перечней ответственных структурных подразделений Департамента финансов города Москвы"
+                //.document__bottom
+                  A(href='#1').document__dwnl Скачать (DOCX, 957,55 Кб)
+                  A(href='#').document__star.document__star_cur
+                SPAN.document__bg.document__bg_t
+                SPAN.document__bg.document__bg_r
+                SPAN.document__cr
+          .owl-item
+            .tile__item
+              .tile__inner.document.document_alt.document_big
+                //.document__date 26.09.2016
+                .document__tit-wrap
+                  A(href='#').document__title Постановление Московской городской Думы<br> О проекте закона города Москвы «О внесении изменений в Закон города Москвы «О бюджетном устройстве и бюджетном процессе в городе Москве»
+                //P.document__excerpt В документе представлен Приказ Департамента финансов города Москвы от 17.09.2014 г. № 130 "Об утверждении перечней ответственных структурных подразделений Департамента финансов города Москвы"
+                //.document__bottom
+                  A(href='#1').document__dwnl Скачать (DOCX, 957,55 Кб)
+                  A(href='#').document__star.document__star_cur
+                SPAN.document__bg.document__bg_t
+                SPAN.document__bg.document__bg_r
+                SPAN.document__cr
+        .owl-nav
+          p.owl-prev prev
+          p.owl-next next
+        .owl-dots
