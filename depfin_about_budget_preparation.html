@@ -274,7 +274,10 @@
                 <div class="d-si__head">
                     <div class="page-header">
                         <div class="page-head">
-                            <p class="page-head__category load-anim-fade" data-delay="1300">Бюджетная система</p>
+                            <p class="page-head__breadcrumbs load-anim-fade" data-delay="1300">
+                                <a class="page-head__category" href="#">Главная</a>
+                                <a class="page-head__category" href="#">Бюджетная система</a>
+                            </p>
                             <h1 class="page-head__title load-anim-fade" data-delay="1300">этапы подготовки бюджета</h1>
                         </div>
                         <div class="d-si__head_icons">
@@ -428,7 +431,7 @@
                     <tbody>
                         <tr class="graphic-table__table-tr">
                             <td class="graphic-table__table-td">
-                                <div class="graphic-table__title-wrap">
+                                <div class="graphic-table__title-wrap" data-step="1">
                                     <div class="graphic-table__title">
                                         <p class="graphic-table__title-count">I</p>
                                         <p class="graphic-table__title-content">составление проекта
@@ -469,7 +472,7 @@
                         </tr>
                         <tr class="graphic-table__table-tr">
                             <td class="graphic-table__table-td">
-                                <div class="graphic-table__title-wrap">
+                                <div class="graphic-table__title-wrap" data-step="2">
                                     <div class="graphic-table__title">
                                         <p class="graphic-table__title-count">II</p>
                                         <p class="graphic-table__title-content">рассмотрение
@@ -510,7 +513,7 @@
                         </tr>
                         <tr class="graphic-table__table-tr">
                             <td class="graphic-table__table-td">
-                                <div class="graphic-table__title-wrap">
+                                <div class="graphic-table__title-wrap" data-step="3">
                                     <div class="graphic-table__title">
                                         <p class="graphic-table__title-count">III</p>
                                         <p class="graphic-table__title-content">исполнение бюджета</p>
@@ -550,7 +553,7 @@
                         </tr>
                         <tr class="graphic-table__table-tr">
                             <td class="graphic-table__table-td">
-                                <div class="graphic-table__title-wrap">
+                                <div class="graphic-table__title-wrap" data-step="4">
                                     <div class="graphic-table__title">
                                         <p class="graphic-table__title-count">IV</p>
                                         <p class="graphic-table__title-content">Подготовка и утверждение
@@ -592,7 +595,7 @@
                         </tr>
                         <tr class="graphic-table__table-tr">
                             <td class="graphic-table__table-td">
-                                <div class="graphic-table__title-wrap">
+                                <div class="graphic-table__title-wrap" data-step="5">
                                     <div class="graphic-table__title">
                                         <p class="graphic-table__title-count">V</p>
                                         <p class="graphic-table__title-content">Финансовый контроль</p>
@@ -637,9 +640,35 @@
     </div>
     <!-- graphic-table-->
     <div class="steps back-round">
+        <div class="steps__mob-slider">
+            <div class="steps__mob-slider-arrow steps__mob-slider-arrow_prev"></div>
+            <div class="steps__mob-slider-arrow steps__mob-slider-arrow_next"></div>
+            <div class="steps__mob-wrapper">
+                <div class="steps__mob-slider-item" data-step="1">
+                    <p class="steps__title-count">I</p>
+                    <p class="steps__title-content">составление проекта Бюджета</p>
+                </div>
+                <div class="steps__mob-slider-item" data-step="2">
+                    <p class="steps__title-count">II</p>
+                    <p class="steps__title-content">рассмотрение и утверждение бюджета</p>
+                </div>
+                <div class="steps__mob-slider-item" data-step="3">
+                    <p class="steps__title-count">III</p>
+                    <p class="steps__title-content">исполнение бюджета</p>
+                </div>
+                <div class="steps__mob-slider-item" data-step="4">
+                    <p class="steps__title-count">IV</p>
+                    <p class="steps__title-content">Подготовка и утверждение годового отчета об исполнении бюджета</p>
+                </div>
+                <div class="steps__mob-slider-item" data-step="5">
+                    <p class="steps__title-count">V</p>
+                    <p class="steps__title-content">Финансовый контроль</p>
+                </div>
+            </div>
+        </div>
         <div class="wrap">
             <div class="steps__holder">
-                <div class="step">
+                <div class="step" data-step="1">
                     <div class="step__head">
                         <strong class="step__num">I</strong>
                         <h6 class="step__title">Составление проекта&nbsp;бюджета</h6>
@@ -652,7 +681,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="step">
+                <div class="step" data-step="2">
                     <div class="step__head">
                         <strong class="step__num">II</strong>
                         <h6 class="step__title">Рассмотрение и&nbsp;утверждение бюджета</h6>
@@ -665,7 +694,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="step">
+                <div class="step" data-step="3">
                     <div class="step__head">
                         <strong class="step__num">III</strong>
                         <h6 class="step__title">Исполнение
@@ -679,7 +708,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="step">
+                <div class="step" data-step="4">
                     <div class="step__head">
                         <strong class="step__num">IV</strong>
                         <h6 class="step__title">Подготовка и&nbsp;утверждение годового&nbsp;отчета об&nbsp;исполнении бюджета</h6>
@@ -691,7 +720,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="step">
+                <div class="step" data-step="5">
                     <div class="step__head">
                         <strong class="step__num">V</strong>
                         <h6 class="step__title">Финансовый
@@ -706,67 +735,795 @@
                 </div>
             </div>
         </div>
-        <div class="steps-details" style="display:none;">
+        <div class="steps-details">
             <div class="steps-details__wrapper">
-                <u class="steps-details__tab-button btn-close-c js-tab-close"></u>
+                <u class="steps-details__close-button btn-close-c js-steps-detail-close"></u>
                 <div class="steps-details__content" data-step="1">
-                    <div class="steps-details__main-text title-mx color-dark">Начальный этап бюджетного процесса. На этом этапе составляется прогноз социально- экономического развития, определяются основные характеристики бюджета, налоговая и бюджетная политика на очередной финансовый год и на плановый период,
-                        основные методы и направления покрытия дефицита, долговая политика, а также распределение бюджетных ассигнований.</div>
+                    <p class="steps-details__mob-heading">составление
+                        <br> проекта бюджета</p>
+                    <p class="steps-details__main-text title-mx color-dark">STEP 1 Начальный этап бюджетного процесса.
+                        <br> На этом этапе составляется прогноз социально- экономического развития, определяются основные характеристики бюджета, налоговая и бюджетная политика на очередной финансовый год и на плановый период, основные методы и направления
+                        покрытия дефицита, долговая политика, а также распределение бюджетных ассигнований.</p>
                     <div class="steps-details__participants">
-                        <h5 class="title-md color-dark">Участники бюджетного процесса</h5>
+                        <h5 class="steps-details__participants-heading">Участники бюджетного процесса</h5>
                         <ul class="steps-details__participants-list">
                             <li>
-                                <a>Бюджетная комиссия Правительства Москвы</a>
+                                <a href="#">Бюджетная комиссия Правительства Москвы</a>
                             </li>
                             <li>
-                                <a>Департамент финансов города Москвы</a>
+                                <a href="#">Департамент финансов города Москвы</a>
                             </li>
                             <li>
-                                <a>Департамент экономической политики и развития города Москвы</a>
+                                <a href="#">Департамент экономической политики и развития города Москвы</a>
                             </li>
                             <li>
-                                <a>Департамент градостроительной политики города Москвы</a>
+                                <a href="#">Департамент градостроительной политики города Москвы</a>
                             </li>
                             <li>
-                                <a>Департамент городскогоимущества города Москвы</a>
+                                <a href="#">Департамент городскогоимущества города Москвы</a>
                             </li>
                             <li>
-                                <a>Главные распорядители бюджетных средств города Москвы</a>
+                                <a href="#">Главные распорядители бюджетных средств города Москвы</a>
                             </li>
                             <li>
-                                <a>Главные администраторы доходов бюджета города Москвы</a>
+                                <a href="#">Главные администраторы доходов бюджета города Москвы</a>
                             </li>
                             <li>
-                                <a>Главные администраторы источников финансирования дефицита бюджета города Москвы</a>
+                                <a href="#">Главные администраторы источников финансирования дефицита бюджета города Москвы</a>
                             </li>
                             <li>
-                                <a>Координаторы государственных программ города Москвы</a>
+                                <a href="#">Координаторы государственных программ города Москвы</a>
                             </li>
                         </ul>
                     </div>
-                    <ul class="steps-details__date-list">
-                        <li class="active">
-                            <a>1 января по 25 мая</a>
-                        </li>
-                        <li>
-                            <a>25 мая по 5 июня</a>
-                        </li>
-                        <li>
-                            <a>25 июня по 1 июля</a>
-                        </li>
-                        <li>
-                            <a>20 по 25 июля</a>
-                        </li>
-                        <li>
-                            <a>1 по 15 сентября</a>
-                        </li>
-                    </ul>
+                    <div class="steps-details__date-list-wrapper">
+                        <div class="steps-details__date-list-arrow steps-details__date-list-arrow_prev"></div>
+                        <div class="steps-details__date-list-arrow steps-details__date-list-arrow_next"></div>
+                        <ul class="steps-details__date-list">
+                            <li class="active">
+                                <a href="#">1 января по 25 мая</a>
+                            </li>
+                            <li>
+                                <a href="#">25 мая по 5 июня</a>
+                            </li>
+                            <li>
+                                <a href="#">25 июня по 1 июля</a>
+                            </li>
+                            <li>
+                                <a href="#">20 по 25 июля</a>
+                            </li>
+                            <li>
+                                <a href="#">1 по 15 сентября</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="steps-details__activity">
+                        <div class="cols-part">
+                            <div class="cols-part__side">
+                                <div class="cols-part__side-col cols-part__head">
+                                    <strong class="cols-part__head-title">1 января по 15 мая</strong>текущего финансового года</div>
+                            </div>
+                            <div class="cols-part__content">
+                                <div class="line-md">
+                                    <div class="cols">
+                                        <div class="cols__side">
+                                            <ul class="list-indicate color-dark">
+                                                <li class="list-indicate__item">в Бюджетную комиссию Правительства Москвы
+                                                    <u class="arrowlight arrowlight--right mob left"></u>
+                                                    <u class="arrowlight arrowlight--right"></u>
+                                                    <u class="arrowlight arrowlight--right mob right"></u>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="cols__content">
+                                            <div class="cols__content-holder">
+                                                <p class="department title-md color-dark">Департамент экономической политики и развития города Москвы</p>
+                                                <p>Формирует и предоставляет на рассмотрение и одобрение предложения по объему бюджетных ассигнований на реализацию адресной инвестиционной программы города Москвы</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line-dots">
+                                        <div class="line-dot"></div>
+                                        <div class="line-dot"></div>
+                                        <div class="line-dot"></div>
+                                    </div>
+                                </div>
+                                <div class="line-md">
+                                    <div class="cols">
+                                        <div class="cols__side">
+                                            <ul class="list-indicate color-dark">
+                                                <li class="list-indicate__item">в Департамент финансов города Москвы
+                                                    <u class="arrowlight arrowlight--right mob left"></u>
+                                                    <u class="arrowlight arrowlight--right"></u>
+                                                    <u class="arrowlight arrowlight--right mob right"></u>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="cols__content">
+                                            <div class="cols__content-holder">
+                                                <p class="department title-md color-dark">Департамент экономической политики и развития города Москвы</p>
+                                                <p>Представляет проект основных направлений налоговой политики на очередной финансовый год и плановый период</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cols-part">
+                            <div class="cols-part__side">
+                                <div class="cols-part__side-col cols-part__head">
+                                    <strong class="cols-part__head-title">15 мая по 25 мая</strong>текущего финансового года</div>
+                            </div>
+                            <div class="cols-part__content">
+                                <div class="line-md">
+                                    <div class="cols">
+                                        <div class="cols__side"></div>
+                                        <div class="cols__content">
+                                            <div class="cols__content-holder">
+                                                <p class="department title-md color-dark">Бюджетная комиссия Правительства Москвы</p>
+                                                <p>Рассматривает и одобряет материалы и информацию по объему бюджетных ассигнований на реализацию адресной инвестиционной программы города Москвы</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line-dots">
+                                        <div class="line-dot"></div>
+                                        <div class="line-dot"></div>
+                                        <div class="line-dot"></div>
+                                    </div>
+                                </div>
+                                <div class="line-md">
+                                    <div class="cols">
+                                        <div class="cols__side">
+                                            <ul class="list-indicate color-dark">
+                                                <li class="list-indicate__item">в Бюджетную комиссию Правительства Москвы
+                                                    <u class="arrowlight arrowlight--right mob left"></u>
+                                                    <u class="arrowlight arrowlight--right"></u>
+                                                    <u class="arrowlight arrowlight--right mob right"></u>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="cols__content">
+                                            <div class="cols__content-holder">
+                                                <p class="department title-md color-dark">Департамент экономической политики и развития города Москвы</p>
+                                                <p>Формирует и представляет на рассмотрение и одобрение предложения по объему бюджетных ассигнований на реализацию адресной инвестиционной программы города Москвы в разрезе государственных программ города Москвы
+                                                    и непрограммных направлений деятельности органов государственной власти города Москвы</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="steps-details__content" data-step="2">
+                    <p class="steps-details__mob-heading">рассмотрение и утверждение бюджета</p>
+                    <p class="steps-details__main-text title-mx color-dark">STEP 2 Начальный этап бюджетного процесса.
+                        <br> На этом этапе составляется прогноз социально- экономического развития, определяются основные характеристики бюджета, налоговая и бюджетная политика на очередной финансовый год и на плановый период, основные методы и направления
+                        покрытия дефицита, долговая политика, а также распределение бюджетных ассигнований.</p>
+                    <div class="steps-details__participants">
+                        <h5 class="steps-details__participants-heading">Участники бюджетного процесса</h5>
+                        <ul class="steps-details__participants-list">
+                            <li>
+                                <a href="#">Бюджетная комиссия Правительства Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Департамент финансов города Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Департамент экономической политики и развития города Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Департамент градостроительной политики города Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Департамент городскогоимущества города Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Главные распорядители бюджетных средств города Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Главные администраторы доходов бюджета города Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Главные администраторы источников финансирования дефицита бюджета города Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Координаторы государственных программ города Москвы</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="steps-details__date-list-wrapper">
+                        <div class="steps-details__date-list-arrow steps-details__date-list-arrow_prev"></div>
+                        <div class="steps-details__date-list-arrow steps-details__date-list-arrow_next"></div>
+                        <ul class="steps-details__date-list">
+                            <li class="active">
+                                <a href="#">1 января по 25 мая</a>
+                            </li>
+                            <li>
+                                <a href="#">25 мая по 5 июня</a>
+                            </li>
+                            <li>
+                                <a href="#">25 июня по 1 июля</a>
+                            </li>
+                            <li>
+                                <a href="#">20 по 25 июля</a>
+                            </li>
+                            <li>
+                                <a href="#">1 по 15 сентября</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="steps-details__activity">
+                        <div class="cols-part">
+                            <div class="cols-part__side">
+                                <div class="cols-part__side-col cols-part__head">
+                                    <strong class="cols-part__head-title">1 января по 15 мая</strong>текущего финансового года</div>
+                            </div>
+                            <div class="cols-part__content">
+                                <div class="line-md">
+                                    <div class="cols">
+                                        <div class="cols__side">
+                                            <ul class="list-indicate color-dark">
+                                                <li class="list-indicate__item">в Бюджетную комиссию Правительства Москвы
+                                                    <u class="arrowlight arrowlight--right mob left"></u>
+                                                    <u class="arrowlight arrowlight--right"></u>
+                                                    <u class="arrowlight arrowlight--right mob right"></u>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="cols__content">
+                                            <div class="cols__content-holder">
+                                                <p class="department title-md color-dark">Департамент экономической политики и развития города Москвы</p>
+                                                <p>Формирует и предоставляет на рассмотрение и одобрение предложения по объему бюджетных ассигнований на реализацию адресной инвестиционной программы города Москвы</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line-dots">
+                                        <div class="line-dot"></div>
+                                        <div class="line-dot"></div>
+                                        <div class="line-dot"></div>
+                                    </div>
+                                </div>
+                                <div class="line-md">
+                                    <div class="cols">
+                                        <div class="cols__side">
+                                            <ul class="list-indicate color-dark">
+                                                <li class="list-indicate__item">в Департамент финансов города Москвы
+                                                    <u class="arrowlight arrowlight--right mob left"></u>
+                                                    <u class="arrowlight arrowlight--right"></u>
+                                                    <u class="arrowlight arrowlight--right mob right"></u>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="cols__content">
+                                            <div class="cols__content-holder">
+                                                <p class="department title-md color-dark">Департамент экономической политики и развития города Москвы</p>
+                                                <p>Представляет проект основных направлений налоговой политики на очередной финансовый год и плановый период</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cols-part">
+                            <div class="cols-part__side">
+                                <div class="cols-part__side-col cols-part__head">
+                                    <strong class="cols-part__head-title">15 мая по 25 мая</strong>текущего финансового года</div>
+                            </div>
+                            <div class="cols-part__content">
+                                <div class="line-md">
+                                    <div class="cols">
+                                        <div class="cols__side"></div>
+                                        <div class="cols__content">
+                                            <div class="cols__content-holder">
+                                                <p class="department title-md color-dark">Бюджетная комиссия Правительства Москвы</p>
+                                                <p>Рассматривает и одобряет материалы и информацию по объему бюджетных ассигнований на реализацию адресной инвестиционной программы города Москвы</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line-dots">
+                                        <div class="line-dot"></div>
+                                        <div class="line-dot"></div>
+                                        <div class="line-dot"></div>
+                                    </div>
+                                </div>
+                                <div class="line-md">
+                                    <div class="cols">
+                                        <div class="cols__side">
+                                            <ul class="list-indicate color-dark">
+                                                <li class="list-indicate__item">в Бюджетную комиссию Правительства Москвы
+                                                    <u class="arrowlight arrowlight--right mob left"></u>
+                                                    <u class="arrowlight arrowlight--right"></u>
+                                                    <u class="arrowlight arrowlight--right mob right"></u>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="cols__content">
+                                            <div class="cols__content-holder">
+                                                <p class="department title-md color-dark">Департамент экономической политики и развития города Москвы</p>
+                                                <p>Формирует и представляет на рассмотрение и одобрение предложения по объему бюджетных ассигнований на реализацию адресной инвестиционной программы города Москвы в разрезе государственных программ города Москвы
+                                                    и непрограммных направлений деятельности органов государственной власти города Москвы</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="steps-details__content" data-step="3">
+                    <p class="steps-details__mob-heading">исполнение бюджета</p>
+                    <p class="steps-details__main-text title-mx color-dark">STEP 3 Начальный этап бюджетного процесса.
+                        <br> На этом этапе составляется прогноз социально- экономического развития, определяются основные характеристики бюджета, налоговая и бюджетная политика на очередной финансовый год и на плановый период, основные методы и направления
+                        покрытия дефицита, долговая политика, а также распределение бюджетных ассигнований.</p>
+                    <div class="steps-details__participants">
+                        <h5 class="steps-details__participants-heading">Участники бюджетного процесса</h5>
+                        <ul class="steps-details__participants-list">
+                            <li>
+                                <a href="#">Бюджетная комиссия Правительства Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Департамент финансов города Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Департамент экономической политики и развития города Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Департамент градостроительной политики города Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Департамент городскогоимущества города Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Главные распорядители бюджетных средств города Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Главные администраторы доходов бюджета города Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Главные администраторы источников финансирования дефицита бюджета города Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Координаторы государственных программ города Москвы</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="steps-details__date-list-wrapper">
+                        <div class="steps-details__date-list-arrow steps-details__date-list-arrow_prev"></div>
+                        <div class="steps-details__date-list-arrow steps-details__date-list-arrow_next"></div>
+                        <ul class="steps-details__date-list">
+                            <li class="active">
+                                <a href="#">1 января по 25 мая</a>
+                            </li>
+                            <li>
+                                <a href="#">25 мая по 5 июня</a>
+                            </li>
+                            <li>
+                                <a href="#">25 июня по 1 июля</a>
+                            </li>
+                            <li>
+                                <a href="#">20 по 25 июля</a>
+                            </li>
+                            <li>
+                                <a href="#">1 по 15 сентября</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="steps-details__activity">
+                        <div class="cols-part">
+                            <div class="cols-part__side">
+                                <div class="cols-part__side-col cols-part__head">
+                                    <strong class="cols-part__head-title">1 января по 15 мая</strong>текущего финансового года</div>
+                            </div>
+                            <div class="cols-part__content">
+                                <div class="line-md">
+                                    <div class="cols">
+                                        <div class="cols__side">
+                                            <ul class="list-indicate color-dark">
+                                                <li class="list-indicate__item">в Бюджетную комиссию Правительства Москвы
+                                                    <u class="arrowlight arrowlight--right mob left"></u>
+                                                    <u class="arrowlight arrowlight--right"></u>
+                                                    <u class="arrowlight arrowlight--right mob right"></u>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="cols__content">
+                                            <div class="cols__content-holder">
+                                                <p class="department title-md color-dark">Департамент экономической политики и развития города Москвы</p>
+                                                <p>Формирует и предоставляет на рассмотрение и одобрение предложения по объему бюджетных ассигнований на реализацию адресной инвестиционной программы города Москвы</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line-dots">
+                                        <div class="line-dot"></div>
+                                        <div class="line-dot"></div>
+                                        <div class="line-dot"></div>
+                                    </div>
+                                </div>
+                                <div class="line-md">
+                                    <div class="cols">
+                                        <div class="cols__side">
+                                            <ul class="list-indicate color-dark">
+                                                <li class="list-indicate__item">в Департамент финансов города Москвы
+                                                    <u class="arrowlight arrowlight--right mob left"></u>
+                                                    <u class="arrowlight arrowlight--right"></u>
+                                                    <u class="arrowlight arrowlight--right mob right"></u>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="cols__content">
+                                            <div class="cols__content-holder">
+                                                <p class="department title-md color-dark">Департамент экономической политики и развития города Москвы</p>
+                                                <p>Представляет проект основных направлений налоговой политики на очередной финансовый год и плановый период</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cols-part">
+                            <div class="cols-part__side">
+                                <div class="cols-part__side-col cols-part__head">
+                                    <strong class="cols-part__head-title">15 мая по 25 мая</strong>текущего финансового года</div>
+                            </div>
+                            <div class="cols-part__content">
+                                <div class="line-md">
+                                    <div class="cols">
+                                        <div class="cols__side"></div>
+                                        <div class="cols__content">
+                                            <div class="cols__content-holder">
+                                                <p class="department title-md color-dark">Бюджетная комиссия Правительства Москвы</p>
+                                                <p>Рассматривает и одобряет материалы и информацию по объему бюджетных ассигнований на реализацию адресной инвестиционной программы города Москвы</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line-dots">
+                                        <div class="line-dot"></div>
+                                        <div class="line-dot"></div>
+                                        <div class="line-dot"></div>
+                                    </div>
+                                </div>
+                                <div class="line-md">
+                                    <div class="cols">
+                                        <div class="cols__side">
+                                            <ul class="list-indicate color-dark">
+                                                <li class="list-indicate__item">в Бюджетную комиссию Правительства Москвы
+                                                    <u class="arrowlight arrowlight--right mob left"></u>
+                                                    <u class="arrowlight arrowlight--right"></u>
+                                                    <u class="arrowlight arrowlight--right mob right"></u>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="cols__content">
+                                            <div class="cols__content-holder">
+                                                <p class="department title-md color-dark">Департамент экономической политики и развития города Москвы</p>
+                                                <p>Формирует и представляет на рассмотрение и одобрение предложения по объему бюджетных ассигнований на реализацию адресной инвестиционной программы города Москвы в разрезе государственных программ города Москвы
+                                                    и непрограммных направлений деятельности органов государственной власти города Москвы</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="steps-details__content" data-step="4">
+                    <p class="steps-details__mob-heading">Подготовка и утверждение годового отчета об исполнении бюджета</p>
+                    <p class="steps-details__main-text title-mx color-dark">STEP 4 Начальный этап бюджетного процесса.
+                        <br> На этом этапе составляется прогноз социально- экономического развития, определяются основные характеристики бюджета, налоговая и бюджетная политика на очередной финансовый год и на плановый период, основные методы и направления
+                        покрытия дефицита, долговая политика, а также распределение бюджетных ассигнований.</p>
+                    <div class="steps-details__participants">
+                        <h5 class="steps-details__participants-heading">Участники бюджетного процесса</h5>
+                        <ul class="steps-details__participants-list">
+                            <li>
+                                <a href="#">Бюджетная комиссия Правительства Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Департамент финансов города Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Департамент экономической политики и развития города Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Департамент градостроительной политики города Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Департамент городскогоимущества города Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Главные распорядители бюджетных средств города Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Главные администраторы доходов бюджета города Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Главные администраторы источников финансирования дефицита бюджета города Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Координаторы государственных программ города Москвы</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="steps-details__date-list-wrapper">
+                        <div class="steps-details__date-list-arrow steps-details__date-list-arrow_prev"></div>
+                        <div class="steps-details__date-list-arrow steps-details__date-list-arrow_next"></div>
+                        <ul class="steps-details__date-list">
+                            <li class="active">
+                                <a href="#">1 января по 25 мая</a>
+                            </li>
+                            <li>
+                                <a href="#">25 мая по 5 июня</a>
+                            </li>
+                            <li>
+                                <a href="#">25 июня по 1 июля</a>
+                            </li>
+                            <li>
+                                <a href="#">20 по 25 июля</a>
+                            </li>
+                            <li>
+                                <a href="#">1 по 15 сентября</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="steps-details__activity">
+                        <div class="cols-part">
+                            <div class="cols-part__side">
+                                <div class="cols-part__side-col cols-part__head">
+                                    <strong class="cols-part__head-title">1 января по 15 мая</strong>текущего финансового года</div>
+                            </div>
+                            <div class="cols-part__content">
+                                <div class="line-md">
+                                    <div class="cols">
+                                        <div class="cols__side">
+                                            <ul class="list-indicate color-dark">
+                                                <li class="list-indicate__item">в Бюджетную комиссию Правительства Москвы
+                                                    <u class="arrowlight arrowlight--right mob left"></u>
+                                                    <u class="arrowlight arrowlight--right"></u>
+                                                    <u class="arrowlight arrowlight--right mob right"></u>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="cols__content">
+                                            <div class="cols__content-holder">
+                                                <p class="department title-md color-dark">Департамент экономической политики и развития города Москвы</p>
+                                                <p>Формирует и предоставляет на рассмотрение и одобрение предложения по объему бюджетных ассигнований на реализацию адресной инвестиционной программы города Москвы</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line-dots">
+                                        <div class="line-dot"></div>
+                                        <div class="line-dot"></div>
+                                        <div class="line-dot"></div>
+                                    </div>
+                                </div>
+                                <div class="line-md">
+                                    <div class="cols">
+                                        <div class="cols__side">
+                                            <ul class="list-indicate color-dark">
+                                                <li class="list-indicate__item">в Департамент финансов города Москвы
+                                                    <u class="arrowlight arrowlight--right mob left"></u>
+                                                    <u class="arrowlight arrowlight--right"></u>
+                                                    <u class="arrowlight arrowlight--right mob right"></u>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="cols__content">
+                                            <div class="cols__content-holder">
+                                                <p class="department title-md color-dark">Департамент экономической политики и развития города Москвы</p>
+                                                <p>Представляет проект основных направлений налоговой политики на очередной финансовый год и плановый период</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cols-part">
+                            <div class="cols-part__side">
+                                <div class="cols-part__side-col cols-part__head">
+                                    <strong class="cols-part__head-title">15 мая по 25 мая</strong>текущего финансового года</div>
+                            </div>
+                            <div class="cols-part__content">
+                                <div class="line-md">
+                                    <div class="cols">
+                                        <div class="cols__side"></div>
+                                        <div class="cols__content">
+                                            <div class="cols__content-holder">
+                                                <p class="department title-md color-dark">Бюджетная комиссия Правительства Москвы</p>
+                                                <p>Рассматривает и одобряет материалы и информацию по объему бюджетных ассигнований на реализацию адресной инвестиционной программы города Москвы</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line-dots">
+                                        <div class="line-dot"></div>
+                                        <div class="line-dot"></div>
+                                        <div class="line-dot"></div>
+                                    </div>
+                                </div>
+                                <div class="line-md">
+                                    <div class="cols">
+                                        <div class="cols__side">
+                                            <ul class="list-indicate color-dark">
+                                                <li class="list-indicate__item">в Бюджетную комиссию Правительства Москвы
+                                                    <u class="arrowlight arrowlight--right mob left"></u>
+                                                    <u class="arrowlight arrowlight--right"></u>
+                                                    <u class="arrowlight arrowlight--right mob right"></u>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="cols__content">
+                                            <div class="cols__content-holder">
+                                                <p class="department title-md color-dark">Департамент экономической политики и развития города Москвы</p>
+                                                <p>Формирует и представляет на рассмотрение и одобрение предложения по объему бюджетных ассигнований на реализацию адресной инвестиционной программы города Москвы в разрезе государственных программ города Москвы
+                                                    и непрограммных направлений деятельности органов государственной власти города Москвы</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="steps-details__content" data-step="5">
+                    <p class="steps-details__mob-heading">Финансовый контроль</p>
+                    <p class="steps-details__main-text title-mx color-dark">STEP 5 Начальный этап бюджетного процесса.
+                        <br> На этом этапе составляется прогноз социально- экономического развития, определяются основные характеристики бюджета, налоговая и бюджетная политика на очередной финансовый год и на плановый период, основные методы и направления
+                        покрытия дефицита, долговая политика, а также распределение бюджетных ассигнований.</p>
+                    <div class="steps-details__participants">
+                        <h5 class="steps-details__participants-heading">Участники бюджетного процесса</h5>
+                        <ul class="steps-details__participants-list">
+                            <li>
+                                <a href="#">Бюджетная комиссия Правительства Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Департамент финансов города Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Департамент экономической политики и развития города Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Департамент градостроительной политики города Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Департамент городскогоимущества города Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Главные распорядители бюджетных средств города Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Главные администраторы доходов бюджета города Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Главные администраторы источников финансирования дефицита бюджета города Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Координаторы государственных программ города Москвы</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="steps-details__date-list-wrapper">
+                        <div class="steps-details__date-list-arrow steps-details__date-list-arrow_prev"></div>
+                        <div class="steps-details__date-list-arrow steps-details__date-list-arrow_next"></div>
+                        <ul class="steps-details__date-list">
+                            <li class="active">
+                                <a href="#">1 января по 25 мая</a>
+                            </li>
+                            <li>
+                                <a href="#">25 мая по 5 июня</a>
+                            </li>
+                            <li>
+                                <a href="#">25 июня по 1 июля</a>
+                            </li>
+                            <li>
+                                <a href="#">20 по 25 июля</a>
+                            </li>
+                            <li>
+                                <a href="#">1 по 15 сентября</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="steps-details__activity">
+                        <div class="cols-part">
+                            <div class="cols-part__side">
+                                <div class="cols-part__side-col cols-part__head">
+                                    <strong class="cols-part__head-title">1 января по 15 мая</strong>текущего финансового года</div>
+                            </div>
+                            <div class="cols-part__content">
+                                <div class="line-md">
+                                    <div class="cols">
+                                        <div class="cols__side">
+                                            <ul class="list-indicate color-dark">
+                                                <li class="list-indicate__item">в Бюджетную комиссию Правительства Москвы
+                                                    <u class="arrowlight arrowlight--right mob left"></u>
+                                                    <u class="arrowlight arrowlight--right"></u>
+                                                    <u class="arrowlight arrowlight--right mob right"></u>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="cols__content">
+                                            <div class="cols__content-holder">
+                                                <p class="department title-md color-dark">Департамент экономической политики и развития города Москвы</p>
+                                                <p>Формирует и предоставляет на рассмотрение и одобрение предложения по объему бюджетных ассигнований на реализацию адресной инвестиционной программы города Москвы</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line-dots">
+                                        <div class="line-dot"></div>
+                                        <div class="line-dot"></div>
+                                        <div class="line-dot"></div>
+                                    </div>
+                                </div>
+                                <div class="line-md">
+                                    <div class="cols">
+                                        <div class="cols__side">
+                                            <ul class="list-indicate color-dark">
+                                                <li class="list-indicate__item">в Департамент финансов города Москвы
+                                                    <u class="arrowlight arrowlight--right mob left"></u>
+                                                    <u class="arrowlight arrowlight--right"></u>
+                                                    <u class="arrowlight arrowlight--right mob right"></u>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="cols__content">
+                                            <div class="cols__content-holder">
+                                                <p class="department title-md color-dark">Департамент экономической политики и развития города Москвы</p>
+                                                <p>Представляет проект основных направлений налоговой политики на очередной финансовый год и плановый период</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cols-part">
+                            <div class="cols-part__side">
+                                <div class="cols-part__side-col cols-part__head">
+                                    <strong class="cols-part__head-title">15 мая по 25 мая</strong>текущего финансового года</div>
+                            </div>
+                            <div class="cols-part__content">
+                                <div class="line-md">
+                                    <div class="cols">
+                                        <div class="cols__side"></div>
+                                        <div class="cols__content">
+                                            <div class="cols__content-holder">
+                                                <p class="department title-md color-dark">Бюджетная комиссия Правительства Москвы</p>
+                                                <p>Рассматривает и одобряет материалы и информацию по объему бюджетных ассигнований на реализацию адресной инвестиционной программы города Москвы</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line-dots">
+                                        <div class="line-dot"></div>
+                                        <div class="line-dot"></div>
+                                        <div class="line-dot"></div>
+                                    </div>
+                                </div>
+                                <div class="line-md">
+                                    <div class="cols">
+                                        <div class="cols__side">
+                                            <ul class="list-indicate color-dark">
+                                                <li class="list-indicate__item">в Бюджетную комиссию Правительства Москвы
+                                                    <u class="arrowlight arrowlight--right mob left"></u>
+                                                    <u class="arrowlight arrowlight--right"></u>
+                                                    <u class="arrowlight arrowlight--right mob right"></u>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="cols__content">
+                                            <div class="cols__content-holder">
+                                                <p class="department title-md color-dark">Департамент экономической политики и развития города Москвы</p>
+                                                <p>Формирует и представляет на рассмотрение и одобрение предложения по объему бюджетных ассигнований на реализацию адресной инвестиционной программы города Москвы в разрезе государственных программ города Москвы
+                                                    и непрограммных направлений деятельности органов государственной власти города Москвы</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- steps-->
-    <div class="section-tabs">
+    <div class="section-tabs active">
         <div class="section-tabs__head">
             <div class="wrap">
                 <ul class="labels">
@@ -786,7 +1543,7 @@
                 <a class="btn-arrow btn-arrow--next">next</a>
             </div>
             <div class="section-tabs__nav-list">
-                <div class="owl-carousel owl-loaded">
+                <div class="owl-carousel owl-loaded sections">
                     <div class="owl-item">
                         <div class="section-tabs__nav-item">
                             <a class="section-tabs__nav-btn" href="#" data-section-tab-for="section-tab_01">Мэр Москвы</a>
@@ -927,6 +1684,29 @@
                             </div>
                         </div>
                     </div>
+                    <div class="section-tabs__participants">
+                        <h5 class="section-tabs__participants-heading">Участники процесса подготовки бюджета</h5>
+                        <ul class="section-tabs__participants-list">
+                            <li>
+                                <a href="#">Правительство Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Мэр Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Московская городская Дума</a>
+                            </li>
+                            <li>
+                                <a href="#">Правительство Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Департамент экономической политики и&nbsp;развития города Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">финансовый орган города Москвы</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <u class="section-tabs__tab-button btn-close-c js-tab-close"></u>
             </div>
@@ -1002,6 +1782,29 @@
                             </div>
                         </div>
                     </div>
+                    <div class="section-tabs__participants">
+                        <h5 class="section-tabs__participants-heading">Участники процесса подготовки бюджета</h5>
+                        <ul class="section-tabs__participants-list">
+                            <li>
+                                <a href="#">Правительство Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Мэр Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Московская городская Дума</a>
+                            </li>
+                            <li>
+                                <a href="#">Правительство Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Департамент экономической политики и&nbsp;развития города Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">финансовый орган города Москвы</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <u class="section-tabs__tab-button btn-close-c js-tab-close"></u>
             </div>
@@ -1073,6 +1876,29 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="section-tabs__participants">
+                        <h5 class="section-tabs__participants-heading">Участники процесса подготовки бюджета</h5>
+                        <ul class="section-tabs__participants-list">
+                            <li>
+                                <a href="#">Правительство Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Мэр Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Московская городская Дума</a>
+                            </li>
+                            <li>
+                                <a href="#">Правительство Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Департамент экономической политики и&nbsp;развития города Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">финансовый орган города Москвы</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <u class="section-tabs__tab-button btn-close-c js-tab-close"></u>
@@ -1234,6 +2060,29 @@
                             </div>
                         </div>
                     </div>
+                    <div class="section-tabs__participants">
+                        <h5 class="section-tabs__participants-heading">Участники процесса подготовки бюджета</h5>
+                        <ul class="section-tabs__participants-list">
+                            <li>
+                                <a href="#">Правительство Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Мэр Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Московская городская Дума</a>
+                            </li>
+                            <li>
+                                <a href="#">Правительство Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Департамент экономической политики и&nbsp;развития города Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">финансовый орган города Москвы</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <u class="section-tabs__tab-button btn-close-c js-tab-close"></u>
             </div>
@@ -1364,6 +2213,29 @@
                             </div>
                         </div>
                     </div>
+                    <div class="section-tabs__participants">
+                        <h5 class="section-tabs__participants-heading">Участники процесса подготовки бюджета</h5>
+                        <ul class="section-tabs__participants-list">
+                            <li>
+                                <a href="#">Правительство Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Мэр Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Московская городская Дума</a>
+                            </li>
+                            <li>
+                                <a href="#">Правительство Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">Департамент экономической политики и&nbsp;развития города Москвы</a>
+                            </li>
+                            <li>
+                                <a href="#">финансовый орган города Москвы</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <u class="section-tabs__tab-button btn-close-c js-tab-close"></u>
             </div>
@@ -1372,6 +2244,86 @@
         <!-- section-tabs__content-->
     </div>
     <!-- section-tabs-->
+    <div class="section-tabs section-tabs_documents active">
+        <div class="section-tabs__head">
+            <div class="wrap">
+                <ul class="labels">
+                    <li class="labels__item">
+                        <span class="label js-label-button">Документы
+                            <u class="label__button btn-close js-section-tabs-hide"></u>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="section-tabs__nav">
+            <div class="section-tabs__nav-leftbtn">
+                <a class="btn-arrow btn-arrow--prev">prev</a>
+            </div>
+            <div class="section-tabs__nav-rightbtn">
+                <a class="btn-arrow btn-arrow--next">next</a>
+            </div>
+            <div class="section-tabs__nav-list">
+                <div class="owl-carousel owl-loaded documents">
+                    <div class="owl-item">
+                        <div class="tile__item">
+                            <div class="tile__inner document document_alt document_small">
+                                <!--.document__date 26.09.2016-->
+                                <div class="document__tit-wrap">
+                                    <A class="document__title" href="#">Бюджетный кодекс РФ</A>
+                                </div>
+                                <!--P.document__excerpt В документе представлен Приказ Департамента финансов города Москвы от 17.09.2014 г. № 130 "Об утверждении перечней ответственных структурных подразделений Департамента финансов города Москвы"-->
+                                <!--.document__bottomA(href='#1').document__dwnl Скачать (DOCX, 957,55 Кб)
+A(href='#').document__star.document__star_cur-->
+                                <SPAN class="document__bg document__bg_t"></SPAN>
+                                <SPAN class="document__bg document__bg_r"></SPAN>
+                                <SPAN class="document__cr"></SPAN>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="owl-item">
+                        <div class="tile__item">
+                            <div class="tile__inner document document_alt document_med">
+                                <!--.document__date 26.09.2016-->
+                                <div class="document__tit-wrap">
+                                    <A class="document__title" href="#">Закон г. Москвы от 10 сентября 2008 г.
+                                        <br> № 39 «О бюджетном устройстве и бюджетном процессе в городе Москве»</A>
+                                </div>
+                                <!--P.document__excerpt В документе представлен Приказ Департамента финансов города Москвы от 17.09.2014 г. № 130 "Об утверждении перечней ответственных структурных подразделений Департамента финансов города Москвы"-->
+                                <!--.document__bottomA(href='#1').document__dwnl Скачать (DOCX, 957,55 Кб)
+A(href='#').document__star.document__star_cur-->
+                                <SPAN class="document__bg document__bg_t"></SPAN>
+                                <SPAN class="document__bg document__bg_r"></SPAN>
+                                <SPAN class="document__cr"></SPAN>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="owl-item">
+                        <div class="tile__item">
+                            <div class="tile__inner document document_alt document_big">
+                                <!--.document__date 26.09.2016-->
+                                <div class="document__tit-wrap">
+                                    <A class="document__title" href="#">Постановление Московской городской Думы
+                                        <br> О проекте закона города Москвы «О внесении изменений в Закон города Москвы «О бюджетном устройстве и бюджетном процессе в городе Москве»</A>
+                                </div>
+                                <!--P.document__excerpt В документе представлен Приказ Департамента финансов города Москвы от 17.09.2014 г. № 130 "Об утверждении перечней ответственных структурных подразделений Департамента финансов города Москвы"-->
+                                <!--.document__bottomA(href='#1').document__dwnl Скачать (DOCX, 957,55 Кб)
+A(href='#').document__star.document__star_cur-->
+                                <SPAN class="document__bg document__bg_t"></SPAN>
+                                <SPAN class="document__bg document__bg_r"></SPAN>
+                                <SPAN class="document__cr"></SPAN>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="owl-nav">
+                    <p class="owl-prev">prev</p>
+                    <p class="owl-next">next</p>
+                </div>
+                <div class="owl-dots"></div>
+            </div>
+        </div>
+    </div>
     <div class="sections__item sections__item_footer">
         <footer class="footer footer_b">
             <div class="wrap footer__wrap anim-fade-top">
