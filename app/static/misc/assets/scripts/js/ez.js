@@ -767,13 +767,13 @@ $(document).ready(function(){
         sourcesTable.removeClass('_active');
         sourcesGraphicsDone.addClass('_active');
         sourcesHead(1);
-        arrow.show();
+        arrow.hide();
         tablearr.hide();
       } else if (sourcesTableActive.hasClass('analityc-widget-sources-table_date')) {
         sourcesTable.removeClass('_active');
         sourcesGraphicsDate.addClass('_active');
         sourcesHead(3);
-        arrow.show();
+        arrow.hide();
         tablearr.hide();
       }
     } else if ($this.hasClass('analityc-control-button_table') && !$this.hasClass('active')) {

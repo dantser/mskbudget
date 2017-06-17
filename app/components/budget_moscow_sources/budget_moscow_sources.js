@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import 'jquery-ui-bundle';
 
 export default () => {
   const ARR_RIGHT = $('.ar-right');
@@ -18,29 +19,29 @@ export default () => {
 
   ARR_RIGHT.click( (e) => {
     e.preventDefault();
-    if ($('.table__data:last-child').is(':visible')) {
+    if ($('.graphic__data:last-child').is(':visible')) {
       return;
     }
 
     if ($(window).width() < 700) {
-        $('.table__data:visible').hide().next().css('display', 'block');
+        $('.graphic__data:visible').hide().next().css('display', 'block');
     }
     else {
-      $('.table__data:visible[data-char]').hide().next().css('display', 'table-cell');
+      $('.graphic__data:visible[data-char]').hide().next().css('display', 'table-cell');
     }
   });
 
   ARR_LEFT.on('click', (e) => {
     e.preventDefault();
-    if ($('.table__data:nth-child(2)').is(':visible')) {
+    if ($('.graphic__data:nth-child(2)').is(':visible')) {
       return;
     }
 
     if ($(window).width() < 700) {
-      $('.table__data:visible').hide().prev().css('display', 'block');
+      $('.graphic__data:visible').hide().prev().css('display', 'block');
     }
     else {
-      $('.table__data:visible[data-char]').hide().prev().css('display', 'table-cell');
+      $('.graphic__data:visible[data-char]').hide().prev().css('display', 'table-cell');
     }
   });
 
@@ -51,7 +52,7 @@ export default () => {
       e.preventDefault();
       // EL.closest('.table__row').nextAll('.table__row_subrow').slideToggle();
       EL.parents('.table__row').toggleClass('table__row_opened');
-      $('.table__row_subrow_tax').slideToggle();
+      $('.table__row_subrow_tax').toggle();
     });
   })
 
