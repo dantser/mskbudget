@@ -382,6 +382,7 @@ $(document).on('keyup', function(e){
 //init func
 tabsLine();
 sectionTabs();
+stepsDetails();
 basicBudgetFiguresDiagrams();
 });
 //$(document).ready * end
@@ -389,18 +390,35 @@ basicBudgetFiguresDiagrams();
 //
 function tabsLine(){
 	$('.js-label-button').click(function(){
-    $('.section-tabs__nav').slideToggle();
-    $('.section-tabs__content').slideToggle();
-    $(this).toggleClass('js-label-button-closed');
-    $('.section-tabs__head').toggleClass('section-tabs__head_closed')
-		return false
+      var sectionTabs = $(this).parents('.section-tabs');
+      sectionTabs.find($('.section-tabs__nav')).slideToggle();
+      sectionTabs.find($('.section-tabs__content')).slideToggle();
+      $(this).toggleClass('js-label-button-closed');
+      sectionTabs.toggleClass('active');
+      sectionTabs.find($('.section-tabs__head')).toggleClass('section-tabs__head_closed');
+      return false
 		/*
 		если понадобиться скрывать пункты в навигации табов,
 		то при клике надо будет реинициализировать карусельку
 		*/
 	});
 
-	$('.owl-carousel').owlCarousel({
+	$('.owl-carousel.sections').owlCarousel({
+		loop:false,
+		margin:0,
+		nav:true,
+		responsiveClass:true,
+		center:false,
+		autoWidth:true,//разная ширина слайдов, ширину задавать на вложенный блок у слайда! + не указывать явно items:1,
+		startPosition:0,
+		dots:false,
+		mouseDrag:false,
+		touchDrag:false,
+		autoplay:false,
+		smartSpeed:500
+	});
+  
+    $('.owl-carousel.documents').owlCarousel({
 		loop:false,
 		margin:0,
 		nav:true,
@@ -448,6 +466,56 @@ function sectionTabs(){
 		$('.section-tabs__tab--active').removeClass('section-tabs__tab--active');
 		$('.section-tabs__nav-btn--active').removeClass('section-tabs__nav-btn--active');
 	});
+}
+
+function stepsDetails(){
+  $('.graphic-table__title-wrap, .step .link-more').click(function(e){
+    e.preventDefault();
+    if ($(this).hasClass('graphic-table__title-wrap')) {
+      var stepNumber = $(this).attr('data-step');
+    }
+    if ($(this).hasClass('link-more')) {
+      var stepNumber = $(this).parents('.step').attr('data-step');
+    }
+    
+    var steps = $('.steps'),
+        graphicRow = $('.graphic-table__title-wrap[data-step="'+stepNumber+'"]').parents('.graphic-table__table-tr'),
+        currentStep = $('.step[data-step="'+stepNumber+'"]'),
+        currentStepHead = currentStep.find($('.step__head')),
+        currentStepDescr = currentStep.find($('.step__descr')),
+        stepsDetails = $('.steps-details'),
+        currentStepDetails = $('.steps-details__content[data-step="'+stepNumber+'"]'),    
+        stepsOffset = steps.offset().top,
+        stepDescrOffset = currentStepDescr.offset().top,
+        offsetDiff = stepDescrOffset - stepsOffset;
+    
+    $('.graphic-table__table-tr').removeClass('active');
+    graphicRow.addClass('active');
+    $('.step__head').removeClass('active');
+    currentStepHead.addClass('active');
+    $('.steps-details__content').hide();
+    currentStepDetails.show();
+    //if ($(window).width() > 800) {
+      stepsDetails.css('top', offsetDiff+'px').addClass('active');
+      steps.css('height', offsetDiff+stepsDetails.outerHeight()+'px');
+    //} else {
+      //stepsDetails.addClass('active');
+      //window.scroll = $(window).scrollTop();
+      //$("body").css('top', -scroll + 'px').toggleClass('noscroll');
+    //}
+  });
+  
+  $('.js-steps-detail-close').click(function(){
+    $('.graphic-table__table-tr').removeClass('active');
+    $('.step__head').removeClass('active');
+    $('.steps-details').removeClass('active');
+    //if ($(window).width() > 800) {
+      $('.steps').css('height', 'auto');
+    //} else {
+      //$("body").css('top', "0").removeClass('noscroll');
+      //$(window).scrollTop(scroll);
+    //}
+  });
 }
 
 //
@@ -699,13 +767,13 @@ $(document).ready(function(){
         sourcesTable.removeClass('_active');
         sourcesGraphicsDone.addClass('_active');
         sourcesHead(1);
-        arrow.show();
+        arrow.hide();
         tablearr.hide();
       } else if (sourcesTableActive.hasClass('analityc-widget-sources-table_date')) {
         sourcesTable.removeClass('_active');
         sourcesGraphicsDate.addClass('_active');
         sourcesHead(3);
-        arrow.show();
+        arrow.hide();
         tablearr.hide();
       }
     } else if ($this.hasClass('analityc-control-button_table') && !$this.hasClass('active')) {
