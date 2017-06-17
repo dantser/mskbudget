@@ -1,6 +1,9 @@
-//- заголовок страницы с категорией
-mixin page-head(title, category)
-  +b.page-head&attributes(attributes)
-    if category
-      +e.P.category.load-anim-fade(data-delay="1300")= category
-    +e.H1.title.load-anim-fade(data-delay="1300")= title
+//- заголовок страницы с крошками
+mixin page-head(title, breadcrumbs)
+	+b.page-head&attributes(attributes)
+		+e.P.breadcrumbs.load-anim-fade(data-delay="1300")
+			+e.A(href='#').category Главная
+			if breadcrumbs
+				each item in breadcrumbs
+					+e.A(href='#').category= item
+		+e.H1.title.load-anim-fade(data-delay="1300")= title
