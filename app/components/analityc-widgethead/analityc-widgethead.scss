@@ -102,26 +102,23 @@
   display: inline-block;
   vertical-align: middle;
   transition: all .25s ease-in-out;
-  width: 30px;
-  height: 30px;
-  background-repeat: no-repeat;
-  background-position: center;
 
   & + & {
     margin-left: 10px;
   }
 
-  &_graphics {
-    background-image: url(../images/temp/icon_graphics.png);
-    &:hover, &.active {
-      background-image: url(../images/temp/icon_graphics_act.png);
-    }
-  }
+  &_graphics, &_table {
 
-  &_table {
-    background-image: url(../images/temp/icon_table.png);
+    & svg {
+      width: 30px;
+      height: 30px;
+      fill: $color-blue;
+    }
+
     &:hover, &.active {
-      background-image: url(../images/temp/icon_table_act.png);
+      & svg {
+        fill: #d8d8d8;
+      }
     }
   }
 }

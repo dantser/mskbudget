@@ -11,7 +11,7 @@ module.exports = (watch = false) => ({
     path: path.resolve('./dist/assets/scripts/'),
   },
   watch,
-  devtool: isDebug ? 'cheap-module-inline-source-map' : false,
+  devtool: 'source-map',
   module: {
     rules: [
       /*{
@@ -34,6 +34,6 @@ module.exports = (watch = false) => ({
       },
     }),
     new webpack.NoErrorsPlugin(),
-    /*!isDebug ? new webpack.optimize.UglifyJsPlugin() : f => f,*/
+    new webpack.optimize.UglifyJsPlugin(),
   ],
 });
