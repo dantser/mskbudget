@@ -4,15 +4,15 @@ include ../../blocks/icon/icons
 
 //- Аргументы
 //- title - заголовок
-//- subtitle - подзаголовок
+//- breadcrumbs - массив крошек ('Главная'' есть по умолчанию)
 //- isDownloadable - добавляет иконку загрузки
 //- Пример:
-//-   +page-header('Бюджетная система', 'Инфо', true)
+//-   +page-header('Бюджетная система', ['Crumb1', 'Crumb2'], true)
 //-   +page-header('Бюджетная система', false, true)
 
-mixin page-header(title, subtitle, isDownloadable)
+mixin page-header(title, breadcrumbs, isDownloadable)
   +b.page-header&attributes(attributes)
-    +page-head(title, subtitle)
+    +page-head(title, breadcrumbs)
     .d-si__head_icons
       +favor().icons-item.load-anim-fade(data-delay="1800")
       .d-si__icons_item
