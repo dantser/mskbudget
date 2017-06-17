@@ -13,20 +13,19 @@ module.exports = (watch = false) => ({
   watch,
   devtool: isDebug ? 'cheap-module-inline-source-map' : false,
   module: {
-    /*
     rules: [
-      {
+      /*{
         enforce: 'pre',
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'eslint-loader',
-      },
+      },*/
       {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
       },
-    ],*/
+    ],
   },
   plugins: [
     new webpack.DefinePlugin({

@@ -12,7 +12,7 @@
   }
 
   &__head {
-    margin-bottom: 262px;
+    margin-bottom: 90px;
   }
 
   &__wrapper {
@@ -27,6 +27,7 @@
     list-style: none;
     font-size: 0;;
     text-align: justify;
+    padding-bottom: 150px;
 
     &:after {
       width: 100%;
@@ -41,41 +42,40 @@
     position: relative;
     vertical-align: top;
     width: (1/6)*100%;
-    padding: 10px 49px;
-    margin-bottom: 23px;
+    padding: 21px 15px 15px;
+    margin-bottom: 12px;
+    transition: all .25s ease-in-out;
 
     @include respond-to('laptop') {
-      padding: 10px 33px;
     }
 
     @include respond-to('tablet') {
-      padding: 10px 14px;
     }
 
     @include respond-to('mobile') {
       width: (1/4)*100%;
-      padding: 10px 33px;
-    }    
+    }
 
     @media (max-width: 570px) {
       width: (1/2)*100%;
-      padding: 10px 33px;
-    }      
+    }
 
     @media (max-width: 320px) {
       width: 100%;
-      padding: 10px 49px;
-    }   
+    }
 
     &:hover {
-      background: #fff656;
+      background: #fee300;
+
+      .depfin-services-social-support__item-icon svg { fill: black; }
 
       & .depfin-services-social-support__item-text {
         color: $color-black;
       }
 
       & .depfin-services-social-support__sublist {
-        display: block;
+        opacity: 1;
+        pointer-events: all;
       }
     }
 
@@ -83,41 +83,47 @@
       display: block;
       position: relative;
       width: 100%;
-      height: 37px;
+      height: 49px;
       margin-bottom: 19px;
 
-      & img {
-        width: auto;
+      svg {
+        width: 100%;
         height: 100%;
         display: block;
         margin: 0 auto;
+        fill: $color-yellow;
+        transition: fill .25s ease-in-out;
       }
     }
 
     &-text {
       display: block;
-      min-height: 48px;
       text-align: center;
       font-family: $PFDinCondensedPro;
+      font-weight: 600;
+      transition: all .25s ease-in-out;
     }
 
     &-link {
       text-decoration: none;
       font-family: $PFDinCondensedPro;
       font-size: 14px;
-      line-height: 20px;
+      line-height: 16px;
       color: $color-yellow;
       text-transform: uppercase;
+      display: block;
     }
   }
 
   &__sublist {
-    display: none;
+    transition: all .25s ease-in-out;
+    opacity: 0;
+    pointer-events: none;
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
-    padding: 20px 10px;
+    padding: 22px 10px 20px;
     list-style: none;
     background: $color-white;
     z-index: 1;
@@ -137,10 +143,13 @@
       font-family: $PFDinCondensedPro;
       font-size: 12px;
       line-height: 16px;
-      font-weight: 500;
+      font-weight: 600;
       text-align: center;
       color: $color-link;
       text-transform: uppercase;
+      transition: all .25s ease-in-out;
+
+      &:hover { opacity: .7; }
     }
   }
 
@@ -195,7 +204,7 @@
 
       @media (max-width: 570px) {
         width: 100%;
-      }  
+      }
 
       @media (max-width: 320px) {
         margin: 5px 0;

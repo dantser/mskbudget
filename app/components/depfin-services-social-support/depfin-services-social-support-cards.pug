@@ -1,0 +1,51 @@
+include ../page-header/page-header
+include ../../blocks/icon/icons
+include ../../blocks/link/link
+
+
+mixin depfin-services-social-support-cards()
+
+  mixin list-item(iconNum, text)
+    +e.LI.item
+      +e.A(href='#').item-link
+        +e.item-icon
+          +icon('support-icon-'+ iconNum)
+        +e.SPAN.item-text= text
+      +e.UL.sublist
+        +e.LI.subitem
+          +e.A(href='#').subitem-link Молодые семьи
+        +e.LI.subitem
+          +e.A(href='#').subitem-link Многодетные семьи
+        +e.LI.subitem
+          +e.A(href='#').subitem-link Малоимущие семьи
+
+  mixin submenu-item(text)
+    +e.LI.submenu-item
+      +e.A(href='#').submenu-link= text
+
+
+  +b.depfin-services-social-support&attributes(attributes)
+    .wrapper.page-content-wrapper
+      +e.head
+        +page-header('Социальная поддержка населения', 'Сервисы')
+
+      +e.main
+
+        +e.SECTION.tab
+          +e.H3.title Различные пособия семьям с детьми; Услуги, предоставляемые семьям и детям
+
+          //- 03
+          +e.UL.submenu
+            +submenu-item('Пособие по беременности и родам')
+            +submenu-item('Ежемесячные компенсационные выплаты лицам, находящимся в отпуске по уходу за ребенком до достижения им возраста 3 лет')
+            +submenu-item('Адресная социальная помощь')
+            +submenu-item('Единовременное пособие при рождении ребенка')
+            +submenu-item('Ежемесячное пособие по уходу за ребенком (до достижения им возраста полутора лет)')
+            +submenu-item('Помощь с организацией детского отдыха')
+            +submenu-item('Единовременная компенсационная выплата на возмещение расходов в связи с рождением ребенка')
+            +submenu-item('Ежемесячная компенсационная выплата на возмещение роста стоимости продуктов питания отдельным категориям граждан на детей в возрасте до трех лет')
+            +submenu-item('Материнский капитал')
+            +submenu-item('Единовременное пособие женщинам, вставшим на учет в медицинском учреждении в ранние сроки беременности')
+            +submenu-item('Льготы на проезд в общественном транспорте')
+            +submenu-item('Ежемесячная компенсационная выплата на возмещение расходов в связи с ростом стоимости жизни отдельным категориям семей с детьми')
+            +submenu-item('Льготы при посещении государственных дошкольных образовательных учреждений')
