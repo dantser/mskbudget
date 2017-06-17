@@ -383,6 +383,37 @@
       display: block;
     }
   }
+  
+  @media screen and (max-width: 630px) {
+    &__mob-slider {
+      min-height: 0;
+    }
+    &__mob-slider-arrow {
+      width: 30px;
+      &:after {
+        width: 12px;
+        height: 12px;
+        border-width: 2px;
+      }
+      &_prev, &_next {
+        &:after {
+          border-width: 2px;
+        }
+      }
+    }
+    &__mob-slider-item {
+      padding: 9px 40px;
+    }
+    &__title-count {
+      width: 20px;
+      font-size: 18px;
+    }
+    &__title-content {
+      font-size: 18px;
+      line-height: 1.2em;
+      padding-left: 20px;
+    }
+  }
 }
 
 .step {
@@ -640,6 +671,7 @@
     margin: auto;
     text-align: center;
     margin-top: 38px;
+    display: none;
   }
   .line-dot {
     display: inline-block;
@@ -838,6 +870,9 @@
       right: 30px;
       top: 36px;
     }
+    .line-dots {
+      display: block;
+    }
   }
 }
 
@@ -871,9 +906,21 @@
     margin-top: 32px;
   }
   
-  @media (max-width: 900px) {
+  @media screen and (min-width: 801px) and (max-width: 900px) {
     .tile__item {
       width: 300px !important;
+    }
+  }
+  
+  @media screen and (max-width: 800px) {
+    .tile__item {
+      width: 500px !important;
+    }
+  }
+  
+  @media screen and (max-width: 630px) {
+    .tile__item {
+      width: 250px !important;
     }
   }
 }
@@ -902,9 +949,8 @@
     width: 388px;
   }
   
-  @media (max-width: 900px) {
+  @media screen and (max-width: 900px) {
     &.document_alt {
-      min-height: 165px;
       .document__title br {
         display: none;
       }
@@ -913,8 +959,74 @@
       width: 100%;
     }
   }
+  
+  @media screen and (min-width: 801px) and (max-width: 900px) {
+    &.document_alt {
+      min-height: 165px;
+    }
+  }
+  
+  @media screen and (max-width: 800px) {
+    &.document_alt {
+      padding: 37px 44px;
+      padding-right: 80px;
+      min-height: 278px;
+      .document__title {
+        font-size: 36px;
+        line-height: 1.2em;
+      }
+      .document__bg_t {
+        right: 80px;
+      }
+      .document__bg_r {
+        top: 70px;
+      }
+      .document__cr {
+        right: 10px;
+        border-width: 33px;
+      }
+    }
+  }
 }
 
+.section-tabs {
+  &__participants {
+    display: none;
+    margin-top: 53px;
+  }
+  &__participants-heading {
+    font-size: 32px;
+    line-height: 40px;
+    color: #000;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+  &__participants-list {
+    margin-top: 48px;
+    list-style: none;
+    li {
+      margin-top: 25px;
+    }
+    a {
+      font-size: 28px;
+      line-height: 34px;
+      font-weight: 500;
+      color: #2d47cf;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: all .25s ease-in-out;
+      &:hover {
+        opacity: .7;
+      }
+    }
+  }
+  
+  @media screen and (max-width: 800px) {
+    &__participants {
+      display: block;
+    }
+  }
+}
 
 .js-label-button-closed:hover .js-section-tabs-hide {
   transform: rotate(-90deg);
@@ -1015,41 +1127,16 @@
         letter-spacing: 0;
       }
     }
-    .label__button {
-      margin-left: 25px;
-    }
     .section-tabs__nav-btn {
       min-height: 136px;
-    }
-    .section-tabs__tab {
-      padding-top: 49px;
-      padding-bottom: 30px;
-    }
-    .title-mx {
-      font-size: 18px;
-    }
-    .cols__side {
-      text-align: right;
-      width: 160px;
-      .title-mx {
-        font-size: 22px;
-      }
-    }
-    .line-sm {
-      margin-top: 45px;
     }
     .cols-part__content {
       .cols__side {
         text-align: left;
-        width: 218px;
       }
     }
     .steps-details .cols-part__content .cols__side {
       width: 108px;
-    }
-    .section-tabs__tab-button {
-      top: 18px;
-      right: 14px;
     }
     .list-indicate__item {
       padding-left: 54px;
@@ -1063,7 +1150,6 @@
     }
     .cols__content-holder {
       padding-right: 12px;
-      font-size: 14px;
       letter-spacing: 0.02em;
     }
     .line-xl {
@@ -1071,9 +1157,6 @@
       .cols-part__content {
         padding-left: 15px;
       }
-    }
-    .cols-part__side-col--sub {
-      width: 270px;
     }
   }
   
@@ -1115,6 +1198,38 @@
     .section-tabs__nav-btn {
       padding: 15px 32px 36px;
     }
+    .section-tabs__tab-button {
+      top: 18px;
+      right: 14px;
+    }
+    .section-tabs__tab {
+      padding-top: 49px;
+      padding-bottom: 30px;
+    }
+    .cols__side {
+      text-align: right;
+      width: 160px;
+      .title-mx {
+        font-size: 22px;
+      }
+    }
+    .title-mx {
+      font-size: 18px;
+    }
+    .line-sm {
+      margin-top: 45px;
+    }
+    .cols-part__content {
+      .cols__side {
+        width: 218px;
+      }
+    }
+    .cols__content-holder {
+      font-size: 14px;
+    }
+    .cols-part__side-col--sub {
+      width: 270px;
+    }
   }
   
   @media screen and (min-width: 801px) and (max-width: 1024px) {
@@ -1130,8 +1245,14 @@
   }
   
   @media screen and (min-width: 901px) and (max-width: 1190px) {
-    .section-tabs_documents .section-tabs__nav-leftbtn, .section-tabs_documents .section-tabs__nav-rightbtn {
-      margin-top: 32px;
+    .sections_budget-preparation .label__button {
+      margin-left: 25px;
+    }
+  }
+  
+  @media screen and (min-width: 631px) and (max-width: 1190px) {
+    .label__button {
+      margin-left: 25px;
     }
   }
   
@@ -1151,7 +1272,7 @@
     }
   }
   
-  @media screen and (max-width: 900px) {
+  @media screen and (min-width: 801px) and (max-width: 900px) {
     .section-tabs_documents .section-tabs__nav-leftbtn, .section-tabs_documents .section-tabs__nav-rightbtn {
       margin-top: 55px;
     }
@@ -1290,6 +1411,7 @@
     }
     .steps .step__head {
       padding-right: 80px;
+      min-height: 0;
     }
     .step__descr {
       font-size: 28px;
@@ -1334,15 +1456,15 @@
       width: auto;
       text-align: left;
       .title-mx {
-        font-size: 39px;
+        font-size: 38px;
       }
     }
     .section-tabs__tab-button {
-      top: 51px;
-      right: 56px;
+      top: 27px;
+      right: 31px;
     }
     .cols__content {
-      margin-top: 70px;
+      margin-top: 95px;
     }
     .title-mx {
       font-size: 25px;
@@ -1473,6 +1595,19 @@
     .section-tabs__nav-list:after, .section-tabs__nav-list:before {
       display: none;
     }
+    .section-tabs_documents .section-tabs__nav-list {
+      padding: 0 12px;
+      padding-top: 42px;
+      max-width: 515px;
+      margin: auto;
+    }
+    .section-tabs_documents .section-tabs__nav-leftbtn, .section-tabs_documents .section-tabs__nav-rightbtn {
+      margin-top: 123px;
+    }
+    .section-tabs__tab {
+      padding-top: 37px;
+      padding-bottom: 100px;
+    }
   }
   
   @media screen and (max-width: 630px) {
@@ -1510,7 +1645,7 @@
     }
     .buttons-set__item .button-light {
       font-size: 12px;
-      padding: 7px 7px 2px;
+      padding: 7px 17px 2px;
     }
     .graphic-table__table-th {
       padding: 8px 0 3px;
@@ -1556,15 +1691,13 @@
       margin: 0 20px !important;
     }
     .steps {
-      padding-top: 28px;
-      padding-bottom: 15px;
+      padding-bottom: 26px;
     }
     .step__num {
       margin-bottom: 5px;
     }
     .step__head {
       font-size: 18px;
-      margin-bottom: 17px;
     }
     .step__descr {
       font-size: 14px;
@@ -1575,7 +1708,8 @@
         margin-top: 12px;
       }
       .link-more {
-        font-size: 19px;
+        font-size: 18px;
+        margin-top: 0;
       }
     }
     .label {
@@ -1590,8 +1724,11 @@
       margin-right: -18px;
     }
     .section-tabs__nav-btn {
-      padding: 20px 32px 20px;
+      padding: 17px;
+      max-width: 270px;
       min-height: 90px;
+      font-size: 18px;
+      line-height: 1.2em;
     }
     .section-tabs__nav-leftbtn, .section-tabs__nav-rightbtn {
       margin-top: 18px;
@@ -1602,7 +1739,9 @@
     }
     .js-label-button-closed .js-section-tabs-hide {
       top: 5px;
-      right: -20px;
+      right: -10px;
+      width: 0;
+      height: 0;
     }
     .label__button {
       margin-left: 5px;
@@ -1672,6 +1811,22 @@
     }
     .wrap > .line-sm {
       margin-top: 50px;
+    }
+    .steps__holder {
+      margin-top: 12px;
+    }
+    .section-tabs__head {
+      padding: 20px 0 20px;
+    }
+    .btn-arrow:after {
+      width: 12px;
+      height: 12px;
+      border-width: 2px;
+    }
+    .section-tabs_documents .section-tabs__nav-list {
+      padding: 0 6px;
+      padding-top: 26px;
+      max-width: 260px;
     }
   }
 }
