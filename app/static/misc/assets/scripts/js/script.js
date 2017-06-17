@@ -625,12 +625,12 @@ budget.extend("whatIsBudgetWeight", {
                 if (!Modernizr.mobile) {
 
                         //ховер в левой части
-                        this.elements.$zoneSurplus.on("mouseenter", function (event) {
+                        this.elements.$zoneSurplus.on("mouseenter hover", function (event) {
                                 clearTimeout(_this.timeoutGameLeft);
                                 _this.rollToTheLeft();
                         });
 
-                        this.elements.weight.$revenues.on("mouseenter", function (event) {
+                        this.elements.weight.$revenues.on("mouseenter hover", function (event) {
                                 clearTimeout(_this.timeoutGameLeft);
                                 _this.rollToTheLeft();
                         });
@@ -645,7 +645,7 @@ budget.extend("whatIsBudgetWeight", {
 
                                         _this.timeoutGameLeft = setTimeout(function () {
                                                 _this.gameWithWeight(0);
-                                        }, 1000);
+                                        }, 0);
                                 }
                         });
 
@@ -659,22 +659,22 @@ budget.extend("whatIsBudgetWeight", {
 
                                         _this.timeoutGameLeft = setTimeout(function () {
                                                 _this.gameWithWeight(0);
-                                        }, 1000);
+                                        }, 0);
                                 }
                         });
 
                         //ховер по центру
-                        this.elements.$zoneBalance.on("mouseenter", function (event) {
+                        this.elements.$zoneBalance.on("mouseenter hover", function (event) {
                                 _this.alignmentToTheCenter();
                         });
 
                         //ховер в правой части
-                        this.elements.$zoneDeficit.on("mouseenter", function (event) {
+                        this.elements.$zoneDeficit.on("mouseenter hover", function (event) {
                                 clearTimeout(_this.timeoutGameRight);
                                 _this.rollToTheRight();
                         });
 
-                        this.elements.weight.$expenditures.on("mouseenter", function (event) {
+                        this.elements.weight.$expenditures.on("mouseenter hover", function (event) {
                                 clearTimeout(_this.timeoutGameRight);
                                 _this.rollToTheRight();
                         });
@@ -688,7 +688,7 @@ budget.extend("whatIsBudgetWeight", {
                                 if (_this.elements.$component.attr("data-active") != "2") {
                                         _this.timeoutGameRight = setTimeout(function () {
                                                 _this.gameWithWeight(1);
-                                        }, 1000);
+                                        }, 0);
                                 }
                         });
 
@@ -701,7 +701,7 @@ budget.extend("whatIsBudgetWeight", {
                                 if (_this.elements.$component.attr("data-active") != "2") {
                                         _this.timeoutGameRight = setTimeout(function () {
                                                 _this.gameWithWeight(1);
-                                        }, 1000);
+                                        }, 0);
                                 }
                         });
                 }
@@ -727,7 +727,7 @@ budget.extend("whatIsBudgetWeight", {
                                 }
                         });
                 }
-          
+
 
                 this.elements.$componentItem.on("click", ".whatIsBudget-component__termin", function (event) {
 
