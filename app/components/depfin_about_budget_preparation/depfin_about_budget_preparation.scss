@@ -651,9 +651,12 @@
   }
   &__mob-heading {
     font-size: 36px;
-    line-height: 50px;
+    line-height: 44px;
     font-weight: 500;
     padding: 0 40px;
+    color: #000;
+    text-transform: uppercase;
+    display: none;
   }
   
   @media screen and (min-width: 801px) and (max-width: 1260px) {
@@ -663,10 +666,6 @@
   }
   
   @media screen and (max-width: 1190px) {
-    &__close-button {
-      right: -25px;
-      top: 27px;
-    }
     &__participants {
       width: 48%;
       padding-top: 6px;
@@ -693,6 +692,10 @@
     }
     &__activity {
       margin-top: 36px;
+    }
+    &__close-button {
+      right: -25px;
+      top: 27px;
     }
   }
   
@@ -827,6 +830,13 @@
     }
     .cols-part+.cols-part {
       margin-top: 107px;
+    }
+    &__mob-heading {
+      display: block;
+    }
+    &__close-button {
+      right: 30px;
+      top: 36px;
     }
   }
 }
@@ -1009,14 +1019,7 @@
       margin-left: 25px;
     }
     .section-tabs__nav-btn {
-      padding: 15px 32px 36px;
       min-height: 136px;
-    }
-    .section-tabs__nav-leftbtn {
-      margin-top: 8px;
-    }
-    .section-tabs__nav-rightbtn {
-      margin-top: 8px;
     }
     .section-tabs__tab {
       padding-top: 49px;
@@ -1047,12 +1050,6 @@
     .section-tabs__tab-button {
       top: 18px;
       right: 14px;
-    }
-    .btn-close-b, .btn-close-c {
-      width: 26px;
-      height: 26px;
-      background-size: 720px auto;
-      background-position: -383px 1px;
     }
     .list-indicate__item {
       padding-left: 54px;
@@ -1102,6 +1099,21 @@
     }
     .labels__item {
       padding-left: 24px;
+    }
+    .btn-close-b, .btn-close-c {
+      width: 26px;
+      height: 26px;
+      background-size: 720px auto;
+      background-position: -383px 1px;
+    }
+    .section-tabs__nav-leftbtn {
+      margin-top: 8px;
+    }
+    .section-tabs__nav-rightbtn {
+      margin-top: 8px;
+    }
+    .section-tabs__nav-btn {
+      padding: 15px 32px 36px;
     }
   }
   
@@ -1415,6 +1427,51 @@
     .steps-details .cols-part__content .cols__side {
       display: table-footer-group;
       width: 100%;
+    }
+    .btn-close-b, .btn-close-c {
+      width: 76px;
+      height: 76px;
+      background: none;
+      &:before, &:after {
+        content: '';
+        display: inline-block;
+        width: 76px;
+        height: 6px;
+        background-color: #000;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+      }
+      &:before {
+        transform: rotate(-45deg);
+      }
+      &:after {
+        transform: rotate(45deg);
+      }
+    }
+    .section-tabs__nav-leftbtn, .section-tabs__nav-rightbtn {
+      margin-top: 22px;
+    }
+    .btn-arrow {
+      width: 62px;
+      height: 118px;
+      &:after {
+        width: 24px;
+        height: 24px;
+        border-width: 4px;
+      }
+    }
+    .section-tabs__nav-btn {
+      font-size: 36px;
+      padding: 22px 31px 25px;
+      max-width: 530px;
+      line-height: 43px;
+    }
+    .section-tabs__nav-list:after, .section-tabs__nav-list:before {
+      display: none;
     }
   }
   
