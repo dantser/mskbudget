@@ -60,7 +60,7 @@
       width: (1/2)*100%;
     }
 
-    @media (max-width: 320px) {
+    @media (max-width: 480px) {
       width: 100%;
     }
 
@@ -176,7 +176,7 @@
     list-style: none;
     margin: -5px;
 
-    @media (max-width: 320px) {
+    @media (max-width: 480px) {
       margin: -5px 0;
     }
 
@@ -206,7 +206,7 @@
         width: 100%;
       }
 
-      @media (max-width: 320px) {
+      @media (max-width: 480px) {
         margin: 5px 0;
       }
 
@@ -249,7 +249,7 @@
     padding: 25px;
     border-right: 1px solid rgba(0, 0, 0, 0.1);
 
-    @media (max-width: 320px) {
+    @media (max-width: 480px) {
       padding: 9px;
     }
 
@@ -281,7 +281,7 @@
     height: 16px;
     fill: $color-black;
 
-    @media (max-width: 320px) {
+    @media (max-width: 480px) {
       top: 9px;
       left: 8px;
     }
@@ -297,7 +297,7 @@
     background-color: $color-white;
     z-index: 1;
 
-    @media (max-width: 320px) {
+    @media (max-width: 480px) {
       padding: 11px 32px;
     }
   }
@@ -326,7 +326,7 @@
       line-height: 20px;
     }
 
-    @media (max-width: 320px) {
+    @media (max-width: 480px) {
       font-size: 10px;
       line-height: 16px;
     }
@@ -345,7 +345,7 @@
     text-transform: uppercase;
     background-color: $color-yellow;
 
-    @media (max-width: 320px) {
+    @media (max-width: 480px) {
       padding: 9px 16px 9px;
       font-size: 9px;
       line-height: 15px;
@@ -356,7 +356,7 @@
     padding: 36px 48px;
     @include clearfix;
 
-    @media (max-width: 320px) {
+    @media (max-width: 480px) {
       padding: 15px 16px;
     }
   }
@@ -376,7 +376,7 @@
     font-size: 24px;
     line-height: 34px;
 
-    @media (max-width: 320px) {
+    @media (max-width: 480px) {
       font-size: 12px;
       line-height: 22px;
     }
@@ -434,7 +434,7 @@
         text-transform: uppercase;
         font-weight: 500;
 
-        @media (max-width: 320px) {
+        @media (max-width: 480px) {
           font-size: 12px;
         }
 
@@ -461,7 +461,7 @@
       font-weight: 500;
       margin-bottom: 10px;
 
-      @media (max-width: 320px) {
+      @media (max-width: 480px) {
         font-size: 11px;
         line-height: 17px;
       }
@@ -473,7 +473,7 @@
       font-weight: 500;
       color: $color-link;
 
-      @media (max-width: 320px) {
+      @media (max-width: 480px) {
         font-size: 9px;
         line-height: 15px;
       }
@@ -482,5 +482,136 @@
 }
 
 .depfin-services-social-support_slider {
-  
+
+  .depfin-services-social-support__main {
+    -webkit-mask-image: -webkit-linear-gradient(left, transparent 0.5%, black 7%, black 93%, transparent 99.5%);
+  }
+
+  .depfin-services-social-support__list {
+    padding-bottom: 63px;
+  }
+
+  .depfin-services-social-support__sublist {
+    display: none;
+  }
+
+  .depfin-services-social-support__item {
+    min-height: 200px;
+  }
+
+  /*Letter Slider*/
+  .letter__line {         
+    margin-bottom: 0; 
+  }
+
+  .letter__line:after {  
+  } 
+
+  .letter__line-item {    
+    display: block;
+    height: auto; 
+    transition: 0.5s; 
+  }
+
+  .letter__line-item_first .letter__btn { 
+    padding-left: 0; 
+  }
+
+  .letter__line-item_last .letter__btn { 
+    padding-right: 0; 
+  }
+
+  .letter__line-item_active { 
+  }
+
+  .letter__line-item_current button { 
+    color: #000 !important; 
+    background: #fee300;
+
+    & .depfin-services-social-support__item-icon svg { 
+      fill: black; 
+    }
+
+    & .depfin-services-social-support__item-text {
+      color: $color-black;
+    }
+
+    & .depfin-services-social-support__sublist {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+
+  .letter__btn { 
+    height: auto; 
+    font-size: 14px; 
+    font-family: $PFDinCondensedPro; 
+    font-weight: 700; 
+    color: #fee300; 
+    padding: 0; 
+    padding-bottom: 40px;  
+  }
+
+  .letter__btn:hover { 
+    color: #000; 
+  }
+
+  .letter__slider { 
+    min-height: 0;
+    padding: 0;
+    -webkit-mask-image: none;
+  }
+
+  .letter__track { 
+    background: tomato;
+  }
+
+  .letter__track:after {
+  }
+
+  .letter__item {       // __tab
+    width: 275px; 
+    padding-right: 0; 
+  }
+
+  @media (max-width: 1180px) { 
+    .letter__btn { 
+      font-size: 14px; 
+      color: $color-yellow !important; 
+    }
+
+    .letter__line-item { 
+      margin-bottom: 15px; 
+    }
+  }
+
+  @media (max-width: 700px) { 
+    .letter__btn { 
+      font-size: 14px; 
+      height: auto; 
+      padding: 0; 
+    }
+
+    .letter__line { 
+      margin-left: 0; 
+      margin-right: 0; 
+    }
+
+    .letter__line-item { 
+      height: auto; 
+      margin-bottom: 5px; 
+    }
+
+    .letter__item { 
+      width: 125px; 
+      padding-right: 0; 
+    }
+
+    .letter__slider { 
+      min-height: 0; 
+      -webkit-mask-image: none; 
+    } 
+  }
+
 }
+
