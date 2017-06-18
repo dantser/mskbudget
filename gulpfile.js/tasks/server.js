@@ -22,6 +22,4 @@ gulp.task('server', () => {
     directory: false,
     middleware: [debuga()],
   });
-
-  bs.watch('dist/**/*.*').on('change', bs.reload);
 });
