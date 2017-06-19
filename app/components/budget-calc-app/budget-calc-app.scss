@@ -1,0 +1,337 @@
+.budget-calc-btn {
+  display: inline-block;
+  min-width: 227px;
+  padding: 11px 14px 9px;
+  font-family: $PFDinCondensedPro;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 2px;
+  color: black;
+  background-color: #fee300;
+
+  &_balance {
+    margin-left: 25px;
+  }
+
+  &_costs {
+    margin-left: 25px;
+  }
+}
+
+
+
+.budget-calc-app {
+  @include display-flex;
+
+  &__sidebar {
+    width: 230px;
+    @include flex-shrink(0);
+  }
+
+  &__main-content {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    font-family: $PFDinTextPro;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+    color: black;
+    background-color: white;
+  }
+
+  &__tab {
+    padding: 30px 0;
+    display: none;
+
+    &.is-active {
+      display: block;
+    }
+  }
+
+  &__heading {
+    margin-bottom: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    font-family: $PFDinCondensedPro;
+    font-size: 24px;
+    line-height: 1;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  // доходы
+  &__incomes {
+    margin-top: 35px;
+    margin-bottom: 20px;
+
+    &-row {
+      @include display-flex;
+      @include flex-direction(row);
+      // @include flex-wrap(no-wrap);
+      width: 100%;
+      padding-left: 20px;
+      padding-right: 20px;
+      border-bottom: 1px solid rgba(black, .1);
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &_heading {
+        border-bottom-width: 3px;
+      }
+
+      &.is-active {
+        background-color: #f6f6f5;
+      }
+    }
+
+    &-column {
+      vertical-align: top;
+      padding: 10px;
+      @include debug;
+      @include outline;
+
+      &_heading {
+        font-family: $PFDinCondensedPro;
+        font-size: 18px;
+        line-height: 1;
+        font-weight: 500;
+        text-transform: uppercase;
+        color: #898783;
+      }
+    }
+  }
+
+  // расходы
+  &__costs {
+    @include display-flex;
+    @include flex-wrap(wrap);
+    padding: 0 10px;
+
+    &-item {
+      padding: 15px 20px 0;
+      width: 33.33%;
+
+      &-icon {
+
+      }
+
+      &-link {
+        display: inline-block;
+        margin-top: 10px;
+        font-family: $PFDinCondensedPro;
+        font-size: 16px;
+        line-height: 1;
+        font-weight: 500;
+        font-style: normal;
+        text-decoration: none;
+        text-transform: uppercase;
+        color: #0d46a1;
+        border-bottom: 1px dashed rgba(#0d46a1, .5);
+        @include transited;
+
+        &:hover {
+          border-bottom-color: #0d46a1;
+        }
+      }
+
+      &-value {
+        margin-top: 5px;
+        font-family: $PFDinCondensedPro;
+        font-size: 24px;
+        line-height: 1;
+        font-weight: 500;
+        font-style: normal;
+        text-transform: uppercase;
+        color: black;
+      }
+
+      &-initial {
+        margin-top: 3px;
+        font-family: $PFDinTextPro;
+        font-size: 12px;
+        line-height: 14px;
+        font-weight: 400;
+        font-style: normal;
+        color: black;
+      }
+
+      &-range {
+        margin-top: 15px;
+        margin-bottom: 35px;
+      }
+
+      &-expand {
+        display: none;
+      }
+    }
+  }
+
+  // дефицит/профицит
+  &__balance {
+    margin-bottom: 35px;
+
+    &-row {
+      @include display-flex;
+      @include flex-direction(row);
+      @include align-items(center);
+      min-height: 94px;
+      padding: 0 10px;
+      border-bottom: 1px solid rgba(black, .1);
+    }
+
+    &-column {
+      padding: 15px;
+      // @include outline;
+
+      &_name {
+        @include flex-grow(1);
+        font-family: $PFDinCondensedPro;
+        font-size: 18px;
+        line-height: 1;
+        font-weight: 500;
+        font-style: normal;
+        text-transform: uppercase;
+      }
+
+      &_range {
+        @include flex-basis(275px);
+      }
+
+      &_value {
+        @include flex-basis(220px);
+        font-family: $PFDinCondensedPro;
+        font-size: 18px;
+        line-height: 1;
+        font-weight: 500;
+        font-style: normal;
+        text-transform: uppercase;
+      }
+    }
+
+    &-expand {
+      display: none;
+    }
+  }
+}
+
+
+.budget-calc-app-widget {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  margin-right: 10px;
+  padding: 20px 10px 10px 20px;
+  background-color: white;
+  text-decoration: none;
+  color: black;
+  @include transited('color 300ms linear');
+
+  &:before {
+    @include ghost;
+    z-index: 0;
+    @include transform(translateX(5px));
+    @include transited('transform 200ms ease-in-out');
+    background-color: white;
+  }
+
+  &.is-active {
+    color: white;
+
+    &:before {
+      @include transform(translateX(100%));
+    }
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+
+  &_link {
+    cursor: pointer;
+
+    &.is-active {
+      cursor: default;
+    }
+  }
+
+  &_incomes { @include gradient('to right bottom, #004ccf 0%, #00ffff 100%'); }
+  &_costs   { @include gradient('to right bottom, #ff695b 0%, #9d308a 100%'); }
+  &_balance { @include gradient('to right bottom, #30b069 0%, #fee300 100%'); }
+
+  &_not-balanced {
+    &:before {
+      display: none;
+    }
+  }
+
+  &_check {
+    padding-top: 18px;
+    padding-bottom: 18px;
+    background-color: #fee300;
+
+    &:before {
+      display: none;
+    }
+  }
+
+  &_restore {
+    padding-top: 18px;
+    padding-bottom: 18px;
+    padding-left: 0;
+    color: #fee300;
+    background-color: transparent;
+
+    &:before {
+      display: none;
+    }
+  }
+
+  &__inner {
+    position: relative;
+  }
+
+  &__name {
+    font-family: $PFDinCondensedPro;
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  &__value {
+    margin-top: 15px;
+    font-family: $PFDinCondensedPro;
+    font-size: 48px;
+    line-height: 1;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+  }
+
+  &__value-notice {
+    font-family: $PFDinCondensedPro;
+    font-size: 14px;
+    line-height: 1;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  &__description {
+    margin-top: 15px;
+    font-family: $PFDinTextPro;
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 400;
+  }
+}
