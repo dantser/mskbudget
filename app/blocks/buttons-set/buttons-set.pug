@@ -1,0 +1,15 @@
+//- data - данные из json
+//- obj.active - активная кнопка
+//- obj.filter - data-атрибут для фильтра
+//- obj.title - текст кнопки
+//- модификатор ._news для новостей
+
+mixin buttons-set(data)
+  +b.buttons-set&attributes(attributes)
+    each obj in data
+      if obj.active
+        +e.item
+          a(href="#", data-filter=""+obj.filter+"").button-light.button-light--fill= obj.title
+      else
+        +e.item
+          a(href="#", data-filter=""+obj.filter+"").button-light= obj.title
