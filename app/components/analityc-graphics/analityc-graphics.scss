@@ -490,6 +490,7 @@
 
   &__lines {
     height: 270px;
+    white-space: nowrap;
   }
 
   &__line {
@@ -550,6 +551,26 @@
       text-transform: uppercase;
     }
   }
+
+  &_gp {
+
+    .analityc-graphics-line-vertical__graphic {
+      max-width: 105px;
+    }
+
+    .analityc-graphics-line-vertical__line {
+      width: 15px;
+      margin-right: 0;
+
+      @include analityc-graphics-lines(pink, 10%, #0051d0, rgb(157,48,138), rgb(255,105,91));
+      @include analityc-graphics-lines(altgreen, 11%, #0051d0, rgb(48,176,105), rgb(254,227,0));
+      @include analityc-graphics-lines(violet, 12%, #0051d0, rgb(97,34,146), rgb(189,132,233));
+      @include analityc-graphics-lines(gray, 15%, #0051d0, rgb(131,138,154), rgb(213,216,222));
+      @include analityc-graphics-lines(blue, 10%, #0051d0, rgb(0,76,207), rgb(0,255,255));
+      @include analityc-graphics-lines(green, 11%, #0051d0, rgb(17,163,96), rgb(50,209,151));
+      @include analityc-graphics-lines(red, 12%, #0051d0, rgb(2,19,152), rgb(255,0,54));
+    }
+  }
 }
 
 .analityc-graphics-classic {
@@ -557,6 +578,15 @@
   height: 232px;
   width: 100%;
   background: #ccc;
+}
+
+.analityc-graphics-custom1,
+.analityc-graphics-custom2 {
+  display: none;
+  height: 232px;
+  width: 100%;
+  background: #ccc;
+  margin-bottom: 33px;
 }
 
 @media screen and (max-width: 1140px) {

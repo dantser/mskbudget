@@ -1,0 +1,75 @@
+include ../page-header/page-header
+include ../analityc-widgethead/analityc-widgethead
+include ../analityc-graphics/analityc-graphics
+include ../analityc-table/analityc-table
+include ../../blocks/table/table
+
+mixin depfin-analytics-gp()
+	.main._basic
+		section.basic-budget
+			.wrapper.wrapper_gp
+				+page-header('Государственнные программы', false, true)
+
+				// Tab 1
+				.analityc-widget.analityc-widget_gp
+					+analityc-widgethead-gp()
+
+					+analityc-graphics-custom1()
+
+					+analityc-graphics-custom2()
+
+					+analityc-graphics-line-vertical(getData('graphic-lines-gp'), true)._gp
+
+					.legend-gp
+						+checkbox().legend-gp__item
+							.legend-gp__circle
+							.legend-gp__icon
+							SPAN.legend-gp__label Развитие транспортной системы
+						+checkbox().legend-gp__item
+							.legend-gp__circle
+							.legend-gp__icon
+							SPAN.legend-gp__label Развитие транспортной системы
+						+checkbox().legend-gp__item
+							.legend-gp__circle
+							.legend-gp__icon
+							SPAN.legend-gp__label Развитие транспортной системы
+						+checkbox().legend-gp__item
+							.legend-gp__circle
+							.legend-gp__icon
+							SPAN.legend-gp__label Развитие транспортной системы
+						+checkbox().legend-gp__item
+							.legend-gp__circle
+							.legend-gp__icon
+							SPAN.legend-gp__label Развитие транспортной системы
+						+checkbox().legend-gp__item
+							.legend-gp__circle
+							.legend-gp__icon
+							SPAN.legend-gp__label Развитие транспортной системы
+
+
+			// Dropdown block
+			.dropdown-block
+				.dropdown
+					.dropdown-trigger
+						.wrapper
+							span
+								strong Документы
+				.dropdown-content
+					.wrapper
+						span Документы
+				.dropdown
+					.dropdown-trigger
+						.wrapper
+							span
+								strong Новости по&nbsp;теме
+				.dropdown-content
+					.wrapper
+						span Новости
+				.dropdown
+					.dropdown-trigger
+						.wrapper
+							span
+								strong Сервисы
+				.dropdown-content
+					.wrapper
+						span Сервисы
