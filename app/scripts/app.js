@@ -9,6 +9,7 @@ import searchForm from '../components/searchForm/searchForm';
 import sources from '../components/budget_moscow_sources/budget_moscow_sources';
 import govProgram from '../components/services_gov_program/services_gov_program';
 import analyticsMain from '../components/depfin-analytics-main/depfin-analytics-main';
+import legend from '../blocks/legend/legend';
 
 $(() => {
   selectbox();
@@ -21,4 +22,5 @@ $(() => {
   sources();
   govProgram();
   analyticsMain();
+  legend();
 });

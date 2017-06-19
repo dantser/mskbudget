@@ -15,12 +15,18 @@ mixin depfin_analytics_income()
 				// Tab 1
 				.analityc-widget.analityc-widget_params
 					+analityc-widgethead-analityc-income()
-					.analityc-widget-sources
+					.analityc-widget-income
 						+analityc-graphics-line-vertical-alt(getData('graphic-lines-analityc-income'))
 						+legend-checkbox(getData('legend-analityc-income'))
 					+analityc-table()._params
 						+table-aincome(getData('main'))
-
+					.analityc-widget-income.analityc-widget-income_pace
+						+analityc-graphics-bars(getData('legend-analityc-bar1'))
+					.analityc-widget-income.analityc-widget-income_share
+						+analityc-graphics-bars(getData('legend-analityc-bar2'))
+					.analityc-widget-income.analityc-widget-income_year
+						+analityc-graphics-bars-year(getData('legend-analityc-bar3'))
+						
 					a(href="/").analityc-more Перейти в&nbsp;раздел бюжет москвы
 
 

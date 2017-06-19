@@ -4,10 +4,10 @@ include ../../blocks/icon/icons
 include ../../blocks/link/link
 include ../../blocks/button/button
 
-mixin searchForm()
+mixin searchForm(placeholder)
   +b.FORM.search.d-si__search-form(action="#")
     +e.search-line
-      input.d-si__search(type="text", placeholder="Конкурс бюджет для граждан")
+      input.d-si__search(type="text", placeholder=placeholder)
       input.d-si__submit(type="submit" value="")
     +e.filter
       +link(true)._dashed._light-yellow._extra.filter-link Расширенный поиск

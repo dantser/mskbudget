@@ -6,12 +6,12 @@ mixin legend(data)
       +e.P(class="__item_"+obj.color+"")= obj.title
 
 mixin legend-checkbox(data)
-  +b.legend&attributes(attributes)
+  +b.legend._checkbox&attributes(attributes)
     each obj in data
-      +b.LABEL.checkbox&attributes(attributes)
+      +b.LABEL.checkbox._active&attributes(attributes)
+        +e.INPUT(type='checkbox', id='d-sii__chbox-s-first', checked).control
         +e.box
           +icon('icon-ok-ch').mark
-        +e.INPUT(type='checkbox', id='d-sii__chbox-s-first').control
-        p(class="legend__item legend__item_"+obj.color+"")= obj.title
+        p(class="legend__item_"+obj.color+"").legend__item.legend__item_active= obj.title
       
       
