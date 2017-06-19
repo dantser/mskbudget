@@ -62,18 +62,17 @@
 
 		.analityc-select {
 			display: inline-block;
+			padding-top: 3px;
 			margin-right: 10px;
 
 			&:last-child {
 				margin-right: 0;
 			}
 
-			&_year {
+			&_year,
+			&_month {
 				width: 56px;
-			}
-			
-			&_unit { //
-				width: 56px;
+				background-position: 81%;
 			}
 
 			&_stage {
@@ -125,6 +124,7 @@
 		.analityc-select {
 			display: block;
 			width: 100%;
+			padding-top: 3px;
 			margin-top: 7px;
 
 			&_transfer {
@@ -181,15 +181,18 @@
 
 			& a {
 		    padding: 0 30px;
+		    padding-top: 3px;
         font-size: 13px;
 			}
 
 			&_graphic {
 				& a {
 		    	padding: 0 13px;
+		    	padding-top: 3px;
 
 		    	&:first-child {
     		    padding: 0 17px;
+		        padding-top: 3px;
 		    	}
 		  	}
 			}
@@ -235,19 +238,63 @@
 	    width: 21px;
 	    height: 21px;
 	    vertical-align: middle;
-	    margin-right: 6px;
-
-	    background: #a870d5;
-	    background-image: -webkit-linear-gradient(right,#8449b4,#a870d5 65%);
-	    background-image: linear-gradient(270deg,#8449b4,#a870d5 65%);
+	    margin-right: 14px;
 	  }
 
 	  &__circle {
 	    border-radius: 50%;
+
+		  &_violet {
+		    background: #0051d0;
+		    background-image: -webkit-linear-gradient(right,rgb(97,34,146),rgb(189,132,233), 65%);
+		    background-image: linear-gradient(-90deg,rgb(97,34,146),rgb(189,132,233) 65%);
+		  }
+
+		  &_gray {
+		    background: #838a9a;
+		    background-image: -webkit-linear-gradient(left,rgb(213,216,222),rgb(131,138,154) 65%);
+		    background-image: linear-gradient(90deg,rgb(213,216,222),rgb(131,138,154) 65%);
+		  }
+
+		  &_green {
+		    background: #32b168;
+		    background-image: -webkit-linear-gradient(left,rgb(50,209,151),rgb(17,163,96) 65%);
+		    background-image: linear-gradient(90deg,rgb(50,209,151),rgb(17,163,96) 65%);
+		  }
+
+		  &_pink {
+		    background: #612292;
+		    background-image: -webkit-linear-gradient(top,rgb(255,105,91),rgb(157,48,138) 65%);
+		    background-image: linear-gradient(180deg, rgb(255,105,91),rgb(157,48,138) 65%);
+		  }
+
+		  &_greenyellow {
+		    background: #11a360;
+		    background-image: -webkit-linear-gradient(top,rgb(254,227,0),rgb(48,176,105) 65%);
+		    background-image: linear-gradient(180deg, rgb(254,227,0),rgb(48,176,105) 65%);
+		  }
+
+		  &_blue {
+		    background: #021398;
+		    background-image: -webkit-linear-gradient(right,rgb(0,255,255),rgb(0,76,207) 65%);
+		    background-image: linear-gradient(270deg, rgb(0,255,255),rgb(0,76,207) 65%);
+		  }
 	  }
 
 	  &__icon {
 
+			&_pink {
+				background: url(../images/depfin-analytics-gp/pink.png) 50% 50% no-repeat;
+			}
+			&_violet {
+				background: url(../images/depfin-analytics-gp/violet.png) 50% 50% no-repeat;
+			}
+			&_blue {
+				background: url(../images/depfin-analytics-gp/blue.png) 50% 50% no-repeat;
+			}
+			&_greenyellow {
+				background: url(../images/depfin-analytics-gp/greenyellow.png) 50% 50% no-repeat;
+			}
 	  }
 
 	  &__label {
