@@ -5,10 +5,12 @@ import question from '../blocks/question/question';
 import questions from '../components/questions/questions';
 import lkNav from '../blocks/lk-nav/lkNav';
 import regions from '../components/regions/regions';
-import searchPage from '../components/search/searchPage';
+import searchForm from '../components/searchForm/searchForm';
 import sources from '../components/budget_moscow_sources/budget_moscow_sources';
 import govProgram from '../components/services_gov_program/services_gov_program';
 import analyticsMain from '../components/depfin-analytics-main/depfin-analytics-main';
+import budgetCalcPage from '../pages/depfin_services_budget_calc/depfin_services_budget_calc';
+import budgetCalcApp from '../components/budget-calc-app/budget-calc-app';
 
 $(() => {
   selectbox();
@@ -17,8 +19,10 @@ $(() => {
   lkNav();
   regions();
   tabs();
-  searchPage();
+  searchForm();
   sources();
   govProgram();
   analyticsMain();
+  budgetCalcPage();
+  budgetCalcApp();
 });

@@ -203,6 +203,38 @@ mixin analityc-graphics-line-vertical(data, gp)
           +e.STRONG.caption-year= item.year
           +e.SPAN.caption-text= item.text
 
+mixin analityc-graphics-line-vertical-alt(data)
+  +b.analityc-graphics-line-vertical._alt&attributes(attributes)
+
+    each item in data
+      +e.graphic
+        +e.lines
+
+          +e.line._red
+            +e.line-bar-value= item.values[0]
+            +e.line-fill
+          +e.line._green
+            +e.line-bar-value= item.values[1]
+            +e.line-fill
+          +e.line._pink
+            +e.line-bar-value= item.values[2]
+            +e.line-fill
+          +e.line._grey
+            +e.line-bar-value= item.values[3]
+            +e.line-fill
+          +e.line._altblue
+            +e.line-bar-value= item.values[4]
+            +e.line-fill
+          +e.line._lightgreen
+            +e.line-bar-value= item.values[5]
+            +e.line-fill
+          +e.line._blue
+            +e.line-bar-value= item.values[6]
+            +e.line-fill
+
+        +e.caption
+          +e.STRONG.caption-year= item.year
+          +e.SPAN.caption-text= item.text
 
 mixin analityc-graphics-classic()
   +b.analityc-graphics-classic&attributes(attributes)
@@ -215,10 +247,3 @@ mixin analityc-graphics-custom1()
 mixin analityc-graphics-custom2()
   +b.analityc-graphics-custom&attributes(attributes)
     //- реализация на js
-
-
-
-
-
-
-

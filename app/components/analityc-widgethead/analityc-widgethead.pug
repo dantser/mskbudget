@@ -199,6 +199,199 @@ mixin analityc-widgethead-sources(type)
     .analityc-control-group._dp
       input(placeholder="22.04.2017").datepicker
 
+mixin analityc-widgethead-analityc-income()
+  +b.analityc-widgethead._income&attributes(attributes)
+
+    .analityc-control-frame.analityc-control-frame_left
+      span.analityc-control-frame-title Выберите год и этап
+      .analityc-control-group
+        a(href='#').analityc-remove-group
+          +icon('basket', true)
+        select.analityc-select.analityc-select_year
+          option 2018
+          option 2017
+          option 2016
+          option(selected) 2015
+        select.analityc-select.analityc-select_month
+          option(selected) год
+          option январь
+          option февраль
+          option март
+          option апрель
+          option май
+          option июнь
+          option июль
+          option август
+          option сентябрь
+          option октябрь
+          option ноябрь
+          option декабрь
+        select.analityc-select.analityc-select_stage
+          option(selected) Фактическое исполнение
+          option Закон о бюджете (утвержденный)
+      .analityc-control-group
+        a(href='#').analityc-remove-group
+          +icon('basket', true)
+        select.analityc-select.analityc-select_year
+          option 2018
+          option 2017
+          option(selected) 2016
+          option 2015
+        select.analityc-select.analityc-select_month
+          option(selected) год
+          option январь
+          option февраль
+          option март
+          option апрель
+          option май
+          option июнь
+          option июль
+          option август
+          option сентябрь
+          option октябрь
+          option ноябрь
+          option декабрь
+        select.analityc-select.analityc-select_stage
+          option(selected) Фактическое исполнение
+          option Закон о бюджете (утвержденный)
+      .analityc-control-group
+        a(href='#').analityc-remove-group
+          +icon('basket', true)
+        select.analityc-select.analityc-select_year
+          option 2018
+          option(selected) 2017
+          option 2016
+          option 2015
+        select.analityc-select.analityc-select_month
+          option(selected) год
+          option январь
+          option февраль
+          option март
+          option апрель
+          option май
+          option июнь
+          option июль
+          option август
+          option сентябрь
+          option октябрь
+          option ноябрь
+          option декабрь
+        select.analityc-select.analityc-select_stage
+          option Фактическое исполнение
+          option(selected) Закон о бюджете (утвержденный)
+
+      .analityc-control-group
+        a(href='#').analityc-remove-group
+          +icon('basket', true)
+        select.analityc-select.analityc-select_year
+          option(selected) 2018
+          option 2017
+          option 2016
+          option 2015
+        select.analityc-select.analityc-select_month
+          option(selected) год
+          option январь
+          option февраль
+          option март
+          option апрель
+          option май
+          option июнь
+          option июль
+          option август
+          option сентябрь
+          option октябрь
+          option ноябрь
+          option декабрь
+        select.analityc-select.analityc-select_stage
+          option Фактическое исполнение
+          option(selected) Закон о бюджете (утвержденный)
+      a(href='#').analityc-add-group + Добавить год и этап
+
+    .analityc-control-frame.analityc-control-frame_right
+      .frame-wrap
+        .analityc-control-group.analityc-control-group_level
+          span Уровень
+          select.analityc-select
+            option(selected) Бюджет москвы
+            option Бюджет области
+            option Бюджет региона
+            option Консолидированный бюджет
+
+        .analityc-control-group.analityc-control-group_transfer
+          span Классификация доходов
+          select.analityc-select
+            option(selected) Виды
+            option с трансфертами
+            
+      .analityc-control-group.analityc-control-group_comparison
+        span Режим сравнения
+        select.analityc-select
+          option(selected) Общий анализ основных видов доходов
+          option Сравнительный анализ доходов по выбору
+      .d-smr__add-char
+          p.d-smr__add-char-label Добавить показатель на страницу
+          .d-smr__add-char-block
+            ul.d-smr__add-char-list.scroll-pane
+              li.d-smr__add-char-item
+                input(type='checkbox', name='a', value)#a
+                label(for='a') НАЛОГОВЫЕ ДОХОДЫ - всего в том числе:
+                ul.d-smr__char-sublist
+                  li.d-smr__add-char-item
+                    input(type='checkbox', name='aa', value='aa')#aa
+                    label(for='aa') Налог на прибыль
+                  li.d-smr__add-char-item
+                    input(type='checkbox', name='ab', value='ab')#ab
+                    label(for='ab') Налог на доходы физ.лиц
+                  li.d-smr__add-char-item
+                    input(type='checkbox', name='ac', value='ac')#ac
+                    label(for='ac') Акцизы
+                  li.d-smr__add-char-item
+                    input(type='checkbox', name='ad', value='ad')#ad
+                    label(for='ad') из них: нефтепродукты
+                  li.d-smr__add-char-item
+                    input(type='checkbox', name='ae', value='ae')#ae
+                    label(for='ae') Единый упрощенный доход
+                  li.d-smr__add-char-item
+                    input(type='checkbox', name='ae', value='ae')#af
+                    label(for='ae') Единый вмененный доход
+                  li.d-smr__add-char-item
+                    input(type='checkbox', name='ae', value='ae')#ag
+                    label(for='ae') Налог на имущество организаций
+                  li.d-smr__add-char-item
+                    input(type='checkbox', name='ae', value='ae')#ah
+                    label(for='ae') Транспортный налог
+                  li.d-smr__add-char-item
+                    input(type='checkbox', name='ae', value='ae')#ai
+                    label(for='ae') Налог на игорный бизнес
+                  li.d-smr__add-char-item
+                    input(type='checkbox', name='ae', value='ae')#aj
+                    label(for='ae') Госпошлина
+                  li.d-smr__add-char-item
+                    input(type='checkbox', name='ae', value='ae')#ak
+                    label(for='ae') Прочие налоги
+                  li.d-smr__add-char-item
+                    input(type='checkbox', name='ae', value='ae')#al
+                    label(for='ae') Задолженность по отмененным налогам
+              li.d-smr__add-char-item
+                input(type='checkbox', name='b', value)#b
+                label(for='b') НЕНАЛОГОВЫЕ ДОХОДЫ - всего в том числе:
+                ul.d-smr__char-sublist
+                  li.d-smr__add-char-item
+                    input(type='checkbox', name='ba', value='ba')#ba
+                    label(for='ba') Дивиденды
+                  li.d-smr__add-char-item
+                    input(type='checkbox', name='bb', value='bb')#bb
+                    label(for='bb') Расходы в расчёте на 1 жителя
+                  li.d-smr__add-char-item
+                    input(type='checkbox', name='bc', value='bc')#bc
+                    label(for='bc') Общегосударственные вопросы
+      .analityc-control-group.analityc-control-group_buttons
+        .analityc-control-switcher.analityc-control-switcher_large.active
+          
+          a(href="#" data-type='classic') темп роста к предыдущему периоду, %
+          a(href="#" data-type='line').active доля в общей сумме, %
+          a(href="#" data-type='done') % исполнения
+
 //- Гос. программы
 mixin analityc-widgethead-gp()
   +b.analityc-widgethead&attributes(attributes)
@@ -214,12 +407,13 @@ mixin analityc-widgethead-gp()
           option 2017
           option 2016
           option(selected) 2015
-        select.analityc-select.analityc-select_unit //
+        select.analityc-select.analityc-select_unit
           option(selected) Год
           option Unit#1
         select.analityc-select.analityc-select_stage
           option(selected) Фактическое исполнение
           option Закон о бюджете (утвержденный)
+
       .analityc-control-group
         a(href='#').analityc-remove-group
           +icon('basket', true)
@@ -234,6 +428,7 @@ mixin analityc-widgethead-gp()
         select.analityc-select.analityc-select_stage
           option(selected) Фактическое исполнение
           option Закон о бюджете (утвержденный)
+
       .analityc-control-group
         a(href='#').analityc-remove-group
           +icon('basket', true)
@@ -248,6 +443,7 @@ mixin analityc-widgethead-gp()
         select.analityc-select.analityc-select_stage
           option(selected) Фактическое исполнение
           option Закон о бюджете (утвержденный)
+
       .analityc-control-group
         a(href='#').analityc-remove-group
           +icon('basket', true)
@@ -262,6 +458,7 @@ mixin analityc-widgethead-gp()
         select.analityc-select.analityc-select_stage
           option(selected) Фактическое исполнение
           option Закон о бюджете (утвержденный)
+          
       .analityc-control-group
         a(href='#').analityc-remove-group
           +icon('basket', true)
@@ -311,3 +508,4 @@ mixin analityc-widgethead-gp()
           a(href="#").active Темп роста к пред. периоду, млрд руб.
           a(href="#") Доля в общей суммы,%
           a(href="#") % исполнения
+

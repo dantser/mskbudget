@@ -1,0 +1,59 @@
+extends ../../layouts/default
+include ../../components/page-header/page-header
+include ../../components/budget-calc-app/budget-calc-app
+
+block head
+  - var pageTitle = 'бюджетный калькулятор города Москвы'
+
+block page
+  block header
+    +header()._budget
+
+  block sections
+    +sections
+
+      block content
+        +b.budget-calc-page.sections__item
+          .over-layer
+            .wrap.wrap_sh
+              +e.ahead.ahead
+                +page-header('бюджетный калькулятор города Москвы', ['Сервисы']).__page-header
+
+              +e.tabs#budget-calc__tabs
+                +e.tab._intro.js-budget-calc__tab#budget-calc__tab_intro
+                  +e.header-desc Бюджетный калькулятор города Москвы — это образовательный инструмент, который позволит любому гражданину принять участие в виртуальном планировании бюджета города Москвы и в упрощенной форме демонстрирует принципы бюджетного планирования.
+                  +e.intro-icon calendar icon
+                  +e.intro-text
+                    p Бюджетный калькулятор города Москвы — это образовательный инструмент, который позволит любому гражданину принять участие в виртуальном планировании бюджета города Москвы и в упрощенной форме демонстрирует принципы бюджетного планирования.
+                    +budget-calc-btn('Начать').js-budget-calc__tab-control(href="#budget-calc__tab_app")
+
+                +e.tab.js-budget-calc__tab#budget-calc__tab_app.is-active
+                  +e.switch
+                    +e.A.switch-link.is-active(href="#") Мое предложение
+                    +e.A.switch-link(href="#") ПРЕДЛОЖЕНИЯ ПОЛЬЗОВАТЕЛЕЙ
+                  +budget-calc-app()
+        +footer()
+        //- +button-top()
+
+  +popup-wrapper()
+
+  script(src="assets/scripts/js/jquery-3.1.1.min.js")
+  script(src="assets/scripts/js/library.js")
+  script(src="assets/scripts/js/header/easing.min.js")
+  script(src="assets/scripts/js/header/swipe.min.js")
+  script(src="assets/scripts/js/header/slick.min.js")
+  script(src="assets/scripts/js/header/jquery-ui.min.js")
+  script(src="assets/scripts/js/header/sections.min.js")
+  script(src="assets/scripts/js/header/cube.min.js")
+  script(src="assets/scripts/js/header/animation.min.js")
+  script(src="assets/scripts/js/header/label.min.js")
+  script(src="assets/scripts/js/header/select.min.js")
+  script(src="assets/scripts/js/header/popup.min.js")
+  script(src="assets/scripts/js/header/share.min.js")
+  script(src="assets/scripts/js/header/form.min.js")
+  script(src="assets/scripts/js/header/letter.min.js")
+  script(src="assets/scripts/js/header/common.min.js")
+  script(src="assets/scripts/js/header/diagram.min.js")
+  script(src="assets/scripts/js/owl.carousel.min.js")
+  script(src="assets/scripts/js/script.js")
+  script(src="assets/scripts/js/ez.js")

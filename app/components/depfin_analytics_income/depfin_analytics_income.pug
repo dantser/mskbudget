@@ -1,0 +1,52 @@
+include ../page-header/page-header
+include ../analityc-widgethead/analityc-widgethead
+include ../analityc-graphics/analityc-graphics
+include ../analityc-table/analityc-table
+include ../../blocks/table/table
+include ../../blocks/checkbox/checkbox
+include ../../blocks/legend/legend
+
+mixin depfin_analytics_income()
+	.main._basic._analitycs-income
+		section.basic-budget
+			.wrapper.wrapper_params
+				+page-header('Доходы бюджета', false, true)
+
+				// Tab 1
+				.analityc-widget.analityc-widget_params
+					+analityc-widgethead-analityc-income()
+					.analityc-widget-sources
+						+analityc-graphics-line-vertical-alt(getData('graphic-lines-analityc-income'))
+						+legend-checkbox(getData('legend-analityc-income'))
+					+analityc-table()._params
+						+table-aincome(getData('main'))
+
+					a(href="/").analityc-more Перейти в&nbsp;раздел бюжет москвы
+
+
+			// Dropdown block
+			.dropdown-block
+				.dropdown
+					.dropdown-trigger
+						.wrapper
+							span
+								strong Документы
+				.dropdown-content
+					.wrapper
+						span Документы
+				.dropdown
+					.dropdown-trigger
+						.wrapper
+							span
+								strong Новости по&nbsp;теме
+				.dropdown-content
+					.wrapper
+						span Новости
+				.dropdown
+					.dropdown-trigger
+						.wrapper
+							span
+								strong Сервисы
+				.dropdown-content
+					.wrapper
+						span Сервисы

@@ -1,48 +1,18 @@
-.news-page {
-  display: block;
-  background-image: url(../images/bg-news.jpg);
-  background-size: cover;
-  background-position: center 0;
-  padding-top: 207px;
-  
-  &__header {
-    position: relative;
-    
-    .page-header {
-      display: inline-block;
-    }
-  }
-  
-  &__subscribe {
-    position: absolute;
-    right: 0;
-    top: 25px;
-  }
-  
-  &__search-field {
-    margin-top: 32px;
-    margin-right: -20px;
-    margin-bottom: 35px;
+.search {
+  display: inline-block;
+  vertical-align: super;
+  margin-right: 21px;
 
-    @media (max-width: 450px) {
-      margin-bottom: 15px;
-    }
-  }
-
-  .d-si__search-form {
-    vertical-align: super;
-
-    @media (max-width: 1280px) {
-      width: 100%;
-      margin-right: 0;
-      display: block;
-    }
+  @media (max-width: 1280px) {
+    width: 100%;
+    margin-right: 0;
+    display: block;
   }
 
   &__search-line {
     display: inline-block;
     position: relative;
-    margin-right: 13px;
+    margin-right: 20px;
 
     @media (max-width: 1280px) {
       width: 100%;
@@ -52,10 +22,10 @@
   }
 
   .d-si__search {
-    width: 830px;
+    width: 771px;
     border-color: rgba(255, 255, 255, .5);
     float: none;
-    font-size: 18px;
+    font-size: 30px;
     padding-bottom: 7px;
     letter-spacing: 0.3px;
 
@@ -73,8 +43,8 @@
     }
 
     &::placeholder {
-      color: rgba($color-white, .2);
-      font-size: 18px;
+      color: $color-white;
+      font-size: 30px;
       font-weight: 400;
       font-family: $PFDinTextPro;
 
@@ -93,7 +63,7 @@
   }
 
   .d-si__submit {
-    top: 4px;
+    top: 18px;
 
     @media (min-width: 451px) and (max-width: 700px) {
       top: 12px;
@@ -159,7 +129,7 @@
       display: block;
     }
   }
-// extra-search start
+
   .extra-search, .tags {
     display: none;
     position: absolute;
@@ -374,7 +344,7 @@
       margin-bottom: 21px;
       margin-left: -2px;
     }
-// date
+
 
     .form__date-range {
       margin-bottom: 18px;
@@ -420,7 +390,6 @@
     .form__date-range-icon::before {
       background-position: -209px -117px;
     }
-// date end
     .checkbox {
       font-family: $PFDinTextPro;
 
@@ -459,9 +428,5 @@
       font-weight: 400;
       vertical-align: middle;
     }
-  }
-  
-  &__buttons-set {
-    margin-top: 71px;
   }
 }
