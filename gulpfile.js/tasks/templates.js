@@ -29,4 +29,3 @@ gulp.task('templates', () => (
     .pipe(rename({ dirname: '.' }))
     .pipe(gulp.dest('dist'))
 ));
-

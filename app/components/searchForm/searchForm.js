@@ -7,23 +7,6 @@ export default () => {
   const OPEN_ICON = $('.js-icon');
   const ACTIVE_CLASS = 'active';
 
-  if (!TABS_LINK || !CLOSE_MODAL || !OPEN_ICON) {
-    return;
-  }
-
-//   //polyfill
-//   (function(e){
-//    e.closest = e.closest || function(css){
-//      var node = this;
-//
-//      while (node) {
-//         if (node.matches(css)) return node;
-//         else node = node.parentElement;
-//      }
-//      return null;
-//    }
-//
-// })(Element.prototype);
   TABS_LINK.each( function () { // eslint-disable-line
     const EL = $(this);
 

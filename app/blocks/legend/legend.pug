@@ -1,4 +1,17 @@
+include ../icon/icons
+
 mixin legend(data)
   +b.legend&attributes(attributes)
     each obj in data
       +e.P(class="__item_"+obj.color+"")= obj.title
+
+mixin legend-checkbox(data)
+  +b.legend&attributes(attributes)
+    each obj in data
+      +b.LABEL.checkbox&attributes(attributes)
+        +e.box
+          +icon('icon-ok-ch').mark
+        +e.INPUT(type='checkbox', id='d-sii__chbox-s-first').control
+        p(class="legend__item legend__item_"+obj.color+"")= obj.title
+      
+      
