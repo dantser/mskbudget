@@ -1,0 +1,52 @@
+include ../../blocks/buttons-set/buttons-set
+include ../../blocks/news-card/news-card
+include ../../blocks/icon/icons
+include ../page-header/page-header
+include ../../blocks/button/button
+
+mixin mediaEvents()
+  +b.mediaEvents&attributes(attributes)
+    .wrapper.page-content-wrapper
+      +page-header('События', false, true)
+      +e.content
+        +e.FORM.search-group
+          +e.search-title Поиск по дате
+          // datepicker
+          .form__date-range(id='rid-0')
+            INPUT(type='text', value='дд.мм.гг').form__date-range-input.jq-f-datepicker.input-min
+            SPAN.form__date-range-sep —
+            INPUT(type='text', value='дд.мм.гг').form__date-range-input.jq-f-datepicker.input-max
+            SPAN.form__date-range-icon
+          +button(true)._kind_yellow Искать
+        +e.announcement
+          +e.H3.title Анонсы
+          +e.card-wrapper
+            .tile__item
+              +event-card(1, 'Русский Монмартр и акунинская Москва: бесплатные экскурсии ко дню города!', '1 апреля 2016')._big.tile__inner
+            .tile__item
+              +event-card(2, 'Русский Монмартр и акунинская Москва: бесплатные экскурсии ко дню города!', '1 апреля 2016')._big.tile__inner
+            .tile__item
+              +event-card(3, 'Возле лужников появится кафе с фонтаном-принтером', '1 апреля 2016')._big.tile__inner
+            .tile__item
+              +event-card(1, 'Русский Монмартр и акунинская Москва: бесплатные экскурсии ко дню города!', '1 апреля 2016')._big.tile__inner
+            .tile__item
+              +event-card(1, 'Русский Монмартр и акунинская Москва: бесплатные экскурсии ко дню города!', '1 апреля 2016')._big.tile__inner
+            .tile__item
+              +event-card(2, 'Русский Монмартр и акунинская Москва: бесплатные экскурсии ко дню города!', '1 апреля 2016')._big.tile__inner
+            .tile__item
+              +event-card(3, 'Возле лужников появится кафе  с фонтаном-принтером', '1 апреля 2016')._big.tile__inner
+            .tile__item
+              +event-card(1, 'Русский Монмартр и акунинская Москва: бесплатные экскурсии ко дню города!', '1 апреля 2016')._big.tile__inner
+        +e.previous
+          +e.H3.title Прошедшие события
+          +e.card-wrapper
+            .tile__item
+              +event-card(1, 'Русский Монмартр и акунинская Москва: бесплатные экскурсии ко дню города!', '1 апреля 2016')._big.tile__inner
+            .tile__item
+              +event-card(2, 'Русский Монмартр и акунинская Москва: бесплатные экскурсии ко дню города!', '1 апреля 2016')._big.tile__inner
+            .tile__item
+              +event-card(3, 'Возле лужников появится кафе  с фонтаном-принтером', '1 апреля 2016')._big.tile__inner
+            .tile__item
+              +event-card(1, 'Русский Монмартр и акунинская Москва: бесплатные экскурсии ко дню города!', '1 апреля 2016')._big.tile__inner
+        +e.A(href="#").show-more.d-si__button_show-more Показать еще
+        

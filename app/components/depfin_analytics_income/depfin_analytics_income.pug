@@ -15,13 +15,13 @@ mixin depfin_analytics_income()
 				// Tab 1
 				.analityc-widget.analityc-widget_params.analityc-widget_params-income
 					+analityc-widgethead-analityc-income()
-					.analityc-widget-income.analityc-widget-income_pace._active
+					.analityc-widget-income.analityc-widget-income_pace(data-filter='pace')
 						+analityc-graphics-line-vertical-alt(getData('graphic-lines-analityc-income'))
 						+legend-checkbox(getData('legend-analityc-income'))
-					.analityc-widget-income.analityc-widget-income_share
+					.analityc-widget-income.analityc-widget-income_share(data-filter='share')
 						+analityc-graphics-bars(getData('legend-analityc-bar1'))
 						+legend-checkbox(getData('legend-analityc-income'))
-					.analityc-widget-income.analityc-widget-income_done
+					.analityc-widget-income.analityc-widget-income_done(data-filter='done')
 						+analityc-graphics-bars(getData('legend-analityc-bar2'))
 						+legend-checkbox(getData('legend-analityc-income'))
 					.analityc-widget-income.analityc-widget-income_year
