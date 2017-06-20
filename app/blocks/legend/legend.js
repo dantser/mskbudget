@@ -1,7 +1,12 @@
 import $ from 'jquery';
 
 export default () => {
-const LABEL = $('.checkbox');
+const LABEL = $('.legend_checkbox .checkbox');
+const REMOVE_LINK = $('.legend__remove');
+
+  if (!LABEL || !REMOVE_LINK) {
+    return
+  }
 
   LABEL.each( function (e) {
     const EL = $(this);
@@ -12,6 +17,15 @@ const LABEL = $('.checkbox');
       } else {
         EL.removeClass(ACTIVECLASS);
       }
-    });
+    })
+  });
+
+  REMOVE_LINK.each( function () {
+
+    const EL = $(this);
+    EL.on('click', (e) => {
+      e.preventDefault();
+      EL.parent('.legend__item').hide();
+    })
   })
 }

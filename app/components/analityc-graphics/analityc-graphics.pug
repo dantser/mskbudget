@@ -264,7 +264,6 @@ mixin analityc-graphics-bars(data)
         +e.caption
           +e.STRONG.caption-year= item.year
           +e.SPAN.caption-text= item.text
-  +legend(getData('legend-analityc-income')).analityc-graphics__legend
 mixin analityc-graphics-bars-year(data)
   +b.analityc-graphics-bars&attributes(attributes)
 
@@ -289,8 +288,35 @@ mixin analityc-graphics-bars-year(data)
         +e.caption
           +e.STRONG.caption-year= item.year
           +e.SPAN.caption-text= item.text
-  +legend(getData('legend-analityc-income')).analityc-graphics__legend
+          
+mixin analityc-graphics-bars-alt(data)
+  +b.analityc-graphics-bars&attributes(attributes)
 
+    each item in data
+      +e.graphic
+        +e.lines
+
+          +e.line
+            if item.value
+              +e.line-bar-value= item.value
+              +e.line-fill._green
+                +e.val= item.values[1]
+              +e.line-fill._red
+                +e.val= item.values[0]
+            if item.change
+              +e.line-fill._transparentgreen
+                +e.val= item.change[3]
+                +e.val= item.change[2]
+              +e.line-fill._transparentred
+                +e.val= item.change[1]
+                +e.val= item.change[0]
+          if item.changes
+            +e.changes
+              +e.abs= item.changes[0]
+              +e.percent= item.changes[1]
+        +e.caption
+          +e.STRONG.caption-year= item.year
+          +e.SPAN.caption-text= item.text
 mixin analityc-graphics-classic()
   +b.analityc-graphics-classic&attributes(attributes)
     //- реализация на js

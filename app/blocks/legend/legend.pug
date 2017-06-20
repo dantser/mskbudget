@@ -13,5 +13,11 @@ mixin legend-checkbox(data)
         +e.box
           +icon('icon-ok-ch').mark
         p(class="legend__item_"+obj.color+"").legend__item.legend__item_active= obj.title
-      
+
+mixin legend-basket(data)
+  +b.legend._basket&attributes(attributes)
+    each obj in data
+      +e.P(class="__item_"+obj.color+"")= obj.title
+        +e.A(href="#").remove
+          +icon('basket').icon
       
