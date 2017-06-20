@@ -13,7 +13,8 @@ mixin quiz-task()
       .d-min-layer
         form(action="#").d-si__search-form
           input(type="text", placeholder="Поиск").d-si__search
-          +icon('search').glass
+          button(type='submit')
+            +icon('search').glass
         .d-si.d-si__quiz
           - for (var i = 0; i < 5; i++)
             .d-si__quiz_item
@@ -23,4 +24,3 @@ mixin quiz-task()
                 | участвовать
                 i.fa.fa-angle-right
         a(href="#").d-si__button_show-more показать еще
-
