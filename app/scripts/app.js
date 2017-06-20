@@ -13,6 +13,7 @@ import budgetCalcPage from '../pages/depfin_services_budget_calc/depfin_services
 import legend from '../blocks/legend/legend';
 import budgetCalcApp from '../components/budget-calc-app/budget-calc-app';
 import newsFilter from '../components/news/newsFilter';
+import range from '../blocks/range/range'; // range-slider input для калькулятора бюджета
 
 $(() => {
   selectbox();
@@ -29,4 +30,5 @@ $(() => {
   budgetCalcPage();
   budgetCalcApp();
   newsFilter();
+  range();
 });

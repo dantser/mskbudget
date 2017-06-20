@@ -1,4 +1,5 @@
 include ../../blocks/tooltip-icon/tooltip-icon
+include ../../blocks/range/range
 
 mixin budget-calc-btn(text)
   +b.A.budget-calc-btn(href="#")&attributes(attributes) #{text}
@@ -77,7 +78,8 @@ mixin budget-calc-app()
                 +e.incomes-expand-column
               +e.incomes-expand-row
                 +e.incomes-expand-column Все налогоплательщики
-                +e.incomes-expand-column range
+                +e.incomes-expand-column
+                  +range()
                 +e.incomes-expand-column
               +e.incomes-expand-row
                 +e.incomes-expand-column Льготные категории налогоплательщиков:
@@ -97,18 +99,217 @@ mixin budget-calc-app()
       +e.tab._costs.js-budget-calc-app__tab#budget-calc-app__tab_costs(data-state-indicator="#budget-calc-app__tab_costs-indicator")
         +e.heading РАСХОДЫ НА ГОСУДАРСТВЕННЫЕ ПРОГРАММЫ
         +e.costs
-          each _ in Array(15)
-            +e.costs-item
-              +e.costs-item-icon icon
-              +e.A.costs-item-link(href="#") РАЗВИТИЕ ТРАНСПОРТНОЙ СИСТЕМЫ
-              +e.costs-item-value
-                span 464 732,0
-                |  млн руб.
-              +e.costs-item-initial
-                | Исходное значение:
-                span 71 271,9
-              +e.costs-item-range
-              +e.costs-item-expand testing
+          +e.costs-item
+            +e.costs-item-icon
+              +icon('wifi').icon
+            +e.A.costs-item-link(href="#")
+              +e.costs-item-link-text РАЗВИТИЕ ТРАНСПОРТНОЙ СИСТЕМЫ
+            +e.costs-item-value
+              span 464 732,0
+              |  млн руб.
+            +e.costs-item-initial
+              | Исходное значение:
+              span 71 271,9
+            +e.costs-item-range
+              | range
+            +e.costs-item-expand testing
+          +e.costs-item
+            +e.costs-item-icon
+              +icon('health-cross').icon
+            +e.A.costs-item-link(href="#")
+              +e.costs-item-link-text столичное здравоохранение
+            +e.costs-item-value
+              span 464 732,0
+              |  млн руб.
+            +e.costs-item-initial
+              | Исходное значение:
+              span 71 271,9
+            +e.costs-item-range
+              | range
+            +e.costs-item-expand testing
+          +e.costs-item
+            +e.costs-item-icon
+              +icon('study').icon
+            +e.A.costs-item-link(href="#")
+              +e.costs-item-link-text столичное образование
+            +e.costs-item-value
+              span 464 732,0
+              |  млн руб.
+            +e.costs-item-initial
+              | Исходное значение:
+              span 71 271,9
+            +e.costs-item-range
+              | range
+            +e.costs-item-expand testing
+          +e.costs-item
+            +e.costs-item-icon
+              +icon('health-care').icon
+            +e.A.costs-item-link(href="#")
+              +e.costs-item-link-text СОЦИАЛЬНАЯ ПОДДЕРЖКА ЖИТЕЛЕЙ ГОРОДА москвы
+            +e.costs-item-value
+              span 464 732,0
+              |  млн руб.
+            +e.costs-item-initial
+              | Исходное значение:
+              span 71 271,9
+            +e.costs-item-range
+              | range
+            +e.costs-item-expand testing
+          +e.costs-item
+            +e.costs-item-icon
+              +icon('home').icon
+            +e.A.costs-item-link(href="#")
+              +e.costs-item-link-text жилище
+            +e.costs-item-value
+              span 464 732,0
+              |  млн руб.
+            +e.costs-item-initial
+              | Исходное значение:
+              span 71 271,9
+            +e.costs-item-range
+              | range
+            +e.costs-item-expand testing
+          +e.costs-item
+            +e.costs-item-icon
+              +icon('light').icon
+            +e.A.costs-item-link(href="#")
+              +e.costs-item-link-text РАЗВИТИЕ КОММУНАЛЬНО-ИНЖЕНЕРНОЙ ИНФРАСТРУКТУРЫ И ЭНЕРГОСБЕРЕЖЕНИЕ
+            +e.costs-item-value
+              span 464 732,0
+              |  млн руб.
+            +e.costs-item-initial
+              | Исходное значение:
+              span 71 271,9
+            +e.costs-item-range
+              | range
+            +e.costs-item-expand testing
+          +e.costs-item
+            +e.costs-item-icon
+              +icon('paint').icon
+            +e.A.costs-item-link(href="#")
+              +e.costs-item-link-text КУЛЬТУРА МОСКВЫ
+            +e.costs-item-value
+              span 464 732,0
+              |  млн руб.
+            +e.costs-item-initial
+              | Исходное значение:
+              span 71 271,9
+            +e.costs-item-range
+              | range
+            +e.costs-item-expand testing
+          +e.costs-item
+            +e.costs-item-icon
+              +icon('football').icon
+            +e.A.costs-item-link(href="#")
+              +e.costs-item-link-text спорт МОСКВЫ
+            +e.costs-item-value
+              span 464 732,0
+              |  млн руб.
+            +e.costs-item-initial
+              | Исходное значение:
+              span 71 271,9
+            +e.costs-item-range
+              | range
+            +e.costs-item-expand testing
+          +e.costs-item
+            +e.costs-item-icon
+              +icon('darts').icon
+            +e.A.costs-item-link(href="#")
+              +e.costs-item-link-text открытое правительство
+            +e.costs-item-value
+              span 464 732,0
+              |  млн руб.
+            +e.costs-item-initial
+              | Исходное значение:
+              span 71 271,9
+            +e.costs-item-range
+              | range
+            +e.costs-item-expand testing
+          +e.costs-item
+            +e.costs-item-icon
+              //- +icon('briefcase').icon
+            +e.A.costs-item-link(href="#")
+              +e.costs-item-link-text РАЗВИТИЕ ИНДУСТРИИ ОТДЫХА И ТУРИЗМА
+            +e.costs-item-value
+              span 464 732,0
+              |  млн руб.
+            +e.costs-item-initial
+              | Исходное значение:
+              span 71 271,9
+            +e.costs-item-range
+              | range
+            +e.costs-item-expand testing
+          +e.costs-item
+            +e.costs-item-icon
+              +icon('safe-shield').icon
+            +e.A.costs-item-link(href="#")
+              +e.costs-item-link-text безопастный город
+            +e.costs-item-value
+              span 464 732,0
+              |  млн руб.
+            +e.costs-item-initial
+              | Исходное значение:
+              span 71 271,9
+            +e.costs-item-range
+              | range
+            +e.costs-item-expand testing
+          +e.costs-item
+            +e.costs-item-icon
+              +icon('wifi').icon
+            +e.A.costs-item-link(href="#")
+              +e.costs-item-link-text информационный город
+            +e.costs-item-value
+              span 464 732,0
+              |  млн руб.
+            +e.costs-item-initial
+              | Исходное значение:
+              span 71 271,9
+            +e.costs-item-range
+              | range
+            +e.costs-item-expand testing
+          +e.costs-item
+            +e.costs-item-icon
+              +icon('briefcase').icon
+            +e.A.costs-item-link(href="#")
+              +e.costs-item-link-text ЭКОНОМИЧЕСКОЕ РАЗВИТИЕ И ИНВЕСТИЦИОННАЯ ПРИВЛЕКАТЕЛЬНОСТЬ ГОРОДА МОСКВЫ
+            +e.costs-item-value
+              span 464 732,0
+              |  млн руб.
+            +e.costs-item-initial
+              | Исходное значение:
+              span 71 271,9
+            +e.costs-item-range
+              | range
+            +e.costs-item-expand testing
+          +e.costs-item
+            +e.costs-item-icon
+              +icon('crane').icon
+            +e.A.costs-item-link(href="#")
+              +e.costs-item-link-text ГРАДОСТРОИТЕЛЬНАЯ ПОЛИТИКА
+            +e.costs-item-value
+              span 464 732,0
+              |  млн руб.
+            +e.costs-item-initial
+              | Исходное значение:
+              span 71 271,9
+            +e.costs-item-range
+              | range
+            +e.costs-item-expand testing
+          +e.costs-item
+            +e.costs-item-icon
+              //- +icon('crane').icon
+            +e.A.costs-item-link(href="#")
+              +e.costs-item-link-text НЕПРОГРАММНЫЕ РАСХОДЫ
+            +e.costs-item-value
+              span 464 732,0
+              |  млн руб.
+            +e.costs-item-initial
+              | Исходное значение:
+              span 71 271,9
+            +e.costs-item-range
+              | range
+            +e.costs-item-expand testing
+
         +budget-calc-btn('сохранить и перейти в раздел «дефицит/процифит»')._costs._arrow-right.js-budget-calc-app__tab-control(data-target="#budget-calc-app__tab_balance" href="#")
 
       +e.tab._balance.js-budget-calc-app__tab#budget-calc-app__tab_balance(data-state-indicator="#budget-calc-app__tab_balance-indicator")

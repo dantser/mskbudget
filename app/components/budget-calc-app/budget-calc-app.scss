@@ -232,6 +232,8 @@
 
       &-row {
         @include incomes-table-row;
+        padding-top: 35px;
+        padding-bottom: 25px;
         border-bottom: 1px solid #dddddc;
       }
 
@@ -256,25 +258,37 @@
       width: 33.33%;
 
       &-icon {
+        position: relative;
+        overflow: hidden;
+        width: 50px;
+        height: 50px;
 
+        .icon,
+        svg {
+          max-width: 100%;
+          max-height: 100%;
+        }
       }
 
       &-link {
         display: inline-block;
-        margin-top: 10px;
+        padding-top: 10px;
+        padding-bottom: 5px;
         font-family: $PFDinCondensedPro;
         font-size: 16px;
-        line-height: 1;
+        line-height: 24px;
         font-weight: 500;
         font-style: normal;
         text-decoration: none;
         text-transform: uppercase;
         color: #0d46a1;
-        border-bottom: 1px dashed rgba(#0d46a1, .5);
+
+        &-text {
+          border-bottom: 1px dashed rgba(#0d46a1, .5);
+        }
       }
 
       &-value {
-        margin-top: 5px;
         font-family: $PFDinCondensedPro;
         font-size: 24px;
         line-height: 1;

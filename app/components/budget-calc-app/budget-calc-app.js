@@ -19,13 +19,6 @@ export default() => {
 
         $tabControls.removeClass('is-active');
         $targetTabIndicator.addClass('is-active');
-
-        // скроллимть страницу наверх при изменении вкладки или нет?
-        // $('body').animate({
-        //   scrollTop: $('#budget-calc-app').offset().top - $('header.header').outerHeight() - 20
-        // }, 150);
-
-        // console.log($('#budget-calc-app').offset().top - $('header.header').outerHeight() - 20);
       }
     });
   }
