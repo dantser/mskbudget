@@ -1,6 +1,7 @@
 import $ from 'jquery';
 
 export default function depfin_services_budget_calc() {
+  // табы внутри калькулятора бюджета
   const $tabsWrapper = $('#budget-calc__tabs');
   const $tabs = $('.js-budget-calc__tab');
 
@@ -13,6 +14,16 @@ export default function depfin_services_budget_calc() {
         $tabs.removeClass('is-active');
         $targetTab.addClass('is-active');
       }
+    });
+  }
+
+  // аккордеоны в табличке "доходы"
+  const $incomesRow = $('.js-incomes-row_accordeon');
+
+  if ($incomesRow) {
+    $incomesRow.on('click', function(event) {
+      event.preventDefault();
+      $(this).toggleClass('is-active');
     });
   }
 }

@@ -1,3 +1,4 @@
+// стрелка для кнопок и прочего декора
 @mixin budget-calc-arrow {
   content: '';
   position: absolute;
@@ -8,6 +9,41 @@
   border-style: solid;
 }
 
+// табличная система  для доходов
+@mixin incomes-table-row {
+  @include display-flex;
+  @include flex-direction(row);
+  @include align-items(center);
+  // @include flex-wrap(no-wrap);
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+}
+
+@mixin incomes-table-column {
+  padding-right: 0;
+  padding-left: 10px;
+  // @include debug;
+  // @include outline;
+
+  &:nth-child(1) {
+    @include flex-grow(1);
+    @include flex-basis(280px);
+    @include flex-shrink(1);
+  }
+
+  &:nth-child(2) {
+    @include flex-basis(280px);
+    @include flex-shrink(1);
+  }
+
+  &:nth-child(3) {
+    @include flex-basis(180px);
+    @include flex-shrink(1);
+  }
+}
+
+// желтая кнопка для калькулятора бюджета
 .budget-calc-btn {
   display: inline-block;
   min-width: 227px;
@@ -43,6 +79,7 @@
   }
 }
 
+// основные стили калькулятора
 .budget-calc-app {
   @include display-flex;
 
@@ -50,7 +87,7 @@
   .tooltip-icon {
     position: absolute;
     top: 50%;
-    right: 0;
+    right: -20px;
     margin-top: -1px;
     @include transform(translateY(-50%));
     @include transited;
@@ -60,7 +97,7 @@
   .has-tooltip {
     display: inline-block;
     position: relative;
-    padding-right: 24px;
+    margin-right: 20px;
 
     &:after {
       content: '';
@@ -117,48 +154,50 @@
     margin-bottom: 20px;
 
     &-row {
-      @include display-flex;
-      @include flex-direction(row);
-      // @include flex-wrap(no-wrap);
-      width: 100%;
-      padding-left: 20px;
-      padding-right: 20px;
-      border-bottom: 1px solid rgba(black, .1);
+      @include incomes-table-row;
+      border-top: 1px solid #e5e5e5;
+      @include transited('100ms');
 
-      &:last-child {
-        border-bottom: none;
+      &:first-child {
+        border-top: none;
       }
 
       &_heading {
-        border-bottom-width: 3px;
+        border-bottom: 2px solid #e5e5e5;
       }
 
-      &.is-active {
-        background-color: #f6f6f5;
+      &.is-accordeon-row {
+        cursor: pointer;
+
+        &:hover {
+          background-color: fade-out(#f6f6f5, .5);
+        }
+
+        &.is-active {
+          background-color: #f6f6f5;
+
+          + .budget-calc-app__incomes-expand {
+            height: auto;
+
+            .budget-calc-app__incomes-expand-inner {
+              opacity: 1;
+            }
+          }
+        }
       }
     }
 
     &-column {
+      @include incomes-table-column;
       vertical-align: top;
-      padding: 10px;
-      // @include debug;
-      // @include outline;
-
-      &:nth-child(1) {
-        @include flex-grow(1);
-        @include flex-basis(280px);
-        @include flex-shrink(1);
-      }
-
-      &:nth-child(2) {
-        @include flex-basis(280px);
-        @include flex-shrink(1);
-      }
-
-      &:nth-child(3) {
-        @include flex-basis(180px);
-        @include flex-shrink(1);
-      }
+      padding-top: 17px;
+      padding-bottom: 15px;
+      font-family: $PFDinCondensedPro;
+      font-size: 18px;
+      line-height: 1;
+      font-weight: 500;
+      text-transform: uppercase;
+      color: black;
 
       &_heading {
         font-family: $PFDinCondensedPro;
@@ -167,6 +206,41 @@
         font-weight: 500;
         text-transform: uppercase;
         color: #898783;
+      }
+
+      &-name {
+        .is-accordeon-row & {
+          display: inline-block;
+          color: #0d46a1;
+          border-bottom: 1px dashed rgba(#0d46a1, .5);
+        }
+      }
+    }
+
+    &-expand {
+      position: relative;
+      overflow: hidden;
+      height: 0;
+      background-color: #f6f6f5;
+
+      &-inner {
+        opacity: 0;
+        padding-top: 10px;
+        padding-bottom: 30px;
+        @include transited;
+      }
+
+      &-row {
+        @include incomes-table-row;
+        border-bottom: 1px solid #dddddc;
+      }
+
+      &-column {
+        @include incomes-table-column;
+
+        &_text-muted {
+          color: fade-out(black, .6);
+        }
       }
     }
   }
@@ -197,11 +271,6 @@
         text-transform: uppercase;
         color: #0d46a1;
         border-bottom: 1px dashed rgba(#0d46a1, .5);
-        @include transited;
-
-        &:hover {
-          border-bottom-color: #0d46a1;
-        }
       }
 
       &-value {
@@ -246,7 +315,7 @@
       @include align-items(center);
       min-height: 94px;
       padding: 0 10px;
-      border-bottom: 1px solid rgba(black, .1);
+      border-bottom: 1px solid #e5e5e5;
     }
 
     &-column {
@@ -302,6 +371,12 @@
     @include transform(translateX(5px));
     @include transited('transform 200ms ease-in-out');
     background-color: white;
+  }
+
+  &:hover {
+    &:before {
+      @include transform(translateX(0px));
+    }
   }
 
   &.is-active {

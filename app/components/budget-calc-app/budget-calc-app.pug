@@ -6,21 +6,21 @@ mixin budget-calc-btn(text)
 mixin budget-calc-app()
   +b.budget-calc-app#budget-calc-app
     +e.sidebar
-      +b.A.budget-calc-app-widget._link._incomes.js-budget-calc-app__tab-control.is-active(data-target="#budget-calc-app__tab_incomes" href="#")
+      +b.A.budget-calc-app-widget._link._incomes.js-budget-calc-app__tab-control#budget-calc-app__tab_incomes-indicator.is-active(data-target="#budget-calc-app__tab_incomes" href="#")
         +e.DIV.inner
           +e.DIV.name.has-tooltip доходы
             +tooltip-icon("текст тултипа")
           +e.DIV.value 1 598,9
           +e.DIV.value-notice млрд. руб.
           +e.DIV.description Исходное значение: 1 598,9
-      +b.A.budget-calc-app-widget._link._costs.js-budget-calc-app__tab-control(data-target="#budget-calc-app__tab_costs" href="#")
+      +b.A.budget-calc-app-widget._link._costs.js-budget-calc-app__tab-control#budget-calc-app__tab_costs-indicator(data-target="#budget-calc-app__tab_costs" href="#")
         +e.DIV.inner
           +e.DIV.name.has-tooltip расходы
             +tooltip-icon("текст тултипа")
           +e.DIV.value 1 751,0
           +e.DIV.value-notice млрд. руб.
           +e.DIV.description Исходное значение: 1 751,0
-      +b.A.budget-calc-app-widget._link._balance.js-budget-calc-app__tab-control(data-target="#budget-calc-app__tab_balance" href="#")
+      +b.A.budget-calc-app-widget._link._balance.js-budget-calc-app__tab-control#budget-calc-app__tab_balance-indicator(data-target="#budget-calc-app__tab_balance" href="#")
         +e.DIV.inner
           +e.DIV.name.has-tooltip дефицит/профицит
             +tooltip-icon("текст тултипа")
@@ -41,7 +41,7 @@ mixin budget-calc-app()
           +e.DIV.name вернуть исходные значения бюджета
 
     +e.main-content#budget-calc-app__main-content
-      +e.tab._incomes.js-budget-calc-app__tab#budget-calc-app__tab_incomes.is-active
+      +e.tab._incomes.js-budget-calc-app__tab#budget-calc-app__tab_incomes.is-active(data-state-indicator="#budget-calc-app__tab_incomes-indicator")
         +e.heading МЕРЫ ПО ИЗМЕНЕНИЮ ДОХОДНОЙ ЧАСТИ БЮДЖЕТА
         +e.text Изменение элементов налогообложения в пределах полномочий субъекта Российской Федерации, установленных законодательством Российской Федерации о налогах и сборах.
         +e.incomes
@@ -50,27 +50,51 @@ mixin budget-calc-app()
             +e.incomes-column._heading Доля в общем объеме доходов
             +e.incomes-column._heading Сумма поступлений
           +e.incomes-row
-            +e.incomes-column testing
-            +e.incomes-column testing
-            +e.incomes-column testing
-          +e.incomes-row.is-active
-            +e.incomes-column testing
-            +e.incomes-column testing
-            +e.incomes-column testing
-          +e.incomes-row
-            +e.incomes-column testing
-            +e.incomes-column testing
-            +e.incomes-column testing
-          +e.incomes-row
-            +e.incomes-column testing
-            +e.incomes-column testing
-            +e.incomes-column testing
+            +e.incomes-column
+              +e.incomes-column-name.has-tooltip Налоговые доходы
+                +tooltip-icon("текст тултипа")
+            +e.incomes-column
+              +e.SPAN.incomes-column-value 89,6
+              | %
+            +e.incomes-column
+              +e.SPAN.incomes-column-value 1 433 185,2
+              |&nbsp;млн руб.
+          +e.incomes-row.is-accordeon-row.js-incomes-row_accordeon
+            +e.incomes-column
+              +e.incomes-column-name.has-tooltip НАЛОГ НА ПРИБЫЛЬ ОРГАНИЗАЦИЙ
+                +tooltip-icon("текст тултипа")
+            +e.incomes-column
+              +e.SPAN.incomes-column-value 29,1
+              | %
+            +e.incomes-column
+              +e.SPAN.incomes-column-value 464 732,0
+              |&nbsp;млн руб.
+          +e.incomes-expand
+            +e.incomes-expand-inner
+              +e.incomes-expand-row
+                +e.incomes-expand-column._text-muted Налогоплательщики
+                +e.incomes-expand-column._text-muted Налоговая ставка
+                +e.incomes-expand-column
+              +e.incomes-expand-row
+                +e.incomes-expand-column Все налогоплательщики
+                +e.incomes-expand-column range
+                +e.incomes-expand-column
+              +e.incomes-expand-row
+                +e.incomes-expand-column Льготные категории налогоплательщиков:
+                +e.incomes-expand-column
+                +e.incomes-expand-column
+              +e.incomes-expand-row
+                +e.incomes-expand-column Организации, осуществляющие производство легковых автомобилей на территории города Москвы
+                +e.incomes-expand-column
+                +e.incomes-expand-column
+
+
           +e.incomes-row
             +e.incomes-column Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus illo placeat labore nobis commodi, facilis, hic animi vitae est id consectetur cumque itaque ipsum, soluta! Iusto illo id, officia et!
         +e.text
-          +budget-calc-btn('сохранить и перейти в раздел «расходы»')._arrow-right
+          +budget-calc-btn('сохранить и перейти в раздел «расходы»')._arrow-right.js-budget-calc-app__tab-control(data-target="#budget-calc-app__tab_costs" href="#")
 
-      +e.tab._costs.js-budget-calc-app__tab#budget-calc-app__tab_costs
+      +e.tab._costs.js-budget-calc-app__tab#budget-calc-app__tab_costs(data-state-indicator="#budget-calc-app__tab_costs-indicator")
         +e.heading РАСХОДЫ НА ГОСУДАРСТВЕННЫЕ ПРОГРАММЫ
         +e.costs
           each _ in Array(15)
@@ -85,9 +109,9 @@ mixin budget-calc-app()
                 span 71 271,9
               +e.costs-item-range
               +e.costs-item-expand testing
-        +budget-calc-btn('сохранить и перейти в раздел «дефицит/процифит»')._costs
+        +budget-calc-btn('сохранить и перейти в раздел «дефицит/процифит»')._costs._arrow-right.js-budget-calc-app__tab-control(data-target="#budget-calc-app__tab_balance" href="#")
 
-      +e.tab._balance.js-budget-calc-app__tab#budget-calc-app__tab_balance
+      +e.tab._balance.js-budget-calc-app__tab#budget-calc-app__tab_balance(data-state-indicator="#budget-calc-app__tab_balance-indicator")
         +e.heading ДЕФИЦИТ / ПРОФИЦИТ
         +e.balance
           each _ in Array(5)
@@ -101,4 +125,4 @@ mixin budget-calc-app()
                 | 0,0 млн руб.
               +e.balance-expand
                 | Уведомления
-        +budget-calc-btn('Сохранить и проверить свой вариант бюджета')._balance
+        +budget-calc-btn('Сохранить и проверить свой вариант бюджета')._balance._arrow-right

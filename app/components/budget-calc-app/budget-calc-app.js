@@ -11,13 +11,21 @@ export default() => {
     $calcApp.on('click', '.js-budget-calc-app__tab-control', function(event) {
       event.preventDefault();
       const $targetTab = $($(this).attr('data-target'));
+      const $targetTabIndicator = $($targetTab.attr('data-state-indicator'));
 
       if (!$targetTab.hasClass('is-active')) {
         $tabs.removeClass('is-active');
         $targetTab.addClass('is-active');
 
         $tabControls.removeClass('is-active');
-        $(this).addClass('is-active');
+        $targetTabIndicator.addClass('is-active');
+
+        // скроллимть страницу наверх при изменении вкладки или нет?
+        // $('body').animate({
+        //   scrollTop: $('#budget-calc-app').offset().top - $('header.header').outerHeight() - 20
+        // }, 150);
+
+        // console.log($('#budget-calc-app').offset().top - $('header.header').outerHeight() - 20);
       }
     });
   }
