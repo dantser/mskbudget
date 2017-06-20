@@ -1,0 +1,82 @@
+.budget-calc-page {
+  padding-top: 170px;
+  padding-bottom: 60px;
+  background-image: url(../images/depfin-budget-moscow-infograpfic-fin/bg.jpg);
+  @include bg-cover;
+  background-position: center 0;
+
+  &__ahead {
+    margin-bottom: 20px;
+  }
+
+  &__page-header {
+    max-width: 800px;
+  }
+
+  &__header-desc {
+    max-width: 800px;
+    margin-bottom: 30px;
+    font-family: $PFDinTextPro;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: normal;
+  }
+
+  &__tab {
+    display: none;
+
+    &_intro {
+      margin-top: 30px;
+    }
+
+    &.is-active {
+      display: block;
+    }
+  }
+
+  $iconBlockSize: 217px;
+  &__intro-icon {
+    float: left;
+    padding-right: 62px;
+    width: $iconBlockSize;
+  }
+
+  &__intro-text {
+    max-width: 700px;
+    margin: 0 0 35px $iconBlockSize;
+    font-family: $PFDinTextPro;
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: normal;
+
+    .budget-calc-btn {
+      margin-top: 30px;
+    }
+  }
+
+  &__switch {
+    @include display-flex;
+    @include justify-content(flex-end);
+    margin-bottom: 25px;
+  }
+
+  &__switch-link {
+    padding: 15px 30px 14px;
+    font-family: $PFDinCondensedPro;
+    font-style: 18px;
+    line-height: 1;
+    font-style: normal;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid #fee300;
+    color: white;
+    @include transited;
+
+    &.is-active,
+    &:hover {
+      color: black;
+      background-color: #fee300;
+    }
+  }
+}

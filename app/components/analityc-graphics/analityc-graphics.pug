@@ -1,4 +1,6 @@
 include ../../blocks/legend/legend
+include ../../blocks/checkbox/checkbox
+include ../../blocks/icon/icons
 
 //- legendtype - тип легенды(json файл)
 mixin analityc-graphics-round(legendtype)
@@ -157,22 +159,45 @@ mixin analityc-graphics-line(title, data)
               +e.line-fill
 
 //- data - json файл с данными для графиков
-mixin analityc-graphics-line-vertical(data)
+mixin analityc-graphics-line-vertical(data, gp)
   +b.analityc-graphics-line-vertical&attributes(attributes)
 
     each item in data
       +e.graphic
         +e.lines
 
-          +e.line._altblue
-            +e.line-bar-value= item.values[0]
-            +e.line-fill
-          +e.line._pink
-            +e.line-bar-value= item.values[1]
-            +e.line-fill
-          +e.line._green._neg
-            +e.line-bar-value= item.values[2]
-            +e.line-fill
+          if gp
+            +e.line._pink
+              +e.line-bar-value= item.values[0]
+              +e.line-fill
+            +e.line._altgreen
+              +e.line-bar-value= item.values[1]
+              +e.line-fill
+            +e.line._violet
+              +e.line-bar-value= item.values[2]
+              +e.line-fill
+            +e.line._gray
+              +e.line-bar-value= item.values[3]
+              +e.line-fill
+            +e.line._blue
+              +e.line-bar-value= item.values[4]
+              +e.line-fill
+            +e.line._green
+              +e.line-bar-value= item.values[5]
+              +e.line-fill
+            +e.line._red
+              +e.line-bar-value= item.values[6]
+              +e.line-fill
+          else
+            +e.line._altblue
+              +e.line-bar-value= item.values[0]
+              +e.line-fill
+            +e.line._pink
+              +e.line-bar-value= item.values[1]
+              +e.line-fill
+            +e.line._green._neg
+              +e.line-bar-value= item.values[2]
+              +e.line-fill
 
         +e.caption
           +e.STRONG.caption-year= item.year
@@ -265,6 +290,15 @@ mixin analityc-graphics-bars-year(data)
           +e.STRONG.caption-year= item.year
           +e.SPAN.caption-text= item.text
   +legend(getData('legend-analityc-income')).analityc-graphics__legend
+
 mixin analityc-graphics-classic()
   +b.analityc-graphics-classic&attributes(attributes)
+    //- реализация на js
+
+mixin analityc-graphics-custom1()
+  +b.analityc-graphics-custom&attributes(attributes)
+    //- реализация на js
+
+mixin analityc-graphics-custom2()
+  +b.analityc-graphics-custom&attributes(attributes)
     //- реализация на js

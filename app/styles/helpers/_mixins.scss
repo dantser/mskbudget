@@ -250,3 +250,135 @@ div {
   min-width: 100%;
   min-height: 100%;
 }
+
+// @qluqua
+// Sergei Kornienko mixins, used in page "depfin_services_budget_calc"
+// and in "budget-calc-app"
+@mixin debug {
+  background-color: rgba(red, .3);
+}
+
+@mixin outline {
+  outline: solid 3px rgba(red, .3);
+}
+
+// vendor prefixes
+@mixin vendor($property, $value) {
+  -webkit-#{$property}: $value;
+  -moz-#{$property}: $value;
+  -ms-#{$property}: $value;
+  #{$property}: $value;
+}
+
+// Box sizing border-box
+@mixin border-box {
+  @include vendor(box-sizing, border-box);
+}
+
+// general transition options
+@mixin transited($args: 'all 250ms ease-in-out') {
+  @include vendor(transition, unquote(inspect($args)));
+}
+
+// transform vendor prefixes mixin
+@mixin transform($args) {
+  @include vendor(transform, $args);
+}
+
+// background cover
+@mixin bg-cover {
+  @include vendor(background-size, cover);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: transparent;
+}
+
+// linear gradient mixin
+@mixin gradient($args) {
+  @include vendor(background, linear-gradient(unquote($args)));
+  @include vendor(zoom, 1);
+}
+
+@mixin img-responsive {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+// placeholder text color
+@mixin placeholder-color($color) {
+  ::-webkit-input-placeholder { color: $color; }
+  :-moz-placeholder { color: $color; }
+  ::-moz-placeholder { color: $color; opacity: 1; }
+  :-ms-input-placeholder { color: $color; }
+}
+
+// overlay mixin
+@mixin ghost {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  display: block;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: auto !important;
+  height: auto !important;
+}
+
+// flexbox
+@mixin display-flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@mixin flex($columns: initial) {                    // The 'flex' shorthand
+  @include vendor(flex, $columns);                // applies to: flex items
+}                                                   // <positive-number>, initial, auto, or none
+
+@mixin flex-direction($direction: row) {            // Flex Flow Direction
+  @include vendor(flex-direction, $direction);    // applies to: flex containers
+}                                                   // row | row-reverse | column | column-reverse
+
+@mixin flex-wrap($wrap: no-wrap) {                  // Flex Line Wrapping
+  @include vendor(flex-wrap, $wrap);              // applies to: flex containers
+}                                                   // no-wrap | wrap | wrap-reverse
+
+@mixin flex-flow($flow) {                           // Flex Direction and Wrap
+  @include vendor(flex-flow, $flow);              // applies to: flex containers
+}                                                   // <flex-direction> || <flex-wrap>
+
+@mixin flex-order($order: 0) {                      // Display Order
+  @include vendor(flex-order, $order);            // applies to: flex items
+}                                                   // <integer>
+
+@mixin flex-grow($grow: 0) {                        // Flex grow factor
+  @include vendor(flex-grow, $grow);              // applies to: flex items
+}                                                   // <number>
+
+@mixin flex-shrink($shrink: 1) {                    // Flex shrink
+  @include vendor(flex-shrink, $shrink);          // applies to: flex item shrink factor
+}                                                   // <number>
+
+@mixin flex-basis($width: auto) {                   // Flex basis - the initial main size of the flex item
+  @include vendor(flex-basis, $width);            // applies to: flex items
+}                                                   // <width>
+
+@mixin justify-content($justify: flex-start) {      // Axis Alignment
+  @include vendor(justify-content, $justify);     // applies to: flex containers
+}                                                   // flex-start | flex-end | center | space-between | space-around
+
+@mixin align-content($align: stretch) {             // Packing Flex Lines
+  @include vendor(align-content, $align);         // applies to: multi-line flex containers
+}                                                   // flex-start | flex-end | center | space-between | space-around | stretch
+
+@mixin align-items($align: stretch) {               // Cross-axis Alignment
+  @include vendor(align-items, $align);           // applies to: flex containers
+}                                                   // flex-start | flex-end | center | baseline | stretch
+
+@mixin align-self($align: auto) {                   // Cross-axis Alignment
+  @include vendor(align-self, $align);            // applies to: flex items
+}                                                   // auto | flex-start | flex-end | center | baseline | stretch

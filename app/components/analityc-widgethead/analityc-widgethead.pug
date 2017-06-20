@@ -1,5 +1,6 @@
 include ../../blocks/legend/legend
 include ../../blocks/icon/icons
+include ../../blocks/checkbox/checkbox
 //- type - тип шапки доходов бюджета (один из четырех)
 mixin analityc-widgethead-income(type)
   +b.analityc-widgethead&attributes(attributes)
@@ -198,7 +199,6 @@ mixin analityc-widgethead-sources(type)
     .analityc-control-group._dp
       input(placeholder="22.04.2017").datepicker
 
-
 mixin analityc-widgethead-analityc-income()
   +b.analityc-widgethead._income&attributes(attributes)
 
@@ -391,3 +391,121 @@ mixin analityc-widgethead-analityc-income()
           a(href="#" data-type='classic') темп роста к предыдущему периоду, %
           a(href="#" data-type='line').active доля в общей сумме, %
           a(href="#" data-type='done') % исполнения
+
+//- Гос. программы
+mixin analityc-widgethead-gp()
+  +b.analityc-widgethead&attributes(attributes)
+
+    .analityc-control-frame.analityc-control-frame_left
+      span.analityc-control-frame-title Выберите год и этап
+
+      .analityc-control-group
+        a(href='#').analityc-remove-group
+          +icon('basket', true)
+        select.analityc-select.analityc-select_year
+          option 2018
+          option 2017
+          option 2016
+          option(selected) 2015
+        select.analityc-select.analityc-select_unit
+          option(selected) Год
+          option Unit#1
+        select.analityc-select.analityc-select_stage
+          option(selected) Фактическое исполнение
+          option Закон о бюджете (утвержденный)
+
+      .analityc-control-group
+        a(href='#').analityc-remove-group
+          +icon('basket', true)
+        select.analityc-select.analityc-select_year
+          option 2018
+          option 2017
+          option 2016
+          option(selected) 2015
+        select.analityc-select.analityc-select_unit
+          option(selected) Год
+          option Unit#1
+        select.analityc-select.analityc-select_stage
+          option(selected) Фактическое исполнение
+          option Закон о бюджете (утвержденный)
+
+      .analityc-control-group
+        a(href='#').analityc-remove-group
+          +icon('basket', true)
+        select.analityc-select.analityc-select_year
+          option 2018
+          option 2017
+          option 2016
+          option(selected) 2015
+        select.analityc-select.analityc-select_unit
+          option(selected) Год
+          option Unit#1
+        select.analityc-select.analityc-select_stage
+          option(selected) Фактическое исполнение
+          option Закон о бюджете (утвержденный)
+
+      .analityc-control-group
+        a(href='#').analityc-remove-group
+          +icon('basket', true)
+        select.analityc-select.analityc-select_year
+          option 2018
+          option 2017
+          option 2016
+          option(selected) 2015
+        select.analityc-select.analityc-select_unit
+          option(selected) Год
+          option Unit#1
+        select.analityc-select.analityc-select_stage
+          option(selected) Фактическое исполнение
+          option Закон о бюджете (утвержденный)
+          
+      .analityc-control-group
+        a(href='#').analityc-remove-group
+          +icon('basket', true)
+        select.analityc-select.analityc-select_year
+          option 2018
+          option 2017
+          option 2016
+          option(selected) 2015
+        select.analityc-select.analityc-select_unit
+          option(selected) Год
+          option Unit#1
+        select.analityc-select.analityc-select_stage
+          option(selected) Фактическое исполнение
+          option Закон о бюджете (утвержденный)
+
+      a(href='#').analityc-add-group + Добавить год и этап
+
+    .analityc-control-frame.analityc-control-frame_right
+
+        span.analityc-control-frame-title Межбюджетные трансферты
+
+        select.analityc-select.analityc-select_transfer
+          option(selected) Без межбюджетных трансфертов
+          option с трансфертами
+
+        .analityc-control-switcher.analityc-control-switcher_analityc.analityc-control-switcher_large.active
+          a(href="#" data-type='line').active Общий анализ данных
+          a(href="#" data-type='classic') Анализ данных по набору
+
+        select.analityc-select.analityc-select_compare
+          option(selected) Сравнительный анализ программ по выбору
+          option Option#1
+
+        .analityc-select.analityc-select_add
+          .option Добавить государственную программу на страницу
+          .checklist
+            span.checklist-title Выберите государственную программу
+            .checklist-items
+              +checkbox().checklist-item
+                | Развитие транспортной системы
+              +checkbox().checklist-item
+                | Социальная поддержка жителей Москвы
+              +checkbox().checklist-item
+                | Столичное образование
+
+        .analityc-control-switcher.analityc-control-switcher_graphic.analityc-control-switcher_large.active
+          a(href="#").active Темп роста к пред. периоду, млрд руб.
+          a(href="#") Доля в общей суммы,%
+          a(href="#") % исполнения
+
