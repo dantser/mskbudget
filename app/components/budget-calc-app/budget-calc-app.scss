@@ -1,3 +1,13 @@
+@mixin budget-calc-arrow {
+  content: '';
+  position: absolute;
+  top: 50%;
+  @include transform(translateY(-50%));
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
 .budget-calc-btn {
   display: inline-block;
   min-width: 227px;
@@ -12,6 +22,18 @@
   color: black;
   background-color: #fee300;
 
+  &_arrow-right {
+    position: relative;
+    padding-right: 40px;
+
+    &:after {
+      @include budget-calc-arrow;
+      right: 15px;
+      border-width: 5px 0 5px 5px;
+      border-color: transparent transparent transparent black;
+    }
+  }
+
   &_balance {
     margin-left: 25px;
   }
@@ -21,10 +43,31 @@
   }
 }
 
-
-
 .budget-calc-app {
   @include display-flex;
+
+  // стили значка подсказки внутри калькулятора бюджета
+  .tooltip-icon {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -1px;
+    @include transform(translateY(-50%));
+    @include transited;
+  }
+
+  // для всех заголовков со знаком "?" и подсказкой в виде тултипа
+  .has-tooltip {
+    display: inline-block;
+    position: relative;
+    padding-right: 24px;
+
+    &:after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+  }
 
   &__sidebar {
     width: 230px;
@@ -98,8 +141,24 @@
     &-column {
       vertical-align: top;
       padding: 10px;
-      @include debug;
-      @include outline;
+      // @include debug;
+      // @include outline;
+
+      &:nth-child(1) {
+        @include flex-grow(1);
+        @include flex-basis(280px);
+        @include flex-shrink(1);
+      }
+
+      &:nth-child(2) {
+        @include flex-basis(280px);
+        @include flex-shrink(1);
+      }
+
+      &:nth-child(3) {
+        @include flex-basis(180px);
+        @include flex-shrink(1);
+      }
 
       &_heading {
         font-family: $PFDinCondensedPro;
@@ -231,7 +290,7 @@
   position: relative;
   overflow: hidden;
   margin-right: 10px;
-  padding: 20px 10px 10px 20px;
+  padding: 20px 10px 11px 20px;
   background-color: white;
   text-decoration: none;
   color: black;
@@ -250,6 +309,11 @@
 
     &:before {
       @include transform(translateX(100%));
+    }
+
+    .tooltip-icon {
+      background-color: white;
+      color: #0d46a1;
     }
   }
 
@@ -270,6 +334,8 @@
   &_balance { @include gradient('to right bottom, #30b069 0%, #fee300 100%'); }
 
   &_not-balanced {
+    padding-bottom: 16px;
+
     &:before {
       display: none;
     }
@@ -278,10 +344,18 @@
   &_check {
     padding-top: 18px;
     padding-bottom: 18px;
+    padding-right: 25px;
     background-color: #fee300;
 
     &:before {
       display: none;
+    }
+
+    &:after {
+      @include budget-calc-arrow;
+      right: 16px;
+      border-width: 5px 0 5px 5px;
+      border-color: transparent transparent transparent black;
     }
   }
 
@@ -294,6 +368,13 @@
 
     &:before {
       display: none;
+    }
+
+    &:after {
+      @include budget-calc-arrow;
+      right: 16px;
+      border-width: 5px 0 5px 5px;
+      border-color: transparent transparent transparent #fee300;
     }
   }
 
@@ -328,7 +409,7 @@
   }
 
   &__description {
-    margin-top: 15px;
+    margin-top: 20px;
     font-family: $PFDinTextPro;
     font-size: 12px;
     line-height: 14px;

@@ -1,3 +1,5 @@
+include ../../blocks/tooltip-icon/tooltip-icon
+
 mixin budget-calc-btn(text)
   +b.A.budget-calc-btn(href="#")&attributes(attributes) #{text}
 
@@ -6,34 +8,37 @@ mixin budget-calc-app()
     +e.sidebar
       +b.A.budget-calc-app-widget._link._incomes.js-budget-calc-app__tab-control.is-active(data-target="#budget-calc-app__tab_incomes" href="#")
         +e.DIV.inner
-          +e.DIV.name доходы
+          +e.DIV.name.has-tooltip доходы
+            +tooltip-icon("текст тултипа")
           +e.DIV.value 1 598,9
           +e.DIV.value-notice млрд. руб.
           +e.DIV.description Исходное значение: 1 598,9
       +b.A.budget-calc-app-widget._link._costs.js-budget-calc-app__tab-control(data-target="#budget-calc-app__tab_costs" href="#")
         +e.DIV.inner
-          +e.DIV.name расходы
+          +e.DIV.name.has-tooltip расходы
+            +tooltip-icon("текст тултипа")
           +e.DIV.value 1 751,0
           +e.DIV.value-notice млрд. руб.
           +e.DIV.description Исходное значение: 1 751,0
       +b.A.budget-calc-app-widget._link._balance.js-budget-calc-app__tab-control(data-target="#budget-calc-app__tab_balance" href="#")
         +e.DIV.inner
-          +e.DIV.name дефицит/профицит
+          +e.DIV.name.has-tooltip дефицит/профицит
+            +tooltip-icon("текст тултипа")
           +e.DIV.value -151,1
           +e.DIV.value-notice млрд. руб.
           +e.DIV.description 9,5% от собственных доходов <br>Исходное значение: -152,1
       +b.budget-calc-app-widget._not-balanced
         +e.inner
-          +e.name не сбалансировано
+          +e.name.has-tooltip не сбалансировано
+            +tooltip-icon("текст тултипа")
           +e.value 0,0
           +e.value-notice млрд. руб.
-          +e.description text here
-      +b.budget-calc-app-widget._check
-        +e.inner
-          +e.name проверить свой вариант бюджета
-      +b.budget-calc-app-widget._restore
-        +e.inner
-          +e.name вернуть исходные значения бюджета
+      +b.A.budget-calc-app-widget(href="#")._check
+        +e.DIV.inner
+          +e.DIV.name проверить свой вариант бюджета
+      +b.A.budget-calc-app-widget(href="#")._restore
+        +e.DIV.inner
+          +e.DIV.name вернуть исходные значения бюджета
 
     +e.main-content#budget-calc-app__main-content
       +e.tab._incomes.js-budget-calc-app__tab#budget-calc-app__tab_incomes.is-active
@@ -44,14 +49,26 @@ mixin budget-calc-app()
             +e.incomes-column
             +e.incomes-column._heading Доля в общем объеме доходов
             +e.incomes-column._heading Сумма поступлений
+          +e.incomes-row
+            +e.incomes-column testing
+            +e.incomes-column testing
+            +e.incomes-column testing
           +e.incomes-row.is-active
+            +e.incomes-column testing
+            +e.incomes-column testing
+            +e.incomes-column testing
+          +e.incomes-row
+            +e.incomes-column testing
+            +e.incomes-column testing
+            +e.incomes-column testing
+          +e.incomes-row
             +e.incomes-column testing
             +e.incomes-column testing
             +e.incomes-column testing
           +e.incomes-row
             +e.incomes-column Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus illo placeat labore nobis commodi, facilis, hic animi vitae est id consectetur cumque itaque ipsum, soluta! Iusto illo id, officia et!
         +e.text
-          +budget-calc-btn('сохранить и перейти в раздел «расходы»')
+          +budget-calc-btn('сохранить и перейти в раздел «расходы»')._arrow-right
 
       +e.tab._costs.js-budget-calc-app__tab#budget-calc-app__tab_costs
         +e.heading РАСХОДЫ НА ГОСУДАРСТВЕННЫЕ ПРОГРАММЫ
@@ -76,7 +93,8 @@ mixin budget-calc-app()
           each _ in Array(5)
             +e.balance-row
               +e.balance-column._name
-                | ГОСУДАРСТВЕННЫЕ ЦЕННЫЕ БУМАГИ
+                .has-tooltip ГОСУДАРСТВЕННЫЕ ЦЕННЫЕ БУМАГИ
+                  +tooltip-icon('текст тултипа')
               +e.balance-column._range
                 | range
               +e.balance-column._value
