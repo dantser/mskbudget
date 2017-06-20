@@ -419,7 +419,7 @@ function tabsLine(){
 		autoplay:false,
 		smartSpeed:500
 	});
-  
+
     $('.owl-carousel.documents').owlCarousel({
 		loop:false,
 		margin:0,
@@ -476,7 +476,7 @@ function sectionTabs(){
           $(window).scrollTop(scroll);
         }
 	});
-  
+
     $('.section-tabs__participants-list a').click(function(e){
       e.preventDefault();
       var sectionTab = $(this).attr('data-section-tab-for');
@@ -495,18 +495,18 @@ function stepsDetails(){
     if ($(this).hasClass('link-more')) {
       var stepNumber = $(this).parents('.step').attr('data-step');
     }
-    
+
     var steps = $('.steps'),
         graphicRow = $('.graphic-table__title-wrap[data-step="'+stepNumber+'"]').parents('.graphic-table__table-tr'),
         currentStep = $('.step[data-step="'+stepNumber+'"]'),
         currentStepHead = currentStep.find($('.step__head')),
         currentStepDescr = currentStep.find($('.step__descr')),
         stepsDetails = $('.steps-details'),
-        currentStepDetails = $('.steps-details__content[data-step="'+stepNumber+'"]'),    
+        currentStepDetails = $('.steps-details__content[data-step="'+stepNumber+'"]'),
         stepsOffset = steps.offset().top,
         stepDescrOffset = currentStepDescr.offset().top,
         offsetDiff = stepDescrOffset - stepsOffset;
-    
+
     $('.graphic-table__table-tr').removeClass('active');
     graphicRow.addClass('active');
     $('.step__head').removeClass('active');
@@ -524,7 +524,7 @@ function stepsDetails(){
       $("body").css('top', -scroll + 'px').toggleClass('noscroll');
     }
   });
-  
+
   $('.js-steps-detail-close').click(function(){
     $('.graphic-table__table-tr').removeClass('active');
     $('.step__head').removeClass('active');
@@ -539,7 +539,7 @@ function stepsDetails(){
       $(window).scrollTop(scroll);
     }
   });
-  
+
   $(window).resize(function(){
     $('.graphic-table__table-tr').removeClass('active');
     $('.step__head').removeClass('active');
@@ -559,7 +559,7 @@ function stageSlider() {
   $('.steps__mob-slider').each(function(){
     var currentSlide = 0,
         slideAmount = $(this).find('.steps__mob-slider-item').length;
-    
+
     $('.steps__mob-slider-arrow').click(function(){
       if($(this).hasClass('steps__mob-slider-arrow_next')) {
         currentSlide++;
@@ -575,12 +575,12 @@ function stageSlider() {
       $('.steps__mob-wrapper').css('left', '-'+currentSlide*100+'%');
       $('.steps__holder').css('left', '-'+currentSlide*100+'%');
     });
-    
+
   });
 }
 
 function dateSlider() {
-  
+
   $('.steps-details__date-list a').click(function(e){
     e.preventDefault();
     if ($(window).width() > 800) {
@@ -591,11 +591,11 @@ function dateSlider() {
       $('.steps-details__activity[data-activity="'+activity+'"]').addClass('active');
     }
   });
-  
+
   $('.steps-details__date-list-wrapper').each(function(){
     var currentSlide = 0,
         slideAmount = $(this).find('.steps-details__date-list li').length;
-    
+
     $('.steps-details__date-list-arrow').click(function(){
       $('.steps-details__date-list-arrow').removeClass('disabled');
       if($(this).hasClass('steps-details__date-list-arrow_next')) {
@@ -620,9 +620,9 @@ function dateSlider() {
       $('.steps-details__activity').removeClass('active');
       $('.steps-details__activity[data-activity="'+activity+'"]').addClass('active');
     });
-    
+
   });
-  
+
   $(window).resize(function(){
     $('.steps-details__date-list li').removeClass('active');
     $('.steps-details__date-list li:first-child').addClass('active');
@@ -778,7 +778,130 @@ $(document).ready(function(){
   }
 });
 });
+// переключение вкладок в (depfin_analytics_income)
+$(document).ready(function(){
+  // $('.analityc-widget_sources .analityc-control-group._dp').addClass('active');
+  // $('.ar').hide();
+  $(".analityc-widget_params-income .analityc-control-group_comparison .analityc-select").on("change", function () {
+    var $this = $(this);
+    var income = $('.analityc-widget_params-income'),
+        // arrow = $('.ar'),
+        // tablearr = $('section__ar');
+        incomeGraphics = income.find($('.analityc-widget-sources')),
+        incomeGraphicsPace = income.find($('.analityc-widget-income_pace')),
+        incomeGraphicsShare = income.find($('.analityc-widget-income_share')),
+        incomeGraphicsDone = income.find($('.analityc-widget-income_done')),
+        incomeGraphicsYear = income.find($('.analityc-widget-income_year')),
+        incomeGraphicsBarFull = income.find($('.analityc-widget-income_bars-full')),
+        incomeGraphicsBar = income.find($('.analityc-widget-income_bars')),
+        incomeGraphicsButton = income.find($('.d-smr__add-char'));
 
+    incomeGraphics.removeClass('_active');
+    incomeGraphicsButton.removeClass('_active');
+    // tablearr.hide();
+
+    if ($this.val() ===  "Общий анализ основных видов доходов") {
+      incomeGraphicsPace.addClass('_active');
+    } else {
+      incomeGraphicsBarFull.addClass('_active');
+    }
+  });
+
+  // function sourcesHead(type) {
+  //   var sourcesButtons = $('.analityc-widget_sources .analityc-control-buttons'),
+  //       sourcesSwitcherBig = $('.analityc-widget_sources .analityc-control-switcher_big'),
+  //       sourcesDatepicker = $('.analityc-widget_sources .analityc-control-group._dp');
+  //
+  //   if (type === 1) {
+  //     sourcesButtons.addClass('active');
+  //     sourcesSwitcherBig.removeClass('active');
+  //     sourcesDatepicker.removeClass('active');
+  //   } else if (type === 2) {
+  //     sourcesButtons.addClass('active');
+  //     sourcesSwitcherBig.addClass('active');
+  //     sourcesDatepicker.removeClass('active');
+  //   } else if (type === 3) {
+  //     sourcesButtons.addClass('active');
+  //     sourcesSwitcherBig.removeClass('active');
+  //     sourcesDatepicker.addClass('active');
+  //   }
+  // }
+
+  $(".analityc-widget_params-income .analityc-control-switcher").on("click", function (e) {
+    e.preventDefault();
+    var $this = $(this);
+    var income = $('.analityc-widget_params-income'),
+        // arrow = $('.ar'),
+        // tablearr = $('.section__ar'),
+        incomeGraphics = income.find($('.analityc-widget-sources')),
+        incomeGraphicsPace = income.find($('.analityc-widget-income_pace')),
+        incomeGraphicsShare = income.find($('.analityc-widget-income_share')),
+        incomeGraphicsDone = income.find($('.analityc-widget-income_done')),
+        incomeGraphicsYear = income.find($('.analityc-widget-income_year')),
+        incomeGraphicsBarFull = income.find($('.analityc-widget-income_bars-full')),
+        incomeGraphicsBar = income.find($('.analityc-widget-income_bars'));
+
+    if ($this.hasClass('analityc-control-button_graphics') && !$this.hasClass('active')) {
+      $this.siblings().removeClass('active');
+      $this.addClass('active');
+      if (sourcesTableActive.hasClass('analityc-widget-sources-table_approved')) {
+        sourcesTable.removeClass('_active');
+        sourcesGraphicsApproved.addClass('_active');
+        sourcesHead(1);
+        arrow.show();
+        tablearr.hide();
+      } else if (sourcesTableActive.hasClass('analityc-widget-sources-table_changes')) {
+        sourcesTable.removeClass('_active');
+        sourcesGraphicsChanges.addClass('_active');
+        sourcesHead(1);
+        arrow.show();
+        tablearr.hide();
+      } else if (sourcesTableActive.hasClass('analityc-widget-sources-table_done')) {
+        sourcesTable.removeClass('_active');
+        sourcesGraphicsDone.addClass('_active');
+        sourcesHead(1);
+        arrow.hide();
+        tablearr.hide();
+      } else if (sourcesTableActive.hasClass('analityc-widget-sources-table_date')) {
+        sourcesTable.removeClass('_active');
+        sourcesGraphicsDate.addClass('_active');
+        sourcesHead(3);
+        arrow.hide();
+        tablearr.hide();
+      }
+    } else if ($this.hasClass('analityc-control-button_table') && !$this.hasClass('active')) {
+      $this.siblings().removeClass('active');
+      $this.addClass('active');
+      if (sourcesGraphicsActive.hasClass('analityc-widget-sources_approved')) {
+        sourcesGraphics.removeClass('_active');
+        sourcesTableApproved.addClass('_active');
+        sourcesHead(2);
+        arrow.hide();
+        tablearr.show();
+      } else if (sourcesGraphicsActive.hasClass('analityc-widget-sources_changes')) {
+        sourcesGraphics.removeClass('_active');
+        sourcesTableChanges.addClass('_active');
+        sourcesHead(2);
+        arrow.hide();
+        tablearr.show();
+      } else if (sourcesGraphicsActive.hasClass('analityc-widget-sources_done')) {
+        sourcesGraphics.removeClass('_active');
+        sourcesTableDone.addClass('_active');
+        sourcesHead(2);
+        arrow.hide();
+        tablearr.show();
+      } else if (sourcesGraphicsActive.hasClass('analityc-widget-sources_date')) {
+        sourcesGraphics.removeClass('_active');
+        sourcesTableDate.addClass('_active');
+        sourcesHead(2);
+        arrow.hide();
+        tablearr.show();
+      }
+    }
+  });
+});
+
+// переключение вкладок в (budget_moscow_sources)
 $(document).ready(function(){
   $('.analityc-widget_sources .analityc-control-group._dp').addClass('active');
   $('.ar').hide();
@@ -1057,7 +1180,6 @@ $(document).ready(function(){
     }
   });
 });
-
 
 
 // переключение вкладок в Расходах бюджета (budget_expenses)

@@ -317,6 +317,26 @@ mixin analityc-graphics-bars-alt(data)
         +e.caption
           +e.STRONG.caption-year= item.year
           +e.SPAN.caption-text= item.text
+mixin analityc-graphics-bars2(data)
+  +b.analityc-graphics-bars&attributes(attributes)
+
+    each item in data
+      +e.graphic
+        +e.lines
+
+          +e.line
+            if item.changes
+              +e.line-fill._red
+                +e.val= item.values[0]
+              +e.changes
+                +e.abs= item.changes[0]
+                +e.percent= item.changes[1]
+            else
+              +e.line-fill._transparentred
+              
+        +e.caption
+          +e.STRONG.caption-year= item.year
+          +e.SPAN.caption-text= item.text
 mixin analityc-graphics-classic()
   +b.analityc-graphics-classic&attributes(attributes)
     //- реализация на js

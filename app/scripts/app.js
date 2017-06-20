@@ -12,6 +12,7 @@ import analyticsMain from '../components/depfin-analytics-main/depfin-analytics-
 import budgetCalcPage from '../pages/depfin_services_budget_calc/depfin_services_budget_calc';
 import legend from '../blocks/legend/legend';
 import budgetCalcApp from '../components/budget-calc-app/budget-calc-app';
+import newsFilter from '../components/news/newsFilter';
 
 $(() => {
   selectbox();
@@ -27,4 +28,5 @@ $(() => {
   legend();
   budgetCalcPage();
   budgetCalcApp();
+  newsFilter();
 });
