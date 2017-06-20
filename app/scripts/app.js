@@ -10,6 +10,7 @@ import sources from '../components/budget_moscow_sources/budget_moscow_sources';
 import govProgram from '../components/services_gov_program/services_gov_program';
 import analyticsMain from '../components/depfin-analytics-main/depfin-analytics-main';
 import budgetCalcPage from '../pages/depfin_services_budget_calc/depfin_services_budget_calc';
+import legend from '../blocks/legend/legend';
 import budgetCalcApp from '../components/budget-calc-app/budget-calc-app';
 
 $(() => {
@@ -23,6 +24,7 @@ $(() => {
   sources();
   govProgram();
   analyticsMain();
+  legend();
   budgetCalcPage();
   budgetCalcApp();
 });

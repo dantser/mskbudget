@@ -235,6 +235,61 @@ mixin analityc-graphics-line-vertical-alt(data)
         +e.caption
           +e.STRONG.caption-year= item.year
           +e.SPAN.caption-text= item.text
+          
+mixin analityc-graphics-bars(data)
+  +b.analityc-graphics-bars&attributes(attributes)
+
+    each item in data
+      +e.graphic
+        +e.lines
+
+          +e.line
+            +e.line-bar-value= item.value
+            +e.line-fill._lightgreen
+              +e.val= item.values[5]
+            +e.line-fill._altblue
+              +e.val= item.values[4]
+            +e.line-fill._grey
+              +e.val= item.values[3]
+            +e.line-fill._pink
+              +e.val= item.values[2]
+            +e.line-fill._green
+              +e.val= item.values[1]
+            +e.line-fill._red
+              +e.val= item.values[0]
+          if item.changes
+            +e.changes
+              +e.abs= item.changes[0]
+              +e.percent= item.changes[1]
+        +e.caption
+          +e.STRONG.caption-year= item.year
+          +e.SPAN.caption-text= item.text
+  +legend(getData('legend-analityc-income')).analityc-graphics__legend
+mixin analityc-graphics-bars-year(data)
+  +b.analityc-graphics-bars&attributes(attributes)
+
+    each item in data
+      +e.graphic
+        +e.lines
+
+          +e.line
+            +e.line-bar-value= item.value
+            +e.line-fill._lightgreen
+              +e.val= item.values[3]
+            +e.line-fill._altblue
+              +e.val= item.values[2]
+            +e.line-fill._pink
+              +e.val= item.values[1]
+            +e.line-fill._red
+              +e.val= item.values[0]
+          if item.changes
+            +e.changes
+              +e.abs= item.changes[0]
+              +e.percent= item.changes[1]
+        +e.caption
+          +e.STRONG.caption-year= item.year
+          +e.SPAN.caption-text= item.text
+  +legend(getData('legend-analityc-income')).analityc-graphics__legend
 
 mixin analityc-graphics-classic()
   +b.analityc-graphics-classic&attributes(attributes)

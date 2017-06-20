@@ -4,15 +4,10 @@ include ../../blocks/icon/icons
 include ../../blocks/link/link
 include ../../blocks/button/button
 
-//- type === 'news - тип формы для Новостей
-
-mixin searchForm(type)
+mixin searchForm(placeholder)
   +b.FORM.search.d-si__search-form(action="#")
     +e.search-line
-      if type === 'news'
-        input.d-si__search(type="text", placeholder="Поиск")
-      else
-        input.d-si__search(type="text", placeholder="Конкурс бюджет для граждан")
+      input.d-si__search(type="text", placeholder=placeholder)
       input.d-si__submit(type="submit" value="")
     +e.filter
       +link(true)._dashed._light-yellow._extra.filter-link Расширенный поиск
@@ -35,69 +30,53 @@ mixin searchForm(type)
                 SPAN.form__date-range-sep —
                 INPUT(type='text', value='дд.мм.гг').form__date-range-input.jq-f-datepicker.input-max
                 SPAN.form__date-range-icon
-                
-              if type === 'news'
-                +checkbox() искать только в заголовках страниц
-              else
-                +checkbox() искать только в заголовках страниц
-                +checkbox() искать только в разделе Документы
-                +checkbox() искать только в разделе Новости
-                
+              +checkbox() искать только в заголовках страниц
+              +checkbox() искать только в разделе Документы
+              +checkbox() искать только в разделе Новости
             +e.col_two
               +e.title Раздел
-              
-              if type === 'news'
-                +e.checkbox
-                  +checkbox() Медиацентр
-                  +icon('caret').icon.js-icon
-                  +e.checkbox-group
-                    +checkbox() Новости Бюджета 
-                    +checkbox() Новости Москвы
-                    +checkbox() Федеральные новости
-              else
-                +e.checkbox
-                  +checkbox() О бюджете
-                  +icon('caret').icon.js-icon
-                  +e.checkbox-group
-                    +checkbox() один
-                    +checkbox() два
-                    +checkbox() три
-                    +checkbox() четыре
-                +e.checkbox
-                  +checkbox() Бюджет Москвы
-                  +icon('caret').icon.js-icon
-                  +e.checkbox-group
-                    +checkbox() один
-                    +checkbox() два
-                    +checkbox() три
-                    +checkbox() четыре
-                +e.checkbox
-                  +checkbox() Аналитика
-                  +icon('caret').icon.js-icon
-                  +e.checkbox-group
-                    +checkbox() один
-                    +checkbox() два
-                    +checkbox() три
-                    +checkbox() четыре
-                +checkbox() Сервисы
-                +e.checkbox
-                  +checkbox() Открытость
-                  +icon('caret').icon.js-icon
-                  +e.checkbox-group
-                    +checkbox() один
-                    +checkbox() два
-                    +checkbox() три
-                    +checkbox() четыре
-                +e.checkbox
-                  +checkbox() Медиацентр
-                  +icon('caret').icon.js-icon
-                  +e.checkbox-group
-                    +checkbox() один
-                    +checkbox() два
-                    +checkbox() три
-                    +checkbox() четыре
-                +checkbox() Обратная связь
-                
+              +e.checkbox
+                +checkbox() О бюджете
+                +icon('caret').icon.js-icon
+                +e.checkbox-group
+                  +checkbox() один
+                  +checkbox() два
+                  +checkbox() три
+                  +checkbox() четыре
+              +e.checkbox
+                +checkbox() Бюджет Москвы
+                +icon('caret').icon.js-icon
+                +e.checkbox-group
+                  +checkbox() один
+                  +checkbox() два
+                  +checkbox() три
+                  +checkbox() четыре
+              +e.checkbox
+                +checkbox() Аналитика
+                +icon('caret').icon.js-icon
+                +e.checkbox-group
+                  +checkbox() один
+                  +checkbox() два
+                  +checkbox() три
+                  +checkbox() четыре
+              +checkbox() Сервисы
+              +e.checkbox
+                +checkbox() Открытость
+                +icon('caret').icon.js-icon
+                +e.checkbox-group
+                  +checkbox() один
+                  +checkbox() два
+                  +checkbox() три
+                  +checkbox() четыре
+              +e.checkbox
+                +checkbox() Медиацентр
+                +icon('caret').icon.js-icon
+                +e.checkbox-group
+                  +checkbox() один
+                  +checkbox() два
+                  +checkbox() три
+                  +checkbox() четыре
+              +checkbox() Обратная связь
           +button(true)._kind_blue Искать
           +e.INPUT.reset(type="reset" value="Сбросить фильтр")
           u.btn-close.js-close-modal
