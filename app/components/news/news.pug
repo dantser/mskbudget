@@ -1,11 +1,8 @@
-include ../../blocks/link/link
-include ../../blocks/checkbox/checkbox
-include ../../blocks/icon/icons
-include ../../blocks/button/button
-include ../../blocks/tag/tag
 include ../../blocks/buttons-set/buttons-set
+include ../../blocks/news-card/news-card
 include ../page-header/page-header
 include ../subscribe/subscribe
+include ../searchForm/searchForm
 
 mixin news()
   +b.news-page&attributes(attributes)
@@ -14,94 +11,10 @@ mixin news()
         // page-header
         +page-header('Новости')
         // subscribe
-        +subscribe()._big.__subscribe.viewport-md-lg
+        +subscribe()._big.__subscribe
         // search-form
-        +e.search-field
-          form.d-si__search-form(action="#")
-            +e.search-line
-              input.d-si__search(type="text", placeholder="Поиск")
-              input.d-si__submit(type="submit" value="")
-            +e.filter
-              +link(true)._dashed._light-yellow._extra.filter-link Расширенный поиск
-              +b.extra-search.modal
-                +e.wrapper
-                  +e.cols
-                    +e.col_min
-                      +e.title Вид документа
-                      +checkbox() текст
-                      +checkbox() инфографика
-                      +checkbox() таблица
-                      +checkbox() график
-                      +checkbox() фотографии
-                      +checkbox() видео
-                      +checkbox() события
-                    +e.col_one
-                      +e.title Дата публикации
-                      .form__date-range(id='rid-0')
-                        INPUT(type='text', value='дд.мм.гг').form__date-range-input.jq-f-datepicker.input-min
-                        SPAN.form__date-range-sep —
-                        INPUT(type='text', value='дд.мм.гг').form__date-range-input.jq-f-datepicker.input-max
-                        SPAN.form__date-range-icon
-                      +checkbox() искать только в заголовках страниц
-                      +checkbox() искать только в разделе Документы
-                      +checkbox() искать только в разделе Новости
-                    +e.col_two
-                      +e.title Раздел
-                      +e.checkbox
-                        +checkbox() О бюджете
-                        +icon('caret').icon.js-icon
-                        +e.checkbox-group
-                          +checkbox() один
-                          +checkbox() два
-                          +checkbox() три
-                          +checkbox() четыре
-                      +e.checkbox
-                        +checkbox() Бюджет Москвы
-                        +icon('caret').icon.js-icon
-                        +e.checkbox-group
-                          +checkbox() один
-                          +checkbox() два
-                          +checkbox() три
-                          +checkbox() четыре
-                      +e.checkbox
-                        +checkbox() Аналитика
-                        +icon('caret').icon.js-icon
-                        +e.checkbox-group
-                          +checkbox() один
-                          +checkbox() два
-                          +checkbox() три
-                          +checkbox() четыре
-                      +checkbox() Сервисы
-                      +e.checkbox
-                        +checkbox() Открытость
-                        +icon('caret').icon.js-icon
-                        +e.checkbox-group
-                          +checkbox() один
-                          +checkbox() два
-                          +checkbox() три
-                          +checkbox() четыре
-                      +e.checkbox
-                        +checkbox() Медиацентр
-                        +icon('caret').icon.js-icon
-                        +e.checkbox-group
-                          +checkbox() один
-                          +checkbox() два
-                          +checkbox() три
-                          +checkbox() четыре
-                      +checkbox() Обратная связь
-                  +button(true)._kind_blue Искать
-                  +e.INPUT.reset(type="reset" value="Сбросить фильтр")
-                  u.btn-close.js-close-modal
-              +link(true)._dashed._light-yellow._tags.filter-link Поиск по тэгам
-              +b.tags.modal
-                +e.wrapper
-                  +e.title Тэги
-                  +e.list
-                    - for (var i = 0; i<25; i++)
-                      +tag('Банки', 'searchTag')
-                  +button(true)._kind_blue Искать
-                  +e.INPUT.reset(type="reset" value="Сбросить все фильтры")
-                  u.btn-close.js-close-modal
+        +e.search-form
+          +searchForm('news')
                   
       +e.content
         // filter
@@ -110,165 +23,22 @@ mixin news()
         // news
         +e.card-wrapper
           .tile__item
-            .tile__inner.news.news_blue
-              a(href="#").news__thumb
-                img(src="assets/images/post-thumb.jpg", alt="thumb")
-              a(href="#").news__category Новости бюджета
-              a(href="#").news__title Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»
-              .news__bottom
-                p.news__date 8 августа 2016
-                .news__tags
-                  a(href="#") #итоги
-                  a(href="#") #апробация
-                  a(href="#") #старшеклассники
-              button.share__btn
-              .share__panel
-                a(href="#").share__a.share__a_fb
-                a(href="#").share__a.share__a_vk
-                a(href="#").share__a.share__a_tw
-                a(href="#").share__a.share__a_ok
+            +news-card(1, 'Новости бюджета', 'Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»', '8 августа 2016')._blue._big.tile__inner
           .tile__item
-            .tile__inner.news.news_blue
-              a(href="#").news__thumb
-                img(src="assets/images/post-thumb.jpg", alt="thumb")
-              a(href="#").news__category Новости бюджета
-              a(href="#").news__title Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»
-              .news__bottom
-                p.news__date 8 августа 2016
-                .news__tags
-                  a(href="#") #итоги
-                  a(href="#") #апробация
-                  a(href="#") #старшеклассники
-              button.share__btn
-              .share__panel
-                a(href="#").share__a.share__a_fb
-                a(href="#").share__a.share__a_vk
-                a(href="#").share__a.share__a_tw
-                a(href="#").share__a.share__a_ok
+            +news-card(2, 'Новости Москвы', 'О выплатах купонного дохода по облигациям Городского облигационного (внутреннего) займа Москвы', '5 августа 2016')._red._big.tile__inner
           .tile__item
-            .tile__inner.news.news_blue
-              a(href="#").news__thumb
-                img(src="assets/images/post-thumb.jpg", alt="thumb")
-              a(href="#").news__category Новости бюджета
-              a(href="#").news__title Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»
-              .news__bottom
-                p.news__date 8 августа 2016
-                .news__tags
-                  a(href="#") #итоги
-                  a(href="#") #апробация
-                  a(href="#") #старшеклассники
-              button.share__btn
-              .share__panel
-                a(href="#").share__a.share__a_fb
-                a(href="#").share__a.share__a_vk
-                a(href="#").share__a.share__a_tw
-                a(href="#").share__a.share__a_ok
+            +news-card(3, 'Федеральные новости', 'Итоги исполнения бюджета города Москвы за первое полугодие 2016 года', '1 августа 2016')._green._big.tile__inner
           .tile__item
-            .tile__inner.news.news_blue
-              a(href="#").news__thumb
-                img(src="assets/images/post-thumb.jpg", alt="thumb")
-              a(href="#").news__category Новости бюджета
-              a(href="#").news__title Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»
-              .news__bottom
-                p.news__date 8 августа 2016
-                .news__tags
-                  a(href="#") #итоги
-                  a(href="#") #апробация
-                  a(href="#") #старшеклассники
-              button.share__btn
-              .share__panel
-                a(href="#").share__a.share__a_fb
-                a(href="#").share__a.share__a_vk
-                a(href="#").share__a.share__a_tw
-                a(href="#").share__a.share__a_ok
+            +news-card(1, 'Новости бюджета', 'Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»', '8 августа 2016')._blue._big.tile__inner
           .tile__item
-            .tile__inner.news.news_blue
-              a(href="#").news__thumb
-                img(src="assets/images/post-thumb.jpg", alt="thumb")
-              a(href="#").news__category Новости бюджета
-              a(href="#").news__title Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»
-              .news__bottom
-                p.news__date 8 августа 2016
-                .news__tags
-                  a(href="#") #итоги
-                  a(href="#") #апробация
-                  a(href="#") #старшеклассники
-              button.share__btn
-              .share__panel
-                a(href="#").share__a.share__a_fb
-                a(href="#").share__a.share__a_vk
-                a(href="#").share__a.share__a_tw
-                a(href="#").share__a.share__a_ok
+            +news-card(2, 'Новости Москвы', 'О выплатах купонного дохода по облигациям Городского облигационного (внутреннего) займа Москвы', '5 августа 2016')._red._big.tile__inner
           .tile__item
-            .tile__inner.news.news_blue
-              a(href="#").news__thumb
-                img(src="assets/images/post-thumb.jpg", alt="thumb")
-              a(href="#").news__category Новости бюджета
-              a(href="#").news__title Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»
-              .news__bottom
-                p.news__date 8 августа 2016
-                .news__tags
-                  a(href="#") #итоги
-                  a(href="#") #апробация
-                  a(href="#") #старшеклассники
-              button.share__btn
-              .share__panel
-                a(href="#").share__a.share__a_fb
-                a(href="#").share__a.share__a_vk
-                a(href="#").share__a.share__a_tw
-                a(href="#").share__a.share__a_ok
+            +news-card(3, 'Федеральные новости', 'Итоги исполнения бюджета города Москвы за первое полугодие 2016 года', '1 августа 2016')._green._big.tile__inner
           .tile__item
-            .tile__inner.news.news_blue
-              a(href="#").news__thumb
-                img(src="assets/images/post-thumb.jpg", alt="thumb")
-              a(href="#").news__category Новости бюджета
-              a(href="#").news__title Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»
-              .news__bottom
-                p.news__date 8 августа 2016
-                .news__tags
-                  a(href="#") #итоги
-                  a(href="#") #апробация
-                  a(href="#") #старшеклассники
-              button.share__btn
-              .share__panel
-                a(href="#").share__a.share__a_fb
-                a(href="#").share__a.share__a_vk
-                a(href="#").share__a.share__a_tw
-                a(href="#").share__a.share__a_ok
+            +news-card(1, 'Новости бюджета', 'Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»', '8 августа 2016')._blue._big.tile__inner
           .tile__item
-            .tile__inner.news.news_blue
-              a(href="#").news__thumb
-                img(src="assets/images/post-thumb.jpg", alt="thumb")
-              a(href="#").news__category Новости бюджета
-              a(href="#").news__title Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»
-              .news__bottom
-                p.news__date 8 августа 2016
-                .news__tags
-                  a(href="#") #итоги
-                  a(href="#") #апробация
-                  a(href="#") #старшеклассники
-              button.share__btn
-              .share__panel
-                a(href="#").share__a.share__a_fb
-                a(href="#").share__a.share__a_vk
-                a(href="#").share__a.share__a_tw
-                a(href="#").share__a.share__a_ok
+            +news-card(2, 'Новости Москвы', 'О выплатах купонного дохода по облигациям Городского облигационного (внутреннего) займа Москвы', '5 августа 2016')._red._big.tile__inner
           .tile__item
-            .tile__inner.news.news_blue
-              a(href="#").news__thumb
-                img(src="assets/images/post-thumb.jpg", alt="thumb")
-              a(href="#").news__category Новости бюджета
-              a(href="#").news__title Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»
-              .news__bottom
-                p.news__date 8 августа 2016
-                .news__tags
-                  a(href="#") #итоги
-                  a(href="#") #апробация
-                  a(href="#") #старшеклассники
-              button.share__btn
-              .share__panel
-                a(href="#").share__a.share__a_fb
-                a(href="#").share__a.share__a_vk
-                a(href="#").share__a.share__a_tw
-                a(href="#").share__a.share__a_ok
-        A.d-si__button_show-more Показать еще
+            +news-card(3, 'Федеральные новости', 'Итоги исполнения бюджета города Москвы за первое полугодие 2016 года', '1 августа 2016')._green._big.tile__inner
+
+        +e.A(href="#").show-more.d-si__button_show-more Показать еще
