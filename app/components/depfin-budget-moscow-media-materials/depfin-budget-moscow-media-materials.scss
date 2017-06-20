@@ -51,6 +51,22 @@
 		    min-height: calc(100% + 153px);
   		}
   	}
+
+  	&_present {
+
+			.depfin-budget-moscow-media-materials__link {
+		  	&:before {
+		  		opacity: .6;
+		  	}
+			}
+
+			.depfin-budget-moscow-media-materials__label {
+				position: static;
+				padding: 70px 19px 34px;
+				background-color: transparent;
+				opacity: 1;
+			}
+  	}
   }
 
   &__title {
@@ -87,6 +103,7 @@
 		position: relative;
   	width: 100%;
   	height: 100%;
+  	text-decoration: none;
 
   	&:before {
   		@include ghost;
@@ -108,10 +125,39 @@
 		@include fill-img;
 	}
 
-	&__play {
+	&__paginate {
 		position: absolute;
-		top: 0;
 		left: 0;
+		bottom: 0;
+		width: 100%;
+		height: 37px;
+	}
+
+	&__paginate-bullets {
+		@include center-block;
+		height: 11px;
+	}
+
+	&__bullet {
+		display: inline-block;
+		width: 11px;
+		height: 11px;
+		border-radius: 50%;
+		background-color: $color-white;
+		opacity: .5;
+		margin-right: 9px;
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		&_active {
+			opacity: 1;
+		}
+	}
+
+	&__play {
+		@include center-block;
 		width: 53px;
 		height: 53px;
 		border: 1px solid $color-white;
@@ -121,13 +167,44 @@
     z-index: 1;
 
 		& svg {
-			position: absolute;
-			top: 0;
-			left: 0;
+			@include center-block;
 			width: 14px;
 			height: 25px;
-			fill: $color-white;
+			stroke: $color-white;
 		}
+	}
+
+	&__slide {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 49px;
+		background-color: $color-white;
+	}
+
+	&__slide-arrows {
+		@include center-block;
+		width: 50px;
+    height: 18px;
+	}
+	
+	&__prev,
+	&__next {
+		position: absolute;
+		top: 0;
+		width: 9px;
+		height: 18px;
+		fill: $color-black;
+	}
+
+	&__prev {
+		left: 0;
+		transform: rotate(180deg);
+	}
+
+	&__next {
+		right: 0;
 	}
 
 	&__label {
