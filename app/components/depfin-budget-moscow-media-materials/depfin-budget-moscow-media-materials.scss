@@ -1,0 +1,172 @@
+.depfin-budget-moscow-media-materials {
+  display: block;
+  background-image: url(../images/depfin-budget-moscow-media-materials/bg.jpg);
+  background-size: cover;
+  background-position: center 0;
+  padding-top: 195px;
+  padding-bottom: 60px;
+
+  @include respond-to('mobile'){
+    padding: 100px 0 20px;
+  }
+
+  &__head {
+    margin-bottom: 58px;
+  }
+
+  &__main {
+
+  }
+
+  &__materials {
+  	margin-bottom: 100px;
+
+  	&_video {
+
+			.depfin-budget-moscow-media-materials__link {
+		  	&:before {
+		  		background-color: transparent;
+		  		opacity: 1;
+		  	}
+			}
+
+			.depfin-budget-moscow-media-materials__label {
+				padding: 15px 19px;
+				background-color: transparent;
+			}
+
+  		.depfin-budget-moscow-media-materials__photo {
+  			height: 153px;
+
+		  	&:before {
+		  		@include ghost;
+		  		background-color: #000;
+		  		opacity: .6;
+		  		z-index: 1;
+		  	}
+  		}
+
+  		.depfin-budget-moscow-media-materials__img {
+  			margin: 0 auto;
+		    min-height: calc(100% + 153px);
+  		}
+  	}
+  }
+
+  &__title {
+  	font-family: $PFDinCondensedPro;
+  	font-size: 30px;
+  	line-height: 1em;
+  	color: $color-white;
+  	text-transform: uppercase;
+  	margin-bottom: 40px;
+  }
+
+  &__content {
+  	list-style: none;
+  	font-size: 0;
+  	text-align: justify;
+  	margin-bottom: 77px;
+
+    &:after {
+      width: 100%;
+      height: 0;
+      content: '';
+      display: inline-block;
+    }
+  }
+
+  &__item {
+  	display: inline-block;
+  	width: 247px;
+  	height: 247px;
+  }
+
+	&__link {
+		display: block;
+		position: relative;
+  	width: 100%;
+  	height: 100%;
+
+  	&:before {
+  		@include ghost;
+  		background-color: #000;
+  		opacity: .2;
+  		z-index: 1;
+  	}
+	}
+
+	&__photo {
+		display: block;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+
+	&__img {
+		@include fill-img;
+	}
+
+	&__play {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 53px;
+		height: 53px;
+		border: 1px solid $color-white;
+		border-radius: 50%;
+		background-color: $color-white;
+		opacity: .15;
+    z-index: 1;
+
+		& svg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 14px;
+			height: 25px;
+			fill: $color-white;
+		}
+	}
+
+	&__label {
+		display: block;
+		width: 100%;
+		position: absolute;
+		padding: 15px 19px 34px;
+		bottom: 0;
+		left: 0;
+		font-family: $PFDinCondensedPro;
+		line-height: 20px;
+		color: $color-white;
+		background-color: #171832;
+		opacity: .8;
+		z-index: 1;
+	}
+
+	&__text {
+		font-size: 16px;
+		font-weight: 400;
+		opacity: 0.5;
+	}
+
+	&__date {
+		font-size: 14px;
+		font-weight: 300;
+		opacity: 0.5;
+	}
+
+  &__more {
+  	width: 692px;
+  	margin: 0 auto;
+
+  	.button {
+  		padding: 14px 14px 11px;
+  		font-size: 18px;
+  		line-height: 18px;
+  		font-family: $PFDinCondensedPro;
+  		text-transform: uppercase;
+  	}
+  }
+}
