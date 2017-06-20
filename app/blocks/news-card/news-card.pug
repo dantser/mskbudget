@@ -22,3 +22,11 @@ mixin news-card(image, category, title, date)
       a(href="#").share__a.share__a_vk
       a(href="#").share__a.share__a_tw
       a(href="#").share__a.share__a_ok
+
+mixin event-card(image, title, date)
+  +b.news._events&attributes(attributes)
+    a(href="#").news__thumb
+      img(src="assets/images/events/"+image+".jpg", alt="thumb")
+    a(href="#").news__title= title
+    .news__bottom
+      p.news__date= date
