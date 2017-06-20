@@ -1,5 +1,12 @@
 .buttons-set {
   
+  .button-light {
+    transition: all .25s ease-in-out;
+    &:hover {
+      background-color: #fee300;
+      color: #000;
+    }
+  }
   &_news {
     .buttons-set__item {
       &:first-child {
@@ -13,6 +20,17 @@
       padding: 11px 30px;
       min-width: 240px;
       text-align: center;
+    }
+    
+    @media screen and (max-width: 990px) {
+      .button-light {
+        font-size: 14px;
+        padding: 4px 10px;
+        min-width: 160px;
+      }
+      .buttons-set__item:first-child .button-light {
+        padding: 4px 29px;
+      }
     }
   }
 }
