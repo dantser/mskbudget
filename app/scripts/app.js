@@ -13,6 +13,7 @@ import budgetCalcPage from '../pages/depfin_services_budget_calc/depfin_services
 import legend from '../blocks/legend/legend';
 import budgetCalcApp from '../components/budget-calc-app/budget-calc-app';
 import newsFilter from '../components/news/newsFilter';
+import mediaMain from '../components/media-main/mediaMain';
 import aboutBudgetPreparation from '../components/depfin_about_budget_preparation/depfin_about_budget_preparation';
 import range from '../blocks/range/range'; // range-slider input для калькулятора бюджета
 import dragscroll from '../blocks/drag-scroll/drag-scroll'; // функция, позволяющая сделать любой блок скроллящимся через перетаскивание (добавить класс .js-drag-scroll-element)
@@ -33,6 +34,7 @@ $(() => {
   budgetCalcApp();
   aboutBudgetPreparation();
   newsFilter();
+  mediaMain();
   range();
   dragscroll();
 });
