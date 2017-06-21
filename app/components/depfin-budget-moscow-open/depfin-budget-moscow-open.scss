@@ -1,0 +1,150 @@
+.depfin-budget-moscow-open {
+  display: block;
+  background-image: url(../images/depfin-budget-moscow-open/bg.jpg);
+  background-size: cover;
+  background-position: center 0;
+  padding-top: 195px;
+  padding-bottom: 60px;
+
+  @include respond-to('mobile'){
+    padding: 100px 0 20px;
+  }
+
+  &__head {
+    margin-bottom: 58px;
+  }
+
+  &__main {
+
+  }
+
+	&__open {
+		margin-bottom: 47px;
+	}
+
+  &__title {
+  	display: inline-block;
+  	font-family: $PFDinCondensedPro;
+  	font-size: 30px;
+  	line-height: 1em;
+  	color: $color-white;
+  	text-transform: uppercase;
+    letter-spacing: 0.7px;
+  	margin-bottom: 40px;
+  }
+
+  &__content {
+  	list-style: none;
+  	font-size: 0;
+  	text-align: justify;
+  	margin-bottom: 41px;
+
+    &:after {
+      width: 100%;
+      height: 0;
+      content: '';
+      display: inline-block;
+    }
+  }
+
+  &__item {
+  	display: inline-block;
+  	width: 247px;
+  	margin-bottom: 36px;
+  }
+
+	&__link {
+		display: block;
+		position: relative;
+  	width: 100%;
+  	text-decoration: none;
+	}
+
+	&__category {
+		display: block;
+		padding: 6px 9px 4px;
+		font-family: $PFDinCondensedPro;
+		font-size: 15px;
+		line-height: 1em;
+		color: $color-white;
+
+		&_red {
+			background-color: #eb6066;
+		}
+		&_blue {
+			background-color: #137bd7;
+		}
+		&_green {
+			background-color: #4fb55f;
+		}
+		&_grey {
+			background-color: #798290;
+		}
+		&_violet {
+			background-color: #aa3784;
+		}
+		&_altgreen {
+			background-color: #00a9a7;
+		}
+	}
+
+	&__photo {
+		display: block;
+		position: relative;
+		width: 100%;
+		height: 207px;
+		overflow: hidden;
+	}
+
+	&__img {
+		@include fill-img;
+		margin: 0 auto;
+		min-height: calc(100% + 40px);
+	}
+
+	&__label {
+		display: block;
+		width: 100%;
+		height: 86px;
+		position: absolute;
+		padding: 12px 9px;
+		bottom: 0;
+		left: 0;
+		background-color: $color-white;
+		z-index: 1;
+	}
+
+	&__text {
+		@include center-block;
+    width: 92%;
+		padding-right: 20px;
+		text-align: left;
+		font-family: $PFDinCondensedPro;
+		font-size: 18px;
+		line-height: 20px;
+		font-weight: 400;
+		color: #0d46a1;
+	}
+
+	&__more {
+		position: relative;
+		padding-right: 18px;
+		font-family: $PFDinCondensedPro;
+		font-size: 18px;
+		line-height: 1em;
+		font-weight: 400;
+		color: $color-yellow;
+		text-decoration: none;
+		vertical-align: top;
+		margin-left: 16px;
+
+		svg {
+			@include center-block;
+			left: auto;
+			right: 0;
+			width: 9px;
+			height: 13px;
+			fill: $color-yellow;
+		}
+	}
+}
