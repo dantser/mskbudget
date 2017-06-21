@@ -1,0 +1,38 @@
+include ../page-header/page-header
+
+mixin press()
+  +b.press&attributes(attributes)
+    .wrapper.page-content-wrapper
+      +page-header('Пресс-служба', true, true).__header
+      +e.H2.heading запрос информации для сми
+      +e.FORM(action='', method='POST').form.form
+        .form__left-side
+          .form__field.form__field_d1
+            LABEL(for='i-author').form__label автор запроса
+            INPUT(id='i-author', type='text', name='author', value='', placeholder='ФИО').form__text
+          .form__field.form__field_d1
+            LABEL(for='i-smi').form__label СМИ
+            INPUT(id='i-smi', type='text', name='smi', value='').form__text
+        .form__right-side
+          .form__field.form__field_d2
+            LABEL(for='i-email').form__label электронная почта
+            INPUT(id='i-email', type='email', name='email', value='', placeholder='e-mail').form__text
+          .form__field.form__field_d2
+            LABEL(for='i-tel').form__label контактный телефон
+            INPUT(id='i-tel', type='tel', name='tel', value='').form__text
+        .form__field.form__field_d5
+          LABEL(for='i-request').form__label текст запроса
+          TEXTAREA(id='i-request').form__text
+          .form__captcha
+        INPUT(type='submit', value='Отправить').form__submit
+        
+      +e.H2.heading Контакты пресс-службы
+      +e.contacts
+        +e.P.contact Пресс-секретарь Департамента финансов города Москвы:
+          span Полухина Дарья Александровна
+        +e.P.contact Электронная почта:
+          span PolukhinaDA@mos.ru
+            i (только для запросов СМИ)
+        +e.P.contact Телефон:
+          span +7 (499) 250-87-57
+            i (только для запросов СМИ)
