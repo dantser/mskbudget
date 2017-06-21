@@ -159,14 +159,14 @@ mixin analityc-graphics-line(title, data)
               +e.line-fill
 
 //- data - json файл с данными для графиков
-mixin analityc-graphics-line-vertical(data, gp)
+mixin analityc-graphics-line-vertical(data, isWide)
   +b.analityc-graphics-line-vertical&attributes(attributes)
 
     each item in data
       +e.graphic
         +e.lines
 
-          if gp
+          if isWide
             +e.line._pink
               +e.line-bar-value= item.values[0]
               +e.line-fill
