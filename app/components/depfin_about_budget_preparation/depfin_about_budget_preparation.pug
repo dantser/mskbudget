@@ -21,12 +21,27 @@ mixin depfin_about_budget_preparation()
   // d-abs-content
   +b.graphic-table
     +e.frame
-      +e.holder
+      +e.holder.js-drag-scroll-element
         +e.TABLE.table
           thead
             tr
               +e.TH.table-th
                 // fake
+              +e.TH.table-th
+                +e.P.head.color_04 2013
+                +e.months
+                  +e.SPAN.month ЯНВ
+                  +e.SPAN.month ФЕВ
+                  +e.SPAN.month МАР
+                  +e.SPAN.month АПР
+                  +e.SPAN.month МАЙ
+                  +e.SPAN.month ИЮН
+                  +e.SPAN.month ИЮЛ
+                  +e.SPAN.month АВГ
+                  +e.SPAN.month СЕН
+                  +e.SPAN.month ОКТ
+                  +e.SPAN.month НОЯ
+                  +e.SPAN.month ДЕК
               +e.TH.table-th
                 +e.P.head.color_05 2014
                 +e.months
@@ -117,6 +132,51 @@ mixin depfin_about_budget_preparation()
                   +e.SPAN.month ОКТ
                   +e.SPAN.month НОЯ
                   +e.SPAN.month ДЕК
+              +e.TH.table-th
+                +e.P.head.color_04 2020
+                +e.months
+                  +e.SPAN.month ЯНВ
+                  +e.SPAN.month ФЕВ
+                  +e.SPAN.month МАР
+                  +e.SPAN.month АПР
+                  +e.SPAN.month МАЙ
+                  +e.SPAN.month ИЮН
+                  +e.SPAN.month ИЮЛ
+                  +e.SPAN.month АВГ
+                  +e.SPAN.month СЕН
+                  +e.SPAN.month ОКТ
+                  +e.SPAN.month НОЯ
+                  +e.SPAN.month ДЕК
+              +e.TH.table-th
+                +e.P.head.color_04 2021
+                +e.months
+                  +e.SPAN.month ЯНВ
+                  +e.SPAN.month ФЕВ
+                  +e.SPAN.month МАР
+                  +e.SPAN.month АПР
+                  +e.SPAN.month МАЙ
+                  +e.SPAN.month ИЮН
+                  +e.SPAN.month ИЮЛ
+                  +e.SPAN.month АВГ
+                  +e.SPAN.month СЕН
+                  +e.SPAN.month ОКТ
+                  +e.SPAN.month НОЯ
+                  +e.SPAN.month ДЕК
+              +e.TH.table-th
+                +e.P.head.color_04 2022
+                +e.months
+                  +e.SPAN.month ЯНВ
+                  +e.SPAN.month ФЕВ
+                  +e.SPAN.month МАР
+                  +e.SPAN.month АПР
+                  +e.SPAN.month МАЙ
+                  +e.SPAN.month ИЮН
+                  +e.SPAN.month ИЮЛ
+                  +e.SPAN.month АВГ
+                  +e.SPAN.month СЕН
+                  +e.SPAN.month ОКТ
+                  +e.SPAN.month НОЯ
+                  +e.SPAN.month ДЕК
           tbody
             +e.TR.table-tr
               +e.TD.table-td
@@ -140,10 +200,22 @@ mixin depfin_about_budget_preparation()
                 +e.line.type-positive_01.type-negative_03
                   +e.P.line-output.type_03 2018-2020
               +e.TD.table-td
-                +e.line.type-positive_04.type-negative_02
+                +e.line.type-positive_01.type-negative_03
                   +e.P.line-output.type_04 2019-2021
               +e.TD.table-td
-                +e.line.type-positive_02.type-negative_04
+                +e.line.type-positive_01.type-negative_03
+                  +e.P.line-output.type_01 2020-2021
+              +e.TD.table-td
+                +e.line.type-positive_01.type-negative_03
+                  +e.P.line-output.type_02 2017-2019
+              +e.TD.table-td
+                +e.line.type-positive_01.type-negative_03
+                  +e.P.line-output.type_03 2018-2020
+              +e.TD.table-td
+                +e.line.type-positive_01.type-negative_03
+                  +e.P.line-output.type_04 2019-2021
+              +e.TD.table-td
+                +e.line.type-positive_01.type-negative_03
                   +e.P.line-output.type_01 2020-2021
                   
             +e.TR.table-tr
@@ -156,22 +228,34 @@ mixin depfin_about_budget_preparation()
                       br
                       | и утверждение бюджета
               +e.TD.table-td
-                +e.line.type-positive_01.type-negative_03
+                +e.line.type-positive_09
                   +e.P.line-output.type_04 2016-2018
               +e.TD.table-td
-                +e.line.type-positive_01.type-negative_03
+                +e.line.type-positive_09
                   +e.P.line-output.type_01 2016-2018
               +e.TD.table-td
-                +e.line.type-positive_01.type-negative_03
+                +e.line.type-positive_09
                   +e.P.line-output.type_02 2017-2019
               +e.TD.table-td
-                +e.line.type-positive_01.type-negative_03
+                +e.line.type-positive_09
                   +e.P.line-output.type_03 2018-2020
               +e.TD.table-td
-                +e.line.type-positive_04.type-negative_02
+                +e.line.type-positive_09
                   +e.P.line-output.type_04 2019-2021
               +e.TD.table-td
-                +e.line.type-positive_02.type-negative_04
+                +e.line.type-positive_09
+                  +e.P.line-output.type_01 2020-2021
+              +e.TD.table-td
+                +e.line.type-positive_09
+                  +e.P.line-output.type_02 2017-2019
+              +e.TD.table-td
+                +e.line.type-positive_09
+                  +e.P.line-output.type_03 2018-2020
+              +e.TD.table-td
+                +e.line.type-positive_09
+                  +e.P.line-output.type_04 2019-2021
+              +e.TD.table-td
+                +e.line.type-positive_09
                   +e.P.line-output.type_01 2020-2021
                   
             +e.TR.table-tr
@@ -182,22 +266,34 @@ mixin depfin_about_budget_preparation()
                     +e.P.title-content
                       | исполнение бюджета
               +e.TD.table-td
-                +e.line.type-positive_01.type-negative_03
+                +e.line
                   +e.P.line-output.type_04 2016-2018
               +e.TD.table-td
-                +e.line.type-positive_01.type-negative_03
+                +e.line
                   +e.P.line-output.type_01 2016-2018
               +e.TD.table-td
-                +e.line.type-positive_01.type-negative_03
+                +e.line
                   +e.P.line-output.type_02 2017-2019
               +e.TD.table-td
-                +e.line.type-positive_01.type-negative_03
+                +e.line
                   +e.P.line-output.type_03 2018-2020
               +e.TD.table-td
-                +e.line.type-positive_04.type-negative_02
+                +e.line
                   +e.P.line-output.type_04 2019-2021
               +e.TD.table-td
-                +e.line.type-positive_02.type-negative_04
+                +e.line
+                  +e.P.line-output.type_01 2020-2021
+              +e.TD.table-td
+                +e.line
+                  +e.P.line-output.type_02 2017-2019
+              +e.TD.table-td
+                +e.line
+                  +e.P.line-output.type_03 2018-2020
+              +e.TD.table-td
+                +e.line
+                  +e.P.line-output.type_04 2019-2021
+              +e.TD.table-td
+                +e.line
                   +e.P.line-output.type_01 2020-2021
                   
             +e.TR.table-tr
@@ -212,22 +308,34 @@ mixin depfin_about_budget_preparation()
                       br
                       | об исполнении бюджета
               +e.TD.table-td
-                +e.line.type-positive_01.type-negative_03
+                +e.line.type-positive_03.type-negative_03
                   +e.P.line-output.type_04 2016-2018
               +e.TD.table-td
-                +e.line.type-positive_01.type-negative_03
+                +e.line.type-positive_03.type-negative_03
                   +e.P.line-output.type_01 2016-2018
               +e.TD.table-td
-                +e.line.type-positive_01.type-negative_03
+                +e.line.type-positive_03.type-negative_03
                   +e.P.line-output.type_02 2017-2019
               +e.TD.table-td
-                +e.line.type-positive_01.type-negative_03
+                +e.line.type-positive_03.type-negative_03
                   +e.P.line-output.type_03 2018-2020
               +e.TD.table-td
-                +e.line.type-positive_04.type-negative_02
+                +e.line.type-positive_03.type-negative_03
                   +e.P.line-output.type_04 2019-2021
               +e.TD.table-td
-                +e.line.type-positive_02.type-negative_04
+                +e.line.type-positive_03.type-negative_03
+                  +e.P.line-output.type_01 2020-2021
+              +e.TD.table-td
+                +e.line.type-positive_03.type-negative_03
+                  +e.P.line-output.type_02 2017-2019
+              +e.TD.table-td
+                +e.line.type-positive_03.type-negative_03
+                  +e.P.line-output.type_03 2018-2020
+              +e.TD.table-td
+                +e.line.type-positive_03.type-negative_03
+                  +e.P.line-output.type_04 2019-2021
+              +e.TD.table-td
+                +e.line.type-positive_03.type-negative_03
                   +e.P.line-output.type_01 2020-2021
                   
             +e.TR.table-tr
@@ -238,22 +346,34 @@ mixin depfin_about_budget_preparation()
                     +e.P.title-content
                       | Финансовый контроль
               +e.TD.table-td
-                +e.line.type-positive_01.type-negative_03
+                +e.line
                   +e.P.line-output.type_04 2016-2018
               +e.TD.table-td
-                +e.line.type-positive_01.type-negative_03
+                +e.line
                   +e.P.line-output.type_01 2016-2018
               +e.TD.table-td
-                +e.line.type-positive_01.type-negative_03
+                +e.line
                   +e.P.line-output.type_02 2017-2019
               +e.TD.table-td
-                +e.line.type-positive_01.type-negative_03
+                +e.line
                   +e.P.line-output.type_03 2018-2020
               +e.TD.table-td
-                +e.line.type-positive_04.type-negative_02
+                +e.line
                   +e.P.line-output.type_04 2019-2021
               +e.TD.table-td
-                +e.line.type-positive_02.type-negative_04
+                +e.line
+                  +e.P.line-output.type_01 2020-2021
+              +e.TD.table-td
+                +e.line
+                  +e.P.line-output.type_02 2017-2019
+              +e.TD.table-td
+                +e.line
+                  +e.P.line-output.type_03 2018-2020
+              +e.TD.table-td
+                +e.line
+                  +e.P.line-output.type_04 2019-2021
+              +e.TD.table-td
+                +e.line
                   +e.P.line-output.type_01 2020-2021
   // graphic-table
   +b.steps.back-round

@@ -3,5 +3,5 @@ import nouislider from 'nouislider';
 
 export default function range() {
   // range-slider
-  console.log(nouislider);
+  // console.log(nouislider);
 }

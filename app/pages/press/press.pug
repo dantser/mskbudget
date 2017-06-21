@@ -1,25 +1,25 @@
 extends ../../layouts/default
-include ../../components/principles/principles
+include ../../components/press/press
 
 block head
   - var pageTitle = 'Versta Project Template'
 
 block page
   block header
-    +header()._budget
+    +header()
 
   block sections
     +sections()
 
       block content
-        +principles()
+        +press()
         +footer()
         +button-top()
         
   +popup-wrapper()
-
+        
   script(src="assets/scripts/js/jquery-3.1.1.min.js")
-  script(src="assets/scripts/js/library-big.js")
+  script(src="assets/scripts/js/library.js")
   script(src="assets/scripts/js/header/easing.min.js")
   script(src="assets/scripts/js/header/swipe.min.js")
   script(src="assets/scripts/js/header/slick.min.js")

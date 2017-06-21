@@ -1,9 +1,42 @@
 .budget-calc-page {
-  padding-top: 170px;
   padding-bottom: 60px;
   background-image: url(../images/depfin-budget-moscow-infograpfic-fin/bg.jpg);
   @include bg-cover;
   background-position: center 0;
+
+  @media (max-width: 800px) {
+    padding-top: 100px;
+  }
+
+  @media (min-width: 801px){
+    padding-top: 170px;
+  }
+
+  &__wrap {
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (min-width: 1025px) {
+      max-width: 1100px + 88px * 2;
+      padding-left: 88px;
+      padding-right: 88px;
+    }
+
+    @media (max-width: 1024px) {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+
+    @media (max-width: 768px) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    @media (max-width: 480px) {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
 
   &__ahead {
     margin-bottom: 20px;
@@ -13,44 +46,123 @@
     max-width: 800px;
   }
 
-  &__header-desc {
-    max-width: 800px;
-    margin-bottom: 30px;
-    font-family: $PFDinTextPro;
-    font-size: 14px;
-    line-height: 18px;
-    font-weight: normal;
-  }
-
   &__tab {
     display: none;
-
-    &_intro {
-      margin-top: 30px;
-    }
 
     &.is-active {
       display: block;
     }
   }
 
-  $iconBlockSize: 217px;
-  &__intro-icon {
-    float: left;
-    padding-right: 62px;
-    width: $iconBlockSize;
+  &__intro {
+    margin-top: 50px;
+    @include display-flex;
+
+    @media (max-width: 768px) {
+      @include flex-wrap(wrap);
+    }
+
+    &-col-left {
+      @include flex-basis(218px);
+      @include flex-shrink(0);
+      padding-right: 60px;
+
+      @media (max-width: 768px) {
+        @include flex-basis(175px);
+        @include flex-shrink(1);
+        padding-right: 20px;
+      }
+    }
+
+    &-col-right {
+      @include flex-grow(1);
+    }
+
+    &-icon {
+      margin-top: 5px;
+      max-width: 100%;
+      height: auto;
+    }
+
+    &-text {
+      margin-bottom: 25px;
+      max-width: 680px;
+      font-family: $PFDinTextPro;
+      font-size: 20px;
+      line-height: 26px;
+      font-weight: normal;
+
+      &_desktop {
+        @media (max-width: 768px) {
+          display: none;
+        }
+      }
+
+      &_mobile {
+        margin-top: 30px;
+        font-size: 30px;
+        line-height: 36px;
+
+        @media (min-width: 769px) {
+          display: none;
+        }
+      }
+    }
+
+    &-buttons {
+      margin-top: 5px;
+
+      .budget-calc-btn {
+        @media (max-width: 768px) {
+          display: block;
+
+          &:first-child {
+            margin-bottom: 20px;
+          }
+        }
+
+        &:first-child {
+          @media (min-width: 769px) {
+            margin-right: 20px;
+          }
+        }
+      }
+    }
   }
 
-  &__intro-text {
-    max-width: 700px;
-    margin: 0 0 35px $iconBlockSize;
-    font-family: $PFDinTextPro;
-    font-size: 20px;
-    line-height: 26px;
-    font-weight: normal;
+  &__howto {
+    margin-top: 120px;
 
-    .budget-calc-btn {
-      margin-top: 30px;
+    &-heading {
+      font-family: $PFDinCondensedPro;
+      font-size: 24px;
+      line-height: 26px;
+      font-weight: 500;
+      font-style: normal;
+      text-transform: uppercase;
+    }
+
+    &-grid {
+      margin: 24px -25px 0;
+      @include display-flex;
+      @include flex-wrap(wrap);
+    }
+
+    &-item {
+      @include flex-basis(25%);
+      margin-bottom: 58px;
+      padding: 0 25px;
+
+      &-preview {
+        margin-bottom: 22px;
+      }
+
+      &-text {
+        font-family: $PFDinTextPro;
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 400;
+      }
     }
   }
 
