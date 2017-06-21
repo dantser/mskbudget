@@ -20,18 +20,20 @@ block page
               +e.ahead.ahead
                 +page-header('бюджетный калькулятор города Москвы', ['Сервисы']).__page-header
 
-              +e.tabs#budget-calc__tabs.load-anim-fade(data-delay="2700")
+              +e.tabs#budget-calc__tabs
                 +e.tab.js-budget-calc__tab#budget-calc__tab_intro.is-active
-                  +e.intro
+                  +e.intro.load-anim-fade(data-delay="2200")
                     +e.intro-col-left
                       +e.IMG.intro-icon(src="assets/images/depfin_services_budget_calc/calc.png")
                     +e.intro-col-right
                       +e.intro-text._desktop Бюджетный калькулятор города Москвы — это образовательный инструмент, который позволит любому гражданину принять участие в виртуальном планировании бюджета города Москвы и в упрощенной форме демонстрирует принципы бюджетного планирования.
                       +e.intro-buttons
-                        +budget-calc-btn('Начать').-arrow-right.js-budget-calc__tab-control(href="#budget-calc__tab_app")
-                        +budget-calc-btn('Гид по калькулятору').-transparent.-arrow-right(href="#")
+                        +budget-calc-btn('Начать').-svg-icon.js-budget-calc__tab-control(href="#budget-calc__tab_app")
+                          +icon('angle-arrow').icon
+                        +budget-calc-btn('Гид по калькулятору').-transparent.-svg-icon(href="#" data-scrollto="#budget-calc-page__howto").js-budget-calc-page__scrollToLink
+                          +icon('angle-arrow').icon.icon-90deg
                   +e.intro-text._mobile Бюджетный калькулятор города Москвы — это образовательный инструмент, который позволит любому гражданину принять участие в виртуальном планировании бюджета города Москвы и в упрощенной форме демонстрирует принципы бюджетного планирования.
-                  +e.howto
+                  +e.howto.load-anim-fade(data-delay="2500")#budget-calc-page__howto
                     +e.howto-heading как это работает
                     +e.howto-grid.js-budget-calc-page__howto-carousel
                       +e.howto-item

@@ -19,6 +19,23 @@ export default function depfin_services_budget_calc() {
   }
 
 
+  // скролл-ссылки
+  const $scrollToLinks = $('.js-budget-calc-page__scrollToLink');
+
+  if ($scrollToLinks) {
+    $scrollToLinks.on({
+      click: function(event) {
+        if ( $(this).attr('data-scrollto').length > 1 ) {
+          event.preventDefault();
+          $('html, body').animate({
+            scrollTop: $($(this).attr('data-scrollto')).offset().top - 95
+          });
+        }
+      }
+    });
+  }
+
+
   // карусель для экрана "intro" в мобильной версии
   const $introCarousel = $('.js-budget-calc-page__howto-carousel');
 

@@ -1,5 +1,5 @@
 // стрелка для кнопок и прочего декора
-@mixin budget-calc-arrow {
+@mixin budget-calc-triangle {
   content: '';
   position: absolute;
   top: 50%;
@@ -8,6 +8,105 @@
   height: 0;
   border-style: solid;
   @include transited;
+}
+
+// желтая кнопка для калькулятора бюджета
+.budget-calc-btn {
+  display: inline-block;
+  min-width: 220px;
+  padding: 10px 13px 8px;
+  font-family: $PFDinCondensedPro;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 2px;
+  color: black;
+  background-color: #fee300;
+  border: 1px solid #fee300;
+  @include transited;
+
+  &:hover {
+    background-color: #E7CE00;
+    border-color: #E7CE00;
+  }
+
+  &_howto-start {
+    display: block;
+    width: 100%;
+    min-width: auto;
+    padding-top: 13px;
+    padding-bottom: 11px;
+    text-align: center;
+  }
+
+  &.-transparent {
+    background-color: transparent;
+    color: #fee300;
+
+    &.-svg-icon {
+      fill: #fee300;
+    }
+
+    &.-triangle-right:after {
+      border-color: transparent transparent transparent #fee300;
+    }
+
+    &:hover {
+      background-color: #fee300;
+      color: black;
+
+      &.-svg-icon {
+        fill: black;
+      }
+
+      &.-triangle-right:after {
+        border-color: transparent transparent transparent black;
+      }
+    }
+  }
+
+  &.-triangle-right {
+    position: relative;
+    padding-right: 40px;
+
+    &:after {
+      @include budget-calc-triangle;
+      right: 15px;
+      border-width: 5px 0 5px 5px;
+      border-color: transparent transparent transparent black;
+    }
+  }
+
+  &_balance {
+    margin-left: 25px;
+  }
+
+  &_costs {
+    margin-left: 25px;
+  }
+
+  &.-svg-icon {
+    position: relative;
+    padding-right: 40px;
+
+    > svg,
+    > .icon {
+      position: absolute;
+      top: 50%;
+      right: 15px;
+      @include transform(translateY(-50%));
+      height: 10px;
+      max-height: 10px;
+      width: 10px;
+      // @include transited;
+
+      &.icon-90deg {
+        @include transform(rotate(90deg) translateX(-40%));
+      }
+    }
+  }
 }
 
 // табличная система  для доходов
@@ -41,71 +140,6 @@
   &:nth-child(3) {
     @include flex-basis(180px);
     @include flex-shrink(1);
-  }
-}
-
-// желтая кнопка для калькулятора бюджета
-.budget-calc-btn {
-  display: inline-block;
-  min-width: 220px;
-  padding: 10px 13px 8px;
-  font-family: $PFDinCondensedPro;
-  font-size: 16px;
-  line-height: 1;
-  font-weight: 500;
-  text-decoration: none;
-  text-transform: uppercase;
-  border-radius: 2px;
-  color: black;
-  background-color: #fee300;
-  border: 1px solid #fee300;
-  @include transited;
-
-  &_howto-start {
-    display: block;
-    width: 100%;
-    min-width: auto;
-    padding-top: 13px;
-    padding-bottom: 11px;
-    text-align: center;
-  }
-
-  &.-transparent {
-    background-color: transparent;
-    color: #fee300;
-
-    &.-arrow-right:after {
-      border-color: transparent transparent transparent #fee300;
-    }
-
-    &:hover {
-      background-color: #fee300;
-      color: black;
-
-      &.-arrow-right:after {
-        border-color: transparent transparent transparent black;
-      }
-    }
-  }
-
-  &.-arrow-right {
-    position: relative;
-    padding-right: 40px;
-
-    &:after {
-      @include budget-calc-arrow;
-      right: 15px;
-      border-width: 5px 0 5px 5px;
-      border-color: transparent transparent transparent black;
-    }
-  }
-
-  &_balance {
-    margin-left: 25px;
-  }
-
-  &_costs {
-    margin-left: 25px;
   }
 }
 
@@ -407,7 +441,7 @@
   background-color: white;
   text-decoration: none;
   color: black;
-  @include transited('color 300ms linear');
+  @include transited('all 300ms linear');
 
   &:before {
     @include ghost;
@@ -466,12 +500,16 @@
     padding-right: 25px;
     background-color: #fee300;
 
+    &:hover {
+      background-color: #E7CE00;
+    }
+
     &:before {
       display: none;
     }
 
     &:after {
-      @include budget-calc-arrow;
+      @include budget-calc-triangle;
       right: 16px;
       border-width: 5px 0 5px 5px;
       border-color: transparent transparent transparent black;
@@ -490,7 +528,7 @@
     }
 
     &:after {
-      @include budget-calc-arrow;
+      @include budget-calc-triangle;
       right: 16px;
       border-width: 5px 0 5px 5px;
       border-color: transparent transparent transparent #fee300;

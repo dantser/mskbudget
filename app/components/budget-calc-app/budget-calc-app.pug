@@ -3,6 +3,7 @@ include ../../blocks/range/range
 
 mixin budget-calc-btn(text)
   +b.A.budget-calc-btn(href="#")&attributes(attributes) #{text}
+    block
 
 mixin budget-calc-app()
   +b.budget-calc-app#budget-calc-app
@@ -94,7 +95,7 @@ mixin budget-calc-app()
           +e.incomes-row
             +e.incomes-column Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus illo placeat labore nobis commodi, facilis, hic animi vitae est id consectetur cumque itaque ipsum, soluta! Iusto illo id, officia et!
         +e.text
-          +budget-calc-btn('сохранить и перейти в раздел «расходы»')._arrow-right.js-budget-calc-app__tab-control(data-target="#budget-calc-app__tab_costs" href="#")
+          +budget-calc-btn('сохранить и перейти в раздел «расходы»').-triangle-right.js-budget-calc-app__tab-control(data-target="#budget-calc-app__tab_costs" href="#")
 
       +e.tab._costs.js-budget-calc-app__tab#budget-calc-app__tab_costs(data-state-indicator="#budget-calc-app__tab_costs-indicator")
         +e.heading РАСХОДЫ НА ГОСУДАРСТВЕННЫЕ ПРОГРАММЫ
@@ -310,7 +311,7 @@ mixin budget-calc-app()
               | range
             +e.costs-item-expand testing
 
-        +budget-calc-btn('сохранить и перейти в раздел «дефицит/процифит»')._costs._arrow-right.js-budget-calc-app__tab-control(data-target="#budget-calc-app__tab_balance" href="#")
+        +budget-calc-btn('сохранить и перейти в раздел «дефицит/процифит»')._costs.-triangle-right.js-budget-calc-app__tab-control(data-target="#budget-calc-app__tab_balance" href="#")
 
       +e.tab._balance.js-budget-calc-app__tab#budget-calc-app__tab_balance(data-state-indicator="#budget-calc-app__tab_balance-indicator")
         +e.heading ДЕФИЦИТ / ПРОФИЦИТ
@@ -326,4 +327,4 @@ mixin budget-calc-app()
                 | 0,0 млн руб.
               +e.balance-expand
                 | Уведомления
-        +budget-calc-btn('Сохранить и проверить свой вариант бюджета')._balance._arrow-right
+        +budget-calc-btn('Сохранить и проверить свой вариант бюджета')._balance.-triangle-right
