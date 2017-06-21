@@ -1,0 +1,34 @@
+include ../../blocks/news-card/news-card
+include ../../blocks/icon/icons
+include ../page-header/page-header
+include ../../blocks/button/button
+
+mixin mediaSmFin()
+  +b.mediaSmFin&attributes(attributes)
+    .wrapper.page-content-wrapper
+      +page-header('Материалы для СМИ', false, true)
+      +e.content
+        +e.materials-group
+          +e.H3.title Материалы портала Открытый бюджет города Москвы
+          +e.card-wrapper
+            .tile__item
+              +material-card(5, 'Расходы в разрезе государственных программ', '1 апреля 2016')
+            .tile__item
+              +material-card(6, 'Расходы в разрезе государственных программ', '1 апреля 2016')
+            .tile__item
+              +material-card(7, 'Расходы в разрезе государственных программ', '1 апреля 2016')
+            .tile__item
+              +material-card(8, 'Расходы в разрезе государственных программ', '1 апреля 2016')
+          +e.A(href="#").show-more.d-si__button_show-more Показать еще
+        +e.photos-group
+          +e.H3.title Фотографии официальных лиц
+          +e.card-wrapper
+            .tile__item
+              +photo-card(1, 'ЗЯББАРОВА Елена Юрьевна', 'Министр Правительства Москвы, руководитель Департамента финансов города Москвы', '1 апреля 2016').tile__inner 
+            .tile__item
+              +photo-card(2, 'МЕНЬШОВ Евгений Нариманович', 'Первый заместитель руководителя Департамента финансов города Москвы, начальник Московского городского казначейства', '1 апреля 2016').tile__inner 
+            .tile__item
+              +photo-card(3, 'БУТАХИНА Елена Анатольевна', 'Первый заместитель руководителя Департамента финансов города Москвы', '1 апреля 2016').tile__inner 
+            .tile__item
+              +photo-card(4, 'ГУБАНОВА Светлана Александровна', 'Заместитель руководителя Департамента финансов города Москвы', '1 апреля 2016').tile__inner 
+          +e.A(href="#").show-more.d-si__button_show-more Показать еще

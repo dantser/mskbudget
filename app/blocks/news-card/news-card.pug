@@ -30,3 +30,20 @@ mixin event-card(image, title, date)
     a(href="#").news__title= title
     .news__bottom
       p.news__date= date
+
+mixin photo-card(image, name, position, date)
+  +b.news._photo&attributes(attributes)
+    a(href="#").news__thumb
+      img(src="assets/images/smi-fin/"+image+".jpg", alt="thumb")
+    +e.name= name
+    +e.position= position
+    .news__bottom
+      p.news__date= date
+      
+mixin material-card(image, title, date)
+  +b.news._material&attributes(attributes)
+    a(href="#").news__thumb
+      img(src="assets/images/smi-fin/"+image+".jpg", alt="thumb")
+    .news__bottom
+      a(href="#").news__title= title
+      p.news__date= date
