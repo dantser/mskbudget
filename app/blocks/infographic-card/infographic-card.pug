@@ -1,0 +1,10 @@
+//- image - название файла с картинкой
+//- title - заголовок карточки
+//- date - дата
+
+mixin infographic-card(image, title, date)
+  +b.infographic-card&attributes(attributes)
+    +e.IMG(src="assets/images/infographic/"+image+".svg").image
+    +e.bottom
+      +e.P.title= title
+      +e.P.date= date

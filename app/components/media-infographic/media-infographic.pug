@@ -1,0 +1,23 @@
+include ../../blocks/infographic-card/infographic-card
+include ../page-header/page-header
+
+mixin media-infographic()
+  +b.media-infographic&attributes(attributes)
+    .wrapper.page-content-wrapper
+      +page-header('Инфографика')
+      +e.card-wrapper
+        +e.col._main
+          +infographic-card(1, 'Доходы бюджета города Москвы.', '1 апреля 2016').A(href="#").__card
+          +infographic-card(2, 'Доходы бюджета города Москвы.', '1 апреля 2016').A(href="#").__card
+          +infographic-card(3, 'Доходы бюджета города Москвы.', '1 апреля 2016').A(href="#").__card
+          +infographic-card(1, 'Доходы бюджета города Москвы.', '1 апреля 2016').A(href="#").__card
+          +infographic-card(2, 'Доходы бюджета города Москвы.', '1 апреля 2016').A(href="#").__card
+          +infographic-card(3, 'Доходы бюджета города Москвы.', '1 апреля 2016').A(href="#").__card
+          +infographic-card(1, 'Доходы бюджета города Москвы.', '1 апреля 2016').A(href="#").__card
+          +infographic-card(2, 'Доходы бюджета города Москвы.', '1 апреля 2016').A(href="#").__card
+          +infographic-card(3, 'Доходы бюджета города Москвы.', '1 апреля 2016').A(href="#").__card
+        +e.col._add
+          +infographic-card(4, 'Доходы бюджета города Москвы.', '1 апреля 2016').A(href="#").__card
+          +infographic-card(4, 'Доходы бюджета города Москвы.', '1 апреля 2016').A(href="#").__card
+          +infographic-card(4, 'Доходы бюджета города Москвы.', '1 апреля 2016').A(href="#").__card
+      +e.A(href="#").show-more.d-si__button_show-more Показать еще

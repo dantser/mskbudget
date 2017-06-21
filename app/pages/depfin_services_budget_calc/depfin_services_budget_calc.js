@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import slick from 'slick-carousel';
 
 export default function depfin_services_budget_calc() {
   // табы внутри калькулятора бюджета
@@ -16,6 +17,36 @@ export default function depfin_services_budget_calc() {
       }
     });
   }
+
+
+  // карусель для экрана "intro" в мобильной версии
+  const $introCarousel = $('.js-budget-calc-page__howto-carousel');
+
+  if ($introCarousel) {
+    const slickLoader = function() {
+      if ($(window).outerWidth() <= 480) {
+        $introCarousel.slick({
+          infinite: true,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerMode: true,
+          dots: true,
+          centerMode: true,
+        });
+      } else {
+        if ($introCarousel.hasClass('slick-initialized')) {
+          $introCarousel.slick('unslick');
+        }
+      }
+    }
+
+    slickLoader();
+
+    $(window).resize(function() {
+      slickLoader();
+    });
+  }
+
 
   // аккордеоны в табличке "доходы"
   const $incomesRow = $('.js-incomes-row_accordeon');
