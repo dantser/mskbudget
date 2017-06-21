@@ -1,6 +1,7 @@
 include ../../blocks/legend/legend
 include ../../blocks/icon/icons
 include ../../blocks/checkbox/checkbox
+include ../../blocks/link/link
 //- type - тип шапки доходов бюджета (один из четырех)
 mixin analityc-widgethead-income(type)
   +b.analityc-widgethead&attributes(attributes)
@@ -563,3 +564,69 @@ mixin analityc-widgethead-gp()
           a(href="#").active Темп роста к пред. периоду, млрд руб.
           a(href="#") Доля в общей суммы,%
           a(href="#") % исполнения
+
+//- открытые данные(oprn-file)
+mixin analityc-widgethead-of()
+  +b.analityc-widgethead&attributes(attributes)
+    +e.FORM.head
+      +e.INPUT.search(placeholder="Поиск по наименованию", type="text")
+      +link() Всего 10 наборов
+      +link() 150 наборов загружено
+      +link() 5 предложений на публикацию наборов
+    .d-smr__add-char
+        p.d-smr__add-char-label поиск по категории
+        .d-smr__add-char-block
+          ul.d-smr__add-char-list.scroll-pane
+            li.d-smr__add-char-item
+              input(type='checkbox', name='a', value)#a
+              label(for='a') НАЛОГОВЫЕ ДОХОДЫ - всего в том числе:
+              ul.d-smr__char-sublist
+                li.d-smr__add-char-item
+                  input(type='checkbox', name='aa', value='aa')#aa
+                  label(for='aa') Налог на прибыль
+                li.d-smr__add-char-item
+                  input(type='checkbox', name='ab', value='ab')#ab
+                  label(for='ab') Налог на доходы физ.лиц
+                li.d-smr__add-char-item
+                  input(type='checkbox', name='ac', value='ac')#ac
+                  label(for='ac') Акцизы
+                li.d-smr__add-char-item
+                  input(type='checkbox', name='ad', value='ad')#ad
+                  label(for='ad') из них: нефтепродукты
+                li.d-smr__add-char-item
+                  input(type='checkbox', name='ae', value='ae')#ae
+                  label(for='ae') Единый упрощенный доход
+                li.d-smr__add-char-item
+                  input(type='checkbox', name='ae', value='ae')#af
+                  label(for='ae') Единый вмененный доход
+                li.d-smr__add-char-item
+                  input(type='checkbox', name='ae', value='ae')#ag
+                  label(for='ae') Налог на имущество организаций
+                li.d-smr__add-char-item
+                  input(type='checkbox', name='ae', value='ae')#ah
+                  label(for='ae') Транспортный налог
+                li.d-smr__add-char-item
+                  input(type='checkbox', name='ae', value='ae')#ai
+                  label(for='ae') Налог на игорный бизнес
+                li.d-smr__add-char-item
+                  input(type='checkbox', name='ae', value='ae')#aj
+                  label(for='ae') Госпошлина
+                li.d-smr__add-char-item
+                  input(type='checkbox', name='ae', value='ae')#ak
+                  label(for='ae') Прочие налоги
+                li.d-smr__add-char-item
+                  input(type='checkbox', name='ae', value='ae')#al
+                  label(for='ae') Задолженность по отмененным налогам
+            li.d-smr__add-char-item
+              input(type='checkbox', name='b', value)#b
+              label(for='b') НЕНАЛОГОВЫЕ ДОХОДЫ - всего в том числе:
+              ul.d-smr__char-sublist
+                li.d-smr__add-char-item
+                  input(type='checkbox', name='ba', value='ba')#ba
+                  label(for='ba') Дивиденды
+                li.d-smr__add-char-item
+                  input(type='checkbox', name='bb', value='bb')#bb
+                  label(for='bb') Расходы в расчёте на 1 жителя
+                li.d-smr__add-char-item
+                  input(type='checkbox', name='bc', value='bc')#bc
+                  label(for='bc') Общегосударственные вопросы

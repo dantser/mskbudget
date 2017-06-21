@@ -1,0 +1,90 @@
+include ../page-header/page-header
+include ../../blocks/icon/icons
+
+mixin depfin-budget-moscow-open()
+
+	//- Карточка
+	//- img - название фото: item1, item2, item3, item4
+	mixin card(category, img)
+
+		case category
+			when 'competition'
+				- var color = '_red';
+				- var text = 'Конкурсы';
+			when 'openData'
+				- var color = '_blue';
+				- var text = 'Открытые данные';
+			when 'rating'
+				- var color = '_green';
+				- var text = 'Рейтинг открытости бюджетных данных';
+			when 'budget'
+				- var color = '_grey';
+				- var text = 'Бюджет для граждан';
+			when 'execution'
+				- var color = '_violet';
+				- var text = 'Исполнение';
+			when 'present'
+				- var color = '_altgreen';
+				- var text = 'Доклад';
+
+		+e.LI.item&attributes(attributes)
+			+e.A(href='#').link
+				+e.SPAN(class= 'category' + color)= text
+				+e.photo
+					+e.IMG(src= 'assets/images/depfin-budget-moscow-open/' + img + '.jpg').img
+				+e.label
+					+e.P.text
+						block
+
+	+b.depfin-budget-moscow-open&attributes(attributes)
+		.wrapper.page-content-wrapper
+
+			+e.head
+				+page-header('Открытость', false, true)
+
+			+e.main
+
+				//- Главная
+
+				+e.SECTION.open
+					+e.UL.content
+						+card('competition', 'item1')
+							| Конкурс проектов &laquo;Бюджет для граждан&raquo;
+						+card('competition', 'item2')
+							| Всероссийский конкурс &laquo;Финансовый старт&raquo;
+						+card('openData', 'item3')
+							| Новые наборы открытых данных
+						+card('rating', 'item4')
+							| Методика проведения мониторинга и составления рейтинга субъектов РФ...
+
+				+e.SECTION.open
+					+e.H3.title 
+						| Путеводитель по бюджету
+					+e.A(href='#').more
+						| Все брошюры
+						+icon('angle-arrow')
+					+e.UL.content
+						+card('budget', 'item1')
+							| Бюджет для граждан на 2017-2019 годы
+						+card('execution', 'item2')
+							| Итоги исполнения бюджета города Москвы за 2015 год
+						+card('budget', 'item3')
+							| Бюджет для граждан на 2017-2019 годы
+						+card('execution', 'item4')
+							| Итоги исполнения бюджета города Москвы за 2015 год
+
+				+e.SECTION.open
+					+e.H3.title 
+						| федеральный бюджет для граждан
+					+e.A(href='#').more 
+						| Все брошюры
+						+icon('angle-arrow')
+					+e.UL.content
+						+card('budget', 'item1')
+							| Федеральный бюджет для граждан на 2017 год и на плановый период 2018...
+						+card('execution', 'item2')
+							| Итоги исполнения федерального бюджета за 2015 год 
+						+card('present', 'item3')
+							| Доклад о лучшей практике &laquo;Бюджет для граждан&raquo; в субъектах РФ и... 
+						+card('budget', 'item4')
+							| Федеральный бюджет для граждан на 2017 год и на плановый период 2018...

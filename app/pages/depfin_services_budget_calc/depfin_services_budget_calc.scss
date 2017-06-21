@@ -55,12 +55,8 @@
   }
 
   &__intro {
-    margin-top: 50px;
+    margin-top: 25px;
     @include display-flex;
-
-    @media (max-width: 768px) {
-      @include flex-wrap(wrap);
-    }
 
     &-col-left {
       @include flex-basis(218px);
@@ -71,6 +67,11 @@
         @include flex-basis(175px);
         @include flex-shrink(1);
         padding-right: 20px;
+      }
+
+      @media (max-width: 480px) {
+        @include flex-basis(80px);
+        padding-right: 10px;
       }
     }
 
@@ -99,7 +100,7 @@
       }
 
       &_mobile {
-        margin-top: 30px;
+        margin-top: 27px;
         font-size: 30px;
         line-height: 36px;
 
@@ -121,6 +122,12 @@
           }
         }
 
+        @media (max-width: 480px) {
+          &:first-child {
+            margin-bottom: 10px;
+          }
+        }
+
         &:first-child {
           @media (min-width: 769px) {
             margin-right: 20px;
@@ -133,6 +140,14 @@
   &__howto {
     margin-top: 120px;
 
+    @media (max-width: 768px) {
+      margin-top: 50px;
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      margin-top: 65px;
+    }
+
     &-heading {
       font-family: $PFDinCondensedPro;
       font-size: 24px;
@@ -144,8 +159,11 @@
 
     &-grid {
       margin: 24px -25px 0;
-      @include display-flex;
-      @include flex-wrap(wrap);
+
+      @media (min-width: 480px) {
+        @include display-flex;
+        @include flex-wrap(wrap);
+      }
     }
 
     &-item {
@@ -153,8 +171,30 @@
       margin-bottom: 58px;
       padding: 0 25px;
 
+      @media (min-width: 769px) and (max-width: 1024px) {
+        @include flex-basis(33.33%);
+      }
+
+      @media (min-width: 769px) and (max-width: 1024px) {
+        @include flex-basis(33.33%);
+      }
+
+      @media (min-width: 480px) and (max-width: 768px) {
+        @include flex-basis(50%);
+      }
+
       &-preview {
         margin-bottom: 22px;
+
+        &.-fixed-height {
+          min-height: 141px;
+        }
+
+        img {
+          max-width: 177px;
+          height: auto;
+          box-shadow: 6px 0px 16px 0px rgba(0,0,0,0.4);
+        }
       }
 
       &-text {
@@ -162,6 +202,15 @@
         font-size: 16px;
         line-height: 20px;
         font-weight: 400;
+
+        .howto-item-text-link {
+          color: #fee300;
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
       }
     }
   }
