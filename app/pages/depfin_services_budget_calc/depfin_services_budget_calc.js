@@ -52,17 +52,17 @@ export default function depfin_services_budget_calc() {
           centerPadding: '0px',
           variableWidth: false,
         });
-      } else {
-        if ($introCarousel.hasClass('slick-initialized')) {
-          $introCarousel.slick('unslick');
-        }
+      } else if ($(window).outerWidth() > 480 && $introCarousel.hasClass('slick-initialized')) {
+        $introCarousel.slick('unslick');
       }
     }
 
     slickLoader();
 
     $(window).resize(function() {
-      slickLoader();
+      setTimeout(function() {
+        slickLoader();
+      }, 15);
     });
   }
 
