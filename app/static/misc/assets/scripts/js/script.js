@@ -634,7 +634,6 @@ budget.extend("whatIsBudgetWeight", {
                                 clearTimeout(_this.timeoutGameLeft);
                                 _this.rollToTheLeft();
                         });
-
                         this.elements.$zoneSurplus.on("mouseleave", function (event) {
 
                                 if ($(event.relatedTarget).hasClass("budgetScales-mainWeight") || $(event.relatedTarget).hasClass("budgetScales-supportingWeight")) return false;
@@ -645,7 +644,7 @@ budget.extend("whatIsBudgetWeight", {
 
                                         _this.timeoutGameLeft = setTimeout(function () {
                                                 _this.gameWithWeight(0);
-                                        }, 0);
+                                        }, 1000);
                                 }
                         });
 
@@ -659,7 +658,7 @@ budget.extend("whatIsBudgetWeight", {
 
                                         _this.timeoutGameLeft = setTimeout(function () {
                                                 _this.gameWithWeight(0);
-                                        }, 0);
+                                        }, 1000);
                                 }
                         });
 
@@ -688,7 +687,7 @@ budget.extend("whatIsBudgetWeight", {
                                 if (_this.elements.$component.attr("data-active") != "2") {
                                         _this.timeoutGameRight = setTimeout(function () {
                                                 _this.gameWithWeight(1);
-                                        }, 0);
+                                        }, 1000);
                                 }
                         });
 
@@ -701,7 +700,7 @@ budget.extend("whatIsBudgetWeight", {
                                 if (_this.elements.$component.attr("data-active") != "2") {
                                         _this.timeoutGameRight = setTimeout(function () {
                                                 _this.gameWithWeight(1);
-                                        }, 0);
+                                        }, 1000);
                                 }
                         });
                 }

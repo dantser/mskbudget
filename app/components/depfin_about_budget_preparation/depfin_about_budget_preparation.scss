@@ -57,11 +57,15 @@
 }
 .graphic-table__frame{
     margin-left:-240px;
+    overflow: hidden;
 }
 .graphic-table__holder{
     width:100%;
     overflow-x:auto;
     overflow-y:hidden;
+    cursor: move;
+    box-sizing: content-box;
+    padding-bottom: 20px;
 }
 .graphic-table__table{
     width:100%;
@@ -306,7 +310,7 @@
   transition: all .25s ease-in-out;
   border-bottom: 1px solid #564d2a;
   padding: 65px 0 50px;
-  
+
   &__mob-slider {
     display: none;
     width: 100%;
@@ -379,13 +383,13 @@
     padding-left: 35px;
     line-height: 40px;
   }
-  
+
   @media screen and (max-width: 800px) {
     &__mob-slider {
       display: block;
     }
   }
-  
+
   @media screen and (max-width: 630px) {
     &__mob-slider {
       min-height: 0;
@@ -500,19 +504,19 @@
   .section-tabs__nav-leftbtn, .section-tabs__nav-rightbtn {
     margin-top: 32px;
   }
-  
+
   @media screen and (min-width: 801px) and (max-width: 900px) {
     .tile__item {
       width: 300px !important;
     }
   }
-  
+
   @media screen and (max-width: 800px) {
     .tile__item {
       width: 500px !important;
     }
   }
-  
+
   @media screen and (max-width: 630px) {
     .section-tabs__nav {
       padding-bottom: 10px;
@@ -546,7 +550,7 @@
   &_big {
     width: 388px;
   }
-  
+
   @media screen and (max-width: 900px) {
     &.document_alt {
       .document__title br {
@@ -557,13 +561,13 @@
       width: 100%;
     }
   }
-  
+
   @media screen and (min-width: 801px) and (max-width: 900px) {
     &.document_alt {
       min-height: 165px;
     }
   }
-  
+
   @media screen and (max-width: 800px) {
     &.document_alt {
       padding: 37px 44px;
@@ -585,7 +589,7 @@
       }
     }
   }
-  
+
   @media screen and (max-width: 630px) {
     &.document_alt {
       padding: 19px 22px;
@@ -639,13 +643,13 @@
       }
     }
   }
-  
+
   @media screen and (max-width: 800px) {
     &__participants {
       display: block;
     }
   }
-  
+
   @media screen and (max-width: 630px) {
     &__participants {
       margin-top: 26px;
@@ -673,20 +677,20 @@
 }
 
 .sections_budget-preparation {
-  
+
   .d-abs__head_descr {
     padding-left: 202px;
     max-width: 900px;
   }
-  
+
   .d-abs__foot {
     margin-top: 85px;
   }
-  
+
   .d-abs-content {
     padding-bottom: 58px;
   }
-  
+
   .cols-part__side {
     @media screen and (max-width: 800px) {
       float: none;
@@ -745,17 +749,17 @@
   .graphic-table__table {
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#252525', endColorstr='#2c2c2c')";
   }
-  
+
   .d-abs__foot-side {
     font-family: $PFDinCondensedPro;
   }
-  
+
   @media screen and (max-width: 1260px) {
     .step__head {
       min-height: 164px;
     }
   }
-  
+
   @media screen and (max-width: 1190px) {
     .d-layer {
       padding: 0 75px;
@@ -798,7 +802,7 @@
       }
     }
   }
-  
+
   @media screen and (min-width: 801px) and (max-width: 1190px) {
     .d-si__head {
       margin-bottom: 51px;
@@ -870,37 +874,37 @@
       width: 270px;
     }
   }
-  
+
   @media screen and (min-width: 801px) and (max-width: 1024px) {
     .page-head__category {
       margin-bottom: 5px;
     }
   }
-  
+
   @media screen and (max-width: 1020px) {
     .page-head__title {
       font-size: 70px;
     }
   }
-  
+
   @media screen and (min-width: 901px) and (max-width: 1190px) {
     .sections_budget-preparation .label__button {
       margin-left: 25px;
     }
   }
-  
+
   @media screen and (min-width: 631px) and (max-width: 1190px) {
     .label__button {
       margin-left: 25px;
     }
   }
-  
+
   @media screen and (max-width: 950px) {
     .step__head {
       min-height: 120px;
     }
   }
-  
+
   @media screen and (min-width: 801px) and (max-width: 950px) {
     .d-abs-content {
       padding-top: 220px;
@@ -910,13 +914,13 @@
       margin-bottom: 15px;
     }
   }
-  
+
   @media screen and (min-width: 801px) and (max-width: 900px) {
     .section-tabs_documents .section-tabs__nav-leftbtn, .section-tabs_documents .section-tabs__nav-rightbtn {
       margin-top: 55px;
     }
   }
-  
+
   @media screen and (max-width: 800px) {
     .d-abs-content {
       padding-top: 104px;
@@ -1248,7 +1252,7 @@
       padding-bottom: 100px;
     }
   }
-  
+
   @media screen and (max-width: 630px) {
     .d-layer {
       padding: 0 20px !important;
