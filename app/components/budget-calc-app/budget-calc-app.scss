@@ -7,6 +7,7 @@
   width: 0;
   height: 0;
   border-style: solid;
+  @include transited;
 }
 
 // табличная система  для доходов
@@ -47,7 +48,7 @@
 .budget-calc-btn {
   display: inline-block;
   min-width: 227px;
-  padding: 11px 14px 9px;
+  padding: 10px 13px 8px;
   font-family: $PFDinCondensedPro;
   font-size: 16px;
   line-height: 1;
@@ -57,8 +58,28 @@
   border-radius: 2px;
   color: black;
   background-color: #fee300;
+  border: 1px solid #fee300;
+  @include transited;
 
-  &_arrow-right {
+  &.-transparent {
+    background-color: transparent;
+    color: #fee300;
+
+    &.-arrow-right:after {
+      border-color: transparent transparent transparent #fee300;
+    }
+
+    &:hover {
+      background-color: #fee300;
+      color: black;
+
+      &.-arrow-right:after {
+        border-color: transparent transparent transparent black;
+      }
+    }
+  }
+
+  &.-arrow-right {
     position: relative;
     padding-right: 40px;
 
