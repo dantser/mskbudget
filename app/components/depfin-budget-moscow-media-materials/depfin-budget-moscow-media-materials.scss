@@ -78,6 +78,13 @@
 				min-height: calc(100% + 40px);
 			}
   	}
+
+  	&_view {
+
+  		.depfin-budget-moscow-media-materials__paginate {
+  			display: none;
+  		}
+  	}
   }
 
   &__title {
@@ -108,14 +115,6 @@
   	width: 247px;
   	height: 247px;
   	margin-bottom: 36px;
-
-		&_view {
-			width: 852px;
-			height: 531px;
-			margin: 0 auto;
-
-
-		}
   }
 
 	&__link {
@@ -273,6 +272,9 @@
 
 		.depfin-budget-moscow-media-materials__item {
 			display: none;
+			width: 852px;
+			height: 531px;
+			margin: 0 auto;
 
 			&_active {
 				display: block;
@@ -286,16 +288,21 @@
 
   &__slider-prev,
   &__slider-next {
+  	@include center-block;
 		display: block;
-		position: absolute;
-		top: 0;
+  	width: 21px;
+  	height: 37px;
+  	fill: transparent;
+  	stroke: $color-white;
   }
 
   &__slider-prev {
   	left: 0;
+  	transform: rotate(180deg);
   }
 
   &__slider-next {
   	right: 0;
+  	left: auto;
   }
 }
