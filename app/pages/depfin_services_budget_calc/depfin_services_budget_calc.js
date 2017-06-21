@@ -24,7 +24,7 @@ export default function depfin_services_budget_calc() {
 
   if ($introCarousel) {
     const slickLoader = function() {
-      if ($(window).outerWidth() <= 480) {
+      if ($(window).outerWidth() <= 480 && !$introCarousel.hasClass('slick-initialized')) {
         $introCarousel.slick({
           infinite: true,
           slidesToShow: 1,
@@ -32,6 +32,8 @@ export default function depfin_services_budget_calc() {
           centerMode: true,
           dots: true,
           centerMode: true,
+          centerPadding: '0px',
+          variableWidth: false,
         });
       } else {
         if ($introCarousel.hasClass('slick-initialized')) {
