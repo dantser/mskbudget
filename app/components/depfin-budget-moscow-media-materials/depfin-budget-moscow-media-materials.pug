@@ -2,6 +2,37 @@ include ../page-header/page-header
 include ../../blocks/button/button
 
 mixin depfin-budget-moscow-media-materials()
+
+	//- Карточка материала
+	//- type - тип 'photo', 'video', 'present'
+	//- img - название фото: item1, item2, item3, item4
+	mixin card(type, img)
+
+		+e.LI.item&attributes(attributes)
+			+e.A(href='#').link
+				+e.photo
+					+e.IMG(src= 'assets/images/depfin-budget-moscow-media-materials/' + img + '.jpg').img
+
+					case type
+						when 'photo'
+							+e.paginate
+								+e.paginate-bullets
+									+e.bullet._active
+									+e.bullet
+									+e.bullet
+						when 'video'
+							+e.BUTTON.play
+								+icon('angle-arrow-slim')
+						when 'present'
+							+e.slide
+								+e.slide-arrows
+									+icon('triangle-arrow').prev
+									+icon('triangle-arrow').next
+
+				+e.label
+					+e.P.text Возле лужников появится кафе с фонтаном-принтером.
+					+e.SPAN.date 1 апреля 2016
+
 	+b.depfin-budget-moscow-media-materials&attributes(attributes)
 		.wrapper.page-content-wrapper
 
@@ -9,79 +40,97 @@ mixin depfin-budget-moscow-media-materials()
 				+page-header('Медиаматериалы', false, true)
 
 			+e.main
+
+				//- Главная
+
 				+e.SECTION.materials._photo
 					+e.H3.title Фотографии
 					+e.UL.content
-						+e.LI.item
-							+e.A(href='#').link
-								+e.photo
-									+e.IMG(src='assets/images/depfin-budget-moscow-media-materials/item1.jpg').img
-								+e.label
-									+e.P.text Возле лужников появится кафе с фонтаном-принтером.
-									+e.SPAN.date 1 апреля 2016
-						+e.LI.item
-							+e.A(href='#').link
-								+e.photo
-									+e.IMG(src='assets/images/depfin-budget-moscow-media-materials/item2.jpg').img
-								+e.label
-									+e.P.text Возле лужников появится кафе с фонтаном-принтером.
-									+e.SPAN.date 1 апреля 2016
-						+e.LI.item
-							+e.A(href='#').link
-								+e.photo
-									+e.IMG(src='assets/images/depfin-budget-moscow-media-materials/item3.jpg').img
-								+e.label
-									+e.P.text Возле лужников появится кафе с фонтаном-принтером.
-									+e.SPAN.date 1 апреля 2016
-						+e.LI.item
-							+e.A(href='#').link
-								+e.photo
-									+e.IMG(src='assets/images/depfin-budget-moscow-media-materials/item4.jpg').img
-								+e.label
-									+e.P.text Возле лужников появится кафе с фонтаном-принтером.
-									+e.SPAN.date 1 апреля 2016
-
-				+e.SECTION.materials._video
-					+e.H3.title Видео
-					+e.UL.content
-						+e.LI.item
-							+e.A(href='#').link
-								+e.photo
-									+e.IMG(src='assets/images/depfin-budget-moscow-media-materials/item1.jpg').img
-									+e.BUTTON.play
-										+icon('angle-arrow')
-								+e.label
-									+e.P.text Возле лужников появится кафе с фонтаном-принтером.
-									+e.SPAN.date 1 апреля 2016
-						+e.LI.item
-							+e.A(href='#').link
-								+e.photo
-									+e.IMG(src='assets/images/depfin-budget-moscow-media-materials/item2.jpg').img
-									+e.BUTTON.play
-										+icon('angle-arrow')
-								+e.label
-									+e.P.text Возле лужников появится кафе с фонтаном-принтером.
-									+e.SPAN.date 1 апреля 2016
-						+e.LI.item
-							+e.A(href='#').link
-								+e.photo
-									+e.IMG(src='assets/images/depfin-budget-moscow-media-materials/item3.jpg').img
-									+e.BUTTON.play
-										+icon('angle-arrow')
-								+e.label
-									+e.P.text Возле лужников появится кафе с фонтаном-принтером.
-									+e.SPAN.date 1 апреля 2016
-						+e.LI.item
-							+e.A(href='#').link
-								+e.photo
-									+e.IMG(src='assets/images/depfin-budget-moscow-media-materials/item4.jpg').img
-									+e.BUTTON.play
-										+icon('angle-arrow')
-								+e.label
-									+e.P.text Возле лужников появится кафе с фонтаном-принтером.
-									+e.SPAN.date 1 апреля 2016
-					
+						+card('photo', 'item1')
+						+card('photo', 'item2')
+						+card('photo', 'item3')
+						+card('photo', 'item4')
 					+e.more
 						+button()._kind_transparent
 							| Показать еще
 
+				+e.SECTION.materials._video
+					+e.H3.title Видео
+					+e.UL.content
+						+card('video', 'item1')
+						+card('video', 'item2')
+						+card('video', 'item3')
+						+card('video', 'item4')
+					+e.more
+						+button()._kind_transparent
+							| Показать еще
+
+				+e.SECTION.materials._present
+					+e.H3.title Презентации
+					+e.UL.content
+						+card('present', 'item1')
+						+card('present', 'item2')
+						+card('present', 'item3')
+						+card('present', 'item4')
+					+e.more
+						+button()._kind_transparent
+							| Показать еще
+
+				//- Переход по кнопке Показать еще
+
+				+e.SECTION.materials._photo
+					+e.H3.title Фотографии
+					+e.UL.content
+						+card('photo', 'item1')
+						+card('photo', 'item2')
+						+card('photo', 'item3')
+						+card('photo', 'item4')
+						+card('photo', 'item1')
+						+card('photo', 'item2')
+						+card('photo', 'item3')
+						+card('photo', 'item4')
+						+card('photo', 'item1')
+						+card('photo', 'item2')
+						+card('photo', 'item3')
+						+card('photo', 'item4')
+					+e.more
+						+button()._kind_transparent
+							| Показать еще
+
+				+e.SECTION.materials._video
+					+e.H3.title Видео
+					+e.UL.content
+						+card('video', 'item1')
+						+card('video', 'item2')
+						+card('video', 'item3')
+						+card('video', 'item4')
+						+card('video', 'item1')
+						+card('video', 'item2')
+						+card('video', 'item3')
+						+card('video', 'item4')
+						+card('video', 'item1')
+						+card('video', 'item2')
+						+card('video', 'item3')
+						+card('video', 'item4')
+					+e.more
+						+button()._kind_transparent
+							| Показать еще
+
+				//- Слайдер
+
+				+e.SECTION.materials._photo._view
+
+					+e.slider
+						+e.UL.content
+							+card('photo', 'item1', true)._active
+							+card('photo', 'item2', true)
+							+card('photo', 'item3', true)
+							+card('photo', 'item4', true)
+						+icon('angle-arrow-slim').slider-prev
+						+icon('angle-arrow-slim').slider-next
+
+					+e.UL.content
+						+card('photo', 'item1')
+						+card('photo', 'item2')
+						+card('photo', 'item3')
+						+card('photo', 'item4')
