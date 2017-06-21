@@ -31,7 +31,7 @@ block page
                 +e.intro-text._mobile Бюджетный калькулятор города Москвы — это образовательный инструмент, который позволит любому гражданину принять участие в виртуальном планировании бюджета города Москвы и в упрощенной форме демонстрирует принципы бюджетного планирования.
                 +e.howto
                   +e.howto-heading как это работает
-                  +e.howto-grid
+                  +e.howto-grid.js-budget-calc-page__howto-carousel
                     +e.howto-item
                       +e.howto-item-preview.-fixed-height
                         img(src="assets/images/depfin_services_budget_calc/howto_income.jpg")
@@ -60,11 +60,16 @@ block page
                     +e.howto-item
                       +e.howto-item-preview
                         img(src="assets/images/depfin_services_budget_calc/howto_total.jpg")
-                    +e.howto-item
+                    +e.howto-item.-hidden-mobile
                       +e.howto-item-text
                         | <a class="howto-item-text-link" href="#">Зарегистрировавшись</a> на сайте, Вы получите возможность сохранять и просматривать все свои варианты бюджета в Личном кабинете.
-                    +e.howto-item
+                    +e.howto-item.-hidden-mobile
                       +budget-calc-btn('Начать')._howto-start.js-budget-calc__tab-control(href="#budget-calc__tab_app")
+                  +e.howto-item.-hidden-desktop
+                    +e.howto-item-text
+                      | <a class="howto-item-text-link" href="#">Зарегистрировавшись</a> на сайте, Вы получите возможность сохранять и просматривать все свои варианты бюджета в Личном кабинете.
+                  +e.howto-item.-hidden-desktop
+                    +budget-calc-btn('Начать')._howto-start.js-budget-calc__tab-control(href="#budget-calc__tab_app")
               +e.tab.js-budget-calc__tab#budget-calc__tab_app
                 +e.switch
                   +e.A.switch-link.is-active(href="#") Мое предложение
