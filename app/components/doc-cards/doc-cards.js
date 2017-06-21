@@ -2,7 +2,7 @@ import $ from 'jquery';
 import Swiper from 'swiper';
 
 export default () => {
-  const DIR = $('.doc-cards__card_dir');
+  const DIR = $('.doc-cards__card_dir').parents('.doc-cards__slide');
   const TOP_BUTTON = $('.js-button-top');
   const NAV = $('.doc-cards__nav');
   const FAVOR = $('.doc-cards__is-added');
