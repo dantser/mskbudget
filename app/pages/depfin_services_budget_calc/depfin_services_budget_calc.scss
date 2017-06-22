@@ -1,3 +1,28 @@
+// .test {
+//   position: relative;
+//   overflow: hidden;
+
+//   &__col-l {
+//     @include debug;
+//     @include outline;
+//     float: none;
+//     width: 220px;
+//     height: 100px;
+//   }
+
+//   &__col-r {
+//     @include debug;
+//     float: right;
+//     display: none;
+//     height: 600px;
+
+//     &.is-active {
+//       display: block;
+//     }
+//   }
+// }
+
+
 .budget-calc-page {
 
   .sections-budget__bg {
@@ -52,6 +77,19 @@
 
   &__tab {
     display: none;
+
+    &-description {
+      margin: 30px 0;
+      max-width: 815px;
+      font-family: $PFDinTextPro;
+      font-size: 14px;
+      line-height: 18px;
+      font-weight: 400;
+
+      @media (max-width: 480px) {
+        display: none;
+      }
+    }
 
     &.is-active {
       display: block;
@@ -211,6 +249,7 @@
       margin: 24px 0 0 0;
 
       @media (max-width: 480px) {
+        padding-bottom: 35px;
         margin-bottom: 25px;
       }
 
@@ -343,40 +382,40 @@
     }
   }
 
-  &__switch {
-    overflow: hidden;
-    margin-bottom: 25px;
-    font-size: 0;
-    line-height: 0;
-    text-align: right;
-  }
+  // &__switch {
+  //   overflow: hidden;
+  //   margin-bottom: 25px;
+  //   font-size: 0;
+  //   line-height: 0;
+  //   text-align: right;
+  // }
 
-  &__switch-link {
-    display: inline-block;
-    padding: 15px 30px 14px;
-    font-family: $PFDinCondensedPro;
-    font-size: 18px;
-    line-height: 1;
-    font-style: normal;
-    font-weight: 500;
-    text-transform: uppercase;
-    text-decoration: none;
-    border: 1px solid #fee300;
-    color: white;
-    @include transited;
+  // &__switch-link {
+  //   display: inline-block;
+  //   padding: 15px 30px 14px;
+  //   font-family: $PFDinCondensedPro;
+  //   font-size: 18px;
+  //   line-height: 1;
+  //   font-style: normal;
+  //   font-weight: 500;
+  //   text-transform: uppercase;
+  //   text-decoration: none;
+  //   border: 1px solid #fee300;
+  //   color: white;
+  //   @include transited;
 
-    &.is-active {
-      color: black;
-      background-color: #fee300;
-      border-color: #fee300;
-    }
+  //   &.is-active {
+  //     color: black;
+  //     background-color: #fee300;
+  //     border-color: #fee300;
+  //   }
 
-    &:hover {
-      color: black;
-      background-color: #E7CE00;
-      border-color: #E7CE00;
-    }
-  }
+  //   &:hover {
+  //     color: black;
+  //     background-color: #E7CE00;
+  //     border-color: #E7CE00;
+  //   }
+  // }
 
   &__budget-calc-app {
     margin-bottom: 60px;

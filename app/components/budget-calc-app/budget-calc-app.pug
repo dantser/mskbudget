@@ -8,40 +8,41 @@ mixin budget-calc-btn(text)
 mixin budget-calc-app()
   +b.budget-calc-app#budget-calc-app&attributes(attributes)
     +e.sidebar
-      +b.A.budget-calc-app-widget._link._incomes.js-budget-calc-app__tab-control#budget-calc-app__tab_incomes-indicator.is-active(data-target="#budget-calc-app__tab_incomes" href="#")
-        +e.DIV.inner
-          +e.DIV.name.has-tooltip доходы
-            +tooltip-icon("текст тултипа")
-          +e.DIV.value 1 598,9
-          +e.DIV.value-notice млрд. руб.
-          +e.DIV.description Исходное значение: 1 598,9
-      +b.A.budget-calc-app-widget._link._costs.js-budget-calc-app__tab-control#budget-calc-app__tab_costs-indicator(data-target="#budget-calc-app__tab_costs" href="#")
-        +e.DIV.inner
-          +e.DIV.name.has-tooltip расходы
-            +tooltip-icon("текст тултипа")
-          +e.DIV.value 1 751,0
-          +e.DIV.value-notice млрд. руб.
-          +e.DIV.description Исходное значение: 1 751,0
-      +b.A.budget-calc-app-widget._link._balance.js-budget-calc-app__tab-control#budget-calc-app__tab_balance-indicator(data-target="#budget-calc-app__tab_balance" href="#")
-        +e.DIV.inner
-          +e.DIV.name.has-tooltip дефицит/профицит
-            +tooltip-icon("текст тултипа")
-          +e.DIV.value -151,1
-          +e.DIV.value-notice млрд. руб.
-          +e.DIV.description 9,5% от собственных доходов <br>Исходное значение: -152,1
-      +b.budget-calc-app-widget._not-balanced
-        +e.inner
-          +e.name.has-tooltip не сбалансировано
-            +tooltip-icon("текст тултипа")
-          +e.value 0,0
-          +e.value-notice млрд. руб.
-      +b.A.budget-calc-app-widget(href="#")._check
-        +e.DIV.inner
-          +e.DIV.name проверить свой вариант бюджета
-      +b.A.budget-calc-app-widget(href="#")._restore
-        +e.DIV.inner.-widget-restore-inner
-          +icon('clean').icon.-widget-restore-icon
-          +e.DIV.name.-widget-restore-name вернуть исходные значения бюджета
+      +e.sidebar-inner
+        +b.A.budget-calc-app-widget._link._incomes.js-budget-calc-app__tab-control#budget-calc-app__tab_incomes-indicator.is-active(data-target="#budget-calc-app__tab_incomes" href="#")
+          +e.DIV.inner
+            +e.DIV.name.has-tooltip доходы
+              +tooltip-icon("текст тултипа")
+            +e.DIV.value 1 598,9
+            +e.DIV.value-notice млрд. руб.
+            +e.DIV.description Исходное значение: 1 598,9
+        +b.A.budget-calc-app-widget._link._costs.js-budget-calc-app__tab-control#budget-calc-app__tab_costs-indicator(data-target="#budget-calc-app__tab_costs" href="#")
+          +e.DIV.inner
+            +e.DIV.name.has-tooltip расходы
+              +tooltip-icon("текст тултипа")
+            +e.DIV.value 1 751,0
+            +e.DIV.value-notice млрд. руб.
+            +e.DIV.description Исходное значение: 1 751,0
+        +b.A.budget-calc-app-widget._link._balance.js-budget-calc-app__tab-control#budget-calc-app__tab_balance-indicator(data-target="#budget-calc-app__tab_balance" href="#")
+          +e.DIV.inner
+            +e.DIV.name.has-tooltip дефицит/профицит
+              +tooltip-icon("текст тултипа")
+            +e.DIV.value -151,1
+            +e.DIV.value-notice млрд. руб.
+            +e.DIV.description 9,5% от собственных доходов <br>Исходное значение: -152,1
+        +b.budget-calc-app-widget._not-balanced
+          +e.inner
+            +e.name.has-tooltip не сбалансировано
+              +tooltip-icon("текст тултипа")
+            +e.value 0,0
+            +e.value-notice млрд. руб.
+        +b.A.budget-calc-app-widget(href="#")._check
+          +e.DIV.inner
+            +e.DIV.name проверить свой вариант бюджета
+        +b.A.budget-calc-app-widget(href="#")._restore
+          +e.DIV.inner.-widget-restore-inner
+            +icon('clean').icon.-widget-restore-icon
+            +e.DIV.name.-widget-restore-name вернуть исходные значения бюджета
 
     +e.main-content#budget-calc-app__main-content
       +e.tab._incomes.js-budget-calc-app__tab#budget-calc-app__tab_incomes.is-active(data-state-indicator="#budget-calc-app__tab_incomes-indicator")

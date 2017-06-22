@@ -20,6 +20,16 @@ block page
               +e.ahead.ahead
                 +page-header('бюджетный калькулятор города Москвы', ['Сервисы']).__page-header
 
+              //- +b.test
+              //-   +e.col-l col-l
+              //-   +e.col-r.is-active col-r
+              //-   +e.col-l col-l
+              //-   +e.col-r col-r
+              //-   +e.col-l col-l
+              //-   +e.col-r col-r
+              //-   +e.col-l col-l
+              //-   +e.col-r col-r
+
               +e.tabs#budget-calc__tabs
                 +e.tab.js-budget-calc__tab#budget-calc__tab_intro.is-active
                   +e.intro.load-anim-fade(data-delay="2200")
@@ -33,7 +43,7 @@ block page
                           +icon('angle-arrow').icon
                         +budget-calc-btn('Гид по калькулятору').-transparent.-svg-icon(href="#" data-scrollto="#budget-calc-page__howto").js-budget-calc-page__scrollToLink
                           +icon('angle-arrow').icon.icon-90deg
-                  +e.intro-text._mobile Бюджетный калькулятор города Москвы — это образовательный инструмент, который позволит любому гражданину принять участие в виртуальном планировании бюджета города Москвы и в упрощенной форме демонстрирует принципы бюджетного планирования.
+                  +e.intro-text._mobile.load-anim-fade(data-delay="2500") Бюджетный калькулятор города Москвы — это образовательный инструмент, который позволит любому гражданину принять участие в виртуальном планировании бюджета города Москвы и в упрощенной форме демонстрирует принципы бюджетного планирования.
                   +e.howto.load-anim-fade(data-delay="2500")#budget-calc-page__howto
                     +e.howto-heading как это работает
                     +e.howto-grid.js-budget-calc-page__howto-carousel#budget-calc__howto-grid
@@ -77,9 +87,10 @@ block page
                     +e.howto-item.-hidden-desktop
                       +budget-calc-btn('Начать')._howto-start.js-budget-calc__tab-control(href="#budget-calc__tab_app")
                 +e.tab.js-budget-calc__tab#budget-calc__tab_app
-                  +e.switch
-                    +e.A.switch-link.is-active(href="#") Мое предложение
-                    +e.A.switch-link(href="#") ПРЕДЛОЖЕНИЯ ПОЛЬЗОВАТЕЛЕЙ
+                  //- +e.switch
+                  //-   +e.A.switch-link.is-active(href="#") Мое предложение
+                  //-   +e.A.switch-link(href="#") ПРЕДЛОЖЕНИЯ ПОЛЬЗОВАТЕЛЕЙ
+                  +e.tab-description Бюджетный калькулятор города Москвы — это образовательный инструмент, который позволит любому гражданину принять участие в виртуальном планировании бюджета города Москвы и в упрощенной форме демонстрирует принципы бюджетного планирования.
                   +budget-calc-app().__budget-calc-app
         +footer()
         //- +button-top()
