@@ -1,0 +1,30 @@
+include ../page-header/page-header
+include ../../blocks/button/button
+include ../../blocks/link/link
+include ../contest/contest
+include ../../blocks/icon/icons
+include ../../blocks/buttons-set/buttons-set
+include ../doc-cards/doc-cards
+
+mixin open-con()
+  +b.open-con&attributes(attributes)
+    .main._basic
+      section.basic-budget
+        .wrapper.wrapper_con
+          +page-header('Конкурсы', ['Открытость'], true)
+          +e.control
+            +e.P.control-text Выберите конкурс
+            +buttons-set(getData('buttons-set-opencon'))._openCon.__buttons-set
+          .analityc-widget.analityc-widget_con
+            +contest()
+          
+        //- Dropdown block
+        .dropdown-block
+          .dropdown._open
+            .dropdown-trigger
+              .wrapper
+                span
+                  strong Документы
+            .dropdown-content
+              .wrapper
+                +doc-cards(getData('doc-cards'))

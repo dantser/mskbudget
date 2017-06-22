@@ -17,7 +17,7 @@
   padding: 10px 13px 8px;
   font-family: $PFDinCondensedPro;
   font-size: 16px;
-  line-height: 1;
+  line-height: 16px;
   font-weight: 500;
   text-decoration: none;
   text-transform: uppercase;
@@ -519,7 +519,7 @@
   &_restore {
     padding-top: 18px;
     padding-bottom: 18px;
-    padding-left: 0;
+    padding-left: 3px;
     color: #fee300;
     background-color: transparent;
 
@@ -532,6 +532,25 @@
       right: 16px;
       border-width: 5px 0 5px 5px;
       border-color: transparent transparent transparent #fee300;
+    }
+
+    .-widget-restore-inner {
+      @include display-flex;
+      @include align-items(center);
+    }
+
+    .-widget-restore-icon {
+      height: 28px;
+      @include flex-basis(18px);
+      @include flex-shrink(0);
+      margin-right: 14px;
+      fill: #fee300;
+    }
+
+    .-widget-restore-name {
+      @include flex-basis(100%);
+      font-size: 14px;
+      line-height: 16px;
     }
   }
 

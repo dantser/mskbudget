@@ -1,0 +1,119 @@
+.contest {
+  display: block;
+  font-weight: 400;
+  max-width: 798px;
+
+  // head
+  &__head {
+    margin-bottom: 36px;
+    max-width: 794px;
+  }
+
+  &__heading {
+    font-size: 30px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 17px;
+    letter-spacing: .05px;
+  }
+
+  &__description {
+    font-family: $PFDinTextPro;
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: 0.12px;
+  }
+
+  .button {
+    margin-top: 16px;
+    width: 202px;
+    height: 38px;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-family: $PFDinCondensedPro;
+    position: relative;
+    padding-right: 20px;
+    box-shadow: 0 2px 0 #ccb600 !important;
+
+    &::after {
+      @include pseudo;
+      border: 5px solid transparent;
+      border-left: 6px solid $color-black;
+      top: 50%;
+      right: 9px;
+      transform: translateY(-50%);
+    }
+  }
+  // head end
+
+  // control
+  &__control {
+    margin-bottom: 31px;
+
+    .analityc-select, .analityc-control-switcher {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .analityc-select {
+      width: 87px;
+      height: 27px;
+      padding-top: 3px;
+      margin-top: 0;
+      margin-right: 20px;
+      padding-left: 11px;
+      background-position: 88% 13px;
+    }
+  }
+  // control end
+
+  // content
+  &__content {
+    padding-left: 1px;
+    font-family: $PFDinTextPro;
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  &__text {
+    margin-bottom: 5px;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: .1px;
+
+    & > a {
+     color: $color-link;
+     text-decoration: underline;
+    }
+
+    &:last-of-type {
+      line-height: 21px;
+      margin-bottom: 20px;
+    }
+
+    &:nth-of-type(3) {
+      line-height: 24px;
+    }
+  }
+
+  &__rules {
+
+  }
+
+  &__result, &__winners {
+    display: none;
+  }
+  // &__subtitle {
+  //   font-size: 18px;
+  //   font-weight: 500;
+  //   margin-bottom: 18px;
+  //   letter-spacing: .1px;
+  // }
+
+  // content end
+}
