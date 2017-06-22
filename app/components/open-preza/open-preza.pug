@@ -1,0 +1,26 @@
+include ../page-header/page-header
+include ../../blocks/button/button
+include ../../blocks/link/link
+include ../../blocks/icon/icons
+include ../../blocks/buttons-set/buttons-set
+
+mixin open-preza()
+  +b.open-fedbud._preza&attributes(attributes)
+    .wrapper.page-content-wrapper
+      +e.header
+        // page-header
+        +page-header('Путеводитель по бюджету', ['Открытость'], true)
+        +e.P.description Это упрощенная версия документов о бюджете столицы, которая использует неформальный язык и доступные форматы отображения информации.
+        +e.control
+          +e.control-group
+            +buttons-set-alt(getData('buttons-set-openpreza'))._openFedbud.__buttons-set
+            select.analityc-select.analityc-select_year.analityc-select_transparentyellow
+              option(selected) 2015
+              option 2016
+              option 2017
+      +e.content
+        +e.content-heading
+          +e.title Государственные программы города Москвы
+          a(href="#").doc-cards__download Скачать (PDF 957,55 Кб)
+        //-slider
+          
