@@ -15,31 +15,31 @@
     padding-top: 170px;
   }
 
-  &__wrap {
-    margin-left: auto;
-    margin-right: auto;
+  // &__wrap {
+  //   margin-left: auto;
+  //   margin-right: auto;
 
-    @media (min-width: 1025px) {
-      max-width: 1100px + 88px * 2;
-      padding-left: 88px;
-      padding-right: 88px;
-    }
+  //   @media (min-width: 1025px) {
+  //     max-width: 1100px + 88px * 2;
+  //     padding-left: 88px;
+  //     padding-right: 88px;
+  //   }
 
-    @media (max-width: 1024px) {
-      padding-left: 40px;
-      padding-right: 40px;
-    }
+  //   @media (max-width: 1024px) {
+  //     padding-left: 40px;
+  //     padding-right: 40px;
+  //   }
 
-    @media (max-width: 768px) {
-      padding-left: 10px;
-      padding-right: 10px;
-    }
+  //   @media (max-width: 768px) {
+  //     padding-left: 10px;
+  //     padding-right: 10px;
+  //   }
 
-    @media (max-width: 480px) {
-      padding-left: 0px;
-      padding-right: 0px;
-    }
-  }
+  //   @media (max-width: 480px) {
+  //     padding-left: 0px;
+  //     padding-right: 0px;
+  //   }
+  // }
 
   &__ahead {
     margin-bottom: 20px;
@@ -67,25 +67,27 @@
       padding-right: 60px;
 
       @media (max-width: 768px) {
-        @include flex-basis(175px);
+        @include flex-basis(125px);
         @include flex-shrink(1);
         padding-right: 20px;
       }
 
       @media (max-width: 480px) {
-        @include flex-basis(80px);
+        @include flex-basis(86px);
+        @include flex-shrink(0);
         padding-right: 10px;
       }
     }
 
     &-col-right {
       @include flex-grow(1);
+      @include flex-basis(100%);
     }
 
     &-icon {
-      margin-top: 5px;
       max-width: 100%;
       height: auto;
+      fill: #fee300;
     }
 
     &-text {
@@ -94,7 +96,7 @@
       font-family: $PFDinTextPro;
       font-size: 20px;
       line-height: 26px;
-      font-weight: normal;
+      font-weight: 400;
 
       &_desktop {
         @media (max-width: 768px) {
@@ -104,8 +106,13 @@
 
       &_mobile {
         margin-top: 27px;
-        font-size: 30px;
-        line-height: 36px;
+        font-size: 16px;
+        line-height: 24px;
+
+        @media (min-width: 481px) and (max-width: 768px) {
+          font-size: 30px;
+          line-height: 36px;
+        }
 
         @media (min-width: 769px) {
           display: none;
@@ -114,19 +121,27 @@
     }
 
     &-buttons {
-      margin-top: 5px;
+      @media (max-width: 768px) {
+        @include display-flex;
+        @include flex-direction(column-reverse);
+      }
 
       .budget-calc-btn {
+        font-size: 15px;
+
         @media (max-width: 768px) {
           display: block;
 
-          &:first-child {
+          &:last-child {
             margin-bottom: 20px;
           }
         }
 
         @media (max-width: 480px) {
-          &:first-child {
+          min-width: 100%;
+          padding-right: 30px;
+
+          &:last-child {
             margin-bottom: 10px;
           }
         }
@@ -154,10 +169,19 @@
     &-heading {
       font-family: $PFDinCondensedPro;
       font-size: 24px;
-      line-height: 26px;
+      line-height: 1.08;
       font-weight: 500;
       font-style: normal;
       text-transform: uppercase;
+
+      @media (max-width: 480px) {
+        font-size: 40px;
+      }
+
+      @media (min-width: 481px) and (max-width: 768px) {
+        font-size: 72px;
+        text-align: center;
+      }
     }
 
     &-grid {

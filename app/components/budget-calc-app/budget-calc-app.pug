@@ -39,8 +39,9 @@ mixin budget-calc-app()
         +e.DIV.inner
           +e.DIV.name проверить свой вариант бюджета
       +b.A.budget-calc-app-widget(href="#")._restore
-        +e.DIV.inner
-          +e.DIV.name вернуть исходные значения бюджета
+        +e.DIV.inner.-widget-restore-inner
+          +icon('clean').icon.-widget-restore-icon
+          +e.DIV.name.-widget-restore-name вернуть исходные значения бюджета
 
     +e.main-content#budget-calc-app__main-content
       +e.tab._incomes.js-budget-calc-app__tab#budget-calc-app__tab_incomes.is-active(data-state-indicator="#budget-calc-app__tab_incomes-indicator")
