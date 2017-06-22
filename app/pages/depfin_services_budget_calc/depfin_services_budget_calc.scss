@@ -1,5 +1,4 @@
 .budget-calc-page {
-  padding-bottom: 60px;
 
   .sections-budget__bg {
     @include bg-cover;
@@ -60,30 +59,52 @@
   }
 
   &__intro {
+    overflow: hidden;
     margin-top: 25px;
-    @include display-flex;
+
+    @media (min-width: 481px) and (max-width: 768px) {
+      margin-top: 70px;
+    }
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+      margin-top: 75px;
+    }
 
     &-col-left {
-      @include flex-basis(218px);
-      @include flex-shrink(0);
+      float: left;
+      width: 218px;
       padding-right: 60px;
 
       @media (max-width: 768px) {
-        @include flex-basis(125px);
-        @include flex-shrink(1);
-        padding-right: 20px;
+        width: auto;
+        height: 92px;
+        padding-right: 45px;
+
+        .icon {
+          width: auto;
+          height: 100%;
+        }
+
+        // padding-right: 30px;
       }
 
       @media (max-width: 480px) {
-        @include flex-basis(86px);
-        @include flex-shrink(0);
+        height: 82px;
+        width: auto;
         padding-right: 10px;
       }
     }
 
     &-col-right {
-      @include flex-grow(1);
-      @include flex-basis(100%);
+      padding-left: 218px;
+
+      @media (max-width: 768px) {
+        padding-left: 122px;
+      }
+
+      @media (max-width: 480px) {
+        padding-left: 86px;
+      }
     }
 
     &-icon {
@@ -112,6 +133,7 @@
         line-height: 24px;
 
         @media (min-width: 481px) and (max-width: 768px) {
+          margin-top: 60px;
           font-size: 30px;
           line-height: 36px;
         }
@@ -123,19 +145,18 @@
     }
 
     &-buttons {
-      @media (max-width: 768px) {
-        @include display-flex;
-        @include flex-direction(column-reverse);
-      }
+      position: relative;
 
       .budget-calc-btn {
         font-size: 15px;
 
         @media (max-width: 768px) {
           display: block;
+          width: 100%;
 
-          &:last-child {
-            margin-bottom: 20px;
+          &:first-child {
+            position: absolute;
+            top: 56px;
           }
         }
 
@@ -143,8 +164,8 @@
           min-width: 100%;
           padding-right: 30px;
 
-          &:last-child {
-            margin-bottom: 10px;
+          &:first-child {
+            top: 46px;
           }
         }
 
@@ -194,8 +215,6 @@
       }
 
       @media (min-width: 481px) {
-        @include display-flex;
-        @include flex-wrap(wrap);
         margin-left: -25px;
         margin-right: -25px;
       }
@@ -235,14 +254,34 @@
     }
 
     &-item {
-      @include flex-basis(25%);
       margin-bottom: 58px;
       padding: 0 25px;
+
+      @media (min-width: 1025px) {
+        float: left;
+        width: 25%;
+        &:nth-of-type(4n+0) { clear: right; }
+        &:nth-of-type(4n+1) { clear: left; }
+      }
+
+      @media (min-width: 769px) and (max-width: 1024px) {
+        float: left;
+        width: 33.33%;
+        &:nth-of-type(3n+0) { clear: right; }
+        &:nth-of-type(3n+1) { clear: left; }
+      }
+
+      @media (min-width: 481px) and (max-width: 768px) {
+        float: left;
+        width: 50%;
+        &:nth-of-type(2n+0) { clear: right; }
+        &:nth-of-type(2n+1) { clear: left; }
+      }
 
       @media (max-width: 480px) {
         padding-left: 25px;
         padding-right: 25px;
-        @include flex-basis(100%);
+        margin-bottom: 0;
 
         &.-hidden-mobile {
           display: none !important;
@@ -250,22 +289,17 @@
       }
 
       &.-hidden-desktop {
+        padding: 0;
+        margin-bottom: 20px;
+
+        &:last-child {
+          margin-bottom: 25px;
+        }
+
         @media (min-width: 481px) {
           display: none !important;
           padding: 0;
         }
-      }
-
-      @media (min-width: 769px) and (max-width: 1024px) {
-        @include flex-basis(33.33%);
-      }
-
-      @media (min-width: 769px) and (max-width: 1024px) {
-        @include flex-basis(33.33%);
-      }
-
-      @media (min-width: 481px) and (max-width: 768px) {
-        @include flex-basis(50%);
       }
 
       &-preview {
@@ -297,10 +331,6 @@
         line-height: 20px;
         font-weight: 400;
 
-        @media (max-width: 480px) {
-          text-align: center;
-        }
-
         .howto-item-text-link {
           color: #fee300;
           text-decoration: none;
@@ -314,15 +344,18 @@
   }
 
   &__switch {
-    @include display-flex;
-    @include justify-content(flex-end);
+    overflow: hidden;
     margin-bottom: 25px;
+    font-size: 0;
+    line-height: 0;
+    text-align: right;
   }
 
   &__switch-link {
+    display: inline-block;
     padding: 15px 30px 14px;
     font-family: $PFDinCondensedPro;
-    font-style: 18px;
+    font-size: 18px;
     line-height: 1;
     font-style: normal;
     font-weight: 500;
@@ -343,5 +376,9 @@
       background-color: #E7CE00;
       border-color: #E7CE00;
     }
+  }
+
+  &__budget-calc-app {
+    margin-bottom: 60px;
   }
 }
