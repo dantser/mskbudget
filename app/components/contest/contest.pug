@@ -1,0 +1,49 @@
+include ../../blocks/button/button
+
+mixin contest()
+  +b.contest&attributes(attributes)
+    +e.head
+      +e.H2.heading конкурс проектов «бюджет для граждан»
+      +e.P.description Это конкурс по разработке проектов по интересному и понятному представлению проекта бюджета публично-правового образования в формате, обеспечивающем открытость и доступность информации для граждан. 
+      +button()._kind_yellow Направить заявку
+    +e.control
+      select.analityc-select
+        option 2017
+        option(selected) 2016
+        option 2015
+      .analityc-control-switcher.analityc-control-switcher_con.active
+        a(href="#").active условия
+        a(href="#") итоги конкурса
+        a(href="#") победители РФ
+    +e.content
+      +e.rules
+        +e.H3.title Условия конкурса
+        +e.P.text Департамент финансов города Москвы объявляет о начале ежегодного конкурса проектов «Бюджет для граждан».
+        +e.P.text Конкурс учрежден Департаментом финансов в целях обеспечения доступности для граждан информации об управлении общественными финансами, открытости и прозрачности бюджетного процесса города, а также совершенствования работы портала Правительства Москвы «Открытый бюджет города Москвы».
+        +e.P.text 
+          | Для участия в конкурсе необходимо представить заявки с проектами, соответствующими тематике номинаций.
+          br
+          | Срок подачи заявок для участия в конкурсе - до 8 августа 2016 года включительно.
+          br
+          | Итоги конкурса и имена победителей конкурса будут объявлены до 26 августа 2016 года.
+          br
+          | Победителям будут вручены почетные грамоты и памятные подарки.
+        +e.P.text Лучшие проекты, имеющие практическую значимость, будут направлены в Финансовый университет при Правительстве Российской Федерации для участия во всероссийском этапе конкурса проектов по представлению бюджета для граждан. Материалы также будут использованы в работе по развитию портала Правительства Москвы «Открытый бюджет города Москвы».
+      +e.result
+        +e.H3.title Итоги конкурса
+        +e.P.text Департамент финансов города Москвы объявляет о начале ежегодного конкурса проектов «Бюджет для граждан».
+      +e.winners
+        +e.H3.title Победители РФ
+        +e.P.text Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      
+      //- +e.H4.subtitle Направить заявку на конкурс можно по адресу:
+      //- +e.address
+      //-   +e.text 
+      //-     | 125047, г. Москва, Миусская площадь, д.2/2,
+      //-     br
+      //-     | а также по электронной почте 
+      //-     br
+      //-     | Петрушовой Юлии 
+      //-     +e.A(href="mailto:YUAPetrushova@fin.dep.mos.ru").email YUAPetrushova@fin.dep.mos.ru 
+      //-     br
+      //-     | Телефон для справок: +7 (495) 620-20-00 (доб.64327)
