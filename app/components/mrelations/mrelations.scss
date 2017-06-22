@@ -1,0 +1,132 @@
+.mrelations {
+  display: block;
+  background-image: url(../images/bg-relations.jpg);
+  background-size: cover;
+  background-position: center 0;
+  padding-top: 207px;
+  
+  &__switcher {
+    margin-top: 75px;
+    font-size: 0;
+  }
+  
+  &__switcher-text {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 12px 0 8px;
+    line-height: 21px;
+    &_link {
+      border: 1px solid $color-yellow;
+      text-decoration: none;
+      padding: 12px 27px 8px;
+      transition: all .25s ease-in-out;
+      &:hover {
+        background-color: $color-yellow;
+        color: #000;
+      }
+      & + & {
+        border-left: 0;
+      }
+    }
+    &:first-child {
+      margin-right: 92px;
+    }
+  }
+  
+  &__scheme {
+    display: table;
+    width: 103%;
+    height: 340px;
+    margin-top: 79px;
+    margin-bottom: 190px;
+    > * {
+      display: table-cell;
+      height: 100%;
+    }
+  }
+  
+  &__scheme-title {
+    font-size: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+    position: relative;
+    line-height: 25px;
+    text-align: left;
+    display: inline-block;
+  }
+  
+  &__scheme-block {
+    position: relative;
+    padding-top: 255px;
+    vertical-align: top;
+    img {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      max-width: 253px;
+      max-height: 340px;
+    }
+    &_federal {
+      width: 21.3%;
+      text-align: center;
+      img {
+        left: -22px;
+        top: -5px;
+      }
+    }
+    &_moscow {
+      width: 25.2%;
+      text-align: right;
+      padding-right: 34px;
+      img {
+        left: -62px;
+        top: 42px;
+      }
+    }
+    &_innercity {
+      padding-left: 20px;
+      img {
+        left: -41px;
+        top: -33px;
+      }
+    }
+    &_arrow {
+      width: 16%;
+      padding-right: 24px;
+      padding-top: 0;
+      vertical-align: middle;
+    }
+  }
+  
+  &__scheme-arrow {
+    background-color: #fff;
+    text-align: center;
+    position: relative;
+    padding: 4px 0;
+    &:after {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      left: 100%;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 20px 0 20px 20px;
+      border-color: transparent transparent transparent #ffffff;
+    }
+  }
+  
+  &__scheme-sum {
+    font-size: 18px;
+    font-weight: 500;
+    color: $color-link;
+  }
+}
