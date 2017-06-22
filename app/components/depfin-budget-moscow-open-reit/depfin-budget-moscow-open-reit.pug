@@ -1,6 +1,7 @@
 include ../page-header/page-header
 include ../documents-cards/documents-cards
 include ../../blocks/selectbox/selectbox
+include ../../blocks/select/select
 
 
 mixin depfin-budget-moscow-open-reit()
@@ -47,15 +48,25 @@ mixin depfin-budget-moscow-open-reit()
 				+e.documents
 					+e.select
 						+e.select-title Методика
-						+e.select-element
-							+selectbox('openReitMethodic', [{val: "2016"},	{val: "2017"}])
+						+e.select-wrapper
+							+e.SELECT.select-element
+								option 2015
+								option(selected='selected') 2016
+							+icon('angle-arrow').select-icon
+
 					+e.list
 						+documents-cards()
 
 				+e.documents
 					+e.select
 						+e.select-title Результаты
-						+e.select-element
-							+selectbox('openReitResults', [{val: "2016"},	{val: "2017"}])
+						+e.select-wrapper
+							+e.SELECT.select-element
+								option 2015
+								option(selected='selected') 2016
+							+icon('angle-arrow').select-icon
+
 					+e.list
 						+documents-cards()
+
+
