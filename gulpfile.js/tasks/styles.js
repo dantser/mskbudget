@@ -19,13 +19,13 @@ gulp.task('styles', () => {
     .pipe(gulpIf(isDebug, sourcemaps.init()))
     .pipe(bulkSass())
     .pipe(sass())
-    // .pipe(postcss([
-    //   require('autoprefixer'),
-    //   require('postcss-discard-comments'),
-    //   require('css-mqpacker')({
-    //     sort: true,
-    //   }),
-    // ]))
+    .pipe(postcss([
+      require('autoprefixer'),
+      require('postcss-discard-comments'),
+      require('css-mqpacker')({
+        sort: true,
+      }),
+    ]))
     .pipe(cssimport())
     .pipe(cssnano({ zIndex: false }))
     .pipe(gulpIf(isDebug, sourcemaps.write()))
