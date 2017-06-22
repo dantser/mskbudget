@@ -1,0 +1,170 @@
+.open-fedbud {
+  display: block;
+  background-image: url(../images/bg-news.jpg);
+  background-size: cover;
+  background-position: center 0;
+  padding-top: 207px;
+  padding-bottom: 130px;
+
+  &__description {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+    max-width: 500px;
+    margin: 23px 0 51px;
+    letter-spacing: .1px;
+
+  }
+
+  &__header {
+    margin-bottom: 57px;
+  }
+
+  .page-header {
+    @media (max-width: 1024px) {
+      max-width: 700px;
+    }
+  }
+
+  &__control {
+    letter-spacing: .1px;
+
+    &-group {
+      margin-bottom: 16px;
+
+      * {
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &-text {
+      font-size: 18px;
+      color: $color-white;
+      text-transform: uppercase;
+      margin-right: 21px;
+      letter-spacing: 0.35px;
+      vertical-align: baseline;
+
+      @media (max-width: 640px) {
+        display: block;
+        margin-bottom: 55px;
+      }
+    }
+
+    .button-light {
+      font-weight: 700;
+      padding: 13px 26px;
+      font-size: 16px;
+    }
+
+    .buttons-set {
+      &__item {
+        &:last-child {
+          .button-light {
+            padding-right: 46px;
+            padding-left: 48px;
+            letter-spacing: -0.2px;
+          }
+        }
+
+        &:first-child {
+          .button-light {
+            padding-right: 33px;
+            padding-left: 29px;
+          }
+        }
+
+        .button-light {
+          @media (max-width: 400px) {
+            padding: 11px 0;
+            padding-right: 20px !important;
+            padding-left: 20px !important;
+          }
+        }
+      }
+    }
+
+    .analityc-select {
+      height: 34px;
+      font-size: 16px;
+
+      &_year {
+        width: 112px;
+        margin-right: 8px;
+        background-position: 88% 13px;
+
+        @media (max-width: 640px) {
+          width: 97%;
+          background-position: 97% 13px;
+        }
+      }
+
+      &_law {
+        width: 405px;
+        letter-spacing: 0.35px;
+
+        @media (max-width: 640px) {
+          width: 97%;
+          background-position: 97% 13px;
+        }
+      }
+
+      option {
+        font-size: 16px;
+      }
+    }
+  }
+
+  &__content {
+
+    &-heading {
+      margin-bottom: 23px;
+
+      * {
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      @include clearfix;
+
+      .doc-cards__download {
+        float: right;
+        margin: 0;
+        color: $color-yellow;
+        border-bottom-color: rgba(254, 227, 0, .4);
+
+        @media (max-width: 640px) {
+          float: none;
+        }
+      }
+    }
+  }
+
+  &__title {
+    font-size: 21px;
+    font-weight: 500;
+
+    @media (max-width: 1024px) {
+      max-width: 700px;
+    }
+
+    @media (max-width: 640px) {
+      margin-bottom: 35px;
+    }
+  }
+}
+
+.analityc-select_transparentyellow {
+  background: transparent url('../images/caret.svg') 97% 14px no-repeat;
+  border-color: $color-yellow;
+  color: $color-yellow;
+
+  option {
+    color: $color-black;
+  }
+}

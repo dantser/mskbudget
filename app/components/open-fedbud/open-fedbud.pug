@@ -1,0 +1,32 @@
+include ../page-header/page-header
+include ../../blocks/button/button
+include ../../blocks/link/link
+include ../../blocks/icon/icons
+include ../../blocks/buttons-set/buttons-set
+
+mixin open-fedbud()
+  +b.open-fedbud&attributes(attributes)
+    .wrapper.page-content-wrapper
+      +e.header
+        // page-header
+        +page-header('Федеральный бюджет для граждан', ['Открытость'], true)
+        +e.P.description Путеводитель по бюджету города Москвы — это упрощенная версия документов о бюджете столицы, которая использует неформальный язык и доступные форматы отображения информации.
+        +e.control
+          +e.control-group
+            +e.P.control-text Выберите тип документа:
+            +buttons-set-alt(getData('buttons-set-openfedbud'))._openFedbud.__buttons-set
+          +e.control-group
+            select.analityc-select.analityc-select_year.analityc-select_transparentyellow
+              option(selected) 2015
+              option 2016
+              option 2017
+            select.analityc-select.analityc-select_law.analityc-select_transparentyellow
+              option(selected) ЗАКОН О ФЕДЕРАЛЬНОМ БЮДЖЕТЕ
+              option 2016
+              option 2015
+      +e.content
+        +e.content-heading
+          +e.title ФЕДЕРАЛЬНЫЙ БЮДЖЕТ ДЛЯ ГРАЖДАН НА 2017 ГОД И НА ПЛАНОВЫЙ ПЕРИОД 2018 И 2019 ГОДОВ
+          a(href="#").doc-cards__download Скачать (PDF 957,55 Кб)
+        //-slider
+          
