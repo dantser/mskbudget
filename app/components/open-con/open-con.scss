@@ -63,8 +63,27 @@
   }
 
   .dropdown-block {
+    background: none;
+
     &::before {
       display: none;
+    }
+
+    .doc-cards {
+
+      &__card {
+        margin-right: 21px;
+
+        &:last-child {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .dropdown._open {
+    .dropdown-content {
+      display: block;
     }
   }
 }

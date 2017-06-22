@@ -1,0 +1,52 @@
+include ../page-header/page-header
+
+mixin mrelations()
+  +b.mrelations&attributes(attributes)
+    .wrapper.page-content-wrapper
+      +page-header('Межбюджетные оношения', true, true).__header
+      +e.switcher
+        +e.P.switcher-text ВЫБЕРИТЕ ТИП<br> ТРАНСФЕРТОВ:
+        +e.A(href="#").switcher-text._link из федерального бюджета<br> в бюджет г. Москвы
+        +e.A(href="#").switcher-text._link из бюджета г. Москвы во внутригородские<br> муниципальные образования
+      +e.scheme
+        +e.scheme-block._federal
+          img(src='assets/images/map1.png', alt='@@')
+          +e.P.scheme-title Федеральный<br> бюджет
+        +e.scheme-block._arrow
+          +e.scheme-arrow
+            +e.SPAN.scheme-sum 21,1 млрд руб.
+        +e.scheme-block._moscow
+          img(src='assets/images/map2.png', alt='@@')
+          +e.P.scheme-title Бюджет<br> г. Москвы
+        +e.scheme-block._arrow
+          +e.scheme-arrow
+            +e.SPAN.scheme-sum 4,1 млрд руб.
+        +e.scheme-block._innercity
+          img(src='assets/images/map3.png', alt='@@')
+          +e.P.scheme-title Внутригородские<br> муниципальные<br> образования г. Москвы
+    // Dropdown
+    .dropdown-block
+      .dropdown
+        .dropdown-trigger
+          .wrapper
+            span
+              strong Документы
+        .dropdown-content
+          .wrapper
+            span Документы
+      .dropdown
+        .dropdown-trigger
+          .wrapper
+            span
+              strong Новости по&nbsp;теме
+        .dropdown-content
+          .wrapper
+            span Новости
+      .dropdown
+        .dropdown-trigger
+          .wrapper
+            span
+              strong Сервисы
+        .dropdown-content
+          .wrapper
+            span Сервисы

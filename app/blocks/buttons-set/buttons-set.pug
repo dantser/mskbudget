@@ -13,3 +13,13 @@ mixin buttons-set(data)
       else
         +e.item
           a(href="#", data-filter=""+obj.filter+"").button-light= obj.title
+
+mixin buttons-set-alt(data)
+  +b.buttons-set&attributes(attributes)
+    each obj in data
+      if obj.active
+        +e.item
+          a(href="#", data-tab-target=""+obj.filter+"").button-light.button-light--fill= obj.title
+      else
+        +e.item
+          a(href="#", data-tab-target=""+obj.filter+"").button-light= obj.title

@@ -5,6 +5,7 @@ include ../contest/contest
 include ../../blocks/icon/icons
 include ../../blocks/buttons-set/buttons-set
 include ../doc-cards/doc-cards
+include ../../blocks/tabs/tabs
 
 mixin open-con()
   +b.open-con&attributes(attributes)
@@ -14,10 +15,13 @@ mixin open-con()
           +page-header('Конкурсы', ['Открытость'], true)
           +e.control
             +e.P.control-text Выберите конкурс
-            +buttons-set(getData('buttons-set-opencon'))._openCon.__buttons-set
+            +buttons-set-alt(getData('buttons-set-opencon'))._openCon.__buttons-set
           .analityc-widget.analityc-widget_con
-            +contest()
-          
+            +tabs
+              +tabs-tab(data-tab-group="contestTabs", data-tab="contestOne").active
+                +contest(getData('contest')[0])
+              +tabs-tab(data-tab-group="contestTabs", data-tab="contestTwo")
+                +contest(getData('contest')[1])
         //- Dropdown block
         .dropdown-block
           .dropdown._open
