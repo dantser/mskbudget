@@ -348,3 +348,89 @@ mixin analityc-graphics-custom1()
 mixin analityc-graphics-custom2()
   +b.analityc-graphics-custom&attributes(attributes)
     //- реализация на js
+
+
+
+//- Государственный долг
+mixin analityc-graphics-govdebt-approved()
+  +b.analityc-graphics&attributes(attributes)._govdebt._approved
+    +e.P.periodtext
+      span Плановый период
+    +e.cols
+      +e.col
+        +e.P.year 2017
+        +e.graphic
+      +e.col
+        +e.SPAN.period-left
+        +e.P.year 2018
+        +e.graphic
+      +e.col
+        +e.SPAN.period-right
+        +e.P.year 2019
+        +e.graphic
+    +legend(getData('legend-govdebt1')).__legend
+
+mixin analityc-graphics-govdebt-changes()
+  +b.analityc-graphics&attributes(attributes)._govdebt._approved
+    +e.P.periodtext
+      span Плановый период
+    +e.P.toptext МЛРД РУБ.
+    +e.cols
+      +e.col
+        +e.P.year 2017
+        +e.changes._neg
+          +e.abs +14,0
+          +e.percent +22,8%
+        +e.graphic-column
+          +e.graphic-column-val 61,5
+        +e.graphic-column
+          +e.graphic-column-val 75,5
+        +e.bottom
+          p Бюджет утвержденный
+          p Бюджет с учетом изменений
+      +e.col
+        +e.SPAN.period-left
+        +e.P.year 2018
+        +e.changes._rev
+          +e.abs -10,0
+          +e.percent -3,8%
+        +e.graphic-column
+          +e.graphic-column-val 61,5
+        +e.graphic-column
+          +e.graphic-column-val 47,1
+        +e.bottom
+          p Бюджет утвержденный
+          p Бюджет с учетом изменений
+      +e.col
+        +e.SPAN.period-right
+        +e.P.year 2019
+        +e.graphic-column
+          +e.graphic-column-val 57,1
+        +e.graphic-column
+          +e.graphic-column-val 57,1
+        +e.bottom
+          p Бюджет утвержденный
+          p Бюджет с учетом изменений
+          
+mixin analityc-graphics-govdebt-date()
+  +b.analityc-graphics&attributes(attributes)._govdebt._date
+    +e.P.graphic-heading Объем государственного долга на 01.02.2017
+    +e.col._wide
+      +e.graphic-triangle
+        +e.graphic._angle._big
+        +e.graphic._angle
+        +e.graphic._angle
+    +e.col
+      +b.legend.__legend._vert
+        +e.P.item._pink
+          +e.icon
+          | Развитие транспортной системы
+        +e.P.item._blue
+          +e.icon
+          | Банковские кредиты
+        +e.P.item._green
+          +e.icon
+          | Бюджетные кредиты
+        +e.P.item._yellow
+          +e.icon
+          | Государственные гарантии
