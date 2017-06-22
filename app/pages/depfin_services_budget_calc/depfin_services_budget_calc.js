@@ -41,7 +41,14 @@ export default function depfin_services_budget_calc() {
 
   if ($introCarousel) {
     const slickLoader = function() {
+      const $slidesToRemove = $('.js-slick-remove');
+      const $hiddenStorage = $('#budget-calc__howto-hidden');
+      const $theGrid = $('#budget-calc__howto-grid');
+
       if ($(window).outerWidth() <= 480 && !$introCarousel.hasClass('slick-initialized')) {
+        const $slidesRemoved = $slidesToRemove.detach();
+        $hiddenStorage.append($slidesRemoved);
+
         $introCarousel.slick({
           infinite: true,
           slidesToShow: 1,
@@ -54,6 +61,7 @@ export default function depfin_services_budget_calc() {
         });
       } else if ($(window).outerWidth() > 480 && $introCarousel.hasClass('slick-initialized')) {
         $introCarousel.slick('unslick');
+        $theGrid.append($slidesToRemove);
       }
     }
 

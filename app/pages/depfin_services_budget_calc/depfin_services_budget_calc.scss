@@ -31,13 +31,15 @@
     }
 
     @media (max-width: 768px) {
-      padding-left: 10px;
-      padding-right: 10px;
+      padding-left: 30px;
+      padding-right: 30px;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
     }
 
     @media (max-width: 480px) {
-      padding-left: 0px;
-      padding-right: 0px;
+      padding-left: 15px;
+      padding-right: 15px;
     }
   }
 
@@ -67,25 +69,27 @@
       padding-right: 60px;
 
       @media (max-width: 768px) {
-        @include flex-basis(175px);
+        @include flex-basis(125px);
         @include flex-shrink(1);
         padding-right: 20px;
       }
 
       @media (max-width: 480px) {
-        @include flex-basis(80px);
+        @include flex-basis(86px);
+        @include flex-shrink(0);
         padding-right: 10px;
       }
     }
 
     &-col-right {
       @include flex-grow(1);
+      @include flex-basis(100%);
     }
 
     &-icon {
-      margin-top: 5px;
       max-width: 100%;
       height: auto;
+      fill: #fee300;
     }
 
     &-text {
@@ -94,7 +98,7 @@
       font-family: $PFDinTextPro;
       font-size: 20px;
       line-height: 26px;
-      font-weight: normal;
+      font-weight: 400;
 
       &_desktop {
         @media (max-width: 768px) {
@@ -104,8 +108,13 @@
 
       &_mobile {
         margin-top: 27px;
-        font-size: 30px;
-        line-height: 36px;
+        font-size: 16px;
+        line-height: 24px;
+
+        @media (min-width: 481px) and (max-width: 768px) {
+          font-size: 30px;
+          line-height: 36px;
+        }
 
         @media (min-width: 769px) {
           display: none;
@@ -114,19 +123,27 @@
     }
 
     &-buttons {
-      margin-top: 5px;
+      @media (max-width: 768px) {
+        @include display-flex;
+        @include flex-direction(column-reverse);
+      }
 
       .budget-calc-btn {
+        font-size: 15px;
+
         @media (max-width: 768px) {
           display: block;
 
-          &:first-child {
+          &:last-child {
             margin-bottom: 20px;
           }
         }
 
         @media (max-width: 480px) {
-          &:first-child {
+          min-width: 100%;
+          padding-right: 30px;
+
+          &:last-child {
             margin-bottom: 10px;
           }
         }
@@ -154,14 +171,27 @@
     &-heading {
       font-family: $PFDinCondensedPro;
       font-size: 24px;
-      line-height: 26px;
+      line-height: 1.08;
       font-weight: 500;
       font-style: normal;
       text-transform: uppercase;
+
+      @media (max-width: 480px) {
+        font-size: 40px;
+      }
+
+      @media (min-width: 481px) and (max-width: 768px) {
+        font-size: 72px;
+        text-align: center;
+      }
     }
 
     &-grid {
       margin: 24px 0 0 0;
+
+      @media (max-width: 480px) {
+        margin-bottom: 25px;
+      }
 
       @media (min-width: 481px) {
         @include display-flex;
@@ -170,8 +200,38 @@
         margin-right: -25px;
       }
 
-      .slick-prev { margin-left:  -10px; }
-      .slick-next { margin-right: -10px; }
+      .slick-prev { margin-left:  -15px; }
+      .slick-next { margin-right: -15px; }
+      .slick-dots {
+        position: absolute;
+        top: auto;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        text-align: center;
+
+        > li {
+          display: inline-block;
+          margin-bottom: 0;
+
+          &:not(:last-child) {
+            margin-right: 18px;
+          }
+
+          > button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: white;
+          }
+
+          &.slick-active {
+            > button {
+              background-color: #fee300;
+            }
+          }
+        }
+      }
     }
 
     &-item {

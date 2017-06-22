@@ -16,7 +16,7 @@ block page
         +b.budget-calc-page.sections__item.sections__item_first.sections-budget
           .sections-budget__bg.-budget-calc
           .over-layer
-            +e.wrap.wrap_sh
+            +e.wrap.wrap_sh.__wrap
               +e.ahead.ahead
                 +page-header('бюджетный калькулятор города Москвы', ['Сервисы']).__page-header
 
@@ -24,7 +24,8 @@ block page
                 +e.tab.js-budget-calc__tab#budget-calc__tab_intro.is-active
                   +e.intro.load-anim-fade(data-delay="2200")
                     +e.intro-col-left
-                      +e.IMG.intro-icon(src="assets/images/depfin_services_budget_calc/calc.png")
+                      //- +icon('calc').icon.__intro-icon
+                      <object type="image/svg+xml" data="assets/images/depfin_services_budget_calc/calc.svg" class="budget-calc-page__icon budget-calc-page__intro-icon"></object>
                     +e.intro-col-right
                       +e.intro-text._desktop Бюджетный калькулятор города Москвы — это образовательный инструмент, который позволит любому гражданину принять участие в виртуальном планировании бюджета города Москвы и в упрощенной форме демонстрирует принципы бюджетного планирования.
                       +e.intro-buttons
@@ -35,7 +36,7 @@ block page
                   +e.intro-text._mobile Бюджетный калькулятор города Москвы — это образовательный инструмент, который позволит любому гражданину принять участие в виртуальном планировании бюджета города Москвы и в упрощенной форме демонстрирует принципы бюджетного планирования.
                   +e.howto.load-anim-fade(data-delay="2500")#budget-calc-page__howto
                     +e.howto-heading как это работает
-                    +e.howto-grid.js-budget-calc-page__howto-carousel
+                    +e.howto-grid.js-budget-calc-page__howto-carousel#budget-calc__howto-grid
                       +e.howto-item
                         +e.howto-item-preview.-fixed-height
                           img(src="assets/images/depfin_services_budget_calc/howto_income.jpg")
@@ -64,11 +65,12 @@ block page
                       +e.howto-item
                         +e.howto-item-preview
                           img(src="assets/images/depfin_services_budget_calc/howto_total.jpg")
-                      +e.howto-item.-hidden-mobile
+                      +e.howto-item.-hidden-mobile.js-slick-remove
                         +e.howto-item-text
                           | <a class="howto-item-text-link" href="#">Зарегистрировавшись</a> на сайте, Вы получите возможность сохранять и просматривать все свои варианты бюджета в Личном кабинете.
-                      +e.howto-item.-hidden-mobile
+                      +e.howto-item.-hidden-mobile.js-slick-remove
                         +budget-calc-btn('Начать')._howto-start.js-budget-calc__tab-control(href="#budget-calc__tab_app")
+                    +e#budget-calc__howto-hidden
                     +e.howto-item.-hidden-desktop
                       +e.howto-item-text
                         | <a class="howto-item-text-link" href="#">Зарегистрировавшись</a> на сайте, Вы получите возможность сохранять и просматривать все свои варианты бюджета в Личном кабинете.

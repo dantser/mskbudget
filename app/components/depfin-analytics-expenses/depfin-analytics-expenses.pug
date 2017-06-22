@@ -7,7 +7,7 @@ include ../../blocks/table/table
 mixin depfin-analytics-expenses()
 	.main._basic
 		section.basic-budget
-			.wrapper.wrapper_gp
+			.wrapper.wrapper_analytics-expenses
 				+page-header('Расходы бюджета', false, true)
 
 
@@ -42,3 +42,5 @@ mixin depfin-analytics-expenses()
 
 					+analityc-table()._gp
 						+table-gp(getData('analytics-expenses'))
+
+					a(href="/").analityc-more Перейти в&nbsp;раздел бюжет москвы
