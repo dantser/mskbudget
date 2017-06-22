@@ -545,12 +545,25 @@
       @include flex-shrink(0);
       margin-right: 14px;
       fill: #fee300;
+      @include transited;
     }
 
     .-widget-restore-name {
       @include flex-basis(100%);
       font-size: 14px;
       line-height: 16px;
+    }
+
+    &:hover {
+      color: white;
+
+      .-widget-restore-icon {
+        fill: white;
+      }
+
+      &:after {
+        border-color: transparent transparent transparent white;
+      }
     }
   }
 
