@@ -19,6 +19,7 @@ import range from '../blocks/range/range'; // range-slider input для каль
 import dragscroll from '../blocks/drag-scroll/drag-scroll'; // функция, позволяющая сделать любой блок скроллящимся через перетаскивание (добавить класс .js-drag-scroll-element)
 import openCon from '../components/open-con/openCon';
 import contest from '../components/contest/contest';
+import openSlider from '../components/open-fedbud/openSlider';
 
 $(() => {
   selectbox();
@@ -41,4 +42,5 @@ $(() => {
   dragscroll();
   openCon();
   contest();
+  openSlider();
 });
