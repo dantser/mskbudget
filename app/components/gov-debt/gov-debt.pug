@@ -9,22 +9,23 @@ mixin gov-debt()
     .wrapper.wrapper_govdebt
       +page-header('Государственный долг', false, true)
       
-      .analityc-widget.analityc-widget_govdebt
-        .analityc-tab-links
-          a(href="#").analityc-tab-link график погашения государственного долга
-          a(href="#").analityc-tab-link Государственные облигации г. Москвы
+      +e.analityc-widget.analityc-widget
+        +e.analityc-tab-links
+          +e.A(href="#").analityc-tab-link.active Государственный долг г. Москвы
+          +e.A(href="#").analityc-tab-link график погашения государственного долга
+          +e.A(href="#").analityc-tab-link Государственные облигации г. Москвы
         +e.analityc-data
-          +analityc-widgethead-govdebt()
-          +analityc-graphics-govdebt-approved()
-          +analityc-graphics-govdebt-changes()
-          +analityc-graphics-govdebt-date()
-          +analityc-table()
+          +analityc-widgethead-govdebt().__analityc-widgethead
+          +analityc-graphics-govdebt-approved().__analityc-graphics(style="display:none;")
+          +analityc-graphics-govdebt-changes().__analityc-graphics
+          +analityc-graphics-govdebt-date().__analityc-graphics(style="display:none;")
+          +analityc-table().__analityc-table
             .analityc-control-switcher
               a(href="#").active млн руб.
               a(href="#") млрд руб.
-            +table-aincome(getData('main'))
+            +table-govdebt(getData('govdebt'))
             a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
-        +e.gov-bonds
+        +e.gov-bonds(style="display:none;")
           +e.H2.tab-heading Государственные облигации<br> города Москвы
           +e.H3.block-heading._main Что такое облигация?
           +e.P.paragraph._main <b>Облигация</b> — эмиссионная ценная бумага, закрепляющая право ее владельца на получение от эмитента облигации в предусмотренный срок ее номинальной стоимости или иного имущественного эквивалента. Облигация может также предусматривать право ее владельца на получение фиксированного процента от номинальной стоимости облигации либо иные имущественные права. Доходом по облигации являются процент и/или дисконт.
