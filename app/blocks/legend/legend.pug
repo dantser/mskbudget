@@ -1,4 +1,6 @@
 include ../icon/icons
+include ../checkbox/checkbox
+
 
 mixin legend(data)
   +b.legend&attributes(attributes)
@@ -21,3 +23,27 @@ mixin legend-basket(data)
         +e.A(href="#").remove
           +icon('basket').icon
       
+mixin legend-icon()
+  .legend-icon
+    +checkbox().legend-icon__item
+      .legend-icon__circle.legend-icon__circle_pink
+      .legend-icon__icon.legend-icon__icon_pink
+      SPAN.legend-icon__label Развитие транспортной системы
+    +checkbox().legend-icon__item
+      .legend-icon__circle.legend-icon__circle_violet
+      .legend-icon__icon.legend-icon__icon_violet
+      SPAN.legend-icon__label Социальная поддержка жителей Москвы
+    +checkbox().legend-icon__item
+      .legend-icon__circle.legend-icon__circle_blue
+      .legend-icon__icon.legend-icon__icon_blue
+      SPAN.legend-icon__label Столичное здравоохранение
+    +checkbox().legend-icon__item
+      .legend-icon__circle.legend-icon__circle_greenyellow
+      .legend-icon__icon.legend-icon__icon_greenyellow
+      SPAN.legend-icon__label Прочие государственные программы
+    +checkbox().legend-icon__item
+      .legend-icon__circle.legend-icon__circle_gray
+      SPAN.legend-icon__label Развитие транспортной системы
+    +checkbox().legend-icon__item
+      .legend-icon__circle.legend-icon__circle_green
+      SPAN.legend-icon__label Непрограммные направления деятельности
