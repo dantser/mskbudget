@@ -3,6 +3,7 @@ include ../../blocks/button/button
 include ../../blocks/link/link
 include ../../blocks/icon/icons
 include ../../blocks/buttons-set/buttons-set
+include ../open-slider/open-slider
 
 mixin open-fedbud()
   +b.open-fedbud&attributes(attributes)
@@ -29,26 +30,5 @@ mixin open-fedbud()
           +e.title ФЕДЕРАЛЬНЫЙ БЮДЖЕТ ДЛЯ ГРАЖДАН НА 2017 ГОД И НА ПЛАНОВЫЙ ПЕРИОД 2018 И 2019 ГОДОВ
           a(href="#").doc-cards__download Скачать (PDF 957,55 Кб)
         +e.slider
-          .swiper-slider
-            .swiper-container.gallery-top
-              .swiper-wrapper
-                .swiper-slide
-                .swiper-slide
-                .swiper-slide
-                .swiper-slide
-                .swiper-slide
-                .swiper-slide
-                .swiper-slide
-            
-            +icon('icon-next').swiper-icon.swiper-button-next
-            +icon('icon-prev').swiper-icon.swiper-button-prev
-          .swiper-container.gallery-thumbs
-            .swiper-wrapper
-              .swiper-slide
-              .swiper-slide
-              .swiper-slide
-              .swiper-slide
-              .swiper-slide
-              .swiper-slide
-              .swiper-slide
+          +open-slider()
             
