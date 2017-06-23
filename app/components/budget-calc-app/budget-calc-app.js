@@ -22,4 +22,14 @@ export default() => {
       }
     });
   }
+
+  // аккордеоны в табличке "доходы"
+  const $incomesRow = $('.js-incomes-row-accordeon');
+
+  if ($incomesRow) {
+    $incomesRow.on('click', function(event) {
+      event.preventDefault();
+      $(this).toggleClass('is-active');
+    });
+  }
 }
