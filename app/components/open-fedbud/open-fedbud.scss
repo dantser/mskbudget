@@ -32,7 +32,7 @@
     &-group {
       margin-bottom: 16px;
 
-      * {
+      .analityc-select, .open-fedbud__control-text, .buttons-set {
         display: inline-block;
         vertical-align: middle;
       }
@@ -181,12 +181,30 @@
   margin-right: auto;
   font-size: 18px;
   position: relative;
+
+  @media (max-width: 800px) {
+    overflow: visible;
+  }
 }
 
 .swiper-slide {
   width: 1100px;
   height: 613px;
   background-color: $color-white;
+
+  @media (min-width: 501px) and (max-width: 800px) {
+    height: 321px;
+  }
+
+  @media (max-width: 500px) {
+    height: 156px;
+  }
+
+  &-prev, &-next {
+    @media (max-width: 800px) {
+      opacity: .4;
+    }
+  }
 }
 
 .swiper-button-next, .swiper-button-prev {
@@ -200,6 +218,10 @@
   fill: transparent;
   stroke: $color-white;
   background-image: none;
+
+  @media (max-width: 800px) {
+    display: none;
+  }
 }
 
 .swiper-button-prev {
@@ -228,6 +250,14 @@
   width: 100%;
   box-sizing: border-box;
   padding: 35px 0;
+
+  @media (min-width: 801px) and (max-width: 1024px) {
+    padding: 25px 0;
+  }
+
+  @media (max-width: 800px) {
+    display: none;
+  }
 }
 
 .gallery-thumbs .swiper-slide {
