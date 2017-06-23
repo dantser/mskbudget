@@ -263,46 +263,76 @@
   	}
   }
 
-  &__slider {
-		position: relative;
+	.swiper-wrapper {
+	  position: relative;
+	}
 
-  	.depfin-budget-moscow-media-materials__content {
-  		white-space: nowrap;
-  	}
+	.swiper-container {
+	  width: 100%;
+	  height: 300px;
+	  margin-left: auto;
+	  margin-right: auto;
+	  font-size: 18px;
+	  position: relative;
+	}
 
-		.depfin-budget-moscow-media-materials__item {
-			display: none;
-			width: 852px;
-			height: 531px;
-			margin: 0 auto;
+	.swiper-slide {
+	  width: 1100px;
+	  height: 100%;
+	  background-color: $color-white;
+	  margin-bottom: 0;
+	}
 
-			&_active {
-				display: block;
-			}
-		}
+	.swiper-button-next, .swiper-button-prev {
+	  position: absolute;
+	  top: 50%;
+	  width: 22px;
+	  height: 41px;
+	  margin-top: -22px;
+	  z-index: 10;
+	  cursor: pointer;
+	  fill: transparent;
+	  stroke: $color-white;
+	  background-image: none;
+	}
 
-		.depfin-budget-moscow-media-materials__paginate {
-			display: none;
-		}
-  }
+	.swiper-button-prev {
+	  left: -35px;
+	}
 
-  &__slider-prev,
-  &__slider-next {
-  	@include center-block;
-		display: block;
-  	width: 21px;
-  	height: 37px;
-  	fill: transparent;
-  	stroke: $color-white;
-  }
+	.swiper-button-next {
+	  right: -35px;
+	}
 
-  &__slider-prev {
-  	left: 0;
-  	transform: rotate(180deg);
-  }
+	.swiper-wrapper {
+	  position: relative;
+	  width: 100%;
+	  height: 100%;
+	  z-index: 1;
+	  display: flex;
+	  transition-property: transform;
+	  margin-bottom: 0;
+	}
 
-  &__slider-next {
-  	right: 0;
-  	left: auto;
-  }
+	.gallery-top {
+	  height: 531px;
+	  width: 100%;
+	}
+
+	.gallery-thumbs {
+	  width: 100%;
+	  box-sizing: border-box;
+	  padding: 35px 0;
+	}
+
+	.gallery-thumbs .swiper-slide {
+	  width: 249px;
+	  opacity: 0.4;
+	  height: 247px;
+	}
+
+	.gallery-thumbs .swiper-slide-active {
+	  opacity: 1;
+	}
+
 }

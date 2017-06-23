@@ -20,6 +20,7 @@ import dragscroll from '../blocks/drag-scroll/drag-scroll'; // функция, �
 import openCon from '../components/open-con/openCon';
 import contest from '../components/contest/contest';
 import openSlider from '../components/open-fedbud/openSlider';
+import mediaMaterials from '../components/depfin-budget-moscow-media-materials/mediaMaterials';
 
 $(() => {
   selectbox();
@@ -43,4 +44,5 @@ $(() => {
   openCon();
   contest();
   openSlider();
+  mediaMaterials();
 });
