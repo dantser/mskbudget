@@ -9,12 +9,18 @@
   &__card-wrapper {
     margin-top: 35px;
     text-align: justify;
+
     &:after {
       content: '';
       display: inline-block;
       width: 100%;
       height: 0.000000001px;
     }
+
+    @media screen and (max-width: 992px) {
+      text-align: center;
+    }
+
   }
 
   .tile__item {
@@ -26,6 +32,11 @@
     vertical-align: top;
     transition: all .25s ease-in-out;
     cursor: pointer;
+
+    @media screen and (max-width: 900px) {
+      width: 247px !important;
+      margin-bottom: 36px;
+    }
   }
 
   .news {
@@ -34,10 +45,17 @@
     right: 0;
     margin: 0;
 
+
+
+
+
+    @media (max-width: 450px) {
+      height: inherit;
+    }
+
     &_photo {
       @media (min-width: 320px) and (max-width: 650px) {
         width: 100%;
-        min-height: inherit;
         height: 462px;
       }
 
@@ -49,6 +67,20 @@
     }
     &_material {
       padding-bottom: 0 !important;
+
+      @media screen and (max-width: 900px) {
+        min-height: inherit;
+      }
+
+
+      @media (max-width: 700px) and (min-width: 451px) {
+        height: inherit;
+      }
+
+      @media (max-width: 650px) {
+        width: 100%;
+        max-width: none;
+      }
     }
 
   }
