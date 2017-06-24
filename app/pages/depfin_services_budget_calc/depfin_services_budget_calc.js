@@ -73,15 +73,4 @@ export default function depfin_services_budget_calc() {
       }, 15);
     });
   }
-
-
-  // аккордеоны в табличке "доходы"
-  const $incomesRow = $('.js-incomes-row_accordeon');
-
-  if ($incomesRow) {
-    $incomesRow.on('click', function(event) {
-      event.preventDefault();
-      $(this).toggleClass('is-active');
-    });
-  }
 }

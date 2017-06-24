@@ -382,3 +382,15 @@ div {
 @mixin align-self($align: auto) {                   // Cross-axis Alignment
   @include vendor(align-self, $align);            // applies to: flex items
 }                                                   // auto | flex-start | flex-end | center | baseline | stretch
+
+
+// распределение блоков по всей ширине
+@mixin block-justify {
+  text-align: justify;
+  &:after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+    height: 0.00000000001px;
+  }
+}

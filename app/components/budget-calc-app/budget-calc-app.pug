@@ -43,6 +43,9 @@ mixin budget-calc-app()
           +e.DIV.inner.-widget-restore-inner
             +icon('clean').icon.-widget-restore-icon
             +e.DIV.name.-widget-restore-name вернуть исходные значения бюджета
+        +e.sidebar-notification.is-active
+          p <strong>Бюджет дефицитный: <br>расходы превышают доходы в пределах допустимого уровня</strong>. Вам необходимо сбалансировать Ваш бюджет.
+          p Для этого вы можете <br>- увеличить доходы бюджета <br>- снизить расходы бюджета <br>- привлечь источники финансирования дефицита бюджета
 
     +e.main-content#budget-calc-app__main-content
       +e.tab._incomes.js-budget-calc-app__tab#budget-calc-app__tab_incomes.is-active(data-state-indicator="#budget-calc-app__tab_incomes-indicator")
@@ -53,49 +56,170 @@ mixin budget-calc-app()
             +e.incomes-column
             +e.incomes-column._heading Доля в общем объеме доходов
             +e.incomes-column._heading Сумма поступлений
-          +e.incomes-row
-            +e.incomes-column
-              +e.incomes-column-name.has-tooltip Налоговые доходы
+          +e.incomes-row.is-active
+            +e.incomes-column._name
+              .has-tooltip
                 +tooltip-icon("текст тултипа")
-            +e.incomes-column
-              +e.SPAN.incomes-column-value 89,6
-              | %
-            +e.incomes-column
-              +e.SPAN.incomes-column-value 1 433 185,2
-              |&nbsp;млн руб.
-          +e.incomes-row.is-accordeon-row.js-incomes-row_accordeon
-            +e.incomes-column
-              +e.incomes-column-name.has-tooltip НАЛОГ НА ПРИБЫЛЬ ОРГАНИЗАЦИЙ
-                +tooltip-icon("текст тултипа")
-            +e.incomes-column
-              +e.SPAN.incomes-column-value 29,1
-              | %
-            +e.incomes-column
-              +e.SPAN.incomes-column-value 464 732,0
-              |&nbsp;млн руб.
+                SPAN.-text Налоговые доходы
+            +e.incomes-column._value
+              SPAN.-percent-num 89,6
+              SPAN.-percent-text %
+            +e.incomes-column._value
+              SPAN.-num 1 433 185,2
+              SPAN.-text млн руб.
           +e.incomes-expand
             +e.incomes-expand-inner
-              +e.incomes-expand-row
-                +e.incomes-expand-column._text-muted Налогоплательщики
-                +e.incomes-expand-column._text-muted Налоговая ставка
-                +e.incomes-expand-column
-              +e.incomes-expand-row
-                +e.incomes-expand-column Все налогоплательщики
-                +e.incomes-expand-column
+              //- +e.incomes-row._expand
+              //-   +e.incomes-column._expand.-full-width
+              +e.notification.is-active
+                | Решение об эмиссии отдельных выпусков облигаций Городского облигационного (внутреннего) займа Москвы утверждаются Правительством Москвы. Предельный объем ежегодной эмиссии устанавливается постановлениями Правительства Москвы. Превышение предельного объема заимствований может оказать негативное влияние на ранее выпущенные облигационные займы.
+              +e.notification._alert.is-active
+                | Внимание! <br>Ежегодные расходы на обслуживание государственного долга изменились на 743,7 млн руб.
+              +e.notification._info.text-center.is-active
+                | Если вы хотите сохранить несколько вариантов бюджета, <a href="#">зарегистируйтесь</a>!
+          +e.incomes-row.is-accordeon-row.js-incomes-row-accordeon
+            +e.incomes-column._name
+              .has-tooltip
+                +tooltip-icon("текст тултипа")
+                SPAN.-text НАЛОГ НА ПРИБЫЛЬ ОРГАНИЗАЦИЙ
+            +e.incomes-column._value
+              SPAN.-percent-num 29,1
+              SPAN.-percent-text %
+            +e.incomes-column._value
+              SPAN.-num 464 732,0
+              SPAN.-text млн руб.
+          +e.incomes-expand
+            +e.incomes-expand-inner
+              +e.notification._alert.is-active
+                | Внимание! <br>Ежегодные расходы на обслуживание государственного долга изменились на 743,7 млн руб.
+              +e.incomes-row._expand
+                +e.incomes-column._expand
+                  SPAN.text-muted Налогоплательщики
+                +e.incomes-column._expand
+                  SPAN.text-muted Налоговая ставка
+                +e.incomes-column._expand
+              +e.incomes-row._expand
+                +e.incomes-column._expand Все налогоплательщики
+                +e.incomes-column._expand
                   +range()
-                +e.incomes-expand-column
-              +e.incomes-expand-row
-                +e.incomes-expand-column Льготные категории налогоплательщиков:
-                +e.incomes-expand-column
-                +e.incomes-expand-column
-              +e.incomes-expand-row
-                +e.incomes-expand-column Организации, осуществляющие производство легковых автомобилей на территории города Москвы
-                +e.incomes-expand-column
-                +e.incomes-expand-column
+                +e.incomes-column._expand
+              +e.incomes-row._expand
+                +e.incomes-column._expand Льготные категории налогоплательщиков:
+                +e.incomes-column._expand
+                +e.incomes-column._expand
+              +e.incomes-row._expand
+                +e.incomes-column._expand Организации, осуществляющие производство легковых автомобилей на территории города Москвы
+                +e.incomes-column._expand
+                +e.incomes-column._expand
 
+          +e.incomes-row.is-accordeon-row.js-incomes-row-accordeon
+            +e.incomes-column._name
+              .has-tooltip
+                +tooltip-icon("текст тултипа")
+                SPAN.-text НАЛОГ НА ДОХОДЫ ФИЗИЧЕСКИХ ЛИЦ
+            +e.incomes-column._value
+              SPAN.-percent-num 45,6
+              SPAN.-percent-text %
+            +e.incomes-column._value
+              SPAN.-num 729 284,6
+              SPAN.-text млн руб.
+          +e.incomes-expand
+            +e.incomes-expand-inner
+              +e.incomes-row._expand
+                +e.incomes-column._expand
+                  | test
+
+          +e.incomes-row.is-accordeon-row.js-incomes-row-accordeon
+            +e.incomes-column._name
+              .has-tooltip
+                +tooltip-icon("текст тултипа")
+                SPAN.-text НАЛОГ НА ИМУЩЕСТВО ОРГАНИЗАЦИЙ
+            +e.incomes-column._value
+              SPAN.-percent-num 29,1
+              SPAN.-percent-text %
+            +e.incomes-column._value
+              SPAN.-num 464 732,0
+              SPAN.-text млн руб.
+          +e.incomes-expand
+            +e.incomes-expand-inner
+              +e.incomes-row._expand
+                +e.incomes-column._expand
+                  | test
+
+          +e.incomes-row.is-accordeon-row.js-incomes-row-accordeon
+            +e.incomes-column._name
+              .has-tooltip
+                +tooltip-icon("текст тултипа")
+                SPAN.-text транспортный налог
+            +e.incomes-column._value
+              SPAN.-percent-num 45,6
+              SPAN.-percent-text %
+            +e.incomes-column._value
+              SPAN.-num 729 284,6
+              SPAN.-text млн руб.
+          +e.incomes-expand
+            +e.incomes-expand-inner
+              +e.incomes-row._expand
+                +e.incomes-column._expand
+                  | test
+
+          +e.incomes-row.is-accordeon-row.js-incomes-row-accordeon
+            +e.incomes-column._name
+              .has-tooltip
+                +tooltip-icon("текст тултипа")
+                SPAN.-text ЗЕМЕЛЬНЫЙ НАЛОГ
+            +e.incomes-column._value
+              SPAN.-percent-num 29,1
+              SPAN.-percent-text %
+            +e.incomes-column._value
+              SPAN.-num 464 732,0
+              SPAN.-text млн руб.
+          +e.incomes-expand
+            +e.incomes-expand-inner
+              +e.incomes-row._expand
+                +e.incomes-column._expand
+                  | test
+
+          +e.incomes-row.is-accordeon-row.js-incomes-row-accordeon
+            +e.incomes-column._name
+              .has-tooltip
+                +tooltip-icon("текст тултипа")
+                SPAN.-text НАЛОГ, ВЗИМАЕМЫЙ В СВЯЗИ С ПРИМЕНЕНИЕМ УПРОЩЕННОЙ СИСТЕМЫ НАЛОГООБЛОЖЕНИЯ
+            +e.incomes-column._value
+              SPAN.-percent-num 45,6
+              SPAN.-percent-text %
+            +e.incomes-column._value
+              SPAN.-num 12 435 930,4
+              SPAN.-text млн руб.
+          +e.incomes-expand
+            +e.incomes-expand-inner
+              +e.incomes-row._expand
+                +e.incomes-column._expand
+                  | test
+          +e.incomes-row
+            +e.incomes-column._name
+              .has-tooltip
+                +tooltip-icon("текст тултипа")
+                SPAN.-text прочие налоговые доходы
+            +e.incomes-column._value
+              SPAN.-percent-num 29,43
+              SPAN.-percent-text %
+            +e.incomes-column._value
+              SPAN.-num 213 854,2
+              SPAN.-text млн руб.
 
           +e.incomes-row
-            +e.incomes-column Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus illo placeat labore nobis commodi, facilis, hic animi vitae est id consectetur cumque itaque ipsum, soluta! Iusto illo id, officia et!
+            +e.incomes-column._name
+              .has-tooltip
+                +tooltip-icon("текст тултипа")
+                SPAN.-text неналоговые доходы
+            +e.incomes-column._value
+              SPAN.-percent-num 19,43
+              SPAN.-percent-text %
+            +e.incomes-column._value
+              SPAN.-num 2 133 854,2
+              SPAN.-text млн руб.
+
         +e.text
           +budget-calc-btn('сохранить и перейти в раздел «расходы»').-triangle-right.js-budget-calc-app__tab-control(data-target="#budget-calc-app__tab_costs" href="#")
 
@@ -114,7 +238,7 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              | range
+              +range()
             +e.costs-item-expand testing
           +e.costs-item
             +e.costs-item-icon
@@ -128,7 +252,7 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              | range
+              +range()
             +e.costs-item-expand testing
           +e.costs-item
             +e.costs-item-icon
@@ -142,7 +266,7 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              | range
+              +range()
             +e.costs-item-expand testing
           +e.costs-item
             +e.costs-item-icon
@@ -156,7 +280,7 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              | range
+              +range()
             +e.costs-item-expand testing
           +e.costs-item
             +e.costs-item-icon
@@ -170,7 +294,7 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              | range
+              +range()
             +e.costs-item-expand testing
           +e.costs-item
             +e.costs-item-icon
@@ -184,7 +308,7 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              | range
+              +range()
             +e.costs-item-expand testing
           +e.costs-item
             +e.costs-item-icon
@@ -198,7 +322,7 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              | range
+              +range()
             +e.costs-item-expand testing
           +e.costs-item
             +e.costs-item-icon
@@ -212,7 +336,7 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              | range
+              +range()
             +e.costs-item-expand testing
           +e.costs-item
             +e.costs-item-icon
@@ -226,7 +350,7 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              | range
+              +range()
             +e.costs-item-expand testing
           +e.costs-item
             +e.costs-item-icon
@@ -240,7 +364,7 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              | range
+              +range()
             +e.costs-item-expand testing
           +e.costs-item
             +e.costs-item-icon
@@ -254,7 +378,7 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              | range
+              +range()
             +e.costs-item-expand testing
           +e.costs-item
             +e.costs-item-icon
@@ -268,7 +392,7 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              | range
+              +range()
             +e.costs-item-expand testing
           +e.costs-item
             +e.costs-item-icon
@@ -282,7 +406,7 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              | range
+              +range()
             +e.costs-item-expand testing
           +e.costs-item
             +e.costs-item-icon
@@ -296,7 +420,7 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              | range
+              +range()
             +e.costs-item-expand testing
           +e.costs-item
             +e.costs-item-icon
@@ -310,10 +434,11 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              | range
+              +range()
             +e.costs-item-expand testing
 
-        +budget-calc-btn('сохранить и перейти в раздел «дефицит/процифит»')._costs.-triangle-right.js-budget-calc-app__tab-control(data-target="#budget-calc-app__tab_balance" href="#")
+        +e.text
+          +budget-calc-btn('сохранить и перейти в раздел «дефицит/процифит»').-triangle-right.js-budget-calc-app__tab-control(data-target="#budget-calc-app__tab_balance" href="#")
 
       +e.tab._balance.js-budget-calc-app__tab#budget-calc-app__tab_balance(data-state-indicator="#budget-calc-app__tab_balance-indicator")
         +e.heading ДЕФИЦИТ / ПРОФИЦИТ
@@ -324,9 +449,10 @@ mixin budget-calc-app()
                 .has-tooltip ГОСУДАРСТВЕННЫЕ ЦЕННЫЕ БУМАГИ
                   +tooltip-icon('текст тултипа')
               +e.balance-column._range
-                | range
+                +range()
               +e.balance-column._value
                 | 0,0 млн руб.
               +e.balance-expand
                 | Уведомления
-        +budget-calc-btn('Сохранить и проверить свой вариант бюджета')._balance.-triangle-right
+        +e.text
+          +budget-calc-btn('Сохранить и проверить свой вариант бюджета').-triangle-right
