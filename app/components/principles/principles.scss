@@ -189,6 +189,7 @@
   position: absolute;
   top: 0;
   bottom: 0;
+  cursor: url(../images/cursor-left.png), pointer;
 }
 
 .carousel-area__left__zone[data-speed="1"] {
@@ -226,6 +227,7 @@
   position: absolute;
   top: 0;
   bottom: 0;
+  cursor: url(../images/cursor-right.png), pointer;
 }
 
 .carousel-area__right__zone[data-speed="1"] {
@@ -522,6 +524,41 @@
     padding-right: 0;
     padding-left: 0;
   }
+
+  #carousel {
+    margin-top: 26px;
+    margin-left: -23px;
+    margin-right: -23px;
+  }
+
+  #carousel .ar-left,
+  #carousel .ar-right {
+    display: inline-block;
+    top: 0 !important;
+    margin-top: 0 !important;
+    margin: 0;
+    position: relative;
+    width: 45px;
+    height: 45px;
+    background-size: 12px;
+  }
+
+  #carousel .carousel-count {
+    display: inline-block;
+  }
+
+  .carousel-area__left,
+  .carousel-area__right {
+    display: none;
+  }
+
+  .carousel-count {
+    line-height: 34px;
+  }
+
+  #carousel .carousel-count {
+    display: inline-block;
+  }
 }
 
 @media screen and (max-width: 760px) {
@@ -589,6 +626,11 @@
     display: none;
   }
 
+  .carousel-area__left__zone,
+  .carousel-area__right__zone {
+    cursor: pointer;
+  }
+
   .carousel-3d-container {
     margin-top: 0 !important;
     margin-bottom: 0 !important;
@@ -622,6 +664,7 @@
     max-width: 100% !important;
     width: 100%;
     height: auto;
+    min-height: 490px;
     padding-bottom: 20px;
   }
 
