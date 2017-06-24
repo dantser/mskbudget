@@ -62,6 +62,28 @@ window.onload = function () {
                 }
             });
 
+            $('.carousel-area__right').on("click", function () {
+                var $next = $d_slide.filter("._active").next();
+
+                if (!$next.length) {
+                    $next = $d_slide.eq(0);
+                }
+
+                $d_slide.removeClass("_active").filter($next).addClass("_active");
+                $carousel_count.html(($d_slide.filter("._active").index() + 1) + " из " + $d_slide.length);
+            });
+
+            $('.carousel-area__left').on("click", function () {
+                var $next = $d_slide.filter("._active").prev();
+
+                if (!$next.length) {
+                    $next = $d_slide.filter(":last-child");
+                }
+
+                $d_slide.removeClass("_active").filter($next).addClass("_active");
+                $carousel_count.html(($d_slide.filter("._active").index() + 1) + " из " + $d_slide.length);
+            });
+
             $ar_right.on("click", function () {
                 var $next = $d_slide.filter("._active").next();
 
