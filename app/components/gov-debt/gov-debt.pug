@@ -11,15 +11,15 @@ mixin gov-debt()
       
       +e.analityc-widget.analityc-widget
         +e.analityc-tab-links
-          +e.A(href="#").analityc-tab-link.active Государственный долг г. Москвы
-          +e.A(href="#").analityc-tab-link график погашения государственного долга
-          +e.A(href="#").analityc-tab-link Государственные облигации г. Москвы
+          +e.A(href="#", data-govdebt-tab="govdebt").analityc-tab-link.active Государственный долг г. Москвы
+          +e.A(href="#", data-govdebt-tab="repayment").analityc-tab-link график погашения государственного долга
+          +e.A(href="#", data-govdebt-tab="govbonds").analityc-tab-link Государственные облигации г. Москвы
         // Государственный долг г. Москвы
-        +e.analityc-tab._govdebt
+        +e.analityc-tab._govdebt.active
           +analityc-widgethead-govdebt().__analityc-widgethead
-          +analityc-graphics-govdebt-approved().__analityc-graphics
-          +analityc-graphics-govdebt-changes().__analityc-graphics(style="display:none;")
-          +analityc-graphics-govdebt-date().__analityc-graphics(style="display:none;")
+          +analityc-graphics-govdebt-approved().__analityc-graphics.active
+          +analityc-graphics-govdebt-changes().__analityc-graphics
+          +analityc-graphics-govdebt-date().__analityc-graphics
           +analityc-table().__analityc-table
             .analityc-control-switcher
               a(href="#").active млн руб.
@@ -27,14 +27,14 @@ mixin gov-debt()
             +table-govdebt(getData('govdebt'))
             a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
         // график погашения государственного долга
-        +e.analityc-tab._repayment(style="display:none;")
+        +e.analityc-tab._repayment
           +e.H2.analityc-widget-heading График погашения<br> государственного долга
           .analityc-control-switcher
             a(href="#").active млн. руб.
             a(href="#") млрд. руб.
-          +analityc-graphics-govdebt-repayment().__analityc-graphics
+          +analityc-graphics-govdebt-repayment().__analityc-graphics.active
         // Государственные облигации г. Москвы
-        +e.analityc-tab._govbonds(style="display:none;")
+        +e.analityc-tab._govbonds
           +e.H2.analityc-widget-heading Государственные облигации<br> города Москвы
           +e.H3.block-heading._main Что такое облигация?
           +e.P.paragraph._main <b>Облигация</b> — эмиссионная ценная бумага, закрепляющая право ее владельца на получение от эмитента облигации в предусмотренный срок ее номинальной стоимости или иного имущественного эквивалента. Облигация может также предусматривать право ее владельца на получение фиксированного процента от номинальной стоимости облигации либо иные имущественные права. Доходом по облигации являются процент и/или дисконт.
