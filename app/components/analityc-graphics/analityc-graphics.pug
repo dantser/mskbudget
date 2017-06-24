@@ -413,26 +413,63 @@ mixin analityc-graphics-govdebt-changes()
         +e.bottom
           p Бюджет утвержденный
           p Бюджет с учетом изменений
+    +b.legend.__legend
+      +e.P.item._altgreen Верхний предел государственного долга, млрд руб.
           
 mixin analityc-graphics-govdebt-date()
   +b.analityc-graphics&attributes(attributes)._date
     +e.P.graphic-heading Объем государственного долга на 01.02.2017
-    +e.col._wide
-      +e.graphic-triangle
-        +e.graphic._angle._big
-        +e.graphic._angle
-        +e.graphic._angle
-    +e.col
-      +b.legend.__legend._vert
-        +e.P.item._pink
-          +e.icon
-          | Развитие транспортной системы
-        +e.P.item._blue
-          +e.icon
-          | Банковские кредиты
-        +e.P.item._green
-          +e.icon
-          | Бюджетные кредиты
-        +e.P.item._yellow
-          +e.icon
-          | Государственные гарантии
+    +e.cols
+      +e.col._wide
+        +e.graphic-triangle
+          img(src="assets/images/graphics-border.svg")
+          +e.graphic-angle._big
+          +e.graphic-angle._right-top
+          +e.graphic-angle._right-bottom
+      +e.col
+        +b.legend.__legend._vert
+          +e.P.item._pink
+            +icon('depfin-icons-28').__icon._pink
+            | Развитие транспортной системы
+          +e.P.item._blue
+            +icon('depfin-icons-29').__icon._blue
+            | Банковские кредиты
+          +e.P.item._green
+            +icon('depfin-icons-30').__icon._green
+            | Бюджетные кредиты
+          +e.P.item._yellow
+            +icon('depfin-icons-27').__icon._yellow
+            | Государственные гарантии
+
+mixin analityc-graphics-govdebt-repayment()
+  +b.analityc-graphics&attributes(attributes)._repayment
+    +e.graphic._multicolumn
+      +e.graphic-column
+        +e.graphic-column-fill
+          +e.P.graphic-column-val 26,1
+      +e.graphic-column._low
+        +e.graphic-column-fill
+          +e.P.graphic-column-val 4,4
+      +e.graphic-column._zero
+        +e.graphic-column-fill
+          +e.P.graphic-column-val 0,0
+      +e.graphic-column._zero
+        +e.graphic-column-fill
+          +e.P.graphic-column-val 0,0
+      +e.graphic-column._zero
+        +e.graphic-column-fill
+          +e.P.graphic-column-val 0,0
+      +e.graphic-column
+        +e.graphic-column-fill
+          +e.P.graphic-column-val 30,0
+      +e.graphic-column._low
+        +e.graphic-column-fill
+          +e.P.graphic-column-val 1,5
+    +e.graphic-years
+      +e.P.graphic-year 2017
+      +e.P.graphic-year 2018
+      +e.P.graphic-year 2019
+      +e.P.graphic-year 2020
+      +e.P.graphic-year 2021
+      +e.P.graphic-year 2022
+      +e.P.graphic-year 2025-2034

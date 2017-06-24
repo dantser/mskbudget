@@ -198,7 +198,6 @@ mixin table-main(data)
       if (typeof data[0].total === "object")
         +e.col._one= item[type].initial
         +e.col._one= item[type].change
-        +e.col._one= item[type].final
       else
         +e(class= 'col_'+cells)= item.total
 
@@ -353,7 +352,6 @@ mixin table-gp(data)
       if (typeof data[0].total === "object")
         +e.col._one= item[type].initial
         +e.col._one= item[type].change
-        +e.col._one= item[type].final
       else
         +e(class= 'col_'+cells)= item.total
 
@@ -405,7 +403,7 @@ mixin table-gp(data)
         +icon('angle-arrow').arrow
         | Программные расходы, в том числе:
 
-      +dataType(data, 'other')
+      +dataType(data, 'tax')
 
     +e.row._opened
       +e.col._four._subcol 
@@ -413,17 +411,17 @@ mixin table-gp(data)
         +e.icon
         | ГП &laquo;Развитие транспортной системы&raquo;
 
-      +dataType(data, 'total')
+      +dataType(data, 'org')
 
     +e.row
       +e.col._four._subcol  Общественный транспорт &laquo;Метрополитен&raquo;
 
-      +dataType(data, 'other')
+      +dataType(data, 'ndfl')
 
     +e.row
       +e.col._four  Непрограммные направления деятельности
 
-      +dataType(data, 'total')
+      +dataType(data, 'other')
       
       
 //- таблица Государственный долг

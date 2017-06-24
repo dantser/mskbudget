@@ -41,9 +41,18 @@
     }
     .analityc-control-switcher {
       font-size: 0;
-      margin-top: 0;
+      margin-top: 24px;
       a {
         text-decoration: none;
+      }
+    }
+    .analityc-control-group._dp {
+      display: none;
+      margin-top: 10px;
+      margin-left: 19.5%;
+      width: 66%;
+      &:before {
+        background-position: -209px -117px;
       }
     }
     .analityc-more {
@@ -125,7 +134,7 @@
     // changes
     &.analityc-graphics_changes {
       margin-top: 102px;
-      margin-bottom: 44px;
+      margin-bottom: 28px;
       .analityc-graphics__year {
         text-align: left;
         font-size: 24px;
@@ -136,6 +145,36 @@
       .analityc-graphics__col {
         width: 25.2%;
         position: relative;
+        &:nth-child(1) {
+          .analityc-graphics__graphic-column {
+            &:first-child {
+              height: 97%;
+            }
+            &:last-child {
+              height: 100%;
+            }
+          }
+        }
+        &:nth-child(2) {
+          .analityc-graphics__graphic-column {
+            &:first-child {
+              height: 97%;
+            }
+            &:last-child {
+              height: 82%;
+            }
+          }
+        }
+        &:nth-child(3) {
+          .analityc-graphics__graphic-column {
+            &:first-child {
+              height: 88%;
+            }
+            &:last-child {
+              height: 88%;
+            }
+          }
+        }
       }
       .analityc-graphics__changes {
         position: absolute;
@@ -164,6 +203,19 @@
             border-bottom: 17px solid #eb212e;
           }
         }
+        &_rev {
+          top: 0;
+          &:after {
+            top: 100%;
+            margin-top: 6px;
+            left: 10px;
+            border: 6px solid transparent;
+            border-top: 17px solid #73b20f;
+          }
+        }
+      }
+      .analityc-graphics__graphic {
+        background: none;
       }
       .analityc-graphics__bottom {
         position: absolute;
@@ -187,6 +239,33 @@
         margin-right: 9.5%;
         width: 54%;
         margin-top: -36px;
+      }
+      .analityc-graphics__legend {
+        margin-top: 64px;
+        padding: 0 65px;
+      }
+      .analityc-graphics__legend .legend__item {
+        width: auto;
+      }
+    }
+    // date
+    &.analityc-graphics_date {
+      margin-top: 47px;
+      margin-bottom: -9px;
+      .analityc-graphics__cols {
+        padding-left: 30px;
+        margin-top: 35px;
+        border-bottom: 0;
+      }
+      .analityc-graphics__col {
+        width: 32%;
+        vertical-align: middle;
+        &_wide {
+          width: 62%;
+        }
+      }
+      .analityc-graphics__legend_vert {
+        margin-top: 20px;
       }
     }
     // other
@@ -239,5 +318,191 @@
       font-size: 14px;
       padding-right: 30px;
     }
+  }
+  
+  &__analityc-widget-heading {
+    padding-right: 50%;
+    font-size: 30px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-top: 17px;
+  }
+  
+  &__analityc-tab_repayment {
+    padding-bottom: 26px;
+    .analityc-control-switcher {
+      margin-top: 31px;
+    }
+  }
+  
+  &__analityc-tab_govbonds {
+    padding-bottom: 43px;
+  }
+  
+  &__block-heading {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 21px;
+    text-transform: uppercase;
+    margin-top: 67px;
+    font-family: $PFDinTextPro;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+  
+  &__paragraph {
+    font-family: $PFDinTextPro;
+    font-size: 18px;
+    line-height: 26px;
+    &_main {
+      font-size: 24px;
+      line-height: 32px;
+      margin-top: 15px;
+      max-width: 810px;
+    }
+    & + & {
+      margin-top: 16px;
+    }
+    &_important {
+      font-size: 24px;
+      font-weight: 500;
+      margin-top: 55px;
+      line-height: 30px;
+    }
+    &_last {
+      font-size: 16px;
+      line-height: 22px;
+      padding-left: 26px;
+    }
+  }
+  
+  &__rating-table {
+    padding-right: 400px;
+    font-size: 0;
+    font-family: $PFDinTextPro;
+    position: relative;
+    margin-top: 19px;
+  }
+  &__rating-table-row {
+    width: 100%;
+    & + & {
+      margin-top: 20px;
+    }
+  }
+  &__rating-table-heading {
+    display: inline-block;
+    vertical-align: middle;
+    width: 17.5%;
+    font-size: 18px;
+    color: #000;
+    opacity: .2;
+  }
+  &__rating-table-item {
+    display: inline-block;
+    vertical-align: middle;
+    width: 45%;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  &__rating-table-value {
+    display: inline-block;
+    vertical-align: middle;
+    width: 17.5%;
+    font-size: 18px;
+    color: #000;
+  }
+  &__rating-links {
+    position: absolute;
+    right: 0;
+    top: 28px;
+    width: 375px;
+  }
+  &__rating-link {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+  &__inner-block {
+    margin-top: 59px;
+    padding: 0 163px;
+  }
+  
+  &__list-heading {
+    font-family: $PFDinTextPro;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 26px;
+    margin-top: 12px;
+  }
+  
+  &__list {
+    list-style: none;
+    li {
+      font-family: $PFDinTextPro;
+      position: relative;
+      padding-left: 25px;
+      font-size: 16px;
+      line-height: 22px;
+      margin-top: 13px;
+      
+      &:before {
+        content: '—';
+        position: absolute;
+        left: 0;
+      }
+      span {
+        font-weight: 500;
+      }
+    }
+    & + .gov-debt__paragraph {
+      margin-top: 12px;
+    }
+    &_ordered {
+      counter-reset: myCounter;
+      > li {
+        padding-left: 25px;
+        &:before {
+          counter-increment: myCounter;
+          content:counter(myCounter) '.';
+          color: #000;
+          opacity: .4;
+        }
+      }
+    }
+    &_letter {
+      counter-reset: myCounter2;
+      padding-left: 15px;
+      > li {
+        padding-left: 0;
+        &:before {
+          position: relative;
+          counter-increment: myCounter2;
+          content:counter(myCounter2, lower-alpha) '.';
+          color: #000;
+          opacity: .4;
+          margin-right: 7px;
+        }
+      }
+    }
+    &_text-big {
+      li {
+        font-size: 18px;
+        line-height: 26px;
+        margin-top: 0;
+      }
+    }
+  }
+  
+  &__half-blocks {
+    font-size: 0;
+    margin-top: 67px;
+  }
+  
+  &__half-block {
+    display: inline-block;
+    width: 50%;
+    vertical-align: top;
+    padding-right: 40px;
   }
 }
