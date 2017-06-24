@@ -21,6 +21,7 @@ import openCon from '../components/open-con/openCon';
 import contest from '../components/contest/contest';
 import mediaMaterials from '../components/depfin-budget-moscow-media-materials/mediaMaterials';
 import openSlider from '../components/open-slider/openSlider';
+import govDebt from '../components/gov-debt/govDebt';
 
 $(() => {
   selectbox();
@@ -45,4 +46,5 @@ $(() => {
   contest();
   openSlider();
   mediaMaterials();
+  govDebt();
 });
