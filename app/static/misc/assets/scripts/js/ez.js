@@ -482,7 +482,7 @@ function sectionTabs(){
       var sectionTab = $(this).attr('data-section-tab-for');
       $('.section-tabs__tab--active').removeClass('section-tabs__tab--active');
       $('[data-section-tab="'+ sectionTab + '"]').addClass('section-tabs__tab--active');
-      $(window).scrollTop(0);
+      $('.section-tabs__tab--active').scrollTop(0);
     });
 }
 
