@@ -311,21 +311,132 @@
       overflow: hidden;
     }
     &__content {
-      padding-top: 123px;
       display: table;
       table-layout: fixed;
     }
     &__main-text {
       width: 100%;
+      opacity: .8;
+    }
+    &__participants {
+      display: table-footer-group;
+    }
+    &__date-list-arrow {
+      display: block;
+    }
+    &__date-list {
+      white-space: nowrap;
+      position: relative;
+      li {
+        width: 100%;
+        text-align: center;
+        margin-right: 0;
+        background-color: #fee300;
+      }
+      a {
+        line-height: 1em;
+        color: #000;
+        border-color: transparent;
+      }
+    }
+    &__activity {
+      border-bottom: 1px solid #a7a7a7;
+    }
+    .cols__side {
+      .list-indicate__item .arrowlight--right {
+        display: block;
+        left: 0;
+        bottom: 100%;
+        transform: rotate(90deg);
+        transform-origin: center;
+        &.mob {
+          display: block;
+        }
+      }
+    }
+    .line-md {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+    &__mob-heading {
+      display: block;
+    }
+    .line-dots {
+      display: block;
+    }
+  }
+  
+  @media screen and (min-width: 631px) and (max-width: 800px) {
+    &__close-button {
+      right: 30px;
+      top: 36px;
+    }
+    &__content {
+      padding-top: 123px;
+    }
+    &__main-text {
       padding-left: 40px;
       padding-right: 40px;
       font-size: 26px !important;
       line-height: 36px !important;
-      opacity: .8;
       margin-top: 32px;
     }
-    &__participants {
-      display: table-footer-group;
+    &__date-list {
+      margin-top: 32px;
+      li {
+        padding: 28px 80px !important;
+      }
+      a {
+        font-size: 36px;
+      }
+    }
+    &__activity {
+      margin-top: 47px;
+      padding: 0 40px 60px;
+    }
+    .cols__content-holder {
+      .department {
+        font-size: 30px;
+        line-height: 36px;
+      }
+      p {
+        font-size: 27px;
+        line-height: 34px;
+      }
+      p+p {
+        margin-top: 21px;
+      }
+    }
+    .cols__side {
+      .list-indicate {
+        margin-top: 82px;
+      }
+      .list-indicate__item .arrowlight--right {
+        right: 22px;
+        margin: auto;
+        margin-bottom: 48px;
+        width: 54px;
+        height: 2px;
+        &:after {
+          width: 10px;
+          height: 10px;
+          top: -2px;
+          border-width: 2px;
+        }
+        &.left {
+          left: -186px;
+        }
+        &.right {
+          right: -164px;
+        }
+      }
+    }
+    .line-md {
+      margin-top: 104px;
+    }
+    .cols-part+.cols-part {
+      margin-top: 107px;
     }
     &__participants-heading {
       font-size: 36px;
@@ -342,95 +453,6 @@
         font-size: 30px;
         line-height: 38px;
       }
-    }
-    &__date-list-arrow {
-      display: block;
-    }
-    &__date-list {
-      white-space: nowrap;
-      position: relative;
-      li {
-        width: 100%;
-        text-align: center;
-        padding: 28px 80px !important;
-        margin-right: 0;
-        background-color: #fee300;
-      }
-      a {
-        font-size: 36px;
-        line-height: 1em;
-        color: #000;
-        border-color: transparent;
-      }
-    }
-    &__activity {
-      margin-top: 47px;
-      padding: 0 40px 60px;
-      border-bottom: 1px solid #a7a7a7;
-    }
-    .cols__content-holder {
-      p {
-        font-size: 27px;
-        line-height: 34px;
-      }
-      p + p {
-        margin-top: 21px;
-      }
-      .department {
-        font-size: 30px;
-        line-height: 36px;
-      }
-    }
-    .cols__side {
-      .list-indicate {
-        margin-top: 82px;
-      }
-      .list-indicate__item .arrowlight--right {
-        display: block;
-        left: 0;
-        right: 22px;
-        margin: auto;
-        margin-bottom: 48px;
-        bottom: 100%;
-        transform: rotate(90deg);
-        transform-origin: center;
-        width: 54px;
-        height: 2px;
-        &:after {
-          width: 10px;
-          height: 10px;
-          top: -2px;
-          border-width: 2px;
-        }
-        &.mob {
-          display: block;
-        }
-        &.left {
-          left: -186px;
-        }
-        &.right {
-          right: -164px;
-        }
-      }
-    }
-    .line-md {
-      margin-top: 104px;
-      &:first-child {
-        margin-top: 0;
-      }
-    }
-    .cols-part+.cols-part {
-      margin-top: 107px;
-    }
-    &__mob-heading {
-      display: block;
-    }
-    &__close-button {
-      right: 30px;
-      top: 36px;
-    }
-    .line-dots {
-      display: block;
     }
   }
   
@@ -500,6 +522,7 @@
       }
       .list-indicate__item .arrowlight--right {
         right: 13px;
+        margin: auto;
         margin-bottom: 22px;
         width: 24px;
         height: 1px;

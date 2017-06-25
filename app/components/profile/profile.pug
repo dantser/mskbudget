@@ -49,5 +49,11 @@ mixin profile()
           +button(true)._kind_yellow
             | Сохранить
 
-    +e.favorite
-      +favor-list()
+    //+e.favorite
+    +favor-list().__favorite
+    +e.delete-accept
+      p Вы уверены, что хотите удалить эту страницу из Избранного?
+      +button()._kind_yellow(data-delete="yes")
+        | Да
+      +button()._kind_transparent(data-delete="cancel")
+        | Отменить

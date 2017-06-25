@@ -240,7 +240,7 @@ button, input[type="submit"] {
 
 .letter__btn:hover { color: #FFF; }
 
-.letter__slider { overflow: hidden; position: relative; min-height: 500px; padding-bottom: 45px; -webkit-mask-image: -webkit-linear-gradient(left, transparent 0.5%, black 7%, black 93%, transparent 99.5%); cursor: -webkit-grab; cursor: -moz-grab; cursor: grab; }
+.letter__slider { overflow: hidden; position: relative; min-height: 500px; padding-bottom: 45px; -webkit-mask-image: -webkit-linear-gradient(left, transparent 0.5%, black 7%, black 93%, transparent 99.5%); cursor: move; cursor: -webkit-grab; cursor: -moz-grab; cursor: grab; }
 
 .letter__track { position: relative; -webkit-transition: 0.5s; -moz-transition: 0.5s; -o-transition: 0.5s; transition: 0.5s; }
 
@@ -254,6 +254,8 @@ button, input[type="submit"] {
     /*Добавлен из за конфликта с basic_budget_figures*/
     border-top: none;
 }
+
+.letter__dropdown.dropdown_active .letter__a {color: #fff;}
 
 .letter__dropdown .dropdown__close { color: #fee300; font-size: 12px; }
 
@@ -391,7 +393,12 @@ button, input[type="submit"] {
   .letter__line-arrow_l { margin-right: 22px; }
   .letter__line-arrow_r { margin-left: 22px; }
   .letter__line-item { margin-bottom: 15px; }
-  .letter__hover { display: none; } }
+  .letter__hover { width: 88px; }
+}
+
+@media (max-width: 800px) {
+  .letter__hover { display: none; }
+}
 
 @media (max-width: 700px) {
   .letter__btn {
@@ -408,7 +415,9 @@ button, input[type="submit"] {
   .letter__item { width: 125px; padding-right: 15px; }
   .letter__char { font-size: 36px; height: 50px; }
   .letter__a, .letter__tit, .letter__p { font-size: 12px; line-height: 18px;}
-  .letter__slider { min-height: 300px; -webkit-mask-image: -webkit-linear-gradient(left, transparent 0.5%, black 10%, black 85%, transparent 99.5%); } }
+  .letter__slider { min-height: 300px; -webkit-mask-image: -webkit-linear-gradient(left, transparent 0.5%, black 10%, black 85%, transparent 99.5%); }
+  .letter__hover { width: 50px; }
+}
 
 
 @media (max-width: 700px) { .arrow { width: 28px; height: 28px; }
