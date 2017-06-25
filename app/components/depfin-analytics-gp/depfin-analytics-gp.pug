@@ -4,6 +4,7 @@ include ../analityc-graphics/analityc-graphics
 include ../analityc-table/analityc-table
 include ../../blocks/table/table
 include ../../blocks/legend/legend
+include ../../blocks/dropdown-block/dropdown-block
 
 mixin depfin-analytics-gp()
 	.main._basic
@@ -25,30 +26,4 @@ mixin depfin-analytics-gp()
 					
 					+analityc-table()._gp
 						+table-gp(getData('gp'))
-
-			// Dropdown block
-			.dropdown-block
-				.dropdown
-					.dropdown-trigger
-						.wrapper
-							span
-								strong Документы
-				.dropdown-content
-					.wrapper
-						span Документы
-				.dropdown
-					.dropdown-trigger
-						.wrapper
-							span
-								strong Новости по&nbsp;теме
-				.dropdown-content
-					.wrapper
-						span Новости
-				.dropdown
-					.dropdown-trigger
-						.wrapper
-							span
-								strong Сервисы
-				.dropdown-content
-					.wrapper
-						span Сервисы
+			+dropdown()

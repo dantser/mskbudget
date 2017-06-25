@@ -1,4 +1,5 @@
 include ../page-header/page-header
+include ../../blocks/dropdown-block/dropdown-block
 
 mixin basic_budget_figures()
   .main._basic
@@ -63,28 +64,4 @@ mixin basic_budget_figures()
                 strong расходы
               .large-diagram__svg(id="diagram-5")
           a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
-      .dropdown-block
-        .dropdown
-          .dropdown-trigger
-            .wrapper
-              span
-                strong Документы
-          .dropdown-content
-            .wrapper
-              span Документы
-        .dropdown
-          .dropdown-trigger
-            .wrapper
-              span
-                strong Новости по&nbsp;теме
-          .dropdown-content
-            .wrapper
-              span Новости
-        .dropdown
-          .dropdown-trigger
-            .wrapper
-              span
-                strong Сервисы
-          .dropdown-content
-            .wrapper
-              span Сервисы
+      +dropdown()

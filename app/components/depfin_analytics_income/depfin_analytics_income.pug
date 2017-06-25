@@ -5,6 +5,7 @@ include ../analityc-table/analityc-table
 include ../../blocks/table/table
 include ../../blocks/checkbox/checkbox
 include ../../blocks/legend/legend
+include ../../blocks/dropdown-block/dropdown-block
 
 mixin depfin_analytics_income()
 	.main._basic._analitycs-income
@@ -37,31 +38,4 @@ mixin depfin_analytics_income()
 					+analityc-table()._params
 						+table-aincome(getData('main'))
 					a(href="/").analityc-more Перейти в&nbsp;раздел бюжет москвы
-
-
-			//- Dropdown block
-			.dropdown-block
-				.dropdown
-					.dropdown-trigger
-						.wrapper
-							span
-								strong Документы
-				.dropdown-content
-					.wrapper
-						span Документы
-				.dropdown
-					.dropdown-trigger
-						.wrapper
-							span
-								strong Новости по&nbsp;теме
-				.dropdown-content
-					.wrapper
-						span Новости
-				.dropdown
-					.dropdown-trigger
-						.wrapper
-							span
-								strong Сервисы
-				.dropdown-content
-					.wrapper
-						span Сервисы
+			+dropdown()

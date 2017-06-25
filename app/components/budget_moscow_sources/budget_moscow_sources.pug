@@ -3,6 +3,7 @@ include ../../blocks/grid/grid
 include ../../blocks/table/table
 include ../analityc-widgethead/analityc-widgethead
 include ../analityc-table/analityc-table
+include ../../blocks/dropdown-block/dropdown-block
 
 mixin budget_moscow_sources()
   .main._basic
@@ -285,28 +286,4 @@ mixin budget_moscow_sources()
           +analityc-table()._changes.analityc-widget-sources-table_done
             +table-income(getData('income1'))
           a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
-      .dropdown-block
-        .dropdown
-          .dropdown-trigger
-            .wrapper
-              span
-                strong Документы
-          .dropdown-content
-            .wrapper
-              span Документы
-        .dropdown
-          .dropdown-trigger
-            .wrapper
-              span
-                strong Новости по&nbsp;теме
-          .dropdown-content
-            .wrapper
-              span Новости
-        .dropdown
-          .dropdown-trigger
-            .wrapper
-              span
-                strong Сервисы
-          .dropdown-content
-            .wrapper
-              span Сервисы
+      +dropdown()
