@@ -690,7 +690,7 @@ function basicBudgetFiguresDiagrams () {
     });
 
     $(".analityc-control-group._stage .analityc-select").on("change", function () {
-      if (!$(this).parents('.analityc-widget__income') && !$(this).parents('.analityc-widget__expenses') && !$(this).parents('.analityc-widget_sources')) {
+      if ($(this).parents('.analityc-widget_figures')) {
         var $this = $(this);
 
         $(".analityc-widget-rounds").removeClass("_active");
