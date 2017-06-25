@@ -1,6 +1,7 @@
 .profile {
   display: table;
   width: 100%;
+  height: 100%;
   font-family: $PFDinTextPro;
   font-size: 16px;
   color: $color-white;
@@ -16,6 +17,7 @@
   &__info {
     display: table-cell;
     width: 65.5%;
+    height: 100%;
     padding: 29px 50px 29px 29px; // 31px 42px
     background-color: #1f2935;
 
@@ -257,13 +259,50 @@
       height: auto;
     }
   }
+  
+  &__delete-accept {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: #fff;
+    color: #000;
+    text-align: center;
+    box-shadow: 0 0 12px 0 #000;
+    width: 250px;
+    height: 140px;
+    padding: 20px;
+    display: none;
+    
+    .button {
+      width: 45%;
+      height: 30px;
+      margin-top: 20px;
+      text-transform: uppercase;
+      &_kind_transparent {
+        border-color: #000;
+        color: #000;
+        margin-left: 8%;
+      }
+      
+      @media (max-width: 900px) {
+        font-size: 14px;
+      }
+    }
+  }
 
 
 
 
 
   &_edit {
-
+    
+    .text-field {
+      transition: all .25s ease-in-out;
+    }
+    
     .text-field__label {font-size: 16px;}
 
     .text-field__text {
@@ -291,7 +330,23 @@
 
       &__field {
         width: 48%;
-
+        position: relative;
+        
+        &.disabled {
+          &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+          }
+          .text-field {
+            opacity: .5;
+          }
+        }
+        
         @media (max-width: 1180px) {
           width: 100%;
           max-width: 190px;
@@ -303,13 +358,15 @@
         }
 
         &_fio {
-          margin-bottom: 64px;
+          margin-bottom: 16px;
           width: 100% !important;
           max-width: 100% !important;
-
-          @media (max-width: 1180px) {
-            margin-bottom: 30px;
-          }
+        }
+        
+        &_email {
+          margin-bottom: 16px;
+          width: 100% !important;
+          max-width: 100% !important;
         }
 
         &_pass {
@@ -351,10 +408,17 @@
       &__confirm {
         @include clearfix();
       }
-
+      
+      &__change,
       &__submit,
       &__cancel {
         float: left;
+        
+        @media (max-width: 450px) {
+          float: none;
+          margin-left: 0;
+          margin: 10px 0;
+        }
 
         .button {
           padding: 7px 20px 8px;
@@ -365,7 +429,19 @@
             padding-top: 6px;
             padding-bottom: 7px;
           }
+          
+          @media (max-width: 900px) {
+            font-size: 14px;
+          }
+          
+          @media (max-width: 700px) {
+            line-height: 18px;
+          }
         }
+      }
+      
+      &__submit {
+        display: none;
       }
 
       &__cancel {

@@ -21,7 +21,7 @@ block page
       block content
         .lk.lk_questions
           .lk-bg-container
-            .lk-bg(data-tab-bg="questions").active
+            //.lk-bg(data-tab-bg="questions").active
               img(src="assets/images/profile/profile-bg-questions.jpg")
             .lk-bg(data-tab-bg="services")
               img(src="assets/images/profile/profile-bg-services.jpg")
@@ -33,13 +33,13 @@ block page
               img(src="assets/images/profile/profile-bg-profile-edit.jpg")
                 
           .wrapper_lk.page-content-wrapper
-            +lk-nav("", 2)
+            +lk-nav("", 1)
             +tabs
-              +tabs-tab(data-tab-group="lktabs" data-tab="profile")
+              +tabs-tab(data-tab-group="lktabs" data-tab="profile").active
                 +profile()
               +tabs-tab(data-tab-group="lktabs" data-tab="profile-edit")
                 +profile-edit()
-              +tabs-tab(data-tab-group="lktabs" data-tab="questions").active
+              //+tabs-tab(data-tab-group="lktabs" data-tab="questions")
                 +questions()
               +tabs-tab(data-tab-group="lktabs" data-tab="cards")
                 +documents-cards()
