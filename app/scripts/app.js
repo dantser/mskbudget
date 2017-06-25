@@ -23,6 +23,7 @@ import mediaMaterials from '../components/depfin-budget-moscow-media-materials/m
 import openSlider from '../components/open-slider/openSlider';
 import govDebt from '../components/gov-debt/govDebt';
 import profileEdit from '../components/profile-edit/profileEdit';
+import main from '../components/main/main';
 
 $(() => {
   selectbox();
@@ -49,4 +50,5 @@ $(() => {
   mediaMaterials();
   govDebt();
   profileEdit();
+  main();
 });
