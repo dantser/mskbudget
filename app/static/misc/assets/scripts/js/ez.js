@@ -359,17 +359,27 @@ $('.js-abs-btn').click(function(){
 	$('.abs-box--active').removeClass('abs-box--active');
 	$(this).parents('.abs-box').addClass('abs-box--active');
     $(".d-abs__nav").addClass("_active");
-    if ($html.hasClass("mobile")) {
+    if ($(window).width() < 970) {
         $("html, body").animate({scrollTop: $(".abs-box--active .puzzle-inner").offset().top - 100}, 600);
     }
+
+    $(window).resize(function() {
+      if ($(window).width() < 970) {
+        $("html, body").animate({scrollTop: $(".abs-box--active .puzzle-inner").offset().top - 100}, 600);
+    }})
     return false;
 });
 $('.js-abs-close').click(function(){
 	$('.abs-box--active').removeClass('abs-box--active');
     $(".d-abs__nav").removeClass("_active");
-    if ($html.hasClass("mobile")) {
+    if ($(window).width() < 970) {
         $("html, body").animate({scrollTop: $(".d-abs__nav").offset().top - 80}, 600);
     }
+
+    $(window).resize(function() {
+      if ($(window).width() < 970) {
+        $("html, body").animate({scrollTop: $(".abs-box--active .puzzle-inner").offset().top - 100}, 600);
+    }})
 });
 $(document).on('keyup', function(e){
 	if(e.keyCode == 27){
