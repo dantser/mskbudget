@@ -4,7 +4,7 @@ export default () => {
   
   $(document).ready(function(){
     $('.mobile-carousel .d-slide__more').each(function(){
-      $(this).click(function(){
+      $(this).on('click', function(){
         $(this).prev().addClass('active');
         $(this).addClass('active');
       });
