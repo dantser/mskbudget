@@ -25,6 +25,7 @@ import govDebt from '../components/gov-debt/govDebt';
 import profileEdit from '../components/profile-edit/profileEdit';
 import main from '../components/main/main';
 import budgetaryPolicy from '../components/budgetary-policy/budgetaryPolicy';
+import documentsform from '../components/documents/documents';
 
 $(() => {
   selectbox();
@@ -53,4 +54,5 @@ $(() => {
   profileEdit();
   main();
   budgetaryPolicy();
+  documentsform();
 });
