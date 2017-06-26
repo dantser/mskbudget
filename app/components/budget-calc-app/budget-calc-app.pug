@@ -7,7 +7,7 @@ mixin budget-calc-btn(text)
 
 mixin budget-calc-app()
   +b.budget-calc-app#budget-calc-app&attributes(attributes)
-    +e.sidebar
+    +e.sidebar#budget-calc-app__sidebar
       +e.sidebar-inner
         +b.A.budget-calc-app-widget._link._incomes.js-budget-calc-app__tab-control#budget-calc-app__tab_incomes-indicator.is-active(data-target="#budget-calc-app__tab_incomes" href="#")
           +e.DIV.inner
@@ -36,14 +36,14 @@ mixin budget-calc-app()
               +tooltip-icon("текст тултипа")
             +e.value 0,0
             +e.value-notice млрд. руб.
-        +b.A.budget-calc-app-widget(href="#")._check
+        +b.A.budget-calc-app-widget(href="#")._check.js-moveAroundThoseWidgets
           +e.DIV.inner
             +e.DIV.name проверить свой вариант бюджета
-        +b.A.budget-calc-app-widget(href="#")._restore
+        +b.A.budget-calc-app-widget(href="#")._restore.js-moveAroundThoseWidgets
           +e.DIV.inner.-widget-restore-inner
             +icon('clean').icon.-widget-restore-icon
             +e.DIV.name.-widget-restore-name вернуть исходные значения бюджета
-        +e.sidebar-notification.is-active
+        +e.sidebar-notification.js-moveAroundThoseWidgets.is-active
           p <strong>Бюджет дефицитный: <br>расходы превышают доходы в пределах допустимого уровня</strong>. Вам необходимо сбалансировать Ваш бюджет.
           p Для этого вы можете <br>- увеличить доходы бюджета <br>- снизить расходы бюджета <br>- привлечь источники финансирования дефицита бюджета
 
@@ -455,3 +455,5 @@ mixin budget-calc-app()
               | Уведомления
         +e.text
           +budget-calc-btn('Сохранить и проверить свой вариант бюджета').-triangle-right
+
+    +e.footer#budget-calc-app__footer

@@ -32,4 +32,30 @@ export default() => {
       $(this).toggleClass('is-active');
     });
   }
+
+  // перенос блоков "проверить бюджет" и "вернуть исходные значения"
+  // в футер калькулятора на экранах 1024 пикселя и меньше шириной
+  const blocksToMoveClass = '.js-moveAroundThoseWidgets';
+  const $calcAppFooter = $('#budget-calc-app__footer');
+  const $calcAppSidebar = $('#budget-calc-app__sidebar');
+  const $blocksToMove = $(blocksToMoveClass);
+
+  function screenWidth() {
+     return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth || 0;
+  }
+
+  function moveAroundThoseWidgets() {
+    let nowTheyInSidebar = $calcAppSidebar.has(blocksToMoveClass).length ? true : false;
+
+    if (screenWidth() > 1024 && !nowTheyInSidebar) {
+      $blocksToMove.appendTo($calcAppSidebar);
+    } else if (screenWidth() <= 1024 && nowTheyInSidebar) {
+      $blocksToMove.appendTo($calcAppFooter);
+    }
+  }
+
+  if ($calcAppFooter && $calcAppSidebar && $blocksToMove) {
+    window.addEventListener('load', moveAroundThoseWidgets);
+    window.addEventListener('resize', moveAroundThoseWidgets);
+  }
 }

@@ -439,6 +439,7 @@
   transition: opacity .3s;
   pointer-events: none;
   z-index: -1;
+  margin: auto;
 }
 
 .mobile-carousel .d-slide._active {
@@ -492,8 +493,8 @@
     height: 54px;
     position: absolute;
     left: 0;
-    top: 50%;
-    margin-top: 146px;
+    top: 0;
+    margin-top: 0;
     cursor: pointer;
   }
 
@@ -504,8 +505,8 @@
     height: 54px;
     position: absolute;
     right: 0;
-    top: 50%;
-    margin-top: 146px;
+    top: 0;
+    margin-top: 0;
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
     cursor: pointer;
@@ -564,7 +565,7 @@
     top: 0 !important;
     margin-top: 0 !important;
     margin: 0;
-    position: relative;
+    position: absolute;
     width: 45px;
     height: 45px;
     background-size: 12px;
@@ -579,12 +580,15 @@
     display: none;
   }
 
-  .carousel-count {
-    line-height: 34px;
-  }
-
   #carousel .carousel-count {
     display: inline-block;
+  }
+}
+
+@media screen and (min-width: 761px) and (max-width: 1000px) {
+  .carousel-count {
+    line-height: 45px;
+    margin-bottom: 20px;
   }
 }
 
@@ -642,7 +646,7 @@
     top: 0 !important;
     margin-top: 0 !important;
     margin: 0;
-    position: relative;
+    position: absolute;
     width: 45px;
     height: 45px;
     background-size: 12px;
@@ -754,8 +758,9 @@
 
   .carousel-count {
     width: 100%;
-    line-height: 54px;
+    line-height: 45px;
     font-size: 17px;
+    margin-bottom: 0;
   }
 
   #carousel .carousel-count {
@@ -772,7 +777,7 @@
 
   .mobile-carousel .d-slide .d-slide__body_list {
     height: auto;
-    overflow: inherit;
+    overflow: hidden;
   }
 }
 

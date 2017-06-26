@@ -3,9 +3,11 @@ import $ from 'jquery';
 export default () => {
   
   $(document).ready(function(){
-    $('.mobile-carousel .d-slide__more').click(function(){
-      $(this).prev().addClass('active');
-      $(this).addClass('active');
+    $('.mobile-carousel .d-slide__more').each(function(){
+      $(this).on('click', function(){
+        $(this).prev().addClass('active');
+        $(this).addClass('active');
+      });
     });
   });
   
@@ -31,7 +33,9 @@ export default () => {
     var winWidth = $(window).outerWidth();
     $(window).resize(function(){
       if ($(window).width() != winWidth && $('.mobile-carousel').length) {
-        location.reload();
+        $('.mobile-carousel .d-slide__body_list').removeClass('active');
+        $('.mobile-carousel .d-slide__more').removeClass('active');
+        checkListHeight();
       }
     });
   });

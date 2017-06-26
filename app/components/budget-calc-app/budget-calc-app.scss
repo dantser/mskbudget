@@ -115,6 +115,13 @@
 
     &.is-active {
       display: block;
+
+      // @media (max-width: 1024px) {
+      //   display: inline-block;
+      //   height: 180px;
+      //   vertical-align: top;
+      //   padding-left: 10px;
+      // }
     }
 
     strong {
@@ -203,8 +210,9 @@
   @media (max-width: 1024px) {
     &__sidebar {
       display: block;
-      overflow-y: hidden;
       overflow-x: scroll;
+      overflow-y: hidden;
+      white-space: nowrap;
       float: none;
       width: 100%;
       height: 190px;
@@ -212,12 +220,17 @@
       -webkit-overflow-scrolling: touch;
 
       &-inner {
-        width: 3000px;
+        height: 180px;
       }
 
       .budget-calc-app-widget {
-        float: left;
-        height: 100%;
+        vertical-align: top;
+        display: inline-block;
+        height: 180px;
+
+        &:nth-child(4) {
+          margin-right: 0;
+        }
       }
     }
 
@@ -286,7 +299,6 @@
     &.costs-home { fill: #7d40ad; }
     &.costs-health-cross { fill: #0059d2; }
     &.costs-darts { fill: #ccdd0f; }
-
   }
 
   // доходы
@@ -634,9 +646,7 @@
     }
   }
 
-  &:not(:last-child) {
-    margin-bottom: 10px;
-  }
+  &:not(:last-child) { margin-bottom: 10px; }
 
   &_link {
     cursor: pointer;
@@ -659,6 +669,7 @@
   }
 
   &_check {
+    margin-top: 10px;
     padding-top: 18px;
     padding-bottom: 18px;
     padding-right: 25px;
@@ -767,5 +778,11 @@
     font-size: 12px;
     line-height: 14px;
     font-weight: 400;
+  }
+
+  // если виджет в футере
+  .budget-calc-app__footer & {
+    margin-top: 10px;
+    margin-right: 0;
   }
 }
