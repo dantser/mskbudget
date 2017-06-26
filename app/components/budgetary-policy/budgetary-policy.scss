@@ -2,10 +2,31 @@
 .d-budjet-cards_bg {
   background-image: url(../images/depfin-about-budjet/about-budjet-cards-bg.jpg) !important;
   background-size: cover;
-  
+
   .page-head__title {
     text-transform: none;
   }
+
+  @media (max-width: 1000px) {
+    #carousel {
+      text-align: center;
+
+      @include clearfix;
+    }
+
+    .ar-left {
+      float: left;
+    }
+
+    .ar-right {
+      float: right;
+    }
+
+    .carousel-count {
+      width: inherit;
+    }
+  }
+
 }
 
 .d-abs-content {
@@ -723,7 +744,7 @@
     &:hover {
       opacity: 0.8;
     }
-    
+
     &.active {
       display: none;
     }
