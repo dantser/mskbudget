@@ -24,6 +24,7 @@ import openSlider from '../components/open-slider/openSlider';
 import govDebt from '../components/gov-debt/govDebt';
 import profileEdit from '../components/profile-edit/profileEdit';
 import main from '../components/main/main';
+import budgetaryPolicy from '../components/budgetary-policy/budgetaryPolicy';
 
 $(() => {
   selectbox();
@@ -51,4 +52,5 @@ $(() => {
   govDebt();
   profileEdit();
   main();
+  budgetaryPolicy();
 });
