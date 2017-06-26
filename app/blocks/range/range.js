@@ -1,22 +1,25 @@
 import noUiSlider from 'nouislider';
 
 export default function range() {
-  var slider = document.getElementById('slider');
+  const sliders = Array.from(document.querySelectorAll('.js-range-slider'));
 
-  if (slider) {
-    noUiSlider.create(slider, {
-      start: [ 30 ],
-      range: {
-        'min': 20,
-        'max': 80
-      },
-      // connect: [false, true],
-      tooltips: [true],
-      pips: {
-        mode: 'values',
-        values: [20, 80],
-        density: 4
-      }
+  if (sliders) {
+    sliders.forEach(function(slider) {
+      // console.log(slider.getAttribute('id'));
+      noUiSlider.create(document.getElementById(slider.getAttribute('id')), {
+        start: [ 33 ],
+        range: {
+          'min': 0,
+          'max': 100
+        },
+        // connect: [false, true],
+        tooltips: [true],
+        // pips: {
+        //   mode: 'values',
+        //   values: [20, 80],
+        //   density: 4
+        // }
+      });
     });
   }
 }

@@ -101,7 +101,7 @@ mixin budget-calc-app()
               +e.incomes-row._expand
                 +e.incomes-column._expand Все налогоплательщики
                 +e.incomes-column._expand
-                  +range()
+                  +range('incomes_allTaxes_Range')
                 +e.incomes-column._expand
               +e.incomes-row._expand
                 +e.incomes-column._expand Льготные категории налогоплательщиков:
@@ -238,7 +238,7 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              +range()
+              +range('costs_TransportRange')
             +e.costs-item-expand testing
           +e.costs-item
             +e.costs-item-icon
@@ -252,7 +252,7 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              +range()
+              +range('costs_Health_Range')
             +e.costs-item-expand testing
           +e.costs-item
             +e.costs-item-icon
@@ -266,7 +266,7 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              +range()
+              +range('costs_Education_Range')
             +e.costs-item-expand testing
           +e.costs-item
             +e.costs-item-icon
@@ -280,7 +280,7 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              +range()
+              +range('costs_SocialSupport_Range')
             +e.costs-item-expand testing
           +e.costs-item
             +e.costs-item-icon
@@ -294,7 +294,7 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              +range()
+              +range('costs_House_Range')
             +e.costs-item-expand testing
           +e.costs-item
             +e.costs-item-icon
@@ -308,7 +308,7 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              +range()
+              +range('costs_Kommunalka_Range')
             +e.costs-item-expand testing
           +e.costs-item
             +e.costs-item-icon
@@ -322,7 +322,7 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              +range()
+              +range('costs_Culture_Range')
             +e.costs-item-expand testing
           +e.costs-item
             +e.costs-item-icon
@@ -336,7 +336,7 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              +range()
+              +range('costs_Sport_Range')
             +e.costs-item-expand testing
           +e.costs-item
             +e.costs-item-icon
@@ -350,7 +350,7 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              +range()
+              +range('costs_OpenGovenment_Range')
             +e.costs-item-expand testing
           +e.costs-item
             +e.costs-item-icon
@@ -364,7 +364,7 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              +range()
+              +range('costs_Tourism_Range')
             +e.costs-item-expand testing
           +e.costs-item
             +e.costs-item-icon
@@ -378,7 +378,7 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              +range()
+              +range('costs_Safety_Range')
             +e.costs-item-expand testing
           +e.costs-item
             +e.costs-item-icon
@@ -392,7 +392,7 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              +range()
+              +range('costs_InfoCity_Range')
             +e.costs-item-expand testing
           +e.costs-item
             +e.costs-item-icon
@@ -406,7 +406,7 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              +range()
+              +range('costs_Economic_Range')
             +e.costs-item-expand testing
           +e.costs-item
             +e.costs-item-icon
@@ -420,7 +420,7 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              +range()
+              +range('costs_BuildingPolicy_Range')
             +e.costs-item-expand testing
           +e.costs-item
             +e.costs-item-icon
@@ -434,7 +434,7 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              +range()
+              +range('costs_Misc_Range')
             +e.costs-item-expand testing
 
         +e.text
@@ -443,16 +443,15 @@ mixin budget-calc-app()
       +e.tab._balance.js-budget-calc-app__tab#budget-calc-app__tab_balance(data-state-indicator="#budget-calc-app__tab_balance-indicator")
         +e.heading ДЕФИЦИТ / ПРОФИЦИТ
         +e.balance
-          each _ in Array(5)
-            +e.balance-row
-              +e.balance-column._name
-                .has-tooltip ГОСУДАРСТВЕННЫЕ ЦЕННЫЕ БУМАГИ
-                  +tooltip-icon('текст тултипа')
-              +e.balance-column._range
-                +range()
-              +e.balance-column._value
-                | 0,0 млн руб.
-              +e.balance-expand
-                | Уведомления
+          +e.balance-row
+            +e.balance-column._name
+              .has-tooltip ГОСУДАРСТВЕННЫЕ ЦЕННЫЕ БУМАГИ
+                +tooltip-icon('текст тултипа')
+            +e.balance-column._range
+              +range('balance_Securities_Range')
+            +e.balance-column._value
+              | 0,0 млн руб.
+            +e.balance-expand
+              | Уведомления
         +e.text
           +budget-calc-btn('Сохранить и проверить свой вариант бюджета').-triangle-right

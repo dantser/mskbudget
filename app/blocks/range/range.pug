@@ -1,5 +1,13 @@
-mixin range()
+mixin range(id)
   +b.range&attributes(attributes)
-    +e.slider#slider
+    +e.slider.js-range-slider(id=id)
     +e.reset
       +icon('refresh').icon
+    +e.output
+      +e.min-value
+        span.output-num 0
+        span.output-text млн. руб.
+      +e.max-value
+        span.output-num 742 543,8
+        span.output-text млн. руб.
+
