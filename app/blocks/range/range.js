@@ -7,8 +7,8 @@ export default function range() {
     noUiSlider.create(slider, {
       start: [ 30 ],
       range: {
-        'min': 0,
-        'max': 100
+        'min': 20,
+        'max': 80
       },
       // connect: [false, true],
       tooltips: [true],

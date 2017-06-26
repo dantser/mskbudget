@@ -17,7 +17,12 @@
     width: 16px;
     height: 16px;
     cursor: pointer;
-    @include debug;
+  }
+
+  &__icon {
+    width: 16px;
+    height: 16px;
+    fill: #0d46a1;
   }
 
   // а теперь весело переписываем стандартные стили компонента noUIslider
@@ -31,8 +36,8 @@
 
   .noUi-handle {
     top: -7px;
-    width: 18px;
-    height: 18px;
+    width: 19px;
+    height: 19px;
     border-radius: 50%;
     border: 2px solid #0d46a1;
     background-color: white;
@@ -63,19 +68,29 @@
     background: white;
     color: black;
 
-    &:after {
-      content: '';
-      display: block;
+    &:after,
+    &:before {
+      top: 100%;
+      left: 50%;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
       position: absolute;
-      bottom: -4px;
-      margin-right: 1px;
-      right: 50%;
-      width: 5px;
-      height: 5px;
-      background: white;
-      border-right: 1px solid #0d46a1;
-      border-bottom: 1px solid #0d46a1;
-      @include transform(rotate(45deg) translateY(-50%) translateX(50%));
+    }
+
+    &:after {
+      border-color: rgba(255, 255, 255, 0);
+      border-top-color: #ffffff;
+      border-width: 4px;
+      margin-left: -4px;
+    }
+
+    &:before {
+      border-color: rgba(13, 70, 161, 0);
+      border-top-color: #0d46a1;
+      border-width: 5px;
+      margin-left: -5px;
     }
   }
 
