@@ -2,6 +2,10 @@
 .d-budjet-cards_bg {
   background-image: url(../images/depfin-about-budjet/about-budjet-cards-bg.jpg) !important;
   background-size: cover;
+  
+  .page-head__title {
+    text-transform: none;
+  }
 }
 
 .d-abs-content {
@@ -157,6 +161,14 @@
   line-height: 22px;
   letter-spacing: 0.15px;
   font-family: $PFDinTextPro;
+}
+
+.d-abs__head_descr {
+  /*Не по исходнику*/
+/*  padding-left: 204px;
+    padding-right: 320px;*/
+    padding-left: 0;
+    padding-right: 0;
 }
 
 #carousel {
@@ -326,10 +338,6 @@
   text-transform: uppercase;
 }
 
-.d-slide__more {
-  display: none;
-}
-
 .d-slide__body_list {
   width: 660px;
   -webkit-box-sizing: border-box;
@@ -372,6 +380,10 @@
 
 .d-slide__body_list li:last-child {
   margin-bottom: 0;
+}
+
+.d-slide__more {
+  display: none;
 }
 
 .carousel-count {
@@ -675,13 +687,16 @@
   }
 
   .d-slide__body_list {
-    max-height: initial !important;
+    //max-height: initial !important;
     width: 100%;
     box-sizing: border-box;
-
+    overflow: hidden;
     margin-top: 16px;
     padding-right: 20px;
     padding-bottom: 6px;
+    &.active {
+      max-height: none;
+    }
   }
 
   .d-slide__body_list li {
@@ -707,6 +722,10 @@
 
     &:hover {
       opacity: 0.8;
+    }
+    
+    &.active {
+      display: none;
     }
   }
 
