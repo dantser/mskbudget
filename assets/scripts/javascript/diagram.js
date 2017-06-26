@@ -1,7 +1,7 @@
 var diagram;
 
 (function() {
-    
+
     function Diagram(element, settings, reset) {
 
         var _ = this;
@@ -49,8 +49,8 @@ var diagram;
             _.animate = _.Animate();
         }
 
-        
- 
+
+
 
     };
 
@@ -101,7 +101,7 @@ var diagram;
 
         _.startAngle = 180;
         _.direction = 0;
-       
+
 
         for (var i = 0; i < 4; i++) {
 
@@ -136,7 +136,7 @@ var diagram;
             radiusArr[i] = radius;
             valArr[i] = val.toFixed(1).replace('.', ',');
         }
-        
+
         return {path: path, radius: radiusArr, val: valArr, preV: _.options.data[1].toFixed(0) };
     };
 
@@ -196,14 +196,14 @@ var diagram;
     Diagram.prototype.segmentDiagram = function() {
 
         var _ = this, radius, degrees, path = {Dots:[], Gradient:[]};
-      
+
         _.direction = 1;
 
-        radius = (_.options.viewBox / 2) - (_.options.stroke / 2);  
+        radius = (_.options.viewBox / 2) - (_.options.stroke / 2);
 
 
         for (var i = 0; i < _.options.data.length; i++) {
-            
+
             if( i > 0 ){
 
                 degrees =  _.options.data[i] / _.degree ;
@@ -220,28 +220,28 @@ var diagram;
 
         }
 
-        
+
         return path;
     };
 
     Diagram.prototype.dashedDiagram = function() {
 
         var _ = this, radius, degrees, path = {Dots:[], Gradient:[]};
-      
+
         _.direction = 1;
         _.startAngle = -90;
 
-        radius = (_.options.viewBox / 2) - (_.options.stroke / 2);  
+        radius = (_.options.viewBox / 2) - (_.options.stroke / 2);
 
 
         for (var i = 0; i < 2; i++) {
-            
+
             if (i == 0) {
                 degrees =  (_.options.data[i] - 1) / _.degree;
             } else {
                 degrees =  _.options.data[i] / _.degree;
             }
-            
+
             path.Dots[i] = _.calculatePath(degrees, radius);
 
             path.Gradient[i] = _.drawGradient( _.options.gradient[i], i);
@@ -267,13 +267,13 @@ var diagram;
 
         longPath = (degrees > 180) ? 1 : 0;
 
-       
+
 
         return ['M', _.x0, _.y0, 'A', radius, radius, 0, longPath, _.direction, _.x1, _.y1].join(' ');
 
     };
-    
-        
+
+
     Diagram.prototype.drawGradient = function(gradient, i) {
 
         var _ = this;
@@ -300,7 +300,7 @@ var diagram;
 
             svgBody += '<g><path id="path-'+ _.element +'-2" fill="none" stroke="url(#svg-gradient_'+ _.element +'-2)" stroke-width="'+ _.options.stroke +'" stroke-linecap="round" stroke-miterlimit="10" d="'+ path.path[2] +'" class="anim-diagram" data-radius="'+ path.radius[2] +'"/><rect x="0" y="0" width="100%" height="100%" fill="none" /></g>';
 
-            svgBody += '<g filter="url(#f1)"><path fill="none" stroke="#000" stroke-opacity="0.5" stroke-width="'+ (_.options.stroke-10) +'" stroke-linecap="round" stroke-miterlimit="10" d="'+ path.path[3] +'" class="anim-diagram" data-radius="'+ path.radius[3] +'" /><rect x="0" y="0" width="100%" height="100%" fill="none" /></g>'; 
+            svgBody += '<g filter="url(#f1)"><path fill="none" stroke="#000" stroke-opacity="0.5" stroke-width="'+ (_.options.stroke-10) +'" stroke-linecap="round" stroke-miterlimit="10" d="'+ path.path[3] +'" class="anim-diagram" data-radius="'+ path.radius[3] +'" /><rect x="0" y="0" width="100%" height="100%" fill="none" /></g>';
 
             svgBody += '<g><path id="path-'+ _.element +'-1" fill="none" stroke="url(#svg-gradient_'+ _.element +'-1)" stroke-width="'+ _.options.stroke +'" stroke-linecap="round" stroke-miterlimit="10" d="'+ path.path[1] +'" class="anim-diagram" data-radius="'+ path.radius[1] +'"/><rect x="0" y="0" width="100%" height="100%" fill="none" /></g>';
 
@@ -378,7 +378,7 @@ function animation(el) {
 
     if (!_.infinite) {
         var $anim_obj;
-        
+
         if (el === undefined) {
             $anim_obj = $('#'+ _.element +' .anim-diagram');
         } else {
@@ -388,7 +388,7 @@ function animation(el) {
 
             var _ = $(this),
             doffset = null,
-            last = false, 
+            last = false,
             delta = null,
             curValue = [],
             val = [],
@@ -408,7 +408,7 @@ function animation(el) {
             } else {
             	delta = delta*3;
             }
-            
+
 
             doffset = +_.attr('stroke-dashoffset');
             doffset = doffset.toFixed(0);
@@ -420,7 +420,7 @@ function animation(el) {
 
                 curValue[i] = curPreValue[i] = 0;
                 v[i] = false;
-                
+
                 if(val[i].length > 0){
 
                      valueItem[i] = val[i];
@@ -446,19 +446,19 @@ function animation(el) {
 
             }
 
-            
+
 
             setTimeout(function anim() {
 
                 if( doffset > 0 ){
 
                     setTimeout(anim, 1);
-                    
+
                     _.attr('stroke-dashoffset', doffset);
                     doffset = doffset - delta;
 
                     for (var i = 0; i < v.length; i++) {
-                        
+
                         if (v[i]) {
                             if (!last) {
                                 valueItem[i].html(curValue[i]);
@@ -491,8 +491,8 @@ function animation(el) {
     } else {
         //infinite diagram
 
-        var delta, doffsetFrst, doffsetSec, doffset, 
-        val = [], 
+        var delta, doffsetFrst, doffsetSec, doffset,
+        val = [],
         curValue = [],
         v = [],
         valueItem = [],
@@ -502,7 +502,7 @@ function animation(el) {
         frstDgOb,
         secDgOb,
         idDg;
-    
+
         if (el === undefined) {
             frstDgOb = $('#'+ _.element +' .anim-diagram_first');
             secDgOb = $('#'+ _.element +' .anim-diagram_second');
@@ -512,7 +512,7 @@ function animation(el) {
             secDgOb = $('.slider_diagrams '+ el +' #'+ _.element +' .anim-diagram_second');
             idDg = $('.slider_diagrams '+ el +' #'+ _.element +' .anim-diagram_id').attr('id');
         }
-        
+
 
         delta = (Math.PI * secDgOb.attr('data-radius')/180);
         if (__.browser.ff) {
@@ -628,7 +628,7 @@ diagram = function(element, settings) {
     } else {
         diagramObject[element] = new Diagram(element, settings);
     }
-    
+
     return diagramObject[element];
 };
 

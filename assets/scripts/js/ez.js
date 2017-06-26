@@ -359,17 +359,27 @@ $('.js-abs-btn').click(function(){
 	$('.abs-box--active').removeClass('abs-box--active');
 	$(this).parents('.abs-box').addClass('abs-box--active');
     $(".d-abs__nav").addClass("_active");
-    if ($html.hasClass("mobile")) {
+    if ($(window).width() < 970) {
         $("html, body").animate({scrollTop: $(".abs-box--active .puzzle-inner").offset().top - 100}, 600);
     }
+
+    $(window).resize(function() {
+      if ($(window).width() < 970) {
+        $("html, body").animate({scrollTop: $(".abs-box--active .puzzle-inner").offset().top - 100}, 600);
+    }})
     return false;
 });
 $('.js-abs-close').click(function(){
 	$('.abs-box--active').removeClass('abs-box--active');
     $(".d-abs__nav").removeClass("_active");
-    if ($html.hasClass("mobile")) {
+    if ($(window).width() < 970) {
         $("html, body").animate({scrollTop: $(".d-abs__nav").offset().top - 80}, 600);
     }
+
+    $(window).resize(function() {
+      if ($(window).width() < 970) {
+        $("html, body").animate({scrollTop: $(".abs-box--active .puzzle-inner").offset().top - 100}, 600);
+    }})
 });
 $(document).on('keyup', function(e){
 	if(e.keyCode == 27){
@@ -482,7 +492,7 @@ function sectionTabs(){
       var sectionTab = $(this).attr('data-section-tab-for');
       $('.section-tabs__tab--active').removeClass('section-tabs__tab--active');
       $('[data-section-tab="'+ sectionTab + '"]').addClass('section-tabs__tab--active');
-      $(window).scrollTop(0);
+      $('.section-tabs__tab--active').scrollTop(0);
     });
 }
 
@@ -680,7 +690,7 @@ function basicBudgetFiguresDiagrams () {
     });
 
     $(".analityc-control-group._stage .analityc-select").on("change", function () {
-      if (!$(this).parents('.analityc-widget__income') && !$(this).parents('.analityc-widget__expenses') && !$(this).parents('.analityc-widget_sources')) {
+      if ($(this).parents('.analityc-widget_figures')) {
         var $this = $(this);
 
         $(".analityc-widget-rounds").removeClass("_active");

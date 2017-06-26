@@ -271,9 +271,7 @@
     <div class="sections">
         <div class="lk lk_questions">
             <div class="lk-bg-container">
-                <div class="lk-bg active" data-tab-bg="questions">
-                    <img src="assets/images/profile/profile-bg-questions.jpg">
-                </div>
+                <!--.lk-bg(data-tab-bg="questions").activeimg(src="assets/images/profile/profile-bg-questions.jpg")-->
                 <div class="lk-bg" data-tab-bg="services">
                     <img src="assets/images/profile/profile-bg-services.jpg">
                 </div>
@@ -289,21 +287,19 @@
             </div>
             <div class="wrapper_lk page-content-wrapper">
                 <div class="lk-nav">
-                    <a class="lk-nav__item lk-nav__item_profile" href="#" data-tab-target="profile">Профиль
+                    <a class="lk-nav__item lk-nav__item_profile lk-nav__item_active" href="#" data-tab-target="profile">Профиль
                         <span class="lk-nav__item-num">01.</span>
                     </a>
-                    <a class="lk-nav__item lk-nav__item_documents lk-nav__item_active" href="#" data-tab-target="questions">Вопросы
+                    <!--+e.A.item._documents(href="#" class=activeClassTwo data-tab-target="questions") Вопросы+e.SPAN.item-num 02.-->
+                    <a class="lk-nav__item lk-nav__item_services" href="#" data-tab-target="cards">Документы
                         <span class="lk-nav__item-num">02.</span>
                     </a>
                     <a class="lk-nav__item lk-nav__item_services" href="#" data-tab-target="services">Сервисы
                         <span class="lk-nav__item-num">03.</span>
                     </a>
-                    <a class="lk-nav__item lk-nav__item_services" href="#" data-tab-target="cards">Документы
-                        <span class="lk-nav__item-num">04.</span>
-                    </a>
                 </div>
                 <div class="tabs">
-                    <div class="tabs__tab" data-tab-group="lktabs" data-tab="profile">
+                    <div class="tabs__tab active" data-tab-group="lktabs" data-tab="profile">
                         <div class="profile">
                             <div class="profile__info">
                                 <div class="profile__head">
@@ -359,106 +355,110 @@
                                     </div>
                                 </form>
                             </div>
-                            <div class="profile__favorite">
-                                <div class="favor-list">
-                                    <div class="favor-list__wrapper">
-                                        <h3 class="favor-list__title">Избранное</h3>
-                                        <ul class="favor-list__list">
-                                            <li class="favor-list__item">
-                                                <a class="favor-list__link" href="#">
-                                                    <span class="favor-list__label">Избранное</span>
-                                                    <span class="favor-list__favor">
-                                                        <span class="favor favor_added" title="Добавить в избранное">
-                                                            <svg class="favor__icon"><use xlink:href="assets/images/icon.svg#icon_favor-classic"></use></svg>
-                                                        </span>
+                            <!--+e.favorite-->
+                            <div class="favor-list profile__favorite">
+                                <div class="favor-list__wrapper">
+                                    <h3 class="favor-list__title">Избранное</h3>
+                                    <ul class="favor-list__list">
+                                        <li class="favor-list__item">
+                                            <a class="favor-list__link" href="#">
+                                                <span class="favor-list__label">Избранное</span>
+                                                <span class="favor-list__favor">
+                                                    <span class="favor favor_added" title="Добавить в избранное">
+                                                        <svg class="favor__icon"><use xlink:href="assets/images/icon.svg#icon_favor-classic"></use></svg>
                                                     </span>
-                                                </a>
-                                                <a class="favor-list__remove" href="#">
-                                                    <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_basket"></use></svg>
-                                                </a>
-                                            </li>
-                                            <li class="favor-list__item">
-                                                <a class="favor-list__link" href="#">
-                                                    <span class="favor-list__label">Бюджетный калькулятор</span>
-                                                    <span class="favor-list__favor">
-                                                        <span class="favor favor_added" title="Добавить в избранное">
-                                                            <svg class="favor__icon"><use xlink:href="assets/images/icon.svg#icon_favor-classic"></use></svg>
-                                                        </span>
+                                                </span>
+                                            </a>
+                                            <a class="favor-list__remove" href="#">
+                                                <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_basket"></use></svg>
+                                            </a>
+                                        </li>
+                                        <li class="favor-list__item">
+                                            <a class="favor-list__link" href="#">
+                                                <span class="favor-list__label">Бюджетный калькулятор</span>
+                                                <span class="favor-list__favor">
+                                                    <span class="favor favor_added" title="Добавить в избранное">
+                                                        <svg class="favor__icon"><use xlink:href="assets/images/icon.svg#icon_favor-classic"></use></svg>
                                                     </span>
-                                                </a>
-                                                <a class="favor-list__remove" href="#">
-                                                    <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_basket"></use></svg>
-                                                </a>
-                                            </li>
-                                            <li class="favor-list__item">
-                                                <a class="favor-list__link" href="#">
-                                                    <span class="favor-list__label">Обучающий сервис</span>
-                                                    <span class="favor-list__favor">
-                                                        <span class="favor favor_added" title="Добавить в избранное">
-                                                            <svg class="favor__icon"><use xlink:href="assets/images/icon.svg#icon_favor-classic"></use></svg>
-                                                        </span>
+                                                </span>
+                                            </a>
+                                            <a class="favor-list__remove" href="#">
+                                                <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_basket"></use></svg>
+                                            </a>
+                                        </li>
+                                        <li class="favor-list__item">
+                                            <a class="favor-list__link" href="#">
+                                                <span class="favor-list__label">Обучающий сервис</span>
+                                                <span class="favor-list__favor">
+                                                    <span class="favor favor_added" title="Добавить в избранное">
+                                                        <svg class="favor__icon"><use xlink:href="assets/images/icon.svg#icon_favor-classic"></use></svg>
                                                     </span>
-                                                </a>
-                                                <a class="favor-list__remove" href="#">
-                                                    <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_basket"></use></svg>
-                                                </a>
-                                            </li>
-                                            <li class="favor-list__item">
-                                                <a class="favor-list__link" href="#">
-                                                    <span class="favor-list__label">Открытые данные</span>
-                                                    <span class="favor-list__favor">
-                                                        <span class="favor favor_added" title="Добавить в избранное">
-                                                            <svg class="favor__icon"><use xlink:href="assets/images/icon.svg#icon_favor-classic"></use></svg>
-                                                        </span>
+                                                </span>
+                                            </a>
+                                            <a class="favor-list__remove" href="#">
+                                                <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_basket"></use></svg>
+                                            </a>
+                                        </li>
+                                        <li class="favor-list__item">
+                                            <a class="favor-list__link" href="#">
+                                                <span class="favor-list__label">Открытые данные</span>
+                                                <span class="favor-list__favor">
+                                                    <span class="favor favor_added" title="Добавить в избранное">
+                                                        <svg class="favor__icon"><use xlink:href="assets/images/icon.svg#icon_favor-classic"></use></svg>
                                                     </span>
-                                                </a>
-                                                <a class="favor-list__remove" href="#">
-                                                    <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_basket"></use></svg>
-                                                </a>
-                                            </li>
-                                            <li class="favor-list__item">
-                                                <a class="favor-list__link" href="#">
-                                                    <span class="favor-list__label">Путеводитель по бюджету города Москвы</span>
-                                                    <span class="favor-list__favor">
-                                                        <span class="favor favor_added" title="Добавить в избранное">
-                                                            <svg class="favor__icon"><use xlink:href="assets/images/icon.svg#icon_favor-classic"></use></svg>
-                                                        </span>
+                                                </span>
+                                            </a>
+                                            <a class="favor-list__remove" href="#">
+                                                <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_basket"></use></svg>
+                                            </a>
+                                        </li>
+                                        <li class="favor-list__item">
+                                            <a class="favor-list__link" href="#">
+                                                <span class="favor-list__label">Путеводитель по бюджету города Москвы</span>
+                                                <span class="favor-list__favor">
+                                                    <span class="favor favor_added" title="Добавить в избранное">
+                                                        <svg class="favor__icon"><use xlink:href="assets/images/icon.svg#icon_favor-classic"></use></svg>
                                                     </span>
-                                                </a>
-                                                <a class="favor-list__remove" href="#">
-                                                    <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_basket"></use></svg>
-                                                </a>
-                                            </li>
-                                            <li class="favor-list__item">
-                                                <a class="favor-list__link" href="#">
-                                                    <span class="favor-list__label">Рейтинг открытости бюджетных данных</span>
-                                                    <span class="favor-list__favor">
-                                                        <span class="favor favor_added" title="Добавить в избранное">
-                                                            <svg class="favor__icon"><use xlink:href="assets/images/icon.svg#icon_favor-classic"></use></svg>
-                                                        </span>
+                                                </span>
+                                            </a>
+                                            <a class="favor-list__remove" href="#">
+                                                <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_basket"></use></svg>
+                                            </a>
+                                        </li>
+                                        <li class="favor-list__item">
+                                            <a class="favor-list__link" href="#">
+                                                <span class="favor-list__label">Рейтинг открытости бюджетных данных</span>
+                                                <span class="favor-list__favor">
+                                                    <span class="favor favor_added" title="Добавить в избранное">
+                                                        <svg class="favor__icon"><use xlink:href="assets/images/icon.svg#icon_favor-classic"></use></svg>
                                                     </span>
-                                                </a>
-                                                <a class="favor-list__remove" href="#">
-                                                    <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_basket"></use></svg>
-                                                </a>
-                                            </li>
-                                            <li class="favor-list__item">
-                                                <a class="favor-list__link" href="#">
-                                                    <span class="favor-list__label">Доходы</span>
-                                                    <span class="favor-list__favor">
-                                                        <span class="favor favor_added" title="Добавить в избранное">
-                                                            <svg class="favor__icon"><use xlink:href="assets/images/icon.svg#icon_favor-classic"></use></svg>
-                                                        </span>
+                                                </span>
+                                            </a>
+                                            <a class="favor-list__remove" href="#">
+                                                <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_basket"></use></svg>
+                                            </a>
+                                        </li>
+                                        <li class="favor-list__item">
+                                            <a class="favor-list__link" href="#">
+                                                <span class="favor-list__label">Доходы</span>
+                                                <span class="favor-list__favor">
+                                                    <span class="favor favor_added" title="Добавить в избранное">
+                                                        <svg class="favor__icon"><use xlink:href="assets/images/icon.svg#icon_favor-classic"></use></svg>
                                                     </span>
-                                                </a>
-                                                <a class="favor-list__remove" href="#">
-                                                    <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_basket"></use></svg>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        <p class="favor-list__note">Для того, чтобы добавить страницу или документ в избранное, нажмите на звездочку.</p>
-                                    </div>
+                                                </span>
+                                            </a>
+                                            <a class="favor-list__remove" href="#">
+                                                <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_basket"></use></svg>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <p class="favor-list__note">Для того, чтобы добавить страницу или документ в избранное, нажмите на звездочку.</p>
                                 </div>
+                            </div>
+                            <div class="profile__delete-accept">
+                                <p>Вы уверены, что хотите удалить эту страницу из Избранного?</p>
+                                <button class="button button_kind_yellow" data-delete="yes">Да</button>
+                                <button class="button button_kind_transparent" data-delete="cancel">Отменить</button>
                             </div>
                         </div>
                     </div>
@@ -479,27 +479,33 @@
                                         <span class="profile__nick">ivanov_1980</span>
                                         <span class="profile__email">k.konstantinopolsky@gmail.com</span>
                                         <form class="profile__profile-form">
-                                            <div class="profile__field profile__field_fio">
+                                            <div class="profile__field profile__field_fio disabled">
                                                 <label class="text-field text-field_col">
                                                     <span class="text-field__label">ФИО</span>
                                                     <input class="text-field__text" type="text" />
                                                 </label>
                                             </div>
+                                            <div class="profile__field profile__field_email disabled">
+                                                <label class="text-field text-field_col">
+                                                    <span class="text-field__label">E-mail</span>
+                                                    <input class="text-field__text" type="text" />
+                                                </label>
+                                            </div>
                                             <span class="profile__note">Для смены пароля введите старый пароль и дважды новый</span>
-                                            <div class="profile__field profile__field_pass profile__field_old">
+                                            <div class="profile__field profile__field_pass profile__field_old disabled">
                                                 <label class="text-field text-field_col">
                                                     <span class="text-field__label">Старый пароль</span>
                                                     <input class="text-field__text" type="password" />
                                                 </label>
                                             </div>
                                             <div class="profile__field-wrapper">
-                                                <div class="profile__field profile__field_pass profile__field_new">
+                                                <div class="profile__field profile__field_pass profile__field_new disabled">
                                                     <label class="text-field text-field_col">
                                                         <span class="text-field__label">Новый пароль</span>
                                                         <input class="text-field__text" type="password" />
                                                     </label>
                                                 </div>
-                                                <div class="profile__field profile__field_pass profile__field_repeat">
+                                                <div class="profile__field profile__field_pass profile__field_repeat disabled">
                                                     <label class="text-field text-field_col">
                                                         <span class="text-field__label">Повторите новый пароль</span>
                                                         <input class="text-field__text" type="password" />
@@ -507,6 +513,9 @@
                                                 </div>
                                             </div>
                                             <div class="profile__confirm">
+                                                <div class="profile__change">
+                                                    <button class="button button_kind_yellow" type="submit">Изменить</button>
+                                                </div>
                                                 <div class="profile__submit">
                                                     <button class="button button_kind_yellow" type="submit" data-tab-target="profile">Сохранить</button>
                                                 </div>
@@ -518,234 +527,114 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="profile__favorite">
-                                <div class="favor-list">
-                                    <div class="favor-list__wrapper">
-                                        <h3 class="favor-list__title">Избранное</h3>
-                                        <ul class="favor-list__list">
-                                            <li class="favor-list__item">
-                                                <a class="favor-list__link" href="#">
-                                                    <span class="favor-list__label">Избранное</span>
-                                                    <span class="favor-list__favor">
-                                                        <span class="favor favor_added" title="Добавить в избранное">
-                                                            <svg class="favor__icon"><use xlink:href="assets/images/icon.svg#icon_favor-classic"></use></svg>
-                                                        </span>
+                            <!--+e.favorite-->
+                            <div class="favor-list">
+                                <div class="favor-list__wrapper">
+                                    <h3 class="favor-list__title">Избранное</h3>
+                                    <ul class="favor-list__list">
+                                        <li class="favor-list__item">
+                                            <a class="favor-list__link" href="#">
+                                                <span class="favor-list__label">Избранное</span>
+                                                <span class="favor-list__favor">
+                                                    <span class="favor favor_added" title="Добавить в избранное">
+                                                        <svg class="favor__icon"><use xlink:href="assets/images/icon.svg#icon_favor-classic"></use></svg>
                                                     </span>
-                                                </a>
-                                                <a class="favor-list__remove" href="#">
-                                                    <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_basket"></use></svg>
-                                                </a>
-                                            </li>
-                                            <li class="favor-list__item">
-                                                <a class="favor-list__link" href="#">
-                                                    <span class="favor-list__label">Бюджетный калькулятор</span>
-                                                    <span class="favor-list__favor">
-                                                        <span class="favor favor_added" title="Добавить в избранное">
-                                                            <svg class="favor__icon"><use xlink:href="assets/images/icon.svg#icon_favor-classic"></use></svg>
-                                                        </span>
+                                                </span>
+                                            </a>
+                                            <a class="favor-list__remove" href="#">
+                                                <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_basket"></use></svg>
+                                            </a>
+                                        </li>
+                                        <li class="favor-list__item">
+                                            <a class="favor-list__link" href="#">
+                                                <span class="favor-list__label">Бюджетный калькулятор</span>
+                                                <span class="favor-list__favor">
+                                                    <span class="favor favor_added" title="Добавить в избранное">
+                                                        <svg class="favor__icon"><use xlink:href="assets/images/icon.svg#icon_favor-classic"></use></svg>
                                                     </span>
-                                                </a>
-                                                <a class="favor-list__remove" href="#">
-                                                    <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_basket"></use></svg>
-                                                </a>
-                                            </li>
-                                            <li class="favor-list__item">
-                                                <a class="favor-list__link" href="#">
-                                                    <span class="favor-list__label">Обучающий сервис</span>
-                                                    <span class="favor-list__favor">
-                                                        <span class="favor favor_added" title="Добавить в избранное">
-                                                            <svg class="favor__icon"><use xlink:href="assets/images/icon.svg#icon_favor-classic"></use></svg>
-                                                        </span>
+                                                </span>
+                                            </a>
+                                            <a class="favor-list__remove" href="#">
+                                                <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_basket"></use></svg>
+                                            </a>
+                                        </li>
+                                        <li class="favor-list__item">
+                                            <a class="favor-list__link" href="#">
+                                                <span class="favor-list__label">Обучающий сервис</span>
+                                                <span class="favor-list__favor">
+                                                    <span class="favor favor_added" title="Добавить в избранное">
+                                                        <svg class="favor__icon"><use xlink:href="assets/images/icon.svg#icon_favor-classic"></use></svg>
                                                     </span>
-                                                </a>
-                                                <a class="favor-list__remove" href="#">
-                                                    <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_basket"></use></svg>
-                                                </a>
-                                            </li>
-                                            <li class="favor-list__item">
-                                                <a class="favor-list__link" href="#">
-                                                    <span class="favor-list__label">Открытые данные</span>
-                                                    <span class="favor-list__favor">
-                                                        <span class="favor favor_added" title="Добавить в избранное">
-                                                            <svg class="favor__icon"><use xlink:href="assets/images/icon.svg#icon_favor-classic"></use></svg>
-                                                        </span>
+                                                </span>
+                                            </a>
+                                            <a class="favor-list__remove" href="#">
+                                                <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_basket"></use></svg>
+                                            </a>
+                                        </li>
+                                        <li class="favor-list__item">
+                                            <a class="favor-list__link" href="#">
+                                                <span class="favor-list__label">Открытые данные</span>
+                                                <span class="favor-list__favor">
+                                                    <span class="favor favor_added" title="Добавить в избранное">
+                                                        <svg class="favor__icon"><use xlink:href="assets/images/icon.svg#icon_favor-classic"></use></svg>
                                                     </span>
-                                                </a>
-                                                <a class="favor-list__remove" href="#">
-                                                    <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_basket"></use></svg>
-                                                </a>
-                                            </li>
-                                            <li class="favor-list__item">
-                                                <a class="favor-list__link" href="#">
-                                                    <span class="favor-list__label">Путеводитель по бюджету города Москвы</span>
-                                                    <span class="favor-list__favor">
-                                                        <span class="favor favor_added" title="Добавить в избранное">
-                                                            <svg class="favor__icon"><use xlink:href="assets/images/icon.svg#icon_favor-classic"></use></svg>
-                                                        </span>
+                                                </span>
+                                            </a>
+                                            <a class="favor-list__remove" href="#">
+                                                <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_basket"></use></svg>
+                                            </a>
+                                        </li>
+                                        <li class="favor-list__item">
+                                            <a class="favor-list__link" href="#">
+                                                <span class="favor-list__label">Путеводитель по бюджету города Москвы</span>
+                                                <span class="favor-list__favor">
+                                                    <span class="favor favor_added" title="Добавить в избранное">
+                                                        <svg class="favor__icon"><use xlink:href="assets/images/icon.svg#icon_favor-classic"></use></svg>
                                                     </span>
-                                                </a>
-                                                <a class="favor-list__remove" href="#">
-                                                    <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_basket"></use></svg>
-                                                </a>
-                                            </li>
-                                            <li class="favor-list__item">
-                                                <a class="favor-list__link" href="#">
-                                                    <span class="favor-list__label">Рейтинг открытости бюджетных данных</span>
-                                                    <span class="favor-list__favor">
-                                                        <span class="favor favor_added" title="Добавить в избранное">
-                                                            <svg class="favor__icon"><use xlink:href="assets/images/icon.svg#icon_favor-classic"></use></svg>
-                                                        </span>
+                                                </span>
+                                            </a>
+                                            <a class="favor-list__remove" href="#">
+                                                <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_basket"></use></svg>
+                                            </a>
+                                        </li>
+                                        <li class="favor-list__item">
+                                            <a class="favor-list__link" href="#">
+                                                <span class="favor-list__label">Рейтинг открытости бюджетных данных</span>
+                                                <span class="favor-list__favor">
+                                                    <span class="favor favor_added" title="Добавить в избранное">
+                                                        <svg class="favor__icon"><use xlink:href="assets/images/icon.svg#icon_favor-classic"></use></svg>
                                                     </span>
-                                                </a>
-                                                <a class="favor-list__remove" href="#">
-                                                    <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_basket"></use></svg>
-                                                </a>
-                                            </li>
-                                            <li class="favor-list__item">
-                                                <a class="favor-list__link" href="#">
-                                                    <span class="favor-list__label">Доходы</span>
-                                                    <span class="favor-list__favor">
-                                                        <span class="favor favor_added" title="Добавить в избранное">
-                                                            <svg class="favor__icon"><use xlink:href="assets/images/icon.svg#icon_favor-classic"></use></svg>
-                                                        </span>
+                                                </span>
+                                            </a>
+                                            <a class="favor-list__remove" href="#">
+                                                <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_basket"></use></svg>
+                                            </a>
+                                        </li>
+                                        <li class="favor-list__item">
+                                            <a class="favor-list__link" href="#">
+                                                <span class="favor-list__label">Доходы</span>
+                                                <span class="favor-list__favor">
+                                                    <span class="favor favor_added" title="Добавить в избранное">
+                                                        <svg class="favor__icon"><use xlink:href="assets/images/icon.svg#icon_favor-classic"></use></svg>
                                                     </span>
-                                                </a>
-                                                <a class="favor-list__remove" href="#">
-                                                    <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_basket"></use></svg>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        <p class="favor-list__note">Для того, чтобы добавить страницу или документ в избранное, нажмите на звездочку.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tabs__tab active" data-tab-group="lktabs" data-tab="questions">
-                        <div class="questions">
-                            <div class="grid">
-                                <div class="grid__col grid__col_two">
-                                    <h2 class="grid__title">Вопросы</h2>
-                                    <ul class="grid__nav">
-                                        <li class="grid__nav__item">Новые</li>
-                                        <li class="grid__nav__item">Модерация</li>
-                                        <li class="grid__nav__item">В работе</li>
-                                        <li class="grid__nav__item grid__nav__item_active">С ответом</li>
+                                                </span>
+                                            </a>
+                                            <a class="favor-list__remove" href="#">
+                                                <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_basket"></use></svg>
+                                            </a>
+                                        </li>
                                     </ul>
+                                    <p class="favor-list__note">Для того, чтобы добавить страницу или документ в избранное, нажмите на звездочку.</p>
                                 </div>
-                                <div class="grid__col grid__col_ten" id="scroll">
-                                    <div class="question">
-                                        <div class="question__row">
-                                            <div class="question__name">Иван Иванов</div>
-                                            <div class="question__date">19.09.2016</div>
-                                        </div>
-                                        <p class="question__message"> Почему осенью убирают листья в мешки? Листьям там не нравится, им так скучно и темно! Плюс вопрос необходимого удобрения почты для перегноя, вы что? Прекратите собирать листья! </p>
-                                        <div class="question__row">
-                                            <svg class="question__icon"><use xlink:href="assets/images/icon.svg#icon_share-option"></use></svg>
-                                            <div class="question__reply-name">Департамент финансов города Москвы</div>
-                                        </div>
-                                        <p class="question__reply">Листья, опадающие осенью с деревьев – не мусор. Разлагаясь в почве, они добавляют в нее минеральные и органические вещества, накопленные за лето. Медленно разлагающиеся части листа (жилки, черенки), структурируют
-                                            почву, улучшая ее качество. Постепенная деструкция опавшей листвы создает условия для развития почвенной микрофлоры и фауны, которая, с одной стороны, выполняет работу по переработке листьев, с другой стороны,
-                                            препятствует развитию патогенных для деревьев организмов (грибковые, бактериальные заболевания деревьев). Городские деревья очень подвержены различным заболеваниям. Редко встретишь здоровое дерево, а как трудно
-                                            вырастить молодое дерево! Лишь немногие из саженцев приживаются в городской среде и достигают «взрослого» возраста. Одна из главных причин этого – качество городских почв. В лесу никто не готовит почву – природа
-                                            делает её сама из ежегодно получаемого материала – опавшей листвы. Лесная подстилка – фабрика по изготовлению лесной почвы, питающей деревья и оберегающая их здоровье. </p>
-                                        <a class="link link_dashed question__link"
-                                            href="#">Раскрыть полностью</a>
-                                    </div>
-                                    <div class="question">
-                                        <div class="question__row">
-                                            <div class="question__name">Иван Иванов</div>
-                                            <div class="question__date">19.09.2016</div>
-                                        </div>
-                                        <p class="question__message"> Почему осенью убирают листья в мешки? Листьям там не нравится, им так скучно и темно! Плюс вопрос необходимого удобрения почты для перегноя, вы что? Прекратите собирать листья! </p>
-                                        <div class="question__row">
-                                            <svg class="question__icon"><use xlink:href="assets/images/icon.svg#icon_share-option"></use></svg>
-                                            <div class="question__reply-name">Департамент финансов города Москвы</div>
-                                        </div>
-                                        <p class="question__reply">Листья, опадающие осенью с деревьев – не мусор. Разлагаясь в почве, они добавляют в нее минеральные и органические вещества, накопленные за лето. Медленно разлагающиеся части листа (жилки, черенки), структурируют
-                                            почву, улучшая ее качество. Постепенная деструкция опавшей листвы создает условия для развития почвенной микрофлоры и фауны, которая, с одной стороны, выполняет работу по переработке листьев, с другой стороны,
-                                            препятствует развитию патогенных для деревьев организмов (грибковые, бактериальные заболевания деревьев). Городские деревья очень подвержены различным заболеваниям. Редко встретишь здоровое дерево, а как трудно
-                                            вырастить молодое дерево! Лишь немногие из саженцев приживаются в городской среде и достигают «взрослого» возраста. Одна из главных причин этого – качество городских почв. В лесу никто не готовит почву – природа
-                                            делает её сама из ежегодно получаемого материала – опавшей листвы. Лесная подстилка – фабрика по изготовлению лесной почвы, питающей деревья и оберегающая их здоровье. </p>
-                                        <a class="link link_dashed question__link"
-                                            href="#">Раскрыть полностью</a>
-                                    </div>
-                                    <div class="question">
-                                        <div class="question__row">
-                                            <div class="question__name">Иван Иванов</div>
-                                            <div class="question__date">19.09.2016</div>
-                                        </div>
-                                        <p class="question__message"> Почему осенью убирают листья в мешки? Листьям там не нравится, им так скучно и темно! Плюс вопрос необходимого удобрения почты для перегноя, вы что? Прекратите собирать листья! </p>
-                                        <div class="question__row">
-                                            <svg class="question__icon"><use xlink:href="assets/images/icon.svg#icon_share-option"></use></svg>
-                                            <div class="question__reply-name">Департамент финансов города Москвы</div>
-                                        </div>
-                                        <p class="question__reply">Листья, опадающие осенью с деревьев – не мусор. Разлагаясь в почве, они добавляют в нее минеральные и органические вещества, накопленные за лето. Медленно разлагающиеся части листа (жилки, черенки), структурируют
-                                            почву, улучшая ее качество. Постепенная деструкция опавшей листвы создает условия для развития почвенной микрофлоры и фауны, которая, с одной стороны, выполняет работу по переработке листьев, с другой стороны,
-                                            препятствует развитию патогенных для деревьев организмов (грибковые, бактериальные заболевания деревьев). Городские деревья очень подвержены различным заболеваниям. Редко встретишь здоровое дерево, а как трудно
-                                            вырастить молодое дерево! Лишь немногие из саженцев приживаются в городской среде и достигают «взрослого» возраста. Одна из главных причин этого – качество городских почв. В лесу никто не готовит почву – природа
-                                            делает её сама из ежегодно получаемого материала – опавшей листвы. Лесная подстилка – фабрика по изготовлению лесной почвы, питающей деревья и оберегающая их здоровье. </p>
-                                        <a class="link link_dashed question__link"
-                                            href="#">Раскрыть полностью</a>
-                                    </div>
-                                    <div class="question">
-                                        <div class="question__row">
-                                            <div class="question__name">Иван Иванов</div>
-                                            <div class="question__date">19.09.2016</div>
-                                        </div>
-                                        <p class="question__message"> Почему осенью убирают листья в мешки? Листьям там не нравится, им так скучно и темно! Плюс вопрос необходимого удобрения почты для перегноя, вы что? Прекратите собирать листья! </p>
-                                        <div class="question__row">
-                                            <svg class="question__icon"><use xlink:href="assets/images/icon.svg#icon_share-option"></use></svg>
-                                            <div class="question__reply-name">Департамент финансов города Москвы</div>
-                                        </div>
-                                        <p class="question__reply">Листья, опадающие осенью с деревьев – не мусор. Разлагаясь в почве, они добавляют в нее минеральные и органические вещества, накопленные за лето. Медленно разлагающиеся части листа (жилки, черенки), структурируют
-                                            почву, улучшая ее качество. Постепенная деструкция опавшей листвы создает условия для развития почвенной микрофлоры и фауны, которая, с одной стороны, выполняет работу по переработке листьев, с другой стороны,
-                                            препятствует развитию патогенных для деревьев организмов (грибковые, бактериальные заболевания деревьев). Городские деревья очень подвержены различным заболеваниям. Редко встретишь здоровое дерево, а как трудно
-                                            вырастить молодое дерево! Лишь немногие из саженцев приживаются в городской среде и достигают «взрослого» возраста. Одна из главных причин этого – качество городских почв. В лесу никто не готовит почву – природа
-                                            делает её сама из ежегодно получаемого материала – опавшей листвы. Лесная подстилка – фабрика по изготовлению лесной почвы, питающей деревья и оберегающая их здоровье. </p>
-                                        <a class="link link_dashed question__link"
-                                            href="#">Раскрыть полностью</a>
-                                    </div>
-                                    <div class="question">
-                                        <div class="question__row">
-                                            <div class="question__name">Иван Иванов</div>
-                                            <div class="question__date">19.09.2016</div>
-                                        </div>
-                                        <p class="question__message"> Почему осенью убирают листья в мешки? Листьям там не нравится, им так скучно и темно! Плюс вопрос необходимого удобрения почты для перегноя, вы что? Прекратите собирать листья! </p>
-                                        <div class="question__row">
-                                            <svg class="question__icon"><use xlink:href="assets/images/icon.svg#icon_share-option"></use></svg>
-                                            <div class="question__reply-name">Департамент финансов города Москвы</div>
-                                        </div>
-                                        <p class="question__reply">Листья, опадающие осенью с деревьев – не мусор. Разлагаясь в почве, они добавляют в нее минеральные и органические вещества, накопленные за лето. Медленно разлагающиеся части листа (жилки, черенки), структурируют
-                                            почву, улучшая ее качество. Постепенная деструкция опавшей листвы создает условия для развития почвенной микрофлоры и фауны, которая, с одной стороны, выполняет работу по переработке листьев, с другой стороны,
-                                            препятствует развитию патогенных для деревьев организмов (грибковые, бактериальные заболевания деревьев). Городские деревья очень подвержены различным заболеваниям. Редко встретишь здоровое дерево, а как трудно
-                                            вырастить молодое дерево! Лишь немногие из саженцев приживаются в городской среде и достигают «взрослого» возраста. Одна из главных причин этого – качество городских почв. В лесу никто не готовит почву – природа
-                                            делает её сама из ежегодно получаемого материала – опавшей листвы. Лесная подстилка – фабрика по изготовлению лесной почвы, питающей деревья и оберегающая их здоровье. </p>
-                                        <a class="link link_dashed question__link"
-                                            href="#">Раскрыть полностью</a>
-                                    </div>
-                                    <div class="question">
-                                        <div class="question__row">
-                                            <div class="question__name">Иван Иванов</div>
-                                            <div class="question__date">19.09.2016</div>
-                                        </div>
-                                        <p class="question__message"> Почему осенью убирают листья в мешки? Листьям там не нравится, им так скучно и темно! Плюс вопрос необходимого удобрения почты для перегноя, вы что? Прекратите собирать листья! </p>
-                                        <div class="question__row">
-                                            <svg class="question__icon"><use xlink:href="assets/images/icon.svg#icon_share-option"></use></svg>
-                                            <div class="question__reply-name">Департамент финансов города Москвы</div>
-                                        </div>
-                                        <p class="question__reply">Листья, опадающие осенью с деревьев – не мусор. Разлагаясь в почве, они добавляют в нее минеральные и органические вещества, накопленные за лето. Медленно разлагающиеся части листа (жилки, черенки), структурируют
-                                            почву, улучшая ее качество. Постепенная деструкция опавшей листвы создает условия для развития почвенной микрофлоры и фауны, которая, с одной стороны, выполняет работу по переработке листьев, с другой стороны,
-                                            препятствует развитию патогенных для деревьев организмов (грибковые, бактериальные заболевания деревьев). Городские деревья очень подвержены различным заболеваниям. Редко встретишь здоровое дерево, а как трудно
-                                            вырастить молодое дерево! Лишь немногие из саженцев приживаются в городской среде и достигают «взрослого» возраста. Одна из главных причин этого – качество городских почв. В лесу никто не готовит почву – природа
-                                            делает её сама из ежегодно получаемого материала – опавшей листвы. Лесная подстилка – фабрика по изготовлению лесной почвы, питающей деревья и оберегающая их здоровье. </p>
-                                        <a class="link link_dashed question__link"
-                                            href="#">Раскрыть полностью</a>
-                                    </div>
-                                </div>
+                            </div>
+                            <div class="profile__delete-accept">
+                                <p>Вы уверены, что хотите удалить эту страницу из Избранного?</p>
+                                <button class="button button_kind_yellow" data-delete="yes">Да</button>
+                                <button class="button button_kind_transparent" data-delete="cancel">Отменить</button>
                             </div>
                         </div>
                     </div>
+                    <!--+tabs-tab(data-tab-group="lktabs" data-tab="questions")+questions()-->
                     <div class="tabs__tab" data-tab-group="lktabs" data-tab="cards">
                         <div class="documents-cards">
                             <div class="tile tile_sh">
@@ -1509,6 +1398,14 @@
                     </div>
                     <input class="login-form__submit" type="submit" value="Отправить" />
                 </form>
+            </div>
+            <a class="close-popup" href="#"></a>
+        </div>
+        <!-- POPUP()-->
+        <div class="popup-reset popup-window" id="reset">
+            <div class="popup-restore__top">Запрос на сброс пароля</div>
+            <div class="popup-restore__wrap">
+                <p class="popup-restore__p">На ваш мейл выслано письмо для подтверждения регистрации</p>
             </div>
             <a class="close-popup" href="#"></a>
         </div>

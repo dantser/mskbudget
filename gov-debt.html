@@ -298,11 +298,12 @@
                 </div>
                 <div class="gov-debt__analityc-widget analityc-widget">
                     <div class="gov-debt__analityc-tab-links">
-                        <a class="gov-debt__analityc-tab-link active" href="#">Государственный долг г. Москвы</a>
-                        <a class="gov-debt__analityc-tab-link" href="#">график погашения государственного долга</a>
-                        <a class="gov-debt__analityc-tab-link" href="#">Государственные облигации г. Москвы</a>
+                        <a class="gov-debt__analityc-tab-link active" href="#" data-govdebt-tab="govdebt">Государственный долг г. Москвы</a>
+                        <a class="gov-debt__analityc-tab-link" href="#" data-govdebt-tab="repayment">график погашения государственного долга</a>
+                        <a class="gov-debt__analityc-tab-link" href="#" data-govdebt-tab="govbonds">Государственные облигации г. Москвы</a>
                     </div>
-                    <div class="gov-debt__analityc-data">
+                    <!-- Государственный долг г. Москвы-->
+                    <div class="gov-debt__analityc-tab gov-debt__analityc-tab_govdebt active">
                         <div class="analityc-widgethead gov-debt__analityc-widgethead">
                             <div class="analityc-control-group _year">
                                 <span>Год</span>
@@ -328,7 +329,7 @@
                                 <a href="#">млрд. руб.</a>
                             </div>
                         </div>
-                        <div class="analityc-graphics analityc-graphics_approved gov-debt__analityc-graphics" style="display:none;">
+                        <div class="analityc-graphics analityc-graphics_approved gov-debt__analityc-graphics active">
                             <p class="analityc-graphics__periodtext">
                                 <span>Плановый период</span>
                             </p>
@@ -415,26 +416,32 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="analityc-graphics analityc-graphics_date gov-debt__analityc-graphics" style="display:none;">
-                            <p class="analityc-graphics__graphic-heading">Объем государственного долга на 01.02.2017</p>
-                            <div class="analityc-graphics__col analityc-graphics__col_wide">
-                                <div class="analityc-graphics__graphic-triangle">
-                                    <div class="analityc-graphics__graphic analityc-graphics__graphic_angle analityc-graphics__graphic_big"></div>
-                                    <div class="analityc-graphics__graphic analityc-graphics__graphic_angle"></div>
-                                    <div class="analityc-graphics__graphic analityc-graphics__graphic_angle"></div>
-                                </div>
+                            <div class="legend analityc-graphics__legend">
+                                <p class="legend__item legend__item_altgreen">Верхний предел государственного долга, млрд руб.</p>
                             </div>
-                            <div class="analityc-graphics__col">
-                                <div class="legend analityc-graphics__legend analityc-graphics__legend_vert">
-                                    <p class="legend__item legend__item_pink">
-                                        <span class="legend__icon"></span>Развитие транспортной системы</p>
-                                    <p class="legend__item legend__item_blue">
-                                        <span class="legend__icon"></span>Банковские кредиты</p>
-                                    <p class="legend__item legend__item_green">
-                                        <span class="legend__icon"></span>Бюджетные кредиты</p>
-                                    <p class="legend__item legend__item_yellow">
-                                        <span class="legend__icon"></span>Государственные гарантии</p>
+                        </div>
+                        <div class="analityc-graphics analityc-graphics_date gov-debt__analityc-graphics">
+                            <p class="analityc-graphics__graphic-heading">Объем государственного долга на 01.02.2017</p>
+                            <div class="analityc-graphics__cols">
+                                <div class="analityc-graphics__col analityc-graphics__col_wide">
+                                    <div class="analityc-graphics__graphic-triangle">
+                                        <img src="assets/images/graphics-border.svg" />
+                                        <div class="analityc-graphics__graphic-angle analityc-graphics__graphic-angle_big"></div>
+                                        <div class="analityc-graphics__graphic-angle analityc-graphics__graphic-angle_right-top"></div>
+                                        <div class="analityc-graphics__graphic-angle analityc-graphics__graphic-angle_right-bottom"></div>
+                                    </div>
+                                </div>
+                                <div class="analityc-graphics__col">
+                                    <div class="legend analityc-graphics__legend analityc-graphics__legend_vert">
+                                        <p class="legend__item legend__item_pink">
+                                            <svg class="legend__icon legend__icon_pink"><use xlink:href="assets/images/icon.svg#icon_depfin-icons-28"></use></svg>Развитие транспортной системы</p>
+                                        <p class="legend__item legend__item_blue">
+                                            <svg class="legend__icon legend__icon_blue"><use xlink:href="assets/images/icon.svg#icon_depfin-icons-29"></use></svg>Банковские кредиты</p>
+                                        <p class="legend__item legend__item_green">
+                                            <svg class="legend__icon legend__icon_green"><use xlink:href="assets/images/icon.svg#icon_depfin-icons-30"></use></svg>Бюджетные кредиты</p>
+                                        <p class="legend__item legend__item_yellow">
+                                            <svg class="legend__icon legend__icon_yellow"><use xlink:href="assets/images/icon.svg#icon_depfin-icons-27"></use></svg>Государственные гарантии</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -537,91 +544,155 @@
                             <a class="analityc-more" href="/">Перейти в&nbsp;раздел аналитика</a>
                         </div>
                     </div>
-                    <div class="gov-debt__gov-bonds" style="display:none;">
-                        <h2 class="gov-debt__tab-heading">Государственные облигации
+                    <!-- график погашения государственного долга-->
+                    <div class="gov-debt__analityc-tab gov-debt__analityc-tab_repayment">
+                        <h2 class="gov-debt__analityc-widget-heading">График погашения
+                            <br> государственного долга</h2>
+                        <div class="analityc-control-switcher">
+                            <a class="active" href="#">млн. руб.</a>
+                            <a href="#">млрд. руб.</a>
+                        </div>
+                        <div class="analityc-graphics analityc-graphics_repayment gov-debt__analityc-graphics active">
+                            <div class="analityc-graphics__graphic analityc-graphics__graphic_multicolumn">
+                                <div class="analityc-graphics__graphic-column">
+                                    <div class="analityc-graphics__graphic-column-fill">
+                                        <p class="analityc-graphics__graphic-column-val">26,1</p>
+                                    </div>
+                                </div>
+                                <div class="analityc-graphics__graphic-column analityc-graphics__graphic-column_low">
+                                    <div class="analityc-graphics__graphic-column-fill">
+                                        <p class="analityc-graphics__graphic-column-val">4,4</p>
+                                    </div>
+                                </div>
+                                <div class="analityc-graphics__graphic-column analityc-graphics__graphic-column_zero">
+                                    <div class="analityc-graphics__graphic-column-fill">
+                                        <p class="analityc-graphics__graphic-column-val">0,0</p>
+                                    </div>
+                                </div>
+                                <div class="analityc-graphics__graphic-column analityc-graphics__graphic-column_zero">
+                                    <div class="analityc-graphics__graphic-column-fill">
+                                        <p class="analityc-graphics__graphic-column-val">0,0</p>
+                                    </div>
+                                </div>
+                                <div class="analityc-graphics__graphic-column analityc-graphics__graphic-column_zero">
+                                    <div class="analityc-graphics__graphic-column-fill">
+                                        <p class="analityc-graphics__graphic-column-val">0,0</p>
+                                    </div>
+                                </div>
+                                <div class="analityc-graphics__graphic-column">
+                                    <div class="analityc-graphics__graphic-column-fill">
+                                        <p class="analityc-graphics__graphic-column-val">30,0</p>
+                                    </div>
+                                </div>
+                                <div class="analityc-graphics__graphic-column analityc-graphics__graphic-column_low">
+                                    <div class="analityc-graphics__graphic-column-fill">
+                                        <p class="analityc-graphics__graphic-column-val">1,5</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="analityc-graphics__graphic-years">
+                                <p class="analityc-graphics__graphic-year">2017</p>
+                                <p class="analityc-graphics__graphic-year">2018</p>
+                                <p class="analityc-graphics__graphic-year">2019</p>
+                                <p class="analityc-graphics__graphic-year">2020</p>
+                                <p class="analityc-graphics__graphic-year">2021</p>
+                                <p class="analityc-graphics__graphic-year">2022</p>
+                                <p class="analityc-graphics__graphic-year">2025-2034</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Государственные облигации г. Москвы-->
+                    <div class="gov-debt__analityc-tab gov-debt__analityc-tab_govbonds">
+                        <h2 class="gov-debt__analityc-widget-heading">Государственные облигации
                             <br> города Москвы</h2>
                         <h3 class="gov-debt__block-heading gov-debt__block-heading_main">Что такое облигация?</h3>
                         <p class="gov-debt__paragraph gov-debt__paragraph_main">
                             <b>Облигация</b> — эмиссионная ценная бумага, закрепляющая право ее владельца на получение от эмитента облигации в предусмотренный срок ее номинальной стоимости или иного имущественного эквивалента. Облигация может также предусматривать
                             право ее владельца на получение фиксированного процента от номинальной стоимости облигации либо иные имущественные права. Доходом по облигации являются процент и/или дисконт.</p>
+                        <h3 class="gov-debt__block-heading">Данные о рейтингах долгосрочных долговых обязательств Москвы, РФ на 2016 г.</h3>
+                        <div class="gov-debt__rating-table">
+                            <div class="gov-debt__rating-table-row">
+                                <p class="gov-debt__rating-table-item"></p>
+                                <p class="gov-debt__rating-table-heading">Moody’s</p>
+                                <p class="gov-debt__rating-table-heading">S&P</p>
+                                <p class="gov-debt__rating-table-heading">Fitch</p>
+                            </div>
+                            <div class="gov-debt__rating-table-row">
+                                <p class="gov-debt__rating-table-item">Внутренние обязательства РФ/Москва</p>
+                                <p class="gov-debt__rating-table-value">Baa1/Ba1</p>
+                                <p class="gov-debt__rating-table-value">BBB/BB+</p>
+                                <p class="gov-debt__rating-table-value">BBB/BBB-</p>
+                            </div>
+                            <div class="gov-debt__rating-table-row">
+                                <p class="gov-debt__rating-table-item">Внешние обязательства РФ/Москва</p>
+                                <p class="gov-debt__rating-table-value">Baa1/Ba1</p>
+                                <p class="gov-debt__rating-table-value">BBB/BB+</p>
+                                <p class="gov-debt__rating-table-value">BBB/BBB-</p>
+                            </div>
+                            <div class="gov-debt__rating-links">
+                                <p>
+                                    <a class="link gov-debt__rating-link" href="#">Сравнительная таблица рейтингов</a>
+                                </p>
+                                <p>
+                                    <a class="link gov-debt__rating-link" href="#">Информация о рейтингах</a>
+                                </p>
+                            </div>
+                        </div>
                         <div class="gov-debt__inner-block">
                             <p class="gov-debt__paragraph">Владелец облигации выступает как кредитор, который предоставляет свои деньги эмитенту (заемщику) во временное пользование и за оговоренную плату.</p>
                             <p class="gov-debt__paragraph">Облигация подтверждает обязательство эмитента (заемщика) по истечении определенного периода времени выплатить ее владельцу (кредитору) номинальную стоимость облигации и доход (проценты).</p>
                             <p class="gov-debt__paragraph">Владельцем облигации может выступать как физическое лицо, так и организация.</p>
                             <p class="gov-debt__list-heading">Эмитентом облигации могут выступать:</p>
-                            <ul class="gov-debt__list">
-                                <li>— Федеральные органы власти;</li>
-                                <li>— Органы власти субъектов федерации;</li>
-                                <li>— Органы местного самоуправления;</li>
-                                <li>— Коммерческие организации.</li>
+                            <ul class="gov-debt__list gov-debt__list_text-big">
+                                <li>Федеральные органы власти;</li>
+                                <li>Органы власти субъектов федерации;</li>
+                                <li>Органы местного самоуправления;</li>
+                                <li>Коммерческие организации.</li>
                             </ul>
                             <p class="gov-debt__paragraph">Каждый из этих эмитентов может выпустить облигации, в том числе предназначенные для размещения среди населения.</p>
                             <p class="gov-debt__paragraph">Облигация, как и иной товар, имеет цену и ее можно купить и продать. Цена облигации выражается в процентах от ее номинальной стоимости. Как и цена товара, цена облигации формируется на основе баланса спроса и предложения. Основным
                                 местом торговли облигациями и, соответственно, их ценообразования является биржа.</p>
                         </div>
-                        <div class="gov-debt__half-block">
-                            <h3 class="gov-debt__block-heading">Под продажей облигации может подразумеваться одно из двух действий:</h3>
-                            <ol class="gov-debt__list">
-                                <li>размещение облигации — продажа эмитентом бумаги ее первому владельцу путем заключения гражданско-правовых сделок;</li>
-                                <li>продажа облигации ее владельцем третьему лицу, который становится новым владельцем облигации, и перед которым эмитент несет обязательство выплаты ее номинальной стоимости и процентного дохода.</li>
-                            </ol>
+                        <div class="gov-debt__half-blocks">
+                            <div class="gov-debt__half-block">
+                                <h3 class="gov-debt__block-heading">Под продажей облигации может подразумеваться одно из двух действий:</h3>
+                                <ol class="gov-debt__list gov-debt__list_ordered">
+                                    <li>размещение облигации — продажа эмитентом бумаги ее первому владельцу путем заключения гражданско-правовых сделок;</li>
+                                    <li>продажа облигации ее владельцем третьему лицу, который становится новым владельцем облигации, и перед которым эмитент несет обязательство выплаты ее номинальной стоимости и процентного дохода.</li>
+                                </ol>
+                            </div>
+                            <div class="gov-debt__half-block">
+                                <h3 class="gov-debt__block-heading">Облигации могут быть проданы:</h3>
+                                <ol class="gov-debt__list">
+                                    <li>с дисконтом, то есть, приобретая облигацию, будущий владелец заплатит за нее меньше чем ее номинальная стоимость;</li>
+                                    <li>по номинальной стоимости;</li>
+                                    <li>с премией, то есть приобретая облигацию, будущий владелец заплатит за облигацию сумму, превышающую ее номинальную стоимость.</li>
+                                </ol>
+                            </div>
                         </div>
-                        <div class="gov-debt__half-block">
-                            <h3 class="gov-debt__block-heading">Облигации могут быть проданы:</h3>
-                            <ol class="gov-debt__list">
-                                <li>— с дисконтом, то есть, приобретая облигацию, будущий владелец заплатит за нее меньше чем ее номинальная стоимость;</li>
-                                <li>— по номинальной стоимости;</li>
-                                <li>— с премией, то есть приобретая облигацию, будущий владелец заплатит за облигацию сумму, превышающую ее номинальную стоимость.</li>
-                            </ol>
-                        </div>
-                        <p class="gov-debt__paragraph gov-debt__paragraph_important">Вне зависимости от уплаченной при приобретении облигации суммы, в дату погашения владелец получит сумму, равную номинальной стоимости облигации.</p>
+                        <p class="gov-debt__paragraph gov-debt__paragraph_important">Вне зависимости от уплаченной при приобретении облигации суммы,
+                            <br> в дату погашения владелец получит сумму, равную номинальной стоимости облигации.</p>
                         <div class="gov-debt__inner-block">
                             <h3 class="gov-debt__block-heading">Экономические факторы, обеспечивающие
-                                <br> надежность облигаций Москвы:
-                                <ol class="gov-debt__list">
-                                    <li>
-                                        <b>Низкий уровень долга Москвы.</b> Как отмечено выше, к основным показателям, определяющим уровень долга в соответствии с действующими нормами РФ, относятся следующие отношения:
-                                        <li>
-                                            <ol class="gov-debt__list gov-debt__list_letter">
-                                                <li>объема государственного долга города Москвы к собственным доходам бюджета;</li>
-                                                <li>расходов бюджета города Москвы на обслуживание государственного долга к расходам бюджета;</li>
-                                                <li>ежегодного объема погашаемого долга к доходам бюджета за минусом текущих расходов и части расходов бюджета амортизационного характера (указанная разность определяется как «капитальный ресурс» бюджета).</li>
-                                            </ol>
-                                        </li>
-                                    </li>
-                                    <li>
-                                        <b>Равномерный</b> график погашения долга. Размещение облигаций Москвы в течение последних нескольких лет обеспечило формирование относительно равномерного графика погашения долга на горизонте от 1 до 12 лет, без "пиковых"
-                                        нагрузок. Это обеспечивает возможность безусловного исполнения долговых обязательств независимо от экономической конъюнктуры в Российской Федерации.</li>
-                                    <li>Экономическое состояние региона. Москва — явный лидер среди городов страны по темпам реформирования хозяйственной деятельности и перехода экономики к рыночным отношениям. Такое положение Москве удалось занять благодаря
-                                        развитой городской инфраструктуре, широкому спектру недвижимости, включающему современные офисные центры, а также высокому культурному, интеллектуальному и управленческому потенциалу города.</li>
-                                </ol>
-                                <p class="gov-debt__paragraph">Показатели экономики города Москвы обеспечивают стабильно низкое отношение долга к уровню валового регионального продукта (ВРП) города. Так, несмотря на рост долга в абсолютном выражении, его отношение к ВРП по имеющейся
-                                    оценке сохраняется на крайне низком уровне — порядка 3%.</p>
-                                <h3 class="gov-debt__block-heading">Данные о рейтингах долгосрочных долговых обязательств Москвы, РФ на 2016 г.</h3>
-                                <span class="gov-debt__rating-table">
-                                    <span class="gov-debt__rating-table-row gov-debt__rating-table-row_head">
-                                        <p class="gov-debt__rating-table-heading">Moody’s</p>
-                                        <p class="gov-debt__rating-table-heading">S&P</p>
-                                        <p class="gov-debt__rating-table-heading">Fitch</p>
-                                    </span>
-                                    <span class="gov-debt__rating-table-row">
-                                        <p class="gov-debt__rating-table-item">Внутренние обязательства РФ/Москва</p>
-                                        <p class="gov-debt__rating-table-value">Baa1/Ba1</p>
-                                        <p class="gov-debt__rating-table-value">BBB/BB+</p>
-                                        <p class="gov-debt__rating-table-value">BBB/BBB-</p>
-                                    </span>
-                                    <span class="gov-debt__rating-table-row">
-                                        <p class="gov-debt__rating-table-item">Внешние обязательства РФ/Москва</p>
-                                        <p class="gov-debt__rating-table-value">Baa1/Ba1</p>
-                                        <p class="gov-debt__rating-table-value">BBB/BB+</p>
-                                        <p class="gov-debt__rating-table-value">BBB/BBB-</p>
-                                    </span>
-                                </span>
-                                <span class="gov-debt__rating-links">
-                                    <a class="link gov-debt__rating-link" href="#">Сравнительная таблица рейтингов</a>
-                                    <a class="link gov-debt__rating-link" href="#">Информация о рейтингах</a>
-                                </span>
-                            </h3>
+                                <br> надежность облигаций Москвы:</h3>
+                            <ol class="gov-debt__list gov-debt__list_ordered">
+                                <li>
+                                    <span>Низкий уровень долга Москвы.</span> Как отмечено выше, к основным показателям, определяющим уровень долга в соответствии с действующими нормами РФ, относятся следующие отношения:
+                                    <ol class="gov-debt__list gov-debt__list_letter">
+                                        <li>объема государственного долга города Москвы к собственным доходам бюджета;</li>
+                                        <li>расходов бюджета города Москвы на обслуживание государственного долга к расходам бюджета;</li>
+                                        <li>ежегодного объема погашаемого долга к доходам бюджета за минусом текущих расходов и части расходов бюджета амортизационного характера (указанная разность определяется как «капитальный ресурс» бюджета).</li>
+                                    </ol>
+                                </li>
+                                <li>
+                                    <span>Равномерный</span> график погашения долга. Размещение облигаций Москвы в течение последних нескольких лет обеспечило формирование относительно равномерного графика погашения долга на горизонте от 1 до 12 лет, без "пиковых"
+                                    нагрузок. Это обеспечивает возможность безусловного исполнения долговых обязательств независимо от экономической конъюнктуры в Российской Федерации.</li>
+                                <li>
+                                    <span>Экономическое состояние региона.</span> Москва — явный лидер среди городов страны по темпам реформирования хозяйственной деятельности и перехода экономики к рыночным отношениям. Такое положение Москве удалось занять
+                                    благодаря развитой городской инфраструктуре, широкому спектру недвижимости, включающему современные офисные центры, а также высокому культурному, интеллектуальному и управленческому потенциалу города.</li>
+                            </ol>
+                            <p class="gov-debt__paragraph gov-debt__paragraph_last">Показатели экономики города Москвы обеспечивают стабильно низкое отношение долга к уровню валового регионального продукта (ВРП) города. Так, несмотря на рост долга в абсолютном выражении, его отношение к ВРП по имеющейся оценке
+                                сохраняется на крайне низком уровне — порядка 3%.</p>
                         </div>
                     </div>
                 </div>
@@ -1052,6 +1123,14 @@
                     </div>
                     <input class="login-form__submit" type="submit" value="Отправить" />
                 </form>
+            </div>
+            <a class="close-popup" href="#"></a>
+        </div>
+        <!-- POPUP()-->
+        <div class="popup-reset popup-window" id="reset">
+            <div class="popup-restore__top">Запрос на сброс пароля</div>
+            <div class="popup-restore__wrap">
+                <p class="popup-restore__p">На ваш мейл выслано письмо для подтверждения регистрации</p>
             </div>
             <a class="close-popup" href="#"></a>
         </div>
