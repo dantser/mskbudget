@@ -5,7 +5,6 @@ export default function range() {
 
   if (sliders) {
     sliders.forEach(function(slider) {
-      // console.log(slider.getAttribute('id'));
       noUiSlider.create(document.getElementById(slider.getAttribute('id')), {
         start: [ 33 ],
         range: {
