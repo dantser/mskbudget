@@ -144,6 +144,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 1.285;
+    text-transform: none;
     color: black;
     background-color: rgba(#d2a455, .3);
     @include transited;
@@ -341,9 +342,18 @@
       }
 
       &_expand {
-        padding-top: 35px;
-        padding-bottom: 25px;
+        padding-top: 20px;
+        padding-bottom: 20px;
         border-top: 1px solid #dddddc;
+
+        &-header {
+          padding-top: 0;
+          padding-bottom: 0;
+
+          .budget-calc-app__incomes-column_expand {
+            vertical-align: bottom;
+          }
+        }
       }
 
       .budget-calc-app__notification {
@@ -354,13 +364,14 @@
 
     &-column {
       position: relative;
-      display: table-cell;
-      vertical-align: middle;
+      // display: table-cell;
+      display: inline-block;
+      vertical-align: top;
       padding-top: 17px;
       padding-bottom: 15px;
       font-family: $PFDinCondensedPro;
       font-size: 18px;
-      line-height: 1;
+      line-height: 1.25;
       font-weight: 500;
       text-transform: uppercase;
       color: black;
@@ -373,17 +384,6 @@
 
       @media (max-width: 480px) {
         font-size: 11px;
-      }
-
-      &.-full-width {
-        width: 100% !important;
-        padding-left: 30px !important;
-        padding-right: 30px !important;
-
-        @media (max-width: 768px) {
-          padding-left: 15px !important;
-          padding-right: 15px !important;
-        }
       }
 
       &:nth-child(1) {
@@ -416,6 +416,45 @@
         @media (max-width: 768px) {
           padding-left: 7px;
           padding-right: 15px;
+        }
+      }
+
+      &.col2and3 {
+        width: 55%;
+        padding-right: 30px;
+
+        @media (max-width: 768px) {
+          padding-right: 15px;
+        }
+
+        &-col1 {
+          display: inline-block;
+          width: 65%;
+          padding: 0 !important;
+        }
+
+        &-col2 {
+          display: inline;
+          width: 35%;
+          padding: 0 !important;
+        }
+
+        &-col3 {
+          display: block;
+          margin-top: 10px;
+          width: 100%;
+          padding: 0 !important;
+        }
+      }
+
+      &.-full-width {
+        width: 100% !important;
+        padding-left: 30px !important;
+        padding-right: 30px !important;
+
+        @media (max-width: 768px) {
+          padding-left: 15px !important;
+          padding-right: 15px !important;
         }
       }
 
@@ -454,19 +493,35 @@
       }
 
       &_expand {
-        font-family: $PFDinTextPro;
-        font-size: 14px;
-        font-weight: 400;
-        font-style: normal;
-        text-transform: none;
-
         @media (max-width: 768px) {
           padding-left: 15px;
           padding-right: 15px;
         }
 
+        &.has-checkbox {
+          position: relative;
+
+          .checkbox {
+            position: absolute;
+            margin-top: 2px;
+          }
+
+          .checkbox-text {
+            display: block;
+            padding-left: 25px;
+          }
+        }
+
         .text-muted {
           color: fade-out(black, .6);
+        }
+
+        .text-small {
+          font-family: $PFDinTextPro;
+          font-size: 14px;
+          font-weight: 400;
+          font-style: normal;
+          text-transform: none;
         }
       }
     }
@@ -479,8 +534,8 @@
 
       &-inner {
         opacity: 0;
-        padding-top: 10px;
-        padding-bottom: 30px;
+        padding-top: 0px;
+        padding-bottom: 0px;
         @include transited;
       }
     }

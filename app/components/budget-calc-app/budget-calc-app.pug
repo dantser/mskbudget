@@ -1,5 +1,6 @@
 include ../../blocks/tooltip-icon/tooltip-icon
 include ../../blocks/range/range
+include ../../blocks/checkbox/checkbox
 
 mixin budget-calc-btn(text)
   +b.A.budget-calc-btn(href="#")&attributes(attributes) #{text}
@@ -77,7 +78,7 @@ mixin budget-calc-app()
                 | Внимание! <br>Ежегодные расходы на обслуживание государственного долга изменились на 743,7 млн руб.
               +e.notification._info.text-center.is-active
                 | Если вы хотите сохранить несколько вариантов бюджета, <a href="#">зарегистируйтесь</a>!
-          +e.incomes-row.is-accordeon-row.js-incomes-row-accordeon
+          +e.incomes-row.is-accordeon-row.js-incomes-row-accordeon.is-active
             +e.incomes-column._name
               .has-tooltip
                 +tooltip-icon("текст тултипа")
@@ -90,29 +91,36 @@ mixin budget-calc-app()
               SPAN.-text млн руб.
           +e.incomes-expand
             +e.incomes-expand-inner
-              +e.notification._alert.is-active
-                | Внимание! <br>Ежегодные расходы на обслуживание государственного долга изменились на 743,7 млн руб.
+              +e.incomes-row._expand._expand-header
+                +e.incomes-column._expand
+                  SPAN.text-muted.text-small Налогоплательщики
+                +e.incomes-column._expand
+                  SPAN.text-muted.text-small Налоговая ставка
               +e.incomes-row._expand
                 +e.incomes-column._expand
-                  SPAN.text-muted Налогоплательщики
-                +e.incomes-column._expand
-                  SPAN.text-muted Налоговая ставка
-                +e.incomes-column._expand
-              +e.incomes-row._expand
-                +e.incomes-column._expand Все налогоплательщики
+                  SPAN.text-small Все налогоплательщики
                 +e.incomes-column._expand
                   +range('incomes_allTaxes_Range')
+                +e.incomes-column._value._expand.text-alert
+                  SPAN.-num -464 732,0
+                  SPAN.-text млн руб.
+              +e.notification.is-active Снижение налоговой ставки для большинства налогоплательщиков города Москвы приведет к уменьшению поступлений в городской бюджет
+              +e.incomes-row._expand._expand-header
+                +e.incomes-column._expand
+                  SPAN.text-small.text-muted Льготные категории налогоплательщиков:
+              +e.incomes-row._expand
+                +e.incomes-column._expand
+                  SPAN.text-small Организации, осуществляющие производство легковых автомобилей на территории города Москвы
+                +e.incomes-column._expand
+                  +range('incomes_LgotyProizvodstvoAvto_Range')
                 +e.incomes-column._expand
               +e.incomes-row._expand
-                +e.incomes-column._expand Льготные категории налогоплательщиков:
                 +e.incomes-column._expand
+                  SPAN.text-small Общественные организации инвалидов и организации, использующие труд инвалидов
                 +e.incomes-column._expand
-              +e.incomes-row._expand
-                +e.incomes-column._expand Организации, осуществляющие производство легковых автомобилей на территории города Москвы
-                +e.incomes-column._expand
-                +e.incomes-column._expand
+                  +range('incomes_LgotyInvalidyNaRabote_Range')
 
-          +e.incomes-row.is-accordeon-row.js-incomes-row-accordeon
+          +e.incomes-row.is-accordeon-row.js-incomes-row-accordeon.is-active
             +e.incomes-column._name
               .has-tooltip
                 +tooltip-icon("текст тултипа")
@@ -127,9 +135,11 @@ mixin budget-calc-app()
             +e.incomes-expand-inner
               +e.incomes-row._expand
                 +e.incomes-column._expand
-                  | test
+                  SPAN.text-small Коэффициент, отражающий региональные особенности рынка труда
+                +e.incomes-column._expand
+                  +range('incomes_RegionKoeficient_Range')
 
-          +e.incomes-row.is-accordeon-row.js-incomes-row-accordeon
+          +e.incomes-row.is-accordeon-row.js-incomes-row-accordeon.is-active
             +e.incomes-column._name
               .has-tooltip
                 +tooltip-icon("текст тултипа")
@@ -142,11 +152,23 @@ mixin budget-calc-app()
               SPAN.-text млн руб.
           +e.incomes-expand
             +e.incomes-expand-inner
+              +e.incomes-row._expand._expand-header
+                +e.incomes-column._expand
+                  SPAN.text-muted.text-small Налоговая база
+                +e.incomes-column._expand
+                  SPAN.text-muted.text-small Налоговая ставка
               +e.incomes-row._expand
                 +e.incomes-column._expand
-                  | test
+                  SPAN.text-small Среднегодовая стоимость движимого и недвижимого имущества
+                +e.incomes-column._expand
+                  +range('incomes_AveragePropertyValue_Range')
+              +e.incomes-row._expand
+                +e.incomes-column._expand
+                  SPAN.text-small Кадастровая стоимость недвижимого имущества
+                +e.incomes-column._expand
+                  +range('incomes_AveragePropertyValueKadastr_Range')
 
-          +e.incomes-row.is-accordeon-row.js-incomes-row-accordeon
+          +e.incomes-row.is-accordeon-row.js-incomes-row-accordeon.is-active
             +e.incomes-column._name
               .has-tooltip
                 +tooltip-icon("текст тултипа")
@@ -154,16 +176,94 @@ mixin budget-calc-app()
             +e.incomes-column._value
               SPAN.-percent-num 45,6
               SPAN.-percent-text %
-            +e.incomes-column._value
+            +e.incomes-column._value.text-alert
               SPAN.-num 729 284,6
               SPAN.-text млн руб.
           +e.incomes-expand
             +e.incomes-expand-inner
+              +e.incomes-row._expand._expand-header
+                +e.incomes-column._expand
+                  SPAN.text-small.text-muted Объекты налогообложения — <br>легковые автомобили мощностью:
+                +e.incomes-column._expand
+                  SPAN.text-small.text-muted Налоговая ставка
               +e.incomes-row._expand
                 +e.incomes-column._expand
-                  | test
+                  SPAN.text-small до 100 л.с.
+                +e.incomes-column._expand
+                  +range('incomes_TransportLessThan100Hp_Range')
+              +e.incomes-row._expand
+                +e.incomes-column._expand
+                  SPAN.text-small свыше 100 л.с. до 125 л.с.
+                +e.incomes-column._expand
+                  +range('incomes_Transport100-125Hp_Range')
+              +e.incomes-row._expand
+                +e.incomes-column._expand
+                  SPAN.text-small свыше 125 л.с. до 150 л.с.
+                +e.incomes-column._expand
+                  +range('incomes_Transport125-150Hp_Range')
+              +e.incomes-row._expand
+                +e.incomes-column._expand
+                  SPAN.text-small свыше 150 л.с. до 175 л.с.
+                +e.incomes-column._expand
+                  +range('incomes_Transport150-175Hp_Range')
+              +e.incomes-row._expand
+                +e.incomes-column._expand
+                  SPAN.text-small свыше 175 л.с. до 200 л.с.
+                +e.incomes-column._expand
+                  +range('incomes_Transport175-200Hp_Range')
+              +e.incomes-row._expand
+                +e.incomes-column._expand
+                  SPAN.text-small свыше 200 л.с. до 225 л.с.
+                +e.incomes-column._expand
+                  +range('incomes_Transport200-225Hp_Range')
+              +e.incomes-row._expand
+                +e.incomes-column._expand
+                  SPAN.text-small свыше 225 л.с. до 250 л.с.
+                +e.incomes-column._expand
+                  +range('incomes_Transport225-250Hp_Range')
+              +e.incomes-row._expand
+                +e.incomes-column._expand
+                  SPAN.text-small свыше 250 л.с.
+                +e.incomes-column._expand
+                  +range('incomes_TransportMoreThan250Hp_Range')
+              +e.notification.is-active Изменение налоговых ставок в большую или меньшую сторону приведет к увеличению/снижению поступлений в городской бюджет. При изменении ставок необходимо учитывать принцип соизмеримости, согласно которому ставка для автомобиля меньшей мощности не может превышать ставку для автомобиля большей мощности.
 
-          +e.incomes-row.is-accordeon-row.js-incomes-row-accordeon
+              +e.incomes-row._expand
+                +e.incomes-column._expand
+                  SPAN.text-small Как Вы считаете, для каких категорий организаций и граждан следует отменить налоговые льготы?
+
+                +e.incomes-column._expand.col2and3
+                  +e.incomes-row._expand
+                    +e.incomes-column._expand.has-checkbox.col2and3-col1
+                      +checkbox()
+                      SPAN.text-small.checkbox-text Организации, оказывающие услуги по перевозке пассажиров городским пассажирским транспортом общего пользования, — по транспортным средствам, осуществляющим перевозки пассажиров (кроме такси)
+                    +e.incomes-column._value._expand.text-success.col2and3-col2
+                      SPAN.-num +84,6
+                      SPAN.-text млн руб.
+                    +e.incomes-column._expand.col2and3-col3
+                      +e.notification.is-active Отмена льготы по налогу для городского пассажирского транспорта приведет к увеличению стоимости проезда на общественном транспорте.
+
+                  +e.incomes-row._expand
+                    +e.incomes-column._expand.has-checkbox.col2and3-col1
+                      +checkbox()
+                      SPAN.text-small.checkbox-text Лица, имеющие легковые автомобили с мощностью двигателя до 70 л.с. включительно (за одно транспортное средство)
+                    +e.incomes-column._value._expand.text-alert.col2and3-col2
+                      SPAN.-num -834 342,6
+                      SPAN.-text млн руб.
+                    +e.incomes-column._expand.col2and3-col3
+                      +e.notification.is-active Отмена льготы для владельцев маломощных автомобилей окажет дестимулирующее влияние на приобретение и использование автомобилей указанной категории, при том что такие автомобили причиняют наименьший вред экологии города и оказывают наименьшую нагрузку на дорожно-транспортную инфраструктуру.
+
+                  +e.incomes-row._expand
+                    +e.incomes-column._expand.has-checkbox.col2and3-col1
+                      +checkbox()
+                      SPAN.text-small.checkbox-text Один из родителей (усыновителей) в многодетной семье (за одно транспортное средство)
+                    +e.incomes-column._value._expand.text-success.col2and3-col2
+                      SPAN.-num 34 342,6
+                      SPAN.-text млн руб.
+                    +e.incomes-column._expand.col2and3-col3
+                      +e.notification.is-active Отмена льготы, предоставляемой одному из родителей (усыновителей) в многодетной семье, увеличит налоговую нагрузку на указанную семью, при этом наличие вместительного автомобиля в многодетной семье является оправданной необходимостью, а не предметом роскоши.
+
+          +e.incomes-row.is-accordeon-row.js-incomes-row-accordeon.is-active
             +e.incomes-column._name
               .has-tooltip
                 +tooltip-icon("текст тултипа")
@@ -176,11 +276,78 @@ mixin budget-calc-app()
               SPAN.-text млн руб.
           +e.incomes-expand
             +e.incomes-expand-inner
+              +e.incomes-row._expand._expand-header
+                +e.incomes-column._expand
+                  SPAN.text-small.text-muted Объекты налогообложения
+                +e.incomes-column._expand
+                  SPAN.text-small.text-muted Налоговая ставка
               +e.incomes-row._expand
                 +e.incomes-column._expand
-                  | test
+                  SPAN.text-small Земельные участки, отнесенные к землям в составе зон сельскохозяйственного использования в городе Москве и используемые для сельскохозяйственного производства
+                +e.incomes-column._expand
+                  +range('incomes_LandsSelhoz_Range')
+              +e.incomes-row._expand
+                +e.incomes-column._expand
+                  SPAN.text-small Земельные участки, занятые жилищным фондом и объектами инженерной инфраструктуры жилищно-коммунального комплекса или предоставленные для жилищного строительства
+                +e.incomes-column._expand
+                  +range('incomes_LandsZhilye_Range')
+              +e.incomes-row._expand
+                +e.incomes-column._expand
+                  SPAN.text-small Земельные участки, предоставленные для ведения личного подсобного хозяйства, садоводства, огородничества или животноводства, а также дачного хозяйства и дачного строительства
+                +e.incomes-column._expand
+                  +range('incomes_LandsPersonal_Range')
+              +e.incomes-row._expand
+                +e.incomes-column._expand
+                  SPAN.text-small Прочие земельные участки
+                +e.incomes-column._expand
+                  +range('incomes_LandsMisc_Range')
 
-          +e.incomes-row.is-accordeon-row.js-incomes-row-accordeon
+              +e.incomes-row._expand
+                +e.incomes-column._expand
+                  SPAN.text-small Как Вы считаете, для каких категорий организаций следует отменить налоговые льготы?
+
+                +e.incomes-column._expand.col2and3
+                  +e.incomes-row._expand
+                    +e.incomes-column._expand.has-checkbox.col2and3-col1
+                      +checkbox()
+                      SPAN.text-small.checkbox-text ТСЖ, ЖК, ЖСК и иные специализированные потребительские кооперативы, созданные в целях удовлетворения потребностей граждан в жилье
+                    +e.incomes-column._value._expand.text-success.col2and3-col2
+                      SPAN.-num +7,8
+                      SPAN.-text млн руб.
+                    +e.incomes-column._expand.col2and3-col3
+                      +e.notification.is-active Отмена льготы для ТСЖ, ЖК, ЖСК и иных организаций с аналогичными функциями приведет к росту затрат участников данных организаций в связи с необходимостью уплаты налога
+
+                  +e.incomes-row._expand
+                    +e.incomes-column._expand.has-checkbox.col2and3-col1
+                      +checkbox()
+                      SPAN.text-small.checkbox-text Негосударственные некоммерческие организации
+                    +e.incomes-column._value._expand.text-success.col2and3-col2
+                      SPAN.-num +7,8
+                      SPAN.-text млн руб.
+                    +e.incomes-column._expand.col2and3-col3
+                      +e.notification.is-active Отмена льготы для негосударственных НКО повлечет увеличение налоговой нагрузки на данные организации, что может привести к росту стоимости оказываемых социально значимых услуг
+
+                  +e.incomes-row._expand
+                    +e.incomes-column._expand.has-checkbox.col2and3-col1
+                      +checkbox()
+                      SPAN.text-small.checkbox-text Организации, которым в установленном порядке присвоен статус государственного научного центра РФ
+                    +e.incomes-column._value._expand.text-success.col2and3-col2
+                      SPAN.-num +7,8
+                      SPAN.-text млн руб.
+                    +e.incomes-column._expand.col2and3-col3
+                      +e.notification.is-active Отмена льготы для государственных научных центров РФ приведет к необходимости осуществления расходов на уплату налога за счет сокращения других расходов
+
+                  +e.incomes-row._expand
+                    +e.incomes-column._expand.has-checkbox.col2and3-col1
+                      +checkbox()
+                      SPAN.text-small.checkbox-text Организации, у которых доля дохода от реализации продукции собственного производства в общем доходе от реализации товаров (работ, услуг) составляет не менее 70%
+                    +e.incomes-column._value._expand.text-success.col2and3-col2
+                      SPAN.-num +7,8
+                      SPAN.-text млн руб.
+                    +e.incomes-column._expand.col2and3-col3
+                      +e.notification.is-active Отмена льготы для промышленных предприятий окажет сдерживающее влияние на развитие производственного сектора городской экономики и создание новых рабочих мест для москвичей
+
+          +e.incomes-row.is-accordeon-row.js-incomes-row-accordeon.is-active
             +e.incomes-column._name
               .has-tooltip
                 +tooltip-icon("текст тултипа")
@@ -193,9 +360,25 @@ mixin budget-calc-app()
               SPAN.-text млн руб.
           +e.incomes-expand
             +e.incomes-expand-inner
+              +e.incomes-row._expand._expand-header
+                +e.incomes-column._expand
+                  SPAN.text-small.text-muted Объекты налогообложения
+                +e.incomes-column._expand
+                  SPAN.text-small.text-muted Налоговая ставка
+
               +e.incomes-row._expand
                 +e.incomes-column._expand
-                  | test
+                  SPAN.text-small Доходы
+                +e.incomes-column._expand
+                  +range('incomes_EasyIncome_Range')
+
+              +e.incomes-row._expand
+                +e.incomes-column._expand
+                  SPAN.text-small Доходы, уменьшенные на величину расходов
+                +e.incomes-column._expand
+                  +range('incomes_DifferenceIncome_Range')
+
+
           +e.incomes-row
             +e.incomes-column._name
               .has-tooltip
