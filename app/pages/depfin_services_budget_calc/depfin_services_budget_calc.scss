@@ -1,33 +1,14 @@
-// .test {
-//   position: relative;
-//   overflow: hidden;
-
-//   &__col-l {
-//     @include debug;
-//     @include outline;
-//     float: none;
-//     width: 220px;
-//     height: 100px;
-//   }
-
-//   &__col-r {
-//     @include debug;
-//     float: right;
-//     display: none;
-//     height: 600px;
-
-//     &.is-active {
-//       display: block;
-//     }
-//   }
-// }
-
-
 .budget-calc-page {
-
+  // помоги себе сам
   .text-center  { text-align: center; }
   .text-alert   { color: #eb212e !important; }
   .text-success { color: #73b20f !important; }
+  .hidden-sm   { @media (max-width: 1024px) { display: none !important; } }
+  .hidden-xs   { @media (max-width: 768px)  { display: none !important; } }
+  .hidden-xxs  { @media (max-width: 480px)  { display: none !important; } }
+  .visible-sm  { @media (min-width: 1025px) { display: none !important; } }
+  .visible-xs  { @media (min-width: 769px)  { display: none !important; } }
+  .visible-xxs { @media (min-width: 481px)  { display: none !important; } }
 
   .sections-budget__bg {
     @include bg-cover;
@@ -72,7 +53,11 @@
   }
 
   &__ahead {
-    margin-bottom: 20px;
+    margin-bottom: 0px;
+  }
+
+  .d-si__head_icons {
+    margin-bottom: 0;
   }
 
   &__page-header {
@@ -83,7 +68,7 @@
     display: none;
 
     &-description {
-      margin: 30px 0;
+      margin: 32px 0;
       max-width: 815px;
       font-family: $PFDinTextPro;
       font-size: 14px;
@@ -91,7 +76,7 @@
       font-weight: 400;
 
       @media (max-width: 480px) {
-        display: none;
+        margin: 14px 0;
       }
     }
 

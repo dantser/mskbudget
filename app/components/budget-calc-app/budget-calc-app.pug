@@ -57,7 +57,7 @@ mixin budget-calc-app()
             +e.incomes-column
             +e.incomes-column._heading Доля в общем объеме доходов
             +e.incomes-column._heading Сумма поступлений
-          +e.incomes-row.is-active
+          +e.incomes-row
             +e.incomes-column._name
               .has-tooltip
                 +tooltip-icon("текст тултипа")
@@ -78,7 +78,8 @@ mixin budget-calc-app()
                 | Внимание! <br>Ежегодные расходы на обслуживание государственного долга изменились на 743,7 млн руб.
               +e.notification._info.text-center.is-active
                 | Если вы хотите сохранить несколько вариантов бюджета, <a href="#">зарегистируйтесь</a>!
-          +e.incomes-row.is-accordeon-row.js-incomes-row-accordeon.is-active
+
+          +e.incomes-row.is-accordeon-row.js-incomes-row-accordeon
             +e.incomes-column._name
               .has-tooltip
                 +tooltip-icon("текст тултипа")
@@ -98,8 +99,9 @@ mixin budget-calc-app()
                   SPAN.text-muted.text-small Налоговая ставка
               +e.incomes-row._expand
                 +e.incomes-column._expand
-                  SPAN.text-small Все налогоплательщики
+                  SPAN.text-small <span class="visible-xs">Налогоплательщики: </span>Все налогоплательщики
                 +e.incomes-column._expand
+                  .visible-xs.text-small Налоговая ставка
                   +range('incomes_allTaxes_Range')
                 +e.incomes-column._value._expand.text-alert
                   SPAN.-num -464 732,0
@@ -110,17 +112,19 @@ mixin budget-calc-app()
                   SPAN.text-small.text-muted Льготные категории налогоплательщиков:
               +e.incomes-row._expand
                 +e.incomes-column._expand
-                  SPAN.text-small Организации, осуществляющие производство легковых автомобилей на территории города Москвы
+                  SPAN.text-small <span class="visible-xs">Льготные категории налогоплательщиков: </span>Организации, осуществляющие производство легковых автомобилей на территории города Москвы
                 +e.incomes-column._expand
+                  .visible-xs.text-small Налоговая ставка
                   +range('incomes_LgotyProizvodstvoAvto_Range')
                 +e.incomes-column._expand
               +e.incomes-row._expand
                 +e.incomes-column._expand
-                  SPAN.text-small Общественные организации инвалидов и организации, использующие труд инвалидов
+                  SPAN.text-small <span class="visible-xs">Льготные категории налогоплательщиков: </span>Общественные организации инвалидов и организации, использующие труд инвалидов
                 +e.incomes-column._expand
+                  .visible-xs.text-small Налоговая ставка
                   +range('incomes_LgotyInvalidyNaRabote_Range')
 
-          +e.incomes-row.is-accordeon-row.js-incomes-row-accordeon.is-active
+          +e.incomes-row.is-accordeon-row.js-incomes-row-accordeon
             +e.incomes-column._name
               .has-tooltip
                 +tooltip-icon("текст тултипа")
@@ -139,7 +143,7 @@ mixin budget-calc-app()
                 +e.incomes-column._expand
                   +range('incomes_RegionKoeficient_Range')
 
-          +e.incomes-row.is-accordeon-row.js-incomes-row-accordeon.is-active
+          +e.incomes-row.is-accordeon-row.js-incomes-row-accordeon
             +e.incomes-column._name
               .has-tooltip
                 +tooltip-icon("текст тултипа")
@@ -159,13 +163,15 @@ mixin budget-calc-app()
                   SPAN.text-muted.text-small Налоговая ставка
               +e.incomes-row._expand
                 +e.incomes-column._expand
-                  SPAN.text-small Среднегодовая стоимость движимого и недвижимого имущества
+                  SPAN.text-small <span class="visible-xs">Налоговая база: </span>Среднегодовая стоимость движимого и недвижимого имущества
                 +e.incomes-column._expand
+                  .visible-xs.text-small Налоговая ставка
                   +range('incomes_AveragePropertyValue_Range')
               +e.incomes-row._expand
                 +e.incomes-column._expand
-                  SPAN.text-small Кадастровая стоимость недвижимого имущества
+                  SPAN.text-small <span class="visible-xs">Налоговая база: </span>Кадастровая стоимость недвижимого имущества
                 +e.incomes-column._expand
+                  .visible-xs.text-small Налоговая ставка
                   +range('incomes_AveragePropertyValueKadastr_Range')
 
           +e.incomes-row.is-accordeon-row.js-incomes-row-accordeon.is-active
@@ -188,43 +194,51 @@ mixin budget-calc-app()
                   SPAN.text-small.text-muted Налоговая ставка
               +e.incomes-row._expand
                 +e.incomes-column._expand
-                  SPAN.text-small до 100 л.с.
+                  SPAN.text-small <span class="visible-xs">Объекты налогообложения — легковые автомобили мощностью: </span> до 100 л.с.
                 +e.incomes-column._expand
+                  .visible-xs.text-small Налоговая ставка
                   +range('incomes_TransportLessThan100Hp_Range')
               +e.incomes-row._expand
                 +e.incomes-column._expand
-                  SPAN.text-small свыше 100 л.с. до 125 л.с.
+                  SPAN.text-small <span class="visible-xs">Объекты налогообложения — легковые автомобили мощностью: </span> свыше 100 л.с. до 125 л.с.
                 +e.incomes-column._expand
+                  .visible-xs.text-small Налоговая ставка
                   +range('incomes_Transport100-125Hp_Range')
               +e.incomes-row._expand
                 +e.incomes-column._expand
-                  SPAN.text-small свыше 125 л.с. до 150 л.с.
+                  SPAN.text-small <span class="visible-xs">Объекты налогообложения — легковые автомобили мощностью: </span> свыше 125 л.с. до 150 л.с.
                 +e.incomes-column._expand
+                  .visible-xs.text-small Налоговая ставка
                   +range('incomes_Transport125-150Hp_Range')
               +e.incomes-row._expand
                 +e.incomes-column._expand
-                  SPAN.text-small свыше 150 л.с. до 175 л.с.
+                  SPAN.text-small <span class="visible-xs">Объекты налогообложения — легковые автомобили мощностью: </span> свыше 150 л.с. до 175 л.с.
                 +e.incomes-column._expand
+                  .visible-xs.text-small Налоговая ставка
                   +range('incomes_Transport150-175Hp_Range')
               +e.incomes-row._expand
                 +e.incomes-column._expand
-                  SPAN.text-small свыше 175 л.с. до 200 л.с.
+                  SPAN.text-small <span class="visible-xs">Объекты налогообложения — легковые автомобили мощностью: </span> свыше 175 л.с. до 200 л.с.
                 +e.incomes-column._expand
+                  .visible-xs.text-small Налоговая ставка
                   +range('incomes_Transport175-200Hp_Range')
               +e.incomes-row._expand
                 +e.incomes-column._expand
-                  SPAN.text-small свыше 200 л.с. до 225 л.с.
+                  SPAN.text-small <span class="visible-xs">Объекты налогообложения — легковые автомобили мощностью: </span> свыше 200 л.с. до 225 л.с.
                 +e.incomes-column._expand
+                  .visible-xs.text-small Налоговая ставка
                   +range('incomes_Transport200-225Hp_Range')
               +e.incomes-row._expand
                 +e.incomes-column._expand
-                  SPAN.text-small свыше 225 л.с. до 250 л.с.
+                  SPAN.text-small <span class="visible-xs">Объекты налогообложения — легковые автомобили мощностью: </span> свыше 225 л.с. до 250 л.с.
                 +e.incomes-column._expand
+                  .visible-xs.text-small Налоговая ставка
                   +range('incomes_Transport225-250Hp_Range')
               +e.incomes-row._expand
                 +e.incomes-column._expand
-                  SPAN.text-small свыше 250 л.с.
+                  SPAN.text-small <span class="visible-xs">Объекты налогообложения — легковые автомобили мощностью: </span> свыше 250 л.с.
                 +e.incomes-column._expand
+                  .visible-xs.text-small Налоговая ставка
                   +range('incomes_TransportMoreThan250Hp_Range')
               +e.notification.is-active Изменение налоговых ставок в большую или меньшую сторону приведет к увеличению/снижению поступлений в городской бюджет. При изменении ставок необходимо учитывать принцип соизмеримости, согласно которому ставка для автомобиля меньшей мощности не может превышать ставку для автомобиля большей мощности.
 
@@ -263,7 +277,7 @@ mixin budget-calc-app()
                     +e.incomes-column._expand.col2and3-col3
                       +e.notification.is-active Отмена льготы, предоставляемой одному из родителей (усыновителей) в многодетной семье, увеличит налоговую нагрузку на указанную семью, при этом наличие вместительного автомобиля в многодетной семье является оправданной необходимостью, а не предметом роскоши.
 
-          +e.incomes-row.is-accordeon-row.js-incomes-row-accordeon.is-active
+          +e.incomes-row.is-accordeon-row.js-incomes-row-accordeon
             +e.incomes-column._name
               .has-tooltip
                 +tooltip-icon("текст тултипа")
@@ -347,7 +361,7 @@ mixin budget-calc-app()
                     +e.incomes-column._expand.col2and3-col3
                       +e.notification.is-active Отмена льготы для промышленных предприятий окажет сдерживающее влияние на развитие производственного сектора городской экономики и создание новых рабочих мест для москвичей
 
-          +e.incomes-row.is-accordeon-row.js-incomes-row-accordeon.is-active
+          +e.incomes-row.is-accordeon-row.js-incomes-row-accordeon
             +e.incomes-column._name
               .has-tooltip
                 +tooltip-icon("текст тултипа")
