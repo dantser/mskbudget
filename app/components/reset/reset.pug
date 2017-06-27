@@ -1,0 +1,19 @@
+include ../page-header/page-header
+
+mixin reset()
+	+b.reset&attributes(attributes)
+		.wrapper.page-content-wrapper
+			
+			+page-header('Восстановление пароля', false, true)
+
+			+e.FORM(action='', method='POST').form
+
+				+e.field._d1
+					+e.LABEL(for='r-newpass').label Новый пароль
+					+e.INPUT(id='r-newpass', type='text', name='newpass', value='').text
+
+				+e.field._d2
+					+e.LABEL(for='r-repeatpass').label Повторите новый пароль
+					+e.INPUT(id='r-repeatpass', type='text', name='repeatpass', value='').text
+
+				+e.INPUT(type='submit', value='Отправить').submit
