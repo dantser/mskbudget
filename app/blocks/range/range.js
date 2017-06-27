@@ -12,7 +12,7 @@ export default function range() {
           'max': 100
         },
         // connect: [false, true],
-        tooltips: [true],
+        // tooltips: [true],
         // pips: {
         //   mode: 'values',
         //   values: [20, 80],
