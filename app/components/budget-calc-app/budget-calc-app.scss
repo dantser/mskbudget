@@ -132,7 +132,7 @@
     padding: 10px 15px;
     margin-left: 30px;
     margin-right: 30px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     font-family: $PFDinTextPro;
     font-weight: 400;
     font-size: 14px;
@@ -226,7 +226,7 @@
         display: inline-block;
         height: 180px;
 
-        &:nth-child(4) {
+        &:nth-child(3) {
           margin-right: 0;
         }
       }
@@ -319,17 +319,37 @@
       display: none;
       position: relative;
       overflow: hidden;
-      padding-top: 20px;
-      padding-bottom: 20px;
       background-color: #f6f6f5;
       border-top: 1px solid #dddddc;
 
-      &:first-child {
-        border-top: none;
+      @media (min-width: 769px) {
+        padding-top: 20px;
+        padding-bottom: 20px;
       }
 
       .table-row_expand {
         display: inherit;
+      }
+
+      &:first-child {
+        border-top-color: transparent;
+      }
+
+      .table-row {
+        @media (max-width: 768px) {
+          padding-top: 20px;
+          padding-bottom: 20px;
+        }
+
+        &:first-of-type {
+          border-top-color: transparent;
+        }
+      }
+
+      .table-row_expand-header + .table-row {
+        @media (max-width: 768px) {
+          border-top-color: transparent;
+        }
       }
 
       .inner {
@@ -337,6 +357,28 @@
         padding-top: 0px;
         padding-bottom: 0px;
         @include transited;
+      }
+
+      .table-row__column {
+        font-family: $PFDinTextPro;
+        font-size: 14px;
+        font-weight: 400;
+        font-style: normal;
+        text-transform: none;
+
+        @media (max-width: 768px) {
+          &:nth-child(1),
+          &:nth-child(2),
+          &:nth-child(3) {
+            display: block;
+            width: 100%;
+            padding: 0 15px;
+          }
+
+          &:not(:last-child) {
+            margin-bottom: 15px;
+          }
+        }
       }
     }
 
@@ -348,7 +390,7 @@
         display: none;
       }
 
-      .table-row__column_expand {
+      .table-row__column {
         vertical-align: bottom;
       }
     }
@@ -357,7 +399,8 @@
       background-color: #f6f6f5;
 
       + .table-row_expand {
-        display: inherit;
+        display: table;
+        border-top-color: transparent;
 
         .inner {
           opacity: 1;
@@ -367,6 +410,14 @@
 
     &.is-accordeon-row {
       cursor: pointer;
+
+      .table-row__column_name {
+        .-text {
+          line-height: 1.6;
+          color: #0d46a1;
+          border-bottom: 1px dashed rgba(#0d46a1, .5);
+        }
+      }
 
       &:hover {
         background-color: fade-out(#f6f6f5, .5);
@@ -388,7 +439,7 @@
 
       @media (max-width: 768px) {
         padding-top: 14px;
-        padding-bottom: 10px;
+        padding-bottom: 12px;
         font-size: 16px;
       }
 
@@ -396,53 +447,21 @@
         font-size: 11px;
       }
 
-      &_name {
-        .-text {
-          line-height: 1.6;
-
-          .is-accordeon-row & {
-            color: #0d46a1;
-            border-bottom: 1px dashed rgba(#0d46a1, .5);
-          }
-        }
-      }
-
-
       .text-muted {
         color: fade-out(black, .6);
       }
 
-      // column ._expand
-      .table-row_expand & {
-        font-family: $PFDinTextPro;
-        font-size: 14px;
-        font-weight: 400;
-        font-style: normal;
-        text-transform: none;
+      &.has-checkbox {
+        position: relative;
 
-        @media (max-width: 768px) {
-          &:nth-child(1),
-          &:nth-child(2),
-          &:nth-child(3) {
-            display: block;
-            width: 100%;
-            padding-left: 15px;
-            padding-right: 15px;
-          }
+        .checkbox {
+          position: absolute;
+          margin-top: 2px;
         }
 
-        &.has-checkbox {
-          position: relative;
-
-          .checkbox {
-            position: absolute;
-            margin-top: 2px;
-          }
-
-          .checkbox-text {
-            display: block;
-            padding-left: 25px;
-          }
+        .checkbox-text {
+          display: block;
+          padding-left: 25px;
         }
       }
 
@@ -487,6 +506,18 @@
           padding-right: 15px;
         }
 
+        .table-row {
+          &:not(:first-child) {
+            padding-top: 15px;
+            margin-top: 10px;
+          }
+        }
+
+        .notification {
+          margin-left: 0;
+          margin-right: 0;
+        }
+
         &-col1 {
           display: inline-block;
           width: 65%;
@@ -498,15 +529,19 @@
           width: 35%;
           padding: 0 !important;
 
-          &.budget-calc-app__incomes-column_value {
+          &.table-row__column_value {
+            vertical-align: top;
+            font-family: $PFDinCondensedPro;
+            font-size: 18px;
+            line-height: 1;
+            font-weight: 500;
+            text-transform: uppercase;
+
             @media (max-width: 768px) {
               margin-top: 10px;
               text-align: right;
-
-              > span {
-                display: inline;
-                font-size: 15px;
-              }
+              display: block;
+              font-size: 15px;
             }
           }
         }
@@ -554,14 +589,29 @@
 
   // расходы
   &__costs {
-    @include display-flex;
-    @include flex-wrap(wrap);
+    overflow: hidden;
     padding: 0 10px;
     margin-bottom: 20px;
 
     &-item {
       padding: 15px 20px 0;
-      width: 33.33%;
+
+      // сетка
+      @media (min-width: 1100px) {
+        float: left;
+        width: 33.33%;
+
+        &:nth-of-type(3n) { clear: right; }
+        &:nth-of-type(3n+1) { clear: left; }
+      }
+
+      @media (min-width: 640px) and (max-width: 1099px) {
+        float: left;
+        width: 50%;
+
+        &:nth-of-type(2n) { clear: right; }
+        &:nth-of-type(2n+1) { clear: left; }
+      }
 
       &-icon {
         position: relative;

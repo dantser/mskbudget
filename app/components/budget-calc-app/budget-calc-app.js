@@ -35,10 +35,12 @@ export default() => {
 
   // перенос блоков "проверить бюджет" и "вернуть исходные значения"
   // в футер калькулятора на экранах 1024 пикселя и меньше шириной
+  // + перенос виджета "Баланс" наверх в мобильной версии
   const blocksToMoveClass = '.js-moveAroundThoseWidgets';
   const $calcAppFooter = $('#budget-calc-app__footer');
   const $calcAppSidebar = $('#budget-calc-app__sidebar');
   const $blocksToMove = $(blocksToMoveClass);
+  const $widgetBalance = $('#budget-calc-app__widget_not-balanced');
 
   function screenWidth() {
      return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth || 0;
@@ -49,12 +51,14 @@ export default() => {
 
     if (screenWidth() > 1024 && !nowTheyInSidebar) {
       $blocksToMove.appendTo($calcAppSidebar);
+      $widgetBalance.removeClass('mr0').insertAfter('#budget-calc-app__tab_balance-indicator');
     } else if (screenWidth() <= 1024 && nowTheyInSidebar) {
       $blocksToMove.appendTo($calcAppFooter);
+      $widgetBalance.addClass('mr0').prependTo($calcApp);
     }
   }
 
-  if ($calcAppFooter && $calcAppSidebar && $blocksToMove) {
+  if ($calcAppFooter && $calcAppSidebar && $blocksToMove && $widgetBalance) {
     window.addEventListener('load', moveAroundThoseWidgets);
     window.addEventListener('resize', moveAroundThoseWidgets);
   }
