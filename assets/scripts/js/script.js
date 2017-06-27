@@ -19,6 +19,16 @@ window.onload = function () {
                     //after init module
                 }
             });
+            
+            var car_count = $("#count");
+            var $dslide = $(".carousel-3d-slide");
+    
+            car_count.html(($dslide.filter(".current").index() + 1) + " из " + $dslide.length);
+    
+            $("body").on("click mousemove", "#carousel", function (event) {
+                car_count.html(($dslide.filter(".current").index() + 1) + " из " + $dslide.length);
+            });
+          
         } else {
             var $carousel_count = $(".carousel-count", $carousel),
                 $ar_left = $(".ar-left", $carousel),
@@ -86,14 +96,6 @@ window.onload = function () {
 
             $carousel_count.html(($d_slide.filter("._active").index() + 1) + " из " + $d_slide.length);
         }
-        var car_count = $("#count");
-        var $dslide = $(".carousel-3d-slide");
-
-        car_count.html(($dslide.filter(".current").index() + 1) + " из " + $dslide.length);
-
-        $("body").on("click mousemove", "#carousel", function (event) {
-            car_count.html(($dslide.filter(".current").index() + 1) + " из " + $dslide.length);
-        });
     }
 
     //$(".scroll-pane").mCustomScrollbar();
