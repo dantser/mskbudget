@@ -132,8 +132,6 @@ $.mask = {
 });
 var initDp;
 $(document).ready(function() {
-
-
     function e(e) {
         return /^(0?[1-9]|[12][0-9]|3[01])\.(0?(?:[1-9]|1[0-2]))\.[0-9]{2}$/.test(e)
     }
@@ -201,25 +199,15 @@ $(document).ready(function() {
         onSelect: function(e, t) {
             var a = $(this).attr("data-range"),
                 n = $(this).parent().attr("data-range-box");
-            "max" == a ? ($("#" + n + " .input-max").val(e), $(".range-datepicker").fadeOut(321), $(".range-datepicker__item_min, .range-datepicker__item_max").removeAttr("style"), $(".input-max").removeClass('focused'), $(".form__date-range").removeClass("form__date-range_focus")) : "min" == a && ($("#" + n + " .input-min").val(e), $(this).fadeOut(321).next().fadeIn(321), $('#rid-0').children('.input-max').addClass('focused'),
-            $(".range-datepicker__item_max").datepicker("option", {
+            "max" == a ? ($("#" + n + " .input-max").val(e), $(".range-datepicker").fadeOut(321), $(".range-datepicker__item_min, .range-datepicker__item_max").removeAttr("style"), $(".form__date-range").removeClass("form__date-range_focus")) : "min" == a && ($("#" + n + " .input-min").val(e), $(this).fadeOut(321).next().fadeIn(321), $(".range-datepicker__item_max").datepicker("option", {
                 minDate: e
             }))
-            // console.log(this);
-            // if ($(this).parents('.range-datepicker').attr('data-range-box') == $('.form__date-range').attr('id')) {
-            //
-            //   console.log($('.form__date-range').attr('id'));
-            // }
-
-            if ($('[data-range-box="rid-1"]').is(':visible')) {
-              $('#rid-0').find('.form__date-range-input').removeClass('focused');
-            }
         }
     }),
 
 // Клик на иконку
     $(document).on("click", ".form__date-range-icon", function() {
-        $(".form__date-range").removeClass("form__date-range_focus"), $(".input-max").removeClass('focused'), $(this).parent().find(".input-min").focus()
+        $(".form__date-range").removeClass("form__date-range_focus"), $(this).parent().find(".input-min").focus()
     })), $(".jq-f-datepicker").length > 0 && ($(".form__date-range").each(function(e) {
         $(this).attr("id", "rid-" + e)
     }), $(".jq-f-datepicker").focus(function(e) {
@@ -240,19 +228,12 @@ $(document).ready(function() {
                     r = a.parent().find(".input-min").val();
                 e(n) && e(r) ? t(n, r) || a.val("дд.мм.гг") : a.val("дд.мм.гг")
             } else if (a.hasClass("input-min")) {
-                $(".input-max").removeClass('focused');
                 var r = a.val(),
                     n = a.parent().find(".input-max").val();
                 e(r) ? e(n) && (t(n, r) || a.val("дд.мм.гг")) : a.val("дд.мм.гг")
             }
-        } else {
-          a.val("дд.мм.гг");
-          a.parent().find(".input-max").addClass('focused');
-      }
-
-
+        } else a.val("дд.мм.гг")
     }), $("#form-find-document").submit(function() {
-      $(".input-max").removeClass('focused');
         var a = !0;
         return $(this).find(".form__date-range").each(function() {
             var n = $(this),
@@ -273,7 +254,7 @@ $(document).ready(function() {
         var e = $(this).parent().parent().parent().parent();
         if (!$(this).hasClass("datepicker__a_act")) {
             var t = e.find(".datepicker__show").text().split(".");
-            e.find(".datepicker__show").text(t[0] + "." + t[1] + "." + $(this).text()), e.find(".datepicker__col_years a").removeClass("datepicker__a_act"), $(this).addClass("datepicker__a_act");
+            e.find(".datepicker__show").text(t[0] + "." + t[1] + "." + $(this).text()), e.find(".datepicker__col_years a").removeClass("datepicker__a_act"), $(this).addClass("datepicker__a_act")
         }
         return !1
     }), $(document).on("click", ".datepicker__col_months a", function() {
@@ -313,5 +294,4 @@ $(document).ready(function() {
         var e = $(this);
         return e.hasClass("active") ? e.removeClass("active") : e.addClass("active"), !1
     })
-
 });
