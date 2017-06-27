@@ -127,7 +127,7 @@
   }
 
   // сообщения в теле калькулятор
-  &__notification {
+  .notification {
     display: none;
     padding: 10px 15px;
     margin-left: 30px;
@@ -299,66 +299,81 @@
     &.costs-darts { fill: #ccdd0f; }
   }
 
-  // доходы
-  &__incomes {
-    margin-top: 35px;
-    margin-bottom: 35px;
+  // стили таблиц, например в incomes
+  .table-row {
+    display: table;
+    width: 100%;
+    border-top: 1px solid #e5e5e5;
+    @include transited('100ms');
 
-    &-row {
-      display: table;
-      width: 100%;
-      border-top: 1px solid #e5e5e5;
-      @include transited('100ms');
+    &:first-child {
+      border-top: none;
+    }
+
+    &_heading {
+      border-bottom: 2px solid #e5e5e5;
+    }
+
+    // epand-row
+    &_expand {
+      display: none;
+      position: relative;
+      overflow: hidden;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      background-color: #f6f6f5;
+      border-top: 1px solid #dddddc;
 
       &:first-child {
         border-top: none;
       }
 
-      &_heading {
-        border-bottom: 2px solid #e5e5e5;
+      .table-row_expand {
+        display: inherit;
       }
 
-      &.is-active {
-        background-color: #f6f6f5;
+      .inner {
+        opacity: 0;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        @include transited;
+      }
+    }
 
-        + .budget-calc-app__incomes-expand {
-          height: auto;
+    &_expand-header {
+      padding-top: 0;
+      padding-bottom: 0;
 
-          .budget-calc-app__incomes-expand-inner {
-            opacity: 1;
-          }
-        }
+      @media (max-width: 768px) {
+        display: none;
       }
 
-      &.is-accordeon-row {
-        cursor: pointer;
-
-        &:hover {
-          background-color: fade-out(#f6f6f5, .5);
-        }
+      .table-row__column_expand {
+        vertical-align: bottom;
       }
+    }
 
-      &_expand {
-        padding-top: 20px;
-        padding-bottom: 20px;
-        border-top: 1px solid #dddddc;
+    &.is-active {
+      background-color: #f6f6f5;
 
-        &-header {
-          padding-top: 0;
-          padding-bottom: 0;
+      + .table-row_expand {
+        display: inherit;
 
-          @media (max-width: 768px) {
-            display: none;
-          }
-
-          .budget-calc-app__incomes-column_expand {
-            vertical-align: bottom;
-          }
+        .inner {
+          opacity: 1;
         }
       }
     }
 
-    &-column {
+    &.is-accordeon-row {
+      cursor: pointer;
+
+      &:hover {
+        background-color: fade-out(#f6f6f5, .5);
+      }
+    }
+
+    &__column {
       position: relative;
       display: inline-block;
       vertical-align: middle;
@@ -379,6 +394,56 @@
 
       @media (max-width: 480px) {
         font-size: 11px;
+      }
+
+      &_name {
+        .-text {
+          line-height: 1.6;
+
+          .is-accordeon-row & {
+            color: #0d46a1;
+            border-bottom: 1px dashed rgba(#0d46a1, .5);
+          }
+        }
+      }
+
+
+      .text-muted {
+        color: fade-out(black, .6);
+      }
+
+      // column ._expand
+      .table-row_expand & {
+        font-family: $PFDinTextPro;
+        font-size: 14px;
+        font-weight: 400;
+        font-style: normal;
+        text-transform: none;
+
+        @media (max-width: 768px) {
+          &:nth-child(1),
+          &:nth-child(2),
+          &:nth-child(3) {
+            display: block;
+            width: 100%;
+            padding-left: 15px;
+            padding-right: 15px;
+          }
+        }
+
+        &.has-checkbox {
+          position: relative;
+
+          .checkbox {
+            position: absolute;
+            margin-top: 2px;
+          }
+
+          .checkbox-text {
+            display: block;
+            padding-left: 25px;
+          }
+        }
       }
 
       &:nth-child(1) {
@@ -478,81 +543,13 @@
           font-size: 9px;
         }
       }
-
-      &_name {
-        .-text {
-          line-height: 1.6;
-
-          .is-accordeon-row & {
-            color: #0d46a1;
-            border-bottom: 1px dashed rgba(#0d46a1, .5);
-          }
-        }
-      }
-
-      &_value {
-        // @media (max-width: 768px) {
-        //   .-num,
-        //   .-text {
-        //     display: block;
-        //   }
-        // }
-      }
-
-      // column ._expand
-      &_expand {
-        @media (max-width: 768px) {
-          &:nth-child(1),
-          &:nth-child(2),
-          &:nth-child(3) {
-            display: block;
-            width: 100%;
-            padding-left: 15px;
-            padding-right: 15px;
-          }
-        }
-
-        &.has-checkbox {
-          position: relative;
-
-          .checkbox {
-            position: absolute;
-            margin-top: 2px;
-          }
-
-          .checkbox-text {
-            display: block;
-            padding-left: 25px;
-          }
-        }
-
-        .text-muted {
-          color: fade-out(black, .6);
-        }
-
-        .text-small {
-          font-family: $PFDinTextPro;
-          font-size: 14px;
-          font-weight: 400;
-          font-style: normal;
-          text-transform: none;
-        }
-      }
     }
+  }
 
-    &-expand {
-      position: relative;
-      overflow: hidden;
-      height: 0;
-      background-color: #f6f6f5;
-
-      &-inner {
-        opacity: 0;
-        padding-top: 0px;
-        padding-bottom: 0px;
-        @include transited;
-      }
-    }
+  // доходы
+  &__incomes {
+    margin-top: 35px;
+    margin-bottom: 35px;
   }
 
   // расходы
@@ -631,48 +628,6 @@
   // дефицит/профицит
   &__balance {
     margin-bottom: 35px;
-
-    &-row {
-      @include display-flex;
-      @include flex-direction(row);
-      @include align-items(center);
-      min-height: 94px;
-      padding: 0 10px;
-      border-bottom: 1px solid #e5e5e5;
-    }
-
-    &-column {
-      padding: 15px;
-      // @include outline;
-
-      &_name {
-        @include flex-grow(1);
-        font-family: $PFDinCondensedPro;
-        font-size: 18px;
-        line-height: 1;
-        font-weight: 500;
-        font-style: normal;
-        text-transform: uppercase;
-      }
-
-      &_range {
-        @include flex-basis(275px);
-      }
-
-      &_value {
-        @include flex-basis(220px);
-        font-family: $PFDinCondensedPro;
-        font-size: 18px;
-        line-height: 1;
-        font-weight: 500;
-        font-style: normal;
-        text-transform: uppercase;
-      }
-    }
-
-    &-expand {
-      display: none;
-    }
   }
 }
 

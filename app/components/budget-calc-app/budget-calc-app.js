@@ -23,11 +23,11 @@ export default() => {
     });
   }
 
-  // аккордеоны в табличке "доходы"
-  const $incomesRow = $('.js-incomes-row-accordeon');
+  // аккордеоны
+  const $tableRow = $('.js-table-row-accordeon');
 
-  if ($incomesRow) {
-    $incomesRow.on('click', function(event) {
+  if ($tableRow) {
+    $tableRow.on('click', function(event) {
       event.preventDefault();
       $(this).toggleClass('is-active');
     });
