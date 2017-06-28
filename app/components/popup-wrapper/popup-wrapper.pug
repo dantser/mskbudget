@@ -41,7 +41,7 @@ mixin popup-wrapper()
             form(action="l.php").login-form.mb-25
               .login-form__field
                 label(for="i-fio-1").overlabel ФИО
-                input(id="i-fio-1", type="email").login-form__text
+                input(id="i-fio-1", type="text").login-form__text
               .login-form__field
                 label(for="i-email-3").overlabel e-mail
                 input(id="i-email-3", type="email").login-form__text
@@ -70,6 +70,13 @@ mixin popup-wrapper()
       .popup-restore__top Запрос на сброс пароля
       .popup-restore__wrap
         p.popup-restore__p На ваш мейл выслано письмо для подтверждения регистрации
+      a(href="#").close-popup
+
+    // POPUP(Form Error)
+    .popup-reset.popup-window#error
+      .popup-restore__top Ошибка
+      .popup-restore__wrap
+        p.popup-restore__p Введите корректные данные!
       a(href="#").close-popup
 
     // POPUP(agreements)
