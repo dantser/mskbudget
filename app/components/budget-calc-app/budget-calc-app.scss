@@ -67,6 +67,20 @@
     }
   }
 
+  &.-blue {
+    background-color: #0d46a1;
+    border-color: #0d46a1;
+    color: white;
+
+    &.-triangle-right:after {
+      border-color: transparent transparent transparent white;
+    }
+
+    &:hover {
+      background-color: darken(#0d46a1, 5%);
+    }
+  }
+
   &.-triangle-right {
     position: relative;
     padding-right: 40px;
@@ -129,7 +143,7 @@
   // сообщения в теле калькулятор
   .notification {
     display: none;
-    padding: 10px 15px;
+    padding: 13px 15px;
     margin-left: 30px;
     margin-right: 30px;
     margin-bottom: 15px;
@@ -157,6 +171,15 @@
 
     &_info {
       background-color: rgba(#0d46a1, .1);
+      font-family: $PFDinCondensedPro;
+      font-weight: 500;
+      text-transform: uppercase;
+      text-align: center;
+
+      a {
+        color: #0d46a1;
+        text-decoration: none;
+      }
     }
   }
 
@@ -200,7 +223,7 @@
     padding-left: 230px;
     font-family: $PFDinTextPro;
     font-size: 16px;
-    line-height: 20px;
+    line-height: 24px;
     font-weight: 400;
     color: black;
   }
@@ -246,6 +269,10 @@
 
     &.is-active {
       display: block;
+    }
+
+    &_check {
+      padding-bottom: 0;
     }
   }
 
@@ -678,6 +705,324 @@
   // дефицит/профицит
   &__balance {
     margin-bottom: 35px;
+  }
+
+  // проверить свой вариант бюджета
+  &__check {
+
+    &-heading {
+      padding: 30px 30px 0 30px;
+      font-family: $PFDinCondensedPro;
+      font-size: 18px;
+      line-height: 24px;
+      font-weight: 500;
+      text-transform: uppercase;
+      color: black;
+
+      @media (max-width: 768px) {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+    }
+
+    .check-row {
+      display: table;
+      width: 100%;
+      padding-top: 30px;
+      border-bottom: 1px solid #e5e5e5;
+
+      &__column {
+        padding-bottom: 30px;
+
+        .text-muted { color: rgba(black, .6); }
+        .text-small { font-size: 14px; line-height: 1.5; }
+        .text-big   { font-size: 48px; }
+
+        &:not(:last-child) {
+          @media (max-width: 768px) {
+            padding-bottom: 18px;
+          }
+        }
+
+        &_name {
+          font-size: 16px;
+          line-height: 1.25;
+        }
+
+        &_value {
+          font-family: $PFDinCondensedPro;
+          font-size: 18px;
+          line-height: 24px;
+          font-weight: 500;
+          text-align: right;
+
+          @media (max-width: 768px) {
+            text-align: left;
+          }
+        }
+
+        &_text-smaller {
+          font-size: 13px;
+          line-height: 18px;
+          color: rgba(black, .7);
+        }
+
+        &_total {
+          font-family: $PFDinCondensedPro;
+          font-weight: 500;
+          text-transform: uppercase;
+
+          .total-caption,
+          .total-num-text {
+            margin-bottom: 5px;
+            font-size: 14px;
+            line-height: 18px;
+          }
+
+          .total-num {
+            font-size: 48px;
+            line-height: 1;
+          }
+        }
+
+        @media (max-width: 768px) {
+          display: block;
+          width: 100%;
+          padding-left: 15px;
+          padding-right: 15px;
+        }
+
+        @media (min-width: 769px) {
+          display: inline-block;
+          vertical-align: top;
+
+          &:nth-child(1) {
+              width: 40%;
+              padding-left: 30px;
+              padding-right: 10px;
+          }
+
+          &:nth-child(2) {
+              width: 25%;
+              padding-left: 10px;
+              padding-right: 10px;
+          }
+
+          &:nth-child(3) {
+              width: 35%;
+              padding-left: 10px;
+              padding-right: 30px;
+          }
+
+          &_total {
+            width: 33.33% !important;
+          }
+        }
+      }
+    }
+  }
+
+  .check-footer {
+    background-color: #f6f6f5;
+    padding: 30px;
+
+    @media (max-width: 768px) {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    @media (min-width: 769px) {
+      padding-bottom: 55px;
+    }
+
+    &__actions {
+      position: relative;
+      overflow: hidden;
+      white-space: nowrap;
+      padding-left: 25px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #e5e5e5;
+
+      @media (max-width: 768px) {
+        padding-right: 25px;
+      }
+
+      @media (max-width: 480px) {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+
+    &__actions-heading {
+      margin-bottom: 15px;
+      font-family: $PFDinCondensedPro;
+      font-weight: 500;
+      text-transform: uppercase;
+      font-size: 18px;
+      line-height: 20px;
+    }
+
+    &__send {
+      overflow: hidden;
+      padding-top: 15px;
+      padding-bottom: 15px;
+
+      @media (min-width: 769px) {
+        float: left;
+        width: 66%;
+        padding-right: 20px;
+      }
+
+      @media (max-width: 480px) {
+        margin-bottom: 15px;
+      }
+    }
+
+    &__share {
+      padding-top: 15px;
+      padding-bottom: 15px;
+
+      @media (min-width: 769px) {
+        float: left;
+        width: 34%;
+      }
+
+      @media (max-width: 768px) {
+        text-align: center;
+      }
+
+      &-btn {
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        color: white;
+        text-align: center;
+        @include transited;
+
+        svg {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          @include transform(translateX(-50%) translateY(-50%));
+          fill: white;
+          height: 16px;
+          max-width: 20px;
+        }
+
+        &:not(:last-child) {
+          margin-right: 12px;
+        }
+
+        &_facebook {
+          background-color: #4866a6;
+
+          &:hover {
+            background-color: darken(#4866a6, 5%);
+          }
+        }
+
+        &_twitter {
+          background-color: #40bff5;
+
+          &:hover {
+            background-color: darken(#40bff5, 5%);
+          }
+        }
+
+        &_vk {
+          background-color: #6084a8;
+
+          &:hover {
+            background-color: darken(#6084a8, 5%);
+          }
+        }
+      }
+    }
+
+    &__text {
+      padding: 15px 25px;
+      font-size: 16px;
+      line-height: 20px;
+
+      @media (max-width: 480px) {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+
+    &__form {
+      position: relative;
+      padding-top: 5px;
+
+      &-input {
+
+        &-email-wrap {
+          overflow: hidden;
+          padding-right: 155px;
+        }
+
+        &_email {
+          width: 100%;
+          padding: 0 10px;
+          border: 1px solid #bfbfbf;
+          border-radius: 2px;
+          background-color: white;
+          font-size: 18px;
+          line-height: 38px;
+          outline: none;
+          @include transited;
+
+          &:focus {
+            border-color: rgba(black, .5);
+          }
+        }
+
+        &_submit {
+          position: absolute;
+          top: 5px;
+          right: 0;
+          width: 145px;
+          padding: 8px 25px;
+          font-family: $PFDinCondensedPro;
+          font-weight: 500;
+          text-transform: uppercase;
+          font-size: 20px;
+          line-height: 1;
+          color: black;
+          background-color: #fee300;
+          border: 2px solid #fee300;
+          border-bottom-color: #ccb600;
+          border-radius: 2px;
+          @include transited;
+
+          &:hover {
+            background-color: #E7CE00;
+            border-top-color: #E7CE00;
+            border-left-color: #E7CE00;
+            border-right-color: #E7CE00;
+          }
+
+          &:active {
+            margin-top: 1px;
+            border-bottom-color: #E7CE00;
+          }
+        }
+
+        @media (max-width: 480px) {
+          &-email-wrap {
+            padding-right: 0;
+          }
+
+          &_submit {
+            float: right;
+            top: 10px;
+            position: relative;
+          }
+        }
+      }
+    }
   }
 }
 

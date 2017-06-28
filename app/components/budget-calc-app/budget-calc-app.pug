@@ -37,7 +37,7 @@ mixin budget-calc-app()
               +tooltip-icon("текст тултипа")
             +e.value 0,0
             +e.value-notice млрд. руб.
-        +b.A.budget-calc-app-widget(href="#")._check.js-moveAroundThoseWidgets
+        +b.A.budget-calc-app-widget_link._check.js-moveAroundThoseWidgets.js-budget-calc-app__tab-control#budget-calc-app__tab_check-indicator(data-target="#budget-calc-app__tab_check" href="#")
           +e.DIV.inner
             +e.DIV.name проверить свой вариант бюджета
         +b.A.budget-calc-app-widget(href="#")._restore.js-moveAroundThoseWidgets
@@ -49,7 +49,7 @@ mixin budget-calc-app()
           p Для этого вы можете <br>- увеличить доходы бюджета <br>- снизить расходы бюджета <br>- привлечь источники финансирования дефицита бюджета
 
     +e.main-content#budget-calc-app__main-content
-      +e.tab._incomes.js-budget-calc-app__tab#budget-calc-app__tab_incomes.is-active(data-state-indicator="#budget-calc-app__tab_incomes-indicator")
+      +e.tab._incomes.js-budget-calc-app__tab#budget-calc-app__tab_incomes(data-state-indicator="#budget-calc-app__tab_incomes-indicator")
         +e.heading МЕРЫ ПО ИЗМЕНЕНИЮ ДОХОДНОЙ ЧАСТИ БЮДЖЕТА
         +e.text Изменение элементов налогообложения в пределах полномочий субъекта Российской Федерации, установленных законодательством Российской Федерации о налогах и сборах.
         +e.incomes
@@ -69,11 +69,11 @@ mixin budget-calc-app()
               SPAN.-num 1 433 185,2
               SPAN.-text млн руб.
           +b.table-row._expand
-            .notification.is-active
+            +b.notification.is-active
               | Решение об эмиссии отдельных выпусков облигаций Городского облигационного (внутреннего) займа Москвы утверждаются Правительством Москвы. Предельный объем ежегодной эмиссии устанавливается постановлениями Правительства Москвы. Превышение предельного объема заимствований может оказать негативное влияние на ранее выпущенные облигационные займы.
-            .notification._alert.is-active
+            +b.notification._alert.is-active
               | Внимание! <br>Ежегодные расходы на обслуживание государственного долга изменились на 743,7 млн руб.
-            .notification._info.text-center.is-active
+            +b.notification._info.text-center.is-active
               | Если вы хотите сохранить несколько вариантов бюджета, <a href="#">зарегистируйтесь</a>!
 
           +b.table-row.is-accordeon-row.js-table-row-accordeon
@@ -102,7 +102,7 @@ mixin budget-calc-app()
               +e.column._value.text-alert
                 SPAN.-num -464 732,0
                 SPAN.-text млн руб.
-            .notification.is-active Снижение налоговой ставки для большинства налогоплательщиков города Москвы приведет к уменьшению поступлений в городской бюджет
+            +b.notification.is-active Снижение налоговой ставки для большинства налогоплательщиков города Москвы приведет к уменьшению поступлений в городской бюджет
             +b.table-row._expand-header
               +e.column
                 SPAN.text-muted Льготные категории налогоплательщиков:
@@ -167,7 +167,7 @@ mixin budget-calc-app()
                 .visible-xs Налоговая ставка
                 +range('incomes_AveragePropertyValueKadastr_Range')
 
-          +b.table-row.is-accordeon-row.js-table-row-accordeon.is-active
+          +b.table-row.is-accordeon-row.js-table-row-accordeon
             +e.column._name
               .has-tooltip
                 +tooltip-icon("текст тултипа")
@@ -232,7 +232,7 @@ mixin budget-calc-app()
               +e.column
                 .visible-xs Налоговая ставка
                 +range('incomes_TransportMoreThan250Hp_Range')
-            .notification.is-active Изменение налоговых ставок в большую или меньшую сторону приведет к увеличению/снижению поступлений в городской бюджет. При изменении ставок необходимо учитывать принцип соизмеримости, согласно которому ставка для автомобиля меньшей мощности не может превышать ставку для автомобиля большей мощности.
+            +b.notification.is-active Изменение налоговых ставок в большую или меньшую сторону приведет к увеличению/снижению поступлений в городской бюджет. При изменении ставок необходимо учитывать принцип соизмеримости, согласно которому ставка для автомобиля меньшей мощности не может превышать ставку для автомобиля большей мощности.
 
             +b.table-row._expand
               +e.column Как Вы считаете, для каких категорий организаций и граждан следует отменить налоговые льготы?
@@ -246,7 +246,7 @@ mixin budget-calc-app()
                     SPAN.-num +84,6
                     SPAN.-text млн руб.
                   +e.column.col2and3-col3
-                    .notification.is-active Отмена льготы по налогу для городского пассажирского транспорта приведет к увеличению стоимости проезда на общественном транспорте.
+                    +b.notification.is-active Отмена льготы по налогу для городского пассажирского транспорта приведет к увеличению стоимости проезда на общественном транспорте.
 
                 +b.table-row
                   +e.column.has-checkbox.col2and3-col1
@@ -256,7 +256,7 @@ mixin budget-calc-app()
                     SPAN.-num -834 342,6
                     SPAN.-text млн руб.
                   +e.column.col2and3-col3
-                    .notification.is-active Отмена льготы для владельцев маломощных автомобилей окажет дестимулирующее влияние на приобретение и использование автомобилей указанной категории, при том что такие автомобили причиняют наименьший вред экологии города и оказывают наименьшую нагрузку на дорожно-транспортную инфраструктуру.
+                    +b.notification.is-active Отмена льготы для владельцев маломощных автомобилей окажет дестимулирующее влияние на приобретение и использование автомобилей указанной категории, при том что такие автомобили причиняют наименьший вред экологии города и оказывают наименьшую нагрузку на дорожно-транспортную инфраструктуру.
 
                 +b.table-row
                   +e.column.has-checkbox.col2and3-col1
@@ -266,7 +266,7 @@ mixin budget-calc-app()
                     SPAN.-num 34 342,6
                     SPAN.-text млн руб.
                   +e.column.col2and3-col3
-                    .notification.is-active Отмена льготы, предоставляемой одному из родителей (усыновителей) в многодетной семье, увеличит налоговую нагрузку на указанную семью, при этом наличие вместительного автомобиля в многодетной семье является оправданной необходимостью, а не предметом роскоши.
+                    +b.notification.is-active Отмена льготы, предоставляемой одному из родителей (усыновителей) в многодетной семье, увеличит налоговую нагрузку на указанную семью, при этом наличие вместительного автомобиля в многодетной семье является оправданной необходимостью, а не предметом роскоши.
 
           +b.table-row.is-accordeon-row.js-table-row-accordeon
             +e.column._name
@@ -314,7 +314,7 @@ mixin budget-calc-app()
                     SPAN.-num +7,8
                     SPAN.-text млн руб.
                   +e.column.col2and3-col3
-                    .notification.is-active Отмена льготы для ТСЖ, ЖК, ЖСК и иных организаций с аналогичными функциями приведет к росту затрат участников данных организаций в связи с необходимостью уплаты налога
+                    +b.notification.is-active Отмена льготы для ТСЖ, ЖК, ЖСК и иных организаций с аналогичными функциями приведет к росту затрат участников данных организаций в связи с необходимостью уплаты налога
 
                 +b.table-row
                   +e.column.has-checkbox.col2and3-col1
@@ -324,7 +324,7 @@ mixin budget-calc-app()
                     SPAN.-num +7,8
                     SPAN.-text млн руб.
                   +e.column.col2and3-col3
-                    .notification.is-active Отмена льготы для негосударственных НКО повлечет увеличение налоговой нагрузки на данные организации, что может привести к росту стоимости оказываемых социально значимых услуг
+                    +b.notification.is-active Отмена льготы для негосударственных НКО повлечет увеличение налоговой нагрузки на данные организации, что может привести к росту стоимости оказываемых социально значимых услуг
 
                 +b.table-row
                   +e.column.has-checkbox.col2and3-col1
@@ -334,7 +334,7 @@ mixin budget-calc-app()
                     SPAN.-num +7,8
                     SPAN.-text млн руб.
                   +e.column.col2and3-col3
-                    .notification.is-active Отмена льготы для государственных научных центров РФ приведет к необходимости осуществления расходов на уплату налога за счет сокращения других расходов
+                    +b.notification.is-active Отмена льготы для государственных научных центров РФ приведет к необходимости осуществления расходов на уплату налога за счет сокращения других расходов
 
                 +b.table-row
                   +e.column.has-checkbox.col2and3-col1
@@ -344,7 +344,7 @@ mixin budget-calc-app()
                     SPAN.-num +7,8
                     SPAN.-text млн руб.
                   +e.column.col2and3-col3
-                    .notification.is-active Отмена льготы для промышленных предприятий окажет сдерживающее влияние на развитие производственного сектора городской экономики и создание новых рабочих мест для москвичей
+                    +b.notification.is-active Отмена льготы для промышленных предприятий окажет сдерживающее влияние на развитие производственного сектора городской экономики и создание новых рабочих мест для москвичей
 
           +b.table-row.is-accordeon-row.js-table-row-accordeon
             +e.column._name
@@ -624,17 +624,159 @@ mixin budget-calc-app()
       +e.tab._balance.js-budget-calc-app__tab#budget-calc-app__tab_balance(data-state-indicator="#budget-calc-app__tab_balance-indicator")
         +e.heading ДЕФИЦИТ / ПРОФИЦИТ
         +e.balance
-          +e.balance-row
-            +e.balance-column._name
-              .has-tooltip ГОСУДАРСТВЕННЫЕ ЦЕННЫЕ БУМАГИ
-                +tooltip-icon('текст тултипа')
-            +e.balance-column._range
-              +range('balance_Securities_Range')
-            +e.balance-column._value
-              | 0,0 млн руб.
-            +e.balance-expand
-              | Уведомления
+          +b.table-row.is-accordeon-row.is-active
+            +e.column._name
+              .has-tooltip
+                +tooltip-icon("текст тултипа")
+                SPAN.-text ГОСУДАРСТВЕННЫЕ ЦЕННЫЕ БУМАГИ
+            +e.column._value
+              +range('balance_GosObligacii_Range')
+            +e.column._value.text-alert
+              SPAN.-num -12,0
+              SPAN.-text млн руб.
+          +b.table-row._expand
+            +b.notification.is-active Решение об эмиссии отдельных выпусков облигаций Городского облигационного (внутреннего) займа Москвы утверждаются Правительством Москвы. Предельный объем ежегодной эмиссии устанавливается постановлениями Правительства Москвы. Превышение предельного объема заимствований может оказать негативное влияние на ранее выпущенные облигационные займы.
+            +b.notification._alert.is-active Внимание!<br>Ежегодные расходы на обслуживание государственного долга изменились на 3 352,3 млн руб.
+
+          +b.table-row.is-accordeon-row.is-active
+            +e.column._name
+              .has-tooltip
+                +tooltip-icon("текст тултипа")
+                SPAN.-text КОММЕРЧЕСКИЕ КРЕДИТы
+            +e.column._value
+              +range('balance_CommercialCredits_Range')
+            +e.column._value.text-success
+              SPAN.-num +79 952,0
+              SPAN.-text млн руб.
+          +b.table-row._expand
+            +b.notification.is-active Решение о привлечении кредита кредитных организаций, в основном, негативно интерпретируется специалистами финансового сектора (низкое качество планирования доходов, избыточное исполнение расходов).
+            +b.notification._alert.is-active Внимание!<br>Ежегодные расходы на обслуживание государственного долга изменились на 11 593,1 млн руб.
+
+          +b.table-row.is-accordeon-row.is-active
+            +e.column._name
+              .has-tooltip
+                +tooltip-icon("текст тултипа")
+                SPAN.-text БЮДЖЕТНЫЕ КРЕДИТЫ
+            +e.column._value
+              +range('balance_BudgetCredits_Range')
+            +e.column._value
+              SPAN.-num +79 952,0
+              SPAN.-text млн руб.
+          +b.table-row._expand
+            +b.notification.is-active Предельные значения установлены в образовательных целях.Привлечение бюджетных кредитов от других бюджетов бюджетной системы Российской Федерации связано с рядом ограничений, в том числе устойчивостью финансового состояния города Москвы.
+
+          +b.table-row.is-accordeon-row.is-active
+            +e.column._name
+              .has-tooltip
+                +tooltip-icon("текст тултипа")
+                SPAN.-text СРЕДСТВА ОТ ПРОДАЖИ АКЦИЙ И ПР.
+            +e.column._value
+              +range('balance_ToolAgainst_Range')
+            +e.column._value
+              SPAN.-num +79 952,0
+              SPAN.-text млн руб.
+          +b.table-row._expand
+            +b.notification.is-active Предельные значения установлены в образовательных целях.Отказ от продажи части государственной собственности города Москвы может оказать негативное влияние на развитие конкурентной и эффективной экономики города.
+            +b.notification.is-active Предельные значения установлены в образовательных целях.Увеличение планового объема финансирования дефицита бюджета за счет продажи государственной собственности города Москвы может привести к снижению стоимости продаваемого имущества, а также снизить поступление доходов в будущем.
+
+          +b.table-row
+            +e.column._name
+              .has-tooltip
+                +tooltip-icon("текст тултипа")
+                SPAN.-text ИЗМЕНЕНИЕ ОСТАТКОВ СРЕДСТВ НА СЧЕТАХ ПО УЧЕТУ СРЕДСТВ БЮДЖЕТОВ
+            +e.column._value
+              +range('balance_BudgetBalance_Range')
+            +e.column._value
+              SPAN.-num +79 952,0
+              SPAN.-text млн руб.
+
         +e.text
-          +budget-calc-btn('Сохранить и проверить свой вариант бюджета').-triangle-right
+          +budget-calc-btn('Сохранить и проверить свой вариант бюджета').-triangle-right.js-budget-calc-app__tab-control(data-target="#budget-calc-app__tab_check" href="#")
+
+      //- таб "Проверить свой вариант бюджета"
+      +e.tab._check.js-budget-calc-app__tab#budget-calc-app__tab_check.is-active
+        +e.heading ваше предложение
+        +e.check
+          +b.notification._info.is-active Если вы хотите сохранить несколько вариантов бюджета, <a href="#">зарегистируйтесь</a>!
+          +e.check-heading Доходы бюджета
+          +b.check-row
+            +e.column._name Увеличение коэффициента, отражающего региональные особенности рынка труда, используемого для определения размера фиксированного ежемесячного авансового платежа по налогу на доходы физических лиц до 2,32741
+            +e.column._value
+              .text-success 10 753,4 млн руб.
+              .text-small.text-success +72,1 млн руб.
+              .text-small.text-muted  10 681,3 млн руб.
+            +e.column._text-smaller Чем выше значение регионального коэффициента, тем выше риск неуплаты налога ввиду роста налоговой нагрузки на налогоплательщиков, что может привести к увеличению числа мигрантов, не уплачивающих налог с полученных доходов, а законопослушные мигранты будут регистрироваться и уплачивать патент на территории других регионов России, с более низкими значениями коэффициента
+          +e.check-heading РАСХОДЫ БЮДЖЕТА
+          +b.check-row
+            +e.column._name Общественный транспорт "Метрополитен"
+            +e.column._value
+              .text-success 160 753,4 млн руб.
+              .text-small.text-success +10 112,1 млн руб.
+              .text-small.text-muted  106 681,3 млн руб.
+          +b.check-row
+            +e.column._name Общественный транспорт "Наземный городской пассажирский транспорт"
+            +e.column._value
+              .text-success 10 753,4 млн руб.
+              .text-small.text-success +72,1 млн руб.
+              .text-small.text-muted  10 681,3 млн руб.
+          +b.check-row
+            +e.column._name Социальная поддержка семей с детьми. Профилактика социального сиротства и защита прав детей-сирот и детей, оставшихся без попечения родителей
+            +e.column._value
+              .text-alert 10 753,4 млн руб.
+              .text-small.text-alert -72,1 млн руб.
+              .text-small.text-muted  10 681,3 млн руб.
+          +e.check-heading ИСТОЧНИКИ ФИНАНСИРОВАНИЯ ДЕФИЦИТА БЮДЖЕТА
+          +b.check-row
+            +e.column._name Бюджетные кредиты
+            +e.column._value
+              .text-success 10 753,4 млн руб.
+              .text-small.text-success +12,1 млн руб.
+              .text-small.text-muted  -1,3 млн руб.
+            +e.column._text-smaller Предельные значения установлены в образовательных целях. Привлечение бюджетных кредитов от других бюджетов бюджетной системы Российской Федерации связано с рядом ограничений, в том числе устойчивостью финансового состояния города Москвы.
+          +b.notification._alert.mt30.is-active Государственный долг города Москвы на конец года измениться на 10 464,5 млн. руб.
+          +e.check-heading итого
+          +b.check-row
+            +e.column._total
+              .total-caption доходы
+              .total-num.text-success 1 598,9
+              .total-num-text млрд. руб.
+              .text-small.text-success +0,2
+              .text-small.text-muted 1 598,9
+            +e.column._total
+              .total-caption расходы
+              .total-num.text-success 1 598,9
+              .total-num-text млрд. руб.
+              .text-small.text-success +0,2
+              .text-small.text-muted 1 598,9
+            +e.column._total
+              .total-caption дефицит/ профицит
+              .total-num.text-success -160,1
+              .total-num-text млрд. руб.
+              .text-small.text-alert -8,0
+              .text-small.text-muted -152,9
+            +b.notification._info.mb30.is-active Если вы хотите сохранить несколько вариантов бюджета, <a href="#">зарегистируйтесь</a>!
+
+          +b.check-footer
+            +e.text Уважаемый посетитель Портала Открытый бюджет Москвы, благодарим Вас за проявленный интерес к Бюджетному калькулятору! Вы можете сохранить для себя подготовленный Вами вариант бюджета или поделиться им со своими друзьями и знакомыми.
+            +e.actions
+              +e.send
+                +e.actions-heading отправить вариант
+                +e.FORM.form
+                  +e.form-input-email-wrap
+                    +e.INPUT.form-input._email(type="email" placeholder="Ваш e-mail")
+                  +e.INPUT.form-input._submit(type="submit" value="отправить")
+              +e.share
+                +e.actions-heading поделиться
+                +e.A.share-btn._facebook(href="#")
+                  +icon('fb').icon
+                +e.A.share-btn._twitter(href="#")
+                  +icon('tw').icon
+                +e.A.share-btn._vk(href="#")
+                  +icon('vk').icon
+            +e.text В случае, если Вы хотите представить свой вариант бюджета на рассмотрение специалистам городских органов власти, Вы можете воспользоваться ссылкой "Предложить свой вариант".
+            +e.text
+              +budget-calc-btn('предложить свой вариант').-triangle-right.-blue
+
+
 
     +e.footer#budget-calc-app__footer
