@@ -772,6 +772,26 @@
           font-weight: 500;
           text-transform: uppercase;
 
+          @mixin rage {
+            display: table;
+
+            .column-total-col1 {
+              display: table-cell;
+              vertical-align: top;
+              padding-right: 10px;
+              padding-top: 5px;
+              max-width: 85px;
+            }
+
+            .column-total-col2 {
+              display: table-cell;
+              vertical-align: top;
+            }
+          }
+
+          @media (min-width: 1200px) { @include rage; }
+          @media (max-width: 768px)  { @include rage; }
+
           .total-caption,
           .total-num-text {
             margin-bottom: 5px;
@@ -788,8 +808,10 @@
         @media (max-width: 768px) {
           display: block;
           width: 100%;
+          padding-top: 15px;
           padding-left: 15px;
           padding-right: 15px;
+          border-bottom: 1px solid #e5e5e5;
         }
 
         @media (min-width: 769px) {
