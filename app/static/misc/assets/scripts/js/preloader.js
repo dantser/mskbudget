@@ -5,8 +5,11 @@ $(document).ready(function() {
   var msie = ua.indexOf("MSIE ");
   var edge = ua.indexOf('Edge/');
   if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./) || edge > 0 )   {
-    preloader.fadeOut('slow', function() {});
-    $('.sections').removeClass('sections_main-page');
+    setTimeout(function() {
+      preloader.fadeOut('slow', function() {});
+      $('.sections').removeClass('sections_main-page');
+    }, 1000);
+    // $('.sections').removeClass('sections_main-page');
   };
 
   window.onload = function () {
@@ -16,6 +19,6 @@ $(document).ready(function() {
     setTimeout(function() {
       preloader.fadeOut('slow', function() {});
       $('.sections').removeClass('sections_main-page');
-    }, 2000);
+    }, 1000);
   }
 });

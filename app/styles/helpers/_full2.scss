@@ -252,7 +252,8 @@ button::-moz-focus-inner { padding: 0; border: 0; }
 
 .footer .social__a_tg {
   @media (max-width: 1180px){
-    font-size: 16px;
+    font-size: 14px;
+    transform: translateY(-1px);
   }
 
   @media (max-width: 800px){
@@ -748,15 +749,15 @@ button::-moz-focus-inner { padding: 0; border: 0; }
 /*Composite Diagram*/
 .comp-diagram { width: 335px; height: 335px; padding-top: 33px; margin: auto; position: absolute; top: 50%; left: 50%; margin: -80px 0 0 -167px; }
 
-.comp-diagram > a { display: block; position: absolute; width: 100%; height: 100%; z-index: 3; }
+.comp-diagram > a { display: block; position: absolute; width: 100%; height: 100%; z-index: -1; }
 
 .comp-diagram .svg-wrap { width: 270px; height: 270px; margin: auto; }
 
 .comp-diagram__num { font-size: 16px; font-weight: 500; position: absolute; }
 
-.comp-diagram__num_blue { color: #00c5eb; bottom: 55% !important; margin-bottom: 44px !important; left: 50%; margin-left: -141px; -webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg); -ms-transform: rotate(-90deg); -o-transform: rotate(-90deg); transform: rotate(-90deg); }
+.comp-diagram__num_blue { color: #00c5eb; bottom: 52% !important; margin-bottom: 44px !important; left: 50%; margin-left: -141px; -webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg); -ms-transform: rotate(-90deg); -o-transform: rotate(-90deg); transform: rotate(-90deg); }
 
-.comp-diagram__num_pink { color: #F04E70; bottom: 55% !important; margin-bottom: 44px !important; left: 50%; margin-left: -110px; -webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg); -ms-transform: rotate(-90deg); -o-transform: rotate(-90deg); transform: rotate(-90deg); }
+.comp-diagram__num_pink { color: #F04E70; bottom: 52% !important; margin-bottom: 44px !important; left: 50%; margin-left: -110px; -webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg); -ms-transform: rotate(-90deg); -o-transform: rotate(-90deg); transform: rotate(-90deg); }
 
 .comp-diagram__num_yellow { color: #fee300; top: 10px; left: 0; width: 100%; text-align: center; }
 
@@ -767,9 +768,13 @@ button::-moz-focus-inner { padding: 0; border: 0; }
 .comp-diagram_dash-2 { background: url("../images/dash-1.png") no-repeat 50% 0; }
 
 //@media (max-height: 950px) { .comp-diagram { margin-top: -80px; } }
-
+@media screen and (max-width: 1101px) {
+  .comp-diagram .svg-wrap, .comp-diagram .svg-wrap .svg {
+    height: 270px;
+  }
+}
 @media (min-width: 901px) and (max-width: 1180px) { .comp-diagram { width: 280px; height: 280px; -o-background-size: 100% auto; -moz-background-size: 100% auto; background-size: 100% auto;}
-  .comp-diagram .svg-wrap { width: 220px; height: 220px; }
+  .comp-diagram .svg-wrap { width: 220px;}
   .comp-diagram .svg-wrap .svg { width: 220px; height: 220px; }
   .comp-diagram__num_pink { margin-bottom: 29px; margin-left: -92px; }
   .comp-diagram__num_blue { margin-bottom: 29px; margin-left: -117px; }
@@ -796,7 +801,7 @@ button::-moz-focus-inner { padding: 0; border: 0; }
 /*Large Diagram*/
 .large-diagram { padding-top: 45px; position: absolute; top: 50%; left: 50%; margin: -229px 0 0 -195px; }
 
-.large-diagram > a { display: block; position: absolute; width: 100%; height: 100%; z-index: 3; }
+.large-diagram > a { display: block; position: absolute; width: 100%; height: 100%; z-index: -1 !important; }
 
 .large-diagram__caption { font-size: 24px; font-weight: 500; color: #fff; text-transform: uppercase; position: absolute; left: 0; top: 0; width: 100%; text-align: center; }
 
