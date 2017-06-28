@@ -464,6 +464,9 @@
       text-transform: uppercase;
       color: black;
 
+      // firefox fix
+      display: -moz-deck;
+
       @media (max-width: 768px) {
         padding-top: 14px;
         padding-bottom: 12px;
@@ -818,6 +821,9 @@
           display: inline-block;
           vertical-align: top;
 
+          // firefox fix
+          display: -moz-deck;
+
           &:nth-child(1) {
               width: 40%;
               padding-left: 30px;
@@ -924,13 +930,10 @@
         @include transited;
 
         svg {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          @include transform(translateX(-50%) translateY(-50%));
+          margin-top: 17px;
           fill: white;
           height: 16px;
-          max-width: 20px;
+          width: 16px;
         }
 
         &:not(:last-child) {
@@ -948,6 +951,8 @@
         &_twitter {
           background-color: #40bff5;
 
+          svg { width: 19px; }
+
           &:hover {
             background-color: darken(#40bff5, 5%);
           }
@@ -955,6 +960,8 @@
 
         &_vk {
           background-color: #6084a8;
+
+          svg { width: 20px; }
 
           &:hover {
             background-color: darken(#6084a8, 5%);
