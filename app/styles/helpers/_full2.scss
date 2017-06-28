@@ -872,10 +872,10 @@ button::-moz-focus-inner { padding: 0; border: 0; }
 .datepicker__a:hover { text-decoration: underline; }
 
 .form__date-range-input:focus {
-  color: $color-yellow;
+  color: $color-yellow !important;
 }
 .form__date-range-input.focused {
-  color: $color-yellow;
+  color: $color-yellow !important;
 }
 
 
@@ -1208,7 +1208,7 @@ button::-moz-focus-inner { padding: 0; border: 0; }
 
 .ui-datepicker-title { text-align: center; position: relative; /*&:after, &:before{ @include ab; position: absolute; left:50%; top: 50%; border: 5px solid transparent; border-top: 5px solid #0d46a1; margin-top: -2px; z-index: 3; } &:before{ margin-left: em(-5,15); } &:after{ margin-left: em(82,15); }*/ }
 
-.ui-datepicker-month, .ui-datepicker-year { height: 1.86667em; border: 1px solid #CCC; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; padding-left: 0.6em; margin: 0 0.33333em; text-transform: uppercase; font-weight: 400; font-size: 1.06667em; position: relative; z-index: 2; }
+.ui-datepicker-month, .ui-datepicker-year { font-weight: 500 !important; height: 1.86667em; border: 1px solid #CCC; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; padding-left: 0.6em; margin: 0 0.33333em; text-transform: uppercase; font-weight: 400; font-size: 1.06667em; position: relative; z-index: 2; }
 
 .ui-datepicker-month { width: 7.8em; }
 
@@ -1371,7 +1371,7 @@ button::-moz-focus-inner { padding: 0; border: 0; }
   .sections__title { font-size: 3.125rem; margin-right: 45px; max-width: 67%; }
   .sections__legend { padding-top: 5px; margin-right: 15px; } }
 
-@media (max-width: 900px) { .sections__ahead { padding-left: 35px; padding-right: 35px; }
+@media (max-width: 900px) { .sections__ahead {  padding-right: 35px; padding-left: 0 !important}
   .sections__ahead_ab { margin: 0 !important; }
   .sections__title { font-size: 3.5rem; max-width: 100%; }
   .sections__legend { position: absolute !important; top: auto !important; bottom: 80px; }
