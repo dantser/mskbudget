@@ -49,7 +49,7 @@ mixin budget-calc-app()
           p Для этого вы можете <br>- увеличить доходы бюджета <br>- снизить расходы бюджета <br>- привлечь источники финансирования дефицита бюджета
 
     +e.main-content#budget-calc-app__main-content
-      +e.tab._incomes.js-budget-calc-app__tab#budget-calc-app__tab_incomes(data-state-indicator="#budget-calc-app__tab_incomes-indicator")
+      +e.tab._incomes.js-budget-calc-app__tab#budget-calc-app__tab_incomes(data-state-indicator="#budget-calc-app__tab_incomes-indicator").is-active
         +e.heading МЕРЫ ПО ИЗМЕНЕНИЮ ДОХОДНОЙ ЧАСТИ БЮДЖЕТА
         +e.text Изменение элементов налогообложения в пределах полномочий субъекта Российской Федерации, установленных законодательством Российской Федерации о налогах и сборах.
         +e.incomes
@@ -694,7 +694,7 @@ mixin budget-calc-app()
           +budget-calc-btn('Сохранить и проверить свой вариант бюджета').-triangle-right.js-budget-calc-app__tab-control(data-target="#budget-calc-app__tab_check" href="#")
 
       //- таб "Проверить свой вариант бюджета"
-      +e.tab._check.js-budget-calc-app__tab#budget-calc-app__tab_check.is-active
+      +e.tab._check.js-budget-calc-app__tab#budget-calc-app__tab_check
         +e.heading ваше предложение
         +e.check
           +b.notification._info.is-active Если вы хотите сохранить несколько вариантов бюджета, <a href="#">зарегистируйтесь</a>!
