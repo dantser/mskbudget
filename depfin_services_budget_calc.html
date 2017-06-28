@@ -426,7 +426,8 @@
                                                 <div class="budget-calc-app-widget__value-notice">млрд. руб.</div>
                                             </div>
                                         </div>
-                                        <a class="budget-calc-app-widget budget-calc-app-widget_check js-moveAroundThoseWidgets" href="#">
+                                        <a class="budget-calc-app-widget budget-calc-app-widget_link budget-calc-app-widget_check js-moveAroundThoseWidgets js-budget-calc-app__tab-control" id="budget-calc-app__tab_check-indicator" data-target="#budget-calc-app__tab_check"
+                                            href="#">
                                             <div class="budget-calc-app-widget__inner">
                                                 <div class="budget-calc-app-widget__name">проверить свой вариант бюджета</div>
                                             </div>
@@ -449,7 +450,7 @@
                                     </div>
                                 </div>
                                 <div class="budget-calc-app__main-content" id="budget-calc-app__main-content">
-                                    <div class="budget-calc-app__tab budget-calc-app__tab_incomes js-budget-calc-app__tab is-active" id="budget-calc-app__tab_incomes" data-state-indicator="#budget-calc-app__tab_incomes-indicator">
+                                    <div class="budget-calc-app__tab budget-calc-app__tab_incomes js-budget-calc-app__tab" id="budget-calc-app__tab_incomes" data-state-indicator="#budget-calc-app__tab_incomes-indicator">
                                         <div class="budget-calc-app__heading">МЕРЫ ПО ИЗМЕНЕНИЮ ДОХОДНОЙ ЧАСТИ БЮДЖЕТА</div>
                                         <div class="budget-calc-app__text">Изменение элементов налогообложения в пределах полномочий субъекта Российской Федерации, установленных законодательством Российской Федерации о налогах и сборах.</div>
                                         <div class="budget-calc-app__incomes">
@@ -477,9 +478,9 @@
                                             <div class="table-row table-row_expand">
                                                 <div class="notification is-active">Решение об эмиссии отдельных выпусков облигаций Городского облигационного (внутреннего) займа Москвы утверждаются Правительством Москвы. Предельный объем ежегодной эмиссии устанавливается постановлениями
                                                     Правительства Москвы. Превышение предельного объема заимствований может оказать негативное влияние на ранее выпущенные облигационные займы.</div>
-                                                <div class="notification _alert is-active">Внимание!
+                                                <div class="notification notification_alert is-active">Внимание!
                                                     <br>Ежегодные расходы на обслуживание государственного долга изменились на 743,7 млн руб.</div>
-                                                <div class="notification _info text-center is-active">Если вы хотите сохранить несколько вариантов бюджета,
+                                                <div class="notification notification_info text-center is-active">Если вы хотите сохранить несколько вариантов бюджета,
                                                     <a href="#">зарегистируйтесь</a>!</div>
                                             </div>
                                             <div class="table-row is-accordeon-row js-table-row-accordeon">
@@ -699,7 +700,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="table-row is-accordeon-row js-table-row-accordeon is-active">
+                                            <div class="table-row is-accordeon-row js-table-row-accordeon">
                                                 <div class="table-row__column table-row__column_name">
                                                     <div class="has-tooltip">
                                                         <div class="tooltip-icon tooltip-hover" data-tooltip-content="текст тултипа">?</div>
@@ -1761,15 +1762,16 @@
                                     <div class="budget-calc-app__tab budget-calc-app__tab_balance js-budget-calc-app__tab" id="budget-calc-app__tab_balance" data-state-indicator="#budget-calc-app__tab_balance-indicator">
                                         <div class="budget-calc-app__heading">ДЕФИЦИТ / ПРОФИЦИТ</div>
                                         <div class="budget-calc-app__balance">
-                                            <div class="budget-calc-app__balance-row">
-                                                <div class="budget-calc-app__balance-column budget-calc-app__balance-column_name">
-                                                    <div class="has-tooltip">ГОСУДАРСТВЕННЫЕ ЦЕННЫЕ БУМАГИ
+                                            <div class="table-row is-accordeon-row is-active">
+                                                <div class="table-row__column table-row__column_name">
+                                                    <div class="has-tooltip">
                                                         <div class="tooltip-icon tooltip-hover" data-tooltip-content="текст тултипа">?</div>
+                                                        <SPAN class="-text">ГОСУДАРСТВЕННЫЕ ЦЕННЫЕ БУМАГИ</SPAN>
                                                     </div>
                                                 </div>
-                                                <div class="budget-calc-app__balance-column budget-calc-app__balance-column_range">
+                                                <div class="table-row__column table-row__column_value">
                                                     <div class="range">
-                                                        <div class="range__slider js-range-slider" id="balance_Securities_Range"></div>
+                                                        <div class="range__slider js-range-slider" id="balance_GosObligacii_Range"></div>
                                                         <div class="range__reset">
                                                             <svg class="range__icon"><use xlink:href="assets/images/icon.svg#icon_refresh"></use></svg>
                                                         </div>
@@ -1785,314 +1787,583 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="budget-calc-app__balance-column budget-calc-app__balance-column_value">0,0 млн руб.</div>
-                                                <div class="budget-calc-app__balance-expand">Уведомления</div>
+                                                <div class="table-row__column table-row__column_value text-alert">
+                                                    <SPAN class="-num">-12,0</SPAN>
+                                                    <SPAN class="-text">млн руб.</SPAN>
+                                                </div>
+                                            </div>
+                                            <div class="table-row table-row_expand">
+                                                <div class="notification is-active">Решение об эмиссии отдельных выпусков облигаций Городского облигационного (внутреннего) займа Москвы утверждаются Правительством Москвы. Предельный объем ежегодной эмиссии устанавливается постановлениями
+                                                    Правительства Москвы. Превышение предельного объема заимствований может оказать негативное влияние на ранее выпущенные облигационные займы.</div>
+                                                <div class="notification notification_alert is-active">Внимание!
+                                                    <br>Ежегодные расходы на обслуживание государственного долга изменились на 3 352,3 млн руб.</div>
+                                            </div>
+                                            <div class="table-row is-accordeon-row is-active">
+                                                <div class="table-row__column table-row__column_name">
+                                                    <div class="has-tooltip">
+                                                        <div class="tooltip-icon tooltip-hover" data-tooltip-content="текст тултипа">?</div>
+                                                        <SPAN class="-text">КОММЕРЧЕСКИЕ КРЕДИТы</SPAN>
+                                                    </div>
+                                                </div>
+                                                <div class="table-row__column table-row__column_value">
+                                                    <div class="range">
+                                                        <div class="range__slider js-range-slider" id="balance_CommercialCredits_Range"></div>
+                                                        <div class="range__reset">
+                                                            <svg class="range__icon"><use xlink:href="assets/images/icon.svg#icon_refresh"></use></svg>
+                                                        </div>
+                                                        <div class="range__output">
+                                                            <div class="range__min-value">
+                                                                <span class="output-num">0</span>
+                                                                <span class="output-text">млн. руб.</span>
+                                                            </div>
+                                                            <div class="range__max-value">
+                                                                <span class="output-num">742 543,8</span>
+                                                                <span class="output-text">млн. руб.</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="table-row__column table-row__column_value text-success">
+                                                    <SPAN class="-num">+79 952,0</SPAN>
+                                                    <SPAN class="-text">млн руб.</SPAN>
+                                                </div>
+                                            </div>
+                                            <div class="table-row table-row_expand">
+                                                <div class="notification is-active">Решение о привлечении кредита кредитных организаций, в основном, негативно интерпретируется специалистами финансового сектора (низкое качество планирования доходов, избыточное исполнение расходов).</div>
+                                                <div
+                                                    class="notification notification_alert is-active">Внимание!
+                                                    <br>Ежегодные расходы на обслуживание государственного долга изменились на 11 593,1 млн руб.</div>
+                                        </div>
+                                        <div class="table-row is-accordeon-row is-active">
+                                            <div class="table-row__column table-row__column_name">
+                                                <div class="has-tooltip">
+                                                    <div class="tooltip-icon tooltip-hover" data-tooltip-content="текст тултипа">?</div>
+                                                    <SPAN class="-text">БЮДЖЕТНЫЕ КРЕДИТЫ</SPAN>
+                                                </div>
+                                            </div>
+                                            <div class="table-row__column table-row__column_value">
+                                                <div class="range">
+                                                    <div class="range__slider js-range-slider" id="balance_BudgetCredits_Range"></div>
+                                                    <div class="range__reset">
+                                                        <svg class="range__icon"><use xlink:href="assets/images/icon.svg#icon_refresh"></use></svg>
+                                                    </div>
+                                                    <div class="range__output">
+                                                        <div class="range__min-value">
+                                                            <span class="output-num">0</span>
+                                                            <span class="output-text">млн. руб.</span>
+                                                        </div>
+                                                        <div class="range__max-value">
+                                                            <span class="output-num">742 543,8</span>
+                                                            <span class="output-text">млн. руб.</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="table-row__column table-row__column_value">
+                                                <SPAN class="-num">+79 952,0</SPAN>
+                                                <SPAN class="-text">млн руб.</SPAN>
                                             </div>
                                         </div>
-                                        <div class="budget-calc-app__text">
-                                            <a class="budget-calc-btn -triangle-right" href="#">Сохранить и проверить свой вариант бюджета</a>
+                                        <div class="table-row table-row_expand">
+                                            <div class="notification is-active">Предельные значения установлены в образовательных целях.Привлечение бюджетных кредитов от других бюджетов бюджетной системы Российской Федерации связано с рядом ограничений, в том числе устойчивостью финансового
+                                                состояния города Москвы.</div>
+                                        </div>
+                                        <div class="table-row is-accordeon-row is-active">
+                                            <div class="table-row__column table-row__column_name">
+                                                <div class="has-tooltip">
+                                                    <div class="tooltip-icon tooltip-hover" data-tooltip-content="текст тултипа">?</div>
+                                                    <SPAN class="-text">СРЕДСТВА ОТ ПРОДАЖИ АКЦИЙ И ПР.</SPAN>
+                                                </div>
+                                            </div>
+                                            <div class="table-row__column table-row__column_value">
+                                                <div class="range">
+                                                    <div class="range__slider js-range-slider" id="balance_ToolAgainst_Range"></div>
+                                                    <div class="range__reset">
+                                                        <svg class="range__icon"><use xlink:href="assets/images/icon.svg#icon_refresh"></use></svg>
+                                                    </div>
+                                                    <div class="range__output">
+                                                        <div class="range__min-value">
+                                                            <span class="output-num">0</span>
+                                                            <span class="output-text">млн. руб.</span>
+                                                        </div>
+                                                        <div class="range__max-value">
+                                                            <span class="output-num">742 543,8</span>
+                                                            <span class="output-text">млн. руб.</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="table-row__column table-row__column_value">
+                                                <SPAN class="-num">+79 952,0</SPAN>
+                                                <SPAN class="-text">млн руб.</SPAN>
+                                            </div>
+                                        </div>
+                                        <div class="table-row table-row_expand">
+                                            <div class="notification is-active">Предельные значения установлены в образовательных целях.Отказ от продажи части государственной собственности города Москвы может оказать негативное влияние на развитие конкурентной и эффективной экономики города.</div>
+                                            <div
+                                                class="notification is-active">Предельные значения установлены в образовательных целях.Увеличение планового объема финансирования дефицита бюджета за счет продажи государственной собственности города Москвы может привести к снижению стоимости
+                                                продаваемого имущества, а также снизить поступление доходов в будущем.</div>
+                                    </div>
+                                    <div class="table-row">
+                                        <div class="table-row__column table-row__column_name">
+                                            <div class="has-tooltip">
+                                                <div class="tooltip-icon tooltip-hover" data-tooltip-content="текст тултипа">?</div>
+                                                <SPAN class="-text">ИЗМЕНЕНИЕ ОСТАТКОВ СРЕДСТВ НА СЧЕТАХ ПО УЧЕТУ СРЕДСТВ БЮДЖЕТОВ</SPAN>
+                                            </div>
+                                        </div>
+                                        <div class="table-row__column table-row__column_value">
+                                            <div class="range">
+                                                <div class="range__slider js-range-slider" id="balance_BudgetBalance_Range"></div>
+                                                <div class="range__reset">
+                                                    <svg class="range__icon"><use xlink:href="assets/images/icon.svg#icon_refresh"></use></svg>
+                                                </div>
+                                                <div class="range__output">
+                                                    <div class="range__min-value">
+                                                        <span class="output-num">0</span>
+                                                        <span class="output-text">млн. руб.</span>
+                                                    </div>
+                                                    <div class="range__max-value">
+                                                        <span class="output-num">742 543,8</span>
+                                                        <span class="output-text">млн. руб.</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="table-row__column table-row__column_value">
+                                            <SPAN class="-num">+79 952,0</SPAN>
+                                            <SPAN class="-text">млн руб.</SPAN>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="budget-calc-app__footer" id="budget-calc-app__footer"></div>
+                                <div class="budget-calc-app__text">
+                                    <a class="budget-calc-btn -triangle-right js-budget-calc-app__tab-control" href="#" data-target="#budget-calc-app__tab_check">Сохранить и проверить свой вариант бюджета</a>
+                                </div>
+                            </div>
+                            <div class="budget-calc-app__tab budget-calc-app__tab_check js-budget-calc-app__tab is-active" id="budget-calc-app__tab_check">
+                                <div class="budget-calc-app__heading">ваше предложение</div>
+                                <div class="budget-calc-app__check">
+                                    <div class="notification notification_info is-active">Если вы хотите сохранить несколько вариантов бюджета,
+                                        <a href="#">зарегистируйтесь</a>!</div>
+                                    <div class="budget-calc-app__check-heading">Доходы бюджета</div>
+                                    <div class="check-row">
+                                        <div class="check-row__column check-row__column_name">Увеличение коэффициента, отражающего региональные особенности рынка труда, используемого для определения размера фиксированного ежемесячного авансового платежа по налогу на доходы физических лиц до 2,32741</div>
+                                        <div
+                                            class="check-row__column check-row__column_value">
+                                            <div class="text-success">10 753,4 млн руб.</div>
+                                            <div class="text-small text-success">+72,1 млн руб.</div>
+                                            <div class="text-small text-muted"> 10 681,3 млн руб.</div>
+                                    </div>
+                                    <div class="check-row__column check-row__column_text-smaller">Чем выше значение регионального коэффициента, тем выше риск неуплаты налога ввиду роста налоговой нагрузки на налогоплательщиков, что может привести к увеличению числа мигрантов, не уплачивающих налог с полученных доходов,
+                                        а законопослушные мигранты будут регистрироваться и уплачивать патент на территории других регионов России, с более низкими значениями коэффициента</div>
+                                </div>
+                                <div class="budget-calc-app__check-heading">РАСХОДЫ БЮДЖЕТА</div>
+                                <div class="check-row">
+                                    <div class="check-row__column check-row__column_name">Общественный транспорт "Метрополитен"</div>
+                                    <div class="check-row__column check-row__column_value">
+                                        <div class="text-success">160 753,4 млн руб.</div>
+                                        <div class="text-small text-success">+10 112,1 млн руб.</div>
+                                        <div class="text-small text-muted"> 106 681,3 млн руб.</div>
+                                    </div>
+                                </div>
+                                <div class="check-row">
+                                    <div class="check-row__column check-row__column_name">Общественный транспорт "Наземный городской пассажирский транспорт"</div>
+                                    <div class="check-row__column check-row__column_value">
+                                        <div class="text-success">10 753,4 млн руб.</div>
+                                        <div class="text-small text-success">+72,1 млн руб.</div>
+                                        <div class="text-small text-muted"> 10 681,3 млн руб.</div>
+                                    </div>
+                                </div>
+                                <div class="check-row">
+                                    <div class="check-row__column check-row__column_name">Социальная поддержка семей с детьми. Профилактика социального сиротства и защита прав детей-сирот и детей, оставшихся без попечения родителей</div>
+                                    <div class="check-row__column check-row__column_value">
+                                        <div class="text-alert">10 753,4 млн руб.</div>
+                                        <div class="text-small text-alert">-72,1 млн руб.</div>
+                                        <div class="text-small text-muted"> 10 681,3 млн руб.</div>
+                                    </div>
+                                </div>
+                                <div class="budget-calc-app__check-heading">ИСТОЧНИКИ ФИНАНСИРОВАНИЯ ДЕФИЦИТА БЮДЖЕТА</div>
+                                <div class="check-row">
+                                    <div class="check-row__column check-row__column_name">Бюджетные кредиты</div>
+                                    <div class="check-row__column check-row__column_value">
+                                        <div class="text-success">10 753,4 млн руб.</div>
+                                        <div class="text-small text-success">+12,1 млн руб.</div>
+                                        <div class="text-small text-muted"> -1,3 млн руб.</div>
+                                    </div>
+                                    <div class="check-row__column check-row__column_text-smaller">Предельные значения установлены в образовательных целях. Привлечение бюджетных кредитов от других бюджетов бюджетной системы Российской Федерации связано с рядом ограничений, в том числе устойчивостью финансового состояния
+                                        города Москвы.</div>
+                                </div>
+                                <div class="notification notification_alert mt30 is-active">Государственный долг города Москвы на конец года измениться на 10 464,5 млн. руб.</div>
+                                <div class="budget-calc-app__check-heading">итого</div>
+                                <div class="check-row">
+                                    <div class="check-row__column check-row__column_total">
+                                        <div class="column-total-col1">
+                                            <div class="total-caption">доходы</div>
+                                        </div>
+                                        <div class="column-total-col2">
+                                            <div class="total-num text-success">1 598,9</div>
+                                            <div class="total-num-text">млрд. руб.</div>
+                                            <div class="text-small text-success">+0,2</div>
+                                            <div class="text-small text-muted">1 598,9</div>
+                                        </div>
+                                    </div>
+                                    <div class="check-row__column check-row__column_total">
+                                        <div class="column-total-col1">
+                                            <div class="total-caption">расходы</div>
+                                        </div>
+                                        <div class="column-total-col2">
+                                            <div class="total-num text-success">1 598,9</div>
+                                            <div class="total-num-text">млрд. руб.</div>
+                                            <div class="text-small text-success">+0,2</div>
+                                            <div class="text-small text-muted">1 598,9</div>
+                                        </div>
+                                    </div>
+                                    <div class="check-row__column check-row__column_total">
+                                        <div class="column-total-col1">
+                                            <div class="total-caption">дефицит/профицит</div>
+                                        </div>
+                                        <div class="column-total-col2">
+                                            <div class="total-num text-success">-160,1</div>
+                                            <div class="total-num-text">млрд. руб.</div>
+                                            <div class="text-small text-alert">-8,0</div>
+                                            <div class="text-small text-muted">-152,9</div>
+                                        </div>
+                                    </div>
+                                    <div class="notification notification_info mb30 is-active">Если вы хотите сохранить несколько вариантов бюджета,
+                                        <a href="#">зарегистируйтесь</a>!</div>
+                                </div>
+                                <div class="check-footer">
+                                    <div class="check-footer__text">Уважаемый посетитель Портала Открытый бюджет Москвы, благодарим Вас за проявленный интерес к Бюджетному калькулятору! Вы можете сохранить для себя подготовленный Вами вариант бюджета или поделиться им со своими друзьями
+                                        и знакомыми.</div>
+                                    <div class="check-footer__actions">
+                                        <div class="check-footer__send">
+                                            <div class="check-footer__actions-heading">отправить вариант</div>
+                                            <form class="check-footer__form">
+                                                <div class="check-footer__form-input-email-wrap">
+                                                    <input class="check-footer__form-input check-footer__form-input_email" type="email" placeholder="Ваш e-mail" />
+                                                </div>
+                                                <input class="check-footer__form-input check-footer__form-input_submit" type="submit" value="отправить" />
+                                            </form>
+                                        </div>
+                                        <div class="check-footer__share">
+                                            <div class="check-footer__actions-heading">поделиться</div>
+                                            <a class="check-footer__share-btn check-footer__share-btn_facebook" href="#">
+                                                <svg class="check-footer__icon"><use xlink:href="assets/images/icon.svg#icon_fb"></use></svg>
+                                            </a>
+                                            <a class="check-footer__share-btn check-footer__share-btn_twitter" href="#">
+                                                <svg class="check-footer__icon"><use xlink:href="assets/images/icon.svg#icon_tw"></use></svg>
+                                            </a>
+                                            <a class="check-footer__share-btn check-footer__share-btn_vk" href="#">
+                                                <svg class="check-footer__icon"><use xlink:href="assets/images/icon.svg#icon_vk"></use></svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="check-footer__text">В случае, если Вы хотите представить свой вариант бюджета на рассмотрение специалистам городских органов власти, Вы можете воспользоваться ссылкой "Предложить свой вариант".</div>
+                                    <div class="check-footer__text">
+                                        <a class="budget-calc-btn -triangle-right -blue" href="#">предложить свой вариант</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="budget-calc-app__footer" id="budget-calc-app__footer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <div class="sections__item sections__item_footer">
+        <footer class="footer footer_b">
+            <div class="wrap footer__wrap anim-fade-top">
+                <div class="footer__box viewport-md-lg">
+                    <nav class="footer__column">
+                        <ul class="footer__nav-section_min-h">
+                            <li class="footer__nav-item">
+                                <a class="footer__nav-a footer__nav-a_b" href="#">О бюджете</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a class="footer__nav-a" href="#">Что такое бюджет?</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a class="footer__nav-a" href="#">Бюджетная система</a>
+                                <ul class="footer__sub-menu">
+                                    <li>
+                                        <a href="#">Бюджетная система РФ</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Принципы бюджетной системы РФ</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Этапы подготовки бюджета</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Бюджетная политика Москвы</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Налоговая политика Москвы</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a class="footer__nav-a" href="#">Бюджетная классификация</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a class="footer__nav-a" href="#">Глоссарий</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a class="footer__nav-a" href="#">Документы</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <nav class="footer__column">
+                        <ul>
+                            <li class="footer__nav-item">
+                                <a class="footer__nav-a footer__nav-a_b" href="#">Бюджет Москвы</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a class="footer__nav-a" href="#">Доходы</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a class="footer__nav-a" href="#">Расходы</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a class="footer__nav-a" href="#">Источники финансирования
+                                    <br/>дефицита бюджета</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a class="footer__nav-a" href="#">Государственные программы</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a class="footer__nav-a" href="#">Адресная инвестиционная
+                                    <br/>программа</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a class="footer__nav-a" href="#">Государственный долг</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a class="footer__nav-a" href="#">Межбюджетные отношения</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="footer__box viewport-md-lg">
+                    <nav class="footer__column">
+                        <ul class="footer__nav-section_min-h">
+                            <li class="footer__nav-item">
+                                <a class="footer__nav-a footer__nav-a_b" href="#">Аналитика</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a class="footer__nav-a" href="#">Доходы</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a class="footer__nav-a" href="#">Расходы</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a class="footer__nav-a" href="#">Государственные программы</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a class="footer__nav-a" href="#">Адресная инвестиционная
+                                    <br/>программа</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a class="footer__nav-a" href="#">Социально-экономическое
+                                    <br/>развитие</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a class="footer__nav-a" href="#">Государственный долг</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <nav class="footer__column">
+                        <ul class="footer__nav-section">
+                            <li class="footer__nav-item">
+                                <a class="footer__nav-a footer__nav-a_b" href="#">Открытость</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a class="footer__nav-a" href="#">Открытые данные</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a class="footer__nav-a" href="#">Путеводитель
+                                    <br/>по бюджету</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a class="footer__nav-a" href="#">Конкурсы</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a class="footer__nav-a" href="#">Рейтинг открытости
+                                    <br/>бюджетных данных</a>
+                            </li>
+                            <li class="footer__nav-item">
+                                <a class="footer__nav-a" href="#">Федеральный бюджет
+                                    <br/>для граждан</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li class="footer__nav-item">
+                                <A class="footer__nav-a footer__nav-a_b">Сервисы</A>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <nav class="footer__column footer__column_sh viewport-md-lg">
+                    <ul class="footer__nav-section footer__nav-section_min-h">
+                        <li class="footer__nav-item">
+                            <a class="footer__nav-a footer__nav-a_b" href="#">Медиацентр</a>
+                        </li>
+                        <li class="footer__nav-item">
+                            <a class="footer__nav-a" href="#">Новости</a>
+                        </li>
+                        <li class="footer__nav-item">
+                            <a class="footer__nav-a" href="#">События</a>
+                        </li>
+                        <li class="footer__nav-item">
+                            <a class="footer__nav-a" href="#">Инфографика</a>
+                        </li>
+                        <li class="footer__nav-item">
+                            <a class="footer__nav-a" href="#">Медиаматериалы</a>
+                        </li>
+                        <li class="footer__nav-item">
+                            <a class="footer__nav-a" href="#">Материалы для СМИ</a>
+                        </li>
+                        <li class="footer__nav-item">
+                            <a class="footer__nav-a" href="#">Пресс-служба</a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li class="footer__nav-item">
+                            <a class="footer__nav-a footer__nav-a_b" href="#">Обратная связь</a>
+                        </li>
+                        <li class="footer__nav-item">
+                            <a class="footer__nav-a" href="#">Форум</a>
+                        </li>
+                        <li class="footer__nav-item viewport-md">
+                            <a class="footer__nav-a" href="#">О портале</a>
+                        </li>
+                        <li class="footer__nav-item viewport-md">
+                            <a class="footer__nav-a" href="#">Карта сайта</a>
+                        </li>
+                    </ul>
+                </nav>
+                <ul class="footer-mob-menu viewport-sm">
+                    <li class="footer-mob-menu__item">
+                        <a class="footer-mob-menu__a" href="#">О бюджете</a>
+                    </li>
+                    <li class="footer-mob-menu__item">
+                        <a class="footer-mob-menu__a" href="#">Сервисы</a>
+                    </li>
+                    <li class="footer-mob-menu__item">
+                        <a class="footer-mob-menu__a" href="#">Бюджет Москвы</a>
+                    </li>
+                    <li class="footer-mob-menu__item viewport-small">
+                        <a class="footer-mob-menu__a" href="#">О портале</a>
+                    </li>
+                    <li class="footer-mob-menu__item">
+                        <a class="footer-mob-menu__a" href="#">Аналитика</a>
+                    </li>
+                    <li class="footer-mob-menu__item viewport-small">
+                        <a class="footer-mob-menu__a" href="#">Карта сайта</a>
+                    </li>
+                    <li class="footer-mob-menu__item">
+                        <a class="footer-mob-menu__a" href="#">Открытость</a>
+                    </li>
+                    <li class="footer-mob-menu__item">
+                        <a class="footer-mob-menu__a" href="#">Обратная связь</a>
+                    </li>
+                    <li class="footer-mob-menu__item">
+                        <a class="footer-mob-menu__a" href="#">Медиацентр</a>
+                    </li>
+                    <li class="footer-mob-menu__item">
+                        <a class="footer-mob-menu__a small" href="#">О портале</a>
+                        <a class="footer-mob-menu__a small" href="#">Карта сайта</a>
+                    </li>
+                </ul>
+                <div class="footer__abs">
+                    <div class="footer__box footer__box_l">
+                        <div class="footer__column viewport-lg">
+                            <a class="footer__box-a" href="#">О портале</a>
+                            <a class="footer__box-a" href="#">Карта сайта</a>
+                        </div>
+                        <div class="footer__column">
+                            <a class="logo footer__logo" href="#">
+                                <img class="logo__img" src="assets/images/logo-footer.png" alt="logo" />
+                                <span class="logo__lg">Департамент Финансов
+                                    <br/>города Москвы</span>
+                            </a>
+                        </div>
+                        <div class="footer__column">
+                            <a class="logo footer__logo" href="#">
+                                <img class="logo__img" src="assets/images/logo-footer-1.png" alt="logo" />
+                                <span class="logo__lg">Официальный портал Мэра
+                                    <br/>и Правительства Москвы</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer__box footer__box_m">
+                        <div class="footer__column">
+                            <div class="social footer__social">
+                                <ul>
+                                    <li class="social__item">
+                                        <a class="social__a social__a_fb" href="#"></a>
+                                    </li>
+                                    <li class="social__item">
+                                        <a class="social__a social__a_vk" href="#"></a>
+                                    </li>
+                                    <li class="social__item">
+                                        <a class="social__a social__a_tw" href="#"></a>
+                                    </li>
+                                    <li class="social__item">
+                                        <a class="social__a social__a_in" href="#"></a>
+                                    </li>
+                                    <li class="social__item">
+                                        <a class="social__a social__a_ok" href="#"></a>
+                                    </li>
+                                    <li class="social__item">
+                                        <a class="social__a social__a_yt" href="#"></a>
+                                    </li>
+                                    <li class="social__item">
+                                        <a class="social__a social__a_tg fa fa-telegram fa-2" href="#"></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="footer__column">
+                            <div class="application">
+                                <span>Мобильное
+                                    <br/>приложение</span>
+                                <a class="application__apl" href="#"></a>
+                                <a class="application__and" href="#"></a>
+                                <a class="application__win" href="#"></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="sections__item sections__item_footer">
-            <footer class="footer footer_b">
-                <div class="wrap footer__wrap anim-fade-top">
-                    <div class="footer__box viewport-md-lg">
-                        <nav class="footer__column">
-                            <ul class="footer__nav-section_min-h">
-                                <li class="footer__nav-item">
-                                    <a class="footer__nav-a footer__nav-a_b" href="#">О бюджете</a>
-                                </li>
-                                <li class="footer__nav-item">
-                                    <a class="footer__nav-a" href="#">Что такое бюджет?</a>
-                                </li>
-                                <li class="footer__nav-item">
-                                    <a class="footer__nav-a" href="#">Бюджетная система</a>
-                                    <ul class="footer__sub-menu">
-                                        <li>
-                                            <a href="#">Бюджетная система РФ</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Принципы бюджетной системы РФ</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Этапы подготовки бюджета</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Бюджетная политика Москвы</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Налоговая политика Москвы</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="footer__nav-item">
-                                    <a class="footer__nav-a" href="#">Бюджетная классификация</a>
-                                </li>
-                                <li class="footer__nav-item">
-                                    <a class="footer__nav-a" href="#">Глоссарий</a>
-                                </li>
-                                <li class="footer__nav-item">
-                                    <a class="footer__nav-a" href="#">Документы</a>
-                                </li>
-                            </ul>
-                        </nav>
-                        <nav class="footer__column">
-                            <ul>
-                                <li class="footer__nav-item">
-                                    <a class="footer__nav-a footer__nav-a_b" href="#">Бюджет Москвы</a>
-                                </li>
-                                <li class="footer__nav-item">
-                                    <a class="footer__nav-a" href="#">Доходы</a>
-                                </li>
-                                <li class="footer__nav-item">
-                                    <a class="footer__nav-a" href="#">Расходы</a>
-                                </li>
-                                <li class="footer__nav-item">
-                                    <a class="footer__nav-a" href="#">Источники финансирования
-                                        <br/>дефицита бюджета</a>
-                                </li>
-                                <li class="footer__nav-item">
-                                    <a class="footer__nav-a" href="#">Государственные программы</a>
-                                </li>
-                                <li class="footer__nav-item">
-                                    <a class="footer__nav-a" href="#">Адресная инвестиционная
-                                        <br/>программа</a>
-                                </li>
-                                <li class="footer__nav-item">
-                                    <a class="footer__nav-a" href="#">Государственный долг</a>
-                                </li>
-                                <li class="footer__nav-item">
-                                    <a class="footer__nav-a" href="#">Межбюджетные отношения</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="footer__box viewport-md-lg">
-                        <nav class="footer__column">
-                            <ul class="footer__nav-section_min-h">
-                                <li class="footer__nav-item">
-                                    <a class="footer__nav-a footer__nav-a_b" href="#">Аналитика</a>
-                                </li>
-                                <li class="footer__nav-item">
-                                    <a class="footer__nav-a" href="#">Доходы</a>
-                                </li>
-                                <li class="footer__nav-item">
-                                    <a class="footer__nav-a" href="#">Расходы</a>
-                                </li>
-                                <li class="footer__nav-item">
-                                    <a class="footer__nav-a" href="#">Государственные программы</a>
-                                </li>
-                                <li class="footer__nav-item">
-                                    <a class="footer__nav-a" href="#">Адресная инвестиционная
-                                        <br/>программа</a>
-                                </li>
-                                <li class="footer__nav-item">
-                                    <a class="footer__nav-a" href="#">Социально-экономическое
-                                        <br/>развитие</a>
-                                </li>
-                                <li class="footer__nav-item">
-                                    <a class="footer__nav-a" href="#">Государственный долг</a>
-                                </li>
-                            </ul>
-                        </nav>
-                        <nav class="footer__column">
-                            <ul class="footer__nav-section">
-                                <li class="footer__nav-item">
-                                    <a class="footer__nav-a footer__nav-a_b" href="#">Открытость</a>
-                                </li>
-                                <li class="footer__nav-item">
-                                    <a class="footer__nav-a" href="#">Открытые данные</a>
-                                </li>
-                                <li class="footer__nav-item">
-                                    <a class="footer__nav-a" href="#">Путеводитель
-                                        <br/>по бюджету</a>
-                                </li>
-                                <li class="footer__nav-item">
-                                    <a class="footer__nav-a" href="#">Конкурсы</a>
-                                </li>
-                                <li class="footer__nav-item">
-                                    <a class="footer__nav-a" href="#">Рейтинг открытости
-                                        <br/>бюджетных данных</a>
-                                </li>
-                                <li class="footer__nav-item">
-                                    <a class="footer__nav-a" href="#">Федеральный бюджет
-                                        <br/>для граждан</a>
-                                </li>
-                            </ul>
-                            <ul>
-                                <li class="footer__nav-item">
-                                    <A class="footer__nav-a footer__nav-a_b">Сервисы</A>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <nav class="footer__column footer__column_sh viewport-md-lg">
-                        <ul class="footer__nav-section footer__nav-section_min-h">
-                            <li class="footer__nav-item">
-                                <a class="footer__nav-a footer__nav-a_b" href="#">Медиацентр</a>
-                            </li>
-                            <li class="footer__nav-item">
-                                <a class="footer__nav-a" href="#">Новости</a>
-                            </li>
-                            <li class="footer__nav-item">
-                                <a class="footer__nav-a" href="#">События</a>
-                            </li>
-                            <li class="footer__nav-item">
-                                <a class="footer__nav-a" href="#">Инфографика</a>
-                            </li>
-                            <li class="footer__nav-item">
-                                <a class="footer__nav-a" href="#">Медиаматериалы</a>
-                            </li>
-                            <li class="footer__nav-item">
-                                <a class="footer__nav-a" href="#">Материалы для СМИ</a>
-                            </li>
-                            <li class="footer__nav-item">
-                                <a class="footer__nav-a" href="#">Пресс-служба</a>
-                            </li>
-                        </ul>
+            <div class="footer__bar">
+                <div class="footer__bar-top">
+                    <div class="wrap">
                         <ul>
-                            <li class="footer__nav-item">
-                                <a class="footer__nav-a footer__nav-a_b" href="#">Обратная связь</a>
+                            <li>
+                                <A class="footer__bar-top-a">Сайты Москвы</A>
                             </li>
-                            <li class="footer__nav-item">
-                                <a class="footer__nav-a" href="#">Форум</a>
-                            </li>
-                            <li class="footer__nav-item viewport-md">
-                                <a class="footer__nav-a" href="#">О портале</a>
-                            </li>
-                            <li class="footer__nav-item viewport-md">
-                                <a class="footer__nav-a" href="#">Карта сайта</a>
+                            <li>
+                                <A class="footer__bar-top-a">Сайты России</A>
                             </li>
                         </ul>
-                    </nav>
-                    <ul class="footer-mob-menu viewport-sm">
-                        <li class="footer-mob-menu__item">
-                            <a class="footer-mob-menu__a" href="#">О бюджете</a>
-                        </li>
-                        <li class="footer-mob-menu__item">
-                            <a class="footer-mob-menu__a" href="#">Сервисы</a>
-                        </li>
-                        <li class="footer-mob-menu__item">
-                            <a class="footer-mob-menu__a" href="#">Бюджет Москвы</a>
-                        </li>
-                        <li class="footer-mob-menu__item viewport-small">
-                            <a class="footer-mob-menu__a" href="#">О портале</a>
-                        </li>
-                        <li class="footer-mob-menu__item">
-                            <a class="footer-mob-menu__a" href="#">Аналитика</a>
-                        </li>
-                        <li class="footer-mob-menu__item viewport-small">
-                            <a class="footer-mob-menu__a" href="#">Карта сайта</a>
-                        </li>
-                        <li class="footer-mob-menu__item">
-                            <a class="footer-mob-menu__a" href="#">Открытость</a>
-                        </li>
-                        <li class="footer-mob-menu__item">
-                            <a class="footer-mob-menu__a" href="#">Обратная связь</a>
-                        </li>
-                        <li class="footer-mob-menu__item">
-                            <a class="footer-mob-menu__a" href="#">Медиацентр</a>
-                        </li>
-                        <li class="footer-mob-menu__item">
-                            <a class="footer-mob-menu__a small" href="#">О портале</a>
-                            <a class="footer-mob-menu__a small" href="#">Карта сайта</a>
-                        </li>
-                    </ul>
-                    <div class="footer__abs">
-                        <div class="footer__box footer__box_l">
-                            <div class="footer__column viewport-lg">
-                                <a class="footer__box-a" href="#">О портале</a>
-                                <a class="footer__box-a" href="#">Карта сайта</a>
-                            </div>
-                            <div class="footer__column">
-                                <a class="logo footer__logo" href="#">
-                                    <img class="logo__img" src="assets/images/logo-footer.png" alt="logo" />
-                                    <span class="logo__lg">Департамент Финансов
-                                        <br/>города Москвы</span>
-                                </a>
-                            </div>
-                            <div class="footer__column">
-                                <a class="logo footer__logo" href="#">
-                                    <img class="logo__img" src="assets/images/logo-footer-1.png" alt="logo" />
-                                    <span class="logo__lg">Официальный портал Мэра
-                                        <br/>и Правительства Москвы</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="footer__box footer__box_m">
-                            <div class="footer__column">
-                                <div class="social footer__social">
-                                    <ul>
-                                        <li class="social__item">
-                                            <a class="social__a social__a_fb" href="#"></a>
-                                        </li>
-                                        <li class="social__item">
-                                            <a class="social__a social__a_vk" href="#"></a>
-                                        </li>
-                                        <li class="social__item">
-                                            <a class="social__a social__a_tw" href="#"></a>
-                                        </li>
-                                        <li class="social__item">
-                                            <a class="social__a social__a_in" href="#"></a>
-                                        </li>
-                                        <li class="social__item">
-                                            <a class="social__a social__a_ok" href="#"></a>
-                                        </li>
-                                        <li class="social__item">
-                                            <a class="social__a social__a_yt" href="#"></a>
-                                        </li>
-                                        <li class="social__item">
-                                            <a class="social__a social__a_tg fa fa-telegram fa-2" href="#"></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="footer__column">
-                                <div class="application">
-                                    <span>Мобильное
-                                        <br/>приложение</span>
-                                    <a class="application__apl" href="#"></a>
-                                    <a class="application__and" href="#"></a>
-                                    <a class="application__win" href="#"></a>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
-                <div class="footer__bar">
-                    <div class="footer__bar-top">
-                        <div class="wrap">
-                            <ul>
-                                <li>
-                                    <A class="footer__bar-top-a">Сайты Москвы</A>
-                                </li>
-                                <li>
-                                    <A class="footer__bar-top-a">Сайты России</A>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="footer__bar-bottom">
-                        <div class="wrap">
-                            <p class="footer__copy">Все материалы сайта доступны по лицензии
-                                <a href="#">Creative Commons Attribution 3.0</a>&nbsp;при условии
-                                <br/>ссылки на первоисточник (в случае использования материалов сайта
-                                <br/>в сети Интернет – интерактивная ссылка).</p>
-                            <p class="footer__stat">832 уникальных посетителя сегодня.
-                                <br/>Всего порталы Москвы посетило 1004547.</p>
-                        </div>
+                <div class="footer__bar-bottom">
+                    <div class="wrap">
+                        <p class="footer__copy">Все материалы сайта доступны по лицензии
+                            <a href="#">Creative Commons Attribution 3.0</a>&nbsp;при условии
+                            <br/>ссылки на первоисточник (в случае использования материалов сайта
+                            <br/>в сети Интернет – интерактивная ссылка).</p>
+                        <p class="footer__stat">832 уникальных посетителя сегодня.
+                            <br/>Всего порталы Москвы посетило 1004547.</p>
                     </div>
                 </div>
-            </footer>
-        </div>
+            </div>
+        </footer>
+    </div>
     </div>
     <div id="popup-wrapper">
         <!-- POPUP(Login)-->
