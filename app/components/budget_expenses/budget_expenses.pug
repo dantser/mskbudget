@@ -3,6 +3,7 @@ include ../analityc-widgethead/analityc-widgethead
 include ../analityc-graphics/analityc-graphics
 include ../analityc-table/analityc-table
 include ../../blocks/table/table
+include ../../blocks/dropdown-block/dropdown-block
 
 mixin budget_expenses()
   .main._basic
@@ -28,30 +29,4 @@ mixin budget_expenses()
             span условно утвержденные расходы 
               span.analityc-popup Под условно утверждаемыми (утвержденными) расходами понимаются не распределенные в&nbsp;плановом периоде в соответствии с&nbsp;классификацией расходов бюджетов бюджетные ассигнования.
             | на 2018 год в сумме 48,3 млрд рублей и на 2019 год в сумме 97,5 млрд рублей
-
-      // Dropdown block
-      .dropdown-block
-        .dropdown
-          .dropdown-trigger
-            .wrapper
-              span
-                strong Документы
-          .dropdown-content
-            .wrapper
-              span Документы
-        .dropdown
-          .dropdown-trigger
-            .wrapper
-              span
-                strong Новости по&nbsp;теме
-          .dropdown-content
-            .wrapper
-              span Новости
-        .dropdown
-          .dropdown-trigger
-            .wrapper
-              span
-                strong Сервисы
-          .dropdown-content
-            .wrapper
-              span Сервисы
+      +dropdown()

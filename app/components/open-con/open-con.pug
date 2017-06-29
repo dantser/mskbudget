@@ -6,6 +6,7 @@ include ../../blocks/icon/icons
 include ../../blocks/buttons-set/buttons-set
 include ../doc-cards/doc-cards
 include ../../blocks/tabs/tabs
+include ../../blocks/dropdown-block/dropdown-block
 
 mixin open-con()
   +b.open-con&attributes(attributes)
@@ -22,13 +23,4 @@ mixin open-con()
                 +contest(getData('contest')[0])
               +tabs-tab(data-tab-group="contestTabs", data-tab="contestTwo")
                 +contest(getData('contest')[1])
-        //- Dropdown block
-        .dropdown-block
-          .dropdown._open
-            .dropdown-trigger
-              .wrapper
-                span
-                  strong Документы
-            .dropdown-content
-              .wrapper
-                +doc-cards(getData('doc-cards'))
+        +dropdown()
