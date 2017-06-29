@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import matchHeight from 'jquery-match-height';
 
 export default() => {
   // Табы для калькулятора бюджета
@@ -31,6 +32,39 @@ export default() => {
       event.preventDefault();
       $(this).toggleClass('is-active');
     });
+  }
+
+  // вкладка расходы
+  // подменю у плиток
+  const $calcAppCostsTab = $('#budget-calc-app__tab_costs');
+  const $costsItemLink = $('.js-budget-calc-app__costs-item-link');
+  const costsItemClassName = '.js-budget-calc-app__costs-item';
+
+  if ($costsItemLink && $calcAppCostsTab) {
+    $costsItemLink.on('click', function(event) {
+      event.preventDefault();
+
+      const isAlreadyActive = $(this).parent(costsItemClassName).hasClass('is-active');
+
+      if (isAlreadyActive) {
+        $(this).parent(costsItemClassName).removeClass('is-active');
+      } else {
+        $calcAppCostsTab.find(costsItemClassName).removeClass('is-active');
+        $(this).parent(costsItemClassName).addClass('is-active');
+      }
+    });
+  }
+
+  // одинаковая высота блоков/плиток в расходах
+  // спасибо Internet Explorer, что нельзя делать нормальные вещи на флексбоксе
+  const $costsItems = $('.js-budget-calc-app__costs-item');
+  const $costsItemsLinks = $('.js-budget-calc-app__costs-item-link');
+  const $costsItemsValues = $('.js-budget-calc-app__costs-item-value');
+
+  if (typeof(matchHeight) && $costsItems) {
+    $costsItems.matchHeight();
+    $costsItemsLinks.matchHeight();
+    $costsItemsValues.matchHeight();
   }
 
   // перенос блоков "проверить бюджет" и "вернуть исходные значения"

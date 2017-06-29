@@ -26,6 +26,7 @@ import profileEdit from '../components/profile-edit/profileEdit';
 import main from '../components/main/main';
 import budgetaryPolicy from '../components/budgetary-policy/budgetaryPolicy';
 import documentsform from '../components/documents/documents';
+import pageHeader from '../components/page-header/pageHeader';
 
 $(() => {
   selectbox();
@@ -55,4 +56,5 @@ $(() => {
   main();
   budgetaryPolicy();
   documentsform();
+  pageHeader();
 });
