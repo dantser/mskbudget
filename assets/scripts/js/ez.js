@@ -359,8 +359,14 @@ $('.js-abs-btn').click(function(){
 	$('.abs-box--active').removeClass('abs-box--active');
 	$(this).parents('.abs-box').addClass('abs-box--active');
     $(".d-abs__nav").addClass("_active");
+
     if ($(window).width() < 970) {
+        var lastScroll = $(window).scrollTop();
         $("html, body").animate({scrollTop: $(".abs-box--active .puzzle-inner").offset().top - 100}, 600);
+        var scrollTop = $(".abs-box--active .puzzle-inner").offset().top - 100;
+        if ( scrollTop <= 500 && scrollTop >= 300) {
+            $('html, body').stop().animate();
+        }
     }
 
     $(window).resize(function() {
