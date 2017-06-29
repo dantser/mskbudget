@@ -99,13 +99,13 @@ budget.extend("common", {
 					$('.carousel-3d-slide:last').click();
 				}
 			})
-
-            $('.carousel-3d-slide').on('click', function() {
-
-                self.current_slide = $(this).index('.carousel-3d-slide') + 1;
-
-                //$('.carousel-count').html(self.current_slide+'&nbsp;из&nbsp;'+self.slide_count);
-            })
+            //
+            // $('.carousel-3d-slide').on('click', function() {
+            //
+            //     // self.current_slide = $(this).index('.carousel-3d-slide') + 1;
+            //
+            //     //$('.carousel-count').html(self.current_slide+'&nbsp;из&nbsp;'+self.slide_count);
+            // })
 
              //$('.carousel-count').html('1&nbsp;из&nbsp;'+self.slide_count);
 
@@ -166,7 +166,7 @@ budget.extend("common", {
                 $(this).parents('.d-sr__progress_item').next('.other-info').slideUp();
                 $(this).removeClass('_active')
             } else {
-              //$(this).parents('.d-sr__stat-container').next('.other-info').show();  
+              //$(this).parents('.d-sr__stat-container').next('.other-info').show();
               $(this).parents('.d-sr__progress_item').next('.other-info').slideDown();
                 $(this).addClass('_active');
             }
