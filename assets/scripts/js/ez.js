@@ -162,10 +162,12 @@ budget.extend("common", {
         $('.d-sr__progress-descr_other').on('click', function() {
 
             if ($(this).hasClass('_active')) {
-                $(this).parents('.d-sr__stat-container').next('.other-info').hide();
+                //$(this).parents('.d-sr__stat-container').next('.other-info').hide();
+                $(this).parents('.d-sr__progress_item').next('.other-info').slideUp();
                 $(this).removeClass('_active')
             } else {
-                $(this).parents('.d-sr__stat-container').next('.other-info').show();
+              //$(this).parents('.d-sr__stat-container').next('.other-info').show();  
+              $(this).parents('.d-sr__progress_item').next('.other-info').slideDown();
                 $(this).addClass('_active');
             }
         })
@@ -359,14 +361,8 @@ $('.js-abs-btn').click(function(){
 	$('.abs-box--active').removeClass('abs-box--active');
 	$(this).parents('.abs-box').addClass('abs-box--active');
     $(".d-abs__nav").addClass("_active");
-
     if ($(window).width() < 970) {
-        var lastScroll = $(window).scrollTop();
         $("html, body").animate({scrollTop: $(".abs-box--active .puzzle-inner").offset().top - 100}, 600);
-        var scrollTop = $(".abs-box--active .puzzle-inner").offset().top - 100;
-        if ( scrollTop <= 500 && scrollTop >= 300) {
-            $('html, body').stop().animate();
-        }
     }
 
     $(window).resize(function() {
