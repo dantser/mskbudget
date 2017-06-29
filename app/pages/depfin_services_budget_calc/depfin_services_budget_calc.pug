@@ -20,7 +20,7 @@ block page
               +e.ahead.ahead
                 +page-header('бюджетный калькулятор города Москвы', ['Сервисы']).__page-header
               +e.tabs#budget-calc__tabs
-                +e.tab.js-budget-calc__tab#budget-calc__tab_intro.is-active
+                +e.tab.js-budget-calc__tab#budget-calc__tab_intro
                   +e.intro.load-anim-fade(data-delay="2200")
                     +e.intro-col-left
                       //- +icon('calc').icon.__intro-icon
@@ -55,7 +55,7 @@ block page
                         +e.howto-item-preview.-fixed-height
                           img(src="assets/images/depfin_services_budget_calc/howto_not-balanced.jpg")
                         +e.howto-item-text
-                          | Чтобы Ваш вариант бюджета был признан сбалансированным, значение в поле «Не сбалансировано» должно находиться в пределах +/- 0,1 млрд. руб.
+                          | Чтобы Ваш вариант бюджета был признан сбалансированным, значение в поле «Не сбалансировано» должно находиться в пределах +/- 0,1 млрд руб.
                       +e.howto-item
                         +e.howto-item-preview
                           img(src="assets/images/depfin_services_budget_calc/howto_check-btn.jpg")
@@ -75,7 +75,7 @@ block page
                         | <a class="howto-item-text-link" href="#">Зарегистрировавшись</a> на сайте, Вы получите возможность сохранять и просматривать все свои варианты бюджета в Личном кабинете.
                     +e.howto-item.-hidden-desktop
                       +budget-calc-btn('Начать')._howto-start.js-budget-calc__tab-control(href="#budget-calc__tab_app")
-                +e.tab.js-budget-calc__tab#budget-calc__tab_app
+                +e.tab.js-budget-calc__tab#budget-calc__tab_app.is-active
                   //- +e.switch
                   //-   +e.A.switch-link.is-active(href="#") Мое предложение
                   //-   +e.A.switch-link(href="#") ПРЕДЛОЖЕНИЯ ПОЛЬЗОВАТЕЛЕЙ
