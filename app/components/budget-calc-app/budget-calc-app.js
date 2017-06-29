@@ -66,11 +66,11 @@ export default() => {
 
   // одинаковая высота блоков/плиток в расходах
   // спасибо Internet Explorer, что нельзя делать нормальные вещи на флексбоксе
-  const $costsItems = $('.js-budget-calc-app__costs-item');
-  const $costsItemsLinks = $('.js-budget-calc-app__costs-item-link');
-  const $costsItemsValues = $('.js-budget-calc-app__costs-item-value');
+  const $costsItems = $('.js-bc-match-height-1');
+  const $costsItemsLinks = $('.js-bc-match-height-2');
+  const $costsItemsValues = $('.js-bc-match-height-3');
 
-  if (typeof(matchHeight) && $costsItems) {
+  if (typeof(matchHeight) && $costsItems && $costsItemsLinks && $costsItemsValues) {
     $costsItems.matchHeight();
     $costsItemsLinks.matchHeight();
     $costsItemsValues.matchHeight();
