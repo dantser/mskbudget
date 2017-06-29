@@ -664,6 +664,7 @@
         overflow: hidden;
         width: 50px;
         height: 50px;
+        cursor: pointer;
 
         .icon,
         svg {
@@ -687,6 +688,14 @@
 
         &-text {
           border-bottom: 1px dashed rgba(#0d46a1, .5);
+        }
+
+        &_flat {
+          color: black;
+
+          &-text {
+            border-bottom: none;
+          }
         }
       }
 
@@ -717,11 +726,12 @@
 
       &-expand {
         position: absolute;
-        z-index: 1;
+        z-index: 5;
         overflow: hidden;
         height: 0;
         left: 0;
         right: 0;
+        @include transited;
 
         &-inner {
           opacity: 0;

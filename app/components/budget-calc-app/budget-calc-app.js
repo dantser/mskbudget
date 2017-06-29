@@ -37,6 +37,7 @@ export default() => {
   // вкладка расходы
   // подменю у плиток
   const $calcAppCostsTab = $('#budget-calc-app__tab_costs');
+  const costsItemExpand = '.js-budget-calc-app__costs-item-expand';
   const $costsItemLink = $('.js-budget-calc-app__costs-item-link');
   const costsItemClassName = '.js-budget-calc-app__costs-item';
 
@@ -44,13 +45,21 @@ export default() => {
     $costsItemLink.on('click', function(event) {
       event.preventDefault();
 
-      const isAlreadyActive = $(this).parent(costsItemClassName).hasClass('is-active');
+      const $item = $(this).parent(costsItemClassName);
+      const $expand = $item.find(costsItemExpand);
+      const height = $expand.find('.js-budget-calc-app_costs-item-expand-inner').get(0).scrollHeight;
+      const $openedItem = $calcAppCostsTab.find(costsItemClassName + '.is-active');
+      const isAlreadyActive = $item.hasClass('is-active');
+
+      console.log($openedItem);
 
       if (isAlreadyActive) {
-        $(this).parent(costsItemClassName).removeClass('is-active');
+        $item.removeClass('is-active').css('margin-bottom', '0');
+        $expand.css('height', '0');
       } else {
-        $calcAppCostsTab.find(costsItemClassName).removeClass('is-active');
-        $(this).parent(costsItemClassName).addClass('is-active');
+        $openedItem.removeClass('is-active').css('margin-bottom', '0').find(costsItemExpand).css('height', '0');
+        $item.addClass('is-active').css('margin-bottom', height);
+        $expand.css('height', height);
       }
     });
   }
