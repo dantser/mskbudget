@@ -162,10 +162,12 @@ budget.extend("common", {
         $('.d-sr__progress-descr_other').on('click', function() {
 
             if ($(this).hasClass('_active')) {
-                $(this).parents('.d-sr__stat-container').next('.other-info').hide();
+                //$(this).parents('.d-sr__stat-container').next('.other-info').hide();
+                $(this).parents('.d-sr__progress_item').next('.other-info').slideUp();
                 $(this).removeClass('_active')
             } else {
-                $(this).parents('.d-sr__stat-container').next('.other-info').show();
+              //$(this).parents('.d-sr__stat-container').next('.other-info').show();  
+              $(this).parents('.d-sr__progress_item').next('.other-info').slideDown();
                 $(this).addClass('_active');
             }
         })
