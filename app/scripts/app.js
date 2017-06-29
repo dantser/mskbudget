@@ -29,6 +29,17 @@ import documentsform from '../components/documents/documents';
 import pageHeader from '../components/page-header/pageHeader';
 
 $(() => {
+  
+  // перезагрузка страниц при изменении разрешения
+  $(document).ready(function(){
+    window.winWidth = $(window).width();
+    $(window).resize(function(){
+      if (winWidth !== $(window).width()) {
+        location.reload();
+      }
+    });
+  });
+  
   selectbox();
   question();
   questions();
