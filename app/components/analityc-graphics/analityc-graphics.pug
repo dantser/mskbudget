@@ -183,14 +183,6 @@ mixin analityc-graphics-multiline(data)
 
 mixin analityc-graphics-line-alt(data)
   +b.analityc-line&attributes(attributes)._line
-    p.analityc-graphics__periodtext
-      span Плановый период
-    .graphic__row
-      span.graphic__data(data-char='2017') 2017
-      span.graphic__data(data-char='2018') 2018
-        span.graphic__period-left
-      span.graphic__data(data-char='2019') 2019
-        span.graphic__period-right
     +e.lines
       each obj in data
         +e.DIV(class="__line_"+obj.class)
@@ -199,8 +191,81 @@ mixin analityc-graphics-line-alt(data)
             +e.line-total._altred
             +e.line-fill
               +e.line-value= obj.value  
-            +e.SPAN.line-ber-value= obj.barvalue
-              
+            +e.SPAN.line-bar-value= obj.barvalue
+
+mixin analityc-graphics-mix(data)
+  +b.analityc-mix&attributes(attributes)
+    +e.round
+      +e.round-title= data.roundTitle
+      +e.round-content
+    +e.lines
+      each item in data.item
+        +e.line
+          if item.strong
+            +e.P.title 
+              strong= item.title
+          else
+            +e.P.title= item.title
+          if item.overwidth
+            +e.line-bar._overwidth
+              +e.line-values 
+                = item.value1
+                span /
+                = item.value2
+              +e.line-fill
+          else
+            +e.line-bar
+              +e.line-values 
+                = item.value1
+                span /
+                = item.value2
+                +e.line-fill
+
+mixin analityc-graphics-js-line(data)
+  +b.analityc-js-line&attributes(attributes)
+    +e.header
+      +icon('car').icon
+      +e.H2.heading= data.heading
+      +e.A(href=data.link).link Паспорт программы
+      +e.H3.subheading= data.subheading
+    +e.left
+      each item in data.item
+        if item.strong
+          +e.line._big
+            +e.P.title
+              strong= item.title
+            +e.line-bar
+              +e.line-total._altred
+              +e.line-fill
+                +e.line-values 
+                  = item.value1
+                  span /
+                  = item.value2 
+              +e.SPAN.line-bar-value= item.barvalue
+        else
+          +e.line
+            +e.P.title= item.title
+            +e.line-bar
+              +e.line-total._altred
+              +e.line-fill
+                +e.line-values 
+                  = item.value1
+                  span /
+                  = item.value2 
+              +e.SPAN.line-bar-value= item.barvalue
+    //- +e.right
+    //-   each items in data.item.extra
+    //-     +e.right-block
+    //-       +e.line
+    //-         +e.P.title= items.title
+    //-         +e.line-bar
+    //-           +e.line-total._altred
+    //-           +e.line-fill
+    //-             +e.line-values 
+    //-               = items.value1
+    //-               span /
+    //-               = items.value2 
+    //-           +e.SPAN.line-bar-value= items.barvalue
 //- data - json файл с данными для графиков
 mixin analityc-graphics-line-vertical(data, isWide)
   +b.analityc-graphics-line-vertical&attributes(attributes)

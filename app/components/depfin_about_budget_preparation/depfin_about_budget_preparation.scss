@@ -489,6 +489,7 @@
 .section-tabs_documents {
   .section-tabs__nav {
     padding-bottom: 59px;
+    position: relative;
   }
   .owl-carousel {
     max-width: 1110px;
@@ -497,12 +498,29 @@
   .tile__item {
     width: auto;
     margin-right: 18px;
+    margin-bottom: 0;
   }
   .tile__inner {
     margin: 0 4px;
   }
   .section-tabs__nav-leftbtn, .section-tabs__nav-rightbtn {
-    margin-top: 32px;
+    float: none;
+    position: absolute;
+    top: 0;
+    bottom: 59px;
+    margin: auto !important;
+    z-index: 2;
+    width: 46px;
+    height: 46px;
+  }
+  .section-tabs__nav-leftbtn {
+    left: 0;
+  }
+  .section-tabs__nav-rightbtn {
+    right: 0;
+  }
+  .section-tabs__nav-list {
+    padding: 0 52px;
   }
 
   @media screen and (min-width: 801px) and (max-width: 900px) {
@@ -515,14 +533,23 @@
     .tile__item {
       width: 500px !important;
     }
+    .section-tabs__nav-leftbtn, .section-tabs__nav-rightbtn {
+      width: 62px;
+      height: 118px;
+    }
   }
 
   @media screen and (max-width: 630px) {
     .section-tabs__nav {
-      padding-bottom: 10px;
+      margin-top: 26px;
+      padding-bottom: 30px;
     }
     .tile__item {
       width: 250px !important;
+    }
+    .section-tabs__nav-leftbtn, .section-tabs__nav-rightbtn {
+      width: 31px;
+      height: 62px;
     }
   }
 }
@@ -580,7 +607,7 @@
     &.document_alt {
       padding: 37px 44px;
       padding-right: 80px;
-      min-height: 278px;
+      min-height: 470px;
       .document__title {
         font-size: 36px;
       }
@@ -601,7 +628,7 @@
     &.document_alt {
       padding: 19px 22px;
       padding-right: 50px;
-      min-height: 140px;
+      min-height: 260px;
       .document__title {
         font-size: 18px;
       }
@@ -1328,7 +1355,7 @@
       margin-bottom: 0;
     }
     .d-abs-content {
-      padding-top: 128px;
+      padding-top: 75px;
       padding-bottom: 22px;
     }
     .page-head__title {
@@ -1533,7 +1560,7 @@
     }
     .section-tabs_documents .section-tabs__nav-list {
       padding: 0 6px;
-      padding-top: 26px;
+      padding-top: 0;
       max-width: 260px;
     }
     .section-tabs_documents .section-tabs__nav-leftbtn, .section-tabs_documents .section-tabs__nav-rightbtn {

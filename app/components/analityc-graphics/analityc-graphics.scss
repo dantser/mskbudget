@@ -1141,7 +1141,6 @@
     cursor: pointer;
     font-family: $PFDinTextPro;
     font-weight: 400;
-    line-height: 30px;
     text-decoration: underline !important;
     color: $color-link;
     width: 22%;
@@ -1164,15 +1163,16 @@
         display: inline-block;
         vertical-align: middle;
         margin-left: 10px;
+        line-height: 30px;
       }
     }
 
     &-value {
       font-size: 14px;
       font-family: $PFDinCondensedPro;
-      line-height: 30px;
       color: $color-black;
       text-align: center;
+      line-height: 30px;
     }
 
     &-total {
@@ -1285,65 +1285,11 @@
 .analityc-line {
   margin-top: 50px;
 
-  .analityc-graphics__periodtext {
-    width: 61%;
-  }
-
-  .graphic {
-    &__row {
-      border: none;
-      display: block;
-      width: 100%;
-      margin-bottom: 25px;
-      text-align: justify;
-    }
-
-    &__data {
-      padding-bottom: 39px;
-      font-size: 24px;
-      position: relative;
-      text-decoration: underline;
-      text-decoration-style: dashed;
-      font-weight: 500;
-      color: $color-link;
-      display: inline-block;
-      padding: 5px 0;
-      transition: all .25s ease-in-out;
-      width: 33%;
-      cursor: pointer;
-      text-align: center;
-    }
-
-    &__period-left, &__period-right {
-      position: absolute;
-      bottom: 100%;
-      height: 13px;
-      border: 1px solid #d7d7d7;
-      border-bottom: 0;
-      margin-bottom: 2px;
-    }
-
-    &__period-left {
-      left: 51%;
-      right: 0;
-      border-right: 0;
-    }
-
-    &__period-right {
-      right: 48%;
-      left: 0;
-      border-left: 0;
-    }
-  }
-
-
-
   &__title {
     font-size: 14px;
     cursor: pointer;
     font-family: $PFDinTextPro;
     font-weight: 400;
-    line-height: 30px;
     text-decoration: underline !important;
     color: $color-link;
     width: 22%;
@@ -1357,7 +1303,7 @@
 
     &-fill {
       opacity: 1;
-      width: 60%;
+      width: 82%;
       height: 30px;
       position: absolute;
       left: 0;
@@ -1373,19 +1319,21 @@
 
       &-value {
         font-size: 14px;
+        position: absolute;
         display: inline-block;
         vertical-align: middle;
         margin-left: 10px;
+        line-height: 30px;
       }
     }
 
     &-value {
       font-size: 14px;
       font-family: $PFDinCondensedPro;
-      line-height: 30px;
       text-align: center;
       color: $color-white;
       opacity: 1;
+      line-height: 30px;
     }
 
     &-total {
@@ -1396,7 +1344,7 @@
 
       &_altred {
         background-image: linear-gradient(to right, #ff0036 0%, #021398 100%);
-        width: 99%;
+        width: 93%;
         opacity: .7;
       }
     }
@@ -1404,83 +1352,491 @@
 
 
     &_social {
-      .analityc-multiline__line-bar {
+      .analityc-line__line-bar {
         width: 60%;
       }
     }
 
     &_edu {
-      .analityc-multiline__line-bar {
+      .analityc-line__line-bar {
         width: 55%;
       }
     }
 
     &_healthcare {
-      .analityc-multiline__line-bar {
+      .analityc-line__line-bar {
         width: 50%;
       }
     }
 
     &_home {
-      .analityc-multiline__line-bar {
+      .analityc-line__line-bar {
         width: 30%;
       }
     }
 
     &_environment {
-      .analityc-multiline__line-bar {
+      .analityc-line__line-bar {
         width: 25%;
       }
     }
 
     &_utilities {
-      .analityc-multiline__line-bar {
+      .analityc-line__line-bar {
         width: 23%;
       }
     }
 
     &_info {
-      .analityc-multiline__line-bar {
+      .analityc-line__line-bar {
         width: 21%;
       }
     }
 
     &_culture {
-      .analityc-multiline__line-bar {
+      .analityc-line__line-bar {
         width: 19%;
       }
     }
 
     &_sport {
-      .analityc-multiline__line-bar {
+      .analityc-line__line-bar {
         width: 17%;
       }
     }
 
     &_economics {
-      .analityc-multiline__line-bar {
+      .analityc-line__line-bar {
         width: 15%;
       }
     }
 
     &_safety {
-      .analityc-multiline__line-bar {
+      .analityc-line__line-bar {
         width: 13%;
       }
     }
 
     &_urban {
-      .analityc-multiline__line-bar {
+      .analityc-line__line-bar {
         width: 11%;
       }
     }
 
     &_openness {
-      .analityc-multiline__line-bar {
+      .analityc-line__line-bar {
         width: 9%;
       }
     }
   }
+
+  &_date-two {
+
+    .analityc-line__line {
+      &_social {
+        .analityc-line__line-bar {
+          width: 50%;
+        }
+      }
+
+      &_edu {
+        .analityc-line__line-bar {
+          width: 48%;
+        }
+      }
+
+      &_healthcare {
+        .analityc-line__line-bar {
+          width: 45%;
+        }
+      }
+
+      &_home {
+        .analityc-line__line-bar {
+          width: 44%;
+        }
+      }
+
+      &_environment {
+        .analityc-line__line-bar {
+          width: 40%;
+        }
+      }
+
+      &_utilities {
+        .analityc-line__line-bar {
+          width: 20%;
+        }
+      }
+
+      &_info {
+        .analityc-line__line-bar {
+          width: 19%;
+        }
+      }
+
+      &_culture {
+        .analityc-line__line-bar {
+          width: 10%;
+        }
+      }
+
+      &_sport {
+        .analityc-line__line-bar {
+          width: 17%;
+        }
+      }
+
+      &_economics {
+        .analityc-line__line-bar {
+          width: 15%;
+        }
+      }
+
+      &_safety {
+        .analityc-line__line-bar {
+          width: 13%;
+        }
+      }
+
+      &_urban {
+        .analityc-line__line-bar {
+          width: 11%;
+        }
+      }
+
+      &_openness {
+        .analityc-line__line-bar {
+          width: 9%;
+        }
+      }
+    }
+
+  }
+  &_date-three {
+
+    .analityc-line__line {
+      &_social {
+        .analityc-line__line-bar {
+          width: 60%;
+        }
+      }
+
+      &_edu {
+        .analityc-line__line-bar {
+          width: 40%;
+        }
+      }
+
+      &_healthcare {
+        .analityc-line__line-bar {
+          width: 55%;
+        }
+      }
+
+      &_home {
+        .analityc-line__line-bar {
+          width: 22%;
+        }
+      }
+
+      &_environment {
+        .analityc-line__line-bar {
+          width: 33%;
+        }
+      }
+
+      &_utilities {
+        .analityc-line__line-bar {
+          width: 12%;
+        }
+      }
+
+      &_info {
+        .analityc-line__line-bar {
+          width: 50%;
+        }
+      }
+
+      &_culture {
+        .analityc-line__line-bar {
+          width: 40%;
+        }
+      }
+
+      &_sport {
+        .analityc-line__line-bar {
+          width: 60%;
+        }
+      }
+
+      &_economics {
+        .analityc-line__line-bar {
+          width: 50%;
+        }
+      }
+
+      &_safety {
+        .analityc-line__line-bar {
+          width: 30%;
+        }
+      }
+
+      &_urban {
+        .analityc-line__line-bar {
+          width: 8%;
+        }
+      }
+
+      &_openness {
+        .analityc-line__line-bar {
+          width: 15%;
+        }
+      }
+    }
+
+  }
+}
+
+.analityc-mix {
+  margin-top: 50px;
+
+  &__round {
+    width: 35%;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+
+    &-title {
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    &-content {
+      height: 340px;
+      width: 350px;
+      background-color: $color-light-gray;
+    }
+  }
+
+  &__title {
+    font-size: 14px;
+    cursor: pointer;
+    font-family: $PFDinTextPro;
+    font-weight: 400;
+    width: 34%;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: right;
+    margin-right: 20px;
+  }
+
+  &__lines {
+    width: 55%;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &__line {
+    margin-bottom: 10px;
+
+    &-bar {
+      display: inline-block;
+      vertical-align: middle;
+      background-image: linear-gradient(to right, #021398 0%, #ff0036 100%);
+      width: 60%;
+      height: 30px;
+      position: relative;
+
+      &_overwidth {
+
+        .analityc-mix__line-values {
+          position: absolute;
+          left: 100%;
+          margin-left: 10px;
+          color: $color-black;
+          white-space: nowrap;
+        }
+      }
+    }
+
+    &-values {
+      font-size: 14px;
+      line-height: 30px;
+      color: $color-white;
+      text-align: center;
+    }
+
+
+    &:nth-child(2) {
+      .analityc-mix__line-bar {
+        width: 35%;
+      }
+    }
+    &:nth-child(3) {
+      .analityc-mix__line-bar {
+        width: 30%;
+      }
+    }
+    &:nth-child(4) {
+      .analityc-mix__line-bar {
+        width: 28%;
+      }
+    }
+    &:nth-child(5) {
+      .analityc-mix__line-bar {
+        width: 5%;
+      }
+    }
+    &:nth-child(6) {
+      .analityc-mix__line-bar {
+        width: 5%;
+      }
+    }
+  }
+}
+
+.analityc-js-line {
+  &__header {
+    margin-bottom: 40px;
+  }
+
+  &__heading {
+    font-size: 30px;
+    text-transform: uppercase;
+    display: inline-block;
+  }
+
+  &__subheading {
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-top: 7px;
+  }
+
+  &__link {
+    font-size: 14px;
+    font-weight: 400;
+    font-family: $PFDinTextPro;
+    color: $color-link;
+    display: inline-block;
+  }
+
+  &__icon {
+    width: 29px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  &__left {
+    width: 60%;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &__right {
+    width: 30%;
+    display: inline-block;
+    vertical-align: middle;
+  }
+ // линия
+  &__line {
+    position: relative;
+    padding: 16px 17px;
+    transition: border .25s ease-in-out;
+    border: 1px solid transparent;
+    border-right: none;
+    cursor: pointer;
+
+    // &::after {
+    //   border: 37px solid transparent;
+    //   border-left: 37px solid transparent;
+    //   transition: border .25s ease-in-out;
+    // }
+
+    &_active {
+      border: 1px solid #d3d3d3;
+      border-right: none;
+      position: relative;
+
+      // &::after {
+      //   @include pseudo;
+      //   border: 37px solid transparent;
+      //   border-left: 37px solid $color-light-gray;
+      //   left: 100%;
+      //   top: -1px;
+      // }
+    }
+
+    &_big {
+      .analityc-js-line__title {
+        font-size: 16px;
+        color: $color-black;
+      }
+    }
+
+    &-bar {
+      display: inline-block;
+      vertical-align: middle;
+      position: relative;
+      width: 55%;
+
+      &-value {
+        position: absolute;
+        left: 100%;
+        top: 0;
+        white-space: nowrap;
+        font-size: 14px;
+        margin-left: 10px;
+        line-height: 30px;
+
+      }
+    }
+
+    &-total {
+      background-image: linear-gradient(to right, #021398 0%, #ff0036 100%);
+      height: 30px;
+      width: 100%;
+      opacity: .3;
+    }
+
+    &-fill {
+      background-image: linear-gradient(to right, #021398 0%, #ff0036 100%);
+      opacity: 1;
+      width: 82%;
+      height: 30px;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    &-values {
+      font-size: 14px;
+      text-align: right;
+      color: $color-white;
+      opacity: 1;
+      line-height: 30px;
+      margin-right: 15px;
+    }
+  }
+
+
+
+  &__title {
+    font-size: 14px;
+    width: 29%;
+    margin-right: 10px;
+    color: $color-link;
+    font-family: $PFDinTextPro;
+    display: inline-block;
+    vertical-align: middle;
+
+    &_active {
+      color: $color-black;
+    }
+  }
+
+
 }
 .analityc-graphics-custom1,
 .analityc-graphics-custom2 {
