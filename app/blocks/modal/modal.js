@@ -1,7 +1,18 @@
 import vex from 'vex-js/dist/js/vex.combined.js';
 
-// модальные окна на базе vex
-// https://github.com/HubSpot/vex
+/*
+* Модальные окна на базе vex
+* https://github.com/HubSpot/vex
+*
+* Возможные варианты:
+* vex.dialog.alert(stringOrOptions)
+* vex.dialog.confirm(options)
+* vex.dialog.prompt(options)
+* vex.dialog.open(options)
+*
+* Простейший пример:
+* vex.dialog.alert('Thanks for checking out vex!')
+*/
 export default function() {
   const modals = Array.from(document.querySelectorAll('[data-show-vex-modal]'));
 
@@ -13,12 +24,29 @@ export default function() {
         event.preventDefault();
 
         vex.dialog.confirm({
-          message: 'Are you absolutely sure you want to destroy the alien planet?',
+          // если это диалог
+          message: 'message',
+
+          // если это уведомление
+          // content: 'content',
+
+          // unsafeContent: '',
+          showCloseButton: true,
+          escapeButtonCloses: true,
+          overlayClosesOnClick: true,
+          appendLocation: 'body',
+          // className: 'modal',
+          // overlayClassName: 'modal__overlay',
+          // contentClassName: 'modal__content',
+          // closeClassName: 'modal__close',
+          closeAllOnPopState: true,
+
+          // обязателен для диалогов
           callback: function (value) {
             if (value) {
-              console.log('Successfully destroyed the planet.')
+              console.log('yes')
             } else {
-              console.log('Chicken.')
+              console.log('no')
             }
           }
         });
