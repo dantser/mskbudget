@@ -49,15 +49,15 @@ mixin budget-calc-app()
           p Для этого вы можете <br>- увеличить доходы бюджета <br>- снизить расходы бюджета <br>- привлечь источники финансирования дефицита бюджета
 
     +e.main-content#budget-calc-app__main-content
-      +e.tab._incomes.js-budget-calc-app__tab#budget-calc-app__tab_incomes(data-state-indicator="#budget-calc-app__tab_incomes-indicator")
+      +e.tab._incomes.is-active.js-budget-calc-app__tab#budget-calc-app__tab_incomes(data-state-indicator="#budget-calc-app__tab_incomes-indicator")
         +e.heading МЕРЫ ПО ИЗМЕНЕНИЮ ДОХОДНОЙ ЧАСТИ БЮДЖЕТА
         +e.text Изменение элементов налогообложения в пределах полномочий субъекта Российской Федерации, установленных законодательством Российской Федерации о налогах и сборах.
         +e.incomes
-          +b.table-row._heading
+          +b.bc-table-row._heading
             +e.column
             +e.column._heading Доля в общем объеме доходов
             +e.column._heading Сумма поступлений
-          +b.table-row
+          +b.bc-table-row
             +e.column._name
               .has-tooltip
                 +tooltip-icon("текст тултипа")
@@ -68,7 +68,7 @@ mixin budget-calc-app()
             +e.column._value
               SPAN.-num 1 433 185,2
               SPAN.-text млн руб.
-          +b.table-row._expand
+          +b.bc-table-row._expand
             +b.notification.is-active
               | Решение об эмиссии отдельных выпусков облигаций Городского облигационного (внутреннего) займа Москвы утверждаются Правительством Москвы. Предельный объем ежегодной эмиссии устанавливается постановлениями Правительства Москвы. Превышение предельного объема заимствований может оказать негативное влияние на ранее выпущенные облигационные займы.
             +b.notification._alert.is-active
@@ -76,7 +76,7 @@ mixin budget-calc-app()
             +b.notification._info.text-center.is-active
               | Если вы хотите сохранить несколько вариантов бюджета, <a href="#">зарегистируйтесь</a>!
 
-          +b.table-row.is-accordeon-row.js-table-row-accordeon
+          +b.bc-table-row.is-accordeon-row.js-table-row-accordeon
             +e.column._name
               .has-tooltip
                 +tooltip-icon("текст тултипа")
@@ -87,13 +87,13 @@ mixin budget-calc-app()
             +e.column._value
               SPAN.-num 464 732,0
               SPAN.-text млн руб.
-          +b.table-row._expand
-            +b.table-row._expand-header
+          +b.bc-table-row._expand
+            +b.bc-table-row._expand-header
               +e.column
                 SPAN.text-muted Налогоплательщики
               +e.column
                 SPAN.text-muted Налоговая ставка
-            +b.table-row
+            +b.bc-table-row
               +e.column
                 | <span class="visible-xs">Налогоплательщики: </span>Все налогоплательщики
               +e.column
@@ -103,24 +103,24 @@ mixin budget-calc-app()
                 SPAN.-num -464 732,0
                 SPAN.-text млн руб.
             +b.notification.is-active Снижение налоговой ставки для большинства налогоплательщиков города Москвы приведет к уменьшению поступлений в городской бюджет
-            +b.table-row._expand-header
+            +b.bc-table-row._expand-header
               +e.column
                 SPAN.text-muted Льготные категории налогоплательщиков:
-            +b.table-row
+            +b.bc-table-row
               +e.column
                 | <span class="visible-xs">Льготные категории налогоплательщиков: </span>Организации, осуществляющие производство легковых автомобилей на территории города Москвы
               +e.column
                 .visible-xs Налоговая ставка
                 +range('incomes_LgotyProizvodstvoAvto_Range')
               +e.column
-            +b.table-row
+            +b.bc-table-row
               +e.column
                 | <span class="visible-xs">Льготные категории налогоплательщиков: </span>Общественные организации инвалидов и организации, использующие труд инвалидов
               +e.column
                 .visible-xs Налоговая ставка
                 +range('incomes_LgotyInvalidyNaRabote_Range')
 
-          +b.table-row.is-accordeon-row.js-table-row-accordeon
+          +b.bc-table-row.is-accordeon-row.js-table-row-accordeon
             +e.column._name
               .has-tooltip
                 +tooltip-icon("текст тултипа")
@@ -131,13 +131,13 @@ mixin budget-calc-app()
             +e.column._value
               SPAN.-num 729 284,6
               SPAN.-text млн руб.
-          +b.table-row._expand
-            +b.table-row
+          +b.bc-table-row._expand
+            +b.bc-table-row
               +e.column Коэффициент, отражающий региональные особенности рынка труда
               +e.column
                 +range('incomes_RegionKoeficient_Range')
 
-          +b.table-row.is-accordeon-row.js-table-row-accordeon
+          +b.bc-table-row.is-accordeon-row.js-table-row-accordeon
             +e.column._name
               .has-tooltip
                 +tooltip-icon("текст тултипа")
@@ -148,26 +148,26 @@ mixin budget-calc-app()
             +e.column._value
               SPAN.-num 464 732,0
               SPAN.-text млн руб.
-          +b.table-row._expand
-            +b.table-row._expand-header
+          +b.bc-table-row._expand
+            +b.bc-table-row._expand-header
               +e.column
                 SPAN.text-muted Налоговая база
               +e.column
                 SPAN.text-muted Налоговая ставка
-            +b.table-row
+            +b.bc-table-row
               +e.column
                 | <span class="visible-xs">Налоговая база: </span>Среднегодовая стоимость движимого и недвижимого имущества
               +e.column
                 .visible-xs Налоговая ставка
                 +range('incomes_AveragePropertyValue_Range')
-            +b.table-row
+            +b.bc-table-row
               +e.column
                 | <span class="visible-xs">Налоговая база: </span>Кадастровая стоимость недвижимого имущества
               +e.column
                 .visible-xs Налоговая ставка
                 +range('incomes_AveragePropertyValueKadastr_Range')
 
-          +b.table-row.is-accordeon-row.js-table-row-accordeon
+          +b.bc-table-row.is-accordeon-row.js-table-row-accordeon
             +e.column._name
               .has-tooltip
                 +tooltip-icon("текст тултипа")
@@ -178,55 +178,55 @@ mixin budget-calc-app()
             +e.column._value.text-alert
               SPAN.-num 729 284,6
               SPAN.-text млн руб.
-          +b.table-row._expand
-            +b.table-row._expand-header
+          +b.bc-table-row._expand
+            +b.bc-table-row._expand-header
               +e.column
                 SPAN.text-muted Объекты налогообложения — <br>легковые автомобили мощностью:
               +e.column
                 SPAN.text-muted Налоговая ставка
-            +b.table-row
+            +b.bc-table-row
               +e.column
                 | <span class="visible-xs">Объекты налогообложения — легковые автомобили мощностью: </span> до 100 л.с.
               +e.column
                 .visible-xs Налоговая ставка
                 +range('incomes_TransportLessThan100Hp_Range')
-            +b.table-row
+            +b.bc-table-row
               +e.column
                 | <span class="visible-xs">Объекты налогообложения — легковые автомобили мощностью: </span> свыше 100 л.с. до 125 л.с.
               +e.column
                 .visible-xs Налоговая ставка
                 +range('incomes_Transport100-125Hp_Range')
-            +b.table-row
+            +b.bc-table-row
               +e.column
                 | <span class="visible-xs">Объекты налогообложения — легковые автомобили мощностью: </span> свыше 125 л.с. до 150 л.с.
               +e.column
                 .visible-xs Налоговая ставка
                 +range('incomes_Transport125-150Hp_Range')
-            +b.table-row
+            +b.bc-table-row
               +e.column
                 | <span class="visible-xs">Объекты налогообложения — легковые автомобили мощностью: </span> свыше 150 л.с. до 175 л.с.
               +e.column
                 .visible-xs Налоговая ставка
                 +range('incomes_Transport150-175Hp_Range')
-            +b.table-row
+            +b.bc-table-row
               +e.column
                 | <span class="visible-xs">Объекты налогообложения — легковые автомобили мощностью: </span> свыше 175 л.с. до 200 л.с.
               +e.column
                 .visible-xs Налоговая ставка
                 +range('incomes_Transport175-200Hp_Range')
-            +b.table-row
+            +b.bc-table-row
               +e.column
                 | <span class="visible-xs">Объекты налогообложения — легковые автомобили мощностью: </span> свыше 200 л.с. до 225 л.с.
               +e.column
                 .visible-xs Налоговая ставка
                 +range('incomes_Transport200-225Hp_Range')
-            +b.table-row
+            +b.bc-table-row
               +e.column
                 | <span class="visible-xs">Объекты налогообложения — легковые автомобили мощностью: </span> свыше 225 л.с. до 250 л.с.
               +e.column
                 .visible-xs Налоговая ставка
                 +range('incomes_Transport225-250Hp_Range')
-            +b.table-row
+            +b.bc-table-row
               +e.column
                 | <span class="visible-xs">Объекты налогообложения — легковые автомобили мощностью: </span> свыше 250 л.с.
               +e.column
@@ -234,11 +234,11 @@ mixin budget-calc-app()
                 +range('incomes_TransportMoreThan250Hp_Range')
             +b.notification.is-active Изменение налоговых ставок в большую или меньшую сторону приведет к увеличению/снижению поступлений в городской бюджет. При изменении ставок необходимо учитывать принцип соизмеримости, согласно которому ставка для автомобиля меньшей мощности не может превышать ставку для автомобиля большей мощности.
 
-            +b.table-row._expand
+            +b.bc-table-row._expand
               +e.column Как Вы считаете, для каких категорий организаций и граждан следует отменить налоговые льготы?
 
               +e.column.col2and3
-                +b.table-row
+                +b.bc-table-row
                   +e.column.has-checkbox.col2and3-col1
                     +checkbox()
                     SPAN.checkbox-text Организации, оказывающие услуги по перевозке пассажиров городским пассажирским транспортом общего пользования, — по транспортным средствам, осуществляющим перевозки пассажиров (кроме такси)
@@ -248,7 +248,7 @@ mixin budget-calc-app()
                   +e.column.col2and3-col3
                     +b.notification.is-active Отмена льготы по налогу для городского пассажирского транспорта приведет к увеличению стоимости проезда на общественном транспорте.
 
-                +b.table-row
+                +b.bc-table-row
                   +e.column.has-checkbox.col2and3-col1
                     +checkbox()
                     SPAN.checkbox-text Лица, имеющие легковые автомобили с мощностью двигателя до 70 л.с. включительно (за одно транспортное средство)
@@ -258,7 +258,7 @@ mixin budget-calc-app()
                   +e.column.col2and3-col3
                     +b.notification.is-active Отмена льготы для владельцев маломощных автомобилей окажет дестимулирующее влияние на приобретение и использование автомобилей указанной категории, при том что такие автомобили причиняют наименьший вред экологии города и оказывают наименьшую нагрузку на дорожно-транспортную инфраструктуру.
 
-                +b.table-row
+                +b.bc-table-row
                   +e.column.has-checkbox.col2and3-col1
                     +checkbox()
                     SPAN.checkbox-text Один из родителей (усыновителей) в многодетной семье (за одно транспортное средство)
@@ -268,7 +268,7 @@ mixin budget-calc-app()
                   +e.column.col2and3-col3
                     +b.notification.is-active Отмена льготы, предоставляемой одному из родителей (усыновителей) в многодетной семье, увеличит налоговую нагрузку на указанную семью, при этом наличие вместительного автомобиля в многодетной семье является оправданной необходимостью, а не предметом роскоши.
 
-          +b.table-row.is-accordeon-row.js-table-row-accordeon
+          +b.bc-table-row.is-accordeon-row.js-table-row-accordeon
             +e.column._name
               .has-tooltip
                 +tooltip-icon("текст тултипа")
@@ -279,34 +279,34 @@ mixin budget-calc-app()
             +e.column._value
               SPAN.-num 464 732,0
               SPAN.-text млн руб.
-          +b.table-row._expand
-            +b.table-row._expand-header
+          +b.bc-table-row._expand
+            +b.bc-table-row._expand-header
               +e.column
                 SPAN.text-muted Объекты налогообложения
               +e.column
                 SPAN.text-muted Налоговая ставка
-            +b.table-row
+            +b.bc-table-row
               +e.column Земельные участки, отнесенные к землям в составе зон сельскохозяйственного использования в городе Москве и используемые для сельскохозяйственного производства
               +e.column
                 +range('incomes_LandsSelhoz_Range')
-            +b.table-row
+            +b.bc-table-row
               +e.column Земельные участки, занятые жилищным фондом и объектами инженерной инфраструктуры жилищно-коммунального комплекса или предоставленные для жилищного строительства
               +e.column
                 +range('incomes_LandsZhilye_Range')
-            +b.table-row
+            +b.bc-table-row
               +e.column Земельные участки, предоставленные для ведения личного подсобного хозяйства, садоводства, огородничества или животноводства, а также дачного хозяйства и дачного строительства
               +e.column
                 +range('incomes_LandsPersonal_Range')
-            +b.table-row
+            +b.bc-table-row
               +e.column Прочие земельные участки
               +e.column
                 +range('incomes_LandsMisc_Range')
 
-            +b.table-row
+            +b.bc-table-row
               +e.column Как Вы считаете, для каких категорий организаций следует отменить налоговые льготы?
 
               +e.column.col2and3
-                +b.table-row
+                +b.bc-table-row
                   +e.column.has-checkbox.col2and3-col1
                     +checkbox()
                     SPAN.checkbox-text ТСЖ, ЖК, ЖСК и иные специализированные потребительские кооперативы, созданные в целях удовлетворения потребностей граждан в жилье
@@ -316,7 +316,7 @@ mixin budget-calc-app()
                   +e.column.col2and3-col3
                     +b.notification.is-active Отмена льготы для ТСЖ, ЖК, ЖСК и иных организаций с аналогичными функциями приведет к росту затрат участников данных организаций в связи с необходимостью уплаты налога
 
-                +b.table-row
+                +b.bc-table-row
                   +e.column.has-checkbox.col2and3-col1
                     +checkbox()
                     SPAN.checkbox-text Негосударственные некоммерческие организации
@@ -326,7 +326,7 @@ mixin budget-calc-app()
                   +e.column.col2and3-col3
                     +b.notification.is-active Отмена льготы для негосударственных НКО повлечет увеличение налоговой нагрузки на данные организации, что может привести к росту стоимости оказываемых социально значимых услуг
 
-                +b.table-row
+                +b.bc-table-row
                   +e.column.has-checkbox.col2and3-col1
                     +checkbox()
                     SPAN.checkbox-text Организации, которым в установленном порядке присвоен статус государственного научного центра РФ
@@ -336,7 +336,7 @@ mixin budget-calc-app()
                   +e.column.col2and3-col3
                     +b.notification.is-active Отмена льготы для государственных научных центров РФ приведет к необходимости осуществления расходов на уплату налога за счет сокращения других расходов
 
-                +b.table-row
+                +b.bc-table-row
                   +e.column.has-checkbox.col2and3-col1
                     +checkbox()
                     SPAN.checkbox-text Организации, у которых доля дохода от реализации продукции собственного производства в общем доходе от реализации товаров (работ, услуг) составляет не менее 70%
@@ -346,7 +346,7 @@ mixin budget-calc-app()
                   +e.column.col2and3-col3
                     +b.notification.is-active Отмена льготы для промышленных предприятий окажет сдерживающее влияние на развитие производственного сектора городской экономики и создание новых рабочих мест для москвичей
 
-          +b.table-row.is-accordeon-row.js-table-row-accordeon
+          +b.bc-table-row.is-accordeon-row.js-table-row-accordeon
             +e.column._name
               .has-tooltip
                 +tooltip-icon("текст тултипа")
@@ -357,27 +357,27 @@ mixin budget-calc-app()
             +e.column._value
               SPAN.-num 12 435 930,4
               SPAN.-text млн руб.
-          +b.table-row._expand
-            +b.table-row._expand-header
+          +b.bc-table-row._expand
+            +b.bc-table-row._expand-header
               +e.column
                 SPAN.text-muted Объекты налогообложения
               +e.column
                 SPAN.text-muted Налоговая ставка
 
-            +b.table-row
+            +b.bc-table-row
               +e.column
                 | Доходы
               +e.column
                 +range('incomes_EasyIncome_Range')
 
-            +b.table-row
+            +b.bc-table-row
               +e.column
                 | Доходы, уменьшенные на величину расходов
               +e.column
                 +range('incomes_DifferenceIncome_Range')
 
 
-          +b.table-row
+          +b.bc-table-row
             +e.column._name
               .has-tooltip
                 +tooltip-icon("текст тултипа")
@@ -389,7 +389,7 @@ mixin budget-calc-app()
               SPAN.-num 213 854,2
               SPAN.-text млн руб.
 
-          +b.table-row
+          +b.bc-table-row
             +e.column._name
               .has-tooltip
                 +tooltip-icon("текст тултипа")
@@ -404,15 +404,15 @@ mixin budget-calc-app()
         +e.text
           +budget-calc-btn('сохранить и перейти в раздел «расходы»').-triangle-right.js-budget-calc-app__tab-control(data-target="#budget-calc-app__tab_costs" href="#")
 
-      +e.tab._costs.is-active.js-budget-calc-app__tab#budget-calc-app__tab_costs(data-state-indicator="#budget-calc-app__tab_costs-indicator")
+      +e.tab._costs.js-budget-calc-app__tab#budget-calc-app__tab_costs(data-state-indicator="#budget-calc-app__tab_costs-indicator")
         +e.heading РАСХОДЫ НА ГОСУДАРСТВЕННЫЕ ПРОГРАММЫ
         +e.costs
-          +e.costs-item.js-budget-calc-app__costs-item
-            +e.costs-item-icon
+          +e.costs-item.js-budget-calc-app__costs-item.js-bc-match-height-2
+            +e.costs-item-icon.js-budget-calc-app__costs-item-link
               +icon('car').icon.costs-car
-            +e.A.costs-item-link.js-budget-calc-app__costs-item-link(href="#")
+            +e.A.costs-item-link.js-budget-calc-app__costs-item-link(href="#").js-bc-match-height-1
               +e.costs-item-link-text РАЗВИТИЕ ТРАНСПОРТНОЙ СИСТЕМЫ
-            +e.costs-item-value.js-budget-calc-app__costs-item-value
+            +e.costs-item-value.js-bc-match-height-3
               span 464 732,0
               |  млн руб.
             +e.costs-item-initial
@@ -420,13 +420,71 @@ mixin budget-calc-app()
               span 71 271,9
             +e.costs-item-range
               +range('costs_TransportRange')
-            +e.costs-item-expand testing
-          +e.costs-item.js-budget-calc-app__costs-item
-            +e.costs-item-icon
+            +e.costs-item-expand.js-budget-calc-app__costs-item-expand
+              +e.costs-item-expand-inner.js-budget-calc-app_costs-item-expand-inner
+                +b.bc-table-row._expand
+                  +e.column Общественный транспорт "Метрополитен"
+                  +e.column
+                    +range('costs_TransportMetro_Range')
+                  +e.column._costs-value
+                    SPAN.-num 212 450,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Общественный транспорт "Наземный городской пассажирский транспорт"
+                  +e.column
+                    +range('costs_TransportOnGround_Range')
+                  +e.column._costs-value
+                    SPAN.-num 212 450,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Общественный транспорт "Железнодорожный транспорт"
+                  +e.column
+                    +range('costs_TransportRailWays_Range')
+                  +e.column._costs-value
+                    SPAN.-num 212 450,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Автомобильные дороги и улично-дорожная сеть
+                  +e.column
+                    +range('costs_TransportAvto_Range')
+                  +e.column._costs-value
+                    SPAN.-num 212 450,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Автовокзалы и транспортно-пересадочные узлы
+                  +e.column
+                    +range('costs_TransportStations_Range')
+                  +e.column._costs-value
+                    SPAN.-num 212 450,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Создание единого парковочного пространства
+                  +e.column
+                    +range('costs_TransportParking_Range')
+                  +e.column._costs-value
+                    SPAN.-num 212 450,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Организация движения транспорта в городе Москве. Создание интеллектуальной транспортной системы
+                  +e.column
+                    +range('costs_TransportAI_Range')
+                  +e.column._costs-value
+                    SPAN.-num 212 450,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Развитие новых видов транспорта
+                  +e.column
+                    +range('costs_TransportNew_Range')
+                  +e.column._costs-value
+                    SPAN.-num 4 212 450,0
+                    SPAN.-text млн руб.
+
+          +e.costs-item.js-budget-calc-app__costs-item.js-bc-match-height-2
+            +e.costs-item-icon.js-budget-calc-app__costs-item-link
               +icon('health-cross').icon.costs-health-cross
-            +e.A.costs-item-link.js-budget-calc-app__costs-item-link(href="#")
+            +e.A.costs-item-link.js-budget-calc-app__costs-item-link(href="#").js-bc-match-height-1
               +e.costs-item-link-text столичное здравоохранение
-            +e.costs-item-value.js-budget-calc-app__costs-item-value
+            +e.costs-item-value.js-bc-match-height-3
               span 464 732,0
               |  млн руб.
             +e.costs-item-initial
@@ -434,13 +492,71 @@ mixin budget-calc-app()
               span 71 271,9
             +e.costs-item-range
               +range('costs_Health_Range')
-            +e.costs-item-expand testing
-          +e.costs-item.js-budget-calc-app__costs-item
-            +e.costs-item-icon
+            +e.costs-item-expand.js-budget-calc-app__costs-item-expand
+              +e.costs-item-expand-inner.js-budget-calc-app_costs-item-expand-inner
+                +b.bc-table-row._expand
+                  +e.column Профилактика заболеваний и формирование здорового образа жизни. Совершенствование первичной медико-санитарной помощи
+                  +e.column
+                    +range('costs_HealthName1_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Формирование эффективной системы организации медицинской помощи. Совершенствование системы территориального планирования
+                  +e.column
+                    +range('costs_HealthName2_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Совершенствование оказания специализированной, включая высокотехнологичную, медицинской помощи, скорой, в том числе скорой специализированной, медицинской помощи, а также паллиативной помощи
+                  +e.column
+                    +range('costs_HealthName3_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Охрана здоровья матери и ребенка
+                  +e.column
+                    +range('costs_HealthName4_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Развитие медицинской реабилитации и санаторно-курортного лечения
+                  +e.column
+                    +range('costs_HealthName5_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Кадровое обеспечение государственной системы здравоохранения города Москвы
+                  +e.column
+                    +range('costs_HealthName6_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Охрана окружающей среды и улучшение экологической ситуации в городе Москве в целях укрепления здоровья населения
+                  +e.column
+                    +range('costs_HealthName7_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Профилактика зоонозных инфекций, эпизоотическое и ветеринарно-санитарное благополучие в городе Москве
+                  +e.column
+                    +range('costs_HealthName8_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+
+          +e.costs-item.js-budget-calc-app__costs-item.js-bc-match-height-2
+            +e.costs-item-icon.js-budget-calc-app__costs-item-link
               +icon('study').icon.costs-study
-            +e.A.costs-item-link.js-budget-calc-app__costs-item-link(href="#")
+            +e.A.costs-item-link.js-budget-calc-app__costs-item-link(href="#").js-bc-match-height-1
               +e.costs-item-link-text столичное образование
-            +e.costs-item-value.js-budget-calc-app__costs-item-value
+            +e.costs-item-value.js-bc-match-height-3
               span 464 732,0
               |  млн руб.
             +e.costs-item-initial
@@ -448,13 +564,43 @@ mixin budget-calc-app()
               span 71 271,9
             +e.costs-item-range
               +range('costs_Education_Range')
-            +e.costs-item-expand testing
-          +e.costs-item.js-budget-calc-app__costs-item
-            +e.costs-item-icon
+            +e.costs-item-expand.js-budget-calc-app__costs-item-expand
+              +e.costs-item-expand-inner.js-budget-calc-app_costs-item-expand-inner
+                +b.bc-table-row._expand
+                  +e.column Общее образование
+                  +e.column
+                    +range('costs_StudyName1_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Профессиональное образование
+                  +e.column
+                    +range('costs_StudyName2_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Дополнительное образование и профессиональное обучение
+                  +e.column
+                    +range('costs_StudyName3_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Развитие системы образования
+                  +e.column
+                    +range('costs_StudyName4_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+
+          +e.costs-item.js-budget-calc-app__costs-item.js-bc-match-height-2
+            +e.costs-item-icon.js-budget-calc-app__costs-item-link
               +icon('health-care').icon.costs-health-care
-            +e.A.costs-item-link.js-budget-calc-app__costs-item-link(href="#")
+            +e.A.costs-item-link.js-budget-calc-app__costs-item-link(href="#").js-bc-match-height-1
               +e.costs-item-link-text СОЦИАЛЬНАЯ ПОДДЕРЖКА ЖИТЕЛЕЙ ГОРОДА москвы
-            +e.costs-item-value.js-budget-calc-app__costs-item-value
+            +e.costs-item-value.js-bc-match-height-3
               span 464 732,0
               |  млн руб.
             +e.costs-item-initial
@@ -462,13 +608,43 @@ mixin budget-calc-app()
               span 71 271,9
             +e.costs-item-range
               +range('costs_SocialSupport_Range')
-            +e.costs-item-expand testing
-          +e.costs-item.js-budget-calc-app__costs-item
-            +e.costs-item-icon
+            +e.costs-item-expand.js-budget-calc-app__costs-item-expand
+              +e.costs-item-expand-inner.js-budget-calc-app_costs-item-expand-inner
+                +b.bc-table-row._expand
+                  +e.column Социальная поддержка семей с детьми. Профилактика социального сиротства и защита прав детей-сирот и детей, оставшихся без попечения родителей
+                  +e.column
+                    +range('costs_SocialSupportName1_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Социальная поддержка старшего поколения, ветеранов Великой Отечественной войны, ветеранов боевых действий и членов их семей
+                  +e.column
+                    +range('costs_SocialSupportName2_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Социальная интеграция инвалидов и формирование безбарьерной среды для инвалидов и других маломобильных групп населения
+                  +e.column
+                    +range('costs_SocialSupportName3_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Модернизация и развитие системы социальной защиты населения города Москвы
+                  +e.column
+                    +range('costs_SocialSupportName4_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+
+          +e.costs-item.js-budget-calc-app__costs-item.js-bc-match-height-2
+            +e.costs-item-icon.js-budget-calc-app__costs-item-link
               +icon('home').icon.costs-home
-            +e.A.costs-item-link.js-budget-calc-app__costs-item-link(href="#")
+            +e.A.costs-item-link.js-budget-calc-app__costs-item-link(href="#").js-bc-match-height-1
               +e.costs-item-link-text жилище
-            +e.costs-item-value.js-budget-calc-app__costs-item-value
+            +e.costs-item-value.js-bc-match-height-3
               span 464 732,0
               |  млн руб.
             +e.costs-item-initial
@@ -476,13 +652,50 @@ mixin budget-calc-app()
               span 71 271,9
             +e.costs-item-range
               +range('costs_House_Range')
-            +e.costs-item-expand testing
-          +e.costs-item.js-budget-calc-app__costs-item
-            +e.costs-item-icon
+            +e.costs-item-expand.js-budget-calc-app__costs-item-expand
+              +e.costs-item-expand-inner.js-budget-calc-app_costs-item-expand-inner
+                +b.bc-table-row._expand
+                  +e.column Строительство нового жилья в городе Москве и реновация существующей жилой застройки
+                  +e.column
+                    +range('costs_HousesName1_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Выполнение государственных обязательств
+                  +e.column
+                    +range('costs_HousesName2_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Капитальный ремонт и модернизация жилищного фонда
+                  +e.column
+                    +range('costs_HousesName3_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Управление жилищным фондом в городе Москве
+                  +e.column
+                    +range('costs_HousesName4_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Содержание и благоустройство территории жилой застройки и иные мероприятия в сфере жилищного хозяйства
+                  +e.column
+                    +range('costs_HousesName5_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+
+          +e.costs-item.js-budget-calc-app__costs-item.js-bc-match-height-2
+            +e.costs-item-icon.js-budget-calc-app__costs-item-link
               +icon('light').icon.costs-light
-            +e.A.costs-item-link.js-budget-calc-app__costs-item-link(href="#")
+            +e.A.costs-item-link.js-budget-calc-app__costs-item-link(href="#").js-bc-match-height-1
               +e.costs-item-link-text РАЗВИТИЕ КОММУНАЛЬНО-ИНЖЕНЕРНОЙ ИНФРАСТРУКТУРЫ И ЭНЕРГОСБЕРЕЖЕНИЕ
-            +e.costs-item-value.js-budget-calc-app__costs-item-value
+            +e.costs-item-value.js-bc-match-height-3
               span 464 732,0
               |  млн руб.
             +e.costs-item-initial
@@ -490,13 +703,92 @@ mixin budget-calc-app()
               span 71 271,9
             +e.costs-item-range
               +range('costs_Kommunalka_Range')
-            +e.costs-item-expand testing
-          +e.costs-item.js-budget-calc-app__costs-item
-            +e.costs-item-icon
+            +e.costs-item-expand.js-budget-calc-app__costs-item-expand
+              +e.costs-item-expand-inner.js-budget-calc-app_costs-item-expand-inner
+                +b.bc-table-row._expand
+                  +e.column Развитие электроснабжения города Москвы
+                  +e.column
+                    +range('costs_KommunalkaName1_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Развитие теплоснабжения города Москвы
+                  +e.column
+                    +range('costs_KommunalkaName2_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Развитие газоснабжения в городе Москве
+                  +e.column
+                    +range('costs_KommunalkaName3_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Развитие и модернизация объектов коллекторного хозяйства города Москвы
+                  +e.column
+                    +range('costs_KommunalkaName4_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Развитие и модернизация водопроводно-канализационного хозяйства города Москвы и систем технического водоснабжения
+                  +e.column
+                    +range('costs_KommunalkaName5_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Развитие и модернизация объектов водоотведения поверхностного стока
+                  +e.column
+                    +range('costs_KommunalkaName6_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Развитие единой светоцветовой среды города Москвы
+                  +e.column
+                    +range('costs_KommunalkaName7_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Развитие сети общественных туалетов
+                  +e.column
+                    +range('costs_KommunalkaName8_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Развитие инженерных коммуникаций города Москвы
+                  +e.column
+                    +range('costs_KommunalkaName9_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Энергосбережение и повышение энергоэффективности
+                  +e.column
+                    +range('costs_KommunalkaName10_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Мероприятия в области обращения с отходами и противооползневые работы
+                  +e.column
+                    +range('costs_KommunalkaName11_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+
+          +e.costs-item.js-budget-calc-app__costs-item.js-bc-match-height-2
+            +e.costs-item-icon.js-budget-calc-app__costs-item-link
               +icon('paint').icon.costs-paint
-            +e.A.costs-item-link.js-budget-calc-app__costs-item-link(href="#")
+            +e.A.costs-item-link.js-budget-calc-app__costs-item-link(href="#").js-bc-match-height-1
               +e.costs-item-link-text КУЛЬТУРА МОСКВЫ
-            +e.costs-item-value.js-budget-calc-app__costs-item-value
+            +e.costs-item-value.js-bc-match-height-3
               span 464 732,0
               |  млн руб.
             +e.costs-item-initial
@@ -504,13 +796,64 @@ mixin budget-calc-app()
               span 71 271,9
             +e.costs-item-range
               +range('costs_Culture_Range')
-            +e.costs-item-expand testing
-          +e.costs-item.js-budget-calc-app__costs-item
-            +e.costs-item-icon
+            +e.costs-item-expand.js-budget-calc-app__costs-item-expand
+              +e.costs-item-expand-inner.js-budget-calc-app_costs-item-expand-inner
+                +b.bc-table-row._expand
+                  +e.column Музеи и выставочные залы
+                  +e.column
+                    +range('costs_CultureName5_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Театры, концертные организации и учреждения кинофикации
+                  +e.column
+                    +range('costs_CultureName6_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Библиотеки
+                  +e.column
+                    +range('costs_CultureName7_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Культурные центры, дома культуры, клубы и молодежные центры
+                  +e.column
+                    +range('costs_CultureName8_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Развитие межрегиональных и международных культурных связей
+                  +e.column
+                    +range('costs_CultureName9_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Развитие кадрового потенциала и научно-методическое обеспечение в сфере культуры
+                  +e.column
+                    +range('costs_CultureName10_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Государственная охрана, сохранение и популяризация объектов культурного наследия
+                  +e.column
+                    +range('costs_CultureName11_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+
+          +e.costs-item.js-budget-calc-app__costs-item.js-bc-match-height-2
+            +e.costs-item-icon.js-budget-calc-app__costs-item-link
               +icon('football').icon.costs-football
-            +e.A.costs-item-link.js-budget-calc-app__costs-item-link(href="#")
+            +e.A.costs-item-link.js-budget-calc-app__costs-item-link(href="#").js-bc-match-height-1
               +e.costs-item-link-text спорт МОСКВЫ
-            +e.costs-item-value.js-budget-calc-app__costs-item-value
+            +e.costs-item-value.js-bc-match-height-3
               span 464 732,0
               |  млн руб.
             +e.costs-item-initial
@@ -518,13 +861,29 @@ mixin budget-calc-app()
               span 71 271,9
             +e.costs-item-range
               +range('costs_Sport_Range')
-            +e.costs-item-expand testing
-          +e.costs-item.js-budget-calc-app__costs-item
-            +e.costs-item-icon
+            +e.costs-item-expand.js-budget-calc-app__costs-item-expand
+              +e.costs-item-expand-inner.js-budget-calc-app_costs-item-expand-inner
+                +b.bc-table-row._expand
+                  +e.column Массовая физкультурно-спортивная работа
+                  +e.column
+                    +range('costs_SportName10_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Подготовка спортивного резерва, развитие спорта высших достижений
+                  +e.column
+                    +range('costs_SportName11_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+
+          +e.costs-item.js-budget-calc-app__costs-item.js-bc-match-height-2
+            +e.costs-item-icon.js-budget-calc-app__costs-item-link
               +icon('darts').icon.costs-darts
-            +e.A.costs-item-link.js-budget-calc-app__costs-item-link(href="#")
+            +e.A.costs-item-link.js-budget-calc-app__costs-item-link(href="#").js-bc-match-height-1
               +e.costs-item-link-text открытое правительство
-            +e.costs-item-value.js-budget-calc-app__costs-item-value
+            +e.costs-item-value.js-bc-match-height-3
               span 464 732,0
               |  млн руб.
             +e.costs-item-initial
@@ -532,13 +891,29 @@ mixin budget-calc-app()
               span 71 271,9
             +e.costs-item-range
               +range('costs_OpenGovenment_Range')
-            +e.costs-item-expand testing
-          +e.costs-item.js-budget-calc-app__costs-item
-            +e.costs-item-icon
+            +e.costs-item-expand.js-budget-calc-app__costs-item-expand
+              +e.costs-item-expand-inner.js-budget-calc-app_costs-item-expand-inner
+                +b.bc-table-row._expand
+                  +e.column Создание и развитие сети многофункциональных центров предоставления государственных услуг
+                  +e.column
+                    +range('costs_OpenGovenmentName10_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Повышение открытости и совершенствование административно-управленческих процессов органов исполнительной власти города
+                  +e.column
+                    +range('costs_OpenGovenmentName11_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+
+          +e.costs-item.js-budget-calc-app__costs-item.js-bc-match-height-2
+            +e.costs-item-icon.js-budget-calc-app__costs-item-link
               +icon('park').icon.costs-park
-            +e.A.costs-item-link.js-budget-calc-app__costs-item-link(href="#")
+            +e.A.costs-item-link.js-budget-calc-app__costs-item-link(href="#").js-bc-match-height-1
               +e.costs-item-link-text РАЗВИТИЕ ИНДУСТРИИ ОТДЫХА И ТУРИЗМА
-            +e.costs-item-value.js-budget-calc-app__costs-item-value
+            +e.costs-item-value.js-bc-match-height-3
               span 464 732,0
               |  млн руб.
             +e.costs-item-initial
@@ -546,13 +921,36 @@ mixin budget-calc-app()
               span 71 271,9
             +e.costs-item-range
               +range('costs_Tourism_Range')
-            +e.costs-item-expand testing
-          +e.costs-item.js-budget-calc-app__costs-item
-            +e.costs-item-icon
+            +e.costs-item-expand.js-budget-calc-app__costs-item-expand
+              +e.costs-item-expand-inner.js-budget-calc-app_costs-item-expand-inner
+                +b.bc-table-row._expand
+                  +e.column Индустрия отдыха и туризма на территориях парков культуры и отдыха, музеев-заповедников и музеев-усадеб
+                  +e.column
+                    +range('costs_TourismName1_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Индустрия отдыха на территориях общего пользования
+                  +e.column
+                    +range('costs_TourismName2_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Развитие туризма
+                  +e.column
+                    +range('costs_TourismName3_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+
+          +e.costs-item.js-budget-calc-app__costs-item.js-bc-match-height-2
+            +e.costs-item-icon.js-budget-calc-app__costs-item-link
               +icon('safe-shield').icon.costs-safe-shield
-            +e.A.costs-item-link.js-budget-calc-app__costs-item-link(href="#")
+            +e.A.costs-item-link.js-budget-calc-app__costs-item-link(href="#").js-bc-match-height-1
               +e.costs-item-link-text безопастный город
-            +e.costs-item-value.js-budget-calc-app__costs-item-value
+            +e.costs-item-value.js-bc-match-height-3
               span 464 732,0
               |  млн руб.
             +e.costs-item-initial
@@ -560,13 +958,36 @@ mixin budget-calc-app()
               span 71 271,9
             +e.costs-item-range
               +range('costs_Safety_Range')
-            +e.costs-item-expand testing
-          +e.costs-item.js-budget-calc-app__costs-item
-            +e.costs-item-icon
+            +e.costs-item-expand.js-budget-calc-app__costs-item-expand
+              +e.costs-item-expand-inner.js-budget-calc-app_costs-item-expand-inner
+                +b.bc-table-row._expand
+                  +e.column Мобилизационная подготовка экономики
+                  +e.column
+                    +range('costs_SafetyName1_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Обеспечение правопорядка и профилактика правонарушений
+                  +e.column
+                    +range('costs_SafetyName2_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Предупреждение чрезвычайных ситуаций, развитие гражданской обороны, защита населения и территорий города Москвы от чрезвычайных ситуаций природного и техногенного характера, обеспечение пожарной безопасности и безопасности людей на водных объектах
+                  +e.column
+                    +range('costs_SafetyName3_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+
+          +e.costs-item.js-budget-calc-app__costs-item.js-bc-match-height-2
+            +e.costs-item-icon.js-budget-calc-app__costs-item-link
               +icon('wifi').icon.costs-wifi
-            +e.A.costs-item-link.js-budget-calc-app__costs-item-link(href="#")
+            +e.A.costs-item-link.js-budget-calc-app__costs-item-link(href="#").js-bc-match-height-1
               +e.costs-item-link-text информационный город
-            +e.costs-item-value.js-budget-calc-app__costs-item-value
+            +e.costs-item-value.js-bc-match-height-3
               span 464 732,0
               |  млн руб.
             +e.costs-item-initial
@@ -574,13 +995,71 @@ mixin budget-calc-app()
               span 71 271,9
             +e.costs-item-range
               +range('costs_InfoCity_Range')
-            +e.costs-item-expand testing
-          +e.costs-item.js-budget-calc-app__costs-item
-            +e.costs-item-icon
+            +e.costs-item-expand.js-budget-calc-app__costs-item-expand
+              +e.costs-item-expand-inner.js-budget-calc-app_costs-item-expand-inner
+                +b.bc-table-row._expand
+                  +e.column Развитие рекламы, праздничного и тематического оформления города Москвы
+                  +e.column
+                    +range('costs_InfoCityName1_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Проведение Московского фестиваля света
+                  +e.column
+                    +range('costs_InfoCityName2_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Обеспечение предоставления государственных услуг в электронной форме гражданам и юридическим лицам и развитие открытой и безопасной городской среды за счет внедрения информационно-коммуникационных технологий
+                  +e.column
+                    +range('costs_InfoCityName3_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Повышение эффективности реализации функций органами исполнительной власти города Москвы за счет внедрения информационно-коммуникационных технологий
+                  +e.column
+                    +range('costs_InfoCityName4_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Развитие отрасли информационных технологий и связи и формирование общедоступной информационно-коммуникационной среды в городе Москве
+                  +e.column
+                    +range('costs_InfoCityName5_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Развитие печатных средств массовой информации и популяризация книгоиздания
+                  +e.column
+                    +range('costs_InfoCityName6_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Развитие электронных средств массовой информации и производство телевизионных программ
+                  +e.column
+                    +range('costs_InfoCityName7_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Управление реализацией программы
+                  +e.column
+                    +range('costs_InfoCityName8_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+
+          +e.costs-item.js-budget-calc-app__costs-item.js-bc-match-height-2
+            +e.costs-item-icon.js-budget-calc-app__costs-item-link
               +icon('briefcase').icon.costs-briefcase
-            +e.A.costs-item-link.js-budget-calc-app__costs-item-link(href="#")
+            +e.A.costs-item-link.js-budget-calc-app__costs-item-link(href="#").js-bc-match-height-1
               +e.costs-item-link-text ЭКОНОМИЧЕСКОЕ РАЗВИТИЕ И ИНВЕСТИЦИОННАЯ ПРИВЛЕКАТЕЛЬНОСТЬ ГОРОДА МОСКВЫ
-            +e.costs-item-value.js-budget-calc-app__costs-item-value
+            +e.costs-item-value.js-bc-match-height-3
               span 464 732,0
               |  млн руб.
             +e.costs-item-initial
@@ -588,13 +1067,50 @@ mixin budget-calc-app()
               span 71 271,9
             +e.costs-item-range
               +range('costs_Economic_Range')
-            +e.costs-item-expand testing
-          +e.costs-item.js-budget-calc-app__costs-item
-            +e.costs-item-icon
+            +e.costs-item-expand.js-budget-calc-app__costs-item-expand
+              +e.costs-item-expand-inner.js-budget-calc-app_costs-item-expand-inner
+                +b.bc-table-row._expand
+                  +e.column Обеспечение эффективности и качества потребительских услуг для населения
+                  +e.column
+                    +range('costs_EconomicName1_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Формирование благоприятной деловой среды
+                  +e.column
+                    +range('costs_EconomicName2_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Москва - город для бизнеса и инноваций
+                  +e.column
+                    +range('costs_EconomicName3_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Обеспечение эффективного управления имуществом города Москвы и вовлечение его в хозяйственный оборот
+                  +e.column
+                    +range('costs_EconomicName4_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Развитие рынка труда и содействие занятости населения
+                  +e.column
+                    +range('costs_EconomicName5_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+
+          +e.costs-item.js-budget-calc-app__costs-item.js-bc-match-height-2
+            +e.costs-item-icon.js-budget-calc-app__costs-item-link
               +icon('crane').icon.costs-crane
-            +e.A.costs-item-link.js-budget-calc-app__costs-item-link(href="#")
+            +e.A.costs-item-link.js-budget-calc-app__costs-item-link(href="#").js-bc-match-height-1
               +e.costs-item-link-text ГРАДОСТРОИТЕЛЬНАЯ ПОЛИТИКА
-            +e.costs-item-value.js-budget-calc-app__costs-item-value
+            +e.costs-item-value.js-bc-match-height-3
               span 464 732,0
               |  млн руб.
             +e.costs-item-initial
@@ -602,13 +1118,71 @@ mixin budget-calc-app()
               span 71 271,9
             +e.costs-item-range
               +range('costs_BuildingPolicy_Range')
-            +e.costs-item-expand testing
-          +e.costs-item.js-budget-calc-app__costs-item
-            +e.costs-item-icon
+            +e.costs-item-expand.js-budget-calc-app__costs-item-expand
+              +e.costs-item-expand-inner.js-budget-calc-app_costs-item-expand-inner
+                +b.bc-table-row._expand
+                  +e.column Развитие и реорганизация территорий
+                  +e.column
+                    +range('costs_BuildingPolicyName1_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Подготовка основных документов и решений по градостроительному развитию города Москвы
+                  +e.column
+                    +range('costs_BuildingPolicyName2_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Координация реализации основных направлений градостроительной политики и строительства в городе Москве
+                  +e.column
+                    +range('costs_BuildingPolicyName3_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Градостроительное проектирование и развитие единого геоинформационного пространства
+                  +e.column
+                    +range('costs_BuildingPolicyName4_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Разработка экономических механизмов реализации градостроительной политики для создания благоприятного инвестиционного климата
+                  +e.column
+                    +range('costs_BuildingPolicyName5_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Обеспечение инновационного развития строительной отрасли
+                  +e.column
+                    +range('costs_BuildingPolicyName6_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Нормативно-правовое и сметно-нормативное обеспечение градостроительной деятельности
+                  +e.column
+                    +range('costs_BuildingPolicyName7_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+                +b.bc-table-row._expand
+                  +e.column Научно-методическое и информационно-аналитическое обеспечение градостроительной деятельности
+                  +e.column
+                    +range('costs_BuildingPolicyName8_Range')
+                  +e.column._costs-value
+                    SPAN.-num 999 234,0
+                    SPAN.-text млн руб.
+
+          +e.costs-item.js-budget-calc-app__costs-item.js-bc-match-height-2
+            +e.costs-item-icon.js-budget-calc-app__costs-item-link
               //- +icon('crane').icon
-            +e.A.costs-item-link.js-budget-calc-app__costs-item-link(href="#")
+            +e.costs-item-link._flat.js-bc-match-height-1
               +e.costs-item-link-text НЕПРОГРАММНЫЕ РАСХОДЫ
-            +e.costs-item-value.js-budget-calc-app__costs-item-value
+            +e.costs-item-value.js-bc-match-height-3
               span 464 732,0
               |  млн руб.
             +e.costs-item-initial
@@ -616,7 +1190,6 @@ mixin budget-calc-app()
               span 71 271,9
             +e.costs-item-range
               +range('costs_Misc_Range')
-            +e.costs-item-expand testing
 
         +e.text
           +budget-calc-btn('сохранить и перейти в раздел «дефицит/процифит»').-triangle-right.js-budget-calc-app__tab-control(data-target="#budget-calc-app__tab_balance" href="#")
@@ -624,7 +1197,7 @@ mixin budget-calc-app()
       +e.tab._balance.js-budget-calc-app__tab#budget-calc-app__tab_balance(data-state-indicator="#budget-calc-app__tab_balance-indicator")
         +e.heading ДЕФИЦИТ / ПРОФИЦИТ
         +e.balance
-          +b.table-row.is-accordeon-row.is-active
+          +b.bc-table-row.is-active
             +e.column._name
               .has-tooltip
                 +tooltip-icon("текст тултипа")
@@ -634,11 +1207,11 @@ mixin budget-calc-app()
             +e.column._value.text-alert
               SPAN.-num -12,0
               SPAN.-text млн руб.
-          +b.table-row._expand
+          +b.bc-table-row._expand
             +b.notification.is-active Решение об эмиссии отдельных выпусков облигаций Городского облигационного (внутреннего) займа Москвы утверждаются Правительством Москвы. Предельный объем ежегодной эмиссии устанавливается постановлениями Правительства Москвы. Превышение предельного объема заимствований может оказать негативное влияние на ранее выпущенные облигационные займы.
             +b.notification._alert.is-active Внимание!<br>Ежегодные расходы на обслуживание государственного долга изменились на 3 352,3 млн руб.
 
-          +b.table-row.is-accordeon-row.is-active
+          +b.bc-table-row
             +e.column._name
               .has-tooltip
                 +tooltip-icon("текст тултипа")
@@ -648,11 +1221,11 @@ mixin budget-calc-app()
             +e.column._value.text-success
               SPAN.-num +79 952,0
               SPAN.-text млн руб.
-          +b.table-row._expand
+          +b.bc-table-row._expand
             +b.notification.is-active Решение о привлечении кредита кредитных организаций, в основном, негативно интерпретируется специалистами финансового сектора (низкое качество планирования доходов, избыточное исполнение расходов).
             +b.notification._alert.is-active Внимание!<br>Ежегодные расходы на обслуживание государственного долга изменились на 11 593,1 млн руб.
 
-          +b.table-row.is-accordeon-row.is-active
+          +b.bc-table-row
             +e.column._name
               .has-tooltip
                 +tooltip-icon("текст тултипа")
@@ -662,10 +1235,10 @@ mixin budget-calc-app()
             +e.column._value
               SPAN.-num +79 952,0
               SPAN.-text млн руб.
-          +b.table-row._expand
+          +b.bc-table-row._expand
             +b.notification.is-active Предельные значения установлены в образовательных целях.Привлечение бюджетных кредитов от других бюджетов бюджетной системы Российской Федерации связано с рядом ограничений, в том числе устойчивостью финансового состояния города Москвы.
 
-          +b.table-row.is-accordeon-row.is-active
+          +b.bc-table-row
             +e.column._name
               .has-tooltip
                 +tooltip-icon("текст тултипа")
@@ -675,11 +1248,11 @@ mixin budget-calc-app()
             +e.column._value
               SPAN.-num +79 952,0
               SPAN.-text млн руб.
-          +b.table-row._expand
+          +b.bc-table-row._expand
             +b.notification.is-active Предельные значения установлены в образовательных целях.Отказ от продажи части государственной собственности города Москвы может оказать негативное влияние на развитие конкурентной и эффективной экономики города.
             +b.notification.is-active Предельные значения установлены в образовательных целях.Увеличение планового объема финансирования дефицита бюджета за счет продажи государственной собственности города Москвы может привести к снижению стоимости продаваемого имущества, а также снизить поступление доходов в будущем.
 
-          +b.table-row
+          +b.bc-table-row
             +e.column._name
               .has-tooltip
                 +tooltip-icon("текст тултипа")

@@ -10,6 +10,291 @@
   @include transited;
 }
 
+// стили таблиц, например в incomes
+.bc-table-row {
+  display: table;
+  width: 100%;
+  border-top: 1px solid #e5e5e5;
+  @include transited('100ms');
+
+  &:first-child {
+    border-top: none;
+  }
+
+  &_heading {
+    border-bottom: 2px solid #e5e5e5;
+  }
+
+  // epand-row
+  &_expand {
+    display: none;
+    position: relative;
+    overflow: hidden;
+    background-color: #f6f6f5;
+    border-top: 1px solid #dddddc;
+
+    @media (min-width: 769px) {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    .bc-table-row_expand {
+      display: inherit;
+    }
+
+    &:first-child {
+      border-top-color: transparent;
+    }
+
+    .bc-table-row {
+      @media (max-width: 768px) {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      &:first-of-type {
+        border-top-color: transparent;
+      }
+    }
+
+    .bc-table-row_expand-header + .bc-table-row {
+      @media (max-width: 768px) {
+        border-top-color: transparent;
+      }
+    }
+
+    .inner {
+      opacity: 0;
+      padding-top: 0px;
+      padding-bottom: 0px;
+      @include transited;
+    }
+
+    .bc-table-row__column {
+      font-family: $PFDinTextPro;
+      font-size: 14px;
+      font-weight: 400;
+      font-style: normal;
+      text-transform: none;
+
+      @media (max-width: 768px) {
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(3) {
+          display: block;
+          width: 100%;
+          padding: 0 15px;
+        }
+
+        &:not(:last-child) {
+          margin-bottom: 15px;
+        }
+      }
+    }
+  }
+
+  &_expand-header {
+    padding-top: 0;
+    padding-bottom: 0;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+
+    .bc-table-row__column {
+      vertical-align: bottom;
+    }
+  }
+
+  &.is-active {
+    background-color: #f6f6f5;
+
+    + .bc-table-row_expand {
+      display: table;
+      border-top-color: transparent;
+
+      .inner {
+        opacity: 1;
+      }
+    }
+  }
+
+  &.is-accordeon-row {
+    cursor: pointer;
+
+    .bc-table-row__column_name {
+      .-text {
+        line-height: 1.6;
+        color: #0d46a1;
+        border-bottom: 1px dashed rgba(#0d46a1, .5);
+      }
+    }
+
+    &:hover {
+      background-color: fade-out(#f6f6f5, .5);
+    }
+  }
+
+  &__column {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    padding-top: 17px;
+    padding-bottom: 15px;
+    font-family: $PFDinCondensedPro;
+    font-size: 18px;
+    line-height: 1.25;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: black;
+
+    // firefox fix
+    display: -moz-deck;
+
+    @media (max-width: 768px) {
+      padding-top: 14px;
+      padding-bottom: 12px;
+      font-size: 16px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 11px;
+    }
+
+    .text-muted {
+      color: fade-out(black, .6);
+    }
+
+    &.has-checkbox {
+      position: relative;
+
+      .checkbox {
+        position: absolute;
+        margin-top: 2px;
+      }
+
+      .checkbox-text {
+        display: block;
+        padding-left: 25px;
+      }
+    }
+
+    &:nth-child(1) {
+      width: 45%;
+      padding-left: 30px;
+      padding-right: 7px;
+
+      @media (max-width: 768px) {
+        padding-left: 15px;
+        padding-right: 7px;
+      }
+    }
+
+    &:nth-child(2) {
+      width: 25%;
+      padding-left: 7px;
+      padding-right: 7px;
+
+      @media (max-width: 768px) {
+        padding-left: 7px;
+        padding-right: 7px;
+      }
+    }
+
+    &:nth-child(3) {
+      width: 30%;
+      padding-left: 7px;
+      padding-right: 30px;
+
+      @media (max-width: 768px) {
+        padding-left: 7px;
+        padding-right: 15px;
+      }
+    }
+
+    &.col2and3 {
+      width: 55%;
+      padding-right: 30px;
+
+      @media (max-width: 768px) {
+        padding-right: 15px;
+      }
+
+      .bc-table-row {
+        &:not(:first-child) {
+          padding-top: 15px;
+          margin-top: 10px;
+        }
+      }
+
+      .notification {
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      &-col1 {
+        display: inline-block;
+        width: 65%;
+        padding: 0 5px 0 0 !important;
+      }
+
+      &-col2 {
+        display: inline-block;
+        width: 35%;
+        padding: 0 !important;
+
+        &.bc-table-row__column_value {
+          vertical-align: top;
+          font-family: $PFDinCondensedPro;
+          font-size: 18px;
+          line-height: 1;
+          font-weight: 500;
+          text-transform: uppercase;
+
+          @media (max-width: 768px) {
+            margin-top: 10px;
+            text-align: right;
+            display: block;
+            font-size: 15px;
+          }
+        }
+      }
+
+      &-col3 {
+        display: block;
+        margin-top: 10px;
+        width: 100%;
+        padding: 0 !important;
+      }
+    }
+
+    &.-full-width {
+      width: 100% !important;
+      padding-left: 30px !important;
+      padding-right: 30px !important;
+
+      @media (max-width: 768px) {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+      }
+    }
+
+    &_heading {
+      font-family: $PFDinCondensedPro;
+      font-weight: 500;
+      text-transform: uppercase;
+      color: #898783;
+      vertical-align: bottom;
+
+      @media (max-width: 480px) {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        font-size: 9px;
+      }
+    }
+  }
+}
+
 // желтая кнопка для калькулятора бюджета
 .budget-calc-btn {
   display: inline-block;
@@ -326,291 +611,6 @@
     &.costs-darts { fill: #ccdd0f; }
   }
 
-  // стили таблиц, например в incomes
-  .table-row {
-    display: table;
-    width: 100%;
-    border-top: 1px solid #e5e5e5;
-    @include transited('100ms');
-
-    &:first-child {
-      border-top: none;
-    }
-
-    &_heading {
-      border-bottom: 2px solid #e5e5e5;
-    }
-
-    // epand-row
-    &_expand {
-      display: none;
-      position: relative;
-      overflow: hidden;
-      background-color: #f6f6f5;
-      border-top: 1px solid #dddddc;
-
-      @media (min-width: 769px) {
-        padding-top: 20px;
-        padding-bottom: 20px;
-      }
-
-      .table-row_expand {
-        display: inherit;
-      }
-
-      &:first-child {
-        border-top-color: transparent;
-      }
-
-      .table-row {
-        @media (max-width: 768px) {
-          padding-top: 20px;
-          padding-bottom: 20px;
-        }
-
-        &:first-of-type {
-          border-top-color: transparent;
-        }
-      }
-
-      .table-row_expand-header + .table-row {
-        @media (max-width: 768px) {
-          border-top-color: transparent;
-        }
-      }
-
-      .inner {
-        opacity: 0;
-        padding-top: 0px;
-        padding-bottom: 0px;
-        @include transited;
-      }
-
-      .table-row__column {
-        font-family: $PFDinTextPro;
-        font-size: 14px;
-        font-weight: 400;
-        font-style: normal;
-        text-transform: none;
-
-        @media (max-width: 768px) {
-          &:nth-child(1),
-          &:nth-child(2),
-          &:nth-child(3) {
-            display: block;
-            width: 100%;
-            padding: 0 15px;
-          }
-
-          &:not(:last-child) {
-            margin-bottom: 15px;
-          }
-        }
-      }
-    }
-
-    &_expand-header {
-      padding-top: 0;
-      padding-bottom: 0;
-
-      @media (max-width: 768px) {
-        display: none;
-      }
-
-      .table-row__column {
-        vertical-align: bottom;
-      }
-    }
-
-    &.is-active {
-      background-color: #f6f6f5;
-
-      + .table-row_expand {
-        display: table;
-        border-top-color: transparent;
-
-        .inner {
-          opacity: 1;
-        }
-      }
-    }
-
-    &.is-accordeon-row {
-      cursor: pointer;
-
-      .table-row__column_name {
-        .-text {
-          line-height: 1.6;
-          color: #0d46a1;
-          border-bottom: 1px dashed rgba(#0d46a1, .5);
-        }
-      }
-
-      &:hover {
-        background-color: fade-out(#f6f6f5, .5);
-      }
-    }
-
-    &__column {
-      position: relative;
-      display: inline-block;
-      vertical-align: middle;
-      padding-top: 17px;
-      padding-bottom: 15px;
-      font-family: $PFDinCondensedPro;
-      font-size: 18px;
-      line-height: 1.25;
-      font-weight: 500;
-      text-transform: uppercase;
-      color: black;
-
-      // firefox fix
-      display: -moz-deck;
-
-      @media (max-width: 768px) {
-        padding-top: 14px;
-        padding-bottom: 12px;
-        font-size: 16px;
-      }
-
-      @media (max-width: 480px) {
-        font-size: 11px;
-      }
-
-      .text-muted {
-        color: fade-out(black, .6);
-      }
-
-      &.has-checkbox {
-        position: relative;
-
-        .checkbox {
-          position: absolute;
-          margin-top: 2px;
-        }
-
-        .checkbox-text {
-          display: block;
-          padding-left: 25px;
-        }
-      }
-
-      &:nth-child(1) {
-        width: 45%;
-        padding-left: 30px;
-        padding-right: 7px;
-
-        @media (max-width: 768px) {
-          padding-left: 15px;
-          padding-right: 7px;
-        }
-      }
-
-      &:nth-child(2) {
-        width: 25%;
-        padding-left: 7px;
-        padding-right: 7px;
-
-        @media (max-width: 768px) {
-          padding-left: 7px;
-          padding-right: 7px;
-        }
-      }
-
-      &:nth-child(3) {
-        width: 30%;
-        padding-left: 7px;
-        padding-right: 30px;
-
-        @media (max-width: 768px) {
-          padding-left: 7px;
-          padding-right: 15px;
-        }
-      }
-
-      &.col2and3 {
-        width: 55%;
-        padding-right: 30px;
-
-        @media (max-width: 768px) {
-          padding-right: 15px;
-        }
-
-        .table-row {
-          &:not(:first-child) {
-            padding-top: 15px;
-            margin-top: 10px;
-          }
-        }
-
-        .notification {
-          margin-left: 0;
-          margin-right: 0;
-        }
-
-        &-col1 {
-          display: inline-block;
-          width: 65%;
-          padding: 0 5px 0 0 !important;
-        }
-
-        &-col2 {
-          display: inline-block;
-          width: 35%;
-          padding: 0 !important;
-
-          &.table-row__column_value {
-            vertical-align: top;
-            font-family: $PFDinCondensedPro;
-            font-size: 18px;
-            line-height: 1;
-            font-weight: 500;
-            text-transform: uppercase;
-
-            @media (max-width: 768px) {
-              margin-top: 10px;
-              text-align: right;
-              display: block;
-              font-size: 15px;
-            }
-          }
-        }
-
-        &-col3 {
-          display: block;
-          margin-top: 10px;
-          width: 100%;
-          padding: 0 !important;
-        }
-      }
-
-      &.-full-width {
-        width: 100% !important;
-        padding-left: 30px !important;
-        padding-right: 30px !important;
-
-        @media (max-width: 768px) {
-          padding-left: 15px !important;
-          padding-right: 15px !important;
-        }
-      }
-
-      &_heading {
-        font-family: $PFDinCondensedPro;
-        font-weight: 500;
-        text-transform: uppercase;
-        color: #898783;
-        vertical-align: bottom;
-
-        @media (max-width: 480px) {
-          padding-top: 5px;
-          padding-bottom: 5px;
-          font-size: 9px;
-        }
-      }
-    }
-  }
-
   // доходы
   &__incomes {
     margin-top: 35px;
@@ -627,11 +627,10 @@
     &-item {
       padding: 15px 25px 0;
       @include transited;
-      @include outline;
 
-      @media (max-width: 769px) {
-        padding-left: 10px;
-        padding-right: 10px;
+      @media (max-width: 768px) {
+        padding-left: 15px;
+        padding-right: 15px;
       }
 
       &.is-active {
@@ -639,6 +638,7 @@
 
         > .budget-calc-app__costs-item-expand {
           height: auto;
+          .budget-calc-app__costs-item-expand-inner { opacity: 1; }
         }
       }
 
@@ -664,6 +664,7 @@
         overflow: hidden;
         width: 50px;
         height: 50px;
+        cursor: pointer;
 
         .icon,
         svg {
@@ -687,6 +688,14 @@
 
         &-text {
           border-bottom: 1px dashed rgba(#0d46a1, .5);
+        }
+
+        &_flat {
+          color: black;
+
+          &-text {
+            border-bottom: none;
+          }
         }
       }
 
@@ -712,18 +721,55 @@
 
       &-range {
         margin-top: 15px;
-        margin-bottom: 35px;
+        padding-bottom: 35px;
       }
 
       &-expand {
         position: absolute;
-        z-index: 1;
+        z-index: 5;
         overflow: hidden;
         height: 0;
         left: 0;
         right: 0;
-        background-color: #f6f6f5;
         @include transited;
+
+        &-inner {
+          opacity: 0;
+          padding: 20px 0;
+          background-color: #f6f6f5;
+          @include transited;
+        }
+
+        .bc-table-row {
+          display: block;
+
+          &_expand {
+            @media (max-width: 768px) {
+              padding-top: 20px;
+              padding-bottom: 20px;
+            }
+
+            @media (min-width: 769px) {
+              padding-top: 10px;
+              padding-bottom: 10px;
+            }
+          }
+
+          &__column {
+            &_costs-value {
+              font-family: $PFDinCondensedPro;
+              font-size: 18px;
+              line-height: 24px;
+              font-weight: 500;
+              text-transform: uppercase;
+            }
+          }
+
+          // 0_o
+          .bc-table-row__column:nth-child(1) {
+            width: 43%;
+          }
+        }
       }
     }
   }
