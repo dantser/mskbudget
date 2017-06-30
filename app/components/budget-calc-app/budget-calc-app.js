@@ -1,27 +1,7 @@
 import $ from 'jquery';
 import matchHeight from 'jquery-match-height';
-import vex from 'vex-js/dist/js/vex.combined.js';
 
 export default() => {
-
-// vex.defaultOptions.className = "vex-theme-default";
-// $('#test').on('click', function(event) {
-//   console.log(typeof(vex));
-//  event.preventDefault();
-//  /* Act on the event */
-//  vex.dialog.confirm({
-//      message: 'Are you absolutely sure you want to destroy the alien planet?',
-//      callback: function (value) {
-//          if (value) {
-//              console.log('Successfully destroyed the planet.')
-//          } else {
-//              console.log('Chicken.')
-//          }
-//      }
-//  });
-// });
-
-
 
   // Табы для калькулятора бюджета
   const $calcApp = $('#budget-calc-app');

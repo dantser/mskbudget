@@ -157,7 +157,50 @@ mixin analityc-graphics-line(title, data)
               +e.line-total
               +e.SPAN.line-bar-value= obj.barvalue
               +e.line-fill
+mixin analityc-graphics-multiline(data)
+  +b.analityc-multiline&attributes(attributes)
+    p.analityc-graphics__periodtext
+      span Плановый период
+    .graphic__row
+      .graphic__title
+      span.graphic__data(data-char='2017') 2017
+      span.graphic__data(data-char='2018') 2018
+        span.graphic__period-left
+      span.graphic__data(data-char='2019') 2019
+        span.graphic__period-right
+      span.graphic__data
+    each obj in data
+      +e.DIV(class="__line_"+obj.class)
+        +e.A(href="#").title= obj.title
+        +e.line-bar
+          +e.line-total._green
+            +e.line-value= obj.values[0]
+          +e.line-total._red
+            +e.line-value= obj.values[1]
+          +e.line-total._blue
+            +e.line-value= obj.values[2]
+        +e.SPAN.line-bar-value= obj.barvalue
 
+mixin analityc-graphics-line-alt(data)
+  +b.analityc-line&attributes(attributes)._line
+    p.analityc-graphics__periodtext
+      span Плановый период
+    .graphic__row
+      span.graphic__data(data-char='2017') 2017
+      span.graphic__data(data-char='2018') 2018
+        span.graphic__period-left
+      span.graphic__data(data-char='2019') 2019
+        span.graphic__period-right
+    +e.lines
+      each obj in data
+        +e.DIV(class="__line_"+obj.class)
+          +e.A(href="#").title= obj.title
+          +e.line-bar._overwidth
+            +e.line-total._altred
+            +e.line-fill
+              +e.line-value= obj.value  
+            +e.SPAN.line-ber-value= obj.barvalue
+              
 //- data - json файл с данными для графиков
 mixin analityc-graphics-line-vertical(data, isWide)
   +b.analityc-graphics-line-vertical&attributes(attributes)

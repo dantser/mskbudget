@@ -91,17 +91,17 @@
     &_column {
       height: 315px;
     }
-    
+
     &_altcolumn {
       margin-top: 80px;
       height: 212px;
     }
-    
+
     &_double-column {
       margin-top: 49px;
       height: 209px;
       position: relative;
-      
+
       .analityc-graphics__graphic-column {
         position: absolute;
         bottom: 0;
@@ -110,7 +110,7 @@
         background-image: -webkit-linear-gradient(left, rgb(17,163,96) 0%, rgb(50,209,151) 100%);
         background-image: -o-linear-gradient(left, rgb(17,163,96) 0%, rgb(50,209,151) 100%);
         background-image: linear-gradient(to right, rgb(17,163,96) 0%, rgb(50,209,151) 100%);
-        
+
         &:first-child {
           left: 0;
         }
@@ -119,7 +119,7 @@
         }
       }
     }
-    
+
     &_multicolumn {
       margin-top: 0;
       height: 270px;
@@ -133,7 +133,7 @@
         width: 100%;
         height: 0.0000000001px;
       }
-      
+
       .analityc-graphics__graphic-column {
         display: inline-block;
         vertical-align: bottom;
@@ -161,7 +161,7 @@
           }
         }
       }
-      
+
       .analityc-graphics__graphic-column-fill {
         position: absolute;
         left: 0;
@@ -478,7 +478,7 @@
       }
     }
   }
-  
+
   &__graphic-column-val {
     font-size: 16px;
     font-weight: 500;
@@ -492,13 +492,13 @@
     height: 1em;
     text-align: center;
   }
-  
+
   &__graphic-heading {
     font-size: 30px;
     font-weight: 500;
     text-transform: uppercase;
   }
-  
+
   &__graphic-triangle {
     height: 480px;
     position: relative;
@@ -512,7 +512,7 @@
       top: 0;
     }
   }
-  
+
   &__graphic-angle {
     position: absolute;
     width: 150px;
@@ -535,7 +535,7 @@
       bottom: 70px;
     }
   }
-  
+
   &__graphic-years {
     text-align: justify;
     padding: 0 56px 0 40px;
@@ -546,7 +546,7 @@
       height: 0.00000001px;
     }
   }
-  
+
   &__graphic-year {
     display: inline-block;
     width: 10%;
@@ -590,7 +590,7 @@
   &_line {
     padding-top: 37px;
   }
-  
+
   &_repayment {
     margin-top: 70px;
   }
@@ -705,7 +705,7 @@
     @media (max-width: 1010px) {
       margin-right: 15px;
       margin-left: 15px;
-    }    
+    }
   }
 
   &__lines {
@@ -1051,6 +1051,433 @@
         margin-bottom: 0;
         margin-top: 5px;
         border-top: 17px solid #eb212e;
+      }
+    }
+  }
+}
+
+// MULTILINE
+
+.analityc-multiline {
+  margin-top: 50px;
+
+  .analityc-graphics__periodtext {
+    width: 61%;
+  }
+
+  .graphic {
+    &__row {
+      border: none;
+      display: table;
+      width: 100%;
+      margin-bottom: 25px;
+    }
+
+    &__title {
+      width: 22%;
+      display: table-cell;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 16px;
+      margin-right: 26px;
+    }
+
+    &__data {
+      padding-bottom: 39px;
+      font-size: 16px;
+      position: relative;
+      cursor: pointer;
+      text-decoration: underline;
+      font-weight: 500;
+      color: $color-black;
+      width: 21%;
+      display: table-cell;
+      padding: 5px 0;
+      transition: all .25s ease-in-out;
+      text-align: center;
+      background-image: linear-gradient(to right, #fee300 0%, #fee300 23%, #30b069 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      &:nth-child(3) {
+        background-image: linear-gradient(to right, #9d308a 0%, #ff695b 100%);
+      }
+
+      &:nth-child(4) {
+        background-image: linear-gradient(to right, #00ffff 0%, #004ccf 100%);
+      }
+
+      &:last-child {
+        width: 6%;
+      }
+    }
+
+    &__period-left, &__period-right {
+      position: absolute;
+      bottom: 100%;
+      height: 13px;
+      border: 1px solid #d7d7d7;
+      border-bottom: 0;
+      margin-bottom: 2px;
+    }
+
+    &__period-left {
+      left: 51%;
+      right: 0;
+      border-right: 0;
+    }
+
+    &__period-right {
+      right: 48%;
+      left: 0;
+      border-left: 0;
+    }
+  }
+
+
+
+  &__title {
+    font-size: 14px;
+    cursor: pointer;
+    font-family: $PFDinTextPro;
+    font-weight: 400;
+    line-height: 30px;
+    text-decoration: underline !important;
+    color: $color-link;
+    width: 22%;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 20px;
+  }
+
+  &__line {
+    margin-bottom: 8px;
+
+    &-bar {
+      display: inline-block;
+      vertical-align: middle;
+      position: relative;
+      width: 70%;
+
+      &-value {
+        font-size: 14px;
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 10px;
+      }
+    }
+
+    &-value {
+      font-size: 14px;
+      font-family: $PFDinCondensedPro;
+      line-height: 30px;
+      color: $color-black;
+      text-align: center;
+    }
+
+    &-total {
+      height: 30px;
+      width: 33%;
+      display: inline-block;
+      vertical-align: middle;
+
+
+      &_green {
+        background-image: linear-gradient(to right, #fee300 0%, #30b069 100%);
+      }
+
+      &_red {
+        background-image: linear-gradient(to right, #9d308a 0%, #ff695b 100%);
+        .analityc-multiline__line-value {
+          color: $color-white;
+        }
+      }
+
+      &_blue {
+        background-image: linear-gradient(to right, #004ccf 0%, #00ffff 100%);
+      }
+    }
+
+
+
+    &_social {
+      .analityc-multiline__line-bar {
+        width: 60%;
+      }
+    }
+
+    &_edu {
+      .analityc-multiline__line-bar {
+        width: 55%;
+      }
+    }
+
+    &_healthcare {
+      .analityc-multiline__line-bar {
+        width: 50%;
+      }
+    }
+
+    &_home {
+      .analityc-multiline__line-bar {
+        width: 30%;
+      }
+    }
+
+    &_environment {
+      .analityc-multiline__line-bar {
+        width: 25%;
+      }
+    }
+
+    &_utilities {
+      .analityc-multiline__line-bar {
+        width: 23%;
+      }
+    }
+
+    &_info {
+      .analityc-multiline__line-bar {
+        width: 21%;
+      }
+    }
+
+    &_culture {
+      .analityc-multiline__line-bar {
+        width: 19%;
+      }
+    }
+
+    &_sport {
+      .analityc-multiline__line-bar {
+        width: 17%;
+      }
+    }
+
+    &_economics {
+      .analityc-multiline__line-bar {
+        width: 15%;
+      }
+    }
+
+    &_safety {
+      .analityc-multiline__line-bar {
+        width: 13%;
+      }
+    }
+
+    &_urban {
+      .analityc-multiline__line-bar {
+        width: 11%;
+      }
+    }
+
+    &_openness {
+      .analityc-multiline__line-bar {
+        width: 9%;
+      }
+    }
+  }
+}
+
+
+//
+.analityc-line {
+  margin-top: 50px;
+
+  .analityc-graphics__periodtext {
+    width: 61%;
+  }
+
+  .graphic {
+    &__row {
+      border: none;
+      display: block;
+      width: 100%;
+      margin-bottom: 25px;
+      text-align: justify;
+    }
+
+    &__data {
+      padding-bottom: 39px;
+      font-size: 24px;
+      position: relative;
+      text-decoration: underline;
+      text-decoration-style: dashed;
+      font-weight: 500;
+      color: $color-link;
+      display: inline-block;
+      padding: 5px 0;
+      transition: all .25s ease-in-out;
+      width: 33%;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    &__period-left, &__period-right {
+      position: absolute;
+      bottom: 100%;
+      height: 13px;
+      border: 1px solid #d7d7d7;
+      border-bottom: 0;
+      margin-bottom: 2px;
+    }
+
+    &__period-left {
+      left: 51%;
+      right: 0;
+      border-right: 0;
+    }
+
+    &__period-right {
+      right: 48%;
+      left: 0;
+      border-left: 0;
+    }
+  }
+
+
+
+  &__title {
+    font-size: 14px;
+    cursor: pointer;
+    font-family: $PFDinTextPro;
+    font-weight: 400;
+    line-height: 30px;
+    text-decoration: underline !important;
+    color: $color-link;
+    width: 22%;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 20px;
+  }
+
+  &__line {
+    margin-bottom: 8px;
+
+    &-fill {
+      opacity: 1;
+      width: 60%;
+      height: 30px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-image: linear-gradient(to right, #ff0036 0%, #021398 100%);
+    }
+
+    &-bar {
+      display: inline-block;
+      vertical-align: middle;
+      position: relative;
+      width: 70%;
+
+      &-value {
+        font-size: 14px;
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 10px;
+      }
+    }
+
+    &-value {
+      font-size: 14px;
+      font-family: $PFDinCondensedPro;
+      line-height: 30px;
+      text-align: center;
+      color: $color-white;
+      opacity: 1;
+    }
+
+    &-total {
+      height: 30px;
+      display: inline-block;
+      vertical-align: middle;
+      position: relative;
+
+      &_altred {
+        background-image: linear-gradient(to right, #ff0036 0%, #021398 100%);
+        width: 99%;
+        opacity: .7;
+      }
+    }
+
+
+
+    &_social {
+      .analityc-multiline__line-bar {
+        width: 60%;
+      }
+    }
+
+    &_edu {
+      .analityc-multiline__line-bar {
+        width: 55%;
+      }
+    }
+
+    &_healthcare {
+      .analityc-multiline__line-bar {
+        width: 50%;
+      }
+    }
+
+    &_home {
+      .analityc-multiline__line-bar {
+        width: 30%;
+      }
+    }
+
+    &_environment {
+      .analityc-multiline__line-bar {
+        width: 25%;
+      }
+    }
+
+    &_utilities {
+      .analityc-multiline__line-bar {
+        width: 23%;
+      }
+    }
+
+    &_info {
+      .analityc-multiline__line-bar {
+        width: 21%;
+      }
+    }
+
+    &_culture {
+      .analityc-multiline__line-bar {
+        width: 19%;
+      }
+    }
+
+    &_sport {
+      .analityc-multiline__line-bar {
+        width: 17%;
+      }
+    }
+
+    &_economics {
+      .analityc-multiline__line-bar {
+        width: 15%;
+      }
+    }
+
+    &_safety {
+      .analityc-multiline__line-bar {
+        width: 13%;
+      }
+    }
+
+    &_urban {
+      .analityc-multiline__line-bar {
+        width: 11%;
+      }
+    }
+
+    &_openness {
+      .analityc-multiline__line-bar {
+        width: 9%;
       }
     }
   }
