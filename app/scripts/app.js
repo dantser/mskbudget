@@ -27,9 +27,11 @@ import main from '../components/main/main';
 import budgetaryPolicy from '../components/budgetary-policy/budgetaryPolicy';
 import documentsform from '../components/documents/documents';
 import pageHeader from '../components/page-header/pageHeader';
+import basicBudgetFigures from '../components/basic_budget_figures/basicBudgetFigures';
+import modal from '../blocks/modal/modal';
 
 $(() => {
-  
+
   // перезагрузка страниц при изменении разрешения
   $(document).ready(function(){
     window.winWidth = $(window).width();
@@ -39,7 +41,7 @@ $(() => {
       }
     });
   });
-  
+
   selectbox();
   question();
   questions();
@@ -68,4 +70,6 @@ $(() => {
   budgetaryPolicy();
   documentsform();
   pageHeader();
+  basicBudgetFigures();
+  modal();
 });
