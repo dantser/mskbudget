@@ -7,6 +7,71 @@
 
 
 
+  .analityc-widget-moscow-gov-program_changes, .analityc-widget-moscow-gov-program_structure {
+    .analityc-graphics__periodtext {
+      width: 69%;
+    }
+
+    .graphic {
+      &__row {
+        border: none;
+        display: block;
+        width: 100%;
+        margin-bottom: 25px;
+        text-align: justify;
+      }
+
+      &__data {
+        padding-bottom: 39px;
+        font-size: 24px;
+        position: relative;
+        text-decoration: underline;
+        text-decoration-style: dashed;
+        font-weight: 500;
+        color: $color-link;
+        display: inline-block;
+        width: 33%;
+        text-align: center;
+
+        .js-button {
+          padding: 5px 10px;
+          transition: all .25s ease-in-out;
+          cursor: pointer;
+          z-index: 2;
+        }
+
+        &_active {
+          text-decoration: none;
+          .js-button {
+            color: $color-black;
+            background-color: $color-yellow;
+          }
+        }
+      }
+
+      &__period-left, &__period-right {
+        position: absolute;
+        bottom: 100%;
+        height: 13px;
+        border: 1px solid #d7d7d7;
+        border-bottom: 0;
+        margin-bottom: 2px;
+      }
+
+      &__period-left {
+        left: 51%;
+        right: 0;
+        border-right: 0;
+      }
+
+      &__period-right {
+        right: 48%;
+        left: 0;
+        border-left: 0;
+      }
+    }
+  }
+
   .analityc-widget__bottom {
     margin: 60px 0 20px;
     text-align: justify;

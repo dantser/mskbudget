@@ -28,6 +28,8 @@ import budgetaryPolicy from '../components/budgetary-policy/budgetaryPolicy';
 import documentsform from '../components/documents/documents';
 import pageHeader from '../components/page-header/pageHeader';
 import modal from '../blocks/modal/modal';
+import budget_moscow_gov_program from '../components/budget_moscow_gov_program/budget_moscow_gov_program';
+import analitycGraphics from '../components/analityc-graphics/analityc-graphics'
 
 $(() => {
 
@@ -70,4 +72,6 @@ $(() => {
   documentsform();
   pageHeader();
   modal();
+  budget_moscow_gov_program();
+  analitycGraphics();
 });

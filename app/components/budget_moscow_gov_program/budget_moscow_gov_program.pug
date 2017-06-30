@@ -5,6 +5,7 @@ include ../analityc-widgethead/analityc-widgethead
 include ../analityc-table/analityc-table
 include ../analityc-graphics/analityc-graphics
 include ../../blocks/dropdown-block/dropdown-block
+include ../../blocks/tabs/tabs
 
 mixin budget_moscow_gov_program()
   
@@ -27,15 +28,49 @@ mixin budget_moscow_gov_program()
           //- +analityc-table()._changes.analityc-widget-moscow-gov-program-table_date
           //-   +table-income(getData('income1'))
           .analityc-widget-sources.analityc-widget-moscow-gov-program_structure
-            +analityc-graphics-line-alt(getData('graphic-lines-gp1'))._date-one
+            p.analityc-graphics__periodtext
+              span Плановый период
+            .graphic__row
+              span.graphic__data.graphic__data_active
+                span.js-button(data-tab-target='structure1') 2017
+              span.graphic__data
+                span.js-button(data-tab-target='structure2') 2018
+                span.graphic__period-left
+              span.graphic__data
+                span.js-button(data-tab-target='structure3') 2019
+                span.graphic__period-right
+            +tabs
+              +tabs-tab(data-tab-group="analityc-structure", data-tab="structure1").active
+                +analityc-graphics-mix(getData('graphic-lines-mix1')[0])._date-one
+              +tabs-tab(data-tab-group="analityc-structure", data-tab="structure2")
+                +analityc-graphics-mix(getData('graphic-lines-mix1')[1])._date-two
+              +tabs-tab(data-tab-group="analityc-structure", data-tab="structure3")
+                +analityc-graphics-mix(getData('graphic-lines-mix1')[2])._date-three
           //- +analityc-table()._changes.analityc-widget-sources-table_approved
             +table-income(getData('income1'))
           .analityc-widget-sources.analityc-widget-moscow-gov-program_changes
-          
+            p.analityc-graphics__periodtext
+              span Плановый период
+            .graphic__row
+              span.graphic__data.graphic__data_active
+                span.js-button(data-tab-target='line1') 2017
+              span.graphic__data
+                span.js-button(data-tab-target='line2') 2018
+                span.graphic__period-left
+              span.graphic__data
+                span.js-button(data-tab-target='line3') 2019
+                span.graphic__period-right
+            +tabs
+              +tabs-tab(data-tab-group="analityc-lines", data-tab="line1").active
+                +analityc-graphics-line-alt(getData('graphic-lines-gp1'))._date-one
+              +tabs-tab(data-tab-group="analityc-lines", data-tab="line2")
+                +analityc-graphics-line-alt(getData('graphic-lines-gp1'))._date-two
+              +tabs-tab(data-tab-group="analityc-lines", data-tab="line3")
+                +analityc-graphics-line-alt(getData('graphic-lines-gp1'))._date-three
           //- +analityc-table()._changes.analityc-widget-moscow-gov-program-table_changes
             +table-income(getData('income1'))
-          .analityc-widget-sources.analityc-widget-moscow-gov-program_date
-            
+          .analityc-widget-sources.analityc-widget-moscow-gov-program_done
+            +analityc-graphics-js-line(getData('graphic-js-line1')[0])
           //- +analityc-table()._changes.analityc-widget-moscow-gov-program-table_done
           //-   +table-income(getData('income1'))
           .analityc-widget__bottom
