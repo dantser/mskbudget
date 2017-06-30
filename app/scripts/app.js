@@ -27,6 +27,7 @@ import main from '../components/main/main';
 import budgetaryPolicy from '../components/budgetary-policy/budgetaryPolicy';
 import documentsform from '../components/documents/documents';
 import pageHeader from '../components/page-header/pageHeader';
+import basicBudgetFigures from '../components/basic_budget_figures/basicBudgetFigures';
 import modal from '../blocks/modal/modal';
 import budget_moscow_gov_program from '../components/budget_moscow_gov_program/budget_moscow_gov_program';
 import analitycGraphics from '../components/analityc-graphics/analityc-graphics'
@@ -71,6 +72,7 @@ $(() => {
   budgetaryPolicy();
   documentsform();
   pageHeader();
+  basicBudgetFigures();
   modal();
   budget_moscow_gov_program();
   analitycGraphics();
