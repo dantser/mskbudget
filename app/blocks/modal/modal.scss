@@ -117,10 +117,11 @@ body.vex-open,
     line-height: 1;
     font-weight: 500;
     text-transform: uppercase;
-    border: solid 2px transparent;
+    border: none;
     border-radius: 3px;
     color: black;
     cursor: pointer;
+    box-shadow: 0 1px 1px #ccb600;
     @include transited;
 
     &:not(:last-child) {
@@ -128,19 +129,16 @@ body.vex-open,
     }
 
     &:active {
-      @include transform(scale(.98));
+      @include transform(translateY(1px));
+      box-shadow: none;
     }
 
     &.vex-dialog-button-primary,
     &.vex-dialog-button-secondary {
       background: #fee300;
-      border-color: #fee300;
-      border-bottom-color: #ccb600;
       color: black;
 
-      &:hover,
-      &:active {
-        border-color: #E7CE00;
+      &:hover{
         background-color: #E7CE00;
       }
     }
