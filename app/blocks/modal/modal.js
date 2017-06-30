@@ -14,42 +14,56 @@ import vex from 'vex-js/dist/js/vex.combined.js';
 * vex.dialog.alert('Thanks for checking out vex!')
 */
 export default function() {
-  const modals = Array.from(document.querySelectorAll('[data-show-vex-modal]'));
+  // кастомные callback-функции для разных модалок
+  const budgetCalcRestoreDefaults = function(value) {
+    console.log('callback fired ' + value);
+  }
+
+  // универсальный код вызова модальных окон
+  const modals = Array.from(document.querySelectorAll('[data-modal]'));
 
   if (typeof(vex) && modals.length) {
     vex.defaultOptions.className = "vex-theme-default";
 
     modals.forEach(function(item) {
       item.addEventListener('click', function(event) {
+        event.stopPropagation();
         event.preventDefault();
 
-        vex.dialog.confirm({
-          // если это диалог
-          message: 'message',
+        const modalType = (item.getAttribute('data-modal-type')) ? item.getAttribute('data-modal-type') : 'alert';
+        const btnYesText = (item.getAttribute('data-modal-btn-yes')) ? item.getAttribute('data-modal-btn-yes') : 'Ок';
+        const btnNoText = (item.getAttribute('data-modal-btn-no')) ? item.getAttribute('data-modal-btn-no') : 'Нет';
+        const heading = (item.getAttribute('data-modal-heading')) ? ('<div class="vex-heading">' + item.getAttribute('data-modal-heading') + '</div>') : '';
+        const text = (item.getAttribute('data-modal-text')) ? ('<div class="vex-text">' + item.getAttribute('data-modal-text') + '</div>') : '';
+        const content = heading + text;
+        const callbackFunctionName = (item.getAttribute('data-callback-function')) ? item.getAttribute('data-callback-function') : false;
 
-          // если это уведомление
-          // content: 'content',
+        vex.dialog.buttons.YES.text = btnYesText;
+        vex.dialog.buttons.NO.text = btnNoText;
 
-          // unsafeContent: '',
-          showCloseButton: true,
-          escapeButtonCloses: true,
-          overlayClosesOnClick: true,
-          appendLocation: 'body',
-          // className: 'modal',
-          // overlayClassName: 'modal__overlay',
-          // contentClassName: 'modal__content',
-          // closeClassName: 'modal__close',
-          closeAllOnPopState: true,
+        if (modalType === 'alert') {
+          vex.dialog.alert({
+            unsafeMessage: content,
+            showCloseButton: true,
+          });
+        } else if (modalType === 'confirm') {
+          vex.dialog.confirm({
+            unsafeMessage: content,
+            showCloseButton: true,
 
-          // обязателен для диалогов
-          callback: function (value) {
-            if (value) {
-              console.log('yes')
-            } else {
-              console.log('no')
+            callback: function (value) {
+              if (callbackFunctionName === "budgetCalcRestoreDefaults") {
+                budgetCalcRestoreDefaults(value);
+              } else {
+                if (value) {
+                  console.log('yes, set your own callback');
+                } else {
+                  console.log('no, set your own callback');
+                }
+              }
             }
-          }
-        });
+          });
+        }
       });
     });
   }
