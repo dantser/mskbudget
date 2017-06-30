@@ -27,6 +27,7 @@ import main from '../components/main/main';
 import budgetaryPolicy from '../components/budgetary-policy/budgetaryPolicy';
 import documentsform from '../components/documents/documents';
 import pageHeader from '../components/page-header/pageHeader';
+import basicBudgetFigures from '../components/basic_budget_figures/basicBudgetFigures';
 import modal from '../blocks/modal/modal';
 
 $(() => {
@@ -69,5 +70,6 @@ $(() => {
   budgetaryPolicy();
   documentsform();
   pageHeader();
+  basicBudgetFigures();
   modal();
 });

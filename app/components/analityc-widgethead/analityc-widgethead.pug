@@ -76,7 +76,7 @@ mixin analityc-widgethead-expenses(type)
       a(href="#").analityc-control-button.analityc-control-button_graphics.active
         +icon('graphic', true)
       a(href="#").analityc-control-button.analityc-control-button_table
-       +icon('table', true)
+        +icon('table', true)
     .analityc-control-switcher.analityc-control-switcher_large.active
       a(href="#").active доля от общей суммы, %
       a(href="#") млрд руб.
@@ -882,3 +882,40 @@ mixin analityc-widgethead-govdebt()
     .analityc-control-switcher
         a(href="#").active доля от общей суммы, %
         a(href="#") млрд. руб.
+
+mixin analityc-widgethead-moscow-gp()
+  +b.analityc-widgethead&attributes(attributes)
+    .analityc-control-group._year
+      span Год
+      select.analityc-select
+        option(selected) 2017
+        option 2016
+        option 2015
+    .analityc-control-group._stage
+      span Этап
+      select.analityc-select
+        option(selected) Закон о бюджете утвержденный
+        option Закон о внесении изменений
+        option Исполнение на дату
+    .analityc-control-group._level
+      span Уровень
+      select.analityc-select
+        option(selected) Бюджет москвы
+        option Бюджет области
+        option Бюджет региона
+        option Консолидированный бюджет
+    .analityc-control-group._transfer
+      span Межбюджетные трансферы
+      select.analityc-select
+        option(selected) Виды
+        option Виды
+    .analityc-control-buttons.active
+      a(href="#").analityc-control-button.analityc-control-button_graphics.active
+        +icon('graphic', true)
+      a(href="#").analityc-control-button.analityc-control-button_table
+        +icon('table', true)
+    .analityc-control-switcher.analityc-control-switcher_large
+      a(href="#").active Государственные программы
+      a(href="#") Структура
+    .analityc-control-group._dp
+      input(placeholder="Выберите дату исполнения").datepicker

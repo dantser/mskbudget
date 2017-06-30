@@ -22,6 +22,7 @@
 
   .range-datepicker__item {
     position: relative;
+    cursor: pointer;
   }
 
   .button {
@@ -323,12 +324,14 @@
 @media (min-width: 451px) and (max-width: 650px) {
   .wrapper_main {
     .service {
-      left: 50%;
-      margin: -130px 0 0 -100px !important;
+      top: 0 !important;
+      bottom: 0 !important;
+      margin: auto !important;
     }
     .news {
-      left: 50%;
-      margin: -120px 0 0 -107px !important;
+      top: 0 !important;
+      bottom: 0 !important;
+      margin: auto !important;
     }
   }
 }
@@ -350,12 +353,14 @@
     .large-diagram {
       padding-top: 22px;
       margin: -130px 0 0 -100px;
+      width: 200px;
     }
 
     .service {
-      margin: 130px auto 0 !important;
+      margin: auto !important;
       max-width: 213px;
-      min-height: 1px;
+      min-height: 310px !important;
+      height: 268px;
       padding-bottom: 50px;
       position: relative;
       top: 0 !important;
@@ -366,17 +371,42 @@
     .service:before {
       height: 84px;
     }
+    .service__ahead {
+      min-height: 87px;
+    }
+    
+    .service__capt {
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+    
+    .service-dots { bottom: 31px; }
+    .service__title { font-size: 15px; margin-bottom: 3px; min-height: 30px; padding-right: 20px; }
+    .service__sub-title { font-size: 12px; }
+    .service__dashed-diagram { height: 140px; }
+    .service__more { height: 30px; line-height: 30px; font-size: 12px; padding-left: 14px; }
+    .service__more:after { right: 14px; }
+    .service__diagram-tabs { bottom: 30px; }
+    .service__datepicker .datepicker__panel { top: 22px; left: -83px; }
+    .service__datepicker .datepicker__panel:before { margin-left: -14px; top: -27px; }
+    .service__datepicker input { width: 49px; }
+    .service__place { font-size: 28px; padding: 3px 6px 3px; margin-bottom: 7px; }
+    .service__select { margin-bottom: 10px; }
 
     .news {
-      margin: 130px auto 0 !important;
+      margin: auto !important;
       max-width: 213px;
-      min-height: 1px;
+      min-height: 310px !important;
       height: 245px;
       padding-bottom: 50px;
       position: relative;
       top: 0;
       left: 0;
       right: 0;
+    }
+    
+    .slick-dots {
+      top: 25%;
     }
 
     .banner__row {
@@ -417,19 +447,9 @@
       width: 150px;
       height: 150px;
     }
-  }
-}
-
-@media (max-height: 610px) and (max-width: 450px) {
-  .wrapper_main {
-    .service, .news {
-      min-height: 298px !important;
-    }
-    .service:before {
-      height: 84px;
-    }
-    .service__ahead {
-      min-height: 87px;
+    
+    .large-diagram__caption .rub {
+      font-size: 12px;
     }
   }
 }
