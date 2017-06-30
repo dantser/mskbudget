@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=9">
-    <title>Versta Project Template</title>
+    <title>Главная страница</title>
     <!--[if lte IE 9]><script type="text/javascript" src="assets/scripts/js/html5.min.js"></script><![endif]-->
     <meta name="description" content="">
     <meta name="keywords" content="">
@@ -467,7 +467,7 @@
                                     <div class="service__sub-title">
                                         <span>по состоянию на</span>
                                         <div class="datepicker service__datepicker">
-                                            <input class="datepicker jq-datepicker datepicker__show range-datepicker__item" value="01.12.2016" tabindex="0" />
+                                            <input class="jq-datepicker datepicker__show range-datepicker__item" value="01.12.2016" tabindex="0" />
                                         </div>, млрд. руб </div>
                                 </div>
                                 <div class="service-dot-cont service-dot-cont_act" id="serv-d-2">
@@ -579,7 +579,75 @@
                                     <div class="service__sub-title">
                                         <span>по состоянию на</span>
                                         <div class="datepicker service__datepicker">
-                                            <input class="jq-datepicker datepicker__show range-datepicker__item" value="01.12.2016" tabindex="0" />
+                                            <button class="datepicker__show">01.10.2016</button>
+                                            <div class="datepicker__panel">
+                                                <ul class="datepicker__col datepicker__col_years">
+                                                    <li>
+                                                        <a class="datepicker__a" href="#">2011</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="datepicker__a" href="#">2012</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="datepicker__a" href="#">2013</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="datepicker__a" href="#">2014</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="datepicker__a" href="#">2015</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="datepicker__a datepicker__a_act" href="#">2016</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="datepicker__a" href="#">2017</a>
+                                                    </li>
+                                                </ul>
+                                                <div class="datepicker__col-wrap">
+                                                    <ul class="datepicker__col datepicker__col_months">
+                                                        <li>
+                                                            <a class="datepicker__a" href="#" data-month="01">январь</a>
+                                                        </li>
+                                                        <li>
+                                                            <a class="datepicker__a" href="#" data-month="02">февраль</a>
+                                                        </li>
+                                                        <li>
+                                                            <a class="datepicker__a" href="#" data-month="03">март</a>
+                                                        </li>
+                                                        <li>
+                                                            <a class="datepicker__a" href="#" data-month="04">апрель</a>
+                                                        </li>
+                                                        <li>
+                                                            <a class="datepicker__a" href="#" data-month="05">май</a>
+                                                        </li>
+                                                        <li>
+                                                            <a class="datepicker__a" href="#" data-month="06">июнь</a>
+                                                        </li>
+                                                    </ul>
+                                                    <ul class="datepicker__col datepicker__col_months">
+                                                        <li>
+                                                            <a class="datepicker__a" href="#" data-month="07">июль</a>
+                                                        </li>
+                                                        <li>
+                                                            <a class="datepicker__a" href="#" data-month="08">август</a>
+                                                        </li>
+                                                        <li>
+                                                            <a class="datepicker__a" href="#" data-month="09">сентябрь</a>
+                                                        </li>
+                                                        <li>
+                                                            <a class="datepicker__a datepicker__a_act" href="#" data-month="10">октябрь</a>
+                                                        </li>
+                                                        <li>
+                                                            <a class="datepicker__a" href="#" data-month="11">ноябрь</a>
+                                                        </li>
+                                                        <li>
+                                                            <a class="datepicker__a" href="#" data-month="12">декабрь</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <button class="datepicker__close"></button>
+                                            </div>
                                         </div>, млрд. руб </div>
                                 </div>
                                 <div class="segment-diagram" id="diagram-7">
@@ -1438,14 +1506,14 @@
                     <p class="popup-login__p">или</p>
                     <!-- TAB-->
                     <div class="tab__content tab__content_vis" id="tab1">
-                        <form class="login-form" action="l.php">
+                        <form class="login-form" action="l.php" method="POST">
                             <div class="login-form__field">
-                                <label class="overlabel" for="i-email-2">e-mail</label>
-                                <input class="login-form__text" id="i-email-2" type="email" />
+                                <div class="overlabel">e-mail</div>
+                                <input class="login-form__text" id="iemail2" type="email" />
                             </div>
                             <div class="login-form__field mb-10">
-                                <label class="overlabel" for="i-passw">пароль</label>
-                                <input class="login-form__text" id="i-passw" type="password" />
+                                <div class="overlabel">пароль</div>
+                                <input class="login-form__text" id="ipassw" type="password" />
                             </div>
                             <div class="mb-15">
                                 <a class="open-popup login-form__a" href="#restore">Я забыл пароль</a>
@@ -1455,18 +1523,18 @@
                     </div>
                     <!-- TAB-->
                     <div class="tab__content" id="tab2">
-                        <form class="login-form mb-25" action="l.php">
+                        <form class="login-form login-form_reg mb-25" action="l.php" method="POST">
                             <div class="login-form__field">
-                                <label class="overlabel" for="i-fio-1">ФИО</label>
-                                <input class="login-form__text" id="i-fio-1" type="text" />
+                                <div class="overlabel">ФИО</div>
+                                <input class="login-form__text" id="i-fio-1" type="text" name="ifio1" />
                             </div>
                             <div class="login-form__field">
-                                <label class="overlabel" for="i-email-3">e-mail</label>
-                                <input class="login-form__text" id="i-email-3" type="email" />
+                                <div class="overlabel">e-mail</div>
+                                <input class="login-form__text" id="i-email-3" type="email" name="iemail3" />
                             </div>
                             <div class="login-form__field">
-                                <label class="overlabel" for="i-passw-1">пароль</label>
-                                <input class="login-form__text" id="i-passw-1" type="password" />
+                                <div class="overlabel">пароль</div>
+                                <input class="login-form__text" id="i-passw-1" type="password" name="ipassw1" />
                             </div>
                             <input class="login-form__submit" type="submit" value="Зарегистрироваться" />
                         </form>
@@ -1499,14 +1567,6 @@
             <div class="popup-restore__top">Запрос на сброс пароля</div>
             <div class="popup-restore__wrap">
                 <p class="popup-restore__p">На ваш мейл выслано письмо для подтверждения регистрации</p>
-            </div>
-            <a class="close-popup" href="#"></a>
-        </div>
-        <!-- POPUP(Form Error)-->
-        <div class="popup-reset popup-window" id="error">
-            <div class="popup-restore__top">Ошибка</div>
-            <div class="popup-restore__wrap">
-                <p class="popup-restore__p">Введите корректные данные!</p>
             </div>
             <a class="close-popup" href="#"></a>
         </div>
@@ -1549,6 +1609,7 @@
     <script src="assets/scripts/js/header/swipe.min.js"></script>
     <script src="assets/scripts/js/header/slick.min.js"></script>
     <script src="assets/scripts/js/header/jquery-ui.min.js"></script>
+    <script src="assets/scripts/js/header/jquery.validate.min.js"></script>
     <script src="assets/scripts/js/header/sections.min.js"></script>
     <script src="assets/scripts/js/header/cube.min.js"></script>
     <script src="assets/scripts/js/banner.min.js"></script>
