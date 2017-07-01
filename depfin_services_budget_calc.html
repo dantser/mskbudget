@@ -324,13 +324,13 @@
                             <div class="budget-calc-page__howto load-anim-fade" data-delay="2500" id="budget-calc-page__howto">
                                 <div class="budget-calc-page__howto-heading">как это работает</div>
                                 <div class="budget-calc-page__howto-grid js-budget-calc-page__howto-carousel" id="budget-calc__howto-grid">
-                                    <div class="budget-calc-page__howto-item" data-show-vex-modal="data-show-vex-modal">
+                                    <div class="budget-calc-page__howto-item">
                                         <div class="budget-calc-page__howto-item-preview -fixed-height">
                                             <img src="assets/images/depfin_services_budget_calc/howto_income.jpg">
                                         </div>
                                         <div class="budget-calc-page__howto-item-text">Выберите способы увеличения доходов бюджета города Москвы. Вы можете изменить ставки налогов, зачисляемых в бюджет города Москвы, или отказаться от налоговых льгот.</div>
                                     </div>
-                                    <div class="budget-calc-page__howto-item" data-show-vex-modal="data-show-vex-modal">
+                                    <div class="budget-calc-page__howto-item">
                                         <div class="budget-calc-page__howto-item-preview -fixed-height">
                                             <img src="assets/images/depfin_services_budget_calc/howto_costs.jpg">
                                         </div>
@@ -416,7 +416,8 @@
                                                     <br>Исходное значение: -152,1</div>
                                             </div>
                                         </a>
-                                        <div class="budget-calc-app-widget budget-calc-app-widget_not-balanced" id="budget-calc-app__widget_not-balanced">
+                                        <div class="budget-calc-app-widget budget-calc-app-widget_not-balanced" id="budget-calc-app__widget_not-balanced" data-modal="true" data-modal-text="&lt;div class='text-left'&gt;Бюджет дефицитный: расходы превышают доходы в пределах допустимого уровня.&lt;br&gt;&lt;br&gt;&lt;strong&gt;Вам необходимо сбалансировать Ваш бюджет.&lt;/strong&gt;&lt;br&gt;Для этого вы можете:&lt;br&gt;- снизить доходы бюджета&lt;br&gt;- увеличить расходы бюджета&lt;br&gt;- отказаться от привлечения излишних источников финансирования дефицита бюджета&lt;/div&gt;"
+                                            data-modal-btn-yes="Продолжить">
                                             <div class="budget-calc-app-widget__inner">
                                                 <div class="budget-calc-app-widget__name has-tooltip">не сбалансировано
                                                     <div class="tooltip-icon tooltip-hover" data-tooltip-content="текст тултипа">?</div>
@@ -431,7 +432,8 @@
                                                 <div class="budget-calc-app-widget__name">проверить свой вариант бюджета</div>
                                             </div>
                                         </a>
-                                        <a class="budget-calc-app-widget budget-calc-app-widget_restore js-moveAroundThoseWidgets" href="#">
+                                        <a class="budget-calc-app-widget budget-calc-app-widget_restore js-moveAroundThoseWidgets" href="#" data-modal="true" data-modal-type="confirm" data-modal-heading="Вы уверены, что хотите вернуть исходные значения?"
+                                            data-modal-text="В этом случае вам придётся проходить заполнять значения заново." data-modal-btn-yes="Да, хочу" data-modal-btn-no="Нет, не хочу" data-callback-function="budgetCalcRestoreDefaults">
                                             <div class="budget-calc-app-widget__inner -widget-restore-inner">
                                                 <svg class="budget-calc-app-widget__icon -widget-restore-icon"><use xlink:href="assets/images/icon.svg#icon_clean"></use></svg>
                                                 <div class="budget-calc-app-widget__name -widget-restore-name">вернуть исходные значения бюджета</div>
@@ -4482,8 +4484,8 @@
                 <STRONG>Вы&nbsp;уверены, что хотите очистить результаты?</STRONG>
                 <P>В&nbsp;этом случае вам прийдется проходить обучающий курс заново.</P>
                 <div class="popup-btns"></div>
-                <A class="ybtn">Да, хочу</A>
-                <A class="ybtn">Нет, не&nbsp;хочу</A>
+                <A class="ybtn" data-answer="yes">Да, хочу</A>
+                <A class="ybtn" data-answer="no">Нет, не&nbsp;хочу</A>
             </div>
         </div>
         <div class="popup-video popup-window" id="video">
