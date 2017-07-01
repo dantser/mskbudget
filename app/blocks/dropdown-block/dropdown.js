@@ -6,8 +6,8 @@ export default () => {
   const docSlider = new Swiper('.docs-container', {
         spaceBetween: 10,
         slidesPerView: 4,
-        nextButton: '.docs-container .ar-next',
-        prevButton: '.docs-container .ar-prev',
+        nextButton: '.dropdown_docs .ar-next',
+        prevButton: '.dropdown_docs .ar-prev',
         breakpoints: {
           992: {
             slidesPerView: 3,
