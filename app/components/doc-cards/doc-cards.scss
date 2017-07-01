@@ -3,6 +3,7 @@
   font-family: $PFDinTextPro;
   font-size: 0;
   text-align: left;
+  position: relative;
 
   &:before{
       content: '';
@@ -20,16 +21,115 @@
       display: inline-block;
   }
 
+  .swiper-slide {
+    display: inline-block;
+    vertical-align: top;
+    width: 265px;
+  }
+
+
+  &__nav {
+    position: absolute;
+    display: none;
+    bottom: 100%;
+    left: 0;
+    margin-bottom: 10px;
+    font-family: $PFDinCondensedPro;
+  }
+  .docs-container {
+    overflow: hidden;
+  }
+
+
+  &__button-top {
+    border: 1px solid rgba(254,227,0,.2);
+    display: inline-block;
+    vertical-align: middle;
+    padding: 12px 10px 7px 14px;
+    cursor: pointer;
+    position: relative;
+    margin-right: 7px;
+    // &::after {
+    //   @include pseudo;
+    //   background: url('../images/top.jpg') no-repeat;
+    // }
+
+    span {
+      font-size: 16px;
+      text-transform: lowercase;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  &__top-icon {
+    width: 11px;
+    height: 16px;
+    fill: $color-white;
+    stroke: $color-white;
+    -moz-transform: scale(-1, 1);
+    -webkit-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    transform: scale(-1, 1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+    margin-right: 7px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &__current-dir {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    background: url('../images/directory.svg') no-repeat;
+    width: 126px;
+    height: 34px;
+    color: $color-black;
+    font-size: 16px;
+    line-height: 39px;
+    padding-left: 15px;
+  }
+
   &__card {
     position: relative;
-    display: inline-block;
     min-height: 370px;
     width: 265px;
-    vertical-align: top;
     padding: 20px 20px 70px;
     margin-right: 11px;
     margin-bottom: 11px;
     z-index: 1;
+
+    &:nth-child(5) {
+      margin-right: 0;
+    }
+
+    &_dir {
+      cursor: pointer;
+
+      .doc-cards__title-wrapper {
+        margin-top: 18px;
+      }
+
+      .doc-cards__bg-t {
+        right: 150px;
+        background-color: $color-yellow;
+      }
+
+
+      .doc-cards__bg-r {
+        top: 28px;
+        background-color: $color-yellow;
+      }
+
+      .doc-cards__corner {
+        right: 111px;
+        border: none;
+        border-bottom: 28px solid $color-yellow;
+      	border-right: 39px solid transparent;
+        border-left: none;
+      }
+    }
   }
 
   &__date {
@@ -137,6 +237,16 @@
     left: 0;
     background: #fff;
     z-index: -1;
+  }
+
+  &__bg-tt {
+    background-color: $color-white;
+    position: absolute;
+    width: 96%;
+    height: 97%;
+    bottom: 0;
+    left: 0;
+    z-index: -2;
   }
 
   &__bg-t {

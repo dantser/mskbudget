@@ -31,6 +31,7 @@ import basicBudgetFigures from '../components/basic_budget_figures/basicBudgetFi
 import modal from '../blocks/modal/modal';
 import budget_moscow_gov_program from '../components/budget_moscow_gov_program/budget_moscow_gov_program';
 import analitycGraphics from '../components/analityc-graphics/analityc-graphics'
+import docCards from '../components/doc-cards/doc-cards';
 
 $(() => {
 
@@ -76,4 +77,5 @@ $(() => {
   modal();
   budget_moscow_gov_program();
   analitycGraphics();
+  docCards();
 });

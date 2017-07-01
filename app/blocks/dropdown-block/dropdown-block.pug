@@ -4,20 +4,24 @@ include ../../components/lk-services/lk-services
 
 mixin dropdown()
   .dropdown-block
-    .dropdown
+    .dropdown.dropdown_docs
       .dropdown-trigger
         .wrapper
           span
             strong Документы
       .dropdown-content
+        .arr.ar-prev
+        .arr.ar-next
         .wrapper
-          +doc-cards(getData('doc-cards'))
+          +doc-cards-dropdown(getData('doc-cards-dropdown'))
     .dropdown
       .dropdown-trigger
         .wrapper
           span
             strong Новости по&nbsp;теме
       .dropdown-content
+        .arr.ar-prev
+        .arr.ar-next
         .wrapper
           .dropdown__card-wrapper
             .tile__item(data-filter="budget").active
@@ -32,5 +36,7 @@ mixin dropdown()
           span
             strong Сервисы
       .dropdown-content
+        .arr.ar-prev
+        .arr.ar-next
         .wrapper
           +lk-services()

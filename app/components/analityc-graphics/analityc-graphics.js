@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 export default () => {
-  const LINE = $('.analityc-js-line__left .analityc-js-line__line');
+  const LINE = $(' .analityc-js-line__line');
   const ACTIVE_CLASS = 'analityc-js-line__line_active';
   $('.analityc-js-line__line:eq(2)').addClass(ACTIVE_CLASS);
 

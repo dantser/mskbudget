@@ -1734,19 +1734,27 @@
     vertical-align: middle;
   }
 
-  &__right {
-    width: 30%;
-    display: inline-block;
+  &__right-block {
+    left: 50%;
+    top: 0;
+    min-width: 200px;
+    position: absolute;
     vertical-align: middle;
   }
- // линия
-  &__line {
+
+  &__left-block {
+    width: 50%;
     position: relative;
     padding: 16px 17px;
     transition: border .25s ease-in-out;
     border: 1px solid transparent;
     border-right: none;
     cursor: pointer;
+  }
+ // линия
+  &__line {
+    position: relative;
+
 
     // &::after {
     //   border: 37px solid transparent;
@@ -1755,9 +1763,15 @@
     // }
 
     &_active {
-      border: 1px solid #d3d3d3;
-      border-right: none;
-      position: relative;
+
+      .analityc-js-line__left-block {
+        border: 1px solid #d3d3d3;
+        border-right: none;
+        position: relative;
+      }
+
+
+
 
       // &::after {
       //   @include pseudo;

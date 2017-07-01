@@ -1,25 +1,74 @@
 include ../../blocks/favor/favor
+include ../../blocks/icon/icons
 
 //- data - json файл документов
 
 mixin doc-cards(data)
   +b.doc-cards&attributes(attributes)
     each item in data
-      +e.card
-        +e.SPAN.date= item.date
-        +e.title-wrapper
-          +e.SPAN.title-underline
-            +e.A(href='#').title= item.title
-        +e.P.text= item.text
-        +e.bottom-wrapper
-          +e.A(href='#').download= 'Скачать (' + item.doc + 'Кб)'
-          +e.is-added
-            +e.favor
-              if (item.isAdded)
-                +favor()._added
-              else
-                +favor()._stroke-color-blue
-        +e.bg-t
-        +e.bg-r
-        +e.corner
+      if item.dir
+        +e.card._dir
+          +e.title-wrapper
+            +e.SPAN.title-underline
+              +e.A(href='#').title= item.title
+          +e.bg-t
+          +e.bg-r
+          +e.bg-tt
+          +e.corner
+      else
+        +e.card
+          +e.SPAN.date= item.date
+          +e.title-wrapper
+            +e.SPAN.title-underline
+              +e.A(href='#').title= item.title
+          +e.P.text= item.text
+          +e.bottom-wrapper
+            +e.A(href='#').download= 'Скачать (' + item.doc + 'Кб)'
+            +e.is-added
+              +e.favor
+                if (item.isAdded)
+                  +favor()._added
+                else
+                  +favor()._stroke-color-blue
+          +e.bg-t
+          +e.bg-r
+          +e.corner
 
+mixin doc-cards-dropdown(data)
+  +b.doc-cards._dropdown&attributes(attributes)
+    +e.nav
+      +e.button-top.js-button-top
+        +icon('level-up').top-icon
+        span Наверх
+      +e.current-dir Проект закона
+    .docs-container
+      .swiper-wrapper
+        each item in data
+          +e.slide.swiper-slide
+            if item.dir
+              +e.card._dir
+                +e.title-wrapper
+                  +e.SPAN.title-underline
+                    +e.A(href='#').title= item.title
+                +e.bg-t
+                +e.bg-r
+                +e.bg-tt
+                +e.corner
+            else
+              +e.card
+                +e.SPAN.date= item.date
+                +e.title-wrapper
+                  +e.SPAN.title-underline
+                    +e.A(href='#').title= item.title
+                +e.P.text= item.text
+                +e.bottom-wrapper
+                  +e.A(href='#').download= 'Скачать (' + item.doc + 'Кб)'
+                  +e.is-added
+                    +e.favor
+                      if (item.isAdded)
+                        +favor()._added
+                      else
+                        +favor()._stroke-color-blue
+                +e.bg-t
+                +e.bg-r
+                +e.corner
