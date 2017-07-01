@@ -8,6 +8,6 @@ gulp.task('images', () => (
   gulp.src('app/static/images/**/*')
     .pipe(plumber({ errorHandler: errorHandler('Error in icons task') }))
     .pipe(changed('dist/assets/images'))
-    .pipe(imagemin())
+    // .pipe(imagemin())
     .pipe(gulp.dest('dist/assets/images'))
 ));
