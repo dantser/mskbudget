@@ -30,16 +30,28 @@ budget.extend("common", {
 		var self = this;
 
 		$('.blackout').on('click', function() {
+            $('#popup-wrapper').fadeOut();
 			$(this).fadeOut();
 		})
 		$('.popup').on('click', function(e) {
 			e.stopPropagation()
 		})
 		$('.popup').find('.close-popup').on('click', function() {
+            $('#popup-wrapper').fadeOut();
 			$('.blackout').fadeOut();
 		})
+        $('#blackout [data-answer]').on('click', function(){
+            var answer = $(this).data('answer');
+            if (answer === 'yes') {
+                $('.d-study__lessons_item').removeClass('d-lesson__done');
+            }
+            $('#popup-wrapper').fadeOut();
+			$('.blackout').fadeOut();
+        })
 
-		$('.d-study__clear-res').on('click', function() {
+		$('.d-study__clear-res').on('click', function(e) {
+            e.preventDefault();
+            $('#popup-wrapper').fadeIn();
 			$('.blackout').fadeIn();
 		})
 
