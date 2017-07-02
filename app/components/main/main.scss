@@ -1,12 +1,28 @@
 .wrapper_main {
   max-width: initial;
-  
+
   .cube {
     z-index: 0;
   }
-  
+
   .cube__arrow_m {
     display: none;
+  }
+
+  .large-diagram>a {
+    z-index: 2;
+  }
+
+  .service__datepicker_head {
+    z-index: 10;
+    .datepicker__panel {
+      margin-left: 0;
+    }
+  }
+
+  .range-datepicker__item {
+    position: relative;
+    cursor: pointer;
   }
 
   .button {
@@ -71,7 +87,7 @@
     top: 50% !important;
     left: 7px;
     right: 7px;
-    margin: -200px 0 0;
+    margin: -140px 0 0;
     color: #000;
   }
 
@@ -94,6 +110,14 @@
 
   .lh-1_2 {
     line-height: 20px!important;
+  }
+  
+  .footer {
+    height: 100%;
+  }
+  
+  .footer-mob-sub-menu {
+    display: none;
   }
 }
 
@@ -119,6 +143,16 @@
       -o-background-size: 100% auto;
       -moz-background-size: 100% auto;
       background-size: 100% auto;
+
+      &__num_pink {
+        margin-bottom: 44px !important;
+        margin-left: -94px;
+      }
+
+      &__num_blue {
+        margin-bottom: 44px !important;
+        margin-left: -121px;
+      }
     }
 
     .large-diagram {
@@ -128,24 +162,24 @@
       margin-top: -100px;
       margin-left: -110px;
     }
-    
+
     .large-diagram__svg, .large-diagram__svg .svg {
       width: 220px;
       height: 220px;
     }
-    
+
     .large-diagram__percent {
       padding-left: 200px;
     }
-    
+
     .large-diagram__value {
       font-size: 15px;
     }
-    
+
     .large-diagram__value p {
       font-size: 26px;
     }
-    
+
     .large-diagram__note {
       padding-top: 10px;
     }
@@ -153,7 +187,6 @@
     .service {
       position: absolute;
       top: 50%;
-      margin-top: -200px;
       left: 14px;
       right: 14px;
     }
@@ -163,12 +196,61 @@
       left: 14px;
       right: 14px;
       top: 50%;
-      min-height: 380px;
-      margin-top: -185px;
     }
-    
+
     .sections__title {
       max-width: 100%;
+    }
+  }
+}
+
+@media (min-width: 551px) and (max-width: 800px) {
+  .wrapper_main {
+    .footer {
+      padding-top: 140px;
+    }
+  }
+}
+
+@media (min-width: 701px) and (max-width: 900px) {
+  .wrapper_main {
+    .sections__legend {
+      bottom: 20px;
+    }
+    
+    .legend__item {
+      font-size: 16px;
+      height: 22px;
+      line-height: 22px;
+      margin-bottom: 15px;
+    }
+    
+    .legend__item:before {
+      width: 22px;
+      height: 22px;
+    }
+    
+    .comp-diagram__num_yellow {
+      top: 15px;
+    }
+    
+    .service, .news {
+      margin-top: -180px;
+    }
+  }
+}
+
+@media (max-height: 610px) and (min-width: 701px) and (max-width: 900px) {
+  .wrapper_main {
+    .service, .news {
+      min-height: 298px;
+      margin-top: -130px !important;
+    }
+    .service:before {
+      height: 84px;
+    }
+    .service__ahead {
+      min-height: 87px;
     }
   }
 }
@@ -205,13 +287,17 @@
     .lh-1_2 {
       line-height: 15px;
     }
-    
+
     .legend {
       bottom: 70px !important;
     }
-    
+
     .sections__title {
       font-size: 25px;
+    }
+    
+    .tile__item {
+      width: 60% !important;
     }
   }
 }
@@ -223,8 +309,6 @@
     .service {
       min-height: 1px;
       padding: 10px 15px 30px;
-      left: 50%;
-      margin: -130px 0 0 -100px !important;
     }
 
     .news {
@@ -233,22 +317,43 @@
       min-height: 1px;
       height: 245px;
       padding-bottom: 50px;
-      left: 50%;
-      margin: -120px 0 0 -107px !important;
     }
-    
+
     .dashed-diagram__diagram, .dashed-diagram__diagram .svg {
       width: 132px;
       height: 132px;
     }
-    
+
     .segment-diagram {
       bottom: 10px;
     }
-    
+
     .segment-diagram, .segment-diagram .svg {
       width: 140px;
       height: 140px;
+    }
+  }
+}
+
+@media (min-width: 451px) and (max-width: 650px) {
+  .wrapper_main {
+    .service {
+      top: 0 !important;
+      bottom: 0 !important;
+      margin: auto !important;
+    }
+    .news {
+      top: 0 !important;
+      bottom: 0 !important;
+      margin: auto !important;
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .wrapper_main {
+    .footer {
+      padding-top: 90px;
     }
   }
 }
@@ -270,23 +375,50 @@
     .large-diagram {
       padding-top: 22px;
       margin: -130px 0 0 -100px;
+      width: 200px;
     }
 
     .service {
-      margin: 130px auto 0 !important;
+      margin: auto !important;
       max-width: 213px;
-      min-height: 1px;
+      min-height: 310px !important;
+      height: 268px;
       padding-bottom: 50px;
       position: relative;
       top: 0 !important;
       left: 0;
       right: 0;
     }
+    
+    .service:before {
+      height: 84px;
+    }
+    .service__ahead {
+      min-height: 87px;
+    }
+    
+    .service__capt {
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+    
+    .service-dots { bottom: 31px; }
+    .service__title { font-size: 15px; margin-bottom: 3px; min-height: 30px; padding-right: 20px; }
+    .service__sub-title { font-size: 12px; }
+    .service__dashed-diagram { height: 140px; }
+    .service__more { height: 30px; line-height: 30px; font-size: 12px; padding-left: 14px; }
+    .service__more:after { right: 14px; }
+    .service__diagram-tabs { bottom: 30px; }
+    .service__datepicker .datepicker__panel { top: 22px; left: -83px; }
+    .service__datepicker .datepicker__panel:before { margin-left: -14px; top: -27px; }
+    .service__datepicker input { width: 49px; }
+    .service__place { font-size: 28px; padding: 3px 6px 3px; margin-bottom: 7px; }
+    .service__select { margin-bottom: 10px; }
 
     .news {
-      margin: 130px auto 0 !important;
+      margin: auto !important;
       max-width: 213px;
-      min-height: 1px;
+      min-height: 310px !important;
       height: 245px;
       padding-bottom: 50px;
       position: relative;
@@ -295,38 +427,51 @@
       right: 0;
     }
     
+    .slick-dots {
+      top: 25%;
+    }
+
     .banner__row {
       font-size: 32px;
     }
-    
+
     .button {
       width: 145px !important;
       height: 30px !important;
       font-size: 16px !important;
       line-height: 32px !important;
     }
-    
+
     .comp-diagram__num_blue {
-      margin-left: -70px;
-      margin-bottom: 15px !important;
+      margin-left: -80px;
+      margin-bottom: 20px !important;
     }
-    
+
     .comp-diagram__num_pink {
-      margin-left: -50px;
-      margin-bottom: 15px !important;
+      margin-left: -60px;
+      margin-bottom: 20px !important;
     }
-    
+
     .comp-diagram__num_yellow {
       top: 10px;
     }
-    
+
     .large-diagram__svg, .large-diagram__svg .svg {
       width: 200px;
       height: 200px;
     }
-    
+
     .large-diagram__percent {
       padding-left: 180px;
+    }
+    
+    .comp-diagram .svg-wrap, .comp-diagram .svg-wrap .svg {
+      width: 150px;
+      height: 150px;
+    }
+    
+    .large-diagram__caption .rub {
+      font-size: 12px;
     }
   }
 }

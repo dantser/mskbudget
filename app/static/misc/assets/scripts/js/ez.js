@@ -30,16 +30,28 @@ budget.extend("common", {
 		var self = this;
 
 		$('.blackout').on('click', function() {
+            $('#popup-wrapper').fadeOut();
 			$(this).fadeOut();
 		})
 		$('.popup').on('click', function(e) {
 			e.stopPropagation()
 		})
 		$('.popup').find('.close-popup').on('click', function() {
+            $('#popup-wrapper').fadeOut();
 			$('.blackout').fadeOut();
 		})
+        $('#blackout [data-answer]').on('click', function(){
+            var answer = $(this).data('answer');
+            if (answer === 'yes') {
+                $('.d-study__lessons_item').removeClass('d-lesson__done');
+            }
+            $('#popup-wrapper').fadeOut();
+			$('.blackout').fadeOut();
+        })
 
-		$('.d-study__clear-res').on('click', function() {
+		$('.d-study__clear-res').on('click', function(e) {
+            e.preventDefault();
+            $('#popup-wrapper').fadeIn();
 			$('.blackout').fadeIn();
 		})
 
@@ -99,13 +111,13 @@ budget.extend("common", {
 					$('.carousel-3d-slide:last').click();
 				}
 			})
-
-            $('.carousel-3d-slide').on('click', function() {
-
-                self.current_slide = $(this).index('.carousel-3d-slide') + 1;
-
-                //$('.carousel-count').html(self.current_slide+'&nbsp;из&nbsp;'+self.slide_count);
-            })
+            //
+            // $('.carousel-3d-slide').on('click', function() {
+            //
+            //     // self.current_slide = $(this).index('.carousel-3d-slide') + 1;
+            //
+            //     //$('.carousel-count').html(self.current_slide+'&nbsp;из&nbsp;'+self.slide_count);
+            // })
 
              //$('.carousel-count').html('1&nbsp;из&nbsp;'+self.slide_count);
 
@@ -162,10 +174,12 @@ budget.extend("common", {
         $('.d-sr__progress-descr_other').on('click', function() {
 
             if ($(this).hasClass('_active')) {
-                $(this).parents('.d-sr__stat-container').next('.other-info').hide();
+                //$(this).parents('.d-sr__stat-container').next('.other-info').hide();
+                $(this).parents('.d-sr__progress_item').next('.other-info').slideUp();
                 $(this).removeClass('_active')
             } else {
-                $(this).parents('.d-sr__stat-container').next('.other-info').show();
+              //$(this).parents('.d-sr__stat-container').next('.other-info').show();
+              $(this).parents('.d-sr__progress_item').next('.other-info').slideDown();
                 $(this).addClass('_active');
             }
         })
@@ -359,27 +373,27 @@ $('.js-abs-btn').click(function(){
 	$('.abs-box--active').removeClass('abs-box--active');
 	$(this).parents('.abs-box').addClass('abs-box--active');
     $(".d-abs__nav").addClass("_active");
-    if ($(window).width() < 970) {
-        $("html, body").animate({scrollTop: $(".abs-box--active .puzzle-inner").offset().top - 100}, 600);
-    }
+    //if ($(window).width() < 970) {
+    //    $("html, body").animate({scrollTop: $(".abs-box--active .puzzle-inner").offset().top - 100}, 600);
+    //}
 
-    $(window).resize(function() {
-      if ($(window).width() < 970) {
-        $("html, body").animate({scrollTop: $(".abs-box--active .puzzle-inner").offset().top - 100}, 600);
-    }})
+    //$(window).resize(function() {
+    //  if ($(window).width() < 970) {
+    //    $("html, body").animate({scrollTop: $(".abs-box--active .puzzle-inner").offset().top - 100}, 600);
+    //}})
     return false;
 });
 $('.js-abs-close').click(function(){
 	$('.abs-box--active').removeClass('abs-box--active');
     $(".d-abs__nav").removeClass("_active");
-    if ($(window).width() < 970) {
-        $("html, body").animate({scrollTop: $(".d-abs__nav").offset().top - 80}, 600);
-    }
+    //if ($(window).width() < 970) {
+    //    $("html, body").animate({scrollTop: $(".d-abs__nav").offset().top - 80}, 600);
+    //}
 
-    $(window).resize(function() {
-      if ($(window).width() < 970) {
-        $("html, body").animate({scrollTop: $(".abs-box--active .puzzle-inner").offset().top - 100}, 600);
-    }})
+    //$(window).resize(function() {
+    //  if ($(window).width() < 970) {
+    //    $("html, body").animate({scrollTop: $(".abs-box--active .puzzle-inner").offset().top - 100}, 600);
+    //}})
 });
 $(document).on('keyup', function(e){
 	if(e.keyCode == 27){

@@ -10,6 +10,291 @@
   @include transited;
 }
 
+// стили таблиц, например в incomes
+.bc-table-row {
+  display: table;
+  width: 100%;
+  border-top: 1px solid #e5e5e5;
+  @include transited('100ms');
+
+  &:first-child {
+    border-top: none;
+  }
+
+  &_heading {
+    border-bottom: 2px solid #e5e5e5;
+  }
+
+  // epand-row
+  &_expand {
+    display: none;
+    position: relative;
+    overflow: hidden;
+    background-color: #f6f6f5;
+    border-top: 1px solid #dddddc;
+
+    @media (min-width: 769px) {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    .bc-table-row_expand {
+      display: inherit;
+    }
+
+    &:first-child {
+      border-top-color: transparent;
+    }
+
+    .bc-table-row {
+      @media (max-width: 768px) {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      &:first-of-type {
+        border-top-color: transparent;
+      }
+    }
+
+    .bc-table-row_expand-header + .bc-table-row {
+      @media (max-width: 768px) {
+        border-top-color: transparent;
+      }
+    }
+
+    .inner {
+      opacity: 0;
+      padding-top: 0px;
+      padding-bottom: 0px;
+      @include transited;
+    }
+
+    .bc-table-row__column {
+      font-family: $PFDinTextPro;
+      font-size: 14px;
+      font-weight: 400;
+      font-style: normal;
+      text-transform: none;
+
+      @media (max-width: 768px) {
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(3) {
+          display: block;
+          width: 100%;
+          padding: 0 15px;
+        }
+
+        &:not(:last-child) {
+          margin-bottom: 15px;
+        }
+      }
+    }
+  }
+
+  &_expand-header {
+    padding-top: 0;
+    padding-bottom: 0;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+
+    .bc-table-row__column {
+      vertical-align: bottom;
+    }
+  }
+
+  &.is-active {
+    background-color: #f6f6f5;
+
+    + .bc-table-row_expand {
+      display: table;
+      border-top-color: transparent;
+
+      .inner {
+        opacity: 1;
+      }
+    }
+  }
+
+  &.is-accordeon-row {
+    cursor: pointer;
+
+    .bc-table-row__column_name {
+      .-text {
+        line-height: 1.6;
+        color: #0d46a1;
+        border-bottom: 1px dashed rgba(#0d46a1, .5);
+      }
+    }
+
+    &:hover {
+      background-color: fade-out(#f6f6f5, .5);
+    }
+  }
+
+  &__column {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    padding-top: 17px;
+    padding-bottom: 15px;
+    font-family: $PFDinCondensedPro;
+    font-size: 18px;
+    line-height: 1.25;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: black;
+
+    // firefox fix
+    display: -moz-deck;
+
+    @media (max-width: 768px) {
+      padding-top: 14px;
+      padding-bottom: 12px;
+      font-size: 16px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 11px;
+    }
+
+    .text-muted {
+      color: fade-out(black, .6);
+    }
+
+    &.has-checkbox {
+      position: relative;
+
+      .checkbox {
+        position: absolute;
+        margin-top: 2px;
+      }
+
+      .checkbox-text {
+        display: block;
+        padding-left: 25px;
+      }
+    }
+
+    &:nth-child(1) {
+      width: 45%;
+      padding-left: 30px;
+      padding-right: 7px;
+
+      @media (max-width: 768px) {
+        padding-left: 15px;
+        padding-right: 7px;
+      }
+    }
+
+    &:nth-child(2) {
+      width: 25%;
+      padding-left: 7px;
+      padding-right: 7px;
+
+      @media (max-width: 768px) {
+        padding-left: 7px;
+        padding-right: 7px;
+      }
+    }
+
+    &:nth-child(3) {
+      width: 30%;
+      padding-left: 7px;
+      padding-right: 30px;
+
+      @media (max-width: 768px) {
+        padding-left: 7px;
+        padding-right: 15px;
+      }
+    }
+
+    &.col2and3 {
+      width: 55%;
+      padding-right: 30px;
+
+      @media (max-width: 768px) {
+        padding-right: 15px;
+      }
+
+      .bc-table-row {
+        &:not(:first-child) {
+          padding-top: 15px;
+          margin-top: 10px;
+        }
+      }
+
+      .notification {
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      &-col1 {
+        display: inline-block;
+        width: 65%;
+        padding: 0 5px 0 0 !important;
+      }
+
+      &-col2 {
+        display: inline-block;
+        width: 35%;
+        padding: 0 !important;
+
+        &.bc-table-row__column_value {
+          vertical-align: top;
+          font-family: $PFDinCondensedPro;
+          font-size: 18px;
+          line-height: 1;
+          font-weight: 500;
+          text-transform: uppercase;
+
+          @media (max-width: 768px) {
+            margin-top: 10px;
+            text-align: right;
+            display: block;
+            font-size: 15px;
+          }
+        }
+      }
+
+      &-col3 {
+        display: block;
+        margin-top: 10px;
+        width: 100%;
+        padding: 0 !important;
+      }
+    }
+
+    &.-full-width {
+      width: 100% !important;
+      padding-left: 30px !important;
+      padding-right: 30px !important;
+
+      @media (max-width: 768px) {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+      }
+    }
+
+    &_heading {
+      font-family: $PFDinCondensedPro;
+      font-weight: 500;
+      text-transform: uppercase;
+      color: #898783;
+      vertical-align: bottom;
+
+      @media (max-width: 480px) {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        font-size: 9px;
+      }
+    }
+  }
+}
+
 // желтая кнопка для калькулятора бюджета
 .budget-calc-btn {
   display: inline-block;
@@ -21,7 +306,7 @@
   font-weight: 500;
   text-decoration: none;
   text-transform: uppercase;
-  border-radius: 2px;
+  border-radius: 3px;
   color: black;
   background-color: #fee300;
   border: 1px solid #fee300;
@@ -31,6 +316,10 @@
     background-color: #E7CE00;
     border-color: #E7CE00;
   }
+
+  // &:active {
+  //   @include transform(translateY(1px));
+  // }
 
   &_howto-start {
     display: block;
@@ -64,6 +353,20 @@
       &.-triangle-right:after {
         border-color: transparent transparent transparent black;
       }
+    }
+  }
+
+  &.-blue {
+    background-color: #0d46a1;
+    border-color: #0d46a1;
+    color: white;
+
+    &.-triangle-right:after {
+      border-color: transparent transparent transparent white;
+    }
+
+    &:hover {
+      background-color: darken(#0d46a1, 5%);
     }
   }
 
@@ -127,12 +430,12 @@
   }
 
   // сообщения в теле калькулятор
-  &__notification {
+  .notification {
     display: none;
-    padding: 10px 15px;
+    padding: 13px 15px;
     margin-left: 30px;
     margin-right: 30px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     font-family: $PFDinTextPro;
     font-weight: 400;
     font-size: 14px;
@@ -157,6 +460,15 @@
 
     &_info {
       background-color: rgba(#0d46a1, .1);
+      font-family: $PFDinCondensedPro;
+      font-weight: 500;
+      text-transform: uppercase;
+      text-align: center;
+
+      a {
+        color: #0d46a1;
+        text-decoration: none;
+      }
     }
   }
 
@@ -200,7 +512,7 @@
     padding-left: 230px;
     font-family: $PFDinTextPro;
     font-size: 16px;
-    line-height: 20px;
+    line-height: 24px;
     font-weight: 400;
     color: black;
   }
@@ -226,7 +538,7 @@
         display: inline-block;
         height: 180px;
 
-        &:nth-child(4) {
+        &:nth-child(3) {
           margin-right: 0;
         }
       }
@@ -246,6 +558,10 @@
 
     &.is-active {
       display: block;
+    }
+
+    &_check {
+      padding-bottom: 0;
     }
   }
 
@@ -303,274 +619,56 @@
   &__incomes {
     margin-top: 35px;
     margin-bottom: 35px;
+  }
 
-    &-row {
-      display: table;
-      width: 100%;
-      border-top: 1px solid #e5e5e5;
-      @include transited('100ms');
+  // расходы
+  &__costs {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    margin-bottom: 20px;
 
-      &:first-child {
-        border-top: none;
-      }
+    &-item {
+      padding: 15px 25px 0;
+      @include transited;
 
-      &_heading {
-        border-bottom: 2px solid #e5e5e5;
+      @media (max-width: 768px) {
+        padding-left: 15px;
+        padding-right: 15px;
       }
 
       &.is-active {
         background-color: #f6f6f5;
 
-        + .budget-calc-app__incomes-expand {
+        > .budget-calc-app__costs-item-expand {
           height: auto;
-
-          .budget-calc-app__incomes-expand-inner {
-            opacity: 1;
-          }
+          .budget-calc-app__costs-item-expand-inner { opacity: 1; }
         }
       }
 
-      &.is-accordeon-row {
-        cursor: pointer;
+      // сетка
+      @media (min-width: 1200px) {
+        float: left;
+        width: 33.33%;
 
-        &:hover {
-          background-color: fade-out(#f6f6f5, .5);
-        }
+        &:nth-of-type(3n) { clear: right; }
+        &:nth-of-type(3n+1) { clear: left; }
       }
 
-      &_expand {
-        padding-top: 20px;
-        padding-bottom: 20px;
-        border-top: 1px solid #dddddc;
+      @media (min-width: 640px) and (max-width: 1199px) {
+        float: left;
+        width: 50%;
 
-        &-header {
-          padding-top: 0;
-          padding-bottom: 0;
-
-          @media (max-width: 768px) {
-            display: none;
-          }
-
-          .budget-calc-app__incomes-column_expand {
-            vertical-align: bottom;
-          }
-        }
+        &:nth-of-type(2n) { clear: right; }
+        &:nth-of-type(2n+1) { clear: left; }
       }
-    }
-
-    &-column {
-      position: relative;
-      display: inline-block;
-      vertical-align: middle;
-      padding-top: 17px;
-      padding-bottom: 15px;
-      font-family: $PFDinCondensedPro;
-      font-size: 18px;
-      line-height: 1.25;
-      font-weight: 500;
-      text-transform: uppercase;
-      color: black;
-
-      @media (max-width: 768px) {
-        padding-top: 14px;
-        padding-bottom: 10px;
-        font-size: 16px;
-      }
-
-      @media (max-width: 480px) {
-        font-size: 11px;
-      }
-
-      &:nth-child(1) {
-        width: 45%;
-        padding-left: 30px;
-        padding-right: 7px;
-
-        @media (max-width: 768px) {
-          padding-left: 15px;
-          padding-right: 7px;
-        }
-      }
-
-      &:nth-child(2) {
-        width: 25%;
-        padding-left: 7px;
-        padding-right: 7px;
-
-        @media (max-width: 768px) {
-          padding-left: 7px;
-          padding-right: 7px;
-        }
-      }
-
-      &:nth-child(3) {
-        width: 30%;
-        padding-left: 7px;
-        padding-right: 30px;
-
-        @media (max-width: 768px) {
-          padding-left: 7px;
-          padding-right: 15px;
-        }
-      }
-
-      &.col2and3 {
-        width: 55%;
-        padding-right: 30px;
-
-        @media (max-width: 768px) {
-          padding-right: 15px;
-        }
-
-        &-col1 {
-          display: inline-block;
-          width: 65%;
-          padding: 0 5px 0 0 !important;
-        }
-
-        &-col2 {
-          display: inline-block;
-          width: 35%;
-          padding: 0 !important;
-
-          &.budget-calc-app__incomes-column_value {
-            @media (max-width: 768px) {
-              margin-top: 10px;
-              text-align: right;
-
-              > span {
-                display: inline;
-                font-size: 15px;
-              }
-            }
-          }
-        }
-
-        &-col3 {
-          display: block;
-          margin-top: 10px;
-          width: 100%;
-          padding: 0 !important;
-        }
-      }
-
-      &.-full-width {
-        width: 100% !important;
-        padding-left: 30px !important;
-        padding-right: 30px !important;
-
-        @media (max-width: 768px) {
-          padding-left: 15px !important;
-          padding-right: 15px !important;
-        }
-      }
-
-      &_heading {
-        font-family: $PFDinCondensedPro;
-        font-weight: 500;
-        text-transform: uppercase;
-        color: #898783;
-        vertical-align: bottom;
-
-        @media (max-width: 480px) {
-          padding-top: 5px;
-          padding-bottom: 5px;
-          font-size: 9px;
-        }
-      }
-
-      &_name {
-        .-text {
-          line-height: 1.6;
-
-          .is-accordeon-row & {
-            color: #0d46a1;
-            border-bottom: 1px dashed rgba(#0d46a1, .5);
-          }
-        }
-      }
-
-      &_value {
-        // @media (max-width: 768px) {
-        //   .-num,
-        //   .-text {
-        //     display: block;
-        //   }
-        // }
-      }
-
-      // column ._expand
-      &_expand {
-        @media (max-width: 768px) {
-          &:nth-child(1),
-          &:nth-child(2),
-          &:nth-child(3) {
-            display: block;
-            width: 100%;
-            padding-left: 15px;
-            padding-right: 15px;
-          }
-        }
-
-        &.has-checkbox {
-          position: relative;
-
-          .checkbox {
-            position: absolute;
-            margin-top: 2px;
-          }
-
-          .checkbox-text {
-            display: block;
-            padding-left: 25px;
-          }
-        }
-
-        .text-muted {
-          color: fade-out(black, .6);
-        }
-
-        .text-small {
-          font-family: $PFDinTextPro;
-          font-size: 14px;
-          font-weight: 400;
-          font-style: normal;
-          text-transform: none;
-        }
-      }
-    }
-
-    &-expand {
-      position: relative;
-      overflow: hidden;
-      height: 0;
-      background-color: #f6f6f5;
-
-      &-inner {
-        opacity: 0;
-        padding-top: 0px;
-        padding-bottom: 0px;
-        @include transited;
-      }
-    }
-  }
-
-  // расходы
-  &__costs {
-    @include display-flex;
-    @include flex-wrap(wrap);
-    padding: 0 10px;
-    margin-bottom: 20px;
-
-    &-item {
-      padding: 15px 20px 0;
-      width: 33.33%;
 
       &-icon {
         position: relative;
         overflow: hidden;
         width: 50px;
         height: 50px;
+        cursor: pointer;
 
         .icon,
         svg {
@@ -594,6 +692,14 @@
 
         &-text {
           border-bottom: 1px dashed rgba(#0d46a1, .5);
+        }
+
+        &_flat {
+          color: black;
+
+          &-text {
+            border-bottom: none;
+          }
         }
       }
 
@@ -619,11 +725,55 @@
 
       &-range {
         margin-top: 15px;
-        margin-bottom: 35px;
+        padding-bottom: 35px;
       }
 
       &-expand {
-        display: none;
+        position: absolute;
+        z-index: 5;
+        overflow: hidden;
+        height: 0;
+        left: 0;
+        right: 0;
+        @include transited;
+
+        &-inner {
+          opacity: 0;
+          padding: 20px 0;
+          background-color: #f6f6f5;
+          @include transited;
+        }
+
+        .bc-table-row {
+          display: block;
+
+          &_expand {
+            @media (max-width: 768px) {
+              padding-top: 20px;
+              padding-bottom: 20px;
+            }
+
+            @media (min-width: 769px) {
+              padding-top: 10px;
+              padding-bottom: 10px;
+            }
+          }
+
+          &__column {
+            &_costs-value {
+              font-family: $PFDinCondensedPro;
+              font-size: 18px;
+              line-height: 24px;
+              font-weight: 500;
+              text-transform: uppercase;
+            }
+          }
+
+          // 0_o
+          .bc-table-row__column:nth-child(1) {
+            width: 43%;
+          }
+        }
       }
     }
   }
@@ -631,47 +781,345 @@
   // дефицит/профицит
   &__balance {
     margin-bottom: 35px;
+  }
 
-    &-row {
-      @include display-flex;
-      @include flex-direction(row);
-      @include align-items(center);
-      min-height: 94px;
-      padding: 0 10px;
+  // проверить свой вариант бюджета
+  &__check {
+
+    &-heading {
+      padding: 30px 30px 0 30px;
+      font-family: $PFDinCondensedPro;
+      font-size: 18px;
+      line-height: 24px;
+      font-weight: 500;
+      text-transform: uppercase;
+      color: black;
+
+      @media (max-width: 768px) {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+    }
+
+    .check-row {
+      display: table;
+      width: 100%;
+      padding-top: 30px;
       border-bottom: 1px solid #e5e5e5;
+
+      &__column {
+        padding-bottom: 30px;
+
+        .text-muted { color: rgba(black, .6); }
+        .text-small { font-size: 14px; line-height: 1.5; }
+        .text-big   { font-size: 48px; }
+
+        &:not(:last-child) {
+          @media (max-width: 768px) {
+            padding-bottom: 18px;
+          }
+        }
+
+        &_name {
+          font-size: 16px;
+          line-height: 1.25;
+        }
+
+        &_value {
+          font-family: $PFDinCondensedPro;
+          font-size: 18px;
+          line-height: 24px;
+          font-weight: 500;
+          text-align: right;
+
+          @media (max-width: 768px) {
+            text-align: left;
+          }
+        }
+
+        &_text-smaller {
+          font-size: 13px;
+          line-height: 18px;
+          color: rgba(black, .7);
+        }
+
+        &_total {
+          font-family: $PFDinCondensedPro;
+          font-weight: 500;
+          text-transform: uppercase;
+
+          @mixin rage {
+            display: table;
+
+            .column-total-col1 {
+              display: table-cell;
+              vertical-align: top;
+              padding-right: 10px;
+              padding-top: 5px;
+              max-width: 85px;
+            }
+
+            .column-total-col2 {
+              display: table-cell;
+              vertical-align: top;
+            }
+          }
+
+          @media (min-width: 1200px) { @include rage; }
+          @media (max-width: 768px)  { @include rage; }
+
+          .total-caption,
+          .total-num-text {
+            margin-bottom: 5px;
+            font-size: 14px;
+            line-height: 18px;
+          }
+
+          .total-num {
+            font-size: 48px;
+            line-height: 1;
+          }
+        }
+
+        @media (max-width: 768px) {
+          display: block;
+          width: 100%;
+          padding-top: 15px;
+          padding-left: 15px;
+          padding-right: 15px;
+          border-bottom: 1px solid #e5e5e5;
+        }
+
+        @media (min-width: 769px) {
+          display: inline-block;
+          vertical-align: top;
+
+          // firefox fix
+          display: -moz-deck;
+
+          &:nth-child(1) {
+              width: 40%;
+              padding-left: 30px;
+              padding-right: 10px;
+          }
+
+          &:nth-child(2) {
+              width: 25%;
+              padding-left: 10px;
+              padding-right: 10px;
+          }
+
+          &:nth-child(3) {
+              width: 35%;
+              padding-left: 10px;
+              padding-right: 30px;
+          }
+
+          &_total {
+            width: 33.33% !important;
+          }
+        }
+      }
+    }
+  }
+
+  .check-footer {
+    background-color: #f6f6f5;
+    padding: 30px;
+
+    @media (max-width: 768px) {
+      padding-left: 15px;
+      padding-right: 15px;
     }
 
-    &-column {
-      padding: 15px;
-      // @include outline;
+    @media (min-width: 769px) {
+      padding-bottom: 55px;
+    }
 
-      &_name {
-        @include flex-grow(1);
-        font-family: $PFDinCondensedPro;
-        font-size: 18px;
-        line-height: 1;
-        font-weight: 500;
-        font-style: normal;
-        text-transform: uppercase;
+    &__actions {
+      position: relative;
+      overflow: hidden;
+      white-space: nowrap;
+      padding-left: 25px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #e5e5e5;
+
+      @media (max-width: 768px) {
+        padding-right: 25px;
       }
 
-      &_range {
-        @include flex-basis(275px);
-      }
-
-      &_value {
-        @include flex-basis(220px);
-        font-family: $PFDinCondensedPro;
-        font-size: 18px;
-        line-height: 1;
-        font-weight: 500;
-        font-style: normal;
-        text-transform: uppercase;
+      @media (max-width: 480px) {
+        padding-left: 0;
+        padding-right: 0;
       }
     }
 
-    &-expand {
-      display: none;
+    &__actions-heading {
+      margin-bottom: 15px;
+      font-family: $PFDinCondensedPro;
+      font-weight: 500;
+      text-transform: uppercase;
+      font-size: 18px;
+      line-height: 20px;
+    }
+
+    &__send {
+      overflow: hidden;
+      padding-top: 15px;
+      padding-bottom: 15px;
+
+      @media (min-width: 769px) {
+        float: left;
+        width: 66%;
+        padding-right: 20px;
+      }
+
+      @media (max-width: 480px) {
+        margin-bottom: 15px;
+      }
+    }
+
+    &__share {
+      padding-top: 15px;
+      padding-bottom: 15px;
+
+      @media (min-width: 769px) {
+        float: left;
+        width: 34%;
+      }
+
+      @media (max-width: 768px) {
+        text-align: center;
+      }
+
+      &-btn {
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        color: white;
+        text-align: center;
+        @include transited;
+
+        svg {
+          margin-top: 17px;
+          fill: white;
+          height: 16px;
+          width: 16px;
+        }
+
+        &:not(:last-child) {
+          margin-right: 12px;
+        }
+
+        &_facebook {
+          background-color: #4866a6;
+
+          &:hover {
+            background-color: darken(#4866a6, 5%);
+          }
+        }
+
+        &_twitter {
+          background-color: #40bff5;
+
+          svg { width: 19px; }
+
+          &:hover {
+            background-color: darken(#40bff5, 5%);
+          }
+        }
+
+        &_vk {
+          background-color: #6084a8;
+
+          svg { width: 20px; }
+
+          &:hover {
+            background-color: darken(#6084a8, 5%);
+          }
+        }
+      }
+    }
+
+    &__text {
+      padding: 15px 25px;
+      font-size: 16px;
+      line-height: 20px;
+
+      @media (max-width: 480px) {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+
+    &__form {
+      position: relative;
+      padding-top: 5px;
+
+      &-input {
+
+        &-email-wrap {
+          overflow: hidden;
+          padding-right: 155px;
+        }
+
+        &_email {
+          width: 100%;
+          padding: 0 10px;
+          border: 1px solid #bfbfbf;
+          border-radius: 3px;
+          background-color: white;
+          font-size: 18px;
+          line-height: 38px;
+          outline: none;
+          @include transited;
+
+          &:focus {
+            border-color: rgba(black, .5);
+          }
+        }
+
+        &_submit {
+          position: absolute;
+          top: 5px;
+          right: 0;
+          width: 145px;
+          padding: 10px 25px;
+          font-family: $PFDinCondensedPro;
+          font-weight: 500;
+          text-transform: uppercase;
+          font-size: 20px;
+          line-height: 1;
+          color: black;
+          background-color: #fee300;
+          border: none;
+          box-shadow: 0 1px 1px #ccb600;
+          @include transited;
+
+          &:hover {
+            background-color: #E7CE00;
+          }
+
+          &:active {
+            margin-top: 1px;
+            box-shadow: none;
+          }
+        }
+
+        @media (max-width: 480px) {
+          &-email-wrap {
+            padding-right: 0;
+          }
+
+          &_submit {
+            float: right;
+            top: 10px;
+            position: relative;
+          }
+        }
+      }
     }
   }
 }
@@ -728,6 +1176,14 @@
   &_incomes { @include gradient('to right bottom, #004ccf 0%, #00ffff 100%'); }
   &_costs   { @include gradient('to right bottom, #ff695b 0%, #9d308a 100%'); }
   &_balance { @include gradient('to right bottom, #30b069 0%, #fee300 100%'); }
+
+  &_incomes,
+  &_costs,
+  &_balance {
+    @media (max-width: 1024px) {
+      min-width: 32.37%;
+    }
+  }
 
   &_not-balanced {
     padding-bottom: 16px;

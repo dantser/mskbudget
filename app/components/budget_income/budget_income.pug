@@ -3,6 +3,7 @@ include ../analityc-widgethead/analityc-widgethead
 include ../analityc-graphics/analityc-graphics
 include ../analityc-table/analityc-table
 include ../../blocks/table/table
+include ../../blocks/dropdown-block/dropdown-block
 
 mixin budget_income()
   .main._basic
@@ -27,30 +28,4 @@ mixin budget_income()
             +table-income(getData('income3'))
           +analityc-graphics-line('Исполнение доходов бюджета на 1 февраля 2017', getData('graphic-lines-income2'))._date-two
           a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
-
-      // Dropdown block
-      .dropdown-block
-        .dropdown
-          .dropdown-trigger
-            .wrapper
-              span
-                strong Документы
-          .dropdown-content
-            .wrapper
-              span Документы
-        .dropdown
-          .dropdown-trigger
-            .wrapper
-              span
-                strong Новости по&nbsp;теме
-          .dropdown-content
-            .wrapper
-              span Новости
-        .dropdown
-          .dropdown-trigger
-            .wrapper
-              span
-                strong Сервисы
-          .dropdown-content
-            .wrapper
-              span Сервисы
+      +dropdown()

@@ -389,12 +389,6 @@
   }
 }
 
-@media (max-width: 700px) {
-  .tile__inner {
-    margin: 0 !important;
-  }
-}
-
 /*Sorting*/
 .sort { font-family: 'pf_dintext_pro'; color: #FFF; }
 
@@ -451,12 +445,38 @@
 
 @media (max-width: 700px) {
   /*important из за неправильного переопределения медиа запрсов*/
-  .tile { margin: 0 20px !important; }
-  /*important из за неправильного переопределения медиа запрсов*/
-  .tile__item { width: 100% !important; float: none; margin: 0 auto 20px; }
+  .tile__item { width: 50% !important; height: 100%; }
   .tile__inner { margin: 0; } }
 
 /*Documents*/
+.documents-card_page {
+  margin: 0 -7px;
+
+  @media (max-width: 1180px) {
+    margin: 0 -14px;
+  }
+
+  @media (max-width: 580px) {
+    margin: 0;
+  }
+
+  .tile_sh {
+    margin: 0 !important;
+  }
+
+  .tile__item {
+    @media (max-width: 580px) {
+      width: 100%!important;
+    }    
+  }
+
+  .tile__inner {
+    @media (max-width: 580px) {
+      margin: 0;
+    }      
+  }
+}
+
 .document { min-height: 370px; position: relative; padding: 20px 20px 70px; }
 
 .document__date { font-family: 'pf_dintext_pro'; font-size: 11px; color: #000; margin-bottom: 8px; position: relative; z-index: 2; }

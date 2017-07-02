@@ -241,7 +241,9 @@
     background-size: 100% 100% !important;
 
     .header__logo {
-      top: 19px;
+      @media (max-width: 1180px) and (min-width: 801px) {
+        width: 28px;
+      }
     }
 
     .header__link-for-blind {
@@ -475,7 +477,7 @@
 
   .header__currency {
     right: auto;
-    left: 303px;
+    left: 237px;
     top: 30px;
     font-size: 20px;
   }
@@ -815,9 +817,13 @@
     .search-form__btn {
       width: 24px;
       height: 24px;
+      margin-bottom: 0;
     }
     .search-form__btn:before {
-      background-position: 6px -21px;
+      background-position: 6px -18px;
+    }
+    .search-form__btn_act:before {
+      background-position: -117px -45px;
     }
   }
 }

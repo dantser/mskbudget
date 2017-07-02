@@ -2,7 +2,6 @@
 mixin page-head(title, breadcrumbs)
 	+b.page-head&attributes(attributes)
 		+e.P.breadcrumbs.load-anim-fade(data-delay="1300")
-			+e.A(href='#').category Главная
 			if breadcrumbs
 				each item in breadcrumbs
 					+e.A(href='#').category= item

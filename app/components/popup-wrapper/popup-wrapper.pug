@@ -26,28 +26,28 @@ mixin popup-wrapper()
           p.popup-login__p или
           // TAB
           .tab__content.tab__content_vis(id="tab1")
-            form(action="l.php").login-form
+            form(action="l.php", method="POST").login-form
               .login-form__field
-                label(for="i-email-2").overlabel e-mail
-                input(id="i-email-2", type="email").login-form__text
+                div.overlabel e-mail
+                input(id="iemail2", type="email").login-form__text
               .login-form__field.mb-10
-                label(for="i-passw").overlabel пароль
-                input(id="i-passw", type="password").login-form__text
+                div.overlabel пароль
+                input(id="ipassw", type="password").login-form__text
               .mb-15
                 a(href="#restore").open-popup.login-form__a Я забыл пароль
               input(type="submit", value="Войти").login-form__submit
           // TAB
           .tab__content(id="tab2")
-            form(action="l.php").login-form.mb-25
+            form(action="l.php", method="POST").login-form.login-form_reg.mb-25
               .login-form__field
-                label(for="i-fio-1").overlabel ФИО
-                input(id="i-fio-1", type="email").login-form__text
+                div.overlabel ФИО
+                input(id="i-fio-1", type="text", name="ifio1").login-form__text
               .login-form__field
-                label(for="i-email-3").overlabel e-mail
-                input(id="i-email-3", type="email").login-form__text
+                div.overlabel e-mail
+                input(id="i-email-3", type="email", name="iemail3").login-form__text
               .login-form__field
-                label(for="i-passw-1").overlabel пароль
-                input(id="i-passw-1", type="password").login-form__text
+                div.overlabel пароль
+                input(id="i-passw-1", type="password", name="ipassw1").login-form__text
               input(type="submit", value="Зарегистрироваться").login-form__submit
             p.popup-login__caption Нажимая на кнопку «Регистрация», вы подтверждаете свое согласие с условиями предоставления услуг (!{'<a href="#agreements" class="open-popup">пользовательское соглашение</a>'})
           // /TAB
@@ -81,7 +81,7 @@ mixin popup-wrapper()
         p Пользователь дает согласие на обработку своих персональных данных, то есть совершение, в том числе, следующих действий: обработку (включая сбор, систематизацию, накопление, хранение, уточнение (обновление, изменение), использование, обезличивание, уничтожение персональных данных), при этом общее описание вышеуказанных способов обработки данных приведено в Федеральном законе от 27.07.2006 № 152-ФЗ, а также на передачу такой информации третьим лицам, в случаях, установленных нормативными документами вышестоящих органов и законодательством.
         .bottom
           a(href="#login").open-popup вернуться к регистрации
-      a(href="#").close-popup
+      a(href="#login").open-popup.return-popup
     
     .blackout.popup-window#blackout
       .popup
@@ -89,8 +89,8 @@ mixin popup-wrapper()
         STRONG Вы&nbsp;уверены, что хотите очистить результаты?
         P В&nbsp;этом случае вам прийдется проходить обучающий курс заново.
         .popup-btns
-        A.ybtn Да, хочу
-        A.ybtn Нет, не&nbsp;хочу
+        A.ybtn(data-answer="yes") Да, хочу
+        A.ybtn(data-answer="no") Нет, не&nbsp;хочу
 
     .popup-video.popup-window#video
       .popup-video__wrap

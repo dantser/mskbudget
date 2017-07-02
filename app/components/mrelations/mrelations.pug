@@ -1,4 +1,5 @@
 include ../page-header/page-header
+include ../../blocks/dropdown-block/dropdown-block
 
 mixin mrelations()
   +b.mrelations&attributes(attributes)
@@ -24,29 +25,4 @@ mixin mrelations()
         +e.scheme-block._innercity
           img(src='assets/images/map3.png', alt='@@')
           +e.P.scheme-title Внутригородские<br> муниципальные<br> образования г. Москвы
-    // Dropdown
-    .dropdown-block
-      .dropdown
-        .dropdown-trigger
-          .wrapper
-            span
-              strong Документы
-        .dropdown-content
-          .wrapper
-            span Документы
-      .dropdown
-        .dropdown-trigger
-          .wrapper
-            span
-              strong Новости по&nbsp;теме
-        .dropdown-content
-          .wrapper
-            span Новости
-      .dropdown
-        .dropdown-trigger
-          .wrapper
-            span
-              strong Сервисы
-        .dropdown-content
-          .wrapper
-            span Сервисы
+    +dropdown()

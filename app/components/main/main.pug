@@ -67,7 +67,7 @@ mixin main()
           .sections__datepicker
             span по состоянию<br> на
             .datepicker
-              input(type="text", value="21.12.2016").jq-datepicker.datepicker__show
+              input(value='01.12.2016', tabindex="0").jq-datepicker.datepicker__show.range-datepicker__item
           // /CALENDAR
       // /AHEAD
       
@@ -140,8 +140,8 @@ mixin main()
               .service__sub-title
                 span по состоянию на
                 .datepicker.service__datepicker
-                  input(type="text", value="21.10.2016").jq-datepicker
-                | , млрд. руб
+                  input(value='01.12.2016', tabindex="0").jq-datepicker.datepicker__show.range-datepicker__item
+                | , млрд. руб 
             .service-dot-cont.service-dot-cont_act#serv-d-2
               .dashed-diagram.service__dashed-diagram
                 .dashed-diagram__diagram#diagram-8
@@ -222,7 +222,7 @@ mixin main()
               .service__sub-title
                 span по состоянию на
                 .datepicker.service__datepicker
-                  button.datepicker__show 21.10.2016
+                  button.datepicker__show 01.10.2016
                   .datepicker__panel
                     ul.datepicker__col.datepicker__col_years
                       li
@@ -237,6 +237,8 @@ mixin main()
                         a(href="#").datepicker__a 2015
                       li
                         a(href="#").datepicker__a.datepicker__a_act 2016
+                      li
+                        a(href="#").datepicker__a 2017
                     .datepicker__col-wrap
                       ul.datepicker__col.datepicker__col_months
                         li

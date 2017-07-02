@@ -157,7 +157,127 @@ mixin analityc-graphics-line(title, data)
               +e.line-total
               +e.SPAN.line-bar-value= obj.barvalue
               +e.line-fill
+mixin analityc-graphics-multiline(data)
+  +b.analityc-multiline&attributes(attributes)
+    p.analityc-graphics__periodtext
+      span Плановый период
+    .graphic__row
+      .graphic__title
+      span.graphic__data(data-char='2017') 2017
+      span.graphic__data(data-char='2018') 2018
+        span.graphic__period-left
+      span.graphic__data(data-char='2019') 2019
+        span.graphic__period-right
+      span.graphic__data
+    each obj in data
+      +e.DIV(class="__line_"+obj.class)
+        +e.A(href="#").title= obj.title
+        +e.line-bar
+          +e.line-total._green
+            +e.line-value= obj.values[0]
+          +e.line-total._red
+            +e.line-value= obj.values[1]
+          +e.line-total._blue
+            +e.line-value= obj.values[2]
+        +e.SPAN.line-bar-value= obj.barvalue
 
+mixin analityc-graphics-line-alt(data)
+  +b.analityc-line&attributes(attributes)._line
+    +e.lines
+      each obj in data
+        +e.DIV(class="__line_"+obj.class)
+          +e.A(href="#").title= obj.title
+          +e.line-bar._overwidth
+            +e.line-total._altred
+            +e.line-fill
+              +e.line-value= obj.value  
+            +e.SPAN.line-bar-value= obj.barvalue
+
+mixin analityc-graphics-mix(data)
+  +b.analityc-mix&attributes(attributes)
+    +e.round
+      +e.round-title= data.roundTitle
+      +e.round-content
+    +e.lines
+      each item in data.item
+        +e.line
+          if item.strong
+            +e.P.title 
+              strong= item.title
+          else
+            +e.P.title= item.title
+          if item.overwidth
+            +e.line-bar._overwidth
+              +e.line-values 
+                = item.value1
+                span /
+                = item.value2
+              +e.line-fill
+          else
+            +e.line-bar
+              +e.line-values 
+                = item.value1
+                span /
+                = item.value2
+                +e.line-fill
+
+mixin analityc-graphics-js-line(data)
+  +b.analityc-js-line&attributes(attributes)
+    +e.header
+      +icon('car').icon
+      +e.H2.heading= data.heading
+      +e.A(href=data.link).link Паспорт программы
+      +e.H3.subheading= data.subheading
+    each item in data.item
+      if item.strong
+        +e.line._big
+          +e.left-block
+            +e.P.title
+              strong= item.title
+            +e.line-bar
+              +e.line-total._altred
+              +e.line-fill
+                +e.line-values 
+                  = item.value1
+                  span /
+                  = item.value2 
+              +e.SPAN.line-bar-value= item.barvalue
+          +e.right-block
+            each items in item
+              +e.line
+                +e.P.title= items.title
+                +e.line-bar
+                  +e.line-total._altred
+                  +e.line-fill
+                    +e.line-values 
+                      = items.value1
+                      span /
+                      = items.value2 
+                  +e.SPAN.line-bar-value= items.barvalue
+      else
+        +e.line
+          +e.left-block
+            +e.P.title= item.title
+            +e.line-bar
+              +e.line-total._altred
+              +e.line-fill
+                +e.line-values 
+                  = item.value1
+                  span /
+                  = item.value2 
+              +e.SPAN.line-bar-value= item.barvalue
+          +e.right-block
+            each items in item
+              +e.line
+                +e.P.title= items.title
+                +e.line-bar
+                  +e.line-total._altred
+                  +e.line-fill
+                    +e.line-values 
+                      = items.value1
+                      span /
+                      = items.value2 
+                  +e.SPAN.line-bar-value= items.barvalue
 //- data - json файл с данными для графиков
 mixin analityc-graphics-line-vertical(data, isWide)
   +b.analityc-graphics-line-vertical&attributes(attributes)
@@ -202,6 +322,54 @@ mixin analityc-graphics-line-vertical(data, isWide)
         +e.caption
           +e.STRONG.caption-year= item.year
           +e.SPAN.caption-text= item.text
+
+mixin analityc-graphics-line-vertical_slider(data, isWide)
+  +b.analityc-graphics-line-vertical._slider.swiper-container&attributes(attributes)
+
+    +e.wrapper.swiper-wrapper
+      each item in data
+        +e.graphic.swiper-slide
+          +e.lines
+
+            if isWide
+              +e.line._pink
+                +e.line-bar-value= item.values[0]
+                +e.line-fill
+              +e.line._greenyellow
+                +e.line-bar-value= item.values[1]
+                +e.line-fill
+              +e.line._violet
+                +e.line-bar-value= item.values[2]
+                +e.line-fill
+              +e.line._gray
+                +e.line-bar-value= item.values[3]
+                +e.line-fill
+              +e.line._blue
+                +e.line-bar-value= item.values[4]
+                +e.line-fill
+              +e.line._green
+                +e.line-bar-value= item.values[5]
+                +e.line-fill
+              +e.line._red
+                +e.line-bar-value= item.values[6]
+                +e.line-fill
+            else
+              +e.line._altblue
+                +e.line-bar-value= item.values[0]
+                +e.line-fill
+              +e.line._pink
+                +e.line-bar-value= item.values[1]
+                +e.line-fill
+              +e.line._green._neg
+                +e.line-bar-value= item.values[2]
+                +e.line-fill
+
+          +e.caption
+            +e.STRONG.caption-year= item.year
+            +e.SPAN.caption-text= item.text
+
+    +icon('angle-arrow').next.swiper-button-next
+    +icon('angle-arrow').prev.swiper-button-prev
 
 mixin analityc-graphics-line-vertical-alt(data)
   +b.analityc-graphics-line-vertical._alt&attributes(attributes)

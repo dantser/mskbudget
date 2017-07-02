@@ -25,13 +25,13 @@ $('.slick-cloned .anim-diagram').attr('stroke-dashoffset', 0);
 
 		$('.cube').on('cubeChanged', function(cube, id, currentSlide) {
 			if (id == 'diagrams') {
-					
+
 				switch(currentSlide) {
 
 					case '0':
 					case '1':
-					case '2': 
-					console.log(currentSlide); 
+					case '2':
+
 					$('#diagrams-ahead-1').slideDown(321);
 					$('#diagrams-ahead-2').slideUp(321);
 					break;
@@ -40,7 +40,7 @@ $('.slick-cloned .anim-diagram').attr('stroke-dashoffset', 0);
 					case '4':
 					$('#diagrams-ahead-2').slideDown(321);
 					$('#diagrams-ahead-1').slideUp(321);
-					break; 
+					break;
 
 				}
 

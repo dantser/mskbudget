@@ -1,0 +1,146 @@
+@import '../../node_modules/vex-js/dist/css/vex.css';
+@import '../../node_modules/vex-js/dist/css/vex-theme-default.css';
+
+// body class when modal window is open
+// если не изменить параметр по-умолчанию: hidden
+// то страница будет скроллиться до самого верха
+// при каждом открытии модального окна
+body.vex-open,
+.vex-open {
+  overflow: visible;
+}
+
+.vex.vex-theme-default {
+  padding-top: 160px;
+  padding-bottom: 160px;
+  z-index: 3000;
+
+  .vex-overlay {
+    background: rgba(#24242d, .4);
+  }
+
+  .vex-content {
+    position: relative;
+    width: auto;
+    max-width: 580px;
+    min-width: 320px;
+    padding: 40px 50px;
+    font-family: $PFDinTextPro;
+    font-size: 16px;
+    line-height: 1.4;
+    font-weight: 400;
+    text-align: center;
+    color: black;
+    background: white;
+    border-radius: 0;
+
+    @media (max-width: 768px) {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    // помошники
+    .text-left { text-align: left; }
+    .text-right { text-align: right; }
+    .text-center { text-align: center; }
+  }
+
+  .vex-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 0;
+
+    @media (max-width: 768px) {
+      @include transform(translateX(8px) translateY(-50px));
+    }
+
+    @media (min-width: 769px) {
+      @include transform(translateX(50px) translateY(-8px));
+    }
+
+    &:before,
+    &:after {
+      position: absolute;
+      content: '';
+      top: 5px;
+      left: 20px;
+      height: 30px;
+      width: 3px;
+      background-color: #fee300;
+      border-radius: 0;
+      @include transited;
+    }
+
+    &:before { transform: rotate(45deg); }
+    &:after { transform: rotate(-45deg); }
+
+    &:hover {
+      &:before,
+      &:after {
+        background-color: #ccb600;
+      }
+    }
+  }
+
+  .vex-dialog-form {
+    .vex-dialog-message {
+      margin-bottom: 25px;
+    }
+
+    .vex-dialog-input {
+      margin-bottom: 0;
+    }
+  }
+
+  .vex-heading {
+    margin-bottom: 15px;
+    font-family: $PFDinCondensedPro;
+    font-size: 24px;
+    line-height: 1.3;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .vex-dialog-buttons {
+    text-align: center;
+  }
+
+  .vex-dialog-button {
+    float: none;
+    padding: 10px 25px;
+    font-family: $PFDinCondensedPro;
+    font-size: 20px;
+    line-height: 1;
+    font-weight: 500;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 3px;
+    color: black;
+    cursor: pointer;
+    box-shadow: 0 1px 1px #ccb600;
+    @include transited;
+
+    &:not(:last-child) {
+      margin-right: 18px;
+    }
+
+    &:active {
+      @include transform(translateY(1px));
+      box-shadow: none;
+    }
+
+    &.vex-dialog-button-primary,
+    &.vex-dialog-button-secondary {
+      background: #fee300;
+      color: black;
+
+      &:hover{
+        background-color: #E7CE00;
+      }
+    }
+  }
+}

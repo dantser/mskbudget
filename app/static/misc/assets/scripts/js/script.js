@@ -19,16 +19,16 @@ window.onload = function () {
                     //after init module
                 }
             });
-            
+
             var car_count = $("#count");
             var $dslide = $(".carousel-3d-slide");
-    
+
             car_count.html(($dslide.filter(".current").index() + 1) + " из " + $dslide.length);
-    
-            $("body").on("click mousemove", "#carousel", function (event) {
+
+            $("body").on("click", "#carousel", function (event) {
                 car_count.html(($dslide.filter(".current").index() + 1) + " из " + $dslide.length);
             });
-          
+
         } else {
             var $carousel_count = $(".carousel-count", $carousel),
                 $ar_left = $(".ar-left", $carousel),
