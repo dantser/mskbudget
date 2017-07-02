@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import Swiper from 'swiper';
 
 export default () => {
   const LINE = $(' .analityc-js-line__line');
@@ -13,4 +14,15 @@ export default () => {
       EL.addClass(ACTIVE_CLASS);
     })
   })
+
+  const graphicLineVertical = new Swiper('.analityc-graphics-line-vertical_slider', {
+
+    nextButton: '.analityc-graphics-line-vertical__next',
+    prevButton: '.analityc-graphics-line-vertical__prev',
+    slidesPerView: 'auto',
+    centeredSlides: true,
+    freeMode: true,
+    spaceBetween: 30
+
+  });
 }

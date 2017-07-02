@@ -323,6 +323,54 @@ mixin analityc-graphics-line-vertical(data, isWide)
           +e.STRONG.caption-year= item.year
           +e.SPAN.caption-text= item.text
 
+mixin analityc-graphics-line-vertical_slider(data, isWide)
+  +b.analityc-graphics-line-vertical._slider.swiper-container&attributes(attributes)
+
+    +e.wrapper.swiper-wrapper
+      each item in data
+        +e.graphic.swiper-slide
+          +e.lines
+
+            if isWide
+              +e.line._pink
+                +e.line-bar-value= item.values[0]
+                +e.line-fill
+              +e.line._greenyellow
+                +e.line-bar-value= item.values[1]
+                +e.line-fill
+              +e.line._violet
+                +e.line-bar-value= item.values[2]
+                +e.line-fill
+              +e.line._gray
+                +e.line-bar-value= item.values[3]
+                +e.line-fill
+              +e.line._blue
+                +e.line-bar-value= item.values[4]
+                +e.line-fill
+              +e.line._green
+                +e.line-bar-value= item.values[5]
+                +e.line-fill
+              +e.line._red
+                +e.line-bar-value= item.values[6]
+                +e.line-fill
+            else
+              +e.line._altblue
+                +e.line-bar-value= item.values[0]
+                +e.line-fill
+              +e.line._pink
+                +e.line-bar-value= item.values[1]
+                +e.line-fill
+              +e.line._green._neg
+                +e.line-bar-value= item.values[2]
+                +e.line-fill
+
+          +e.caption
+            +e.STRONG.caption-year= item.year
+            +e.SPAN.caption-text= item.text
+
+    +icon('angle-arrow').next.swiper-button-next
+    +icon('angle-arrow').prev.swiper-button-prev
+
 mixin analityc-graphics-line-vertical-alt(data)
   +b.analityc-graphics-line-vertical._alt&attributes(attributes)
 
