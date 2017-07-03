@@ -11,10 +11,10 @@ export default () => {
           1140: {
             slidesPerView: 3,
           },
-          640: {
+          768: {
             slidesPerView: 2,
           },
-          500: {
+          640: {
             slidesPerView: 1,
           }
     }});
@@ -44,10 +44,10 @@ export default () => {
           1140: {
             slidesPerView: 3,
           },
-          640: {
+          940: {
             slidesPerView: 2,
           },
-          500: {
+          640: {
             slidesPerView: 1,
           }
     }});
