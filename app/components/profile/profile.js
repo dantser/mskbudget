@@ -15,7 +15,8 @@ export default () => {
       e.stopPropagation();
       $(this).siblings().removeClass('active');
       $(this).addClass('active');
-      var value = $(this).text();
+      $(this).find('input').prop('checked', true);
+      var value = $(this).find('span').text();
       $(this).parent().prev().text(value);
       $(this).parent().fadeOut(250);
     });
@@ -25,11 +26,17 @@ export default () => {
       var activevalues = $(this).siblings('.active').length;
       if (activevalues > 0) {
         $(this).toggleClass('active');
+        var check = $(this).find('input').prop('checked');
+        if (check) {
+          $(this).find('input').prop('checked', false);
+        } else {
+          $(this).find('input').prop('checked', true);
+        }
       }
       var values = [];
       var value;
       $(this).parent().find('li.active').each(function(){
-        value = $(this).text();
+        value = $(this).find('span').text();
         values.push(value);
         for (var i = 1; i < values.length; i++) {
           values[i] = ' ' + values[i];
