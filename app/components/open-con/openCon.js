@@ -12,4 +12,11 @@ export default () => {
       EL.toggleClass(ACTIVE_CLASS);
     })
   })
+
+  $('.button-light').on('click', function(){
+    $('.analityc-control-switcher_con a').removeClass('active');
+    $('.analityc-control-switcher_con a:first-child').addClass('active');
+    $('.tabs__tab').hide();
+    $('.tabs__tab:first-child').show();
+  })
 }
