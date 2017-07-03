@@ -224,9 +224,75 @@
     float: left;
     min-width: 251px;
     margin-bottom: 19px;
-
-    &:not(:last-child) {
-      margin-right: 20px;
+    width: 43%;
+    padding-right: 20px;
+    
+    @media screen and (max-width: 1000px) {
+      width: 100%;
+    }
+  }
+  
+  &__options-link {
+    position: relative;
+    .link {
+      display: inline;
+      line-height: 20px;
+    }
+  }
+  
+  &__dropdown {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 230px;
+    background-color: $color-yellow;
+    list-style: none;
+    color: #000;
+    margin-top: 5px;
+    border-radius: 2px;
+    box-shadow: 0 0 12px 0 #000;
+    display: none;
+    z-index: 2;
+    li {
+      cursor: pointer;
+      padding: 10px;
+      transition: all .25s ease-in-out;
+      position: relative;
+      &:hover {
+        background-color: #dac300;
+      }
+    }
+    input[type="checkbox"]:not(old),
+    input[type="radio"]:not(old) {
+      width: 0;
+      margin: 0;
+      padding: 0;
+      opacity: 0;
+      height: 0;
+      display: inline-block;
+      vertical-align: middle;
+      position:absolute;
+      top:0;
+      left:0;
+      margin:auto;
+    }
+    &_multiple {
+      li {
+        padding-right: 30px;
+        &.active {
+          &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 10px;
+            margin: auto;
+            width: 10px;
+            height: 10px;
+            background-image: url(../images/check-mark.svg);
+          }
+        }
+      }
     }
   }
 

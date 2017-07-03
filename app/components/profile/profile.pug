@@ -38,11 +38,28 @@ mixin profile()
             +e.options-link
               +link()._dashed._light-yellow
                 | Раз в неделю
+              +e.UL.dropdown._single
+                li 
+                  span Раз в месяц
+                  input(type='radio', name="schedule", value='monthly')
+                li.active
+                  span Раз в неделю
+                  input(type='radio', name="schedule", value='weekly', checked)
           +e.option._rubric
             +e.SPAN.options-label Выберите рубрики
             +e.options-link
               +link()._dashed._light-yellow
                 | Новости Бюджета, Новости Москвы
+              +e.UL.dropdown._multiple
+                li.active
+                  span Новости Бюджета
+                  input(type='checkbox', name="rubric", value='budget', checked)
+                li.active
+                  span Новости Москвы
+                  input(type='checkbox', name="rubric", value='moscow', checked)
+                li
+                  span Федеральные новости
+                  input(type='checkbox', name="rubric", value='federal')
 
         +e.save
           +button(true)._kind_yellow
