@@ -348,8 +348,14 @@
                                             <div class="profile__options-link">
                                                 <a class="link link_dashed link_light-yellow" href="#">Раз в неделю</a>
                                                 <ul class="profile__dropdown profile__dropdown_single">
-                                                    <li>Раз в месяц</li>
-                                                    <li class="active">Раз в неделю</li>
+                                                    <li>
+                                                        <span>Раз в месяц</span>
+                                                        <input type="radio" name="schedule" value="monthly" />
+                                                    </li>
+                                                    <li class="active">
+                                                        <span>Раз в неделю</span>
+                                                        <input type="radio" name="schedule" value="weekly" checked="checked" />
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -358,9 +364,18 @@
                                             <div class="profile__options-link">
                                                 <a class="link link_dashed link_light-yellow" href="#">Новости Бюджета, Новости Москвы</a>
                                                 <ul class="profile__dropdown profile__dropdown_multiple">
-                                                    <li class="active">Новости Бюджета</li>
-                                                    <li class="active">Новости Москвы</li>
-                                                    <li>Федеральные новости</li>
+                                                    <li class="active">
+                                                        <span>Новости Бюджета</span>
+                                                        <input type="checkbox" name="rubric" value="budget" checked="checked" />
+                                                    </li>
+                                                    <li class="active">
+                                                        <span>Новости Москвы</span>
+                                                        <input type="checkbox" name="rubric" value="moscow" checked="checked" />
+                                                    </li>
+                                                    <li>
+                                                        <span>Федеральные новости</span>
+                                                        <input type="checkbox" name="rubric" value="federal" />
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </div>
