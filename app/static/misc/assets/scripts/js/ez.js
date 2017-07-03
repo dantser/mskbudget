@@ -146,18 +146,6 @@ budget.extend("common", {
 			$.datepicker.setDefaults($.datepicker.regional['ru']);
 		}
 
-        $('.dropdown-trigger').on('click', function() {
-
-            if ($(this).parents('.dropdown').hasClass('_open')) {
-                $(this).parents('.dropdown').removeClass('_open');
-
-                $(this).next('.dropdown-content').slideUp();
-
-            } else {
-                $(this).parents('.dropdown').addClass('_open');
-                $(this).next('.dropdown-content').slideDown();
-            }
-        })
 
         $('.quiz-hint-trigger').on('click', function() {
             $(this).next('.quiz-hint').show();
