@@ -1,5 +1,5 @@
 $hamburger-padding-x                       : 18px !default;
-$hamburger-padding-y                       : 17px !default;
+$hamburger-padding-y                       : 21px !default;
 $hamburger-layer-width                     : 30px !default;
 $hamburger-layer-height                    : 3px !default;
 $hamburger-layer-spacing                   : 7px !default;
@@ -57,11 +57,7 @@ $hamburger-hover-filter    : opacity(50%) !default;
   height: 135px;
   background: rgba(black, .3);
   border-bottom: 1px solid rgba(white, 0.1);
-  -webkit-transition: 0.5s;
-  -moz-transition: 0.5s;
-  -ms-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition: 0.5s;
+  @include transited('all linear 500ms');
 
   &__wrap {
     position: relative;
@@ -136,6 +132,12 @@ $hamburger-hover-filter    : opacity(50%) !default;
       &:last-child {
         margin-right: 0;
       }
+    }
+
+    .menu__a {
+      font-family: $PFDinCondensedPro;
+      font-weight: 400;
+      font-style: normal;
     }
   }
 
@@ -217,17 +219,22 @@ $hamburger-hover-filter    : opacity(50%) !default;
   }
 
   &_short {
-    height: 75px;
-    border-bottom: 1px solid #ffffff !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-    background: url(../images/background/menu.jpg) no-repeat 50% 0 !important;
-    background-size: 100% 100% !important;
+    // height: 75px;
+    // border-bottom: 1px solid #ffffff !important;
+    // border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
 
-    .header__logo {
-      @media (max-width: 1180px) and (min-width: 801px) {
-        width: 28px;
-      }
+
+    &:not(.header_opened) {
+      // background: url(../images/background/menu.jpg) no-repeat 50% 0 !important;
+      // background-size: 100% 100% !important;
+      background: rgba(black, .6);
     }
+
+    // .header__logo {
+    //   @media (max-width: 1180px) and (min-width: 801px) {
+    //     width: 28px;
+    //   }
+    // }
 
     .header__link-for-blind {
       top: -50px;
@@ -262,10 +269,6 @@ $hamburger-hover-filter    : opacity(50%) !default;
       margin-right: 30px;
     }
 
-    .menu__a {
-      font-size: 16px;
-    }
-
     .search-form__btn {
       margin-bottom: 0;
     }
@@ -290,12 +293,7 @@ $hamburger-hover-filter    : opacity(50%) !default;
   }
 
   &_opened {
-    background: rgba(black, .3) !important;
-    border: none !important;
-
-    .header__open-menu {
-      border-left: 1px solid rgba(255, 255, 255, .2) !important;
-    }
+    background: rgba(black, .3);
   }
 
   &_mob {
@@ -365,21 +363,6 @@ $hamburger-hover-filter    : opacity(50%) !default;
         display: inline-block;
         float: none;
         margin: 0;
-      }
-    }
-
-    &__menu {
-      top: 64px;
-      width: 100%;
-
-      .menu__item {
-        float: none;
-        margin: 0 0 15px;
-        text-align: center;
-      }
-
-      .menu__a {
-        font-size: 20px;
       }
     }
 
@@ -509,7 +492,9 @@ $hamburger-hover-filter    : opacity(50%) !default;
   }
 
   .menu__a {
-    font-size: 16px;
+    display: inline-block;
+    font-size: 18px;
+    line-height: 36px;
   }
 
   .menu__item {
@@ -561,16 +546,8 @@ $hamburger-hover-filter    : opacity(50%) !default;
     margin-right: 13px;
   }
 
-  .header_short .menu__a {
-    font-size: 15px;
-  }
-
   .header_short .menu_logged .menu__item {
     margin-right: 10px;
-  }
-
-  .header_short .menu_logged .menu__a {
-    font-size: 14px;
   }
 
   .header__logged {
@@ -594,12 +571,6 @@ $hamburger-hover-filter    : opacity(50%) !default;
 
   .header__logo {
     top: 12px !important;
-  }
-
-  .header__logo .logo__img {
-    width: 38px;
-    height: 46px;
-    margin-right: 17px;
   }
 
   .header__logo .logo__lg {
@@ -678,7 +649,7 @@ $hamburger-hover-filter    : opacity(50%) !default;
   }
 
   .header__menu {
-    margin: 74px 0 0 !important;
+    margin: 72px 0 0 !important;
     top: 0 !important;
     width: 100%;
     padding: 0 !important;
@@ -686,14 +657,10 @@ $hamburger-hover-filter    : opacity(50%) !default;
 
   .header__menu .menu__item {
     float: none;
-    margin: 0 0 15px;
+    margin: 0;
     text-align: center;
     height: auto;
     display: block;
-  }
-
-  .header__menu .menu__a {
-    font-size: 24px;
   }
 
   .header__link-for-blind {
