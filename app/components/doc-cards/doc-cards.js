@@ -5,6 +5,7 @@ export default () => {
   const DIR = $('.doc-cards__card_dir');
   const TOP_BUTTON = $('.js-button-top');
   const NAV = $('.doc-cards__nav');
+  const FAVOR = $('.doc-cards__is-added');
 
   DIR.each( function () { // eslint-disable-line
     const EL = $(this);
@@ -21,5 +22,13 @@ export default () => {
     e.preventDefault();
     NAV.hide();
     DIR.show();
+  })
+
+  FAVOR.each( function() {
+    const EL = $(this);
+    EL.on('click', (e)=> {
+      e.preventDefault();
+      EL.find('.favor').toggleClass('favor_added favor_stroke-color-blue');
+    })
   })
 }
