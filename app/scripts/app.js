@@ -33,6 +33,7 @@ import budget_moscow_gov_program from '../components/budget_moscow_gov_program/b
 import analitycGraphics from '../components/analityc-graphics/analityc-graphics'
 import docCards from '../components/doc-cards/doc-cards';
 import dropdown from '../blocks/dropdown-block/dropdown';
+import reset from '../components/reset/reset';
 
 $(() => {
 
@@ -80,4 +81,5 @@ $(() => {
   analitycGraphics();
   docCards();
   dropdown();
+  reset();
 });
