@@ -2,17 +2,29 @@ import $ from 'jquery';
 import Swiper from 'swiper';
 
 export default () => {
-  const galleryTop = new Swiper('.depfin-budget-moscow-media-materials__slider.gallery-top', {
-    nextButton: '.depfin-budget-moscow-media-materials__slider-next',
-    prevButton: '.depfin-budget-moscow-media-materials__slider-prev',
+  var page = '.depfin-budget-moscow-media-materials';
+
+  const photo = new Swiper(page+ '__materials_photo ' +page+ '__container', {
+    pagination: page+ '__paginate-bullets',
+    paginationClickable: true
+  });
+  const present = new Swiper(page+ '__materials_present '+page+ '__container', {
+    nextButton: page+ '__next',
+    prevButton: page+ '__prev',
+  });
+
+
+  const sliderGallery = new Swiper(page+ '_slider ' +page+ '__slider-gallery', {
+    nextButton: page+ '__slider-next',
+    prevButton: page+ '__slider-prev',
     spaceBetween: 20,
   });
-  const galleryThumbs = new Swiper('.depfin-budget-moscow-media-materials__slider.gallery-thumbs', {
+  const sliderPagination = new Swiper(page+ '_slider ' +page+ '__slider-pagination', {
     spaceBetween: 35,
     slidesPerView: '4',
     touchRatio: 0.2,
     slideToClickedSlide: true,
   });
-  galleryTop.params.control = galleryThumbs;
-  galleryThumbs.params.control = galleryTop;
+  sliderGallery.params.control = sliderPagination;
+  sliderPagination.params.control = sliderGallery;
 }
