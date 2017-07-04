@@ -1749,17 +1749,37 @@
 
   &__right-block {
     left: 50%;
-    top: 0;
+    top: -100%;
     min-width: 200px;
     position: absolute;
     vertical-align: middle;
+    padding: 25px 25px 40px 20px;
+    border: 1px solid #d3d3d3;
+    // transition: all .25s ease-in-out;
+
+    .analityc-js-line__line {
+      margin-bottom: 25px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .analityc-js-line__title {
+      font-size: 12px !important;
+      margin-right: 25px;
+    }
+
+    .analityc-js-line__line-bar {
+      vertical-align: top;
+    }
   }
 
   &__left-block {
     width: 50%;
     position: relative;
     padding: 16px 17px;
-    transition: border .25s ease-in-out;
+    // transition: border .25s ease-in-out;
     border: 1px solid transparent;
     border-right: none;
     cursor: pointer;
@@ -1767,6 +1787,20 @@
  // линия
   &__line {
     position: relative;
+
+    &:nth-child(2) {
+      .analityc-js-line__right-block {
+        top: 0;
+      }
+    }
+
+    &:last-child {
+      .analityc-js-line__right-block {
+        bottom: 0;
+        top: inherit;
+
+      }
+    }
 
 
     // &::after {
@@ -1781,10 +1815,12 @@
         border: 1px solid #d3d3d3;
         border-right: none;
         position: relative;
+        display: block;
       }
 
-
-
+      .analityc-js-line__title {
+        color: $color-black;
+      }
 
       // &::after {
       //   @include pseudo;
@@ -1799,6 +1835,9 @@
       .analityc-js-line__title {
         font-size: 16px;
         color: $color-black;
+      }
+      .analityc-js-line__line-total {
+        height: 44px;
       }
     }
 
