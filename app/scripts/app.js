@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import 'babel-polyfill';
 import selectbox from '../blocks/selectbox/selectbox';
 import tabs from '../blocks/tabs/tabs';
 import question from '../blocks/question/question';
