@@ -5,7 +5,7 @@ mixin depfin-budget-moscow-media-materials()
 
 	mixin photo(images, text, date)
 		+e.item&attributes(attributes)
-			+e.A(link).link
+			+e.A(href='#').link
 				+e.container
 					+e.DIV.slider-wrapper
 						each img in images
@@ -17,7 +17,7 @@ mixin depfin-budget-moscow-media-materials()
 
 	mixin photo-slider(images, text, date)
 		+e.item&attributes(attributes)
-			+e.A(link).link
+			+e.A(href='#').link
 				+e.container.swiper-container
 					+e.DIV.slider-wrapper.swiper-wrapper
 						each img in images
@@ -32,7 +32,7 @@ mixin depfin-budget-moscow-media-materials()
 
 	mixin video(image, text, date)
 		+e.item&attributes(attributes)
-			+e.A(link).link
+			+e.A(href='#').link
 				+e.container
 					+e.IMG(src= 'assets/images/depfin-budget-moscow-media-materials/' + image + '.jpg').img
 							
@@ -45,7 +45,7 @@ mixin depfin-budget-moscow-media-materials()
 
 	mixin present(images, text, date)
 		+e.item&attributes(attributes)
-			+e.A(link).link
+			+e.A(href='#').link
 				+e.container.swiper-container
 					+e.DIV.slider-wrapper.swiper-wrapper
 						each img in images

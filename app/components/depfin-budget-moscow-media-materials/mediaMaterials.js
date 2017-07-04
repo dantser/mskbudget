@@ -27,4 +27,13 @@ export default () => {
   });
   sliderGallery.params.control = sliderPagination;
   sliderPagination.params.control = sliderGallery;
+
+  // var video = $(page + '__item');
+  // var popup = $('.popup-video');
+  // video.on('click', function(e) {
+  //   e.preventDefault();
+  //   popup.fadeIn(321);
+  // });
+
+
 }

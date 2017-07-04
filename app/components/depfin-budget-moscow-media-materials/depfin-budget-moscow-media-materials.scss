@@ -45,6 +45,7 @@
 		  		@include ghost;
 		  		background-color: rgba(0, 0, 0, .6);
 		  		z-index: 1;
+  		    transition: all 0.25s ease-in-out;
 		  	}
   		}
 
@@ -161,6 +162,21 @@
   	width: 247px;
   	height: 247px;
   	margin-bottom: 36px;
+
+		&:hover .depfin-budget-moscow-media-materials__label {
+			color: $color-white;
+		}
+
+		&:hover .depfin-budget-moscow-media-materials__link:before,
+		&:hover .depfin-budget-moscow-media-materials__container:before {
+			background-color: rgba(0,0,0,0);
+		}	
+
+		&:hover .depfin-budget-moscow-media-materials__play svg {
+			width: 20px;
+	    height: 31px;
+		}
+	
   }
 
 	&__link {
@@ -236,6 +252,7 @@
 		border-radius: 50%;
 		background-color: rgba(255, 255, 255, .15);
 		z-index: 1;
+		
 
 		& svg {
 			@include center-block;
@@ -243,6 +260,7 @@
 			height: 25px;
 			stroke: #fff;
     	fill: transparent;
+    	transition: all .25s ease-in-out;
 		}
 	}
 
@@ -296,6 +314,7 @@
 		color: rgba(255, 255, 255, .5);
 		background-color: rgba(23, 24, 50, .8);;
 		z-index: 1;
+		transition: all .25s ease-in-out;
 	}
 
 	&__text {
