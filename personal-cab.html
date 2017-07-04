@@ -321,6 +321,9 @@
                                         <div class="profile__photo-img">
                                             <img src="assets/images/profile/person.jpg" />
                                         </div>
+                                        <div class="profile__favor-count">
+                                            <span>5</span>
+                                        </div>
                                     </div>
                                     <div class="profile__personal">
                                         <div class="profile__fio">
@@ -390,7 +393,7 @@
                                 <div class="favor-list__wrapper">
                                     <h3 class="favor-list__title">Избранное</h3>
                                     <ul class="favor-list__list">
-                                        <li class="favor-list__item">
+                                        <li class="favor-list__item" data-link="1">
                                             <a class="favor-list__link" href="#">
                                                 <span class="favor-list__label">Избранное</span>
                                                 <span class="favor-list__favor">
@@ -399,11 +402,11 @@
                                                     </span>
                                                 </span>
                                             </a>
-                                            <a class="favor-list__remove" href="#">
+                                            <a class="favor-list__remove open-popup" href="#delaccept">
                                                 <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_delete"></use></svg>
                                             </a>
                                         </li>
-                                        <li class="favor-list__item">
+                                        <li class="favor-list__item" data-link="2">
                                             <a class="favor-list__link" href="#">
                                                 <span class="favor-list__label">Бюджетный калькулятор</span>
                                                 <span class="favor-list__favor">
@@ -412,11 +415,11 @@
                                                     </span>
                                                 </span>
                                             </a>
-                                            <a class="favor-list__remove" href="#">
+                                            <a class="favor-list__remove open-popup" href="#delaccept">
                                                 <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_delete"></use></svg>
                                             </a>
                                         </li>
-                                        <li class="favor-list__item">
+                                        <li class="favor-list__item" data-link="3">
                                             <a class="favor-list__link" href="#">
                                                 <span class="favor-list__label">Обучающий сервис</span>
                                                 <span class="favor-list__favor">
@@ -425,11 +428,11 @@
                                                     </span>
                                                 </span>
                                             </a>
-                                            <a class="favor-list__remove" href="#">
+                                            <a class="favor-list__remove open-popup" href="#delaccept">
                                                 <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_delete"></use></svg>
                                             </a>
                                         </li>
-                                        <li class="favor-list__item">
+                                        <li class="favor-list__item" data-link="4">
                                             <a class="favor-list__link" href="#">
                                                 <span class="favor-list__label">Открытые данные</span>
                                                 <span class="favor-list__favor">
@@ -438,11 +441,11 @@
                                                     </span>
                                                 </span>
                                             </a>
-                                            <a class="favor-list__remove" href="#">
+                                            <a class="favor-list__remove open-popup" href="#delaccept">
                                                 <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_delete"></use></svg>
                                             </a>
                                         </li>
-                                        <li class="favor-list__item">
+                                        <li class="favor-list__item" data-link="5">
                                             <a class="favor-list__link" href="#">
                                                 <span class="favor-list__label">Путеводитель по бюджету города Москвы</span>
                                                 <span class="favor-list__favor">
@@ -451,11 +454,11 @@
                                                     </span>
                                                 </span>
                                             </a>
-                                            <a class="favor-list__remove" href="#">
+                                            <a class="favor-list__remove open-popup" href="#delaccept">
                                                 <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_delete"></use></svg>
                                             </a>
                                         </li>
-                                        <li class="favor-list__item">
+                                        <li class="favor-list__item" data-link="6">
                                             <a class="favor-list__link" href="#">
                                                 <span class="favor-list__label">Рейтинг открытости бюджетных данных</span>
                                                 <span class="favor-list__favor">
@@ -464,11 +467,11 @@
                                                     </span>
                                                 </span>
                                             </a>
-                                            <a class="favor-list__remove" href="#">
+                                            <a class="favor-list__remove open-popup" href="#delaccept">
                                                 <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_delete"></use></svg>
                                             </a>
                                         </li>
-                                        <li class="favor-list__item">
+                                        <li class="favor-list__item" data-link="7">
                                             <a class="favor-list__link" href="#">
                                                 <span class="favor-list__label">Доходы</span>
                                                 <span class="favor-list__favor">
@@ -477,18 +480,13 @@
                                                     </span>
                                                 </span>
                                             </a>
-                                            <a class="favor-list__remove" href="#">
+                                            <a class="favor-list__remove open-popup" href="#delaccept">
                                                 <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_delete"></use></svg>
                                             </a>
                                         </li>
                                     </ul>
                                     <p class="favor-list__note">Для того, чтобы добавить страницу или документ в избранное, нажмите на звездочку.</p>
                                 </div>
-                            </div>
-                            <div class="profile__delete-accept">
-                                <p>Вы уверены, что хотите удалить эту страницу из Избранного?</p>
-                                <button class="button button_kind_yellow" data-delete="yes">Да</button>
-                                <button class="button button_kind_transparent" data-delete="cancel">Отменить</button>
                             </div>
                         </div>
                     </div>
@@ -506,35 +504,39 @@
                                         <a class="profile__photo-edit" href="#">Изменить фото</a>
                                     </div>
                                     <div class="profile__personal">
-                                        <span class="profile__email">k.konstantinopolsky@gmail.com</span>
+                                        <!--+e.SPAN.email k.konstantinopolsky@gmail.com-->
                                         <form class="profile__profile-form">
                                             <div class="profile__field profile__field_fio disabled">
                                                 <label class="text-field text-field_col">
-                                                    <span class="text-field__label">ФИО</span>
-                                                    <input class="text-field__text" type="text" />
+                                                    <span class="text-field__label">ФИО
+                                                        <span class="text-field__change-field">Изменить</span>
+                                                    </span>
+                                                    <input class="text-field__text" type="text" value="Константин Константинопольский Константинович" />
                                                 </label>
                                             </div>
                                             <div class="profile__field profile__field_email disabled">
                                                 <label class="text-field text-field_col">
-                                                    <span class="text-field__label">E-mail</span>
-                                                    <input class="text-field__text" type="text" />
+                                                    <span class="text-field__label">E-mail
+                                                        <span class="text-field__change-field">Изменить</span>
+                                                    </span>
+                                                    <input class="text-field__text" type="email" value="k.konstantinopolsky@gmail.com" />
                                                 </label>
                                             </div>
                                             <span class="profile__note">Для смены пароля введите старый пароль и дважды новый</span>
-                                            <div class="profile__field profile__field_pass profile__field_old disabled">
+                                            <div class="profile__field profile__field_pass profile__field_old">
                                                 <label class="text-field text-field_col">
                                                     <span class="text-field__label">Старый пароль</span>
                                                     <input class="text-field__text" type="password" />
                                                 </label>
                                             </div>
                                             <div class="profile__field-wrapper">
-                                                <div class="profile__field profile__field_pass profile__field_new disabled">
+                                                <div class="profile__field profile__field_pass profile__field_new">
                                                     <label class="text-field text-field_col">
                                                         <span class="text-field__label">Новый пароль</span>
                                                         <input class="text-field__text" type="password" />
                                                     </label>
                                                 </div>
-                                                <div class="profile__field profile__field_pass profile__field_repeat disabled">
+                                                <div class="profile__field profile__field_pass profile__field_repeat">
                                                     <label class="text-field text-field_col">
                                                         <span class="text-field__label">Повторите новый пароль</span>
                                                         <input class="text-field__text" type="password" />
@@ -542,9 +544,6 @@
                                                 </div>
                                             </div>
                                             <div class="profile__confirm">
-                                                <div class="profile__change">
-                                                    <button class="button button_kind_yellow" type="submit">Изменить</button>
-                                                </div>
                                                 <div class="profile__submit">
                                                     <button class="button button_kind_yellow" type="submit" data-tab-target="profile">Сохранить</button>
                                                 </div>
@@ -561,7 +560,7 @@
                                 <div class="favor-list__wrapper">
                                     <h3 class="favor-list__title">Избранное</h3>
                                     <ul class="favor-list__list">
-                                        <li class="favor-list__item">
+                                        <li class="favor-list__item" data-link="1">
                                             <a class="favor-list__link" href="#">
                                                 <span class="favor-list__label">Избранное</span>
                                                 <span class="favor-list__favor">
@@ -570,11 +569,11 @@
                                                     </span>
                                                 </span>
                                             </a>
-                                            <a class="favor-list__remove" href="#">
+                                            <a class="favor-list__remove open-popup" href="#delaccept">
                                                 <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_delete"></use></svg>
                                             </a>
                                         </li>
-                                        <li class="favor-list__item">
+                                        <li class="favor-list__item" data-link="2">
                                             <a class="favor-list__link" href="#">
                                                 <span class="favor-list__label">Бюджетный калькулятор</span>
                                                 <span class="favor-list__favor">
@@ -583,11 +582,11 @@
                                                     </span>
                                                 </span>
                                             </a>
-                                            <a class="favor-list__remove" href="#">
+                                            <a class="favor-list__remove open-popup" href="#delaccept">
                                                 <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_delete"></use></svg>
                                             </a>
                                         </li>
-                                        <li class="favor-list__item">
+                                        <li class="favor-list__item" data-link="3">
                                             <a class="favor-list__link" href="#">
                                                 <span class="favor-list__label">Обучающий сервис</span>
                                                 <span class="favor-list__favor">
@@ -596,11 +595,11 @@
                                                     </span>
                                                 </span>
                                             </a>
-                                            <a class="favor-list__remove" href="#">
+                                            <a class="favor-list__remove open-popup" href="#delaccept">
                                                 <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_delete"></use></svg>
                                             </a>
                                         </li>
-                                        <li class="favor-list__item">
+                                        <li class="favor-list__item" data-link="4">
                                             <a class="favor-list__link" href="#">
                                                 <span class="favor-list__label">Открытые данные</span>
                                                 <span class="favor-list__favor">
@@ -609,11 +608,11 @@
                                                     </span>
                                                 </span>
                                             </a>
-                                            <a class="favor-list__remove" href="#">
+                                            <a class="favor-list__remove open-popup" href="#delaccept">
                                                 <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_delete"></use></svg>
                                             </a>
                                         </li>
-                                        <li class="favor-list__item">
+                                        <li class="favor-list__item" data-link="5">
                                             <a class="favor-list__link" href="#">
                                                 <span class="favor-list__label">Путеводитель по бюджету города Москвы</span>
                                                 <span class="favor-list__favor">
@@ -622,11 +621,11 @@
                                                     </span>
                                                 </span>
                                             </a>
-                                            <a class="favor-list__remove" href="#">
+                                            <a class="favor-list__remove open-popup" href="#delaccept">
                                                 <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_delete"></use></svg>
                                             </a>
                                         </li>
-                                        <li class="favor-list__item">
+                                        <li class="favor-list__item" data-link="6">
                                             <a class="favor-list__link" href="#">
                                                 <span class="favor-list__label">Рейтинг открытости бюджетных данных</span>
                                                 <span class="favor-list__favor">
@@ -635,11 +634,11 @@
                                                     </span>
                                                 </span>
                                             </a>
-                                            <a class="favor-list__remove" href="#">
+                                            <a class="favor-list__remove open-popup" href="#delaccept">
                                                 <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_delete"></use></svg>
                                             </a>
                                         </li>
-                                        <li class="favor-list__item">
+                                        <li class="favor-list__item" data-link="7">
                                             <a class="favor-list__link" href="#">
                                                 <span class="favor-list__label">Доходы</span>
                                                 <span class="favor-list__favor">
@@ -648,18 +647,13 @@
                                                     </span>
                                                 </span>
                                             </a>
-                                            <a class="favor-list__remove" href="#">
+                                            <a class="favor-list__remove open-popup" href="#delaccept">
                                                 <svg class="favor-list__remove-icon"><use xlink:href="assets/images/icon.svg#icon_delete"></use></svg>
                                             </a>
                                         </li>
                                     </ul>
                                     <p class="favor-list__note">Для того, чтобы добавить страницу или документ в избранное, нажмите на звездочку.</p>
                                 </div>
-                            </div>
-                            <div class="profile__delete-accept">
-                                <p>Вы уверены, что хотите удалить эту страницу из Избранного?</p>
-                                <button class="button button_kind_yellow" data-delete="yes">Да</button>
-                                <button class="button button_kind_transparent" data-delete="cancel">Отменить</button>
                             </div>
                         </div>
                     </div>
@@ -1458,6 +1452,15 @@
         <div class="popup-video popup-window" id="video">
             <div class="popup-video__wrap"></div>
             <a class="close-popup" href="#"></a>
+        </div>
+        <div class="popup-delete-accept popup-window" id="delaccept">
+            <div class="close-popup"></div>
+            <p>Вы уверены, что хотите удалить
+                <br> эту страницу из Избранного?</p>
+            <div class="popup-btns">
+                <A class="ybtn" data-delete="yes">Да</A>
+                <A class="ybtn" data-delete="no">Отменить</A>
+            </div>
         </div>
         <div id="mask"></div>
     </div>
