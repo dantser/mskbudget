@@ -20,28 +20,25 @@ mixin profile-edit()
           +e.SPAN.email k.konstantinopolsky@gmail.com
 
           +e.FORM.profile-form
-            +e.field._fio.disabled
+            +e.field._fio
               +text-field()._col
                 | ФИО
-            +e.field._email.disabled
+            +e.field._email
               +text-field()._col
                 | E-mail
             +e.SPAN.note Для смены пароля введите старый пароль и дважды новый
-            +e.field._pass._old.disabled
+            +e.field._pass._old
               +text-field('password')._col
                 | Старый пароль
             +e.field-wrapper
-              +e.field._pass._new.disabled
+              +e.field._pass._new
                 +text-field('password')._col
                   | Новый пароль
-              +e.field._pass._repeat.disabled
+              +e.field._pass._repeat
                 +text-field('password')._col
                   | Повторите новый пароль
 
             +e.confirm
-              +e.change
-                +button(true)._kind_yellow
-                  | Изменить
               +e.submit
                 +button(true)._kind_yellow(data-tab-target="profile")
                   | Сохранить
@@ -51,9 +48,3 @@ mixin profile-edit()
 
     //+e.favorite
     +favor-list()
-    +e.delete-accept
-      p Вы уверены, что хотите удалить эту страницу из Избранного?
-      +button()._kind_yellow(data-delete="yes")
-        | Да
-      +button()._kind_transparent(data-delete="cancel")
-        | Отменить

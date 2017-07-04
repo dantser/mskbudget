@@ -19,6 +19,8 @@ mixin profile()
         +e.photo
           +e.photo-img
             img(src="assets/images/profile/person.jpg")
+          +e.favor-count
+            span 5
         +e.personal
           +e.fio
             +e.SPAN.fio-label Константин
@@ -67,9 +69,3 @@ mixin profile()
 
     //+e.favorite
     +favor-list().__favorite
-    +e.delete-accept
-      p Вы уверены, что хотите удалить эту страницу из Избранного?
-      +button()._kind_yellow(data-delete="yes")
-        | Да
-      +button()._kind_transparent(data-delete="cancel")
-        | Отменить
