@@ -392,21 +392,6 @@
         width: 48%;
         position: relative;
 
-        &.disabled {
-          &:after {
-            content: '';
-            display: block;
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 100%;
-          }
-          .text-field {
-            opacity: .5;
-          }
-        }
-
         @media (max-width: 1180px) {
           width: 100%;
           max-width: 190px;
@@ -469,7 +454,6 @@
         @include clearfix();
       }
 
-      &__change,
       &__submit,
       &__cancel {
         float: left;
@@ -498,10 +482,6 @@
             line-height: 18px;
           }
         }
-      }
-
-      &__submit {
-        display: none;
       }
 
       &__cancel {
