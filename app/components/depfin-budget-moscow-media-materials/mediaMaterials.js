@@ -13,15 +13,15 @@ export default () => {
     prevButton: page+ '__prev',
   });
 
-
-  const sliderGallery = new Swiper(page+ '_slider ' +page+ '__slider-gallery', {
+  console.log(page+ '_slider ' +page+ '__slider-gallery');
+  const sliderGallery = new Swiper(page+ '__materials_slider ' +page+ '__slider-gallery', {
     nextButton: page+ '__slider-next',
     prevButton: page+ '__slider-prev',
-    spaceBetween: 20,
   });
-  const sliderPagination = new Swiper(page+ '_slider ' +page+ '__slider-pagination', {
+  const sliderPagination = new Swiper(page+ '__materials_slider ' +page+ '__slider-pagination', {
     spaceBetween: 35,
     slidesPerView: '4',
+    // centeredSlides: true,
     touchRatio: 0.2,
     slideToClickedSlide: true,
   });
