@@ -29,6 +29,14 @@ export default () => {
       $(".popup-window, #popup-wrapper").fadeOut(321);
     });
     
+    $('.profile_edit .profile__field .text-field__change-field').on('click', function(){
+      $(this).parents('.profile__field').removeClass('disabled');
+    });
+    
+    $('.profile_edit .profile__cancel, .profile_edit .profile__submit').on('click', function(){
+      $('.profile_edit .profile__field_fio, .profile_edit .profile__field_email').addClass('disabled');
+    });
+    
   });
   
 }

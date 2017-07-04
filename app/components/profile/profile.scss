@@ -371,6 +371,7 @@
       color: $color-input;
       background-color: $color-white;
       font-size: 18px;
+      transition: all .25s ease-in-out;
     }
 
     .text-field_col .text-field__text {margin-top: 6px;}
@@ -391,6 +392,20 @@
       &__field {
         width: 48%;
         position: relative;
+        &.disabled {
+          &:after {
+            content: '';
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 100%;
+            width: 100%;
+          }
+          .text-field__text {
+            opacity: .5;
+          }
+        }
 
         @media (max-width: 1180px) {
           width: 100%;

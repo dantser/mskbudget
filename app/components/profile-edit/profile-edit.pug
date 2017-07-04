@@ -17,15 +17,17 @@ mixin profile-edit()
           +e.A(href='#').photo-edit Изменить фото
 
         +e.personal
-          +e.SPAN.email k.konstantinopolsky@gmail.com
+          //+e.SPAN.email k.konstantinopolsky@gmail.com
 
           +e.FORM.profile-form
-            +e.field._fio
-              +text-field()._col
+            +e.field._fio.disabled
+              +text-field('text', 'Константин Константинопольский Константинович')._col
                 | ФИО
-            +e.field._email
-              +text-field()._col
+                +e.SPAN.change-field Изменить
+            +e.field._email.disabled
+              +text-field('email', 'k.konstantinopolsky@gmail.com')._col
                 | E-mail
+                +e.SPAN.change-field Изменить
             +e.SPAN.note Для смены пароля введите старый пароль и дважды новый
             +e.field._pass._old
               +text-field('password')._col
