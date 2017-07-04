@@ -1711,19 +1711,23 @@
 
 .analityc-js-line {
   &__header {
-    margin-bottom: 40px;
+    margin-bottom: 34px;
   }
 
   &__heading {
     font-size: 30px;
     text-transform: uppercase;
     display: inline-block;
+    margin-left: 11px;
+    letter-spacing: -0.012em;
   }
 
   &__subheading {
     font-size: 18px;
     text-transform: uppercase;
     margin-top: 7px;
+    letter-spacing: -0.01em;
+    margin-left: 41px;
   }
 
   &__link {
@@ -1732,6 +1736,7 @@
     font-family: $PFDinTextPro;
     color: $color-link;
     display: inline-block;
+    margin-left: 23px;
   }
 
   &__icon {
@@ -1748,17 +1753,19 @@
   }
 
   &__right-block {
-    left: 50%;
+    left: 52.4%;
     top: -100%;
     min-width: 200px;
     position: absolute;
     vertical-align: middle;
-    padding: 25px 25px 40px 20px;
+    padding: 35px 25px 23px 31px;
     border: 1px solid #d3d3d3;
+    margin-right: -25px;
     // transition: all .25s ease-in-out;
 
     .analityc-js-line__line {
-      margin-bottom: 25px;
+      margin-bottom: 23px;
+      margin-left: 0;
 
       &:last-child {
         margin-bottom: 0;
@@ -1767,26 +1774,36 @@
 
     .analityc-js-line__title {
       font-size: 12px !important;
-      margin-right: 25px;
+      margin-right: 28px;
+      line-height: 1rem;
+      width: 31.9%;
     }
 
     .analityc-js-line__line-bar {
       vertical-align: top;
+      width: 54%;
     }
   }
 
   &__left-block {
-    width: 50%;
+    width: 51.5%;
     position: relative;
-    padding: 16px 17px;
+    padding: 16px;
+    padding-top: 8px;
     // transition: border .25s ease-in-out;
     border: 1px solid transparent;
     border-right: none;
     cursor: pointer;
+    margin-right: -25px;
+
+    .analityc-js-line__title {
+      letter-spacing: -0.02em;
+    }
   }
  // линия
   &__line {
     position: relative;
+    margin-left: -18px;
 
     &:nth-child(2) {
       .analityc-js-line__right-block {
@@ -1832,12 +1849,26 @@
     }
 
     &_big {
-      .analityc-js-line__title {
-        font-size: 16px;
-        color: $color-black;
-      }
-      .analityc-js-line__line-total {
-        height: 44px;
+      .analityc-js-line__left-block {
+        padding-top: 16px;
+        .analityc-js-line__title {
+          font-size: 16px;
+          color: $color-black;
+          letter-spacing: -0.001em;
+        }
+        .analityc-js-line__line-total {
+          height: 45px;
+        }
+        .analityc-js-line__line-fill {
+          height: 100%;
+        }
+        .analityc-js-line__line-values {
+          line-height: 45px;
+        }
+
+        .analityc-js-line__line-bar-value {
+          top: 21%;
+        }
       }
     }
 
@@ -1845,7 +1876,7 @@
       display: inline-block;
       vertical-align: middle;
       position: relative;
-      width: 55%;
+      width: 59.8%;
 
       &-value {
         position: absolute;
@@ -1869,7 +1900,7 @@
     &-fill {
       background-image: linear-gradient(to right, #021398 0%, #ff0036 100%);
       opacity: 1;
-      width: 82%;
+      width: 50%;
       height: 30px;
       position: absolute;
       left: 0;
@@ -1890,12 +1921,13 @@
 
   &__title {
     font-size: 14px;
-    width: 29%;
-    margin-right: 10px;
+    width: 32.1%;
+    margin-right: 4px;
     color: $color-link;
     font-family: $PFDinTextPro;
     display: inline-block;
     vertical-align: middle;
+    line-height: 18px;
 
     &_active {
       color: $color-black;
