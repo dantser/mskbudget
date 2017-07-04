@@ -6,6 +6,7 @@ export default () => {
     
     function checkFavorCount() {
       var favorCount = $('.profile__favorite .favor-list__item').length;
+      favorCount = favorCount / $('.profile__favorite .favor-list__list').length;
       $('.profile__favor-count span').text(favorCount);
     }
     
