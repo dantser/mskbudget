@@ -4,7 +4,7 @@ import Swiper from 'swiper';
 export default () => {
   const LINE = $(' .analityc-js-line__line');
   const ACTIVE_CLASS = 'analityc-js-line__line_active';
-  $('.analityc-js-line__line:eq(2)').addClass(ACTIVE_CLASS);
+  $('.analityc-js-line__line:nth-child(3)').addClass(ACTIVE_CLASS).find('.analityc-js-line__right-block').show();
 
   LINE.each( function () { // eslint-disable-line
     const EL = $(this);
@@ -12,6 +12,8 @@ export default () => {
       e.preventDefault();
       EL.siblings().removeClass(ACTIVE_CLASS);
       EL.addClass(ACTIVE_CLASS);
+      $('.analityc-js-line__right-block').hide();
+      EL.find('.analityc-js-line__right-block').fadeIn('fast');
     })
   })
 

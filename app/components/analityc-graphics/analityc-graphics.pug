@@ -243,7 +243,7 @@ mixin analityc-graphics-js-line(data)
                   = item.value2 
               +e.SPAN.line-bar-value= item.barvalue
           +e.right-block
-            each items in item
+            each items in item.items
               +e.line
                 +e.P.title= items.title
                 +e.line-bar
@@ -267,7 +267,7 @@ mixin analityc-graphics-js-line(data)
                   = item.value2 
               +e.SPAN.line-bar-value= item.barvalue
           +e.right-block
-            each items in item
+            each items in item.items
               +e.line
                 +e.P.title= items.title
                 +e.line-bar
@@ -278,7 +278,8 @@ mixin analityc-graphics-js-line(data)
                       span /
                       = items.value2 
                   +e.SPAN.line-bar-value= items.barvalue
-//- data - json файл с данными для графиков
+            
+            //- data - json файл с данными для графиков
 mixin analityc-graphics-line-vertical(data, isWide)
   +b.analityc-graphics-line-vertical&attributes(attributes)
 
