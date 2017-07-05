@@ -393,33 +393,35 @@ mixin table-gp(data)
 
     +e.row._opened
       +e.col._four 
+        +e.SPAN.figure Расходы, всего
         +icon('angle-arrow').arrow
-        | Расходы, всего
 
       +dataType(data, 'total')
 
     +e.row._opened
       +e.col._four._subcol 
+        +e.SPAN.figure Программные расходы, в том числе:
         +icon('angle-arrow').arrow
-        | Программные расходы, в том числе:
 
       +dataType(data, 'tax')
 
     +e.row._opened
       +e.col._four._subcol 
-        +icon('angle-arrow').arrow
         +e.icon
-        | ГП &laquo;Развитие транспортной системы&raquo;
+        +e.SPAN.figure ГП &laquo;Развитие транспортной системы&raquo;
+        +icon('angle-arrow').arrow
 
       +dataType(data, 'org')
 
     +e.row
-      +e.col._four._subcol  Общественный транспорт &laquo;Метрополитен&raquo;
+      +e.col._four._subcol  
+        +e.SPAN.figure Общественный транспорт &laquo;Метрополитен&raquo;
 
       +dataType(data, 'ndfl')
 
     +e.row
-      +e.col._four  Непрограммные направления деятельности
+      +e.col._four  
+        +e.SPAN.figure Непрограммные направления деятельности
 
       +dataType(data, 'other')
       

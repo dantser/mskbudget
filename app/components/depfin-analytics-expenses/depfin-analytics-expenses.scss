@@ -18,6 +18,14 @@
     margin-left: -40px;
 	}	
 
+	@media (max-width: 1010px) {
+		padding: 25px 37px 46px;
+	}	
+
+	@media (max-width: 450px) {
+		padding: 13px 20px 28px!important;
+	}
+
 	.analityc-widgethead {
 		min-height: 299px;
 
@@ -27,9 +35,11 @@
 	}
 
 	.analityc-control-frame-title {
+		display: inline-block;
 		text-transform: uppercase;
     font-size: 18px;
     color: #000;
+		margin-bottom: 5px;
 
 		@media (max-width: 1010px) {
 			font-size: 23px;
@@ -37,6 +47,7 @@
 
 		@media (max-width: 580px) {
 			font-size: 11px !important;
+			margin-bottom: 3px;
 		}
 	}
 
@@ -56,12 +67,24 @@
 			display: block;
 			position: relative;
 			padding-right: 27px;
-			margin-top: 2px;
+			margin-bottom: 8px;
 			margin-left: 0;
 			font-size: 0;
 
+			&:last-child {
+				margin-bottom: 0;
+			}
+
 			@media (max-width: 1140px) {
 				padding-right: 0;
+			}
+
+			@media (max-width: 1010px) {
+				margin-bottom: 10px;
+			}
+
+			@media (max-width: 580px) {
+				margin-bottom: 5px;
 			}
 
 			&:after {
@@ -69,10 +92,6 @@
 	      height: 0;
 	      content: '';
 	      display: inline-block;
-			}
-
-			@media (max-width: 1140px) {
-				margin-bottom: 0;
 			}
 
 			&:hover {
@@ -84,20 +103,33 @@
 
 		.analityc-select {
 			display: inline-block;
-			padding-top: 3px;
 			font-size: 14px;
 			margin-right: 10px;
+			margin-top: 0;
+
+			@media (max-width: 1010px) {
+				height: 40px;
+				background-position: right 14px top 17px!important;
+    		background-size: 12px!important;
+			}			
 
 			@media (max-width: 580px) {
-				height: 16px !important;
+				height: 19px !important;
 				padding-left: 6px;
+		    background-position: right 6px top 7px!important;
+		    background-size: 7px!important;
 			}
 
+			option {
 
-			@media (max-width: 550px) {
-				background-position-x: 30px !important;
-		    background-position-y: 9px !important;				
-		  }		
+				@media (max-width: 1010px) {
+					font-size: 17px;
+				}
+
+				@media (max-width: 580px) {
+					font-size: 9px;
+				}	
+			}
 
 			&:last-child {
 				margin-right: 0;
@@ -124,7 +156,7 @@
 				width: 263px;
 
 				@media (max-width: 1010px) {
-					width: 340px;
+					width: 326px;
 					font-size: 17px;
 				}			
 
@@ -132,10 +164,6 @@
 					width: 170px !important;
 					font-size: 9px !important;
 				}		
-
-				@media (max-width: 550px) {
-					background-position-x: 163px !important;		
-			  }		
 			}
 		}
 
@@ -174,7 +202,7 @@
 			@media (max-width: 580px) {
 				font-size: 13px !important;
 		    letter-spacing: normal !important;
-		    margin-top: 19px !important;
+		    margin-top: 12px !important;
 			}			
 		}			
 	}
@@ -195,9 +223,17 @@
 
 		& .analityc-control-group {
 
+			@media (max-width: 1010px) {
+				width: 100%!important;
+			}	
+
 			& > span {
+				display: inline-block;
+				margin-bottom: 5px;
+
 				@media (max-width: 580px) {
 					font-size: 12px;
+					margin-bottom: 3px;
 				}
 			}
 
@@ -211,13 +247,19 @@
 
 				@media (max-width: 1010px) {
 					display: block;
-					width: 356px;
-					margin-bottom: 20px !important;
-				}
+					margin-bottom: 23px !important;
+				}	
 
-				@media (max-width: 580px) {
-					width: 177px !important;
-				}			
+				.analityc-select {
+					@media (max-width: 1010px) {
+						width: 356px;
+					}		
+
+					@media (max-width: 580px) {
+						width: 177px !important;
+						margin-bottom: 10px !important;
+					}	
+				}
 			}
 
 			&_transfer {
@@ -226,33 +268,45 @@
 
 				@media (max-width: 1140px) {
 					width: 246px;
-					margin-left: 13px;
+					margin-left: 10px;
 					margin-bottom: 0;
 				}		
 
 				@media (max-width: 1010px) {
 					display: block;
-					width: 356px;
 				}	
 
-				@media (max-width: 580px) {
-					width: 177px !important;
-				}			
+				.analityc-select {
+					@media (max-width: 1010px) {
+						width: 356px;
+					}		
+
+					@media (max-width: 580px) {
+						width: 177px !important;
+					}	
+				}
 			}
 
 			&_classify {
 				display: block;
 				width: 390px;
-		    margin-top: 20px;
+		    margin-top: 18px;
 
 	      @media (max-width: 1010px) {
 	        width: 100%;
+	        margin-top: 25px;
+	        margin-bottom: 25px;
 	      }
 
 	      .analityc-select {
-					@media (max-width: 550px) {
-				    background-position-x: 268px !important;			
-					}
+
+					@media (max-width: 1010px) {
+						width: 356px;
+					}		
+
+					@media (max-width: 580px) {
+						width: 177px !important;
+					}	
 	      }
 			}
 
@@ -264,39 +318,48 @@
 	      @media (max-width: 640px) {
 	        width: 100% !important;
 	      }
-
-	      .analityc-select {
-					@media (max-width: 550px) {
-				    background-position-x: 268px !important;			
-					}
-	      }
 	    }
 		}
 
 		.analityc-select {
 			font-size: 14px;
+			margin-top: 0;
 
 			@media (max-width: 1010px) {
-				font-size: 17px;
-			}	
+		    height: 40px;
+		    font-size: 17px;
+				background-position: right 14px top 17px!important;
+				background-size: 12px!important;
+			}				
 
 			@media (max-width: 580px) {
-				height: 16px !important;
+				height: 19px !important;
 				font-size: 9px !important;
 				margin-right: 6px;
+		    background-position: right 6px top 7px!important;
+		    background-size: 7px!important;
 			}		
 
 			@media (max-width: 550px) {
-				height: 16px !important;
-		    background-position-x: 164px !important;
-		    background-position-y: 7px !important;				
+				height: 19px !important;			
+			}
+
+			option {
+
+				@media (max-width: 1010px) {
+					font-size: 17px;
+				}
+
+				@media (max-width: 580px) {
+					font-size: 9px;
+				}	
 			}
 		}
 
 		.analityc-control-switcher {
 			position: relative !important;
 			max-width: 100%;
-			margin-top: 14px;
+			margin-top: 12px;
 
 			& a {
 				font-size: 13px;
@@ -320,7 +383,7 @@
 					padding: 0 6px !important;
 					font-size: 7px;
 					width: auto !important;
-					line-height: 26px!important;
+					line-height: 20px!important;
 				}		
 
 				@media (max-width: 550px) {
@@ -330,9 +393,13 @@
 		}
 
 	  @media (max-width: 970px) {
+		  .d-smr__add-char {
+		  	height: 41px;
+		  }
+
 	    .d-smr__add-char-label {
-	      height: 29px;
-	      line-height: 30px;
+	      height: 39px;
+	      line-height: 44px;
 	      font-size: 17px;
 	      padding: 0 16px;
 
@@ -349,13 +416,13 @@
 
 	  @media (max-width: 580px) {
 			.d-smr__add-char {
-				height: 18px!important;
+				height: 21px!important;
 			}
 
 			.d-smr__add-char-label {
-				height: 16px!important;
+				height: 19px!important;
 				font-size: 9px!important;
-				line-height: 18px!important;
+				line-height: 21px!important;
 				padding: 0 11px !important;
 				
 				&:after {
