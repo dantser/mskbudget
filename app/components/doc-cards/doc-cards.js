@@ -31,4 +31,9 @@ export default () => {
       EL.find('.favor').toggleClass('favor_added favor_stroke-color-blue');
     })
   })
+  
+  $('.document__star').on('click', function(e){
+    e.preventDefault();
+    $(this).toggleClass('document__star_cur');
+  });
 }
