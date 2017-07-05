@@ -47,7 +47,7 @@
 
   &__articles {
   	text-align: justify;
-  	font-size: 0;
+  	font-size: 1px;
     list-style: none;
     margin-top: 25px;
 
@@ -97,9 +97,11 @@
   }
 
   &__map {
-  	height: 447px;
+  	text-align: center;
   	margin-top: 74px;
-  	background-color: #ebebeb;
+    img {
+      max-width: 100%;
+    }
   }
 
   &__foot {
@@ -120,6 +122,7 @@
 
   &__select-title {
 		display: inline-block;
+    vertical-align: middle;
 		font-size: 18px;
 		line-height: 1em;
 		font-weight: 500;
@@ -132,6 +135,7 @@
     position: relative;
 		width: 97px;
 		display: inline-block;
+      vertical-align: middle;
 	}
 
   &__select-element {
@@ -145,21 +149,27 @@
   	border: 1px solid #fee300;
   	border-radius: 2px;
     -webkit-appearance: none;
+    -moz-appearance: none;
     appearance: none;
     cursor: pointer;
     z-index: 1;
+    text-indent: 0.01px;
+    text-overflow: '';
 
     & option {
       color: $color-input;
     }
+    & option:checked {
+      color: $color-yellow;
+    }
   }
 
   &__select-icon {
-		@include fill-img;
-    min-width: auto;
-    min-height: auto;
+        position: absolute;
+        top: 0;
 		right: 15px;
-		left: auto;
+		bottom: 0;
+        margin: auto;
 		width: 11px;
 		height: 17px;
 		fill: $color-yellow;
@@ -171,6 +181,7 @@
 
     .documents-cards .tile__item {
       margin-right: 25px;
+      flex-shrink: 0;
     }
   }
 }
