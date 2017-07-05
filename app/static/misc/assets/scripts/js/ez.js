@@ -56,37 +56,38 @@ budget.extend("common", {
 		})
 
 		$('.edu-lesson-link').on('click', function() {
-			$('.edu-content').removeClass('_active');
+            window.location.href = $(this).attr('href');
+			//$('.edu-content').removeClass('_active');
 
-			var id = $(this).attr('id');
+			//var id = $(this).attr('id');
 
-			$('.edu-content[id="'+id+'"]').addClass('_active');
+			//$('.edu-content[id="'+id+'"]').addClass('_active');
 
-			$('.edu-lesson-link').removeClass('disable');
+			//$('.edu-lesson-link').removeClass('disable');
 
-			$(this).addClass('disable');
+			//$(this).addClass('disable');
 
-			$('.close-lessons-burger').trigger('click');
+			//$('.close-lessons-burger').trigger('click');
 		})
 
-		$('.d-sq__head_next').on('click', function() {
-			var $active = $('.edu-lesson-link.disable');
+		//$('.d-sq__head_next').on('click', function() {
+		//	var $active = $('.edu-lesson-link.disable');
 
-			if ($active.next('.edu-lesson-link').length) {
-				$active.next('.edu-lesson-link').trigger('click');
-			} else {
-				$('.edu-lesson-link:first').trigger('click');
-			}
-		})
-		$('.d-sq__head_prev').on('click', function() {
-			var $active = $('.edu-lesson-link.disable');
+		//	if ($active.next('.edu-lesson-link').length) {
+		//		$active.next('.edu-lesson-link').trigger('click');
+		//	} else {
+		//		$('.edu-lesson-link:first').trigger('click');
+		//	}
+		//})
+		//$('.d-sq__head_prev').on('click', function() {
+		//	var $active = $('.edu-lesson-link.disable');
 
-			if ($active.prev('.edu-lesson-link').length) {
-				$active.prev('.edu-lesson-link').trigger('click');
-			} else {
-				$('.edu-lesson-link:last').trigger('click');
-			}
-		})
+		//	if ($active.prev('.edu-lesson-link').length) {
+		//		$active.prev('.edu-lesson-link').trigger('click');
+		//	} else {
+		//		$('.edu-lesson-link:last').trigger('click');
+		//	}
+		//})
 
 		setTimeout(function() {
 
@@ -146,18 +147,6 @@ budget.extend("common", {
 			$.datepicker.setDefaults($.datepicker.regional['ru']);
 		}
 
-        $('.dropdown-trigger').on('click', function() {
-
-            if ($(this).parents('.dropdown').hasClass('_open')) {
-                $(this).parents('.dropdown').removeClass('_open');
-
-                $(this).next('.dropdown-content').slideUp();
-
-            } else {
-                $(this).parents('.dropdown').addClass('_open');
-                $(this).next('.dropdown-content').slideDown();
-            }
-        })
 
         $('.quiz-hint-trigger').on('click', function() {
             $(this).next('.quiz-hint').show();
@@ -655,7 +644,7 @@ function dateSlider() {
   });
 }
 
-//
+
 function basicBudgetFiguresDiagrams () {
     diagram( '#diagram-1', {
         stroke: 30,
@@ -727,53 +716,53 @@ function basicBudgetFiguresDiagrams () {
       }
 	});
 
-  // $(".analityc-control-button").on("click", function(e) {
-  //   if (!$(this).parents('.analityc-widget__income') && !$(this).parents('.analityc-widget__expenses') && !$(this).parents('.analityc-widget_sources')) {
-  //   e.preventDefault();
-  //   var table = $(".analityc-control-button_table");
-  //   var $this = $(this);
-  //   $('.analityc-control-button').removeClass('active');
-  //   $this.toggleClass('active');
-  //   $(".analityc-widget-sources").removeClass("_active");
-  //
-  //    if (table.hasClass("active")) {
-  //
-  //       $(".analityc-widget-sources_table").addClass("_active");
-  //   } else {
-  //     $(".analityc-widget-sources_table").removeClass("_active");
-  //   }
-  //   }
-  // })
-  //
-  // $(".analityc-control-group._stage .analityc-select").on("change", function () {
-  //   if (!$(this).parents('.analityc-widget__income') && !$(this).parents('.analityc-widget__expenses')) {
-  //     var $this = $(this);
-  //     $(".analityc-widget-sources").removeClass("_active");
-  //
-  //     if ($this.val() ===  "Исполнение на дату") {
-  //         $(".analityc-widget-sources:eq(0)").addClass("_active");
-  //     } else if($this.val() ===  "Закон о бюджете утвержденный") {
-  //             $(".analityc-widget-sources:eq(1)").addClass("_active");
-  //     } else if($this.val() ===  "Закон о внесении изменений") {
-  //             $(".analityc-widget-sources:eq(2)").addClass("_active");
-  //     } else if($this.val() ===  "Закон об исполнении") {
-  //             $(".analityc-widget-sources:eq(3)").addClass("_active");
-  //     }
-  //
-  //     if ($this.val() ===  "Исполнение на дату") {
-  //             $(".analityc-control-group._dp").show();
-  //             $(".analityc-control-switcher").hide();
-  //
-  //     } else if ($this.val() ===  "Закон о внесении изменений") {
-  //             $(".analityc-control-group._dp").hide();
-  //             $(".analityc-control-switcher").css('display', 'inline-block');
-  //     }
-  //     else {
-  //             $(".analityc-control-group._dp").hide();
-  //             $(".analityc-control-switcher").hide();
-  //     }
-  //   }
-  // });
+  $(".analityc-control-button").on("click", function(e) {
+    if (!$(this).parents('.analityc-widget__income') && !$(this).parents('.analityc-widget__expenses') && !$(this).parents('.analityc-widget_sources') && !$(this).parents('.analityc-widget_moscow-gov-program')) {
+    e.preventDefault();
+    var table = $(".analityc-control-button_table");
+    var $this = $(this);
+    $('.analityc-control-button').removeClass('active');
+    $this.toggleClass('active');
+    $(".analityc-widget-sources").removeClass("_active");
+
+     if (table.hasClass("active")) {
+
+        $(".analityc-widget-sources_table").addClass("_active");
+    } else {
+      $(".analityc-widget-sources_table").removeClass("_active");
+    }
+    }
+  })
+
+  $(".analityc-control-group._stage .analityc-select").on("change", function () {
+    if (!$(this).parents('.analityc-widget__income') && !$(this).parents('.analityc-widget__expenses')) {
+      var $this = $(this);
+      $(".analityc-widget-sources").removeClass("_active");
+
+      if ($this.val() ===  "Исполнение на дату") {
+          $(".analityc-widget-sources:eq(0)").addClass("_active");
+      } else if($this.val() ===  "Закон о бюджете утвержденный") {
+              $(".analityc-widget-sources:eq(1)").addClass("_active");
+      } else if($this.val() ===  "Закон о внесении изменений") {
+              $(".analityc-widget-sources:eq(2)").addClass("_active");
+      } else if($this.val() ===  "Закон об исполнении") {
+              $(".analityc-widget-sources:eq(3)").addClass("_active");
+      }
+
+      if ($this.val() ===  "Исполнение на дату") {
+              $(".analityc-control-group._dp").show();
+              $(".analityc-control-switcher").hide();
+
+      } else if ($this.val() ===  "Закон о внесении изменений") {
+              $(".analityc-control-group._dp").hide();
+              $(".analityc-control-switcher").css('display', 'inline-block');
+      }
+      else {
+              $(".analityc-control-group._dp").hide();
+              $(".analityc-control-switcher").hide();
+      }
+    }
+  });
 }
 $(document).ready(function(){
  $(".gov-program .analityc-control-button").on("click", function (e) {
@@ -850,6 +839,146 @@ $(document).ready(function(){
   //     sourcesDatepicker.addClass('active');
   //   }
   // }
+
+// переключение вкладок в budget_moscow_gov_program
+$(document).ready(function(){
+  $('.analityc-widget_moscow-gov-program .analityc-control-switcher_large').addClass('active');
+  $('.ar').hide();
+  $(".analityc-widget_moscow-gov-program .analityc-control-group._stage .analityc-select").on("change", function () {
+    var $this = $(this);
+    var sources = $('.analityc-widget_moscow-gov-program'),
+        arrow = $('.ar'),
+        tablearr = $('section__ar');
+        gpGraphics = sources.find($('.analityc-widget-sources')),
+        gpGraphicsDate = sources.find($('.analityc-widget-moscow-gov-program_date')),
+        gpGraphicsStructure = sources.find($('.analityc-widget-moscow-gov-program_structure')),
+        gpGraphicsChanges = sources.find($('.analityc-widget-moscow-gov-program_changes')),
+        gpGraphicsDone = sources.find($('.analityc-widget-moscow-gov-program_done')),
+        gpGraphicsButton = sources.find($('.analityc-control-button_graphics')),
+        gpTable = sources.find($('.analityc-table')),
+        gpTableButton = sources.find($('.analityc-control-button_table'));
+
+    gpGraphics.removeClass('_active');
+    gpTable.removeClass('_active');
+    gpGraphicsButton.addClass('_active');
+    gpTableButton.removeClass('_active');
+    tablearr.hide();
+
+    if ($this.val() ===  "Закон о бюджете утвержденный") {
+      gpGraphicsDone.addClass('_active');
+      gpHead(1);
+      arrow.show();
+    } else if($this.val() ===  "Закон о внесении изменений") {
+      gpGraphicsChanges.addClass('_active');
+      gpHead(2);
+      arrow.show();
+    } else if($this.val() ===  "Исполнение на дату") {
+      gpGraphicsDate.addClass('_active');
+      gpHead(3);
+      arrow.hide();
+    }
+
+  });
+
+  function gpHead(type) {
+    var gpButtons = $('.analityc-widget_moscow-gov-program .analityc-control-buttons'),
+        gpSwitcherBig = $('.analityc-widget_moscow-gov-program .analityc-control-switcher_large'),
+        gpDatepicker = $('.analityc-widget_moscow-gov-program .analityc-control-group._dp');
+
+    if (type === 1) {
+      gpButtons.addClass('active');
+      gpSwitcherBig.addClass('active');
+      gpDatepicker.removeClass('active');
+    } else if (type === 2) {
+      gpButtons.addClass('active');
+      gpSwitcherBig.removeClass('active');
+      gpDatepicker.removeClass('active');
+    } else if (type === 3) {
+      gpButtons.addClass('active');
+      gpSwitcherBig.removeClass('active');
+      gpDatepicker.addClass('active');
+    }
+  }
+
+  $(".analityc-widget_moscow-gov-program .analityc-control-button").on("click", function (e) {
+    e.preventDefault();
+    var $this = $(this);
+    var sources = $(".analityc-widget_moscow-gov-program"),
+        arrow = $('.ar'),
+        tablearr = $('.section__ar'),
+        gpGraphics = sources.find($('.analityc-widget-sources')),
+        gpGraphicsActive = sources.find($('.analityc-widget-sources._active')),
+        gpGraphicsDate = sources.find($('.analityc-widget-moscow-gov-program_date')),
+        gpGraphicsStructure = sources.find($('.analityc-widget-moscow-gov-program_structure')),
+        gpGraphicsChanges = sources.find($('.analityc-widget-moscow-gov-program_changes')),
+        gpGraphicsDone = sources.find($('.analityc-widget-moscow-gov-program_done')),
+        gpTable = sources.find($('.analityc-table')),
+        gpTableActive = sources.find($('.analityc-table._active')),
+        gpTableStructure = sources.find($('.analityc-widget-moscow-gov-program-table_structure')),
+        gpTableChanges = sources.find($('.analityc-widget-moscow-gov-program-table_changes')),
+        gpTableDone = sources.find($('.analityc-widget-moscow-gov-program-table_done')),
+        gpTableDate = sources.find($('.analityc-widget-moscow-gov-program-table_date'));
+
+    if ($this.hasClass('analityc-control-button_graphics') && !$this.hasClass('active')) {
+      $this.siblings().removeClass('active');
+      $this.addClass('active');
+      if (gpTableActive.hasClass('analityc-widget-moscow-gov-program-table_structure')) {
+        gpTable.removeClass('_active');
+        gpGraphicsStructure.addClass('_active');
+        gpHead(1);
+        arrow.show();
+        tablearr.hide();
+      } else if (gpTableActive.hasClass('analityc-widget-moscow-gov-program-table_changes')) {
+        gpTable.removeClass('_active');
+        gpGraphicsChanges.addClass('_active');
+        gpHead(2);
+        arrow.show();
+        tablearr.hide();
+      } else if (gpTableActive.hasClass('analityc-widget-moscow-gov-program-table_done')) {
+        gpTable.removeClass('_active');
+        gpGraphicsDone.addClass('_active');
+        gpHead(1);
+        arrow.hide();
+        tablearr.hide();
+      } else if (gpTableActive.hasClass('analityc-widget-moscow-gov-program-table_date')) {
+        gpTable.removeClass('_active');
+        gpGraphicsDate.addClass('_active');
+        gpHead(3);
+        arrow.hide();
+        tablearr.hide();
+      }
+    } else if ($this.hasClass('analityc-control-button_table') && !$this.hasClass('active')) {
+      $this.siblings().removeClass('active');
+      $this.addClass('active');
+      if (gpGraphicsActive.hasClass('analityc-widget-moscow-gov-program_structure')) {
+        gpGraphics.removeClass('_active');
+        gpTableStructure.addClass('_active');
+        gpHead(1);
+        arrow.hide();
+        tablearr.show();
+      } else if (gpGraphicsActive.hasClass('analityc-widget-moscow-gov-program_changes')) {
+        gpGraphics.removeClass('_active');
+        gpTableChanges.addClass('_active');
+        gpHead(2);
+        arrow.hide();
+        tablearr.show();
+      } else if (gpGraphicsActive.hasClass('analityc-widget-moscow-gov-program_done')) {
+        gpGraphics.removeClass('_active');
+        gpTableDone.addClass('_active');
+        gpHead(2);
+        arrow.hide();
+        tablearr.show();
+      } else if (gpGraphicsActive.hasClass('analityc-widget-moscow-gov-program_date')) {
+        gpGraphics.removeClass('_active');
+        gpTableDate.addClass('_active');
+        gpHead(3);
+        arrow.hide();
+        tablearr.show();
+      }
+    }
+  });
+});
+
 
   $(".analityc-widget_params-income .analityc-control-switcher").on("click", function (e) {
     e.preventDefault();

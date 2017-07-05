@@ -5,7 +5,7 @@ winH = $(window).height();
 
 /*Menu*/
 $('.header__open-menu').click(function() {
-    
+
     var _ = $(this);
 
     if ( !_.hasClass('act') ) {
@@ -36,7 +36,7 @@ if (winW > 700 && !$('.sections').hasClass('sections_fs')) {
             $('.header').removeClass('header_short');
         }
     });
-} 
+}
 
 $('.menu__sub-menu').each(function() {
     var offset = $(this).parent().offset().left;
@@ -106,7 +106,7 @@ if ($('.button-top').length) {
  $('.login-form').submit(function() {
      window.location.href = "main-log.html";
      return false;
- }); 
+ });
 
 $(document).data('resize-width', winW);
 function resizeWidth() {
@@ -115,10 +115,10 @@ function resizeWidth() {
     if (existingWidth != newWidth) {
          window.location.reload();
     }
-}  
+}
 
 $(window).resize(resizeWidth);
- 
+
 });
 
 window.onload = function() {

@@ -19,6 +19,8 @@ mixin profile()
         +e.photo
           +e.photo-img
             img(src="assets/images/profile/person.jpg")
+          +e.favor-count
+            span 5
         +e.personal
           +e.fio
             +e.SPAN.fio-label Константин
@@ -38,11 +40,28 @@ mixin profile()
             +e.options-link
               +link()._dashed._light-yellow
                 | Раз в неделю
+              +e.UL.dropdown._single
+                li 
+                  span Раз в месяц
+                  input(type='radio', name="schedule", value='monthly')
+                li.active
+                  span Раз в неделю
+                  input(type='radio', name="schedule", value='weekly', checked)
           +e.option._rubric
             +e.SPAN.options-label Выберите рубрики
             +e.options-link
               +link()._dashed._light-yellow
                 | Новости Бюджета, Новости Москвы
+              +e.UL.dropdown._multiple
+                li.active
+                  span Новости Бюджета
+                  input(type='checkbox', name="rubric", value='budget', checked)
+                li.active
+                  span Новости Москвы
+                  input(type='checkbox', name="rubric", value='moscow', checked)
+                li
+                  span Федеральные новости
+                  input(type='checkbox', name="rubric", value='federal')
 
         +e.save
           +button(true)._kind_yellow
@@ -50,9 +69,3 @@ mixin profile()
 
     //+e.favorite
     +favor-list().__favorite
-    +e.delete-accept
-      p Вы уверены, что хотите удалить эту страницу из Избранного?
-      +button()._kind_yellow(data-delete="yes")
-        | Да
-      +button()._kind_transparent(data-delete="cancel")
-        | Отменить

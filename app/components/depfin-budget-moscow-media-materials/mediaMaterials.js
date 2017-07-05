@@ -2,17 +2,38 @@ import $ from 'jquery';
 import Swiper from 'swiper';
 
 export default () => {
-  const galleryTop = new Swiper('.depfin-budget-moscow-media-materials__slider.gallery-top', {
-    nextButton: '.depfin-budget-moscow-media-materials__slider-next',
-    prevButton: '.depfin-budget-moscow-media-materials__slider-prev',
-    spaceBetween: 20,
+  var page = '.depfin-budget-moscow-media-materials';
+
+  const photo = new Swiper(page+ '__materials_photo ' +page+ '__container', {
+    pagination: page+ '__paginate-bullets',
+    paginationClickable: true
   });
-  const galleryThumbs = new Swiper('.depfin-budget-moscow-media-materials__slider.gallery-thumbs', {
+  const present = new Swiper(page+ '__materials_present '+page+ '__container', {
+    nextButton: page+ '__next',
+    prevButton: page+ '__prev',
+  });
+
+  console.log(page+ '_slider ' +page+ '__slider-gallery');
+  const sliderGallery = new Swiper(page+ '__materials_slider ' +page+ '__slider-gallery', {
+    nextButton: page+ '__slider-next',
+    prevButton: page+ '__slider-prev',
+  });
+  const sliderPagination = new Swiper(page+ '__materials_slider ' +page+ '__slider-pagination', {
     spaceBetween: 35,
     slidesPerView: '4',
+    // centeredSlides: true,
     touchRatio: 0.2,
     slideToClickedSlide: true,
   });
-  galleryTop.params.control = galleryThumbs;
-  galleryThumbs.params.control = galleryTop;
+  sliderGallery.params.control = sliderPagination;
+  sliderPagination.params.control = sliderGallery;
+
+  // var video = $(page + '__item');
+  // var popup = $('.popup-video');
+  // video.on('click', function(e) {
+  //   e.preventDefault();
+  //   popup.fadeIn(321);
+  // });
+
+
 }

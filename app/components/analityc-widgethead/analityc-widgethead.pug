@@ -35,7 +35,9 @@ mixin analityc-widgethead-income(type)
       a(href="#") млрд руб.
     .analityc-control-buttons.active
       a(href="#").analityc-control-button.analityc-control-button_graphics.active
+        +icon('graphic', true)
       a(href="#").analityc-control-button.analityc-control-button_table
+        +icon('table', true)
     .analityc-control-switcher.analityc-control-switcher_big
       a(href="#").active млрд руб.
       a(href="#") млн руб.
@@ -193,7 +195,9 @@ mixin analityc-widgethead-sources(type)
         option Консолидированный бюджет
     .analityc-control-buttons.active
       a(href="#").analityc-control-button.analityc-control-button_graphics.active
+        +icon('graphic', true)
       a(href="#").analityc-control-button.analityc-control-button_table
+        +icon('table', true)
     .analityc-control-switcher.analityc-control-switcher_big
       a(href="#").active млрд руб.
       a(href="#") млн руб.
@@ -905,7 +909,7 @@ mixin analityc-widgethead-moscow-gp()
         option Бюджет региона
         option Консолидированный бюджет
     .analityc-control-group._transfer
-      span Межбюджетные трансферы
+      span Межбюджетные трансферты
       select.analityc-select
         option(selected) Виды
         option Виды
@@ -915,7 +919,7 @@ mixin analityc-widgethead-moscow-gp()
       a(href="#").analityc-control-button.analityc-control-button_table
         +icon('table', true)
     .analityc-control-switcher.analityc-control-switcher_large
-      a(href="#").active Государственные программы
-      a(href="#") Структура
+      a(href="#", data-type='gp').active Государственные программы
+      a(href="#", data-type='structure') Структура
     .analityc-control-group._dp
       input(placeholder="Выберите дату исполнения").datepicker

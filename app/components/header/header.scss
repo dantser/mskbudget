@@ -1,3 +1,22 @@
+$hamburger-padding-x                       : 18px !default;
+$hamburger-padding-y                       : 21px !default;
+$hamburger-layer-width                     : 30px !default;
+$hamburger-layer-height                    : 3px !default;
+$hamburger-layer-spacing                   : 7px !default;
+$hamburger-layer-color                     : white !default;
+$hamburger-layer-border-radius             : 0px !default;
+$hamburger-hover-opacity                   : 1 !default;
+$hamburger-hover-transition-duration       : 0.5s !default;
+$hamburger-hover-transition-timing-function: ease-in-out !default;
+
+// To use CSS filters as the hover effect instead of opacity,
+// set $hamburger-hover-use-filter as true and
+// change the value of $hamburger-hover-filter accordingly.
+$hamburger-hover-use-filter: false !default;
+$hamburger-hover-filter    : opacity(50%) !default;
+
+@import '../../../node_modules/hamburgers/_sass/hamburgers/hamburgers.scss';
+
 .link-for-blind {
   display: block;
   color: #fff;
@@ -36,19 +55,18 @@
   z-index: 2000;
   width: 100%;
   height: 135px;
-  background: #000;
-  background: rgba(0, 0, 0, 0.3);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  -webkit-transition: 0.5s;
-  -moz-transition: 0.5s;
-  -ms-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition: 0.5s;
+  background: rgba(black, .3);
+  border-bottom: 1px solid rgba(white, 0.1);
+  @include transited('all linear 500ms');
 
   &__wrap {
     position: relative;
     margin: 0 30px;
     max-width: initial !important;
+
+    @media (max-width: 768px) {
+      margin: 0 15px !important;
+    }
 
     &::after {
       display: block;
@@ -114,6 +132,12 @@
       &:last-child {
         margin-right: 0;
       }
+    }
+
+    .menu__a {
+      font-family: $PFDinCondensedPro;
+      font-weight: 400;
+      font-style: normal;
     }
   }
 
@@ -185,48 +209,9 @@
     position: absolute;
     right: 0;
     top: 0;
-    width: 49px;
+    width: 67px;
     height: 100%;
-    border-left: 1px solid rgba(0, 0, 0, .1);
-
-    &::before, &::after {
-      display: block;
-      content: '';
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      background-image: url('../images/sprite@2x.png');
-      -moz-background-size: 480px auto;
-      -o-background-size: 480px auto;
-      background-size: 480px auto;
-      background-repeat: no-repeat;
-    }
-
-    &::before {
-      width: 18px;
-      height: 18px;
-      margin: -8px 0 0 -9px;
-      background-position: -121px -44px;
-      display: none;
-    }
-
-    &::after {
-      width: 24px;
-      height: 19px;
-      margin: -9px 0 0 -12px;
-      background-position: -144px -64px;
-    }
-
-    &.act {
-
-      &::before {
-        display: block;
-      }
-
-      &::after {
-        display: none;
-      }
-    }
+    border-left: 1px solid rgba(white, .1);
   }
 
   &_ab {
@@ -234,17 +219,22 @@
   }
 
   &_short {
-    height: 75px;
-    border-bottom: 1px solid #ffffff !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-    background: url(../images/background/menu.jpg) no-repeat 50% 0 !important;
-    background-size: 100% 100% !important;
+    // height: 75px;
+    // border-bottom: 1px solid #ffffff !important;
+    // border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
 
-    .header__logo {
-      @media (max-width: 1180px) and (min-width: 801px) {
-        width: 28px;
-      }
+
+    &:not(.header_opened) {
+      // background: url(../images/background/menu.jpg) no-repeat 50% 0 !important;
+      // background-size: 100% 100% !important;
+      background: rgba(black, .6);
     }
+
+    // .header__logo {
+    //   @media (max-width: 1180px) and (min-width: 801px) {
+    //     width: 28px;
+    //   }
+    // }
 
     .header__link-for-blind {
       top: -50px;
@@ -279,10 +269,6 @@
       margin-right: 30px;
     }
 
-    .menu__a {
-      font-size: 16px;
-    }
-
     .search-form__btn {
       margin-bottom: 0;
     }
@@ -300,19 +286,14 @@
   }
 
   &_budget {
-    background: url('../images/background/menu.jpg') no-repeat 50% 0 !important;
-    -moz-background-size: 100% 100% !important;
-    -o-background-size: 100% 100% !important;
-    background-size: 100% 100% !important;
+    // background: url('../images/background/menu.jpg') no-repeat 50% 0 !important;
+    // -moz-background-size: 100% 100% !important;
+    // -o-background-size: 100% 100% !important;
+    // background-size: 100% 100% !important;
   }
 
   &_opened {
-    background: rgba(0, 0, 0, .6) !important;
-    border: none !important;
-
-    .header__open-menu {
-      border-left: 1px solid rgba(255, 255, 255, .2) !important;
-    }
+    background: rgba(black, .3);
   }
 
   &_mob {
@@ -327,8 +308,7 @@
       width: 100%;
       bottom: 0;
       left: 0;
-      top: 49px;
-      border-top: 1px solid rgba(255, 255, 255, .8) !important;
+      top: 68px;
 
       &::before {
         display: block;
@@ -339,7 +319,7 @@
         width: 100%;
         height: 100%;
         background: #000;
-        background: rgba(0, 0, 0, .6);
+        background: rgba(0, 0, 0, .3);
       }
     }
 
@@ -383,21 +363,6 @@
         display: inline-block;
         float: none;
         margin: 0;
-      }
-    }
-
-    &__menu {
-      top: 64px;
-      width: 100%;
-
-      .menu__item {
-        float: none;
-        margin: 0 0 15px;
-        text-align: center;
-      }
-
-      .menu__a {
-        font-size: 20px;
       }
     }
 
@@ -527,7 +492,9 @@
   }
 
   .menu__a {
-    font-size: 16px;
+    display: inline-block;
+    font-size: 18px;
+    line-height: 36px;
   }
 
   .menu__item {
@@ -579,16 +546,8 @@
     margin-right: 13px;
   }
 
-  .header_short .menu__a {
-    font-size: 15px;
-  }
-
   .header_short .menu_logged .menu__item {
     margin-right: 10px;
-  }
-
-  .header_short .menu_logged .menu__a {
-    font-size: 14px;
   }
 
   .header__logged {
@@ -603,7 +562,7 @@
 @media (max-width: 800px) {
 
   .header {
-    height: 59px !important;
+    height: 67px !important;
   }
 
   .header__open-menu {
@@ -611,24 +570,17 @@
   }
 
   .header__logo {
-    top: 7px !important;
-  }
-
-  .header__logo .logo__img {
-    width: 29px;
-    height: auto;
-    margin-right: 13px;
-    margin-top: 4px;
+    top: 12px !important;
   }
 
   .header__logo .logo__lg {
-    font-size: 18px;
+    font-size: 19px;
     padding-top: 3px;
     bottom: 0 !important;
   }
 
   .header__logo .logo__sm {
-    font-size: 13px;
+    font-size: 15px;
     bottom: 0 !important;
   }
 
@@ -638,8 +590,7 @@
     width: 100%;
     bottom: 0;
     left: 0;
-    top: 59px;
-    border-top: 1px solid rgba(255, 255, 255, .2) !important;
+    top: 68px;
   }
 
   .header__drop::before {
@@ -651,7 +602,7 @@
     width: 100%;
     height: 100%;
     background: #000;
-    background: rgba(0, 0, 0, .6);
+    background: rgba(0, 0, 0, .3);
   }
 
   .header__currency {
@@ -698,7 +649,7 @@
   }
 
   .header__menu {
-    margin: 74px 0 0 !important;
+    margin: 72px 0 0 !important;
     top: 0 !important;
     width: 100%;
     padding: 0 !important;
@@ -706,14 +657,10 @@
 
   .header__menu .menu__item {
     float: none;
-    margin: 0 0 15px;
+    margin: 0;
     text-align: center;
     height: auto;
     display: block;
-  }
-
-  .header__menu .menu__a {
-    font-size: 24px;
   }
 
   .header__link-for-blind {

@@ -136,6 +136,7 @@
 
   &__select-element {
   	display: block;
+    position: relative;
   	width: 100%;
     padding: 10px 13px 8px;
   	font-size: 16px;
@@ -145,6 +146,12 @@
   	border-radius: 2px;
     -webkit-appearance: none;
     appearance: none;
+    cursor: pointer;
+    z-index: 1;
+
+    & option {
+      color: $color-input;
+    }
   }
 
   &__select-icon {

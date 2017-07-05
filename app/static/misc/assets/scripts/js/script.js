@@ -3,6 +3,7 @@ var $window = $(window),
     $html = $("html"),
     $body = $("body");
 
+
 "use strict";
 window.onload = function () {
     var $carousel = $("#carousel");
