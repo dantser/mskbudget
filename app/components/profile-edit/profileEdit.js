@@ -2,40 +2,42 @@ import $ from 'jquery';
 
 export default () => {
   
-  $('.profile_edit .profile__change').click(function(e){
-    e.preventDefault();
-    $(this).hide();
-    $(this).next().show();
-    $('.profile_edit .profile__field').removeClass('disabled');
-  });
-  
-  $('.profile_edit .profile__submit, .profile_edit .profile__cancel').click(function(e){
-    e.preventDefault();
-    $('.profile_edit .profile__submit').hide();
-    $('.profile_edit .profile__change').show();
-    $('.profile_edit .profile__field').addClass('disabled');
-  });
-  
-  $('.profile__favorite .favor-list__remove').click(function(e){
-    e.preventDefault();
-    e.stopPropagation();
-    var link = $(this).parent();
-    var deletePopup = $(this).parents('.profile__favorite').next('.profile__delete-accept');
-    deletePopup.fadeIn(250);
+  $(document).ready(function(){
     
-    deletePopup.find('[data-delete]').click(function(e){
+    function checkFavorCount() {
+      var favorCount = $('.profile__favorite .favor-list__item').length;
+      favorCount = favorCount / $('.profile__favorite .favor-list__list').length;
+      $('.profile__favor-count span').text(favorCount);
+    }
+    
+    if ($('.profile').length) {
+      checkFavorCount();
+      window.deleteLink = true;
+    }
+    
+    $('.profile__favorite .favor-list__remove').on('click', function(e){
+      e.preventDefault();
+      deleteLink = $(this).parent().data('link');
+    });
+    
+    $('.popup-delete-accept [data-delete]').on('click', function(e){
       e.preventDefault();
       var del = $(this).data('delete');
       if (del === 'yes') {
-        link.remove();
+        $('.profile__favorite [data-link="'+deleteLink+'"]').remove();
+        checkFavorCount();
       }
-      deletePopup.fadeOut(250);
+      $(".popup-window, #popup-wrapper").fadeOut(321);
     });
     
-  });
-  
-  $('html').click(function(){
-    $('.profile__delete-accept').fadeOut(250);
+    $('.profile_edit .profile__field .text-field__change-field').on('click', function(){
+      $(this).parents('.profile__field').removeClass('disabled');
+    });
+    
+    $('.profile_edit .profile__cancel, .profile_edit .profile__submit').on('click', function(){
+      $('.profile_edit .profile__field_fio, .profile_edit .profile__field_email').addClass('disabled');
+    });
+    
   });
   
 }

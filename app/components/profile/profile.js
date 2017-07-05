@@ -4,6 +4,7 @@ export default () => {
   
   $(document).ready(function(){
     
+    // Подписка на рассылки
     $('.profile__options-link a').on('click', function(e){
       e.preventDefault();
       e.stopPropagation();
