@@ -6,7 +6,7 @@ mixin edu-service-question()
       .d-si__head
         +page-header('обучающий сервис', ['Сервисы'])
 
-        .d-sq__head_ss
+        .d-sq__head_ss.load-anim-fade(data-delay="1500")
           SPAN.d-sq__head_ss-s 5 из 9
           SPAN.d-sq__head_ss-txt
             | уроков
@@ -15,7 +15,7 @@ mixin edu-service-question()
             br
             | успешно
           canvas(width='78', height='78', default-fill='#413a62', stroke-width='7', sector-count='9', fill-sectors='0,2,3,5,8').sectored_round
-      .d-study__question
+      .d-study__question.load-anim-fade(data-delay="1700")
         .burger-lessons-menu
           .close-lessons-burger
           ul

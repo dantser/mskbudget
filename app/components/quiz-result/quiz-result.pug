@@ -6,7 +6,7 @@ mixin quiz-result()
     .d-layer
       .d-si__head
         +page-header('Викторины', ['Сервисы'])
-      .d-si__quiz-container
+      .d-si__quiz-container.load-anim-fade(data-delay="1500")
         p.d-si__quiz-container_head
           span ИСТОРИЯ БЮДЖЕТА ГОРОДА МОСКВЫ ВО ВТОРОЙ ПОЛОВИНЕ XX — НАЧАЛЕ ХХI ВЕКА
           .d-si__quiz-container_head-cross(title="Закрыть")
@@ -44,4 +44,3 @@ mixin quiz-result()
               a(href="#" title="twitter").d-sr__social_t
                 i(aria-hidden="true").fa.fa-twitter
               a(href="#" title="ВКонтакте").d-sr__social_vk В
-

@@ -11,7 +11,7 @@ mixin documents()
         .ahead
           +page-header('Документы')
 
-        FORM(action='f.php', method='POST').form.mb-50.js-enterform
+        FORM(action='f.php', method='POST').form.mb-50.js-enterform.load-anim-fade(data-delay="1500")
           .float-l.md-float-n
             .form__field.form__field_d1
               LABEL(for='i-doc-1').form__label Наименование документа
@@ -60,14 +60,14 @@ mixin documents()
                 INPUT(type='text', value='дд.мм.гг').form__date-range-input.jq-f-datepicker.input-max
                 SPAN.form__date-range-icon
           INPUT(type='submit', value='Искать').form__submit
-        .sort.mb-30
+        .sort.mb-30.load-anim-fade(data-delay="1500")
           SPAN.sort__capt Сортировать по:
           A(href='#').sort__a Дате публикации
           A(href='#').sort__a.sort__a_act Дате документа
 
-      .wrap.wrap_sh
+      .wrap.wrap_sh.load-anim-fade(data-delay="1700")
         +documents-page-cards().mb-30
 
-      .wrap.wrap_sh
+      .wrap.wrap_sh.load-anim-fade(data-delay="1900")
         .more
           A(href='#').more__a Показать еще

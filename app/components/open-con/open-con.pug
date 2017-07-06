@@ -14,13 +14,13 @@ mixin open-con()
       section.basic-budget
         .wrapper.wrapper_con
           +page-header('Конкурсы', ['Открытость'], true)
-          +e.control
+          +e.control.load-anim-fade(data-delay="1500")
             +e.P.control-text Выберите конкурс
             +buttons-set-alt(getData('buttons-set-opencon'))._openCon.__buttons-set
-          .analityc-widget.analityc-widget_con
+          .analityc-widget.analityc-widget_con.load-anim-fade(data-delay="1700")
             +tabs
               +tabs-tab(data-tab-group="contestTabs", data-tab="contestOne").active
                 +contest(getData('contest')[0])
               +tabs-tab(data-tab-group="contestTabs", data-tab="contestTwo")
                 +contest(getData('contest')[1])
-        +dropdown()
+        +dropdown().load-anim-fade(data-delay="1900")

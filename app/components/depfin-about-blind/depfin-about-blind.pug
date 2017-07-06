@@ -6,7 +6,7 @@ mixin depfin-about-blind()
       +e.head
         +page-header('О портале')
 
-      +e.main
+      +e.main.load-anim-fade(data-delay="1500")
         +e.wrapper
           +e.H3.main-subtitle.blindmode-subheading
             != 'Действующий с 2011 года Портал Правительства Москвы &laquo;Открытый бюджет города Москвы&raquo;, предназначенный для размещения информации о городском бюджете, является одним из ключевых инструментов реализации принципов открытости финансов органов власти.'
@@ -21,7 +21,7 @@ mixin depfin-about-blind()
           +e.P.text.blindmode-text
             != 'На постоянной основе ведутся работы по расширению и улучшению функций Портала, при которых также учитываются замечания и предложения граждан, поступившие через раздел <a class="depfin-about__link" href="#">&laquo;Обратная связь&raquo;</a>.'
 
-      +e.foot
+      +e.foot.load-anim-fade(data-delay="1700")
 
         +e.paragraph
           +e.H4.subtitle.blindmode-subheading

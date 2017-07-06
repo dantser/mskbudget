@@ -14,7 +14,7 @@ mixin depfin-analytics-expenses()
 				+page-header('Расходы бюджета', false, true)
 
 
-				.analityc-widget.analityc-widget_analytics-expenses
+				.analityc-widget.analityc-widget_analytics-expenses.load-anim-fade(data-delay="1500")
 					+analityc-widgethead-analytics-expenses()
 
 					+analityc-graphics-line-vertical(getData('graphic-lines-analytics-expenses'), true)._gp
@@ -27,4 +27,4 @@ mixin depfin-analytics-expenses()
 
 					a(href="/").analityc-more Перейти в&nbsp;раздел бюжет москвы
 					
-			+dropdown()
+			+dropdown().load-anim-fade(data-delay="1700")

@@ -14,7 +14,7 @@ mixin depfin_analytics_income()
 				+page-header('Доходы бюджета', false, true)
 
 				// Tab 1
-				.analityc-widget.analityc-widget_params-income
+				.analityc-widget.analityc-widget_params-income.load-anim-fade(data-delay="1500")
 					+analityc-widgethead-analityc-income()
 					.analityc-widget-income.analityc-widget-income_pace(data-filter='pace')
 						+analityc-graphics-line-vertical-alt(getData('graphic-lines-analityc-income'))
@@ -38,4 +38,4 @@ mixin depfin_analytics_income()
 					+analityc-table()._params
 						+table-aincome(getData('main'))
 					a(href="/").analityc-more Перейти в&nbsp;раздел бюжет москвы
-			+dropdown()
+			+dropdown().load-anim-fade(data-delay="1700")

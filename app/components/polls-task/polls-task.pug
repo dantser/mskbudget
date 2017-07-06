@@ -6,7 +6,7 @@ mixin polls-task()
       .d-si__head
         +page-header('Опросы', ['Сервисы'])
 
-      +b.d-min-layer
+      +b.d-min-layer.load-anim-fade(data-delay="1500")
         form(action='#').d-si__search-form
           span.d-si__form-label Выберите год
           select(id='d-si-select', data-smart-positioning="false").d-si-select

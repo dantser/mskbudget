@@ -21,7 +21,7 @@ mixin edu-service-result()
         .d-si__head
           +page-header('обучающий сервис', ['Сервисы'])
 
-        .dstudy__descr_containder
+        .dstudy__descr_containder.load-anim-fade(data-delay="1500")
           .d-study__descr
             P
               strong Цель сервиса
@@ -30,7 +30,7 @@ mixin edu-service-result()
             | Очистить
             br
             | результаты
-        .d-study__finish
+        .d-study__finish.load-anim-fade(data-delay="1700")
           p.d-study__total
             | 9 из 9
             canvas(width='242', height='242', class='sectored_round', stroke-width='22', sector-count='9', fill-sectors='0,1,2,3,4,5,6,7,8')
@@ -46,7 +46,7 @@ mixin edu-service-result()
                   SPAN.d-study__share-sn_tw
                 A(href='#' title="ВКонтакте")
                   SPAN.d-study__share-sn_vk
-        .d-study__lessons
+        .d-study__lessons.load-anim-fade(data-delay="1900")
           .d-study__lessons_row
             A(href='/moscowbudget/edu_service_question.html').d-study__lessons_item.d-lesson__done
               p.d-lesson_head урок 1:

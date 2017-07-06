@@ -13,7 +13,7 @@ mixin depfin-analytics-gp()
 				+page-header('Государственнные программы', false, true)
 
 				//- Tab 1
-				.analityc-widget.analityc-widget_gp
+				.analityc-widget.analityc-widget_gp.load-anim-fade(data-delay="1500")
 					+analityc-widgethead-gp()
 
 					+analityc-graphics-custom1()
@@ -27,4 +27,4 @@ mixin depfin-analytics-gp()
 					
 					+analityc-table()._gp
 						+table-gp(getData('gp'))
-			+dropdown()
+			+dropdown().load-anim-fade(data-delay="1700")

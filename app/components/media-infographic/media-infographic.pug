@@ -5,7 +5,7 @@ mixin media-infographic()
   +b.media-infographic&attributes(attributes)
     .wrapper.page-content-wrapper
       +page-header('Инфографика')
-      +e.card-wrapper
+      +e.card-wrapper.load-anim-fade(data-delay="1500")
         +e.col._main
           +infographic-card(1, 'Доходы бюджета города Москвы.', '1 апреля 2016').A(href="#").__card
           +infographic-card(2, 'Доходы бюджета города Москвы.', '1 апреля 2016').A(href="#").__card
@@ -20,4 +20,4 @@ mixin media-infographic()
           +infographic-card(4, 'Доходы бюджета города Москвы.', '1 апреля 2016').A(href="#").__card
           +infographic-card(4, 'Доходы бюджета города Москвы.', '1 апреля 2016').A(href="#").__card
           +infographic-card(4, 'Доходы бюджета города Москвы.', '1 апреля 2016').A(href="#").__card
-      +e.A(href="#").show-more.d-si__button_show-more Показать еще
+      +e.A(href="#").show-more.d-si__button_show-more.load-anim-fade(data-delay="1700") Показать еще

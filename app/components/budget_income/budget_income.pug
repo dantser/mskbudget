@@ -12,7 +12,7 @@ mixin budget_income()
         +page-header('Доходы бюджета', false, true)
 
         // Tab 1
-        .analityc-widget.analityc-widget_income
+        .analityc-widget.analityc-widget_income.load-anim-fade(data-delay="1500")
           +analityc-widgethead-income()
           +analityc-graphics-round('income1')._approved.active
           +analityc-table()._approved
@@ -28,4 +28,4 @@ mixin budget_income()
             +table-income(getData('income3'))
           +analityc-graphics-line('Исполнение доходов бюджета на 1 февраля 2017', getData('graphic-lines-income2'))._date-two
           a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
-      +dropdown()
+      +dropdown().load-anim-fade(data-delay="1700")

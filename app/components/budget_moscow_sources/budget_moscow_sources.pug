@@ -16,7 +16,7 @@ mixin budget_moscow_sources()
           span
           span
           span
-        .analityc-widget.analityc-widget_sources
+        .analityc-widget.analityc-widget_sources.load-anim-fade(data-delay="1500")
           +analityc-widgethead-sources()
           +icon('angle-arrow').ar._left
           +icon('angle-arrow').ar._right
@@ -286,4 +286,4 @@ mixin budget_moscow_sources()
           +analityc-table()._changes.analityc-widget-sources-table_done
             +table-income(getData('income1'))
           a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
-      +dropdown()
+      +dropdown().load-anim-fade(data-delay="1700")

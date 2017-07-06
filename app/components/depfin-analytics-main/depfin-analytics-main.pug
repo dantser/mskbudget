@@ -12,7 +12,7 @@ mixin depfin-analytics-main()
 				+page-header('Основные параметры', false, true)
 
 				//- Tab 1
-				.analityc-widget.analityc-widget_params
+				.analityc-widget.analityc-widget_params.load-anim-fade(data-delay="1500")
 					+analityc-widgethead-main()
 
 					+analityc-graphics-line-vertical(getData('graphic-lines-main'))
@@ -25,4 +25,4 @@ mixin depfin-analytics-main()
 
 					a(href="/").analityc-more Перейти в&nbsp;раздел бюджет москвы
 
-			+dropdown()
+			+dropdown().load-anim-fade(data-delay="1700")

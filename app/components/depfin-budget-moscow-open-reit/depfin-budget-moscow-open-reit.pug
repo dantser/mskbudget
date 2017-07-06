@@ -11,7 +11,7 @@ mixin depfin-budget-moscow-open-reit()
 			+e.head
 				+page-header('Рейтинг открытости', false, true)
 
-			+e.main
+			+e.main.load-anim-fade(data-delay="1500")
 				+e.H3.title Рейтинг открытости бюджетных данных
 				+e.H4.subtitle Общая информация о рейтинге
 
@@ -45,7 +45,7 @@ mixin depfin-budget-moscow-open-reit()
 				+e.map
 					img(src='assets/images/map_big.png')
 
-			+e.foot
+			+e.foot.load-anim-fade(data-delay="1700")
 				+e.documents
 					+e.select
 						+e.select-title Методика
@@ -69,5 +69,3 @@ mixin depfin-budget-moscow-open-reit()
 
 					+e.list
 						+documents-cards()
-
-

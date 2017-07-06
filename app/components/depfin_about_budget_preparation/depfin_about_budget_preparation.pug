@@ -21,7 +21,7 @@ mixin depfin_about_budget_preparation()
             +e.item
               a(href="#", data-tab-target="fedbud").button-light Федеральный бюджет
   // d-abs-content
-  +tabs
+  +tabs.load-anim-fade(data-delay="1500")
     +tabs-tab(data-tab-group="budgetPrep", data-tab="mskbudget").active
       +b.graphic-table
         +e.frame
@@ -1000,7 +1000,7 @@ mixin depfin_about_budget_preparation()
         // section-tabs__content
       // section-tabs
       
-      +doc-cards-dropdown(getData('doc-cards-dropdown'))
+      +doc-cards-dropdown-bp(getData('doc-cards-dropdown'))
     +tabs-tab(data-tab-group="budgetPrep", data-tab="fedbud")
       +b.graphic-table
         +e.frame

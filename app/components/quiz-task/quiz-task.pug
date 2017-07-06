@@ -10,7 +10,7 @@ mixin quiz-task()
     .d-layer
       .d-si__head
         +page-header('Викторины', ['Сервисы'])
-      .d-min-layer
+      .d-min-layer.load-anim-fade(data-delay="1500")
         form(action="#").d-si__search-form
           input(type="text", placeholder="Поиск").d-si__search
           button(type='submit')
