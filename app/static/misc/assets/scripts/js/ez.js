@@ -577,21 +577,26 @@ function stepsDetails(){
   });
 }
 
+
+
 function stageSlider() {
   $('.steps__mob-slider').each(function(){
     var currentSlide = 0,
         slideAmount = $(this).find('.steps__mob-slider-item').length;
 
     $('.steps__mob-slider-arrow').click(function(){
+      $('.steps__mob-slider-arrow').removeClass('steps__mob-slider-arrow-blocked');
       if($(this).hasClass('steps__mob-slider-arrow_next')) {
         currentSlide++;
         if (currentSlide > slideAmount-1) {
           currentSlide = slideAmount-1;
+          $(this).addClass('steps__mob-slider-arrow-blocked');
         }
       } else {
         currentSlide--;
         if (currentSlide < 0) {
           currentSlide = 0;
+          $(this).addClass('steps__mob-slider-arrow-blocked');
         }
       }
       $('.steps__mob-wrapper').css('left', '-'+currentSlide*100+'%');

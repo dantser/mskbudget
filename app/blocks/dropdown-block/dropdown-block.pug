@@ -4,16 +4,7 @@ include ../../components/lk-services/lk-services
 
 mixin dropdown()
   .dropdown-block
-    .dropdown.dropdown_docs
-      .dropdown-trigger
-        .wrapper
-          span
-            strong Документы
-      .dropdown-content
-        .arr.ar-prev
-        .arr.ar-next
-        .wrapper
-          +doc-cards-dropdown(getData('doc-cards-dropdown'))
+    +doc-cards-dropdown(getData('doc-cards-dropdown'))
     .dropdown.dropdown_news
       .dropdown-trigger
         .wrapper
