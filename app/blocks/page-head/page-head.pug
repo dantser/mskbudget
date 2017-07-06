@@ -1,8 +1,8 @@
 //- заголовок страницы с крошками
 mixin page-head(title, breadcrumbs)
 	+b.page-head&attributes(attributes)
-		+e.P.breadcrumbs.load-anim-fade(data-delay="1300")
+		+e.P.breadcrumbs.load-anim-fade(data-delay="500")
 			if breadcrumbs
 				each item in breadcrumbs
 					+e.A(href='#').category= item
-		+e.H1.title.load-anim-fade(data-delay="1300")= title
+		+e.H1.title.load-anim-fade(data-delay="700")= title
