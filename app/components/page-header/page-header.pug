@@ -14,14 +14,14 @@ mixin page-header(title, breadcrumbs, isDownloadable)
   +b.page-header&attributes(attributes)
     +page-head(title, breadcrumbs)
     .d-si__head_icons
-      +favor().icons-item.load-anim-fade(data-delay="1800")
+      +favor().icons-item.load-anim-fade(data-delay="900")
       .d-si__icons_item
-        +icon('icon-rss').share.load-anim-fade(data-delay="2100")
+        +icon('icon-rss').share.load-anim-fade(data-delay="1100")
         .share__panel.share
           a(href="#" title="facebook").share__a.share__a_fb
           a(href="#" title="ВКонтакте").share__a.share__a_vk
           a(href="#" title="Twitter").share__a.share__a_tw
           a(href="#" title="Одноклассники").share__a.share__a_ok
       if (isDownloadable)
-        a(href='#' title="Загрузить", data-delay="2400").d-si__icons_item.load-anim-fade
+        a(href='#' title="Загрузить", data-delay="1300").d-si__icons_item.load-anim-fade
           +icon('download').download
