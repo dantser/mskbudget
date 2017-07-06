@@ -11,7 +11,7 @@ mixin news-one()
         // page-header
         +page-header('Новости', true, true)
         
-        +e.FORM(action='', method='POST').form.form
+        +e.FORM(action='', method='POST', data-delay="1500").form.form.load-anim-fade
           .form__field.form__field_d3
             LABEL.form__label.form__label_w1 Другие новости
             .form__date-range(id='rid-0')
@@ -21,7 +21,7 @@ mixin news-one()
               SPAN.form__date-range-icon
           INPUT(type='submit', value='Искать').form__submit
                   
-      +e.content
+      +e.content.load-anim-fade(data-delay="1700")
         +e.H2.heading Расходы на ремонт домов престарелых и интернатов увеличились в 10 раз
         +e.P.date 06.10.2016
         +e.image-block
@@ -93,8 +93,8 @@ mixin news-one()
               i(aria-hidden='true').fa.fa-twitter
             a(href="#" title="ВКонтакте").d-sr__social_vk В
           
-      +e.H2.heading._white Читайте также
-      +e.card-wrapper
+      +e.H2.heading._white.load-anim-fade(data-delay="1900") Читайте также
+      +e.card-wrapper.load-anim-fade(data-delay="1900")
         .tile__item(data-filter="budget").active
           +news-card(1, 'Новости бюджета', 'Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»', '8 августа 2016')._blue._big.tile__inner
         .tile__item(data-filter="moscow").active

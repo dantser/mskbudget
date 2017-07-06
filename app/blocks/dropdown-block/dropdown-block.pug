@@ -3,7 +3,7 @@ include ../../blocks/news-card/news-card
 include ../../components/lk-services/lk-services
 
 mixin dropdown()
-  .dropdown-block
+  .dropdown-block&attributes(attributes)
     +doc-cards-dropdown(getData('doc-cards-dropdown'))
     .dropdown.dropdown_news
       .dropdown-trigger
