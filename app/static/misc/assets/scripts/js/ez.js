@@ -440,7 +440,16 @@ function tabsLine(){
 		responsiveClass:true,
 		center:false,
 		autoWidth:true,//разная ширина слайдов, ширину задавать на вложенный блок у слайда! + не указывать явно items:1,
-		startPosition:0,
+    startPosition:0,
+    // items: 4,
+    responsive: {
+      0: {
+        touchDrag:true
+      },
+      1025: {
+        touchDrag: false
+      }
+    },
 		dots:false,
 		mouseDrag:false,
 		touchDrag:false,

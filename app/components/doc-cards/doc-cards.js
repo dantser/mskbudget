@@ -2,10 +2,10 @@ import $ from 'jquery';
 import Swiper from 'swiper';
 
 export default () => {
-  const DIR = $('.doc-cards__card_dir').parents('.doc-cards__slide');
+  const DIR = $('.section-tabs__card_dir').parents('.owl-item');
   const TOP_BUTTON = $('.js-button-top');
-  const NAV = $('.doc-cards__nav');
-  const FAVOR = $('.doc-cards__is-added');
+  const NAV = $('.section-tabs__navigation');
+  const FAVOR = $('.section-tabs__is-added');
 
   DIR.each( function () { // eslint-disable-line
     const EL = $(this);
@@ -31,7 +31,7 @@ export default () => {
       EL.find('.favor').toggleClass('favor_added favor_stroke-color-blue');
     })
   })
-  
+
   $('.document__star').on('click', function(e){
     e.preventDefault();
     $(this).toggleClass('document__star_cur');

@@ -27,4 +27,17 @@ export default function aboutBudgetPreparation() {
   $(window).resize(function(){
     prepationTableResize();
   });
+
+  // переключение таба бюджет мск/федеральный
+  const TABLINK = $('.button-light');
+
+  TABLINK.each( function () {
+    const EL = $(this);
+    const ACTIVE_CLASS = 'button-light--fill';
+    EL.on('click', (e) => {
+      e.preventDefault();
+      TABLINK.removeClass(ACTIVE_CLASS);
+      EL.addClass(ACTIVE_CLASS);
+    })
+  })
 }
