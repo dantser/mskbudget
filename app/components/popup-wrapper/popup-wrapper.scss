@@ -24,30 +24,34 @@
   display: block; position: absolute; width: 20px; height: 20px; top: 0; right: -35px; background: url("../images/sprite.png") no-repeat -183px -90px;
 }
 
-.login-form_reg label {
-  display: inline-block;
+.login-form .error {
+  display: none; /*inline-block*/
   position: absolute;
   top: 54px;
-  right: 0;
+  right: -5%;
   max-width: 255px;
   padding: 18px 10px 10px 38px;
   border: 1px solid #c7c7c7;
   background: #fff;
   color: $color-black;
   z-index: 2;
-  
-  &:before {
-    content: '';
-    display: block;
+
+  &:before,
+  &:after {
+    content: ''; 
     position: absolute;
-    left: 10px;
+    left: 10px; 
     top: -20px;
     border: 10px solid transparent;
-    border-bottom: 10px solid #faab20;
+    border-bottom: 10px solid #c7c7c7;
+  }
+
+  &:after {
+    border-bottom: 10px solid #fff;
+    top: -19px; 
   }
     
-  &:after {
-    content: '';
+  & i {
     display: block;
     position: absolute;
     top: 12px;
