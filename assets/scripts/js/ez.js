@@ -440,13 +440,70 @@ function tabsLine(){
 		responsiveClass:true,
 		center:false,
 		autoWidth:true,//разная ширина слайдов, ширину задавать на вложенный блок у слайда! + не указывать явно items:1,
-		startPosition:0,
+    startPosition:0,
+    // items: 4,
+    responsive: {
+      0: {
+        touchDrag:true
+      },
+      1025: {
+        touchDrag: false
+      }
+    },
 		dots:false,
 		mouseDrag:false,
 		touchDrag:false,
 		autoplay:false,
 		smartSpeed:500
 	});
+
+  $('.owl-carousel.owl-carousel_news').owlCarousel({
+  loop:false,
+  margin:0,
+  nav:true,
+  responsiveClass:true,
+  center:false,
+  autoWidth:true,//разная ширина слайдов, ширину задавать на вложенный блок у слайда! + не указывать явно items:1,
+  startPosition:0,
+  // items: 4,
+  responsive: {
+    0: {
+      touchDrag:true
+    },
+    1025: {
+      touchDrag: false
+    }
+  },
+  dots:false,
+  mouseDrag:false,
+  touchDrag:false,
+  autoplay:false,
+  smartSpeed:500
+});
+
+$('.owl-carousel.owl-carousel_services').owlCarousel({
+loop:false,
+margin:0,
+nav:true,
+responsiveClass:true,
+center:false,
+autoWidth:true,//разная ширина слайдов, ширину задавать на вложенный блок у слайда! + не указывать явно items:1,
+startPosition:0,
+// items: 4,
+responsive: {
+  0: {
+    touchDrag:true
+  },
+  1025: {
+    touchDrag: false
+  }
+},
+dots:false,
+mouseDrag:false,
+touchDrag:false,
+autoplay:false,
+smartSpeed:500
+});
 
 	// var owl = $('.owl-carousel');
 
@@ -457,7 +514,7 @@ function tabsLine(){
 	});
 	$(document).on('click', '.btn-arrow--next', function(e){
 		$(this).parents('.section-tabs__nav').find('.owl-next').click();
-		return false
+    return false
 	});
 }
 
@@ -568,21 +625,26 @@ function stepsDetails(){
   });
 }
 
+
+
 function stageSlider() {
   $('.steps__mob-slider').each(function(){
     var currentSlide = 0,
         slideAmount = $(this).find('.steps__mob-slider-item').length;
 
     $('.steps__mob-slider-arrow').click(function(){
+      $('.steps__mob-slider-arrow').removeClass('steps__mob-slider-arrow-blocked');
       if($(this).hasClass('steps__mob-slider-arrow_next')) {
         currentSlide++;
         if (currentSlide > slideAmount-1) {
           currentSlide = slideAmount-1;
+          $(this).addClass('steps__mob-slider-arrow-blocked');
         }
       } else {
         currentSlide--;
         if (currentSlide < 0) {
           currentSlide = 0;
+          $(this).addClass('steps__mob-slider-arrow-blocked');
         }
       }
       $('.steps__mob-wrapper').css('left', '-'+currentSlide*100+'%');
