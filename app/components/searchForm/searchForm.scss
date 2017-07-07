@@ -29,6 +29,14 @@
     padding-bottom: 7px;
     letter-spacing: 0.3px;
 
+    &::-ms-clear {
+      display: none;
+      width: 0;
+      height: 0;
+      visibility: hidden;
+      position: absolute;
+    }
+
     @media (max-width: 1280px) {
       width: 100%;
       display: block;
@@ -113,6 +121,11 @@
     text-decoration-style: dashed;
     font-size: 14.1px;
     padding: 0 10px;
+    transition: all .25s ease-in-out;
+
+    &:hover {
+      opacity: .7;
+    }
   }
 
   .link_tags {

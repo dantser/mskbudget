@@ -17,7 +17,7 @@ export default () => {
     });
 
     $(document).on('click', function(e) {
-      if (!$(e.target).closest('.search__filter').length) {
+      if (!$(e.target).closest('.search__filter').length && $('.range-datepicker').is(':hidden')) {
         TABS_LINK.removeClass(ACTIVE_CLASS);
       }
       e.stopPropagation();
@@ -40,4 +40,11 @@ export default () => {
       EL.next(OPEN_GROUP).slideToggle();
     });
   });
+
+
+  //выделяем все чекбоксы в группе
+  $('input[name="all"]').on('change', function () {
+    $(this).parents('.extra-search__checkbox').find('.checkbox__control').prop('checked', this.checked);
+  });
+
 }
