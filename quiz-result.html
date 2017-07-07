@@ -797,14 +797,14 @@
                     <p class="popup-login__p">или</p>
                     <!-- TAB-->
                     <div class="tab__content tab__content_vis" id="tab1">
-                        <form class="login-form" action="l.php" method="POST">
+                        <form class="login-form" action="l.php" method="POST" novalidate="novalidate">
                             <div class="login-form__field">
-                                <div class="overlabel">e-mail</div>
-                                <input class="login-form__text" id="iemail2" type="email" />
+                                <label class="overlabel" for="i-email-2">e-mail</label>
+                                <input class="login-form__text" id="i-email-2" type="email" required="required" />
                             </div>
                             <div class="login-form__field mb-10">
-                                <div class="overlabel">пароль</div>
-                                <input class="login-form__text" id="ipassw" type="password" />
+                                <label class="overlabel" for="i-passw">пароль</label>
+                                <input class="login-form__text" id="i-passw" type="password" required="required" />
                             </div>
                             <div class="mb-15">
                                 <a class="open-popup login-form__a" href="#restore">Я забыл пароль</a>
@@ -814,18 +814,18 @@
                     </div>
                     <!-- TAB-->
                     <div class="tab__content" id="tab2">
-                        <form class="login-form login-form_reg mb-25" action="l.php" method="POST">
+                        <form class="login-form login-form_reg mb-25" action="l.php" method="POST" novalidate="novalidate">
                             <div class="login-form__field">
-                                <div class="overlabel">ФИО</div>
-                                <input class="login-form__text" id="i-fio-1" type="text" name="ifio1" />
+                                <label class="overlabel" for="i-fio-1">ФИО</label>
+                                <input class="login-form__text" id="i-fio-1" type="text" required="required" />
                             </div>
                             <div class="login-form__field">
-                                <div class="overlabel">e-mail</div>
-                                <input class="login-form__text" id="i-email-3" type="email" name="iemail3" />
+                                <label class="overlabel" for="i-email-3">e-mail</label>
+                                <input class="login-form__text" id="i-email-3" type="email" required="required" />
                             </div>
                             <div class="login-form__field">
-                                <div class="overlabel">пароль</div>
-                                <input class="login-form__text" id="i-passw-1" type="password" name="ipassw1" />
+                                <label class="overlabel" for="i-passw-1">пароль</label>
+                                <input class="login-form__text" id="i-passw-1" type="password" required="required" />
                             </div>
                             <input class="login-form__submit" type="submit" value="Зарегистрироваться" />
                         </form>
@@ -843,10 +843,10 @@
             <div class="popup-restore__wrap">
                 <p class="popup-restore__p">Пожалуйста, укажите Ваш адрес электронной почты.
                     <br> На него будет выслана ссылка для сброса пароля.</p>
-                <form class="login-form" action="r.php">
+                <form class="login-form" action="r.php" method="POST" novalidate="novalidate">
                     <div class="login-form__field mb-30">
                         <label class="overlabel" for="i-email-32">e-mail</label>
-                        <input class="login-form__text" id="i-email-32" type="email" />
+                        <input class="login-form__text" id="i-email-32" type="email" required="required" />
                     </div>
                     <input class="login-form__submit" type="submit" value="Отправить" />
                 </form>
