@@ -5,6 +5,144 @@
   }
 }
 
+.section-tabs {
+
+  .btn-arrow {
+    cursor: pointer;
+    box-shadow: -2px 0px 5px 0px rgba(0,0,0,0.39);
+
+    &.disabled {
+      opacity: .3;
+    }
+  }
+
+  .btn-arrow--prev {
+    box-shadow: 2px 0px 5px 0px rgba(0,0,0,0.39);
+  }
+
+  &_documents, &_news, &_services {
+    .owl-carousel {
+      max-width: 1100px !important;
+      margin: auto;
+    }
+
+    .section-tabs__nav-leftbtn, .section-tabs__nav-rightbtn {
+      float: none;
+      position: absolute;
+      top: 0;
+      bottom: 59px;
+      margin: auto !important;
+      z-index: 2;
+      width: 46px;
+      height: 46px;
+    }
+    .section-tabs__nav-leftbtn {
+      left: 0;
+    }
+    .section-tabs__nav-rightbtn {
+      right: 0;
+    }
+
+    .btn-arrow, .section-tabs__nav-rightbtn, .section-tabs__nav-leftbtn {
+      @media (max-width: 350px) {
+        width: 26px;
+      }
+    }
+    .section-tabs__nav-list {
+      padding: 0 52px;
+
+      @media (max-width: 630px) and (min-width: 351px) {
+        padding: 0 45px;
+      }
+
+      @media (max-width: 350px)  {
+        padding: 0 15px;
+      }
+    }
+
+    .section-tabs__nav-list:after, .section-tabs__nav-list:before {
+      @media (max-width: 350px) {
+        display: none;
+      }
+    }
+
+    @media screen and (max-width: 700px) {
+      .tile__item {
+        margin: 0;
+      }
+    }
+
+    @media screen and (max-width: 630px) {
+      .section-tabs__nav {
+        margin-top: 26px;
+        padding-bottom: 30px;
+      }
+      .tile__item {
+        // width: 250px !important;
+      }
+    }
+  }
+
+  &_documents {
+    .section-tabs__nav-list {
+      padding: 0 52px;
+    }
+  }
+
+  &_news {
+    .news {
+      min-height: 485px;
+      width: 344px;
+      position: relative;
+      margin: 0;
+      left: 0;
+      right: 0;
+      top: 0;
+
+      @media (max-height: 610px) and (max-width: 900px) {
+        max-width: inherit;
+      }
+
+      @media (max-width: 650px) {
+        max-width: none !important;
+      }
+
+      @media (max-width: 350px) {
+        width: 285px;
+      }
+    }
+    .section-tabs__nav {
+      margin-top: 0;
+    }
+
+    .tile__inner {
+      padding-bottom: 65px;
+
+      @media (max-width: 350px) {
+        margin: 0 5px !important;
+      }
+    }
+  }
+
+  &_services {
+
+    .section-tabs__nav {
+      margin-top: 0;
+    }
+    .section-tabs__nav-list {
+      @media (max-width: 350px)  {
+        padding: 0 8px;
+      }
+    }
+    .tile__inner {
+      margin: 0;
+
+      @media (max-width: 350px) {
+        margin: 0 13px !important;
+      }
+    }
+  }
+}
 .dropdown {
 
   &-content {

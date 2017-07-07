@@ -36,7 +36,6 @@ export default () => {
     const EL = $(this);
     const OPEN_GROUP = '.extra-search__checkbox-group';
     EL.on('click', (e) => {
-      console.log('1');
       e.preventDefault();
       EL.next(OPEN_GROUP).slideToggle();
     });

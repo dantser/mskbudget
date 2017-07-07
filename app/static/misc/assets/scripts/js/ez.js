@@ -457,6 +457,54 @@ function tabsLine(){
 		smartSpeed:500
 	});
 
+  $('.owl-carousel.owl-carousel_news').owlCarousel({
+  loop:false,
+  margin:0,
+  nav:true,
+  responsiveClass:true,
+  center:false,
+  autoWidth:true,//разная ширина слайдов, ширину задавать на вложенный блок у слайда! + не указывать явно items:1,
+  startPosition:0,
+  // items: 4,
+  responsive: {
+    0: {
+      touchDrag:true
+    },
+    1025: {
+      touchDrag: false
+    }
+  },
+  dots:false,
+  mouseDrag:false,
+  touchDrag:false,
+  autoplay:false,
+  smartSpeed:500
+});
+
+$('.owl-carousel.owl-carousel_services').owlCarousel({
+loop:false,
+margin:0,
+nav:true,
+responsiveClass:true,
+center:false,
+autoWidth:true,//разная ширина слайдов, ширину задавать на вложенный блок у слайда! + не указывать явно items:1,
+startPosition:0,
+// items: 4,
+responsive: {
+  0: {
+    touchDrag:true
+  },
+  1025: {
+    touchDrag: false
+  }
+},
+dots:false,
+mouseDrag:false,
+touchDrag:false,
+autoplay:false,
+smartSpeed:500
+});
+
 	// var owl = $('.owl-carousel');
 
 	$(document).on('click', '.btn-arrow--prev', function(e){
@@ -466,7 +514,7 @@ function tabsLine(){
 	});
 	$(document).on('click', '.btn-arrow--next', function(e){
 		$(this).parents('.section-tabs__nav').find('.owl-next').click();
-		return false
+    return false
 	});
 }
 
