@@ -7,3 +7,11 @@ mixin checkbox()
       +icon('icon-ok-ch').mark
     +e.text
       block
+        
+mixin checkbox-all()
+  +b.LABEL.checkbox&attributes(attributes)
+    +e.INPUT(type='checkbox', name='all').control
+    +e.box
+      +icon('icon-ok-ch').mark
+    +e.text
+      block

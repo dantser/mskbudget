@@ -61,58 +61,103 @@ mixin lk-services()
 
 
 mixin lk-services-dropdown()
-  +b.lk-services&attributes(attributes)
-    +e.widget-cards.swiper-wrapper
-      +widget-card().lk-services__widget-card.swiper-slide
-        +widget-card-head('Бюджетный калькулятор','Предложенные Вами варианты бюджета')
-        +widget-card-content()
-          +selectbox('select', getData('widget-card-selectbox')).widget-card__selectbox
-          +e.budget-stats
-            +e.budget-stat
-              +e.P.budget-stat-title доходы
-              +e.P.budget-stat-count._pos 1 579,0
-              +e.P.budget-stat-text млрд руб.
-            +e.budget-stat
-              +e.P.budget-stat-title расходы
-              +e.P.budget-stat-count._neg 1 588,0
-              +e.P.budget-stat-text млрд руб.
-          +e.budget-total
-            +e.SPAN.budget-total-title дефицит бюджета
-            +e.SPAN.budget-total-count._blue 9,0
-            +e.SPAN.budget-total-text млрд руб.
-          +e.budget-total
-            +e.SPAN.budget-total-title изменение государственного долга
-            +e.SPAN.budget-total-count 0,0
-            +e.SPAN.budget-total-text млн руб.
-        +widget-card-bottom-link()
-        
-      +widget-card().lk-services__widget-card.swiper-slide
-        +widget-card-head('обучающий сервис')
-        +widget-card-content()
-          +e.lessons
-            +passed-stages().widget-card__passed-stages
-              +e.round
-                canvas(width='78', height='78', default-fill='#413a62', stroke-width='7', sector-count='9', fill-sectors='0,2,3,5,8').sectored_round
-                +e.P.innertext Пройдено
-                  span 5 из 9
-                  | уроков
-          +e.lessons-text Урок 4: Что такое бюджет<br> и из чего он состоит?
-          +e.lessons-text._active Урок 5: Что такое доходы и&nbsp;откуда они поступают?
-          +e.lessons-text урок 6: Как формируется бюджет?
-        +widget-card-bottom-link()
-          
-      +widget-card().lk-services__widget-card.swiper-slide
-        +widget-card-head('Опрос общественного мнения')
-        +widget-card-content()
-          +widget-card-info-block('Вы можете пройти следующие опросы:', 'Как сделать портал еще удобнее?', 'до 30.01.2017')
-        +widget-card-content()
-          +widget-card-info-block('Вы приняли участие в опросах:', 'Как сделать портал еще интереснее?')
-        +widget-card-bottom-link()
-        
-      +widget-card().lk-services__widget-card.swiper-slide
-        +widget-card-head('Викторины')
-        +widget-card-content()
-          +widget-card-info-block('Вы можете пройти следующие викторины:', 'История бюджета города Москвы во второй половине XX...', 'до 30.01.2017')
-        +widget-card-content()
-          +widget-card-info-block('Вы приняли участие в викторинах:', 'История бюджета города Москвы во первой половине XX...')
-        +widget-card-bottom-link()
+  +b.section-tabs._services&attributes(attributes)
+    +e.head._closed
+      .wrapper
+        +b.UL.labels
+          +e.LI.item
+            +b.SPAN.label.js-label-button.js-label-button-closed
+              | Сервисы
+              +e.U.button.btn-close.js-section-tabs-hide
+    +e.nav
+      +e.nav-leftbtn
+        a.btn-arrow.btn-arrow--prev.disabled prev
+      +e.nav-rightbtn
+        a.btn-arrow.btn-arrow--next next
+      +e.nav-list
+        .owl-carousel.owl-loaded.owl-carousel_news
+          +e.owl-item
+            .tile__item
+              .tile__inner
+                +widget-card().lk-services__widget-card
+                  +widget-card-head('Бюджетный калькулятор','Предложенные Вами варианты бюджета')
+                  +widget-card-content()
+                    +selectbox('select', getData('widget-card-selectbox')).widget-card__selectbox
+                    +e.budget-stats
+                      +e.budget-stat
+                        +e.P.budget-stat-title доходы
+                        +e.P.budget-stat-count._pos 1 579,0
+                        +e.P.budget-stat-text млрд руб.
+                      +e.budget-stat
+                        +e.P.budget-stat-title расходы
+                        +e.P.budget-stat-count._neg 1 588,0
+                        +e.P.budget-stat-text млрд руб.
+                    +e.budget-total
+                      +e.SPAN.budget-total-title дефицит бюджета
+                      +e.SPAN.budget-total-count._blue 9,0
+                      +e.SPAN.budget-total-text млрд руб.
+                    +e.budget-total
+                      +e.SPAN.budget-total-title изменение государственного долга
+                      +e.SPAN.budget-total-count 0,0
+                      +e.SPAN.budget-total-text млн руб.
+                  +widget-card-bottom-link()
+                    +e.owl-item
+                      .tile__item
+                        .tile__inner
+                          +widget-card().lk-services__widget-card
+                            +widget-card-head('обучающий сервис')
+                            +widget-card-content()
+                              +e.lessons
+                                +passed-stages().widget-card__passed-stages
+                                  +e.round
+                                    canvas(width='78', height='78', default-fill='#413a62', stroke-width='7', sector-count='9', fill-sectors='0,2,3,5,8').sectored_round
+                                    +e.P.innertext Пройдено
+                                      span 5 из 9
+                                      | уроков
+                              +e.lessons-text Урок 4: Что такое бюджет<br> и из чего он состоит?
+                              +e.lessons-text._active Урок 5: Что такое доходы и&nbsp;откуда они поступают?
+                              +e.lessons-text урок 6: Как формируется бюджет?
+                            +widget-card-bottom-link()
+          +e.owl-item
+            .tile__item
+              .tile__inner
+                +widget-card().lk-services__widget-card
+                  +widget-card-head('Опрос общественного мнения')
+                  +widget-card-content()
+                    +widget-card-info-block('Вы можете пройти следующие опросы:', 'Как сделать портал еще удобнее?', 'до 30.01.2017')
+                  +widget-card-content()
+                    +widget-card-info-block('Вы приняли участие в опросах:', 'Как сделать портал еще интереснее?')
+                  +widget-card-bottom-link()
+          +e.owl-item
+            .tile__item
+              .tile__inner
+                +widget-card().lk-services__widget-card
+                  +widget-card-head('Викторины')
+                  +widget-card-content()
+                    +widget-card-info-block('Вы можете пройти следующие викторины:', 'История бюджета города Москвы во второй половине XX...', 'до 30.01.2017')
+                  +widget-card-content()
+                    +widget-card-info-block('Вы приняли участие в викторинах:', 'История бюджета города Москвы во первой половине XX...')
+                  +widget-card-bottom-link()
+          +e.owl-item
+            .tile__item
+              .tile__inner
+                +widget-card().lk-services__widget-card
+                  +widget-card-head('Викторины')
+                  +widget-card-content()
+                    +widget-card-info-block('Вы можете пройти следующие викторины:', 'История бюджета города Москвы во второй половине XX...', 'до 30.01.2017')
+                  +widget-card-content()
+                    +widget-card-info-block('Вы приняли участие в викторинах:', 'История бюджета города Москвы во первой половине XX...')
+                  +widget-card-bottom-link()
+          +e.owl-item
+            .tile__item
+              .tile__inner
+                +widget-card().lk-services__widget-card
+                  +widget-card-head('Викторины')
+                  +widget-card-content()
+                    +widget-card-info-block('Вы можете пройти следующие викторины:', 'История бюджета города Москвы во второй половине XX...', 'до 30.01.2017')
+                  +widget-card-content()
+                    +widget-card-info-block('Вы приняли участие в викторинах:', 'История бюджета города Москвы во первой половине XX...')
+                  +widget-card-bottom-link()
+    .owl-nav
+      p.owl-prev prev
+      p.owl-next next
