@@ -35,6 +35,7 @@ import docCards from '../components/doc-cards/doc-cards';
 import dropdown from '../blocks/dropdown-block/dropdown';
 import reset from '../components/reset/reset';
 import profile from '../components/profile/profile';
+import basic_budget_figures from '../components/basic_budget_figures/basic_budget_figures';
 
 $(() => {
 
@@ -83,4 +84,5 @@ $(() => {
   dropdown();
   reset();
   profile();
+  basic_budget_figures();
 });
