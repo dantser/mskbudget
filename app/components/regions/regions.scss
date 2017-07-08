@@ -2,6 +2,7 @@
   padding-top: 175px;
   background: url('../images/depfin-services-interview/content-bg.jpg') no-repeat;
   width: 100%;
+  position: relative;
 
   @media screen and (max-width: 1140px) {
     padding-top: 172px;
@@ -13,6 +14,29 @@
 
   @media screen and (max-width: 550px) {
     padding-top: 78px;
+  }
+  
+  &__ar-left,
+  &__ar-right {
+    display: none;
+    background: #fee300 url('../images/ar-left_2.svg') center center no-repeat;
+    background-size: 11px;
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    cursor: pointer;
+    transition: all .25s ease-in-out;
+    &:hover {
+      opacity: .7;
+    }
+  }
+  
+  &__ar-right {
+    left: auto;
+    right: 0;
+    transform: rotate(180deg);
   }
 
   .d-layer {

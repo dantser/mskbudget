@@ -2,8 +2,8 @@ include ../page-header/page-header
 
 mixin regions()
   .d-si-content._regions
-    .ar-left
-    .ar-right
+    .ar-left._regions__ar-left
+    .ar-right._regions__ar-right
     .d-layer
       .d-si__head
         +page-header('москва и субъекты рф', ['Сервисы'], true)
@@ -74,6 +74,11 @@ mixin regions()
                   .d-smr__chart-controls
                     a(href='#').sort_desc По убыванию
                     a(href='#').js-hide-col Скрыть колонку
+                .d-smr__chart-col(data-char='revenue')
+                  span Объем доходов бюджета субъекта Российской Федерации в расчете на&nbsp;1&nbsp;жителя, тыс руб.
+                  .d-smr__chart-controls
+                    a(href='#').sort_desc По убыванию
+                    a(href='#').js-hide-col Скрыть колонку
               .d-smr__chart-row
                 p.d-smr__chart-col г. Санкт-Петербург
                 .d-smr__chart-col(data-char='revenue')
@@ -91,6 +96,11 @@ mixin regions()
                   span.graph
                     span.graph__bar(data-width='29%')
                     span.coef 1117
+                .d-smr__chart-col(data-char='revenue')
+                  span.nmb.one 1
+                  span.graph
+                    span.graph__bar(data-width='27%')
+                    span.coef 363,8
               .d-smr__chart-row
                 .d-smr__chart-col г. Москва
                 .d-smr__chart-col(data-char='revenue')
@@ -108,6 +118,11 @@ mixin regions()
                   span.graph
                     span.graph__bar(data-width='55%')
                     span.coef 1117
+                .d-smr__chart-col(data-char='revenue')
+                  span.nmb.one 1
+                  span.graph
+                    span.graph__bar(data-width='18%')
+                    span.coef 363,8
               .d-smr__chart-row
                 .d-smr__chart-col Ярославская область
                 .d-smr__chart-col(data-char='revenue')
@@ -125,6 +140,11 @@ mixin regions()
                   span.graph
                     span.graph__bar(data-width='63%')
                     span.coef 1117
+                .d-smr__chart-col(data-char='revenue')
+                  span.nmb.one 1
+                  span.graph
+                    span.graph__bar(data-width='34%')
+                    span.coef 363,8
               .d-smr__chart-row
                 .d-smr__chart-col Ямало-Ненецкий АО
                 .d-smr__chart-col(data-char='revenue')
@@ -142,6 +162,11 @@ mixin regions()
                   span.graph
                     span.graph__bar(data-width='35%')
                     span.coef 1117
+                .d-smr__chart-col(data-char='revenue')
+                  span.nmb.one 1
+                  span.graph
+                    span.graph__bar(data-width='81%')
+                    span.coef 363,8
               .d-smr__chart-row
                 p.d-smr__chart-col Южный ФО
                 .d-smr__chart-col(data-char='revenue')
@@ -159,6 +184,11 @@ mixin regions()
                   span.graph
                     span.graph__bar(data-width='99%')
                     span.coef 1117
+                .d-smr__chart-col(data-char='revenue')
+                  span.nmb.one 1
+                  span.graph
+                    span.graph__bar(data-width='100%')
+                    span.coef 363,8
               .d-smr__chart-row
                 p.d-smr__chart-col Ямало-Ненецкий АО
                 .d-smr__chart-col(data-char='revenue')
@@ -176,6 +206,11 @@ mixin regions()
                   span.graph
                     span.graph__bar(data-width='35%')
                     span.coef 1117
+                .d-smr__chart-col(data-char='revenue')
+                  span.nmb.one 1
+                  span.graph
+                    span.graph__bar(data-width='81%')
+                    span.coef 363,8
               .d-smr__chart-row
                 p.d-smr__chart-col Чукотский АО
                 .d-smr__chart-col(data-char='revenue')
@@ -193,6 +228,11 @@ mixin regions()
                   span.graph
                     span.graph__bar(data-width='25.5%')
                     span.coef 1117
+                .d-smr__chart-col(data-char='revenue')
+                  span.nmb.one 1
+                  span.graph
+                    span.graph__bar(data-width='13%')
+                    span.coef 363,8
               .d-smr__chart-row
                 p.d-smr__chart-col Чувашская республика
                 .d-smr__chart-col(data-char='revenue')
@@ -210,6 +250,11 @@ mixin regions()
                   span.graph
                     span.graph__bar(data-width='37%')
                     span.coef 1117
+                .d-smr__chart-col(data-char='revenue')
+                  span.nmb.one 1
+                  span.graph
+                    span.graph__bar(data-width='42%')
+                    span.coef 363,8
               .d-smr__chart-row
                 p.d-smr__chart-col Чеченская республика
                 .d-smr__chart-col(data-char='revenue')
@@ -227,6 +272,11 @@ mixin regions()
                   span.graph
                     span.graph__bar(data-width='28%')
                     span.coef 1117
+                .d-smr__chart-col(data-char='revenue')
+                  span.nmb.one 1
+                  span.graph
+                    span.graph__bar(data-width='68%')
+                    span.coef 363,8
               .d-smr__chart-row
                 p.d-smr__chart-col Центральный ФО
                 .d-smr__chart-col(data-char='revenue')
@@ -244,6 +294,11 @@ mixin regions()
                   span.graph
                     span.graph__bar(data-width='45%')
                     span.coef 1117
+                .d-smr__chart-col(data-char='revenue')
+                  span.nmb.many 18
+                  span.graph
+                    span.graph__bar(data-width='74%')
+                    span.coef 363,8
               .d-smr__chart-row
                 p.d-smr__chart-col Ханты-Мансийский АО
                 .d-smr__chart-col(data-char='revenue')
@@ -261,3 +316,8 @@ mixin regions()
                   span.graph
                     span.graph__bar(data-width='46%')
                     span.coef 1117
+                .d-smr__chart-col(data-char='revenue')
+                  span.nmb.one 1
+                  span.graph
+                    span.graph__bar(data-width='15%')
+                    span.coef 363,8
