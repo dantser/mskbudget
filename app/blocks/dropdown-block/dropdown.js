@@ -3,29 +3,29 @@ import $ from 'jquery';
 
 export default () => {
 
-  $('.btn-arrow--prev').each(function() {
-    const EL = $(this);
-    EL.on('click', () => {
-      EL.parents('.section-tabs').find('.btn-arrow--next').removeClass('disabled');
-      if(EL.parents('.section-tabs').find('.owl-prev').hasClass('disabled')) {
-        $(this).addClass('disabled');
-      } else {
-        $(this).removeClass('disabled');
-      }
-    })
-  });
-
-  $('.btn-arrow--next').each(function() {
-    const EL = $(this);
-    EL.on('click', () => {
-      EL.parents('.section-tabs').find('.btn-arrow--prev').removeClass('disabled');
-      if(EL.parents('.section-tabs').find('.owl-next').hasClass('disabled')) {
-        $(this).addClass('disabled');
-      } else {
-        $(this).removeClass('disabled');
-      }
-    })
-  });
+  // $('.btn-arrow--prev').each(function() {
+  //   const EL = $(this);
+  //   EL.on('click', () => {
+  //     EL.parents('.section-tabs').find('.btn-arrow--next').removeClass('disabled');
+  //     if(EL.parents('.section-tabs').find('.owl-prev').hasClass('disabled')) {
+  //       $(this).addClass('disabled');
+  //     } else {
+  //       $(this).removeClass('disabled');
+  //     }
+  //   })
+  // });
+  //
+  // $('.btn-arrow--next').each(function() {
+  //   const EL = $(this);
+  //   EL.on('click', () => {
+  //     EL.parents('.section-tabs').find('.btn-arrow--prev').removeClass('disabled');
+  //     if(EL.parents('.section-tabs').find('.owl-next').hasClass('disabled')) {
+  //       $(this).addClass('disabled');
+  //     } else {
+  //       $(this).removeClass('disabled');
+  //     }
+  //   })
+  // });
 
   // const docSlider = new Swiper('.docs-container', {
   //       spaceBetween: 10,

@@ -14,10 +14,6 @@ mixin dropdown()
                 | Новости
                 +e.U.button.btn-close.js-section-tabs-hide
       +e.nav
-        +e.nav-leftbtn
-          a.btn-arrow.btn-arrow--prev.disabled prev
-        +e.nav-rightbtn
-          a.btn-arrow.btn-arrow--next next
         +e.nav-list
           .owl-carousel.owl-loaded.owl-carousel_news
             +e.owl-item
@@ -44,8 +40,5 @@ mixin dropdown()
               .tile__item
                 .tile__inner
                   +news-card(3, 'Федеральные новости', 'Итоги исполнения бюджета города Москвы за первое полугодие 2016 года', '1 августа 2016')._green._big
-      .owl-nav
-        p.owl-prev prev
-        p.owl-next next
-      .owl-dots
+
     +lk-services-dropdown()

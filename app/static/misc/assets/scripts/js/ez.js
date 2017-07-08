@@ -407,6 +407,7 @@ function tabsLine(){
 	$('.js-label-button').click(function(){
       var sectionTabs = $(this).parents('.section-tabs');
       sectionTabs.find($('.section-tabs__nav')).slideToggle();
+      sectionTabs.find($('.owl-nav')).slideToggle();
       sectionTabs.find($('.section-tabs__content')).slideToggle();
       $(this).toggleClass('js-label-button-closed');
       sectionTabs.toggleClass('active');
@@ -439,15 +440,25 @@ function tabsLine(){
 		nav:true,
 		responsiveClass:true,
 		center:false,
-		autoWidth:true,//разная ширина слайдов, ширину задавать на вложенный блок у слайда! + не указывать явно items:1,
+		// autoWidth:true,//разная ширина слайдов, ширину задавать на вложенный блок у слайда! + не указывать явно items:1,
     startPosition:0,
-    // items: 4,
+    items: 4,
     responsive: {
       0: {
-        touchDrag:true
+        touchDrag:true,
+        items: 1
       },
-      1025: {
-        touchDrag: false
+      650: {
+        touchDrag: true,
+        items: 2
+      },
+      970: {
+        touchDrag: true,
+        items: 3
+      },
+      1280: {
+        touchDrag: false,
+        items: 4
       }
     },
 		dots:false,
@@ -463,15 +474,24 @@ function tabsLine(){
   nav:true,
   responsiveClass:true,
   center:false,
-  autoWidth:true,//разная ширина слайдов, ширину задавать на вложенный блок у слайда! + не указывать явно items:1,
+  // autoWidth:true,//разная ширина слайдов, ширину задавать на вложенный блок у слайда! + не указывать явно items:1,
   startPosition:0,
-  // items: 4,
+  items: 3,
   responsive: {
     0: {
-      touchDrag:true
+      touchDrag:true,
+      items: 1
     },
-    1025: {
-      touchDrag: false
+    900: {
+      touchDrag: true,
+      items: 2
+    },
+    1024: {
+      touchDrag: true
+    },
+    1280: {
+      touchDrag: false,
+      items: 3
     }
   },
   dots:false,
@@ -482,40 +502,50 @@ function tabsLine(){
 });
 
 $('.owl-carousel.owl-carousel_services').owlCarousel({
-loop:false,
-margin:0,
-nav:true,
-responsiveClass:true,
-center:false,
-autoWidth:true,//разная ширина слайдов, ширину задавать на вложенный блок у слайда! + не указывать явно items:1,
-startPosition:0,
-// items: 4,
-responsive: {
-  0: {
-    touchDrag:true
+  loop:false,
+  margin:0,
+  nav:true,
+  responsiveClass:true,
+  center:false,
+  // autoWidth:true,//разная ширина слайдов, ширину задавать на вложенный блок у слайда! + не указывать явно items:1,
+  startPosition:0,
+  items: 4,
+  responsive: {
+    0: {
+      touchDrag:true,
+      items: 1
+    },
+    650: {
+      touchDrag: true,
+      items: 2
+    },
+    970: {
+      touchDrag: true,
+      items: 3
+    },
+    1280: {
+      touchDrag: false,
+      items: 4
+    }
   },
-  1025: {
-    touchDrag: false
-  }
-},
-dots:false,
-mouseDrag:false,
-touchDrag:false,
-autoplay:false,
-smartSpeed:500
+  dots:false,
+  mouseDrag:false,
+  touchDrag:false,
+  autoplay:false,
+  smartSpeed:500
 });
 
 	// var owl = $('.owl-carousel');
-
-	$(document).on('click', '.btn-arrow--prev', function(e){
-		$(this).parents('.section-tabs__nav').find('.owl-prev').click();
-		// owl.trigger('refresh.owl.carousel');
-		return false
-	});
-	$(document).on('click', '.btn-arrow--next', function(e){
-		$(this).parents('.section-tabs__nav').find('.owl-next').click();
-    return false
-	});
+  //
+	// $(document).on('click', '.btn-arrow--prev', function(e){
+	// 	$(this).parents('.section-tabs__nav').find('.owl-prev').click();
+	// 	// owl.trigger('refresh.owl.carousel');
+	// 	return false
+	// });
+	// $(document).on('click', '.btn-arrow--next', function(e){
+	// 	$(this).parents('.section-tabs__nav').find('.owl-next').click();
+  //   return false
+	// });
 }
 
 //
