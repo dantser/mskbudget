@@ -811,7 +811,9 @@ function basicBudgetFiguresDiagrams () {
 
     $(".analityc-control-group._stage .analityc-select").on("change", function () {
       if ($(this).parents('.analityc-widget_figures')) {
-        var $this = $(this);
+        var $this = $(this),
+            dp = $(".analityc-control-group._dp"),
+            dp_alt = $(".analityc-control-group._dp-alt");
 
         $(".analityc-widget-rounds").removeClass("_active");
         if ($this.val() === "Закон о бюджете первоначальный") {
@@ -825,17 +827,17 @@ function basicBudgetFiguresDiagrams () {
     		}
 
     		if ($this.val() ===  "Исполнение на дату") {
-          $(".analityc-control-group._dp").show();
+          dp.show();
           $(".analityc-control-group._percent").hide();
 
           if ($(".analityc-control-group._level .analityc-select").val() ===  "Консолидированный бюджет") {
-            $(".analityc-control-group._dp").hide();
-            $(".analityc-control-group._dp-alt").show();
+            dp.hide();
+            dp_alt.show();
       		}
     		}
         else {
-          $(".analityc-control-group._dp").hide();
-          $(".analityc-control-group._dp-alt").hide();
+          dp.hide();
+          dp_alt.hide();
           $(".analityc-control-group._percent").show();
     		}
       }
@@ -843,13 +845,22 @@ function basicBudgetFiguresDiagrams () {
 
   $(".analityc-control-group._level .analityc-select").on("change", function () {
     if ($(this).parents('.analityc-widget_figures')) {
-      var $this = $(this);
-      if ($this.val() ===  "Консолидированный бюджет" && $(".analityc-control-group._stage .analityc-select").val() ===  "Исполнение на дату") {
-        $(".analityc-control-group._dp").hide();
-        $(".analityc-control-group._dp-alt").show();
+      var $this = $(this),
+          dp = $(".analityc-control-group._dp"),
+          dp_alt = $(".analityc-control-group._dp-alt");
+
+      if ($(".analityc-control-group._stage .analityc-select").val() ===  "Исполнение на дату") {
+        dp.show();
+        dp_alt.hide();
         $(".analityc-control-group._percent").hide();
+
+        if ($this.val() ===  "Консолидированный бюджет") {
+          dp_alt.show();
+          dp.hide();
+        }
       } else {
-        $(".analityc-control-group._dp-alt").hide();
+        dp_alt.hide();
+        dp.hide();
       }
     }
   });
