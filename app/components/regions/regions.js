@@ -47,5 +47,13 @@ export default () => {
     const checkBoxes = $("input[name=a\\[\\]]");
     checkBoxes.prop("checked", !checkBoxes.prop("checked"));
   })
+  
+  $(document).ready(function(){
+    var chartWidth = $('.d-smr__chart').outerWidth();
+    var chartWrapperWidth = $('.d-smr__chart-wrapper').outerWidth();
+    if (chartWidth > chartWrapperWidth) {
+      $('._regions__ar-right').show();
+    }
+  });
 
 };
