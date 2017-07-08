@@ -407,6 +407,7 @@ function tabsLine(){
 	$('.js-label-button').click(function(){
       var sectionTabs = $(this).parents('.section-tabs');
       sectionTabs.find($('.section-tabs__nav')).slideToggle();
+      sectionTabs.find($('.owl-nav')).slideToggle();
       sectionTabs.find($('.section-tabs__content')).slideToggle();
       $(this).toggleClass('js-label-button-closed');
       sectionTabs.toggleClass('active');
@@ -439,15 +440,25 @@ function tabsLine(){
 		nav:true,
 		responsiveClass:true,
 		center:false,
-		autoWidth:true,//разная ширина слайдов, ширину задавать на вложенный блок у слайда! + не указывать явно items:1,
+		// autoWidth:true,//разная ширина слайдов, ширину задавать на вложенный блок у слайда! + не указывать явно items:1,
     startPosition:0,
-    // items: 4,
+    items: 4,
     responsive: {
       0: {
-        touchDrag:true
+        touchDrag:true,
+        items: 1
       },
-      1025: {
-        touchDrag: false
+      650: {
+        touchDrag: true,
+        items: 2
+      },
+      970: {
+        touchDrag: true,
+        items: 3
+      },
+      1280: {
+        touchDrag: false,
+        items: 4
       }
     },
 		dots:false,
@@ -463,15 +474,25 @@ function tabsLine(){
   nav:true,
   responsiveClass:true,
   center:false,
-  autoWidth:true,//разная ширина слайдов, ширину задавать на вложенный блок у слайда! + не указывать явно items:1,
+  // autoWidth:true,//разная ширина слайдов, ширину задавать на вложенный блок у слайда! + не указывать явно items:1,
   startPosition:0,
-  // items: 4,
+  items: 3,
   responsive: {
     0: {
-      touchDrag:true
+      touchDrag:true,
+      items: 1
     },
-    1025: {
-      touchDrag: false
+    900: {
+      touchDrag: true,
+      items: 2
+    },
+    1024: {
+      touchDrag: true,
+      items: 2
+    },
+    1280: {
+      touchDrag: false,
+      items: 3
     }
   },
   dots:false,
@@ -482,40 +503,50 @@ function tabsLine(){
 });
 
 $('.owl-carousel.owl-carousel_services').owlCarousel({
-loop:false,
-margin:0,
-nav:true,
-responsiveClass:true,
-center:false,
-autoWidth:true,//разная ширина слайдов, ширину задавать на вложенный блок у слайда! + не указывать явно items:1,
-startPosition:0,
-// items: 4,
-responsive: {
-  0: {
-    touchDrag:true
+  loop:false,
+  margin:0,
+  nav:true,
+  responsiveClass:true,
+  center:false,
+  // autoWidth:true,//разная ширина слайдов, ширину задавать на вложенный блок у слайда! + не указывать явно items:1,
+  startPosition:0,
+  items: 4,
+  responsive: {
+    0: {
+      touchDrag:true,
+      items: 1
+    },
+    650: {
+      touchDrag: true,
+      items: 2
+    },
+    970: {
+      touchDrag: true,
+      items: 3
+    },
+    1280: {
+      touchDrag: false,
+      items: 4
+    }
   },
-  1025: {
-    touchDrag: false
-  }
-},
-dots:false,
-mouseDrag:false,
-touchDrag:false,
-autoplay:false,
-smartSpeed:500
+  dots:false,
+  mouseDrag:false,
+  touchDrag:false,
+  autoplay:false,
+  smartSpeed:500
 });
 
 	// var owl = $('.owl-carousel');
-
-	$(document).on('click', '.btn-arrow--prev', function(e){
-		$(this).parents('.section-tabs__nav').find('.owl-prev').click();
-		// owl.trigger('refresh.owl.carousel');
-		return false
-	});
-	$(document).on('click', '.btn-arrow--next', function(e){
-		$(this).parents('.section-tabs__nav').find('.owl-next').click();
-    return false
-	});
+  //
+	// $(document).on('click', '.btn-arrow--prev', function(e){
+	// 	$(this).parents('.section-tabs__nav').find('.owl-prev').click();
+	// 	// owl.trigger('refresh.owl.carousel');
+	// 	return false
+	// });
+	// $(document).on('click', '.btn-arrow--next', function(e){
+	// 	$(this).parents('.section-tabs__nav').find('.owl-next').click();
+  //   return false
+	// });
 }
 
 //
@@ -732,6 +763,30 @@ function basicBudgetFiguresDiagrams () {
         maxValue: 2050
     }).animate();
 
+    diagram( '#diagram-01', {
+        stroke: 30,
+        kind: 'triple',
+        data: [ 1446.2, 1598.9],
+        animate: true,
+        maxValue: 2050
+    }).animate();
+
+    diagram( '#diagram-02', {
+        stroke: 30,
+        kind: 'triple',
+        data: [ 1446.2, 1598.9],
+        animate: true,
+        maxValue: 2050
+    }).animate();
+
+    diagram('#diagram-03', {
+        stroke: 30,
+        kind: 'triple',
+        data: [ 1446.2, 1598.9],
+        animate: true,
+        maxValue: 2050
+    }).animate();
+
     var diagram_4 = diagram('#diagram-4', {
         viewBox: 390,
         stroke: 60,
@@ -759,24 +814,45 @@ function basicBudgetFiguresDiagrams () {
         var $this = $(this);
 
         $(".analityc-widget-rounds").removeClass("_active");
-        if ($this.val() === "Закон об исполнении") {
+        if ($this.val() === "Закон о бюджете первоначальный") {
             $(".analityc-widget-rounds:eq(0)").addClass("_active");
-		} else {
-            $(".analityc-widget-rounds:eq(1)").addClass("_active");
-            diagram_4.animate();
-            diagram_5.animate();
-		}
-		if ($this.val() === "Заключительный этап" || $this.val() ===  "Исполнение на дату") {
-            $(".analityc-control-group._dp").show();
-            $(".analityc-control-group._percent").hide();
+    		} else if ($this.val() === "Закон о внесении изменений") {
+            $(".analityc-widget-rounds:eq(2)").addClass("_active");
+    		} else {
+          $(".analityc-widget-rounds:eq(1)").addClass("_active");
+          diagram_4.animate();
+          diagram_5.animate();
+    		}
 
-		}
-    else {
+    		if ($this.val() ===  "Исполнение на дату") {
+          $(".analityc-control-group._dp").show();
+          $(".analityc-control-group._percent").hide();
+
+          if ($(".analityc-control-group._level .analityc-select").val() ===  "Консолидированный бюджет") {
             $(".analityc-control-group._dp").hide();
-            $(".analityc-control-group._percent").show();
-		}
+            $(".analityc-control-group._dp-alt").show();
+      		}
+    		}
+        else {
+          $(".analityc-control-group._dp").hide();
+          $(".analityc-control-group._dp-alt").hide();
+          $(".analityc-control-group._percent").show();
+    		}
       }
 	});
+
+  $(".analityc-control-group._level .analityc-select").on("change", function () {
+    if ($(this).parents('.analityc-widget_figures')) {
+      var $this = $(this);
+      if ($this.val() ===  "Консолидированный бюджет" && $(".analityc-control-group._stage .analityc-select").val() ===  "Исполнение на дату") {
+        $(".analityc-control-group._dp").hide();
+        $(".analityc-control-group._dp-alt").show();
+        $(".analityc-control-group._percent").hide();
+      } else {
+        $(".analityc-control-group._dp-alt").hide();
+      }
+    }
+  });
 
   $(".analityc-control-button").on("click", function(e) {
     if (!$(this).parents('.analityc-widget__income') && !$(this).parents('.analityc-widget__expenses') && !$(this).parents('.analityc-widget_sources') && !$(this).parents('.analityc-widget_moscow-gov-program')) {
