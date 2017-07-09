@@ -21,7 +21,7 @@ mixin depfin_about_budget_preparation()
             +e.item
               a(href="#", data-tab-target="fedbud").button-light Федеральный бюджет
   // d-abs-content
-  +tabs.load-anim-fade(data-delay="1700")
+  +tabs
     +tabs-tab(data-tab-group="budgetPrep", data-tab="mskbudget").active
       +b.graphic-table
         +e.frame
@@ -469,7 +469,7 @@ mixin depfin_about_budget_preparation()
         +steps-details()
             
       // steps
-      +b.section-tabs
+      +b.section-tabs.section-tabs_members
         +e.head._closed
           .wrap
             +b.UL.labels
@@ -478,10 +478,6 @@ mixin depfin_about_budget_preparation()
                   | Участники процесса подготовки бюджета
                   +e.U.button.btn-close.js-section-tabs-hide
         +e.nav
-          +e.nav-leftbtn
-            a.btn-arrow.btn-arrow--prev prev
-          +e.nav-rightbtn
-            a.btn-arrow.btn-arrow--next next
           +e.nav-list
             .owl-carousel.owl-loaded.sections
               .owl-item
@@ -529,10 +525,6 @@ mixin depfin_about_budget_preparation()
               .owl-item
                 +e.nav-item
                   +e.A(href="#", data-section-tab-for="section-tab_03").nav-btn Правительство
-            .owl-nav
-              p.owl-prev prev
-              p.owl-next next
-            .owl-dots
           // section-tabs__nav-list
         // section-tabs__nav
         +e.content
