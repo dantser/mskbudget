@@ -59,6 +59,18 @@ $hamburger-hover-filter    : opacity(50%) !default;
   border-bottom: 1px solid rgba(white, 0.1);
   @include transited('all linear 500ms');
 
+  @media (min-width: $navBreakpointDesktop) {
+    height: $navHeightDesktop;
+  }
+
+  @media (max-width: $navBreakpointTablet) {
+    height: $navHeightTablet;
+  }
+
+  @media (max-width: $navBreakpointMobile) {
+    height: $navHeightMobile !important;
+  }
+
   &__wrap {
     position: relative;
     margin: 0 30px;
@@ -474,16 +486,13 @@ $hamburger-hover-filter    : opacity(50%) !default;
   .header_short .header__logged {
     top: 25px;
   }
-  
+
   .header_short .header__logo {
     z-index: 2;
   }
 }
 
 @media (max-width: 950px) {
-  .header {
-    height: 175px;
-  }
   .header_short {
     height: 105px;
   }
@@ -561,9 +570,7 @@ $hamburger-hover-filter    : opacity(50%) !default;
 
 @media (max-width: 800px) {
 
-  .header {
-    height: 67px !important;
-  }
+
 
   .header__open-menu {
     display: block;
