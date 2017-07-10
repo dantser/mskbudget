@@ -191,6 +191,26 @@
     display:inline-block;
     vertical-align:top;
     padding:0 2px;
+    position: relative;
+    &.current {
+      color: #eb602e;
+      .month-line {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        margin: 5px auto 0;
+        width: 3px;
+        background-color: #eb602e;
+        
+        @media screen and (min-width: 631px) and (max-width: 800px) {
+          margin-top: 21px;
+        }
+        @media screen and (max-width: 630px) {
+          margin-top: 7px;
+        }
+      }
+    }
 }
 .graphic-table__title-wrap{
     height:100%;

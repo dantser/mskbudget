@@ -27,6 +27,20 @@ export default function aboutBudgetPreparation() {
   $(window).resize(function(){
     prepationTableResize();
   });
+  
+  // выделение текущего месяца
+  $(document).ready(function(){
+    if ($('.graphic-table').length) {
+      var budgetDate = new Date();
+      var budgetYear = budgetDate.getFullYear();
+      var budgetMonth = budgetDate.getMonth();
+      var tableHeight = $('.graphic-table__table tbody').outerHeight();
+      var currentMonth = $('.graphic-table__table-th[data-year="'+budgetYear+'"]').find('.graphic-table__month').eq(budgetMonth);
+      currentMonth.addClass('current');
+      currentMonth.append('<span class="month-line"></span>');
+      currentMonth.find('.month-line').height(tableHeight);
+    }
+  });
 
   // переключение таба бюджет мск/федеральный
   const TABLINK = $('.button-light');
