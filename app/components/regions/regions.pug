@@ -1,7 +1,10 @@
 include ../page-header/page-header
+include ../../blocks/chart/chart
 
 mixin regions()
   .d-si-content._regions
+    .arrow-hide.arrow-hide_left
+    .arrow-hide.arrow-hide_right
     .ar-left._regions__ar-left
     .ar-right._regions__ar-right
     .d-layer
@@ -13,7 +16,7 @@ mixin regions()
           .d-smr__stat_head
             .d-smr__stat_head_left
               span.d-smr__form-label Год
-              select(name='d-si-select')#d-si-select
+              select(name='d-si-select', data-smart-positioning="false")#d-si-select
                 option(value='1') 2015
                 option(value='2') 2016
                 option(value='3', selected) 2017
@@ -24,7 +27,7 @@ mixin regions()
                 .d-smr__add-char-block
                   ul.d-smr__add-char-list.scroll-pane
                     li.d-smr__add-char-item
-                      input(type='checkbox', name='a', value)#a
+                      input(type='checkbox', name='a', value='a')#a
                       label(for='a') Доходы
                       ul.d-smr__char-sublist
                         li.d-smr__add-char-item
@@ -43,7 +46,7 @@ mixin regions()
                           input(type='checkbox', name='ae', value='ae')#ae
                           label(for='ae') Безвозмездные поступления
                     li.d-smr__add-char-item
-                      input(type='checkbox', name='b', value)#b
+                      input(type='checkbox', name='b', value='b')#b
                       label(for='b') Расходы
                       ul.d-smr__char-sublist
                         li.d-smr__add-char-item
@@ -55,269 +58,463 @@ mixin regions()
                         li.d-smr__add-char-item
                           input(type='checkbox', name='bc', value='bc')#bc
                           label(for='bc') Общегосударственные вопросы
-          .d-smr__chart-wrapper
-            .d-smr__chart
-              .d-smr__chart-header.d-smr__chart-row
-                p.d-smr__chart-col Субъект Российской Федерации
-                .d-smr__chart-col(data-char='revenue')
-                  span Объем доходов бюджета субъекта Российской Федерации в расчете на&nbsp;1&nbsp;жителя, тыс руб.
-                  .d-smr__chart-controls
-                    a(href='#').sort_desc По убыванию
-                    a(href='#').js-hide-col Скрыть колонку
-                .d-smr__chart-col(data-char='expense')
-                  span Объем расходов бюджета субъекта Российской Федерации в расчете на&nbsp;1&nbsp;жителя, тыс руб.
-                  .d-smr__chart-controls
-                    a(href='#').sort_desc По убыванию
-                    a(href='#').js-hide-col Скрыть колонку
-                .d-smr__chart-col(data-char='death-rate')
-                  span Смертность населения (без показателя смертности от внешних причин (количество умерших на 100 тыс. человек)
-                  .d-smr__chart-controls
-                    a(href='#').sort_desc По убыванию
-                    a(href='#').js-hide-col Скрыть колонку
-                .d-smr__chart-col(data-char='revenue')
-                  span Объем доходов бюджета субъекта Российской Федерации в расчете на&nbsp;1&nbsp;жителя, тыс руб.
-                  .d-smr__chart-controls
-                    a(href='#').sort_desc По убыванию
-                    a(href='#').js-hide-col Скрыть колонку
-              .d-smr__chart-row
-                p.d-smr__chart-col г. Санкт-Петербург
-                .d-smr__chart-col(data-char='revenue')
-                  span.nmb.one 1
-                  span.graph
-                    span.graph__bar(data-width='27%')
-                    span.coef 363,8
-                .d-smr__chart-col(data-char='expense')
-                  span.nmb.two 2
-                  span.graph
-                    span.graph__bar(data-width='64%')
-                    span.coef 557
-                .d-smr__chart-col(data-char='death-rate')
-                  span.nmb.three 3
-                  span.graph
-                    span.graph__bar(data-width='29%')
-                    span.coef 1117
-                .d-smr__chart-col(data-char='revenue')
-                  span.nmb.one 1
-                  span.graph
-                    span.graph__bar(data-width='27%')
-                    span.coef 363,8
-              .d-smr__chart-row
-                .d-smr__chart-col г. Москва
-                .d-smr__chart-col(data-char='revenue')
-                  span.nmb.one 1
-                  span.graph
-                    span.graph__bar(data-width='18%')
-                    span.coef 363,8
-                .d-smr__chart-col(data-char='expense')
-                  span.nmb.two 2
-                  span.graph
-                    span.graph__bar(data-width='76%')
-                    span.coef 557
-                .d-smr__chart-col(data-char='death-rate')
-                  span.nmb.three 3
-                  span.graph
-                    span.graph__bar(data-width='55%')
-                    span.coef 1117
-                .d-smr__chart-col(data-char='revenue')
-                  span.nmb.one 1
-                  span.graph
-                    span.graph__bar(data-width='18%')
-                    span.coef 363,8
-              .d-smr__chart-row
-                .d-smr__chart-col Ярославская область
-                .d-smr__chart-col(data-char='revenue')
-                  span.nmb.one 1
-                  span.graph
-                    span.graph__bar(data-width='34%')
-                    span.coef 363,8
-                .d-smr__chart-col(data-char='expense')
-                  span.nmb.two 2
-                  span.graph
-                    span.graph__bar(data-width='78%')
-                    span.coef 557
-                .d-smr__chart-col(data-char='death-rate')
-                  span.nmb.three 3
-                  span.graph
-                    span.graph__bar(data-width='63%')
-                    span.coef 1117
-                .d-smr__chart-col(data-char='revenue')
-                  span.nmb.one 1
-                  span.graph
-                    span.graph__bar(data-width='34%')
-                    span.coef 363,8
-              .d-smr__chart-row
-                .d-smr__chart-col Ямало-Ненецкий АО
-                .d-smr__chart-col(data-char='revenue')
-                  span.nmb.one 1
-                  span.graph
-                    span.graph__bar(data-width='81%')
-                    span.coef 363,8
-                .d-smr__chart-col(data-char='expense')
-                  span.nmb.two 2
-                  span.graph
-                    span.graph__bar(data-width='5%')
-                    span.coef 557
-                .d-smr__chart-col(data-char='death-rate')
-                  span.nmb.three 3
-                  span.graph
-                    span.graph__bar(data-width='35%')
-                    span.coef 1117
-                .d-smr__chart-col(data-char='revenue')
-                  span.nmb.one 1
-                  span.graph
-                    span.graph__bar(data-width='81%')
-                    span.coef 363,8
-              .d-smr__chart-row
-                p.d-smr__chart-col Южный ФО
-                .d-smr__chart-col(data-char='revenue')
-                  span.nmb.one 1
-                  span.graph
-                    span.graph__bar(data-width='100%')
-                    span.coef 363,8
-                .d-smr__chart-col(data-char='expense')
-                  span.nmb.two 2
-                  span.graph
-                    span.graph__bar(data-width='54%')
-                    span.coef 557
-                .d-smr__chart-col(data-char='death-rate')
-                  span.nmb.three 3
-                  span.graph
-                    span.graph__bar(data-width='99%')
-                    span.coef 1117
-                .d-smr__chart-col(data-char='revenue')
-                  span.nmb.one 1
-                  span.graph
-                    span.graph__bar(data-width='100%')
-                    span.coef 363,8
-              .d-smr__chart-row
-                p.d-smr__chart-col Ямало-Ненецкий АО
-                .d-smr__chart-col(data-char='revenue')
-                  span.nmb.one 1
-                  span.graph
-                    span.graph__bar(data-width='81%')
-                    span.coef 363,8
-                .d-smr__chart-col(data-char='expense')
-                  span.nmb.two 2
-                  span.graph
-                    span.graph__bar(data-width='5%')
-                    span.coef 557
-                .d-smr__chart-col(data-char='death-rate')
-                  span.nmb.three 3
-                  span.graph
-                    span.graph__bar(data-width='35%')
-                    span.coef 1117
-                .d-smr__chart-col(data-char='revenue')
-                  span.nmb.one 1
-                  span.graph
-                    span.graph__bar(data-width='81%')
-                    span.coef 363,8
-              .d-smr__chart-row
-                p.d-smr__chart-col Чукотский АО
-                .d-smr__chart-col(data-char='revenue')
-                  span.nmb.one 1
-                  span.graph
-                    span.graph__bar(data-width='13%')
-                    span.coef 363,8
-                .d-smr__chart-col(data-char='expense')
-                  span.nmb.two 2
-                  span.graph
-                    span.graph__bar(data-width='69%')
-                    span.coef 557
-                .d-smr__chart-col(data-char='death-rate')
-                  span.nmb.three 3
-                  span.graph
-                    span.graph__bar(data-width='25.5%')
-                    span.coef 1117
-                .d-smr__chart-col(data-char='revenue')
-                  span.nmb.one 1
-                  span.graph
-                    span.graph__bar(data-width='13%')
-                    span.coef 363,8
-              .d-smr__chart-row
-                p.d-smr__chart-col Чувашская республика
-                .d-smr__chart-col(data-char='revenue')
-                  span.nmb.one 1
-                  span.graph
-                    span.graph__bar(data-width='42%')
-                    span.coef 363,8
-                .d-smr__chart-col(data-char='expense')
-                  span.nmb.two 2
-                  span.graph
-                    span.graph__bar(data-width='56%')
-                    span.coef 557
-                .d-smr__chart-col(data-char='death-rate')
-                  span.nmb.three 3
-                  span.graph
-                    span.graph__bar(data-width='37%')
-                    span.coef 1117
-                .d-smr__chart-col(data-char='revenue')
-                  span.nmb.one 1
-                  span.graph
-                    span.graph__bar(data-width='42%')
-                    span.coef 363,8
-              .d-smr__chart-row
-                p.d-smr__chart-col Чеченская республика
-                .d-smr__chart-col(data-char='revenue')
-                  span.nmb.one 1
-                  span.graph
-                    span.graph__bar(data-width='68%')
-                    span.coef 363,8
-                .d-smr__chart-col(data-char='expense')
-                  span.nmb.two 2
-                  span.graph
-                    span.graph__bar(data-width='75%')
-                    span.coef 557
-                .d-smr__chart-col(data-char='death-rate')
-                  span.nmb.many 43
-                  span.graph
-                    span.graph__bar(data-width='28%')
-                    span.coef 1117
-                .d-smr__chart-col(data-char='revenue')
-                  span.nmb.one 1
-                  span.graph
-                    span.graph__bar(data-width='68%')
-                    span.coef 363,8
-              .d-smr__chart-row
-                p.d-smr__chart-col Центральный ФО
-                .d-smr__chart-col(data-char='revenue')
-                  span.nmb.many 18
-                  span.graph
-                    span.graph__bar(data-width='74%')
-                    span.coef 363,8
-                .d-smr__chart-col(data-char='expense')
-                  span.nmb.many 29
-                  span.graph
-                    span.graph__bar(data-width='82%')
-                    span.coef 557
-                .d-smr__chart-col(data-char='death-rate')
-                  span.nmb.many 38
-                  span.graph
-                    span.graph__bar(data-width='45%')
-                    span.coef 1117
-                .d-smr__chart-col(data-char='revenue')
-                  span.nmb.many 18
-                  span.graph
-                    span.graph__bar(data-width='74%')
-                    span.coef 363,8
-              .d-smr__chart-row
-                p.d-smr__chart-col Ханты-Мансийский АО
-                .d-smr__chart-col(data-char='revenue')
-                  span.nmb.one 1
-                  span.graph
-                    span.graph__bar(data-width='15%')
-                    span.coef 363,8
-                .d-smr__chart-col(data-char='expense')
-                  span.nmb.two 2
-                  span.graph
-                    span.graph__bar(data-width='32%')
-                    span.coef 557
-                .d-smr__chart-col(data-char='death-rate')
-                  span.nmb.three 3
-                  span.graph
-                    span.graph__bar(data-width='46%')
-                    span.coef 1117
-                .d-smr__chart-col(data-char='revenue')
-                  span.nmb.one 1
-                  span.graph
-                    span.graph__bar(data-width='15%')
-                    span.coef 363,8
+          .d-smr__chart-container
+            .d-smr__chart-subjects
+              .d-smr__chart-header 
+                span Субъект<br> Российской Федерации
+              p.d-smr__chart-row г. Санкт-Петербург
+              p.d-smr__chart-row г. Москва
+              p.d-smr__chart-row г. Севастополь
+              p.d-smr__chart-row Адыгея
+              p.d-smr__chart-row Алтай
+              p.d-smr__chart-row Алтайский край
+              p.d-smr__chart-row Амурская область
+              p.d-smr__chart-row Архангельская область
+              p.d-smr__chart-row Астраханская область
+              p.d-smr__chart-row Башкортостан
+              p.d-smr__chart-row Белогородская область
+              p.d-smr__chart-row Брянская область
+              p.d-smr__chart-row Бурятия
+              p.d-smr__chart-row Владимирская область
+              p.d-smr__chart-row Волгоградская область
+              p.d-smr__chart-row Вологодская область
+              p.d-smr__chart-row Воронежская область
+              p.d-smr__chart-row Дагестан
+              p.d-smr__chart-row Еврейская АО
+              p.d-smr__chart-row Забайкальский край
+              p.d-smr__chart-row Ивановская область
+              p.d-smr__chart-row Ингушетия
+              p.d-smr__chart-row Иркутская область
+              p.d-smr__chart-row Кабардино-Балкария
+              p.d-smr__chart-row Калининградская область
+              p.d-smr__chart-row Калмыкия
+              p.d-smr__chart-row Калужская область
+              p.d-smr__chart-row Камчатский край
+              p.d-smr__chart-row Карачаево-Черкесия
+              p.d-smr__chart-row Карелия
+              p.d-smr__chart-row Кемеровская область
+              p.d-smr__chart-row Кировская область
+              p.d-smr__chart-row Коми
+              p.d-smr__chart-row Костромская область
+              p.d-smr__chart-row Краснодарский край
+              p.d-smr__chart-row Красноярский край
+              p.d-smr__chart-row Крым
+              p.d-smr__chart-row Курганская область
+              p.d-smr__chart-row Курская область
+              p.d-smr__chart-row Ленинградская область
+              p.d-smr__chart-row Липецкая область
+              p.d-smr__chart-row Магаданская область
+              p.d-smr__chart-row Марий Эл
+              p.d-smr__chart-row Мордовия
+              p.d-smr__chart-row Московская область
+              p.d-smr__chart-row Мурманская область
+              p.d-smr__chart-row Ненецкий АО
+              p.d-smr__chart-row Нижегородская область
+              p.d-smr__chart-row Новгородская область
+              p.d-smr__chart-row Новосибирская область
+              p.d-smr__chart-row Омская область
+              p.d-smr__chart-row Оренбургская область
+              p.d-smr__chart-row Орловская область
+              p.d-smr__chart-row Пензенская область
+              p.d-smr__chart-row Пермский край
+              p.d-smr__chart-row Приморский край
+              p.d-smr__chart-row Псковская область
+              p.d-smr__chart-row Ростовская область
+              p.d-smr__chart-row Рязанская область
+              p.d-smr__chart-row Самарская область
+              p.d-smr__chart-row Саратовская область
+              p.d-smr__chart-row Саха (Якутия)
+              p.d-smr__chart-row Сахалинская область
+              p.d-smr__chart-row Свердловская область
+              p.d-smr__chart-row Северная Осетия
+              p.d-smr__chart-row Смоленская область
+              p.d-smr__chart-row Ставропольский край
+              p.d-smr__chart-row Тамбовская область
+              p.d-smr__chart-row Татарстан
+              p.d-smr__chart-row Тверская область
+              p.d-smr__chart-row Томская область
+              p.d-smr__chart-row Тульская область
+              p.d-smr__chart-row Тыва
+              p.d-smr__chart-row Тюменская область
+              p.d-smr__chart-row Удмуртия
+              p.d-smr__chart-row Ульяновская область
+              p.d-smr__chart-row Хабаровский край
+              p.d-smr__chart-row Хакасия
+              p.d-smr__chart-row Ханты-Мансийский АО
+              p.d-smr__chart-row Челябинская область
+              p.d-smr__chart-row Чечня
+              p.d-smr__chart-row Чувашия
+              p.d-smr__chart-row Чукотский АО
+              p.d-smr__chart-row Ямало-Ненецкий АО
+              p.d-smr__chart-row Ярославская область
+            .d-smr__chart-wrapper
+              .d-smr__chart-leftlg
+              .d-smr__chart-rightlg
+              .d-smr__chart
+                .d-smr__chart-col(data-char='revenue').active
+                  .d-smr__chart-header 
+                    span Объем доходов бюджета субъекта Российской Федерации в расчете на&nbsp;1&nbsp;жителя, тыс руб.
+                    .d-smr__chart-controls
+                      a(href='#').sort_desc По убыванию
+                      a(href='#').js-hide-col Скрыть колонку
+                  +chart-row('one', '1', '84', '363,8')
+                  +chart-row('many', '9', '28', '124,8')
+                  +chart-row('many', '43', '10', '46,6')
+                  +chart-row('many', '8', '30', '131,4')
+                  +chart-row('many', '92', '0', '0,0', true)
+                  +chart-row('two', '2', '76', '331,0')
+                  +chart-row('many', '86', '8', '32,3')
+                  +chart-row('many', '23', '14', '59,1')
+                  +chart-row('three', '3', '61', '263,0')
+                  +chart-row('many', '14', '15', '70,5')
+                  +chart-row('many', '69', '8', '37,4')
+                  +chart-row('one', '1', '84', '363,8')
+                  +chart-row('many', '9', '28', '124,8')
+                  +chart-row('many', '43', '10', '46,6')
+                  +chart-row('many', '8', '30', '131,4')
+                  +chart-row('many', '92', '0', '0,0', true)
+                  +chart-row('two', '2', '76', '331,0')
+                  +chart-row('many', '86', '8', '32,3')
+                  +chart-row('many', '23', '14', '59,1')
+                  +chart-row('three', '3', '61', '263,0')
+                  +chart-row('many', '14', '15', '70,5')
+                  +chart-row('many', '69', '8', '37,4')
+                  +chart-row('one', '1', '84', '363,8')
+                  +chart-row('many', '9', '28', '124,8')
+                  +chart-row('many', '43', '10', '46,6')
+                  +chart-row('many', '8', '30', '131,4')
+                  +chart-row('many', '92', '0', '0,0', true)
+                  +chart-row('two', '2', '76', '331,0')
+                  +chart-row('many', '86', '8', '32,3')
+                  +chart-row('many', '23', '14', '59,1')
+                  +chart-row('three', '3', '61', '263,0')
+                  +chart-row('many', '14', '15', '70,5')
+                  +chart-row('many', '69', '8', '37,4')
+                  +chart-row('one', '1', '84', '363,8')
+                  +chart-row('many', '9', '28', '124,8')
+                  +chart-row('many', '43', '10', '46,6')
+                  +chart-row('many', '8', '30', '131,4')
+                  +chart-row('many', '92', '0', '0,0', true)
+                  +chart-row('two', '2', '76', '331,0')
+                  +chart-row('many', '86', '8', '32,3')
+                  +chart-row('many', '23', '14', '59,1')
+                  +chart-row('three', '3', '61', '263,0')
+                  +chart-row('many', '14', '15', '70,5')
+                  +chart-row('many', '69', '8', '37,4')
+                  +chart-row('one', '1', '84', '363,8')
+                  +chart-row('many', '9', '28', '124,8')
+                  +chart-row('many', '43', '10', '46,6')
+                  +chart-row('many', '8', '30', '131,4')
+                  +chart-row('many', '92', '0', '0,0', true)
+                  +chart-row('two', '2', '76', '331,0')
+                  +chart-row('many', '86', '8', '32,3')
+                  +chart-row('many', '23', '14', '59,1')
+                  +chart-row('three', '3', '61', '263,0')
+                  +chart-row('many', '14', '15', '70,5')
+                  +chart-row('many', '69', '8', '37,4')
+                  +chart-row('one', '1', '84', '363,8')
+                  +chart-row('many', '9', '28', '124,8')
+                  +chart-row('many', '43', '10', '46,6')
+                  +chart-row('many', '8', '30', '131,4')
+                  +chart-row('many', '92', '0', '0,0', true)
+                  +chart-row('two', '2', '76', '331,0')
+                  +chart-row('many', '86', '8', '32,3')
+                  +chart-row('many', '23', '14', '59,1')
+                  +chart-row('three', '3', '61', '263,0')
+                  +chart-row('many', '14', '15', '70,5')
+                  +chart-row('many', '69', '8', '37,4')
+                  +chart-row('one', '1', '84', '363,8')
+                  +chart-row('many', '9', '28', '124,8')
+                  +chart-row('many', '43', '10', '46,6')
+                  +chart-row('many', '8', '30', '131,4')
+                  +chart-row('many', '92', '0', '0,0', true)
+                  +chart-row('two', '2', '76', '331,0')
+                  +chart-row('many', '86', '8', '32,3')
+                  +chart-row('many', '23', '14', '59,1')
+                  +chart-row('three', '3', '61', '263,0')
+                  +chart-row('many', '14', '15', '70,5')
+                  +chart-row('many', '69', '8', '37,4')
+                  +chart-row('one', '1', '84', '363,8')
+                  +chart-row('many', '9', '28', '124,8')
+                  +chart-row('many', '43', '10', '46,6')
+                  +chart-row('many', '8', '30', '131,4')
+                  +chart-row('many', '92', '0', '0,0', true)
+                  +chart-row('two', '2', '76', '331,0')
+                  +chart-row('many', '86', '8', '32,3')
+                  +chart-row('many', '23', '14', '59,1')
+                      
+                .d-smr__chart-col(data-char='expense').active
+                  .d-smr__chart-header
+                    span Объем расходов бюджета субъекта Российской Федерации в расчете на&nbsp;1&nbsp;жителя, тыс руб.
+                    .d-smr__chart-controls
+                      a(href='#').sort_desc По убыванию
+                      a(href='#').js-hide-col Скрыть колонку
+                  +chart-row('one', '1', '72', '363,8')
+                  +chart-row('many', '9', '29', '124,8')
+                  +chart-row('many', '43', '11', '46,6')
+                  +chart-row('many', '8', '31', '131,4')
+                  +chart-row('many', '92', '89', '0,0')
+                  +chart-row('two', '2', '9', '331,0')
+                  +chart-row('many', '86', '15', '32,3')
+                  +chart-row('many', '23', '67', '59,1')
+                  +chart-row('three', '3', '16', '263,0')
+                  +chart-row('many', '14', '10', '70,5')
+                  +chart-row('many', '69', '16', '37,4')
+                  +chart-row('one', '1', '72', '363,8')
+                  +chart-row('many', '9', '29', '124,8')
+                  +chart-row('many', '43', '11', '46,6')
+                  +chart-row('many', '8', '31', '131,4')
+                  +chart-row('many', '92', '89', '0,0')
+                  +chart-row('two', '2', '9', '331,0')
+                  +chart-row('many', '86', '15', '32,3')
+                  +chart-row('many', '23', '67', '59,1')
+                  +chart-row('three', '3', '16', '263,0')
+                  +chart-row('many', '14', '10', '70,5')
+                  +chart-row('many', '69', '16', '37,4')
+                  +chart-row('one', '1', '72', '363,8')
+                  +chart-row('many', '9', '29', '124,8')
+                  +chart-row('many', '43', '11', '46,6')
+                  +chart-row('many', '8', '31', '131,4')
+                  +chart-row('many', '92', '89', '0,0')
+                  +chart-row('two', '2', '9', '331,0')
+                  +chart-row('many', '86', '15', '32,3')
+                  +chart-row('many', '23', '67', '59,1')
+                  +chart-row('three', '3', '16', '263,0')
+                  +chart-row('many', '14', '10', '70,5')
+                  +chart-row('many', '69', '16', '37,4')
+                  +chart-row('one', '1', '72', '363,8')
+                  +chart-row('many', '9', '29', '124,8')
+                  +chart-row('many', '43', '11', '46,6')
+                  +chart-row('many', '8', '31', '131,4')
+                  +chart-row('many', '92', '89', '0,0')
+                  +chart-row('two', '2', '9', '331,0')
+                  +chart-row('many', '86', '15', '32,3')
+                  +chart-row('many', '23', '67', '59,1')
+                  +chart-row('three', '3', '16', '263,0')
+                  +chart-row('many', '14', '10', '70,5')
+                  +chart-row('many', '69', '16', '37,4')
+                  +chart-row('one', '1', '72', '363,8')
+                  +chart-row('many', '9', '29', '124,8')
+                  +chart-row('many', '43', '11', '46,6')
+                  +chart-row('many', '8', '31', '131,4')
+                  +chart-row('many', '92', '89', '0,0')
+                  +chart-row('two', '2', '9', '331,0')
+                  +chart-row('many', '86', '15', '32,3')
+                  +chart-row('many', '23', '67', '59,1')
+                  +chart-row('three', '3', '16', '263,0')
+                  +chart-row('many', '14', '10', '70,5')
+                  +chart-row('many', '69', '16', '37,4')
+                  +chart-row('one', '1', '72', '363,8')
+                  +chart-row('many', '9', '29', '124,8')
+                  +chart-row('many', '43', '11', '46,6')
+                  +chart-row('many', '8', '31', '131,4')
+                  +chart-row('many', '92', '89', '0,0')
+                  +chart-row('two', '2', '9', '331,0')
+                  +chart-row('many', '86', '15', '32,3')
+                  +chart-row('many', '23', '67', '59,1')
+                  +chart-row('three', '3', '16', '263,0')
+                  +chart-row('many', '14', '10', '70,5')
+                  +chart-row('many', '69', '16', '37,4')
+                  +chart-row('one', '1', '72', '363,8')
+                  +chart-row('many', '9', '29', '124,8')
+                  +chart-row('many', '43', '11', '46,6')
+                  +chart-row('many', '8', '31', '131,4')
+                  +chart-row('many', '92', '89', '0,0')
+                  +chart-row('two', '2', '9', '331,0')
+                  +chart-row('many', '86', '15', '32,3')
+                  +chart-row('many', '23', '67', '59,1')
+                  +chart-row('three', '3', '16', '263,0')
+                  +chart-row('many', '14', '10', '70,5')
+                  +chart-row('many', '69', '16', '37,4')
+                  +chart-row('one', '1', '72', '363,8')
+                  +chart-row('many', '9', '29', '124,8')
+                  +chart-row('many', '43', '11', '46,6')
+                  +chart-row('many', '8', '31', '131,4')
+                  +chart-row('many', '92', '89', '0,0')
+                  +chart-row('two', '2', '9', '331,0')
+                  +chart-row('many', '86', '15', '32,3')
+                  +chart-row('many', '23', '67', '59,1')
+                      
+                .d-smr__chart-col(data-char='death-rate').active
+                  .d-smr__chart-header
+                    span Смертность населения (без показателя смертности от внешних причин (количество умерших на 100 тыс. человек)
+                    .d-smr__chart-controls
+                      a(href='#').sort_desc По убыванию
+                      a(href='#').js-hide-col Скрыть колонку
+                  +chart-row('one', '1', '57', '363,8')
+                  +chart-row('many', '9', '46', '124,8')
+                  +chart-row('many', '43', '67', '46,6')
+                  +chart-row('many', '8', '22', '131,4')
+                  +chart-row('many', '92', '62', '0,0')
+                  +chart-row('two', '2', '43', '331,0')
+                  +chart-row('many', '86', '55', '32,3')
+                  +chart-row('many', '23', '27', '59,1')
+                  +chart-row('three', '3', '62', '263,0')
+                  +chart-row('many', '14', '62', '70,5')
+                  +chart-row('many', '69', '27', '37,4')
+                  +chart-row('one', '1', '57', '363,8')
+                  +chart-row('many', '9', '46', '124,8')
+                  +chart-row('many', '43', '67', '46,6')
+                  +chart-row('many', '8', '22', '131,4')
+                  +chart-row('many', '92', '62', '0,0')
+                  +chart-row('two', '2', '43', '331,0')
+                  +chart-row('many', '86', '55', '32,3')
+                  +chart-row('many', '23', '27', '59,1')
+                  +chart-row('three', '3', '62', '263,0')
+                  +chart-row('many', '14', '62', '70,5')
+                  +chart-row('many', '69', '27', '37,4')
+                  +chart-row('one', '1', '57', '363,8')
+                  +chart-row('many', '9', '46', '124,8')
+                  +chart-row('many', '43', '67', '46,6')
+                  +chart-row('many', '8', '22', '131,4')
+                  +chart-row('many', '92', '62', '0,0')
+                  +chart-row('two', '2', '43', '331,0')
+                  +chart-row('many', '86', '55', '32,3')
+                  +chart-row('many', '23', '27', '59,1')
+                  +chart-row('three', '3', '62', '263,0')
+                  +chart-row('many', '14', '62', '70,5')
+                  +chart-row('many', '69', '27', '37,4')
+                  +chart-row('one', '1', '57', '363,8')
+                  +chart-row('many', '9', '46', '124,8')
+                  +chart-row('many', '43', '67', '46,6')
+                  +chart-row('many', '8', '22', '131,4')
+                  +chart-row('many', '92', '62', '0,0')
+                  +chart-row('two', '2', '43', '331,0')
+                  +chart-row('many', '86', '55', '32,3')
+                  +chart-row('many', '23', '27', '59,1')
+                  +chart-row('three', '3', '62', '263,0')
+                  +chart-row('many', '14', '62', '70,5')
+                  +chart-row('many', '69', '27', '37,4')
+                  +chart-row('one', '1', '57', '363,8')
+                  +chart-row('many', '9', '46', '124,8')
+                  +chart-row('many', '43', '67', '46,6')
+                  +chart-row('many', '8', '22', '131,4')
+                  +chart-row('many', '92', '62', '0,0')
+                  +chart-row('two', '2', '43', '331,0')
+                  +chart-row('many', '86', '55', '32,3')
+                  +chart-row('many', '23', '27', '59,1')
+                  +chart-row('three', '3', '62', '263,0')
+                  +chart-row('many', '14', '62', '70,5')
+                  +chart-row('many', '69', '27', '37,4')
+                  +chart-row('one', '1', '57', '363,8')
+                  +chart-row('many', '9', '46', '124,8')
+                  +chart-row('many', '43', '67', '46,6')
+                  +chart-row('many', '8', '22', '131,4')
+                  +chart-row('many', '92', '62', '0,0')
+                  +chart-row('two', '2', '43', '331,0')
+                  +chart-row('many', '86', '55', '32,3')
+                  +chart-row('many', '23', '27', '59,1')
+                  +chart-row('three', '3', '62', '263,0')
+                  +chart-row('many', '14', '62', '70,5')
+                  +chart-row('many', '69', '27', '37,4')
+                  +chart-row('one', '1', '57', '363,8')
+                  +chart-row('many', '9', '46', '124,8')
+                  +chart-row('many', '43', '67', '46,6')
+                  +chart-row('many', '8', '22', '131,4')
+                  +chart-row('many', '92', '62', '0,0')
+                  +chart-row('two', '2', '43', '331,0')
+                  +chart-row('many', '86', '55', '32,3')
+                  +chart-row('many', '23', '27', '59,1')
+                  +chart-row('three', '3', '62', '263,0')
+                  +chart-row('many', '14', '62', '70,5')
+                  +chart-row('many', '69', '27', '37,4')
+                  +chart-row('one', '1', '57', '363,8')
+                  +chart-row('many', '9', '46', '124,8')
+                  +chart-row('many', '43', '67', '46,6')
+                  +chart-row('many', '8', '22', '131,4')
+                  +chart-row('many', '92', '62', '0,0')
+                  +chart-row('two', '2', '43', '331,0')
+                  +chart-row('many', '86', '55', '32,3')
+                  +chart-row('many', '23', '27', '59,1')
+                      
+                .d-smr__chart-col(data-char='revenue').active
+                  .d-smr__chart-header 
+                    span Объем доходов бюджета субъекта Российской Федерации в расчете на&nbsp;1&nbsp;жителя, тыс руб.
+                    .d-smr__chart-controls
+                      a(href='#').sort_desc По убыванию
+                      a(href='#').js-hide-col Скрыть колонку
+                  +chart-row('one', '1', '84', '363,8')
+                  +chart-row('many', '9', '28', '124,8')
+                  +chart-row('many', '43', '10', '46,6')
+                  +chart-row('many', '8', '30', '131,4')
+                  +chart-row('many', '92', '0', '0,0', true)
+                  +chart-row('two', '2', '76', '331,0')
+                  +chart-row('many', '86', '8', '32,3')
+                  +chart-row('many', '23', '14', '59,1')
+                  +chart-row('three', '3', '61', '263,0')
+                  +chart-row('many', '14', '15', '70,5')
+                  +chart-row('many', '69', '8', '37,4')
+                  +chart-row('one', '1', '84', '363,8')
+                  +chart-row('many', '9', '28', '124,8')
+                  +chart-row('many', '43', '10', '46,6')
+                  +chart-row('many', '8', '30', '131,4')
+                  +chart-row('many', '92', '0', '0,0', true)
+                  +chart-row('two', '2', '76', '331,0')
+                  +chart-row('many', '86', '8', '32,3')
+                  +chart-row('many', '23', '14', '59,1')
+                  +chart-row('three', '3', '61', '263,0')
+                  +chart-row('many', '14', '15', '70,5')
+                  +chart-row('many', '69', '8', '37,4')
+                  +chart-row('one', '1', '84', '363,8')
+                  +chart-row('many', '9', '28', '124,8')
+                  +chart-row('many', '43', '10', '46,6')
+                  +chart-row('many', '8', '30', '131,4')
+                  +chart-row('many', '92', '0', '0,0', true)
+                  +chart-row('two', '2', '76', '331,0')
+                  +chart-row('many', '86', '8', '32,3')
+                  +chart-row('many', '23', '14', '59,1')
+                  +chart-row('three', '3', '61', '263,0')
+                  +chart-row('many', '14', '15', '70,5')
+                  +chart-row('many', '69', '8', '37,4')
+                  +chart-row('one', '1', '84', '363,8')
+                  +chart-row('many', '9', '28', '124,8')
+                  +chart-row('many', '43', '10', '46,6')
+                  +chart-row('many', '8', '30', '131,4')
+                  +chart-row('many', '92', '0', '0,0', true)
+                  +chart-row('two', '2', '76', '331,0')
+                  +chart-row('many', '86', '8', '32,3')
+                  +chart-row('many', '23', '14', '59,1')
+                  +chart-row('three', '3', '61', '263,0')
+                  +chart-row('many', '14', '15', '70,5')
+                  +chart-row('many', '69', '8', '37,4')
+                  +chart-row('one', '1', '84', '363,8')
+                  +chart-row('many', '9', '28', '124,8')
+                  +chart-row('many', '43', '10', '46,6')
+                  +chart-row('many', '8', '30', '131,4')
+                  +chart-row('many', '92', '0', '0,0', true)
+                  +chart-row('two', '2', '76', '331,0')
+                  +chart-row('many', '86', '8', '32,3')
+                  +chart-row('many', '23', '14', '59,1')
+                  +chart-row('three', '3', '61', '263,0')
+                  +chart-row('many', '14', '15', '70,5')
+                  +chart-row('many', '69', '8', '37,4')
+                  +chart-row('one', '1', '84', '363,8')
+                  +chart-row('many', '9', '28', '124,8')
+                  +chart-row('many', '43', '10', '46,6')
+                  +chart-row('many', '8', '30', '131,4')
+                  +chart-row('many', '92', '0', '0,0', true)
+                  +chart-row('two', '2', '76', '331,0')
+                  +chart-row('many', '86', '8', '32,3')
+                  +chart-row('many', '23', '14', '59,1')
+                  +chart-row('three', '3', '61', '263,0')
+                  +chart-row('many', '14', '15', '70,5')
+                  +chart-row('many', '69', '8', '37,4')
+                  +chart-row('one', '1', '84', '363,8')
+                  +chart-row('many', '9', '28', '124,8')
+                  +chart-row('many', '43', '10', '46,6')
+                  +chart-row('many', '8', '30', '131,4')
+                  +chart-row('many', '92', '0', '0,0', true)
+                  +chart-row('two', '2', '76', '331,0')
+                  +chart-row('many', '86', '8', '32,3')
+                  +chart-row('many', '23', '14', '59,1')
+                  +chart-row('three', '3', '61', '263,0')
+                  +chart-row('many', '14', '15', '70,5')
+                  +chart-row('many', '69', '8', '37,4')
+                  +chart-row('one', '1', '84', '363,8')
+                  +chart-row('many', '9', '28', '124,8')
+                  +chart-row('many', '43', '10', '46,6')
+                  +chart-row('many', '8', '30', '131,4')
+                  +chart-row('many', '92', '0', '0,0', true)
+                  +chart-row('two', '2', '76', '331,0')
+                  +chart-row('many', '86', '8', '32,3')
+                  +chart-row('many', '23', '14', '59,1')
