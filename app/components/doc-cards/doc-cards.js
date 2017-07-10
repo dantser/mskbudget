@@ -7,16 +7,15 @@ export default () => {
   const NAV = $('.section-tabs__navigation');
   const FAVOR = $('.section-tabs__is-added');
 
-  DIR.each( function () { // eslint-disable-line
-    const EL = $(this);
+
     // const ACTIVE_CLASS = 'graphic__data_active';
-    EL.on('click', (e) => {
+    DIR.on('click', function (e) {
       e.preventDefault();
+      const EL = $(this);
       // EL.parent().siblings().removeClass(ACTIVE_CLASS);
       EL.hide();
       NAV.show();
     })
-  })
 
   TOP_BUTTON.on('click', (e)=> {
     e.preventDefault();
