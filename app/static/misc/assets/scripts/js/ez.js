@@ -604,12 +604,12 @@ function sectionTabs(){
 }
 
 function stepsDetails(){
-  $('.graphic-table__title-wrap, .step .link-more').click(function(e){
+  $('.graphic-table__title-wrap, .step .link-more, .step__head').click(function(e){
     e.preventDefault();
     if ($(this).hasClass('graphic-table__title-wrap')) {
       var stepNumber = $(this).attr('data-step');
     }
-    if ($(this).hasClass('link-more')) {
+    if ($(this).hasClass('link-more') || $(this).hasClass('step__head')) {
       var stepNumber = $(this).parents('.step').attr('data-step');
     }
 
