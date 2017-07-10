@@ -34,9 +34,9 @@ export default () => {
       $(this).parents('.profile__field').removeClass('disabled');
     });
     
-    $('.profile_edit .profile__cancel, .profile_edit .profile__submit').on('click', function(){
-      $('.profile_edit .profile__field_fio, .profile_edit .profile__field_email').addClass('disabled');
-    });
+    // $('.profile_edit .profile__cancel, .profile_edit .profile__submit').on('click', function(){
+    //   $('.profile_edit .profile__field_fio, .profile_edit .profile__field_email').addClass('disabled');
+    // });
     
   });
   

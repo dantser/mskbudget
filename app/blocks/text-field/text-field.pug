@@ -1,10 +1,10 @@
 //- Модификаторы
 //- _col - надпись над полем ввода
 
-mixin text-field(ttype, value)
+mixin text-field(ttype, value, name)
   - var tttype = ttype || 'text';
 
   +b.LABEL.text-field&attributes(attributes)
     +e.SPAN.label
       block
-    +e.INPUT(type=tttype, value=value).text
+    +e.INPUT(type=tttype name=name value=value required).text
