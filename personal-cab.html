@@ -505,13 +505,13 @@
                                     </div>
                                     <div class="profile__personal">
                                         <!--+e.SPAN.email k.konstantinopolsky@gmail.com-->
-                                        <form class="profile__profile-form">
+                                        <form class="profile__profile-form js-form-validate" action="" method="POST" novalidate="novalidate">
                                             <div class="profile__field profile__field_fio disabled">
                                                 <label class="text-field text-field_col">
                                                     <span class="text-field__label">ФИО
                                                         <span class="text-field__change-field">Изменить</span>
                                                     </span>
-                                                    <input class="text-field__text" type="text" value="Константин Константинопольский Константинович" />
+                                                    <input class="text-field__text" type="text" name="fio" value="Константин Константинопольский Константинович" required="required" />
                                                 </label>
                                             </div>
                                             <div class="profile__field profile__field_email disabled">
@@ -519,33 +519,33 @@
                                                     <span class="text-field__label">E-mail
                                                         <span class="text-field__change-field">Изменить</span>
                                                     </span>
-                                                    <input class="text-field__text" type="email" value="k.konstantinopolsky@gmail.com" />
+                                                    <input class="text-field__text" type="email" name="email" value="k.konstantinopolsky@gmail.com" required="required" />
                                                 </label>
                                             </div>
                                             <span class="profile__note">Для смены пароля введите старый пароль и дважды новый</span>
                                             <div class="profile__field profile__field_pass profile__field_old">
                                                 <label class="text-field text-field_col">
                                                     <span class="text-field__label">Старый пароль</span>
-                                                    <input class="text-field__text" type="password" />
+                                                    <input class="text-field__text" type="password" name="oldpassword" value="" required="required" />
                                                 </label>
                                             </div>
                                             <div class="profile__field-wrapper">
                                                 <div class="profile__field profile__field_pass profile__field_new">
                                                     <label class="text-field text-field_col">
                                                         <span class="text-field__label">Новый пароль</span>
-                                                        <input class="text-field__text" type="password" />
+                                                        <input class="text-field__text" type="password" name="password" value="" required="required" />
                                                     </label>
                                                 </div>
                                                 <div class="profile__field profile__field_pass profile__field_repeat">
                                                     <label class="text-field text-field_col">
                                                         <span class="text-field__label">Повторите новый пароль</span>
-                                                        <input class="text-field__text" type="password" />
+                                                        <input class="text-field__text" type="password" name="repeatpassword" value="" required="required" />
                                                     </label>
                                                 </div>
                                             </div>
                                             <div class="profile__confirm">
                                                 <div class="profile__submit">
-                                                    <button class="button button_kind_yellow" type="submit" data-tab-target="profile">Сохранить</button>
+                                                    <button class="button button_kind_yellow" type="submit">Сохранить</button>
                                                 </div>
                                                 <div class="profile__cancel">
                                                     <button class="button button_kind_transparent" data-tab-target="profile">Отменить</button>
@@ -1357,14 +1357,14 @@
                     <p class="popup-login__p">или</p>
                     <!-- TAB-->
                     <div class="tab__content tab__content_vis" id="tab1">
-                        <form class="login-form" action="" method="POST" novalidate="novalidate">
+                        <form class="login-form js-form-validate" action="" method="POST" novalidate="novalidate">
                             <div class="login-form__field">
                                 <label class="overlabel" for="i-email-2">e-mail</label>
-                                <input class="login-form__text" id="i-email-2" type="email" required="required" />
+                                <input class="login-form__text" id="i-email-2" type="email" name="email" required="required" />
                             </div>
                             <div class="login-form__field mb-10">
                                 <label class="overlabel" for="i-passw">пароль</label>
-                                <input class="login-form__text" id="i-passw" type="password" required="required" />
+                                <input class="login-form__text" id="i-passw" type="password" name="password" required="required" />
                             </div>
                             <div class="mb-15">
                                 <a class="open-popup login-form__a" href="#restore">Я забыл пароль</a>
@@ -1374,18 +1374,18 @@
                     </div>
                     <!-- TAB-->
                     <div class="tab__content" id="tab2">
-                        <form class="login-form login-form_reg mb-25" action="" method="POST" novalidate="novalidate">
+                        <form class="login-form login-form_reg mb-25 js-form-validate" action="" method="POST" novalidate="novalidate">
                             <div class="login-form__field">
                                 <label class="overlabel" for="i-fio-1">ФИО</label>
-                                <input class="login-form__text" id="i-fio-1" type="text" required="required" />
+                                <input class="login-form__text" id="i-fio-1" type="text" name="fio" required="required" />
                             </div>
                             <div class="login-form__field">
                                 <label class="overlabel" for="i-email-3">e-mail</label>
-                                <input class="login-form__text" id="i-email-3" type="email" required="required" />
+                                <input class="login-form__text" id="i-email-3" type="email" name="email" required="required" />
                             </div>
                             <div class="login-form__field">
                                 <label class="overlabel" for="i-passw-1">пароль</label>
-                                <input class="login-form__text" id="i-passw-1" type="password" required="required" />
+                                <input class="login-form__text" id="i-passw-1" type="password" name="password" required="required" />
                             </div>
                             <input class="login-form__submit" type="submit" value="Зарегистрироваться" />
                         </form>

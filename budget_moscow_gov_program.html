@@ -1944,11 +1944,13 @@
                         <div class="section-tabs__nav">
                             <div class="section-tabs__nav-list">
                                 <div class="section-tabs__navigation">
-                                    <div class="section-tabs__button-top js-button-top">
-                                        <svg class="section-tabs__top-icon"><use xlink:href="assets/images/icon.svg#icon_level-up"></use></svg>
-                                        <span>Наверх</span>
+                                    <div class="wrap">
+                                        <div class="section-tabs__button-top js-button-top">
+                                            <svg class="section-tabs__top-icon"><use xlink:href="assets/images/icon.svg#icon_level-up"></use></svg>
+                                            <span>Наверх</span>
+                                        </div>
+                                        <div class="section-tabs__current-dir">Проект закона</div>
                                     </div>
-                                    <div class="section-tabs__current-dir">Проект закона</div>
                                 </div>
                                 <div class="owl-carousel owl-loaded documents">
                                     <div class="section-tabs__owl-item">
@@ -3034,14 +3036,14 @@
                     <p class="popup-login__p">или</p>
                     <!-- TAB-->
                     <div class="tab__content tab__content_vis" id="tab1">
-                        <form class="login-form" action="" method="POST" novalidate="novalidate">
+                        <form class="login-form js-form-validate" action="" method="POST" novalidate="novalidate">
                             <div class="login-form__field">
                                 <label class="overlabel" for="i-email-2">e-mail</label>
-                                <input class="login-form__text" id="i-email-2" type="email" required="required" />
+                                <input class="login-form__text" id="i-email-2" type="email" name="email" required="required" />
                             </div>
                             <div class="login-form__field mb-10">
                                 <label class="overlabel" for="i-passw">пароль</label>
-                                <input class="login-form__text" id="i-passw" type="password" required="required" />
+                                <input class="login-form__text" id="i-passw" type="password" name="password" required="required" />
                             </div>
                             <div class="mb-15">
                                 <a class="open-popup login-form__a" href="#restore">Я забыл пароль</a>
@@ -3051,18 +3053,18 @@
                     </div>
                     <!-- TAB-->
                     <div class="tab__content" id="tab2">
-                        <form class="login-form login-form_reg mb-25" action="" method="POST" novalidate="novalidate">
+                        <form class="login-form login-form_reg mb-25 js-form-validate" action="" method="POST" novalidate="novalidate">
                             <div class="login-form__field">
                                 <label class="overlabel" for="i-fio-1">ФИО</label>
-                                <input class="login-form__text" id="i-fio-1" type="text" required="required" />
+                                <input class="login-form__text" id="i-fio-1" type="text" name="fio" required="required" />
                             </div>
                             <div class="login-form__field">
                                 <label class="overlabel" for="i-email-3">e-mail</label>
-                                <input class="login-form__text" id="i-email-3" type="email" required="required" />
+                                <input class="login-form__text" id="i-email-3" type="email" name="email" required="required" />
                             </div>
                             <div class="login-form__field">
                                 <label class="overlabel" for="i-passw-1">пароль</label>
-                                <input class="login-form__text" id="i-passw-1" type="password" required="required" />
+                                <input class="login-form__text" id="i-passw-1" type="password" name="password" required="required" />
                             </div>
                             <input class="login-form__submit" type="submit" value="Зарегистрироваться" />
                         </form>

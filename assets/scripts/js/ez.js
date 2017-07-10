@@ -431,7 +431,15 @@ function tabsLine(){
 		mouseDrag:false,
 		touchDrag:false,
 		autoplay:false,
-		smartSpeed:500
+		smartSpeed:500,
+    responsive: {
+      0: {
+        touchDrag:true
+      },
+      1025: {
+        touchDrag: false
+      }
+    }
 	});
 
     $('.owl-carousel.documents').owlCarousel({
@@ -453,6 +461,10 @@ function tabsLine(){
         items: 2
       },
       970: {
+        touchDrag: true,
+        items: 3
+      },
+      1024: {
         touchDrag: true,
         items: 3
       },
@@ -523,6 +535,10 @@ $('.owl-carousel.owl-carousel_services').owlCarousel({
     970: {
       touchDrag: true,
       items: 3
+    },
+    1024: {
+      touchDrag: true,
+      items: 4
     },
     1280: {
       touchDrag: false,

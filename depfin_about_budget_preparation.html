@@ -324,7 +324,7 @@
         </div>
     </div>
     <!-- d-abs-content-->
-    <div class="tabs load-anim-fade" data-delay="1700">
+    <div class="tabs">
         <div class="tabs__tab active" data-tab-group="budgetPrep" data-tab="mskbudget">
             <div class="graphic-table">
                 <div class="graphic-table__frame">
@@ -3643,7 +3643,7 @@
                 </div>
             </div>
             <!-- steps-->
-            <div class="section-tabs">
+            <div class="section-tabs section-tabs section-tabs_members">
                 <div class="section-tabs__head section-tabs__head_closed">
                     <div class="wrap">
                         <ul class="labels">
@@ -3656,12 +3656,6 @@
                     </div>
                 </div>
                 <div class="section-tabs__nav">
-                    <div class="section-tabs__nav-leftbtn">
-                        <a class="btn-arrow btn-arrow--prev">prev</a>
-                    </div>
-                    <div class="section-tabs__nav-rightbtn">
-                        <a class="btn-arrow btn-arrow--next">next</a>
-                    </div>
                     <div class="section-tabs__nav-list">
                         <div class="owl-carousel owl-loaded sections">
                             <div class="owl-item">
@@ -3720,11 +3714,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="owl-nav">
-                            <p class="owl-prev">prev</p>
-                            <p class="owl-next">next</p>
-                        </div>
-                        <div class="owl-dots"></div>
                     </div>
                     <!-- section-tabs__nav-list-->
                 </div>
@@ -4379,11 +4368,13 @@
                 <div class="section-tabs__nav">
                     <div class="section-tabs__nav-list">
                         <div class="section-tabs__navigation">
-                            <div class="section-tabs__button-top js-button-top">
-                                <svg class="section-tabs__top-icon"><use xlink:href="assets/images/icon.svg#icon_level-up"></use></svg>
-                                <span>Наверх</span>
+                            <div class="wrap">
+                                <div class="section-tabs__button-top js-button-top">
+                                    <svg class="section-tabs__top-icon"><use xlink:href="assets/images/icon.svg#icon_level-up"></use></svg>
+                                    <span>Наверх</span>
+                                </div>
+                                <div class="section-tabs__current-dir">Проект закона</div>
                             </div>
-                            <div class="section-tabs__current-dir">Проект закона</div>
                         </div>
                         <div class="owl-carousel owl-loaded documents">
                             <div class="section-tabs__owl-item">
@@ -7908,12 +7899,6 @@
                 </div>
             </div>
             <div class="section-tabs__nav">
-                <div class="section-tabs__nav-leftbtn">
-                    <a class="btn-arrow btn-arrow--prev">prev</a>
-                </div>
-                <div class="section-tabs__nav-rightbtn">
-                    <a class="btn-arrow btn-arrow--next">next</a>
-                </div>
                 <div class="section-tabs__nav-list">
                     <div class="owl-carousel owl-loaded sections">
                         <div class="owl-item">
@@ -8629,12 +8614,6 @@
                 </div>
             </div>
             <div class="section-tabs__nav">
-                <div class="section-tabs__nav-leftbtn">
-                    <a class="btn-arrow btn-arrow--prev">prev</a>
-                </div>
-                <div class="section-tabs__nav-rightbtn">
-                    <a class="btn-arrow btn-arrow--next">next</a>
-                </div>
                 <div class="section-tabs__nav-list">
                     <div class="owl-carousel owl-loaded documents">
                         <div class="owl-item">
@@ -9142,14 +9121,14 @@ A(href='#').document__star.document__star_cur-->
                     <p class="popup-login__p">или</p>
                     <!-- TAB-->
                     <div class="tab__content tab__content_vis" id="tab1">
-                        <form class="login-form" action="" method="POST" novalidate="novalidate">
+                        <form class="login-form js-form-validate" action="" method="POST" novalidate="novalidate">
                             <div class="login-form__field">
                                 <label class="overlabel" for="i-email-2">e-mail</label>
-                                <input class="login-form__text" id="i-email-2" type="email" required="required" />
+                                <input class="login-form__text" id="i-email-2" type="email" name="email" required="required" />
                             </div>
                             <div class="login-form__field mb-10">
                                 <label class="overlabel" for="i-passw">пароль</label>
-                                <input class="login-form__text" id="i-passw" type="password" required="required" />
+                                <input class="login-form__text" id="i-passw" type="password" name="password" required="required" />
                             </div>
                             <div class="mb-15">
                                 <a class="open-popup login-form__a" href="#restore">Я забыл пароль</a>
@@ -9159,18 +9138,18 @@ A(href='#').document__star.document__star_cur-->
                     </div>
                     <!-- TAB-->
                     <div class="tab__content" id="tab2">
-                        <form class="login-form login-form_reg mb-25" action="" method="POST" novalidate="novalidate">
+                        <form class="login-form login-form_reg mb-25 js-form-validate" action="" method="POST" novalidate="novalidate">
                             <div class="login-form__field">
                                 <label class="overlabel" for="i-fio-1">ФИО</label>
-                                <input class="login-form__text" id="i-fio-1" type="text" required="required" />
+                                <input class="login-form__text" id="i-fio-1" type="text" name="fio" required="required" />
                             </div>
                             <div class="login-form__field">
                                 <label class="overlabel" for="i-email-3">e-mail</label>
-                                <input class="login-form__text" id="i-email-3" type="email" required="required" />
+                                <input class="login-form__text" id="i-email-3" type="email" name="email" required="required" />
                             </div>
                             <div class="login-form__field">
                                 <label class="overlabel" for="i-passw-1">пароль</label>
-                                <input class="login-form__text" id="i-passw-1" type="password" required="required" />
+                                <input class="login-form__text" id="i-passw-1" type="password" name="password" required="required" />
                             </div>
                             <input class="login-form__submit" type="submit" value="Зарегистрироваться" />
                         </form>
