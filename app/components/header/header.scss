@@ -17,37 +17,6 @@ $hamburger-hover-filter    : opacity(50%) !default;
 
 @import '../../../node_modules/hamburgers/_sass/hamburgers/hamburgers.scss';
 
-.link-for-blind {
-  display: block;
-  color: #fff;
-  font-size: 16px;
-  padding: 3px 0 0 40px;
-  position: relative;
-  text-decoration: none;
-  -webkit-transition: .5s;
-  -moz-transition: .5s;
-  -o-transition: .5s;
-  transition: .5s;
-  z-index: 2;
-
-  &::before {
-    display: block;
-    content: '';
-    width: 27px;
-    height: 19px;
-    background-image: url('../images/sprite.png');
-    background-repeat: no-repeat;
-    background-position: -37px -21px;
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
-
-  &:hover {
-    color: #fee300;
-  }
-}
-
 .header {
   position: fixed;
   top: -150px;
@@ -57,7 +26,7 @@ $hamburger-hover-filter    : opacity(50%) !default;
   height: 135px;
   background: rgba(black, .3);
   border-bottom: 1px solid rgba(white, 0.1);
-  @include transited('all linear 500ms');
+  @include transited;
 
   @media (min-width: $navBreakpointDesktop) {
     height: $navHeightDesktop;
@@ -76,7 +45,7 @@ $hamburger-hover-filter    : opacity(50%) !default;
     margin: 0 30px;
     max-width: initial !important;
 
-    @media (max-width: 768px) {
+    @media (max-width: $navBreakpointMobile) {
       margin: 0 15px !important;
     }
 
@@ -101,16 +70,18 @@ $hamburger-hover-filter    : opacity(50%) !default;
 
   &__logo {
     position: absolute;
-    top: 39px;
+    top: 22px;
     left: 0;
     z-index: 14;
   }
 
   &__link-for-blind {
-    position: absolute;
-    top: 36px;
-    left: 242px;
-    z-index: 4;
+    @media (min-width: $navBreakpointTablet + 1px) {
+      position: absolute;
+      top: 36px;
+      left: 242px;
+      z-index: 4;
+    }
   }
 
   &__menu {
@@ -120,11 +91,7 @@ $hamburger-hover-filter    : opacity(50%) !default;
     margin: 0;
     position: relative;
     z-index: 3;
-    -webkit-transition: 0.5s;
-    -moz-transition: 0.5s;
-    -ms-transition: 0.5s;
-    -o-transition: 0.5s;
-    transition: 0.5s;
+    @include transited;
     top: auto;
 
     ul {
@@ -157,20 +124,14 @@ $hamburger-hover-filter    : opacity(50%) !default;
     position: absolute;
     left: 542px;
     top: 43px;
-    -webkit-transition: .5s;
-    -moz-transition: .5s;
-    -o-transition: .5s;
-    transition: .5s;
+    @include transited;
   }
 
   &__social {
     position: absolute;
     right: 0;
     top: 39px;
-    -webkit-transition: .5s;
-    -moz-transition: .5s;
-    -o-transition: .5s;
-    transition: .5s;
+    @include transited;
     width: auto;
     display: block;
     z-index: 4;
@@ -181,11 +142,7 @@ $hamburger-hover-filter    : opacity(50%) !default;
     right: 32px;
     left: 242px;
     top: 80px;
-    -webkit-transition: 0.5s;
-    -moz-transition: 0.5s;
-    -ms-transition: 0.5s;
-    -o-transition: 0.5s;
-    transition: 0.5s;
+    @include transited;
 
     .search-form__btn {
       z-index: 4;
@@ -199,10 +156,7 @@ $hamburger-hover-filter    : opacity(50%) !default;
     position: absolute;
     right: 0;
     top: 80px;
-    -webkit-transition: .5s;
-    -moz-transition: .5s;
-    -o-transition: .5s;
-    transition: .5s;
+    @include transited;
     z-index: 10;
   }
 
@@ -210,10 +164,7 @@ $hamburger-hover-filter    : opacity(50%) !default;
     position: absolute;
     right: 0;
     top: 69px;
-    -webkit-transition: .5s;
-    -moz-transition: .5s;
-    -o-transition: .5s;
-    transition: .5s;
+    @include transited;
   }
 
   &__open-menu {
@@ -235,18 +186,11 @@ $hamburger-hover-filter    : opacity(50%) !default;
     // border-bottom: 1px solid #ffffff !important;
     // border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
 
-
     &:not(.header_opened) {
       // background: url(../images/background/menu.jpg) no-repeat 50% 0 !important;
       // background-size: 100% 100% !important;
       background: rgba(black, .6);
     }
-
-    // .header__logo {
-    //   @media (max-width: 1180px) and (min-width: 801px) {
-    //     width: 28px;
-    //   }
-    // }
 
     .header__link-for-blind {
       top: -50px;
@@ -413,19 +357,23 @@ $hamburger-hover-filter    : opacity(50%) !default;
   }
 }
 
-@media (max-width: 1180px) {
-
+@media (max-width: $navBreakpointDesktop) {
   .link-for-blind {
     font-size: 0;
     height: 19px;
+
+    &:before {
+      background-image: url('../images/sprite@2x.png');
+      -moz-background-size: 480px auto;
+      -o-background-size: 480px auto;
+      background-size: 480px auto;
+      background-repeat: no-repeat;
+    }
   }
 
-  .link-for-blind::before {
-    background-image: url('../images/sprite@2x.png');
-    -moz-background-size: 480px auto;
-    -o-background-size: 480px auto;
-    background-size: 480px auto;
-    background-repeat: no-repeat;
+  .header__link-for-blind {
+    top: 88px;
+    left: 0;
   }
 
   .header__menu {
@@ -441,11 +389,6 @@ $hamburger-hover-filter    : opacity(50%) !default;
   .header_short .header__menu {
     margin-left: 0;
     padding-right: 80px;
-  }
-
-  .header__link-for-blind {
-    top: 88px;
-    left: 0;
   }
 
   .header__currency {
@@ -471,10 +414,6 @@ $hamburger-hover-filter    : opacity(50%) !default;
     top: 88px;
   }
 
-  .header__logo {
-    top: 22px;
-  }
-
   .header_short .logo__lg, .header_short .logo__sm {
     bottom: 150px;
   }
@@ -492,7 +431,7 @@ $hamburger-hover-filter    : opacity(50%) !default;
   }
 }
 
-@media (max-width: 950px) {
+@media (max-width: $navBreakpointTablet) {
   .header_short {
     height: 105px;
   }
@@ -515,7 +454,7 @@ $hamburger-hover-filter    : opacity(50%) !default;
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: $navBreakpointTablet) {
 
   .header__menu {
     margin-left: 0;
@@ -568,10 +507,7 @@ $hamburger-hover-filter    : opacity(50%) !default;
   }
 }
 
-@media (max-width: 800px) {
-
-
-
+@media (max-width: $navBreakpointMobile) {
   .header__open-menu {
     display: block;
   }
@@ -779,5 +715,73 @@ $hamburger-hover-filter    : opacity(50%) !default;
     .search-form__btn_act:before {
       background-position: -117px -45px;
     }
+  }
+}
+
+
+// @media (max-width: 899px) {
+//   .header__menu {
+//     padding-left: 0;
+//   }
+//   .header_short .header__menu {
+//     padding-left: 77px;
+//   }
+// }
+
+// @media (max-width: 699px) {
+//   .header__link-for-blind {
+//     display: block;
+//     top: auto;
+//     bottom: 72px;
+//     left: 20px;
+//     z-index: 5;
+//   }
+//   .header__search-form {
+//     top: auto;
+//     bottom: 72px;
+//     right: 50%;
+//     margin-right: -8px;
+//     left: 20px;
+//   }
+//   .header__search-form .search-form__btn {
+//     margin-bottom: 10px;
+//     height: 20px;
+//   }
+//   .header__search-form .search-form__btn_act:before {
+//     background-position: -94px -44px;
+//   }
+//   .header__login {
+//     top: auto;
+//     bottom: 72px;
+//     right: 20px;
+//   }
+// }
+
+
+.link-for-blind {
+  display: block;
+  color: #fff;
+  font-size: 16px;
+  padding: 3px 0 0 40px;
+  position: relative;
+  text-decoration: none;
+  @include transited;
+  z-index: 2;
+
+  &::before {
+    display: block;
+    content: '';
+    width: 27px;
+    height: 19px;
+    background-image: url('../images/sprite.png');
+    background-repeat: no-repeat;
+    background-position: -37px -21px;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  &:hover {
+    color: #fee300;
   }
 }
