@@ -1,0 +1,234 @@
+@import 'helpers/mixins'; // Миксины
+@import 'helpers/fonts'; // Шрифты
+@import 'helpers/variables'; // Переменные
+//@import 'helpers/basics'; // Основные общие стили
+@import 'helpers/full2';
+@import '../blocks/**/*.scss';
+@import '../components/**/*.scss';
+@import '../pages/**/*.scss';
+@import '../../node_modules/swiper/dist/css/swiper.css';
+
+html, body {
+  line-height: 1;
+  min-height: 100%;
+  //height: auto !important; ломает главную
+}
+
+a:focus {
+  outline: 1px solid #5E9ED6;
+  outline: 5px auto -webkit-focus-ring-color;
+}
+
+.container {
+  width: $container-width;
+  margin: 0 auto;
+}
+
+.noscroll {
+  position: fixed;
+}
+
+.d-si-content {
+  background: url('../images/depfin-services-interview/content-bg.jpg') no-repeat;
+  background-size: cover;
+    width: 100%;
+
+  @media screen and (max-width: 800px) {
+    padding-top: 80px;
+  }
+}
+
+.d-si-content_quiz {
+  display: block;
+  padding: 175px 0 80px;
+  font-family: $PFDinCondensedPro;
+  font-weight: 500;
+  box-sizing: border-box;
+}
+
+.d-layer {
+  /*max-width: 1174px;*/
+  max-width: none;
+  margin: 0 auto;
+  padding: 0 37px;
+
+  @include clearfix;
+
+}
+
+.d-layer {
+  max-width: none;
+}
+
+.d-layer_small {
+  max-width: 1174px;
+}
+
+.buttons-set {
+  font-size: 0;
+}
+
+.d-si__head {
+
+  @media screen and (max-width: 1190px) {
+    margin-bottom: 44px;
+  }
+
+  @media screen and (max-width: 760px) {
+    margin-bottom: 26px;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .d-layer {
+    padding: 0 23px !important;
+  }
+}
+@media screen and (max-width: 639px) {
+  .d-layer {
+    padding: 0 15px !important;
+  }
+}
+
+.subscribe {
+  margin-top: 0;
+  padding-bottom: 0;
+}
+
+.lk {
+  display: block;
+  width: 100%;
+  background: url('../images/profile/profile-bg-profile.jpg') no-repeat;
+  background-size: cover;
+  background-position: center 0;
+  box-sizing: border-box;
+
+  @include clearfix;
+
+  &_services {
+    background-image: url('../images/bg-services.png');
+  }
+}
+
+.wrapper_lk {
+  max-width: 1100px;
+  margin: 0 auto 110px;
+  padding-top: 208px;
+  position: relative;
+  z-index: 2;
+
+  @media (max-width: 1180px) {
+    margin-bottom: 80px;
+  }
+
+  @media (max-width: 700px) {
+    padding-top: 85px;
+    margin-bottom: 45px !important;
+  }
+}
+
+  .lk-nav {
+    margin: 0 auto 55px;
+    max-width: 1174px;
+
+    @media (max-width: 700px) {
+      margin-bottom: 30px;
+    }
+  }
+
+.page-content-wrapper {
+  @media (max-width: 1179px) {
+    width: auto;
+    max-width: 100%;
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+
+  @media (max-width: 700px) {
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+  }
+}
+
+#popup-wrapper {
+  z-index: 2001;
+}
+
+@media (max-width: 700px) {
+  .close-popup {
+    right: 2px;
+    top: 2px;
+  }
+}
+
+@media (max-width: 599px) {
+  .popup-window {
+    width: 100%!important;
+    height: 100%;
+    top: 0;
+    left: 0;
+    margin: 0!important;
+    overflow: auto;
+  }
+}
+
+.ui-datepicker-prev span, .ui-datepicker-next span {
+  width: 12px;
+  height: 20px;
+  background-image: url("../images/sprite.png");
+  background-repeat: no-repeat;
+  background-position: -26px -114px;
+  margin-top: -10px;
+  display: block;
+  position: absolute;
+  left: 50%;
+  margin-left: -8px;
+  top: 50%;
+  cursor: pointer;
+}
+
+.ui-datepicker-prev {
+  left: 2px;
+}
+
+.ui-datepicker-next {
+  right: 2px;
+}
+
+.ui-datepicker-prev, .ui-datepicker-next {
+  position: absolute;
+  top: 2px;
+  width: 1.8em;
+  height: 1.8em;
+  z-index: 2;
+}
+
+.ui-datepicker-next {
+  transform: rotate(180deg);
+}
+
+.range-datepicker {
+  z-index: 6;
+}
+
+.ui-datepicker {
+  z-index: 100 !important;
+}
+
+.ui-datepicker-year, .ui-datepicker-month {
+
+
+  &:hover {
+    background-color: $color-white;
+    border: none;
+  }
+}
+//
+// .ui-datepicker-title {
+//   position: relative;
+//   &::after {
+//     @include pseudo;
+//     background: url('../assets/icons/icon-caret.svg') no-repeat;
+//     top: 1px;
+//   }
+// }
