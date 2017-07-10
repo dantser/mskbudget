@@ -2,4 +2,24 @@
   display: block;
   min-width: 320px;
   overflow: hidden;
+
+  // @qluqua
+  // отступы сверху каждой страницы для фиксированного навбара
+  > *:first-child {
+    @media (min-width: $navBreakpointXXL) {
+      padding-top: $navPaddingTopDesktop;
+    }
+
+    @media (max-width: $navBreakpointDesktop) {
+      padding-top: $navPaddingTopDesktop;
+    }
+
+    @media (max-width: $navBreakpointTablet) {
+      padding-top: $navPaddingTopTablet;
+    }
+
+    @media (max-width: $navBreakpointMobile) {
+      padding-top: $navPaddingTopMobile;
+    }
+  }
 }

@@ -19,30 +19,31 @@ mixin profile-edit()
         +e.personal
           //+e.SPAN.email k.konstantinopolsky@gmail.com
 
-          +e.FORM.profile-form
+          +e.FORM(action="" method="POST" novalidate).profile-form.js-form-validate
             +e.field._fio.disabled
-              +text-field('text', 'Константин Константинопольский Константинович')._col
+              +text-field('text', 'Константин Константинопольский Константинович', 'fio')._col
                 | ФИО
                 +e.SPAN.change-field Изменить
             +e.field._email.disabled
-              +text-field('email', 'k.konstantinopolsky@gmail.com')._col
+              +text-field('email', 'k.konstantinopolsky@gmail.com', 'email')._col
                 | E-mail
                 +e.SPAN.change-field Изменить
             +e.SPAN.note Для смены пароля введите старый пароль и дважды новый
             +e.field._pass._old
-              +text-field('password')._col
+              +text-field('password', '', 'oldpassword')._col
                 | Старый пароль
             +e.field-wrapper
               +e.field._pass._new
-                +text-field('password')._col
+                +text-field('password', '', 'password')._col
                   | Новый пароль
               +e.field._pass._repeat
-                +text-field('password')._col
+                +text-field('password', '', 'repeatpassword')._col
                   | Повторите новый пароль
 
             +e.confirm
               +e.submit
-                +button(true)._kind_yellow(data-tab-target="profile")
+                //- +button(true)._kind_yellow(data-tab-target="profile")
+                +button(true)._kind_yellow
                   | Сохранить
               +e.cancel
                 +button()._kind_transparent(data-tab-target="profile")

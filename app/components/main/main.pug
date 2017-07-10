@@ -457,9 +457,9 @@ mixin main()
       .wrap
         p.subscribe__label Подпишитесь<br> на новости
         .small-form.subscribe__small-form
-          form.small-form__form
+          form(action="" method="POST" novalidate).small-form__form.js-form-validate
             label(for="i-email").overlabel e-mail
-            input(type="email", value="", required).small-form__text#i-email
+            input(id="i-email" type="email" name="email" value="" required).small-form__text
             .small-form__submit
               input(type="submit", value="")
         p.subscribe__caption Для выбора параметров рассылки необходимо

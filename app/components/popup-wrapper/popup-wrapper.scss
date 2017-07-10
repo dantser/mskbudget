@@ -24,7 +24,13 @@
   display: block; position: absolute; width: 20px; height: 20px; top: 0; right: -35px; background: url("../images/sprite.png") no-repeat -183px -90px;
 }
 
-.login-form .error {
+.profile .js-form-validate .error{
+  top: 75px;
+}
+.reset .js-form-validate .error {
+  top: 65px;
+}
+.js-form-validate .error {
   display: none; /*inline-block*/
   position: absolute;
   top: 54px;
@@ -35,6 +41,26 @@
   background: #fff;
   color: $color-black;
   z-index: 2;
+
+  &_top {
+    top: auto;
+    bottom: 54px;
+
+    &.error::before,
+    .error::after {
+      top: auto;
+      bottom: -10px;
+      border-bottom: none;
+      border-top: 10px solid #c7c7c7;
+    }
+
+    &.error::after {
+      border-bottom: none;
+      border-top: 10px solid #fff;
+      top: auto;
+      bottom: -9px; 
+    }
+  }
 
   &:before,
   &:after {
