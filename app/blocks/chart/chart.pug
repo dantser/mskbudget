@@ -1,0 +1,15 @@
+//- type - вид квадрата с рейтингом (one, two, three, many)
+//- rating - номер в рейтинге
+//- width - ширина графика
+//- coef - значение коэффициента
+//- zero - нулевой коэффициент
+
+mixin chart-row(type, rating, width, coef, zero)
+  .d-smr__chart-row 
+    span.nmb(class=''+type+'')= rating
+    span.graph
+      span.graph__bar(data-width=''+width+'%')
+      if zero
+        span.coef.zero= coef
+      else
+        span.coef= coef

@@ -16,20 +16,41 @@
     padding-top: 78px;
   }
   
+  .arrow-hide {
+    width: 45px;
+    height: 45px;
+    position: fixed;
+    top: 50%;
+    z-index: 3;
+    &_left {
+      left: 0;
+    }
+    &_right {
+      right: 0;
+    }
+    &.active {
+      z-index: 1;
+    }
+  }
+  
   &__ar-left,
   &__ar-right {
-    display: none;
+    opacity: 0;
     background: #fee300 url('../images/ar-left_2.svg') center center no-repeat;
     background-size: 11px;
     width: 45px;
     height: 45px;
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 50%;
     cursor: pointer;
-    transition: all .25s ease-in-out;
-    &:hover {
-      opacity: .7;
+    transition: opacity .25s ease-in-out;
+    z-index: 2;
+    &.active {
+      opacity: 1;
+      &:hover {
+        opacity: .7;
+      }
     }
   }
   
@@ -42,9 +63,258 @@
   .d-layer {
     max-width: 1174px;
   }
+  
+  .d-smr__container_body {
+    padding-top: 44px;
+    padding-bottom: 110px;
+  }
+  
+  .d-smr__stat_head {
+    margin-bottom: 41px;
+  }
+  
+  .d-smr__add-char-block {
+    height: auto;
+  }
+  
+  .d-smr__chart-container {
+    font-size: 0;
+    position: relative;
+  }
+  
+  .d-smr__chart-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: top;
+    width: calc(100% - 235px);
+    padding-left: 12px;
+    margin-left: -12px;
+    z-index: 2;
+    box-sizing: content-box;
+    @media screen and (max-width: 550px) {
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+  
+  .d-smr__chart-leftlg,
+  .d-smr__chart-rightlg {
+    display: none;
+    position: absolute;
+    top: 0;
+    width: 20%;
+    height: 100%;
+    z-index: 3;
+    transition: all .25s ease-in-out;
+    @media screen and (max-width: 970px) {
+      width: 10%;
+    }
+  }
+  
+  .d-smr__chart-leftlg {
+    left: 0;
+    background: -moz-linear-gradient(right, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+    background: -webkit-linear-gradient(right, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+    background: linear-gradient(to left, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 );
+  }
+  
+  .d-smr__chart-rightlg {
+    right: 0;
+    background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+    background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=1 );
+  }
 
   .d-smr__chart {
     min-width: inherit;
+    display: block;
+    font-size: 0;
+    white-space: nowrap;
+    position: relative;
+  }
+  
+  .d-smr__chart-row {
+    display: block;
+    padding: 25px 0 6px;
+    padding-right: 30px;
+    padding-left: 2px;
+    border-bottom: 1px solid #e5e5e5;
+    height: 54px;
+    .graph {
+      font-family: $PFDinCondensedPro;
+      .coef.zero {
+        color: #b2b2b2;
+      }
+    }
+    @media screen and (max-width: 970px) {
+      height: 64px;
+    }
+    @media screen and (max-width: 550px) {
+      height: 84px;
+      padding: 45px 0 6px;
+    }
+  }
+  
+  .d-smr__chart-header {
+    border-bottom: 3px solid #e5e5e5;
+    line-height: 17px;
+    padding-bottom: 30px;
+    position: relative;
+    padding-right: 60px;
+    padding-top: 20px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #fff;
+    width: 100%;
+    z-index: 3;
+    span {
+      font-family: $PFDinCondensedPro;
+      display: block;
+    }
+    .d-smr__chart-controls {
+      position: absolute;
+      display: block;
+      width: 100%;
+      bottom: 6px;
+      left: 0;
+      text-align: left;
+      visibility: hidden;
+      opacity: 0;
+      -webkit-transition: all .2s ease-in-out;
+      transition: all .2s ease-in-out;
+      a {
+        color: #0d46a1;
+        border-bottom: 1px dashed #0d46a1;
+        font-size: 12px;
+        font-weight: 500;
+        text-decoration: none;
+        margin-right: 20px;
+        position: relative;
+        display: inline-block;
+        text-transform: none;
+        &:last-child {
+          margin-right: 0;
+        }
+        &.sort_desc {
+          &:before {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-top: 5px solid #0d46a1;
+            border-left: 3px solid transparent;
+            border-right: 3px solid transparent;
+            top: 50%;
+            margin-top: -4px;
+            left: -12px;
+          }
+        }
+        &.sort_desc-top {
+          &:before {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-bottom: 5px solid #0d46a1;
+            border-left: 3px solid transparent;
+            border-right: 3px solid transparent;
+            top: 50%;
+            margin-top: -4px;
+            left: -12px;
+          }
+        }
+      }
+    }
+    &:hover {
+      .d-smr__chart-controls {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+    &.active {
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: 100%;
+        width: 100%;
+        height: 500px;
+        background-color: #fff;
+      }
+    }
+    @media screen and (max-width: 550px) {
+      padding-right: 0;
+    }
+  }
+  
+  .d-smr__chart-subjects {
+    width: 235px;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    .d-smr__chart-row {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 20px;
+      color: #000;
+      @media screen and (max-width: 550px) {
+        padding: 10px 0 6px;
+      }
+    }
+    @media screen and (max-width: 550px) {
+      width: 100%;
+      .d-smr__chart-header {
+        display: none;
+      }
+    }
+  }
+  
+  .d-smr__chart-col,
+  .d-smr__chart-subjects {
+    vertical-align: top;
+    box-sizing: border-box!important;
+    font-size: 14px;
+    white-space: normal;
+    padding-right: 0 !important;
+    border-bottom: 0;
+  }
+    
+  .d-smr__chart-col {
+    width: 266px;
+    display: none;
+    &:nth-child(3n+1) .graph__bar {
+      background: -webkit-gradient(linear,left top,right top,from(#fee300),to(#30b069));
+      background: -webkit-linear-gradient(left,#fee300,#30b069);
+      background: linear-gradient(90deg,#fee300,#30b069);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fee300',
+            endColorstr='#30b069',GradientType=0);
+    }
+    &:nth-child(3n+2) .graph__bar {
+      background: -webkit-gradient(linear,left top,right top,from(#0ff),to(#004ccf));
+      background: -webkit-linear-gradient(left,#0ff,#004ccf);
+      background: linear-gradient(90deg,#0ff,#004ccf);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0fffff',
+            endColorstr='#004ccf',GradientType=0);
+    }
+    &:nth-child(3n+3) .graph__bar {
+      background: -webkit-gradient(linear,left top,right top,from(#ce97c4),to(#ffb4ad));
+      background: -webkit-linear-gradient(left,#ce97c4,#ffb4ad);
+      background: linear-gradient(90deg,#ce97c4,#ffb4ad);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ce97c4',
+            endColorstr='#ffb4ad',GradientType=0);
+    }
+    &.active {
+      display: inline-block;
+    }
   }
 
   .d-smr__chart-header .d-smr__chart-col {
@@ -54,7 +324,6 @@
     @media screen and (max-width: 970px) {
       height: inherit !important;
     }
-
   }
 
   .d-smr__add-char-item input:checked+label:before {
@@ -114,19 +383,6 @@
   }
 
   .ar-right {
-    @media screen and (max-width: 1140px) {
-      background: #fee300 url('../images/ar-left_2.svg') center center no-repeat;
-      background-size: 11px;
-      width: 45px;
-      height: 45px;
-      position: absolute;
-      right: 0;
-      top: 50%;
-      margin-top: 286px;
-      transform: rotate(180deg);
-      cursor: pointer;
-    }
-
     @media screen and (max-width: 970px) {
       background-size: 14px;
       width: 38px;
