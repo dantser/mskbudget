@@ -29,14 +29,15 @@ mixin profile-edit()
                 | E-mail
                 +e.SPAN.change-field Изменить
             +e.SPAN.note Для смены пароля введите старый пароль и дважды новый
-            +e.field._pass._old
+            +e.field._pass._old.disabled
               +text-field('password', '', 'oldpassword')._col
                 | Старый пароль
+                +e.SPAN.change-field Изменить
             +e.field-wrapper
-              +e.field._pass._new
+              +e.field._pass._new.disabled
                 +text-field('password', '', 'password')._col
                   | Новый пароль
-              +e.field._pass._repeat
+              +e.field._pass._repeat.disabled
                 +text-field('password', '', 'repeatpassword')._col
                   | Повторите новый пароль
 

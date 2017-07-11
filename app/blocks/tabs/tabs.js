@@ -8,6 +8,14 @@ export default function tabs() {
         tab = $(document).find("[data-tab='" + targetTab + "']"),
         tabGroup = tab.data("tab-group");
 
+		$(document).find('.error').remove();
+
+		if (targetTab == 'profile-edit') {
+			$(document).find('.profile_edit input[type=password]').val('');
+			$(document).find('.profile_edit .profile__field').addClass('disabled');
+		}
+
+
     $(document).find("[data-tab-group='" + tabGroup + "']").hide();
 
     $(document).find("[data-tab-bg='" + targetTab + "']").addClass("active").siblings().removeClass("active");
