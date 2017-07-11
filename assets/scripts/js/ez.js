@@ -56,38 +56,38 @@ budget.extend("common", {
 		})
 
 		$('.edu-lesson-link').on('click', function() {
-            window.location.href = $(this).attr('href');
-			//$('.edu-content').removeClass('_active');
+            // window.location.href = $(this).attr('href');
+			$('.edu-content').removeClass('_active');
 
-			//var id = $(this).attr('id');
+			var id = $(this).attr('id');
 
-			//$('.edu-content[id="'+id+'"]').addClass('_active');
+			$('.edu-content[id="'+id+'"]').addClass('_active');
 
-			//$('.edu-lesson-link').removeClass('disable');
+			$('.edu-lesson-link').removeClass('disable');
 
-			//$(this).addClass('disable');
+			$(this).addClass('disable');
 
-			//$('.close-lessons-burger').trigger('click');
+			$('.close-lessons-burger').trigger('click');
 		})
 
-		//$('.d-sq__head_next').on('click', function() {
-		//	var $active = $('.edu-lesson-link.disable');
+		$('.d-sq__head_next').on('click', function() {
+			var $active = $('.edu-lesson-link.disable');
 
-		//	if ($active.next('.edu-lesson-link').length) {
-		//		$active.next('.edu-lesson-link').trigger('click');
-		//	} else {
-		//		$('.edu-lesson-link:first').trigger('click');
-		//	}
-		//})
-		//$('.d-sq__head_prev').on('click', function() {
-		//	var $active = $('.edu-lesson-link.disable');
+			if ($active.next('.edu-lesson-link').length) {
+				$active.next('.edu-lesson-link').trigger('click');
+			} else {
+				$('.edu-lesson-link:first').trigger('click');
+			}
+		})
+		$('.d-sq__head_prev').on('click', function() {
+			var $active = $('.edu-lesson-link.disable');
 
-		//	if ($active.prev('.edu-lesson-link').length) {
-		//		$active.prev('.edu-lesson-link').trigger('click');
-		//	} else {
-		//		$('.edu-lesson-link:last').trigger('click');
-		//	}
-		//})
+			if ($active.prev('.edu-lesson-link').length) {
+				$active.prev('.edu-lesson-link').trigger('click');
+			} else {
+				$('.edu-lesson-link:last').trigger('click');
+			}
+		})
 
 		setTimeout(function() {
 
@@ -604,12 +604,12 @@ function sectionTabs(){
 }
 
 function stepsDetails(){
-  $('.graphic-table__title-wrap, .step .link-more').click(function(e){
+  $('.graphic-table__title-wrap, .step .link-more, .step__head').click(function(e){
     e.preventDefault();
     if ($(this).hasClass('graphic-table__title-wrap')) {
       var stepNumber = $(this).attr('data-step');
     }
-    if ($(this).hasClass('link-more')) {
+    if ($(this).hasClass('link-more') || $(this).hasClass('step__head')) {
       var stepNumber = $(this).parents('.step').attr('data-step');
     }
 
