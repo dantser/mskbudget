@@ -6,6 +6,6 @@ mixin social(...buttons)
   +b('ul').social&attributes(attributes)
     each button in buttons
       +e('li').item
-        +e('a')(href='#', class='__link_type_' + button)
+        +e('a').link(href='#', class='__link_type_' + button)
           +icon(button).icon
 
