@@ -1,140 +1,33 @@
-.social {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 0;
+.social { // ul
+  display: inline-block;
   margin: 0;
-  width: 100%;
+  padding: 0;
+  list-style: none;
 
-  &__item, &__link, &__icon {
+  &__item { // li
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+  }
+
+  &__link { // a
     display: block;
-  }
-
-  &__link {
-    opacity: 1;
-    will-change: opacity;
-    transition: opacity .25s ease-in-out;
+    width: 17px;
+    height: 17px;
+    color: white;
+    fill: white;
 
     &:hover {
-      opacity: .75;
-    }
-
-    &_type {
-
-      &_vk .social__icon {
-        width: 22px;
-        height: 13px;
-      }
-
-      &_insta .social__icon {
-        width: 29px;
-        height: 20px;
-      }
-
-      &_fb .social__icon {
-        width: 11px;
-        height: 19px;
-      }
-
-      &_odnokl .social__icon {
-        width: 13px;
-        height: 20px;
-      }
-
-      &_yt .social__icon {
-        width: 22px;
-        height: 16px;
-      }
-
-      &_tw .social__icon {
-        width: 22px;
-        height: 16px;
-      }
-
-      &_go .social__icon {
-        width: 22px;
-        height: 16px;
-      }
-    }
-  }
-
-  &__icon {
-    fill: #fff;
-    will-change: fill;
-    transition: fill .25s ease-in-out;
-
-    &:hover {
+      color: #fee300;
       fill: #fee300;
     }
   }
 
-  &_join .social__icon:hover {
-    fill: #fff;
-  }
-
-  &_join .social__link {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-
-    &_type {
-
-      &_vk {
-        background-color: #4873a7;
-
-        .social__icon {
-          width: 19px;
-          height: 11px;
-        }
-      }
-
-      &_fb {
-        background-color: #39569a;
-
-        .social__icon {
-          width: 9px;
-          height: 17px;
-        }
-      }
-
-      &_odnokl {
-        background-color: #ef8200;
-
-        .social__icon {
-          width: 10px;
-          height: 17px;
-        }
-      }
-
-      &_tw {
-        background-color: #12c1ff;
-
-        .social__icon {
-          width: 19px;
-          height: 16px;
-        }
-      }
-
-      &_go {
-        background-color: #dc4e41;
-
-        .social__icon {
-          width: 21px;
-          height: 13px;
-        }
-      }
-
-      &_insta {
-        background-color: #d52e84;
-      }
-    }
-  }
-
-  &_small .social__link {
-    width: 32px;
-    height: 32px;
+  &__icon { // svg
+    max-width: 100%;
+    max-height: 100%;
+    @include transited;
   }
 }

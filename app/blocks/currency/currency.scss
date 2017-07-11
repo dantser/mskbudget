@@ -1,30 +1,36 @@
 .currency {
   font-size: 14px;
+  line-height: 1;
   color: #FFF;
 
   &__sign {
     display: inline-block;
-    color: #C8CCC9;
-    margin-right: 7px;
+    color: rgba(white, .6);
+    margin-right: 4px;
   }
 
   &__item {
-    margin-right: 45px;
+    margin-right: 40px;
     float: left;
+
+    &_right {
+      margin-right: 14px;
+    }
   }
 
   &__diff {
-    margin-left: 6px;
+    margin-left: 2px;
     color: #eb212e;
     display: inline-block;
     position: relative;
 
-    &::after {
+    &:after {
       display: block;
       content: "";
       position: absolute;
-      right: -17px;
-      top: 3px;
+      top: 50%;
+      @include transform(translateY(-50%));
+      right: -13px;
       width: 8px;
       height: 7px;
       background-image: url("../images/sprite.png");
@@ -35,8 +41,7 @@
     &_up {
       color: #66ff00;
 
-      &::after {
-        top: 2px;
+      &:after {
         background-position: -68px -20px;
       }
     }
