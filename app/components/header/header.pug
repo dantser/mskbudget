@@ -1,6 +1,7 @@
 include ../../blocks/logo/logo
 include ../../blocks/currency/currency
 include ../../blocks/menu/menu
+include ../../blocks/social/social
 include ../../blocks/search-form/search-form
 include ../../blocks/login/login
 
@@ -16,22 +17,7 @@ mixin header()
         // MENU/
         +menu().header__menu
         // SOCIAL_BUTTONS/
-        +e.social.social
-          ul
-            li.social__item
-              a(href="#").social__a.social__a_fb
-            li.social__item
-              a(href="#").social__a.social__a_vk
-            li.social__item
-              a(href="#").social__a.social__a_tw
-            li.social__item
-              a(href="#").social__a.social__a_in
-            li.social__item
-              a(href="#").social__a.social__a_ok
-            li.social__item
-              a(href="#").social__a.social__a_yt
-            li.social__item
-              a(href="#").social__a.social__a_tg.fa.fa-telegram.fa-2
+        +social('facebook-box', 'vk', 'tw', 'insta', 'odnokl', 'youtube-play', 'telegram').__social
         // SEARCH_FORM/
         +search-form().header__search-form(style="height: 19px;")
         // LOGIN/

@@ -31,13 +31,13 @@ export default () => {
     });
     
     $('.profile_edit .profile__field .text-field__change-field').on('click', function(){
-      $(this).parents('.profile__field').removeClass('disabled');
+      if ($(this).parents('.profile__field_pass').length > 0) {
+        $('.profile__field_pass').removeClass('disabled');
+      } else {
+        $(this).parents('.profile__field').removeClass('disabled');
+      }
     });
-    
-    // $('.profile_edit .profile__cancel, .profile_edit .profile__submit').on('click', function(){
-    //   $('.profile_edit .profile__field_fio, .profile_edit .profile__field_email').addClass('disabled');
-    // });
-    
+
   });
   
 }
