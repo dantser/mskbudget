@@ -1,4 +1,5 @@
 include ../../blocks/logo/logo
+include ../../blocks/icon/icons
 include ../../blocks/currency/currency
 include ../../blocks/menu/menu
 include ../../blocks/social/social
@@ -11,7 +12,9 @@ mixin header()
       // LOGO/
       +logo('header').header__logo
       +e.drop
-        +e.A(href="#").link-for-blind.link-for-blind Версия для слабовидящих
+        +e.A(href="#").link-for-blind.link-for-blind
+          +icon('glasses').icon.link-for-blind__icon
+          .link-for-blind__text Версия для слабовидящих
         // CURRENCY/
         +currency().header__currency
         // MENU/

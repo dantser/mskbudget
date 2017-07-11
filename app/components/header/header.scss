@@ -31,7 +31,7 @@ $hamburger-hover-filter    : opacity(50%) !default;
   -moz-osx-font-smoothing: grayscale;
 
   @media (min-width: $navBreakpointXXL) {
-    height: $navHeightDesktop;
+    height: $navHeightXXL;
   }
 
   @media (max-width: $navBreakpointDesktop) {
@@ -53,13 +53,10 @@ $hamburger-hover-filter    : opacity(50%) !default;
   // inner
   &__wrap {
     position: relative;
-    margin: 0 30px;
+    margin: 0 40px;
     max-width: initial !important;
 
     @media (max-width: $navBreakpointTablet) {
-      // значения в макете:
-      // margin: 0 40px;
-
       margin: 0 20px;
     }
 
@@ -82,11 +79,11 @@ $hamburger-hover-filter    : opacity(50%) !default;
     left: 0;
     z-index: 14;
 
-    @media (max-width: $navBreakpointTablet) {
+    @media (max-width: $navBreakpointDesktop) {
       top: 20px;
     }
 
-    @media (max-width: $navBreakpointMobile) {
+    @media (max-width: $navBreakpointTablet) {
       top: 12px;
     }
 
@@ -114,7 +111,7 @@ $hamburger-hover-filter    : opacity(50%) !default;
       clear: both;
     }
 
-    @media (max-width: $navBreakpointMobile) {
+    @media (max-width: $navBreakpointTablet) {
       display: none;
       position: fixed;
       width: 100%;
@@ -137,89 +134,20 @@ $hamburger-hover-filter    : opacity(50%) !default;
   }
 
   &__link-for-blind {
-    @media (max-width: $navBreakpointDesktop) {
-      top: 88px;
+    @media (min-width: $navBreakpointTablet + 1px) and (max-width: $navBreakpointDesktop) {
+      position: absolute;
+      top: 87px;
       left: 0;
     }
 
-    @media (min-width: $navBreakpointTablet + 1px) {
-      position: absolute;
-      top: 36px;
-      left: 242px;
-      z-index: 4;
-    }
+    @media (min-width: $navBreakpointXXL) {
 
-    @media (max-width: $navBreakpointTablet) {
-      display: none;
-    }
-
-    @media (max-width: $navBreakpointMobile) {
-      display: block;
-      top: auto;
-      bottom: 72px;
-      left: 20px;
-      z-index: 5;
     }
   }
 
   &__menu {
-    float: left;
-    width: 100%;
-    padding: 80px 130px 0 242px;
-    margin: 0;
     position: relative;
-    z-index: 3;
     @include transited;
-    top: auto;
-
-    @media (max-width: $navBreakpointDesktop) {
-      padding: 90px 130px 0 52px;
-      margin: 0;
-      top: auto;
-
-      .menu__sub-menu {
-        padding: 25px 0 9px 78px;
-      }
-    }
-
-    @media (max-width: $navBreakpointMobile) {
-      margin: 72px 0 0 !important;
-      top: 0 !important;
-      width: 100%;
-      padding: 0 !important;
-
-      .menu__item {
-        float: none;
-        margin: 0;
-        text-align: center;
-        height: auto;
-        display: block;
-      }
-    }
-
-    ul {
-      &:after {
-        content: '';
-        display: inline-block;
-        height: 0.0000000001px;
-        width: 100%;
-      }
-    }
-
-    .menu__item {
-      float: none;
-      display: inline-block;
-
-      &:last-child {
-        margin-right: 0;
-      }
-    }
-
-    .menu__a {
-      font-family: $PFDinCondensedPro;
-      font-weight: 400;
-      font-style: normal;
-    }
   }
 
   &__currency {
@@ -241,64 +169,6 @@ $hamburger-hover-filter    : opacity(50%) !default;
     width: auto;
     display: block;
     z-index: 4;
-
-    @media (max-width: $navBreakpointTablet) {
-      top: 20px;
-    }
-
-    @media (max-width: $navBreakpointMobile) {
-      top: auto;
-      bottom: 20px;
-      right: 0;
-      left: 0;
-      padding: 20px 20px 0;
-      border-top: 1px solid rgba(255, 255, 255, .2);
-
-      ul {
-        text-align: justify;
-        height: 17px;
-
-        &:before,
-        &:after {
-          display: block;
-          content: '';
-          width: 100%;
-          height: 0;
-        }
-
-        &:after {
-          display: inline-block;
-        }
-      }
-
-      .social__item {
-        display: inline-block;
-        float: none;
-        margin: 0;
-      }
-
-      .social__a {
-        width: 24px;
-        height: 24px;
-
-        &:before,
-        &:after {
-          background-size: 640px auto;
-        }
-      }
-
-      .social__a_fb:after { background-position: 2px -121px; }
-      .social__a_vk:before { background-position: -29px 0; }
-      .social__a_vk:after { background-position: -29px -121px; }
-      .social__a_tw:before { background-position: -61px 0; }
-      .social__a_tw:after { background-position: -61px -121px; }
-      .social__a_in:before { background-position: -90px 0; }
-      .social__a_in:after { background-position: -90px -121px; }
-      .social__a_ok:before { background-position: -117px 0; }
-      .social__a_ok:after { background-position: -117px -121px; }
-      .social__a_yt:before { background-position: -147px 0; }
-      .social__a_yt:after { background-position: -147px -121px; }
-    }
   }
 
   &__search-form {
@@ -400,361 +270,34 @@ $hamburger-hover-filter    : opacity(50%) !default;
     height: 100%;
     border-left: 1px solid rgba(white, .1);
 
-    @media (max-width: $navBreakpointMobile) {
+    @media (max-width: $navBreakpointTablet) {
       display: block;
     }
   }
-
-  &_ab {
-    position: absolute;
-  }
 }
 
-
+// a
 .link-for-blind {
-  display: block;
-  color: #fff;
+  display: inline-block;
   font-size: 16px;
-  padding: 3px 0 0 40px;
-  position: relative;
   text-decoration: none;
-  @include transited;
-  z-index: 2;
 
-  &::before {
-    display: block;
-    content: '';
-    width: 27px;
-    height: 19px;
-    background-image: url('../images/sprite.png');
-    background-repeat: no-repeat;
-    background-position: -37px -21px;
-    position: absolute;
-    left: 0;
-    top: 0;
+  &__icon {
+    display: inline-block;
+    max-width: 27px;
+    max-height: 19px;
+    color: white;
+    fill: white;
   }
 
-  &:hover {
-    color: #fee300;
-  }
+  &__text {
+    display: inline-block;
+    font-size: 16px;
+    line-height: 1;
+    color: white;
 
-  @media (max-width: $navBreakpointDesktop) {
-    font-size: 0;
-    height: 19px;
-
-    &:before {
-      background-image: url('../images/sprite@2x.png');
-      background-size: 480px auto;
-      background-repeat: no-repeat;
+    @media (max-width: $navBreakpointDesktop) {
+      display: none;
     }
   }
 }
-
-
-
-
-
-
-
-// @qluqua
-// пока неизвестно зачем эти стили, скорее всего перепишу
-// @media (max-width: $navBreakpointDesktop) {
-//   .header__social {
-//     top: 32px;
-//   }
-
-//   .header_short .header__search-form {
-//     left: 54px;
-//   }
-
-//   .header__login, .header__search-form  {
-//     top: 88px;
-//   }
-
-//   .header__logged {
-//     top: 80px;
-//   }
-
-//   .header_short .header__logged {
-//     top: 25px;
-//   }
-
-//   .header_short .header__logo {
-//     z-index: 2;
-//   }
-// }
-
-// @media (max-width: $navBreakpointTablet) {
-//   .header__menu {
-//     margin-left: 0;
-//     padding-left: 0;
-//     padding-right: 0 !important;
-
-//     ul {
-//       text-align: justify;
-//     }
-//   }
-
-//   .header_short .header__menu {
-//     margin-left: 77px;
-//   }
-
-//   .header__currency {
-//     display: none;
-//   }
-
-//   .header__social {
-//     right: 128px  ;
-//   }
-
-//   .header__login {
-//     top: 33px;
-//   }
-
-//   .header__search-form {
-//     top: 33px;
-//   }
-
-//   .header_short .menu__item {
-//     margin-right: 13px;
-//   }
-
-//   .header_short .menu_logged .menu__item {
-//     margin-right: 10px;
-//   }
-
-//   .header__logged {
-//     top: 23px;
-//   }
-
-//   .header_short .header__logged {
-//     top: 25px;
-//   }
-
-//   .header_short {
-//     height: 105px;
-//   }
-//   .header__search-form .search-form__btn {
-//     margin-bottom: 40px;
-//   }
-
-//   .menu__a {
-//     display: inline-block;
-//     font-size: 18px;
-//     line-height: 36px;
-//   }
-
-//   .menu__item {
-//     margin-right: 10px;
-//   }
-
-//   .header_short .menu__item {
-//     margin-right: 15px;
-//   }
-// }
-
-
-// .header {
-//    &_short {
-//     height: 75px;
-//     border-bottom: 1px solid #ffffff !important;
-//     border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-
-//     &:not(.header_opened) {
-//       background: url(../images/background/menu.jpg) no-repeat 50% 0 !important;
-//       background-size: 100% 100% !important;
-//       background: rgba(black, .6);
-//     }
-
-//     .header__menu {
-//       top: auto;
-//       padding-top: 35px;
-//     }
-
-//     .header__currency {
-//       top: -50px;
-//     }
-
-//     .header__social {
-//       top: -50px;
-//     }
-
-//     .header__search-form {
-//       top: 35px;
-//     }
-
-//     .header__login {
-//       top: 35px;
-//     }
-
-//     .header__logged {
-//       top: 25px;
-//     }
-
-//     .search-form__btn {
-//       margin-bottom: 0;
-//     }
-
-//     &:not(.header_budget) {
-
-//       .menu__sub-menu {
-//         background: rgba(0,0,0,.4) !important;
-
-//         .sub-menu {
-//           background: rgba(0,0,0,.7) !important;
-//         }
-//       }
-//     }
-//   }
-
-//   &_budget {
-//     background: url('../images/background/menu.jpg') no-repeat 50% 0 !important;
-//     background-size: 100% 100% !important;
-//   }
-
-//   &_mob {
-
-//     &__open-menu {
-//       display: block;
-//     }
-
-//     &__drop {
-//       display: none;
-//       position: fixed;
-//       width: 100%;
-//       bottom: 0;
-//       left: 0;
-//       top: 68px;
-
-//       &::before {
-//         display: block;
-//         content: '';
-//         position: fixed;
-//         left: 0;
-//         top: 0;
-//         width: 100%;
-//         height: 100%;
-//         background: #000;
-//         background: rgba(0, 0, 0, .3);
-//       }
-//     }
-
-//     &__currency {
-//       display: block;
-//       left: 20px;
-//       right: 20px;
-//       top: 20px;
-
-//       .currency__item_right {
-//         margin-right: 18px;
-//         float: right;
-//       }
-//     }
-
-//     &__social {
-//       top: auto;
-//       bottom: 16px;
-//       right: 0;
-//       left: 0;
-//       padding: 20px 20px 0;
-//       border-top: 1px solid rgba(255, 255, 255, .2);
-
-//       ul {
-//         text-align: justify;
-//         height: 17px;
-
-//         &::before, &::after {
-//           display: block;
-//           content: '';
-//           width: 100%;
-//           height: 0;
-//         }
-
-//         &::after {
-//           display: inline-block;
-//         }
-//       }
-
-//       .social__item {
-//         display: inline-block;
-//         float: none;
-//         margin: 0;
-//       }
-//     }
-
-//     &__link-for-blind {
-//       display: block;
-//       top: auto;
-//       bottom: 72px;
-//       left: 20px;
-//     }
-
-//     &__login {
-//       top: auto;
-//       bottom: 72px;
-//       right: 20px;
-//     }
-
-//     &__search-form {
-//       top: auto;
-//       bottom: 72px;
-//       right: 50%;
-//       margin-right: -8px;
-//       left: 20px;
-
-//       label {
-//         font-size: 15px !important;
-//       }
-
-//       .search-form__btn:not(.act)::after {
-//         display: none;
-//       }
-
-//       .search-form__form {
-//         padding-bottom: 0;
-//       }
-
-//       .search-form__text {
-//         font-size: 15px !important;
-//       }
-//     }
-//   }
-// }
-
-// @media (max-width: 899px) {
-//   .header__menu {
-//     padding-left: 0;
-//   }
-//   .header_short .header__menu {
-//     padding-left: 77px;
-//   }
-// }
-
-// @media (max-width: 699px) {
-//   .header__link-for-blind {
-//     display: block;
-//     top: auto;
-//     bottom: 72px;
-//     left: 20px;
-//     z-index: 5;
-//   }
-//   .header__search-form {
-//     top: auto;
-//     bottom: 72px;
-//     right: 50%;
-//     margin-right: -8px;
-//     left: 20px;
-//   }
-//   .header__search-form .search-form__btn {
-//     margin-bottom: 10px;
-//     height: 20px;
-//   }
-//   .header__search-form .search-form__btn_act:before {
-//     background-position: -94px -44px;
-//   }
-//   .header__login {
-//     top: auto;
-//     bottom: 72px;
-//     right: 20px;
-//   }
-// }
