@@ -347,13 +347,39 @@ button::-moz-focus-inner { padding: 0; border: 0; }
 
 .button:hover { background: #E7CE00; }
 
-.button-top { display: none; width: 63px; height: 130px; background-image: url("../images/sprite.png"); background-repeat: no-repeat; background-position: 100% 0; position: fixed; top: 50%; left: 10px; z-index: 5; margin-top: -65px; }
+.button-top { 
+  display: none; 
+  width: 63px; 
+  height: 130px; 
+  background-image: url("../images/sprite.png"); 
+  background-repeat: no-repeat; 
+  background-position: 100% 0; 
+  position: fixed; 
+  bottom: 10%;
+  right: 10px;
+  z-index: 5; 
+  margin-top: -65px; 
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70); 
+  opacity: 0.7; 
+}
 
-.button-top_active { -webkit-transition: 0.5s; -moz-transition: 0.5s; -o-transition: 0.5s; transition: 0.5s; }
+.button-top_active { 
+  -webkit-transition: 0.5s; 
+  -moz-transition: 0.5s; 
+  -o-transition: 0.5s; 
+  transition: 0.5s; 
+}
 
-.button-top:hover { filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70); opacity: 0.7; }
+.button-top:hover { 
+  filter: none;
+  opacity: 1;
+}
 
-@media (max-width: 1150px) { .button-top { display: none !important; } }
+@media (max-width: 1150px) { 
+  .button-top { 
+    display: none !important; 
+  }
+}
 
 @media (max-width: 900px) { .button { font-size: 24px; } }
 
