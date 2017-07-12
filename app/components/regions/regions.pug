@@ -25,43 +25,55 @@ mixin regions()
               .d-smr__add-char
                 p.d-smr__add-char-label Выберите показатель
                 .d-smr__add-char-block
-                  ul.d-smr__add-char-list.scroll-pane
-                    li.d-smr__add-char-item
-                      input(type='checkbox', name='a', value='a')#a
-                      label(for='a') Доходы
-                      ul.d-smr__char-sublist
-                        li.d-smr__add-char-item
-                          input(type='checkbox', name='aa', value='aa')#aa
-                          label(for='aa') Доходы, всего
-                        li.d-smr__add-char-item
-                          input(type='checkbox', name='ab', value='ab')#ab
-                          label(for='ab') Доходы в расчёте на 1 жителя
-                        li.d-smr__add-char-item
-                          input(type='checkbox', name='ac', value='ac')#ac
-                          label(for='ac') Налоговые доходы
-                        li.d-smr__add-char-item
-                          input(type='checkbox', name='ad', value='ad')#ad
-                          label(for='ad') Неналоговые доходы
-                        li.d-smr__add-char-item
-                          input(type='checkbox', name='ae', value='ae')#ae
-                          label(for='ae') Безвозмездные поступления
-                    li.d-smr__add-char-item
-                      input(type='checkbox', name='b', value='b')#b
-                      label(for='b') Расходы
-                      ul.d-smr__char-sublist
-                        li.d-smr__add-char-item
-                          input(type='checkbox', name='ba', value='ba')#ba
-                          label(for='ba') Расходы, всего
-                        li.d-smr__add-char-item
-                          input(type='checkbox', name='bb', value='bb')#bb
-                          label(for='bb') Расходы в расчёте на 1 жителя
-                        li.d-smr__add-char-item
-                          input(type='checkbox', name='bc', value='bc')#bc
-                          label(for='bc') Общегосударственные вопросы
+                  .d-smr__add-char-list-wrapper
+                    ul.d-smr__add-char-list.scroll-pane
+                      li.d-smr__add-char-item
+                        input(type='checkbox', name='a', value='a')#a
+                        label(for='a') Доходы
+                        ul.d-smr__char-sublist
+                          li.d-smr__add-char-item
+                            input(type='checkbox', name='aa', value='aa')#aa
+                            label(for='aa') Объем доходов бюджета субъекта Российской Федерации в расчете на&nbsp;1&nbsp;жителя, тыс руб.
+                          li.d-smr__add-char-item
+                            input(type='checkbox', name='ab', value='ab')#ab
+                            label(for='ab') Объем доходов бюджета субъекта Российской Федерации в расчете на&nbsp;1&nbsp;жителя, тыс руб.
+                          li.d-smr__add-char-item
+                            input(type='checkbox', name='ac', value='ac')#ac
+                            label(for='ac') Налоговые доходы
+                          li.d-smr__add-char-item
+                            input(type='checkbox', name='ad', value='ad')#ad
+                            label(for='ad') Неналоговые доходы
+                          li.d-smr__add-char-item
+                            input(type='checkbox', name='ae', value='ae')#ae
+                            label(for='ae') Безвозмездные поступления
+                      li.d-smr__add-char-item
+                        input(type='checkbox', name='b', value='b')#b
+                        label(for='b') Расходы
+                        ul.d-smr__char-sublist
+                          li.d-smr__add-char-item
+                            input(type='checkbox', name='ba', value='ba')#ba
+                            label(for='ba') Объем расходов бюджета субъекта Российской Федерации в расчете на&nbsp;1&nbsp;жителя, тыс руб.
+                          li.d-smr__add-char-item
+                            input(type='checkbox', name='bb', value='bb')#bb
+                            label(for='bb') Расходы в расчёте на 1 жителя
+                          li.d-smr__add-char-item
+                            input(type='checkbox', name='bc', value='bc')#bc
+                            label(for='bc') Общегосударственные вопросы
+                          li.d-smr__add-char-item
+                            input(type='checkbox', name='ba', value='ba')#ba
+                            label(for='ba') Объем расходов бюджета субъекта Российской Федерации в расчете на&nbsp;1&nbsp;жителя, тыс руб.
+                          li.d-smr__add-char-item
+                            input(type='checkbox', name='bb', value='bb')#bb
+                            label(for='bb') Расходы в расчёте на 1 жителя
+                          li.d-smr__add-char-item
+                            input(type='checkbox', name='bc', value='bc')#bc
+                            label(for='bc') Общегосударственные вопросы
           .d-smr__chart-container
             .d-smr__chart-subjects
               .d-smr__chart-header 
                 span Субъект<br> Российской Федерации
+                .d-smr__chart-controls
+                  a(href='#').sort_desc.alph По алфавиту
               p.d-smr__chart-row г. Санкт-Петербург
               p.d-smr__chart-row г. Москва
               p.d-smr__chart-row г. Севастополь
