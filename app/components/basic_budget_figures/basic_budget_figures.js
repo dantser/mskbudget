@@ -32,6 +32,20 @@ export default () => {
     $(document).on('click', function () {
       $('.jq-spec-datepicker-alt').blur().removeClass('hasDatepicker');
     });
+    
+    if ($('.basic_budget_figures').length) {
+      var diagramIndex = 1;
+      
+      $('.basic_budget_figures .comp-diagram_dash-1').each(function(){
+        var diagram = $(this);
+        var diagramFilter = diagram.find('filter');
+        var diagramFilterG = diagram.find('g[filter]');
+        diagramFilter.attr('id', 'f'+diagramIndex);
+        diagramFilterG.attr('filter', 'url(#f'+diagramIndex+')');
+        diagramIndex ++;
+      });
+      
+    }
 
   });
 
