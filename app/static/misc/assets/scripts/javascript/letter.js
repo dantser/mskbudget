@@ -21,7 +21,12 @@ var letter;
 		_.itemWidth = _.item.innerWidth();
 
 		_.Init();
-		_.Handler();
+        if (/msie/.test(navigator.userAgent.toLowerCase())) {
+          _.HandlerIE();
+          _.slider.css('cursor', 'default');
+        } else {
+          _.Handler();
+        }
 
 	};
 
@@ -202,6 +207,78 @@ var letter;
 
 		_.slider.find('.letter__hover').mouseleave(function() {
 			clearInterval(int);
+		});
+
+	};
+  
+    Letter.prototype.HandlerIE = function() {
+
+		var _ = this, index, position, change = false, int;
+
+		function handler(direct) {
+
+			if (direct == 'left') {
+
+				if (_.itemAligned > 0) {
+					index = _.itemAligned - 1;
+					change = true;
+				}
+
+			} else if(direct == 'right') {
+				
+				if ((_.itemL-1) > _.itemAligned) {
+					index = _.itemAligned + 1;
+					change = true;
+				}
+				
+			}
+
+			if (change) {
+
+				change = false;
+
+				if (index == 0) {
+					position = _.startLeft;
+				} else {
+					position = -(_.itemWidth * index) + _.startLeft;
+				}
+				_.setCss(position);
+				_.Line();
+
+			}
+
+		}
+
+		_.line.find('.letter__btn').click(function() {
+			
+			var index = $(this).parent().attr('data-index');
+
+			if (index == 0) {
+				position = _.startLeft;
+			} else {
+				position = -(_.itemWidth * index) + _.startLeft; 
+			}
+
+			_.setCss(position);
+			_.Line();
+
+		});
+
+		_.line.find('.arrow').click(function() {
+			
+
+			var direct = $(this).attr('data-arrow');
+
+			if (direct == 'left') {
+					
+				handler('left');
+
+			} else if(direct == 'right') {
+				
+				handler('right');
+				
+			}
+
 		});
 
 	};

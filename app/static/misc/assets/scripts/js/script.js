@@ -8,7 +8,7 @@ var $window = $(window),
 window.onload = function () {
     var $carousel = $("#carousel");
     if ($carousel.length) {
-        if (!$html.hasClass("mobile")) {
+        if ($(window).width() > 1000) {
             new Vue({
                 el: "#carousel",
                 data: {slides: 20},

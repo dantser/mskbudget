@@ -17,7 +17,6 @@ export default () => {
   const SWITCHER = $('.analityc-widget_moscow-gov-program .analityc-control-switcher_large');
 	const GRAPHICDONE = $('.analityc-widget_moscow-gov-program .analityc-widget-moscow-gov-program_done');
 	const GRAPHICSTRUCTURE = $('.analityc-widget_moscow-gov-program .analityc-widget-moscow-gov-program_structure');
-  console.log(GRAPHICDONE);
   SWITCHER.on('click', 'a', function(e) {
 		e.preventDefault();
 

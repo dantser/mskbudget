@@ -21,7 +21,7 @@ export default () => {
   const sliderPagination = new Swiper(page+ '__materials_slider ' +page+ '__slider-pagination', {
     spaceBetween: 35,
     slidesPerView: '4',
-    // centeredSlides: true,
+    centeredSlides: true,
     touchRatio: 0.2,
     slideToClickedSlide: true,
   });

@@ -51,6 +51,12 @@
       &:hover {
         opacity: .7;
       }
+      &.swiper-button-disabled {
+        opacity: .3;
+        &:hover {
+          opacity: .3;
+        }
+      } 
     }
   }
   
@@ -73,8 +79,65 @@
     margin-bottom: 41px;
   }
   
-  .d-smr__add-char-block {
-    height: auto;
+  .d-smr__add-char-list-wrapper {
+    max-height: 100%;
+    
+    // Custom Scrollbar
+    > .scroll-element,
+    > .scroll-element div {
+      border: none;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      z-index: 10;
+    }
+ 
+    > .scroll-element div {
+      display: block;
+      height: 100%;
+      left: 0;
+      top: 0;
+      width: 100%;
+    }
+ 
+    > .scroll-element.scroll-x {
+      bottom: 2px;
+      height: 8px;
+      left: 0;
+      width: 100%;
+    }
+ 
+    > .scroll-element.scroll-y {
+      height: 100%;
+      right: 2px;
+      top: 0;
+      width: 2px;
+    }
+ 
+    > .scroll-element .scroll-element_outer {
+      overflow: hidden;
+    }
+ 
+    > .scroll-element .scroll-element_outer,
+    > .scroll-element .scroll-element_track,
+    > .scroll-element .scroll-bar {
+      -webkit-border-radius: 8px;
+      -moz-border-radius: 8px;
+      border-radius: 8px;
+    }
+ 
+    > .scroll-element .scroll-element_track { background-color: #d6d6d6; }
+    > .scroll-element .scroll-bar { background-color: #0d46a1; }
+    > .scroll-element:hover .scroll-bar { background-color: #0d46a1; }
+    > .scroll-element.scroll-draggable .scroll-bar { background-color: #0d46a1; }
+ 
+    > .scroll-element.scroll-x.scroll-scrolly_visible .scroll-element_track { left: -12px; }
+    > .scroll-element.scroll-y.scroll-scrollx_visible .scroll-element_track { top: -12px; }
+ 
+ 
+    > .scroll-element.scroll-x.scroll-scrolly_visible .scroll-element_size { left: -12px; }
+    > .scroll-element.scroll-y.scroll-scrollx_visible .scroll-element_size { top: -12px; }
+    
   }
   
   .d-smr__chart-container {
@@ -90,7 +153,7 @@
     width: calc(100% - 235px);
     padding-left: 12px;
     margin-left: -12px;
-    z-index: 2;
+    z-index: 3;
     box-sizing: content-box;
     @media screen and (max-width: 550px) {
       width: 100%;
@@ -105,9 +168,9 @@
     display: none;
     position: absolute;
     top: 0;
-    width: 20%;
+    width: 15%;
     height: 100%;
-    z-index: 3;
+    z-index: 4;
     transition: all .25s ease-in-out;
     @media screen and (max-width: 970px) {
       width: 10%;
@@ -252,7 +315,7 @@
       }
     }
     @media screen and (max-width: 550px) {
-      padding-right: 0;
+      padding-right: 20px;
     }
   }
   
@@ -296,21 +359,21 @@
       background: -webkit-linear-gradient(left,#fee300,#30b069);
       background: linear-gradient(90deg,#fee300,#30b069);
       filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fee300',
-            endColorstr='#30b069',GradientType=0);
+            endColorstr='#30b069',GradientType=1);
     }
     &:nth-child(3n+2) .graph__bar {
       background: -webkit-gradient(linear,left top,right top,from(#0ff),to(#004ccf));
       background: -webkit-linear-gradient(left,#0ff,#004ccf);
       background: linear-gradient(90deg,#0ff,#004ccf);
       filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0fffff',
-            endColorstr='#004ccf',GradientType=0);
+            endColorstr='#004ccf',GradientType=1);
     }
     &:nth-child(3n+3) .graph__bar {
       background: -webkit-gradient(linear,left top,right top,from(#ce97c4),to(#ffb4ad));
       background: -webkit-linear-gradient(left,#ce97c4,#ffb4ad);
       background: linear-gradient(90deg,#ce97c4,#ffb4ad);
       filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ce97c4',
-            endColorstr='#ffb4ad',GradientType=0);
+            endColorstr='#ffb4ad',GradientType=1);
     }
     &.active {
       display: inline-block;

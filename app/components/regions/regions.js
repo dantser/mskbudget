@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import 'jquery.scrollbar';
 
 export default () => {
   const ARR_RIGHT = $('.ar-right');
@@ -25,9 +26,13 @@ export default () => {
     const EL = $(this);
     EL.on('click', (e) => {
       e.preventDefault();
-      const ELTEXT = EL.text();
-      EL.text(ELTEXT === 'По убыванию' ? 'По возрастанию' : 'По убыванию');
-      EL.toggleClass('sort_desc').toggleClass('sort_desc-top');
+      if ($(this).hasClass('alph')) {
+        EL.toggleClass('sort_desc').toggleClass('sort_desc-top');
+      } else {
+        const ELTEXT = EL.text();
+        EL.text(ELTEXT === 'По убыванию' ? 'По возрастанию' : 'По убыванию');
+        EL.toggleClass('sort_desc').toggleClass('sort_desc-top');
+      }
     })
   })
 
@@ -47,7 +52,7 @@ export default () => {
         wrapperClass: 'd-smr__chart',
         slideClass: 'd-smr__chart-col',
         grabCursor: true,
-        resistanceRatio: 0,
+        resistanceRatio: 0.1,
         onSetTranslate: function(swiper, translate) {
           swiper.container.find('.d-smr__chart').css('transform', 'translate(' + translate + 'px, 0)');
         },
@@ -57,16 +62,16 @@ export default () => {
         onSlideChangeStart: function(swiper) {
           var firstActiveSlide = swiper.activeIndex + 1;
           var lastActiveSlide = swiper.activeIndex + swiper.params.slidesPerView;
-          var slidesAmount = swiper.slides.length;
-          if (lastActiveSlide === slidesAmount) {
-            $('.d-smr__chart-rightlg').fadeOut();
-            $('.d-smr__chart-leftlg').fadeIn();
-          } else if (firstActiveSlide === 1) {
-            $('.d-smr__chart-leftlg').fadeOut();
-            $('.d-smr__chart-rightlg').fadeIn();
+          var slidesAmount = swiper.wrapper.find('.d-smr__chart-col.active').length;
+          if (lastActiveSlide >= slidesAmount) {
+            $('.d-smr__chart-rightlg').fadeOut(250);
+            $('.d-smr__chart-leftlg').fadeIn(250);
+          } else if (firstActiveSlide == 1) {
+            $('.d-smr__chart-leftlg').fadeOut(250);
+            $('.d-smr__chart-rightlg').fadeIn(250);
           } else {
-            $('.d-smr__chart-rightlg').fadeIn();
-            $('.d-smr__chart-leftlg').fadeIn();
+            $('.d-smr__chart-rightlg').fadeIn(250);
+            $('.d-smr__chart-leftlg').fadeIn(250);
           }
         },
         breakpoints: {
@@ -85,8 +90,12 @@ export default () => {
         if (slidesAmount > visibleSlidesAmount) {
           $('.d-smr__chart-rightlg').show();
         } else {
+          $('.d-smr__chart-leftlg').hide();
           $('.d-smr__chart-rightlg').hide();
           $('._regions__ar-left, ._regions__ar-right').hide();
+        }
+        if (swiper.progress == 1) {
+          $('.d-smr__chart-rightlg').hide();
         }
       }
       
@@ -97,7 +106,6 @@ export default () => {
           chartHeaderHeight = $(this).outerHeight();
           if (chartHeaderHeight > largestHeight) {
             largestHeight = chartHeaderHeight;
-            console.log(largestHeight);
           }
         });
         $('._regions .d-smr__chart-header').outerHeight(largestHeight);
@@ -133,17 +141,11 @@ export default () => {
         }
       });
       
-      HIDE_COL.each( function () {
-        const EL = $(this);
-        EL.on('click', (e) => {
-          e.preventDefault();
-          //const ELTEXT = EL.text();
-          //const DATA = EL.parents('.d-smr__chart-col').attr('data-char');
-          $(this).parents('.d-smr__chart-col').removeClass('active');
-          regionSlider.update();
-          checkSlidesAmount(regionSlider);
-          //EL.text(ELTEXT === 'Скрыть колонку' ? 'Показать колонку' : 'Скрыть колонку');
-        })
+      $('.js-hide-col').on('click', function(e){
+        e.preventDefault();
+        $(this).parents('._regions .d-smr__chart-col').removeClass('active');
+        regionSlider.update(true);
+        checkSlidesAmount(regionSlider);
       });
       
       $('.d-smr__add-char-item input').change(function(){
@@ -153,6 +155,8 @@ export default () => {
           $(this).next().next().find('input').prop('checked', false);
         }
       });
+      
+      $('.d-smr__add-char-list-wrapper').scrollbar();
       
     }
     

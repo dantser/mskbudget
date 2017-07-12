@@ -613,9 +613,11 @@
     .analityc-graphics-line-vertical__line-fill {
       height: $height;
       background: $bg;
-      background-image: -moz-linear-gradient( 90deg, $grad1 0%, $grad2 100%);
-      background-image: -webkit-linear-gradient( 90deg, $grad1 0%, $grad2 100%);
-      background-image: -ms-linear-gradient( 90deg, $grad1 0%, $grad2 100%);
+      background-image: -moz-linear-gradient( 0deg, $grad1 0%, $grad2 100%);
+      background-image: -webkit-linear-gradient( 0deg, $grad1 0%, $grad2 100%);
+      background-image: -ms-linear-gradient( 0deg, $grad1 0%, $grad2 100%);
+      background-image: linear-gradient(0deg, $grad1 0%, $grad2 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#{$grad2}, endColorstr=#{$grad1})
     }
     .analityc-graphics-line-vertical__line-bar-value {
       bottom: $height;
@@ -646,9 +648,11 @@
     .analityc-graphics-line-vertical__line-fill {
       height: $height;
       background: $bg;
-      background-image: -moz-linear-gradient( 90deg, $grad1 0%, $grad2 100%);
-      background-image: -webkit-linear-gradient( 90deg, $grad1 0%, $grad2 100%);
-      background-image: -ms-linear-gradient( 90deg, $grad1 0%, $grad2 100%);
+      background-image: -moz-linear-gradient(0deg, $grad1 0%, $grad2 100%);
+      background-image: -webkit-linear-gradient(0deg, $grad1 0%, $grad2 100%);
+      background-image: -ms-linear-gradient(0deg, $grad1 0%, $grad2 100%);
+      background-image: linear-gradient(0deg, $grad1 0%, $grad2 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#{$grad2}, endColorstr=#{$grad1})
     }
     .analityc-graphics-line-vertical__line-bar-value {
       bottom: $height;
@@ -673,6 +677,7 @@
   text-align: justify;
   padding: 0 18px;
   font-size: 0;
+  -ms-text-justify: newspaper; /*ie9 inline-blocks justify (text-align: justify; required)*/
 
   @media (max-width: 1010px) {
     display: none;
