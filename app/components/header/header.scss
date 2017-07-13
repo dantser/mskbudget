@@ -126,7 +126,11 @@ $hamburger-hover-filter    : opacity(50%) !default;
     &-row {
       position: relative;
       display: block;
-      // @include outline;
+
+      @media (max-width: $navBreakpointTablet) {
+        padding-top: 0;
+        position: static;
+      }
 
       &:first-child {
         // overflow: hidden;
@@ -140,10 +144,6 @@ $hamburger-hover-filter    : opacity(50%) !default;
 
         @media (max-width: $navBreakpointDesktop) {
           min-height: 46px;
-        }
-
-        @media (max-width: $navBreakpointTablet) {
-          padding-top: 12px;
         }
       }
 
@@ -175,6 +175,10 @@ $hamburger-hover-filter    : opacity(50%) !default;
       @media (min-width: $navBreakpointXXL) {
         display: none;
       }
+
+      @media (max-width: $navBreakpointTablet) {
+        display: none;
+      }
     }
 
     @media (min-width: $navBreakpointTablet + 1px) and (max-width: $navBreakpointDesktop) {
@@ -204,11 +208,30 @@ $hamburger-hover-filter    : opacity(50%) !default;
     padding: 0;
     list-style: none;
 
+    @media (max-width: $navBreakpointTablet) {
+      float: none;
+      overflow: visible;
+      position: absolute;
+      right: 0;
+      bottom: 65px;
+      left: 0;
+    }
+
     &-item {
       float: left;
 
       &:not(:last-child) {
         margin-right: 15px;
+      }
+
+      @media (max-width: $navBreakpointTablet) {
+        float: none;
+        position: relative;
+        width: 33.3%;
+
+        &:not(:last-child) {
+          margin-right: 0;
+        }
       }
 
       &.hidden-desktop {
@@ -221,7 +244,7 @@ $hamburger-hover-filter    : opacity(50%) !default;
     &-link {
       display: inline-block;
       padding: 5px;
-      width: 15px;
+      width: 24px;
       height: 15px;
       box-sizing: content-box;
       color: white;
@@ -231,6 +254,24 @@ $hamburger-hover-filter    : opacity(50%) !default;
       &:hover {
         color: #fee300;
         fill: #fee300;
+      }
+
+      @media (max-width: $navBreakpointTablet) {
+        position: absolute;
+        bottom: 0;
+
+        &:nth-child(1) {
+          left: 15px;
+        }
+
+        &:nth-child(2) {
+          left: 50%;
+          @include transform(translateX(-50%));
+        }
+
+        &:nth-child(3) {
+          right: 15px;
+        }
       }
     }
 
@@ -262,6 +303,13 @@ $hamburger-hover-filter    : opacity(50%) !default;
     @media (min-width: $navBreakpointTablet + 1px) {
       font-size: 20px;
     }
+
+    @media (max-width: $navBreakpointTablet) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
   }
 
   &__social {
@@ -273,6 +321,25 @@ $hamburger-hover-filter    : opacity(50%) !default;
 
     @media (min-width: $navBreakpointXXL) {
       margin-top: 0;
+    }
+
+    @media (max-width: $navBreakpointTablet) {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin-top: 0;
+      padding-top: 11px;
+      padding-bottom: 10px;
+      border: 1px solid rgba(white, .2);
+      text-align: center;
+
+      .social__item {
+        display: inline-block;
+        float: none;
+        margin-right: 5px;
+        margin-left: 5px;
+      }
     }
   }
 
