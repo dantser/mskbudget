@@ -3,29 +3,38 @@ include ../../blocks/icon/icons
 include ../../blocks/currency/currency
 include ../../blocks/menu/menu
 include ../../blocks/social/social
-include ../../blocks/search-form/search-form
-include ../../blocks/login/login
+//- include ../../blocks/search-form/search-form
+//- include ../../blocks/login/login
 
 mixin header()
   +b.HEADER.header&attributes(attributes)
     +e.wrap.wrap
-      // LOGO/
-      +logo('header').header__logo
+      //- логотип в мобильной версии меню
+      +logo('header').header__logo.hidden-desktop
       +e.drop
-        +e.A(href="#").link-for-blind.link-for-blind
-          +icon('glasses').icon.link-for-blind__icon
-          .link-for-blind__text Версия для слабовидящих
-        // CURRENCY/
-        +currency().header__currency
-        // MENU/
-        +menu().header__menu
-        // SOCIAL_BUTTONS/
-        +social('facebook-box', 'vk', 'tw', 'insta', 'odnokl', 'youtube-play', 'telegram').__social
-        // SEARCH_FORM/
-        +search-form().header__search-form(style="height: 19px;")
-        // LOGIN/
-        +login().header__login
-    //- +e.BUTTON.open-menu
+        +e.drop-row
+          //- логотип в десктопной версии меню
+          +logo('header').header__logo.hidden-mobile
+          +e.A(href="#").link-for-blind.link-for-blind.visible-xxl
+            +icon('glasses').icon.link-for-blind__icon
+            .link-for-blind__text Версия для слабовидящих
+          +currency().header__currency
+          +social('facebook-box', 'vk', 'tw', 'insta', 'odnokl', 'youtube-play', 'telegram').__social
+        +e.drop-row
+          +e.A(href="#").link-for-blind.link-for-blind.hidden-xxl
+            +icon('glasses').icon.link-for-blind__icon
+            .link-for-blind__text Версия для слабовидящих
+          +menu().header__menu
+          +e.UL.menu2
+            +e.LI.menu2-item.hidden-desktop
+              +e.A(href="#").menu2-link
+                +icon('glasses').menu2-icon
+            +e.LI.menu2-item
+              +e.A(href="#").menu2-link
+                +icon('search').menu2-icon
+            +e.LI.menu2-item
+              +e.A(href="#login").menu2-link.btn.open-popup
+                +icon('user').menu2-icon
     +e.BUTTON.open-menu.hamburger.hamburger--spin(type="button")
       SPAN.hamburger-box
         SPAN.hamburger-inner

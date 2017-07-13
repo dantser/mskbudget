@@ -1,3 +1,41 @@
 .menu {
-  display: none;
+  &__list { // ul
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item { // li
+    float: left;
+  }
+
+  &__link { // a
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 18px;
+    text-decoration: none;
+    @include transited;
+
+    &:hover {
+      color: #fee300;
+    }
+
+    &.is-active {
+      font-weight: 500;
+      color: #fee300;
+    }
+  }
+
+  // подменю 1-го уровня
+  .submenu { // ul
+    display: none;
+
+    &__item { // li
+
+    }
+
+    &__link { // a
+
+    }
+  }
 }

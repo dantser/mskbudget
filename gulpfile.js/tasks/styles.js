@@ -14,21 +14,21 @@ const isDebug = process.env.NODE_ENV !== 'production';
 
 /* eslint-disable global-require */
 gulp.task('styles', () => {
-  gulp.src('app/styles/*.scss')
+  gulp.src('app/styles/app.scss')
   .pipe(plumber({ errorHandler: errorHandler('Error in styles task') }))
-    .pipe(gulpIf(isDebug, sourcemaps.init()))
+    // .pipe(gulpIf(isDebug, sourcemaps.init()))
     .pipe(bulkSass())
     .pipe(sass())
-    .pipe(postcss([
-      require('autoprefixer'),
-      require('postcss-discard-comments'),
-      require('css-mqpacker')({
-        sort: true,
-      }),
-    ]))
+    // .pipe(postcss([
+    //   require('autoprefixer'),
+    //   require('postcss-discard-comments'),
+    //   require('css-mqpacker')({
+    //     sort: true,
+    //   }),
+    // ]))
     .pipe(cssimport())
-    .pipe(cssnano({ zIndex: false }))
-    .pipe(gulpIf(isDebug, sourcemaps.write()))
+    // .pipe(cssnano({ zIndex: false }))
+    // .pipe(gulpIf(isDebug, sourcemaps.write()))
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest('dist/assets/styles'));
 

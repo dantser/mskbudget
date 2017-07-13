@@ -56,6 +56,13 @@ $hamburger-hover-filter    : opacity(50%) !default;
     margin: 0 40px;
     max-width: initial !important;
 
+    @media (min-width: $navBreakpointXXL) {
+      max-width: 1400px !important;
+      margin: 0 auto;
+      padding-left: 300px;
+      padding-right: 50px;
+    }
+
     @media (max-width: $navBreakpointTablet) {
       margin: 0 20px;
     }
@@ -74,18 +81,7 @@ $hamburger-hover-filter    : opacity(50%) !default;
 
   // логотип
   &__logo {
-    position: absolute;
-    top: 40px;
-    left: 0;
-    z-index: 14;
-
-    @media (max-width: $navBreakpointDesktop) {
-      top: 20px;
-    }
-
-    @media (max-width: $navBreakpointTablet) {
-      top: 12px;
-    }
+    display: inline-block;
 
     .logo__lg {
       font-weight: 500;
@@ -97,6 +93,24 @@ $hamburger-hover-filter    : opacity(50%) !default;
     .logo__sm {
       font-size: 14px;
       bottom: 0;
+    }
+
+    // лого мобильного меню
+    &.hidden-desktop {
+      @media (min-width: $navBreakpointTablet + 1px) { display: none !important; }
+      margin-top: 12px;
+    }
+
+    // лого декстопного меню
+    &.hidden-mobile  {
+      @media (max-width: $navBreakpointTablet) { display: none !important; }
+      float: left;
+
+      @media (min-width: $navBreakpointXXL) {
+        position: absolute;
+        top: 35px;
+        left: -250px;
+      }
     }
   }
 
@@ -131,92 +145,144 @@ $hamburger-hover-filter    : opacity(50%) !default;
         background: rgba(0, 0, 0, .3);
       }
     }
+
+    &-row {
+      position: relative;
+      display: block;
+      // @include outline;
+
+      &:first-child {
+        // overflow: hidden;
+        box-sizing: content-box;
+        padding-top: 20px;
+        text-align: center;
+
+        @media (max-width: $navBreakpointDesktop) {
+          min-height: 46px;
+        }
+
+        @media (max-width: $navBreakpointTablet) {
+          padding-top: 12px;
+        }
+      }
+
+      &:last-child {
+        padding-top: 20px;
+      }
+    }
   }
 
   &__link-for-blind {
-    @media (min-width: $navBreakpointTablet + 1px) and (max-width: $navBreakpointDesktop) {
-      position: absolute;
-      top: 87px;
-      left: 0;
+    padding: 3px;
+    line-height: 0;
+
+    &.visible-xxl {
+      float: left;
+      margin-top: 0;
+
+      @media (max-width: $navBreakpointDesktop) {
+        display: none;
+      }
     }
 
-    @media (min-width: $navBreakpointXXL) {
+    &.hidden-xxl {
+      @media (min-width: $navBreakpointXXL) {
+        display: none;
+      }
+    }
 
+    @media (min-width: $navBreakpointTablet + 1px) and (max-width: $navBreakpointDesktop) {
+      float: left;
+      margin-right: 7px;
+
+      .link-for-blind__text {
+        display: none;
+      }
     }
   }
 
   &__menu {
     position: relative;
+    z-index: 3;
     @include transited;
+
+    @media (min-width: $navBreakpointTablet +1px) and (max-width: $navBreakpointDesktop) {
+      float: left;
+    }
+  }
+
+  &__menu2 {
+    float: right;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    &-item {
+      float: left;
+
+      &:not(:last-child) {
+        margin-right: 15px;
+      }
+
+      &.hidden-desktop {
+        @media (min-width: $navBreakpointTablet + 1px) {
+          display: none;
+        }
+      }
+    }
+
+    &-link {
+      display: inline-block;
+      padding: 5px;
+      width: 15px;
+      height: 15px;
+      box-sizing: content-box;
+      color: white;
+      fill: white;
+      @include transited;
+
+      &:hover {
+        color: #fee300;
+        fill: #fee300;
+      }
+    }
+
+    &-icon {
+      max-width: 100%;
+      max-height: 100%;
+    }
   }
 
   &__currency {
-    position: absolute;
-    left: 230px;
-    top: 30px;
+    display: inline-block;
+    float: none;
+    margin: 12px auto 0;
     @include transited;
 
-    @media(max-width: $navBreakpointTablet) {
+    @media (min-width: $navBreakpointXXL) {
+      margin-top: 5px;
+    }
+
+    @media (min-width: $navBreakpointTablet + 1px) {
       font-size: 20px;
     }
   }
 
   &__social {
-    position: absolute;
-    right: 0;
-    top: 40px;
     @include transited;
-    width: auto;
-    display: block;
+    float: right;
     z-index: 4;
+    width: auto;
+    margin-top: 9px;
+
+    @media (min-width: $navBreakpointXXL) {
+      margin-top: 0;
+    }
   }
 
   &__search-form {
-    position: absolute;
-    right: 32px;
-    left: 242px;
-    top: 80px;
     @include transited;
-
-    @media (max-width: $navBreakpointMobile) {
-      top: auto;
-      bottom: 72px;
-      right: 50%;
-      margin-right: -8px;
-      left: 20px;
-
-      label {
-        font-size: 15px !important;
-      }
-
-      .search-form__btn {
-        width: 24px;
-        height: 24px;
-        margin-bottom: 0;
-
-        &:before {
-          background-position: 6px -18px;
-        }
-
-        &_act {
-          &:before {
-            background-position: -117px -45px;
-          }
-        }
-
-        &:not(.act)::after {
-          display: none;
-        }
-      }
-
-      .search-form__form {
-        padding-bottom: 0;
-      }
-
-      .search-form__text {
-        font-size: 15px !important;
-      }
-    }
 
     &__btn {
       z-index: 4;
@@ -228,11 +294,11 @@ $hamburger-hover-filter    : opacity(50%) !default;
   }
 
   &__login {
-    position: absolute;
-    right: 0;
-    top: 80px;
     @include transited;
-    z-index: 10;
+
+    @media (min-width: $navBreakpointTablet +1px) and (max-width: $navBreakpointDesktop) {
+      float: right;
+    }
 
     @media (max-width: $navBreakpointMobile) {
       top: auto;
@@ -255,7 +321,7 @@ $hamburger-hover-filter    : opacity(50%) !default;
   }
 
   &__logged {
-    position: absolute;
+    // position: absolute;
     right: 0;
     top: 69px;
     @include transited;
@@ -284,6 +350,7 @@ $hamburger-hover-filter    : opacity(50%) !default;
 
   &__icon {
     display: inline-block;
+    vertical-align: top;
     max-width: 27px;
     max-height: 19px;
     color: white;
@@ -292,6 +359,7 @@ $hamburger-hover-filter    : opacity(50%) !default;
 
   &__text {
     display: inline-block;
+    vertical-align: bottom;
     font-size: 16px;
     line-height: 1;
     color: white;
