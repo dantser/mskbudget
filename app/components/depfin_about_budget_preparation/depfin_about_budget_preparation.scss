@@ -19,12 +19,17 @@
 
 .sections_budget-preparation {
 
+  .sections>:first-child {
+    padding-top: 0;
+  }
+
   .section-tabs_documents .owl-carousel {
     max-width: 1174px !important;
   }
 
   .section-tabs_members {
     .owl-prev, .owl-next {
+      bottom: 22px;
       width: 26px;
       height: 36px;
       opacity: .8;
@@ -823,6 +828,13 @@
     .section-tabs__nav-btn {
       min-height: 136px;
     }
+
+    .section-tabs_members {
+      .owl-prev, .owl-next {
+        bottom: 70px;
+      }
+    }
+
     .cols-part__content {
       .cols__side {
         text-align: left;
@@ -972,8 +984,7 @@
     .d-abs__head_descr {
       padding-left: 0;
       padding-right: 15px;
-      line-height: 1.3;
-      letter-spacing: 0.06em;
+      line-height: 22px;
     }
     .d-abs__foot-side {
       width: 70%;
@@ -1132,6 +1143,27 @@
         transform: rotate(45deg);
       }
     }
+    .section-tabs_members {
+      .owl-prev, .owl-next {
+        bottom: 0!important;
+        width: 60px;
+        height: 100%;
+      }
+      .owl-prev:after, .owl-next:after {
+        width: 24px;
+        height: 24px;
+        border-bottom: 4px solid #000;
+      }
+      .owl-prev:after {
+        border-left: 4px solid #000;
+      }
+      .owl-next:after {
+        border-right: 4px solid #000;
+      }
+    }
+    .section-tabs__nav-btn {
+      padding: 0 31px;
+    }
     .section-tabs__nav-list:after, .section-tabs__nav-list:before {
       display: none;
     }
@@ -1140,7 +1172,7 @@
     }
   }
 
-  @media screen and (min-width: 631px) and (max-width: 800px) {
+  @media screen and (min-width: 631px) and (max-width: 800px) { // current
     .d-layer {
       padding: 0 40px!important;
     }
@@ -1152,10 +1184,10 @@
       margin-top: 15px;
     }
     .d-abs__head_descr {
-      font-size: 28px;
+      font-size: 16px;
     }
     .d-si__head {
-      margin-bottom: 15px;
+      margin-bottom: 44px;
     }
     .d-abs__foot {
       margin-top: 54px;
@@ -1246,6 +1278,7 @@
       padding: 22px 31px 25px;
       max-width: 530px;
       line-height: 43px;
+      min-height: auto;
     }
     .section-tabs__nav-leftbtn, .section-tabs__nav-rightbtn {
       margin-top: 22px;
@@ -1556,6 +1589,25 @@
       width: 12px;
       height: 12px;
       border-width: 2px;
+    }
+    .section-tabs_members {
+      .owl-prev, .owl-next {
+        width: 30px!important; //
+      }
+      .owl-prev:after, .owl-next:after {
+        width: 12px!important;
+        height: 12px!important;
+        border-bottom: 2px solid #000!important;
+      }
+      .owl-prev:after {
+        border-left: 2px solid #000!important;
+      }
+      .owl-next:after {
+        border-right: 2px solid #000!important;
+      }
+    }
+    .section-tabs__nav-btn {
+      min-height: auto!important;
     }
     .section-tabs_documents .section-tabs__nav-list {
       padding: 0 6px;
