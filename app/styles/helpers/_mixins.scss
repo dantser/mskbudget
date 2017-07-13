@@ -299,6 +299,49 @@ div {
   @include vendor(zoom, 1);
 }
 
+/*Префиксы для gradient-palette, пока без IE9*/
+@mixin gradient-pallete-vendor($deg, $start, $end) {
+  background: $start;
+  background-image: -moz-linear-gradient($deg, #{$start} 0%, #{$end} 100%);
+  background-image: -webkit-linear-gradient($deg, #{$start} 0%, #{$end} 100%);
+  background-image: -ms-linear-gradient($deg, #{$start} 0%, #{$end} 100%);
+  background-image: linear-gradient($deg, #{$start} 0%, #{$end} 100%);
+  /*filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#{$start}, endColorstr=#{$end})*/
+}
+
+/*
+Миксин содержит все существующие градиенты
+Порядок соответсвтует макету depfin UI infographics colors
+Использование
+@include gradient-palette(violet1, 0deg, true)*/
+@mixin gradient-palette($color, $deg, $isТransparent) {
+  
+  @if $color == violet1  { @include gradient-pallete-vendor($deg, #0d46a1, #c3157f); }
+  @if $color == red1     { @include gradient-pallete-vendor($deg, #9d308a, #ff695b); }
+  @if $color == green1   { @include gradient-pallete-vendor($deg, #fee300, #30b069); }
+  @if $color == lilac1   { @include gradient-pallete-vendor($deg, #612292, #bd84e9); }
+  @if $color == blue1    { @include gradient-pallete-vendor($deg, #00ffff, #004ccf); }
+  @if $color == gray1    { @include gradient-pallete-vendor($deg, #838a9a, #d5d8de); }
+  @if $color == green2   { @include gradient-pallete-vendor($deg, #32d197, #11a360); }
+  @if $color == blue2    { @include gradient-pallete-vendor($deg, #836fd9, #58a1df); }
+  @if $color == blue3    { @include gradient-pallete-vendor($deg, #3cbeb6, #ca5f55); }
+  @if $color == brown1   { @include gradient-pallete-vendor($deg, #e8b98a, #b47b37); }
+  @if $color == violet2  { @include gradient-pallete-vendor($deg, #b13191, #e770ee); }
+  @if $color == blue4    { @include gradient-pallete-vendor($deg, #3eedb1, #1763e6); }
+  @if $color == gray2    { @include gradient-pallete-vendor($deg, #9a8388, #d3b2c1); }
+  @if $color == yellow1  { @include gradient-pallete-vendor($deg, #eec710, #b73e09); }
+  @if $color == green3   { @include gradient-pallete-vendor($deg, #3fb336, #155ac3); }
+  @if $color == red2     { @include gradient-pallete-vendor($deg, #ad2c5a, #ee3f6d); }
+  @if $color == green4   { @include gradient-pallete-vendor($deg, #9fdf2e, #5ab030); }
+  @if $color == violet3  { @include gradient-pallete-vendor($deg, #92225c, #f09f9f); }
+  @if $color == lilac2   { @include gradient-pallete-vendor($deg, #eb9fb5, #8666e2); }
+  @if $color == blue5    { @include gradient-pallete-vendor($deg, #3a77a2, #55d9e5); }
+
+  @if $isТransparent {
+    opacity: .2;
+  }
+}
+
 @mixin img-responsive {
   display: block;
   max-width: 100%;

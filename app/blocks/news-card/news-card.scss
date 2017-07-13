@@ -193,3 +193,79 @@
     }
   }
 }
+
+.short-newscard {
+  display: block;
+  background-color: #f3f3f3;
+  padding: 0 22px 27px;
+  &__category {
+    display: inline-block;
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 5px 7px 3px;
+    transition: all .25s ease-in-out;
+  }
+  &__date {
+    font-size: 16px;
+    color: #000;
+    opacity: .6;
+    margin-top: 15px;
+  }
+  &__title {
+    display: block;
+    font-size: 22px;
+    line-height: 26px;
+    font-weight: 500;
+    color: #000;
+    text-decoration: none;
+    margin-top: 9px;
+    transition: all .25s ease-in-out;
+  }
+  &_blue {
+    .short-newscard__category {
+      background-color: #137bd7;
+      border: 1px solid #137bd7;
+      &:hover {
+        background-color: #fff;
+        color: #137bd7;
+      }
+    }
+    .short-newscard__title {
+      &:hover {
+        color: #137bd7;
+      }
+    }
+  }
+  &_pink {
+    .short-newscard__category {
+      background-color: #eb6066;
+      border: 1px solid #eb6066;
+      &:hover {
+        background-color: #fff;
+        color: #eb6066;
+      }
+    }
+    .short-newscard__title {
+      &:hover {
+        color: #eb6066;
+      }
+    }
+  }
+  &_green {
+    .short-newscard__category {
+      background-color: #4fb55f;
+      border: 1px solid #4fb55f;
+      &:hover {
+        background-color: #fff;
+        color: #4fb55f;
+      }
+    }
+    .short-newscard__title {
+      &:hover {
+        color: #4fb55f;
+      }
+    }
+  }
+}

@@ -66,3 +66,9 @@ mixin news-card-dropdown(image, category, title, date)
       a(href="#").share__a.share__a_vk
       a(href="#").share__a.share__a_tw
       a(href="#").share__a.share__a_ok
+
+mixin short-newscard(category, date, title)
+  +b.short-newscard&attributes(attributes)
+    +e.A(href="#").category= category
+    +e.P.date= date
+    +e.A(href="#").title= title
