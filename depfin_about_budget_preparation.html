@@ -218,8 +218,9 @@
                             </a>
                         </li>
                         <li class="header__menu2-item">
-                            <a class="header__menu2-link" href="#">
-                                <svg class="header__menu2-icon"><use xlink:href="assets/images/icon.svg#icon_search"></use></svg>
+                            <a class="header__menu2-link" href="#" id="search-navbar-link">
+                                <svg class="header__menu2-icon js-icon-navSearchLupa"><use xlink:href="assets/images/icon.svg#icon_search"></use></svg>
+                                <svg class="header__menu2-icon js-icon-navSearchClose is-active is-hidden"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
                             </a>
                         </li>
                         <li class="header__menu2-item">
@@ -230,10 +231,12 @@
                     </ul>
                 </div>
             </div>
-            <div class="search-navbar search-navbar">
+            <div class="search-navbar search-navbar" id="search-navbar">
                 <form class="search-navbar__form" action="#">
-                    <input class="search-navbar__input" type="text" />
-                    <button class="search-navbar__button" type="submit"></button>
+                    <input class="search-navbar__input" id="search-navbar-input" name="search-navbar-input" type="text" />
+                    <button class="search-navbar__button" type="submit">
+                        <svg class="search-navbar__icon"><use xlink:href="assets/images/icon.svg#icon_search"></use></svg>
+                    </button>
                 </form>
             </div>
         </div>
@@ -250,6 +253,7 @@
                     <div class="page-header">
                         <div class="page-head">
                             <p class="page-head__breadcrumbs load-anim-fade" data-delay="500">
+                                <a class="page-head__category" href="#">О бюджете</a>
                                 <a class="page-head__category" href="#">Бюджетная система</a>
                             </p>
                             <h1 class="page-head__title load-anim-fade" data-delay="700">этапы подготовки бюджета</h1>
@@ -896,31 +900,31 @@
                                 <h5 class="steps-details__participants-heading">Участники бюджетного процесса</h5>
                                 <ul class="steps-details__participants-list">
                                     <li>
-                                        <a href="#">Бюджетная комиссия Правительства Москвы</a>
+                                        <a class="section-tabs__nav-btn" href="#" data-section-tab-for="section-tab_06">Бюджетная комиссия Правительства Москвы</a>
                                     </li>
                                     <li>
-                                        <a href="#">Департамент финансов города Москвы</a>
+                                        <a class="section-tabs__nav-btn" href="#" data-section-tab-for="section-tab_07">Департамент финансов города Москвы</a>
                                     </li>
                                     <li>
-                                        <a href="#">Департамент экономической политики и развития города Москвы</a>
+                                        <a class="section-tabs__nav-btn" href="#" data-section-tab-for="section-tab_04">Департамент экономической политики и развития города Москвы</a>
                                     </li>
                                     <li>
-                                        <a href="#">Департамент градостроительной политики города Москвы</a>
+                                        <a class="section-tabs__nav-btn" href="#" data-section-tab-for="section-tab_04">Департамент градостроительной политики города Москвы</a>
                                     </li>
                                     <li>
-                                        <a href="#">Департамент городскогоимущества города Москвы</a>
+                                        <a class="section-tabs__nav-btn" href="#" data-section-tab-for="section-tab_04">Департамент городскогоимущества города Москвы</a>
                                     </li>
                                     <li>
-                                        <a href="#">Главные распорядители бюджетных средств города Москвы</a>
+                                        <a class="section-tabs__nav-btn" href="#" data-section-tab-for="section-tab_04">Главные распорядители бюджетных средств города Москвы</a>
                                     </li>
                                     <li>
-                                        <a href="#">Главные администраторы доходов бюджета города Москвы</a>
+                                        <a class="section-tabs__nav-btn" href="#" data-section-tab-for="section-tab_04">Главные администраторы доходов бюджета города Москвы</a>
                                     </li>
                                     <li>
-                                        <a href="#">Главные администраторы источников финансирования дефицита бюджета города Москвы</a>
+                                        <a class="section-tabs__nav-btn" href="#" data-section-tab-for="section-tab_04">Главные администраторы источников финансирования дефицита бюджета города Москвы</a>
                                     </li>
                                     <li>
-                                        <a href="#">Координаторы государственных программ города Москвы</a>
+                                        <a class="section-tabs__nav-btn" href="#" data-section-tab-for="section-tab_04">Координаторы государственных программ города Москвы</a>
                                     </li>
                                 </ul>
                             </div>
@@ -3657,7 +3661,8 @@
                             </div>
                             <div class="owl-item">
                                 <div class="section-tabs__nav-item">
-                                    <a class="section-tabs__nav-btn" href="#" data-section-tab-for="section-tab_01">Пункт 001</a>
+                                    <a class="section-tabs__nav-btn" href="#" data-section-tab-for="section-tab_07"> Департамент финансов
+                                        <br/>города Москвы</a>
                                 </div>
                             </div>
                             <div class="owl-item">
@@ -3668,7 +3673,8 @@
                             </div>
                             <div class="owl-item">
                                 <div class="section-tabs__nav-item">
-                                    <a class="section-tabs__nav-btn" href="#" data-section-tab-for="section-tab_03">Еще пункт</a>
+                                    <a class="section-tabs__nav-btn" href="#" data-section-tab-for="section-tab_06"> Бюджетная комиссия
+                                        <br/>Правительства Москвы</a>
                                 </div>
                             </div>
                             <div class="owl-item">
@@ -5139,31 +5145,31 @@
                             <h5 class="steps-details__participants-heading">Участники бюджетного процесса</h5>
                             <ul class="steps-details__participants-list">
                                 <li>
-                                    <a href="#">Бюджетная комиссия Правительства Москвы</a>
+                                    <a class="section-tabs__nav-btn" href="#" data-section-tab-for="section-tab_06">Бюджетная комиссия Правительства Москвы</a>
                                 </li>
                                 <li>
-                                    <a href="#">Департамент финансов города Москвы</a>
+                                    <a class="section-tabs__nav-btn" href="#" data-section-tab-for="section-tab_07">Департамент финансов города Москвы</a>
                                 </li>
                                 <li>
-                                    <a href="#">Департамент экономической политики и развития города Москвы</a>
+                                    <a class="section-tabs__nav-btn" href="#" data-section-tab-for="section-tab_04">Департамент экономической политики и развития города Москвы</a>
                                 </li>
                                 <li>
-                                    <a href="#">Департамент градостроительной политики города Москвы</a>
+                                    <a class="section-tabs__nav-btn" href="#" data-section-tab-for="section-tab_04">Департамент градостроительной политики города Москвы</a>
                                 </li>
                                 <li>
-                                    <a href="#">Департамент городскогоимущества города Москвы</a>
+                                    <a class="section-tabs__nav-btn" href="#" data-section-tab-for="section-tab_04">Департамент городскогоимущества города Москвы</a>
                                 </li>
                                 <li>
-                                    <a href="#">Главные распорядители бюджетных средств города Москвы</a>
+                                    <a class="section-tabs__nav-btn" href="#" data-section-tab-for="section-tab_04">Главные распорядители бюджетных средств города Москвы</a>
                                 </li>
                                 <li>
-                                    <a href="#">Главные администраторы доходов бюджета города Москвы</a>
+                                    <a class="section-tabs__nav-btn" href="#" data-section-tab-for="section-tab_04">Главные администраторы доходов бюджета города Москвы</a>
                                 </li>
                                 <li>
-                                    <a href="#">Главные администраторы источников финансирования дефицита бюджета города Москвы</a>
+                                    <a class="section-tabs__nav-btn" href="#" data-section-tab-for="section-tab_04">Главные администраторы источников финансирования дефицита бюджета города Москвы</a>
                                 </li>
                                 <li>
-                                    <a href="#">Координаторы государственных программ города Москвы</a>
+                                    <a class="section-tabs__nav-btn" href="#" data-section-tab-for="section-tab_04">Координаторы государственных программ города Москвы</a>
                                 </li>
                             </ul>
                         </div>

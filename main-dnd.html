@@ -220,8 +220,9 @@
                                 </a>
                             </li>
                             <li class="header__menu2-item">
-                                <a class="header__menu2-link" href="#">
-                                    <svg class="header__menu2-icon"><use xlink:href="assets/images/icon.svg#icon_search"></use></svg>
+                                <a class="header__menu2-link" href="#" id="search-navbar-link">
+                                    <svg class="header__menu2-icon js-icon-navSearchLupa"><use xlink:href="assets/images/icon.svg#icon_search"></use></svg>
+                                    <svg class="header__menu2-icon js-icon-navSearchClose is-active is-hidden"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
                                 </a>
                             </li>
                             <li class="header__menu2-item">
@@ -232,10 +233,12 @@
                         </ul>
                     </div>
                 </div>
-                <div class="search-navbar search-navbar">
+                <div class="search-navbar search-navbar" id="search-navbar">
                     <form class="search-navbar__form" action="#">
-                        <input class="search-navbar__input" type="text" />
-                        <button class="search-navbar__button" type="submit"></button>
+                        <input class="search-navbar__input" id="search-navbar-input" name="search-navbar-input" type="text" />
+                        <button class="search-navbar__button" type="submit">
+                            <svg class="search-navbar__icon"><use xlink:href="assets/images/icon.svg#icon_search"></use></svg>
+                        </button>
                     </form>
                 </div>
             </div>
