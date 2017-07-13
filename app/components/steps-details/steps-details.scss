@@ -60,8 +60,21 @@
       font-family: $PFDinTextPro;
       text-decoration: none;
       transition: all .25s ease-in-out;
+      display: inline-block;
+      padding: 0 !important;
+      text-transform: none;
+      font-weight: 400;
+      min-width: inherit;
+      min-height: inherit !important;
+
       &:hover {
         opacity: .7;
+      }
+
+      &::after {
+        left: 0;
+        right: 0;
+        bottom: -5px;
       }
     }
   }
@@ -234,13 +247,13 @@
     text-transform: uppercase;
     display: none;
   }
-  
+
   @media screen and (min-width: 801px) and (max-width: 1260px) {
     &__wrapper {
       margin: 0 40px;
     }
   }
-  
+
   @media screen and (max-width: 1190px) {
     &__participants {
       width: 48%;
@@ -253,7 +266,7 @@
       letter-spacing: 0;
     }
   }
-  
+
   @media screen and (min-width: 801px) and (max-width: 1190px) {
     &__content {
       padding-top: 34px;
@@ -271,13 +284,13 @@
       top: 27px;
     }
   }
-  
+
   @media screen and (min-width: 631px) and (max-width: 1190px) {
     &__date-list {
       margin-top: 60px;
     }
   }
-  
+
   @media screen and (max-width: 950px) {
     &__date-list {
       li {
@@ -290,7 +303,7 @@
       }
     }
   }
-  
+
   @media screen and (min-width: 801px) and (max-width: 950px) {
     &__date-list {
       li {
@@ -298,14 +311,14 @@
       }
     }
   }
-  
+
   @media screen and (max-width: 800px) {
     top: 0;
     position: fixed;
     z-index: 2001;
     overflow-y: scroll;
     height: 100%;
-    
+
     &__wrapper {
       margin: 0;
       overflow: hidden;
@@ -366,7 +379,7 @@
       display: block;
     }
   }
-  
+
   @media screen and (min-width: 631px) and (max-width: 800px) {
     &__close-button {
       right: 30px;
@@ -455,7 +468,7 @@
       }
     }
   }
-  
+
   @media screen and (max-width: 630px) {
     &__close-button {
       right: 15px;

@@ -7,13 +7,15 @@ export default () => {
     }
 
     $('#menu .menu__link.has-dropdown').on('click', function(event) {
-      event.preventDefault();
+      if ( $(window).width() >= 1024 ) {
+        event.preventDefault();
 
-      if ( $(this).hasClass('dropdown-is-active') ) {
-        closeSubMenu();
-      } else {
-        closeSubMenu();
-        $(this).addClass('dropdown-is-active');
+        if ( $(this).hasClass('dropdown-is-active') ) {
+          closeSubMenu();
+        } else {
+          closeSubMenu();
+          $(this).addClass('dropdown-is-active');
+        }
       }
     }).on('focusout', function () {
       closeSubMenu();

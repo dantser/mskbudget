@@ -126,7 +126,11 @@ $hamburger-hover-filter    : opacity(50%) !default;
     &-row {
       position: relative;
       display: block;
-      // @include outline;
+
+      @media (max-width: $navBreakpointTablet) {
+        padding-top: 0;
+        position: static;
+      }
 
       &:first-child {
         // overflow: hidden;
@@ -143,7 +147,7 @@ $hamburger-hover-filter    : opacity(50%) !default;
         }
 
         @media (max-width: $navBreakpointTablet) {
-          padding-top: 12px;
+          min-height: auto;
         }
       }
 
@@ -152,6 +156,11 @@ $hamburger-hover-filter    : opacity(50%) !default;
 
         @media (min-width: $navBreakpointXXL) {
           padding-top: 10px;
+        }
+
+        @media (max-width: $navBreakpointTablet) {
+          padding-top: 25px;
+          padding-bottom: 25px;
         }
       }
     }
@@ -175,6 +184,10 @@ $hamburger-hover-filter    : opacity(50%) !default;
       @media (min-width: $navBreakpointXXL) {
         display: none;
       }
+
+      @media (max-width: $navBreakpointTablet) {
+        display: none;
+      }
     }
 
     @media (min-width: $navBreakpointTablet + 1px) and (max-width: $navBreakpointDesktop) {
@@ -195,6 +208,17 @@ $hamburger-hover-filter    : opacity(50%) !default;
     @media (min-width: $navBreakpointTablet +1px) and (max-width: $navBreakpointDesktop) {
       float: left;
     }
+
+    @media (max-width: $navBreakpointTablet) {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      @include transform(translateX(-50%) translateY(-55%));
+
+      .menu__link {
+        padding: 8px;
+      }
+    }
   }
 
   &__menu2 {
@@ -202,13 +226,47 @@ $hamburger-hover-filter    : opacity(50%) !default;
     overflow: hidden;
     margin: 0;
     padding: 0;
+    height: 25px;
     list-style: none;
+
+    @media (max-width: $navBreakpointTablet) {
+      float: none;
+      overflow: visible;
+      position: absolute;
+      right: 0;
+      bottom: 65px;
+      left: 0;
+    }
 
     &-item {
       float: left;
 
       &:not(:last-child) {
         margin-right: 15px;
+      }
+
+      @media (max-width: $navBreakpointTablet) {
+        position: relative;
+        width: 33.3%;
+        height: 25px;
+
+        &:not(:last-child) {
+          margin-right: 0;
+        }
+
+        &:nth-child(1) {
+          padding-left: 10px;
+          text-align: left;
+        }
+
+        &:nth-child(2) {
+          text-align: center;
+        }
+
+        &:nth-child(3) {
+          padding-right: 10px;
+          text-align: right;
+        }
       }
 
       &.hidden-desktop {
@@ -221,7 +279,7 @@ $hamburger-hover-filter    : opacity(50%) !default;
     &-link {
       display: inline-block;
       padding: 5px;
-      width: 15px;
+      width: 24px;
       height: 15px;
       box-sizing: content-box;
       color: white;
@@ -232,11 +290,24 @@ $hamburger-hover-filter    : opacity(50%) !default;
         color: #fee300;
         fill: #fee300;
       }
+
+      @media (max-width: $navBreakpointTablet) {
+        display: inline-block;
+      }
     }
 
     &-icon {
       max-width: 100%;
       max-height: 100%;
+
+      &.is-active {
+        color: #fee300;
+        fill: #fee300;
+      }
+
+      &.is-hidden {
+        display: none;
+      }
     }
   }
 
@@ -253,6 +324,11 @@ $hamburger-hover-filter    : opacity(50%) !default;
     @media (min-width: $navBreakpointTablet + 1px) {
       font-size: 20px;
     }
+
+    @media (max-width: $navBreakpointTablet) {
+      margin-top: 0;
+      font-size: 20px;
+    }
   }
 
   &__social {
@@ -264,6 +340,25 @@ $hamburger-hover-filter    : opacity(50%) !default;
 
     @media (min-width: $navBreakpointXXL) {
       margin-top: 0;
+    }
+
+    @media (max-width: $navBreakpointTablet) {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin-top: 0;
+      padding-top: 11px;
+      padding-bottom: 10px;
+      border: 1px solid rgba(white, .2);
+      text-align: center;
+
+      .social__item {
+        display: inline-block;
+        float: none;
+        margin-right: 5px;
+        margin-left: 5px;
+      }
     }
   }
 

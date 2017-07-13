@@ -37,6 +37,7 @@ import reset from '../components/reset/reset';
 import profile from '../components/profile/profile';
 import basic_budget_figures from '../components/basic_budget_figures/basic_budget_figures';
 import menu from '../blocks/menu/menu'; // главное меню в навбаре
+import searchNavbar from '../blocks/search-navbar/search-navbar'; // форма поиска в навбаре
 
 $(() => {
 
@@ -87,4 +88,5 @@ $(() => {
   profile();
   basic_budget_figures();
   menu();
+  searchNavbar();
 });
