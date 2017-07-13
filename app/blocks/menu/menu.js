@@ -1,16 +1,22 @@
 import $ from 'jquery';
 
 export default () => {
-  if ($('#menu').length) {
-    $('#menu .menu__link').on('click', function(event) {
+  if ($('#menu .menu__link.has-dropdown').length) {
+    function closeSubMenu() {
+      $('#menu .menu__link.has-dropdown').removeClass('dropdown-is-active');
+    }
+
+    $('#menu .menu__link.has-dropdown').on('click', function(event) {
       event.preventDefault();
 
-      if ( $(this).hasClass('is-active') ) {
-        $('#menu .menu__link.is-active').removeClass('is-active');
+      if ( $(this).hasClass('dropdown-is-active') ) {
+        closeSubMenu();
       } else {
-        $('#menu .menu__link.is-active').removeClass('is-active');
-        $(this).addClass('is-active');
+        closeSubMenu();
+        $(this).addClass('dropdown-is-active');
       }
+    }).on('focusout', function () {
+      closeSubMenu();
     });
   }
 }

@@ -3,8 +3,7 @@ include ../../blocks/icon/icons
 include ../../blocks/currency/currency
 include ../../blocks/menu/menu
 include ../../blocks/social/social
-//- include ../../blocks/search-form/search-form
-//- include ../../blocks/login/login
+include ../../blocks/search-navbar/search-navbar
 
 mixin header()
   +b.HEADER.header&attributes(attributes)
@@ -35,6 +34,7 @@ mixin header()
             +e.LI.menu2-item
               +e.A(href="#login").menu2-link.btn.open-popup
                 +icon('user').menu2-icon
+      +search-navbar().search-navbar
     +e.BUTTON.open-menu.hamburger.hamburger--spin(type="button")
       SPAN.hamburger-box
         SPAN.hamburger-inner
