@@ -1,19 +1,75 @@
 .search-navbar {
+  $searchHeight: 40px;
+
   position: absolute;
-  top: 0;
+  bottom: -$searchHeight;
   left: 0;
   right: 0;
-  // background-color: rgba(black, .45);
+  height: $searchHeight;
+  @include transited;
+
+  // прячем
+  z-index: -9999;
+  visibility: hidden;
+  opacity: 0;
+
+  // показываем
+  &.is-active {
+    z-index: 1;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &:before {
+    @include ghost;
+    left: -100%;
+    left: -100vw;
+    right: -100%;
+    right: -100vw;
+    background-color: rgba(black, .45);
+  }
 
   &__form {
 
   }
 
   &__input {
-    // @include debug;
+    display: inline-block;
+    width: 100%;
+    height: $searchHeight - 15px;
+    margin: 5px 0 10px;
+    padding: 5px;
+    font-size: 20px;
+    line-height: 1;
+    font-weight: 500;
+    color: #fee300;
+    border-bottom: 1px solid white;
+
+    &:focus {
+
+    }
   }
 
   &__button {
-    // @include debug;
+    position: absolute;
+    top: 5px;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    padding: 3px;
+    color: white;
+    fill: white;
+    @include transited;
+
+    &:hover,
+    &:focus {
+      color: #fee300;
+      fill: #fee300;
+    }
+  }
+
+  &__icon {
+    max-width: 100%;
+    max-height: 100%;
   }
 }

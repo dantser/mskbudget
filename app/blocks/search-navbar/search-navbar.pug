@@ -1,5 +1,8 @@
+include ../../blocks/icon/icons
+
 mixin search-navbar()
-  +b.DIV.search-navbar&attributes(attributes)
+  +b.DIV.search-navbar#search-navbar&attributes(attributes)
     +e.FORM(action="#").form
-      +e.INPUT.input
+      +e.INPUT.input#search-navbar-input(name="search-navbar-input")
       +e.BUTTON(type="submit").button
+        +icon('search').icon
