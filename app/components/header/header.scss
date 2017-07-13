@@ -23,28 +23,11 @@ $hamburger-hover-filter    : opacity(50%) !default;
   left: 0;
   z-index: 2000;
   width: 100%;
-  height: 135px;
   background: rgba(black, .3);
   border-bottom: 1px solid rgba(white, 0.1);
   @include transited;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  @media (min-width: $navBreakpointXXL) {
-    height: $navHeightXXL;
-  }
-
-  @media (max-width: $navBreakpointDesktop) {
-    height: $navHeightDesktop;
-  }
-
-  @media (max-width: $navBreakpointTablet) {
-    height: $navHeightTablet;
-  }
-
-  @media (max-width: $navBreakpointMobile) {
-    height: $navHeightMobile;
-  }
 
   &_opened {
     background: rgba(black, .3);
@@ -55,8 +38,21 @@ $hamburger-hover-filter    : opacity(50%) !default;
     position: relative;
 
     @media (min-width: $navBreakpointXXL) {
+      height: $navHeightXXL;
       padding-left: 300px !important;
       padding-right: 0 !important;
+    }
+
+    @media (max-width: $navBreakpointDesktop) {
+      height: $navHeightDesktop;
+    }
+
+    @media (max-width: $navBreakpointTablet) {
+      height: $navHeightTablet;
+    }
+
+    @media (max-width: $navBreakpointMobile) {
+      height: $navHeightMobile;
     }
   }
 
