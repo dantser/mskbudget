@@ -337,14 +337,20 @@ $hamburger-hover-filter    : opacity(50%) !default;
   display: inline-block;
   font-size: 16px;
   text-decoration: none;
+  color: white;
+  fill: white;
+  @include transited;
+
+  &:hover {
+    color: #fee300;
+    fill: #fee300;
+  }
 
   &__icon {
     display: inline-block;
     vertical-align: top;
     max-width: 27px;
     max-height: 19px;
-    color: white;
-    fill: white;
   }
 
   &__text {
@@ -352,7 +358,6 @@ $hamburger-hover-filter    : opacity(50%) !default;
     vertical-align: bottom;
     font-size: 16px;
     line-height: 1;
-    color: white;
 
     @media (max-width: $navBreakpointDesktop) {
       display: none;

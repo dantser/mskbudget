@@ -2,14 +2,16 @@ mixin menu()
   +b.NAV.menu#menu&attributes(attributes)
     +e.UL.list
       +e.LI.item
-        +e.A.link(href="#") О бюджете
+        +e.A.link(href="#").has-dropdown О бюджете
         +b.DIV.submenu.__submenu
           +e.UL.list
+            +e.LI.item
+              +e.A.link(href="#").is-active Активная ссылка
             each _ in Array(5)
               +e.LI.item
                 +e.A.link(href="#") Медиаматериалы
       +e.LI.item
-        +e.A.link(href="#") Бюджет Москвы
+        +e.A.link(href="#").has-dropdown Бюджет Москвы
         +b.DIV.submenu.__submenu
           +e.UL.list
             each _ in Array(25)
