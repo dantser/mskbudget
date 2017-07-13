@@ -204,20 +204,11 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      margin: -117px 0 0 -167px;
+      margin: 30px 0 0;
+      transform: translate(-50%, -50%);
       -o-background-size: 100% auto;
       -moz-background-size: 100% auto;
       background-size: 100% auto;
-
-      &__num_pink {
-        margin-bottom: 44px !important;
-        margin-left: -94px;
-      }
-
-      &__num_blue {
-        margin-bottom: 44px !important;
-        margin-left: -121px;
-      }
     }
 
     .large-diagram {
@@ -261,10 +252,6 @@
       left: 14px;
       right: 14px;
       top: 50%;
-    }
-
-    .sections__title {
-      max-width: 100%;
     }
   }
 }
@@ -320,10 +307,22 @@
   }
 }
 
+@media (min-height: 501px) and (max-width: 900px) {
+  .wrapper_main {
+    .comp-diagram__num_blue {
+      margin-bottom: 44px !important;
+      margin-left: -121px;
+    }
+    .comp-diagram__num_pink {
+      margin-bottom: 44px !important;
+      margin-left: -94px;
+    }
+  }
+}
+
 @media (max-height: 500px) and (max-width: 900px) {
   .wrapper_main {
     .comp-diagram {
-      margin: -115px 0 0 -115px;
       width: 230px;
       height: 230px;
       padding-top: 27px;
@@ -335,6 +334,10 @@
     .comp-diagram__num_pink {
       margin-bottom: 25px !important;
       margin-left: -72px;
+    }
+    .comp-diagram .svg-wrap, .comp-diagram .svg-wrap .svg {
+      width: 180px;
+      height: 180px;
     }
   }
 }

@@ -1402,17 +1402,25 @@ button::-moz-focus-inner { padding: 0; border: 0; }
 
 @media (max-width: 1180px) {
   // .sections__item_first { padding-top: 190px; }
-  .sections__title { font-size: 3.125rem; margin-right: 45px; max-width: 67%; }
+  .sections__title { max-width: 67%; }
   .sections__legend { padding-top: 5px; margin-right: 15px; } }
+
+@media (min-width: 901px) and (max-width: 1180px) {
+  .sections__title { font-size: 3.125rem; margin-right: 45px; }
+}
 
 @media (max-width: 900px) { .sections__ahead {  padding-right: 35px; padding-left: 0 !important}
   .sections__ahead_ab { margin: 0 !important; }
-  .sections__title { font-size: 3.5rem; max-width: 100%; }
   .sections__legend { position: absolute !important; top: auto !important; bottom: 80px; }
+  .sections__title { max-width: 100%; }
   .sections__datepicker { clear: both; }
   .sections__datepicker span { font-size: 15px; }
   .sections__datepicker .datepicker__show { font-size: 15px; width: 66px; }
   .sections #diagrams-ahead-1 { position: static; margin-top: 90px !important; } }
+
+@media (max-width: 900px) and (min-height: 701px) {
+  .sections__title { font-size: 3.5rem; }
+}
 
 @media (max-width: 900px) and (max-height: 610px) { .sections__subscribe { display: none; } }
 
@@ -1479,18 +1487,28 @@ button::-moz-focus-inner { padding: 0; border: 0; }
 
 @media (max-width: 1180px) and (min-width: 901px) { .banner__wrap { padding: 15.875rem 0 0 125px; } }
 
-@media (max-width: 900px) { .banner__wrap { padding: 339px 35px 0 35px; }
+@media (max-width: 900px) {
+  .banner__wrap { padding-left: 60px; padding-right: 60px;}
   .banner_ban-1 { background-image: url("../images/banners/banner-1_768.jpg"); }
   .banner_ban-2 { background-image: url("../images/banners/banner-2_768.jpg"); }
   .banner_ban-3 { background-image: url("../images/banners/banner-3_768.jpg"); }
   .banner__row { font-size: 0.82051em; }
-  .banner__button { margin-top: 15px; } }
+  .banner__button { margin-top: 15px; }
+}
 
-@media (max-width: 900px) and (max-height: 700px) { .banner { font-size: 47px; }
-  .banner__wrap { padding-top: 250px; } }
+@media (max-width: 900px) and (min-height: 701px) {
+  .banner__wrap { padding: 339px 35px 0 35px; } 
+}
 
-@media (max-width: 900px) and (max-height: 580px) { .banner { font-size: 39px; }
-  .banner__wrap { padding-top: 210px; } }
+@media (max-width: 900px) and (min-height: 581px) and (max-height: 700px) {
+  .banner { font-size: 47px; }
+  .banner__wrap { padding-top: 250px; } 
+}
+
+@media (max-width: 900px) and (max-height: 580px) {
+  .banner { font-size: 39px; }
+  .banner__wrap { padding-top: 210px; } 
+}
 
 @media (max-width: 700px) and (max-height: 700px) { .banner__wrap { padding: 9.5625rem 0 0 0; } }
 
