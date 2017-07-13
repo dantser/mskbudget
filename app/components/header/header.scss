@@ -145,6 +145,10 @@ $hamburger-hover-filter    : opacity(50%) !default;
         @media (max-width: $navBreakpointDesktop) {
           min-height: 46px;
         }
+
+        @media (max-width: $navBreakpointTablet) {
+          min-height: auto;
+        }
       }
 
       &:last-child {
@@ -152,6 +156,11 @@ $hamburger-hover-filter    : opacity(50%) !default;
 
         @media (min-width: $navBreakpointXXL) {
           padding-top: 10px;
+        }
+
+        @media (max-width: $navBreakpointTablet) {
+          padding-top: 25px;
+          padding-bottom: 25px;
         }
       }
     }
@@ -199,6 +208,17 @@ $hamburger-hover-filter    : opacity(50%) !default;
     @media (min-width: $navBreakpointTablet +1px) and (max-width: $navBreakpointDesktop) {
       float: left;
     }
+
+    @media (max-width: $navBreakpointTablet) {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      @include transform(translateX(-50%) translateY(-55%));
+
+      .menu__link {
+        padding: 8px;
+      }
+    }
   }
 
   &__menu2 {
@@ -206,6 +226,7 @@ $hamburger-hover-filter    : opacity(50%) !default;
     overflow: hidden;
     margin: 0;
     padding: 0;
+    height: 25px;
     list-style: none;
 
     @media (max-width: $navBreakpointTablet) {
@@ -225,12 +246,26 @@ $hamburger-hover-filter    : opacity(50%) !default;
       }
 
       @media (max-width: $navBreakpointTablet) {
-        float: none;
         position: relative;
         width: 33.3%;
+        height: 25px;
 
         &:not(:last-child) {
           margin-right: 0;
+        }
+
+        &:nth-child(1) {
+          padding-left: 10px;
+          text-align: left;
+        }
+
+        &:nth-child(2) {
+          text-align: center;
+        }
+
+        &:nth-child(3) {
+          padding-right: 10px;
+          text-align: right;
         }
       }
 
@@ -257,21 +292,7 @@ $hamburger-hover-filter    : opacity(50%) !default;
       }
 
       @media (max-width: $navBreakpointTablet) {
-        position: absolute;
-        bottom: 0;
-
-        &:nth-child(1) {
-          left: 15px;
-        }
-
-        &:nth-child(2) {
-          left: 50%;
-          @include transform(translateX(-50%));
-        }
-
-        &:nth-child(3) {
-          right: 15px;
-        }
+        display: inline-block;
       }
     }
 
@@ -305,10 +326,8 @@ $hamburger-hover-filter    : opacity(50%) !default;
     }
 
     @media (max-width: $navBreakpointTablet) {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
+      margin-top: 0;
+      font-size: 20px;
     }
   }
 
