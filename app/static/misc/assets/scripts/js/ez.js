@@ -481,38 +481,42 @@ function tabsLine(){
 	});
 
   $('.owl-carousel.owl-carousel_news').owlCarousel({
-  loop:false,
-  margin:0,
-  nav:true,
-  responsiveClass:true,
-  center:false,
-  // autoWidth:true,//разная ширина слайдов, ширину задавать на вложенный блок у слайда! + не указывать явно items:1,
-  startPosition:0,
-  items: 3,
-  responsive: {
-    0: {
-      touchDrag:true,
-      items: 1
+    loop:false,
+    margin:0,
+    nav:true,
+    responsiveClass:true,
+    center:false,
+    // autoWidth:true,//разная ширина слайдов, ширину задавать на вложенный блок у слайда! + не указывать явно items:1,
+    startPosition:0,
+    items: 4,
+    responsive: {
+      0: {
+        touchDrag:true,
+        items: 1
+      },
+      650: {
+        touchDrag: true,
+        items: 2
+      },
+      970: {
+        touchDrag: true,
+        items: 3
+      },
+      1024: {
+        touchDrag: true,
+        items: 3
+      },
+      1280: {
+        touchDrag: false,
+        items: 4
+      }
     },
-    900: {
-      touchDrag: true,
-      items: 2
-    },
-    1024: {
-      touchDrag: true,
-      items: 2
-    },
-    1280: {
-      touchDrag: false,
-      items: 3
-    }
-  },
-  dots:false,
-  mouseDrag:false,
-  touchDrag:false,
-  autoplay:false,
-  smartSpeed:500
-});
+    dots:false,
+    mouseDrag:false,
+    touchDrag:false,
+    autoplay:false,
+    smartSpeed:500
+  });
 
 $('.owl-carousel.owl-carousel_services').owlCarousel({
   loop:false,
@@ -538,7 +542,7 @@ $('.owl-carousel.owl-carousel_services').owlCarousel({
     },
     1024: {
       touchDrag: true,
-      items: 4
+      items: 3
     },
     1280: {
       touchDrag: false,

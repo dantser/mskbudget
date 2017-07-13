@@ -47,3 +47,22 @@ mixin material-card(image, title, date)
     .news__bottom
       a(href="#").news__title= title
       p.news__date= date
+
+mixin news-card-dropdown(image, category, title, date)
+  +b.news._dropdown&attributes(attributes)
+    a(href="#").news__thumb
+      img(src="assets/images/news/"+image+".jpg", alt="thumb")
+    a(href="#").news__category= category
+    a(href="#").news__title= title
+    .news__bottom
+      p.news__date= date
+      .news__tags
+        a(href="#") #итоги
+        a(href="#") #апробация
+        a(href="#") #старшеклассники
+    button.share__btn
+    .share__panel
+      a(href="#").share__a.share__a_fb
+      a(href="#").share__a.share__a_vk
+      a(href="#").share__a.share__a_tw
+      a(href="#").share__a.share__a_ok
