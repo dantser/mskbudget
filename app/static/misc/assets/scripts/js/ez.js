@@ -56,7 +56,7 @@ budget.extend("common", {
 		})
 
 		$('.edu-lesson-link').on('click', function() {
-            // window.location.href = $(this).attr('href');
+            window.location.href = $(this).attr('href');
 			$('.edu-content').removeClass('_active');
 
 			var id = $(this).attr('id');
