@@ -14,6 +14,35 @@ html, body {
   //height: auto !important; ломает главную
 }
 
+// базозвые стили/ширина контейнера .wrap
+// переназначть только локализовано в конкретных страницах/омпонентах!
+.wrap {
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 40px;
+  padding-right: 40px;
+  @include clearfix;
+
+  // отступы ниже работают как для контейнера тела страницы,
+  // так и для контейнера навбара, отступы меняются синхронно
+  // если вам нужно переназначить эти отступы по какой-то причине
+  // возьмите этот блок кода целиком и оберните! его классом своего компонента
+  // страницы, что бы избежать багов на других страницах
+
+  // планшет в горизонтальном положении
+  @media (max-width: $navBreakpointTablet) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  // телефон/планшет в портретной ориентации
+  @media (max-width: $navBreakpointMobile) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
 a:focus {
   outline: 1px solid #5E9ED6;
   outline: 5px auto -webkit-focus-ring-color;

@@ -53,29 +53,10 @@ $hamburger-hover-filter    : opacity(50%) !default;
   // inner
   &__wrap {
     position: relative;
-    margin: 0 40px;
-    max-width: initial !important;
 
     @media (min-width: $navBreakpointXXL) {
-      max-width: 1400px !important;
-      margin: 0 auto;
-      padding-left: 300px;
-      padding-right: 50px;
-    }
-
-    @media (max-width: $navBreakpointTablet) {
-      margin: 0 20px;
-    }
-
-    @media (max-width: $navBreakpointMobile) {
-      margin: 0 15px;
-    }
-
-    &:after {
-      content: '';
-      display: block;
-      width: 100%;
-      clear: both;
+      padding-left: 300px !important;
+      padding-right: 0 !important;
     }
   }
 
@@ -109,7 +90,7 @@ $hamburger-hover-filter    : opacity(50%) !default;
       @media (min-width: $navBreakpointXXL) {
         position: absolute;
         top: 35px;
-        left: -250px;
+        left: -300px;
       }
     }
   }

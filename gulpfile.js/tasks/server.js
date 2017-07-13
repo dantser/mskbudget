@@ -6,7 +6,7 @@ const bs = browserSync('server');
 
 gulp.task('server', () => {
   bs.init({
-    // open: true,
+    open: true,
     reloadOnRestart: true,
     port: 3000,
     snippetOptions: {
@@ -19,7 +19,7 @@ gulp.task('server', () => {
         './dist',
       ],
     },
-    directory: true,
+    directory: false,
     middleware: [debuga()],
   });
 
