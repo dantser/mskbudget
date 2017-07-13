@@ -47,3 +47,9 @@ mixin material-card(image, title, date)
     .news__bottom
       a(href="#").news__title= title
       p.news__date= date
+
+mixin short-newscard(category, date, title)
+  +b.short-newscard&attributes(attributes)
+    +e.A(href="#").category= category
+    +e.P.date= date
+    +e.A(href="#").title= title
