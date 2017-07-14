@@ -1,64 +1,39 @@
 import $ from 'jquery';
 
 export default () => {
-  var winW = $(window).width(),
-  winH = $(window).height();
+  const $header = $('#header');
+  const $burger = $('#burger');
+  const $headerDrop = $('#headerDrop');
 
-  /*Menu*/
-  $('.header__open-menu').click(function() {
+  if ($header && $burger && $headerDrop) {
+    $burger.on('click', function(event) {
+      event.preventDefault();
 
-      var _ = $(this);
+      const $headerIsOpen = $('#header.is-active').length;
 
-      if ( !_.hasClass('act') ) {
-
-          $('.header__drop').fadeIn(321);
-          _.addClass('act');
-          $('.header').addClass('header_opened');
-          $('.sections, .guide').addClass('filter_blur');
-
+      if ($headerIsOpen) {
+        $header.removeClass('is-active');
+        $burger.removeClass('is-active');
+        $('.sections, .guide').removeClass('filter_blur');
+        $headerDrop.fadeOut(250);
       } else {
-
-          $('.header__drop').fadeOut(321);
-          _.removeClass('act');
-          $('.header').removeClass('header_opened');
-          $('.sections, .guide').removeClass('filter_blur');
-
+        $header.addClass('is-active');
+        $burger.addClass('is-active');
+        $('.sections, .guide').addClass('filter_blur');
+        $headerDrop.fadeIn(250);
       }
-
-      return false;
-  });
-
-  if (winW > 700 && !$('.sections').hasClass('sections_fs')) {
-      $(window).scroll(function() {
-          var scr = $(this).scrollTop();
-          if (scr > 21) {
-              $('.header').addClass('header_short');
-          } else {
-              $('.header').removeClass('header_short');
-          }
-      });
+    });
   }
 
-  $('.menu__sub-menu').each(function() {
-      var offset = $(this).parent().offset().left;
-      $(this).css({width: winW, marginLeft: -offset});
-      $(this).find('.menu__sub-menu-ul').width($('.menu').width());
-  });
-
-
-  if (winW > 1101) {
-
-      $('.menu__item').mouseenter(function() {
-          if( $(this).find('.menu__sub-menu').length > 0 ){
-              var offsetY = $(this).closest('.menu').position().top;
-              var heightM = $(this).find('.menu__sub-menu').innerHeight();
-              $('.header').css('height', offsetY+heightM+30);
-              console.log(offsetY);
-          }
-      });
-
-      $('.menu__item').mouseleave(function() {
-          $('.header').css('height', '');
-      });
-  }
+  // .header_shot — это вообще нужно хоть где-нибудь?
+  // if ($(window).width() > 700 && !$('.sections').hasClass('sections_fs')) {
+  //   $(window).scroll(function() {
+  //     var scr = $(this).scrollTop();
+  //     if (scr > 21) {
+  //       $header.addClass('header_short');
+  //     } else {
+  //       $header.removeClass('header_short');
+  //     }
+  //   });
+  // }
 }

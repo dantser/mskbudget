@@ -29,14 +29,6 @@ $hamburger-hover-filter    : opacity(50%) !default;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  @media (max-width: $navBreakpointTablet) {
-    background: rgba(black, .3);
-  }
-
-  &_opened {
-    background: rgba(black, .3);
-  }
-
   // inner
   &__wrap {
     position: relative;
@@ -97,34 +89,16 @@ $hamburger-hover-filter    : opacity(50%) !default;
 
   // контейнер выпадающего меню в мобильной версии
   &__drop {
+    display: none;
     position: relative;
-
-    &::after {
-      display: block;
-      width: 100%;
-      content: '';
-      clear: both;
-    }
+    background-color: rgba(black, .3);
 
     @media (max-width: $navBreakpointTablet) {
-      display: none;
       position: fixed;
-      width: 100%;
+      top: 68px;
+      right: 0;
       bottom: 0;
       left: 0;
-      top: 68px;
-
-      &:before {
-        display: block;
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background: #000;
-        background: rgba(0, 0, 0, .3);
-      }
     }
 
     &-row {
