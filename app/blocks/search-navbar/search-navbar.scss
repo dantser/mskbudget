@@ -50,6 +50,28 @@
 
   &__form {
     position: relative;
+
+    ::-webkit-input-placeholder {
+      font-size: 15px;
+      font-weight: normal;
+      color: rgba(white,.5);
+    }
+    :-moz-placeholder {
+      font-size: 15px;
+      font-weight: normal;
+      color: rgba(white,.5);
+    }
+    ::-moz-placeholder {
+      font-size: 15px;
+      opacity: 1;
+      font-weight: normal;
+      color: rgba(white,.5);
+    }
+    :-ms-input-placeholder {
+      font-size: 15px;
+      font-weight: normal;
+      color: rgba(white,.5);
+    }
   }
 
   &__input {
@@ -78,7 +100,7 @@
     padding: 3px;
     color: white;
     fill: white;
-    @include transited;
+    @include transited('color, fill');
 
     &:hover,
     &:focus {

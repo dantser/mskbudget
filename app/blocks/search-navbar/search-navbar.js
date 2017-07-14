@@ -24,18 +24,16 @@ export default function searchNavbar() {
     });
   }
 
-  if ($searchNavbar && $searchNavbarLink) {
+  if ($searchNavbar && $searchNavbarLink && $searchNavbarInput) {
     $(document).mouseup(function(event) {
-      $searchNavbarLink
-
-      if (!$searchNavbarLink.is(event.target) && $searchNavbarLink.has(event.target).length === 0) {
+      if (!$searchNavbarLink.is(event.target) && !$searchNavbarInput.is(event.target) && $searchNavbarLink.has(event.target).length === 0) {
         closeSearch();
       } else {
         event.preventDefault();
 
-        if ( !$searchNavbar.hasClass('is-active') ) {
+        if (!$searchNavbar.hasClass('is-active')) {
           showSearch();
-        } else {
+        } else if (!$searchNavbarInput.is(event.target) && $searchNavbar.hasClass('is-active')) {
           closeSearch();
         }
       }
