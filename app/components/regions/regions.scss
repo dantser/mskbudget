@@ -199,6 +199,12 @@
     font-size: 0;
     white-space: nowrap;
     position: relative;
+    .d-smr__chart-controls .sort_desc.alph {
+      display: none;
+      @media screen and (max-width: 550px) {
+        display: inline-block;
+      }
+    }
   }
 
   .d-smr__chart-row {
@@ -214,7 +220,7 @@
         color: #b2b2b2;
       }
     }
-    @media screen and (max-width: 970px) {
+    @media screen and (min-width: 551px) and (max-width: 970px) {
       height: 64px;
     }
     @media screen and (max-width: 550px) {
@@ -243,7 +249,8 @@
     .d-smr__chart-controls {
       position: absolute;
       display: block;
-      width: 100%;
+      width: auto;
+      right: 0;
       bottom: 6px;
       left: 15px;
       text-align: left;
@@ -294,6 +301,10 @@
             left: -12px;
           }
         }
+        @media screen and (max-width: 360px) {
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
       }
     }
     &:hover {
@@ -316,6 +327,9 @@
     }
     @media screen and (max-width: 550px) {
       padding-right: 20px;
+    }
+    @media screen and (max-width: 360px) {
+      padding-bottom: 70px;
     }
   }
 
