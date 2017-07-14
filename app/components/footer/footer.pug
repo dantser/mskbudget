@@ -1,305 +1,117 @@
+include ../../blocks/social/social
+include ../../blocks/icon/icons
+
 mixin footer()
-  .sections__item.sections__item_footer
-    +b.FOOTER.footer._b
-      .wrap.footer__wrap.anim-fade-top
-        .footer__box.viewport-md-lg
-          nav.footer__column
-            ul.footer__nav-section_min-h
-              li.footer__nav-item
-                a(href='#').footer__nav-a.footer__nav-a_b О бюджете
-              li.footer__nav-item
-                a(href='#').footer__nav-a Что такое бюджет?
-              li.footer__nav-item
-                a(href='#').footer__nav-a Бюджетная система
-                ul.footer__sub-menu
-                  li
-                    a(href='#') Бюджетная система РФ
-                  li
-                    a(href='#') Принципы бюджетной системы РФ
-                  li
-                    a(href='#') Этапы подготовки бюджета
-                  li
-                    a(href='#') Бюджетная политика Москвы
-                  li
-                    a(href='#') Налоговая политика Москвы
-              li.footer__nav-item
-                a(href='#').footer__nav-a Бюджетная классификация
-              li.footer__nav-item
-                a(href='#').footer__nav-a Глоссарий
-              li.footer__nav-item
-                a(href='#').footer__nav-a Документы
-          nav.footer__column
-            ul
-              li.footer__nav-item
-                a(href='#').footer__nav-a.footer__nav-a_b Бюджет Москвы
-              li.footer__nav-item
-                a(href='#').footer__nav-a Доходы
-              li.footer__nav-item
-                a(href='#').footer__nav-a Расходы
-              li.footer__nav-item
-                a(href='#').footer__nav-a
-                  | Источники финансирования
-                  br
-                  | дефицита бюджета
-              li.footer__nav-item
-                a(href='#').footer__nav-a Государственные программы
-              li.footer__nav-item
-                a(href='#').footer__nav-a
-                  | Адресная инвестиционная
-                  br
-                  | программа
-              li.footer__nav-item
-                a(href='#').footer__nav-a Государственный долг
-              li.footer__nav-item
-                a(href='#').footer__nav-a Межбюджетные отношения
+  +b.FOOTER.footer#footer.sections__item&attributes(attributes)
+    //- враппер с отступами и ограничением ширины
+    +e.wrap.wrap
+      //- основной блок футера
+      +e.main
+        //- колонка меню
+        +e.column
+          +e.A.heading(href="#") О бюджете
+          +e.UL.menu
+            +e.LI.menu-item
+              +e.A.menu-link(href="#") Что такое бюджет?
+            +e.LI.menu-item
+              +e.A.menu-link(href="#") Бюджетная система
+            +e.LI.menu-item
+              +e.A.menu-link(href="#") Бюджетная классификация
+            +e.LI.menu-item
+              +e.A.menu-link(href="#") Глоссарий
+            +e.LI.menu-item
+              +e.A.menu-link(href="#") Документы
+        //- колонка меню
+        +e.column
+          +e.A.heading(href="#") Бюджет Москвы
+          +e.UL.menu
+            +e.LI.menu-item
+              +e.A.menu-link(href="#") Что такое бюджет?
+            +e.LI.menu-item
+              +e.A.menu-link(href="#") Бюджетная система
+            +e.LI.menu-item
+              +e.A.menu-link(href="#") Бюджетная классификация
+            +e.LI.menu-item
+              +e.A.menu-link(href="#") Глоссарий
+            +e.LI.menu-item
+              +e.A.menu-link(href="#") Документы
+        //- колонка меню
+        +e.column
+          +e.A.heading(href="#") Аналитика
+          +e.UL.menu
+            +e.LI.menu-item
+              +e.A.menu-link(href="#") Что такое бюджет?
+            +e.LI.menu-item
+              +e.A.menu-link(href="#") Бюджетная система
+            +e.LI.menu-item
+              +e.A.menu-link(href="#") Бюджетная классификация
+            +e.LI.menu-item
+              +e.A.menu-link(href="#") Глоссарий
+            +e.LI.menu-item
+              +e.A.menu-link(href="#") Документы
+        //- колонка меню
+        +e.column
+          +e.A.heading(href="#") Открытость
+          +e.UL.menu
+            +e.LI.menu-item
+              +e.A.menu-link(href="#") Что такое бюджет?
+            +e.LI.menu-item
+              +e.A.menu-link(href="#") Бюджетная система
+            +e.LI.menu-item
+              +e.A.menu-link(href="#") Бюджетная классификация
+            +e.LI.menu-item
+              +e.A.menu-link(href="#") Глоссарий
+            +e.LI.menu-item
+              +e.A.menu-link(href="#") Документы
+        //- колонка меню
+        +e.column
+          +e.A.heading(href="#") Медиацентр
+          +e.UL.menu
+            +e.LI.menu-item
+              +e.A.menu-link(href="#") Что такое бюджет?
+            +e.LI.menu-item
+              +e.A.menu-link(href="#") Бюджетная система
+            +e.LI.menu-item
+              +e.A.menu-link(href="#") Бюджетная классификация
+            +e.LI.menu-item
+              +e.A.menu-link(href="#") Глоссарий
+            +e.LI.menu-item
+              +e.A.menu-link(href="#") Документы
+        //- колонка меню
+        +e.column
+          +e.A.heading(href="#") Сервисы
+        //- колонка меню
+        +e.column
+          +e.A.heading(href="#") Обратная связь
+          +e.UL.menu
+            +e.LI.menu-item
+              +e.A.menu-link(href="#") Форум
 
-        .footer__box.viewport-md-lg
-          nav.footer__column
-            ul.footer__nav-section_min-h
-              li.footer__nav-item
-                a(href='#').footer__nav-a.footer__nav-a_b Аналитика
-              li.footer__nav-item
-                a(href='#').footer__nav-a Доходы
-              li.footer__nav-item
-                a(href='#').footer__nav-a Расходы
-              li.footer__nav-item
-                a(href='#').footer__nav-a Государственные программы
-              li.footer__nav-item
-                a(href='#').footer__nav-a
-                  | Адресная инвестиционная
-                  br
-                  | программа
-              li.footer__nav-item
-                a(href='#').footer__nav-a
-                  | Социально-экономическое
-                  br
-                  | развитие
-              li.footer__nav-item
-                a(href='#').footer__nav-a Государственный долг
-          nav.footer__column
-            ul.footer__nav-section
-              li.footer__nav-item
-                a(href='#').footer__nav-a.footer__nav-a_b Открытость
-              li.footer__nav-item
-                a(href='#').footer__nav-a Открытые данные
-              li.footer__nav-item
-                a(href='#').footer__nav-a
-                  | Путеводитель
-                  br
-                  | по бюджету
-              li.footer__nav-item
-                a(href='#').footer__nav-a Конкурсы
-              li.footer__nav-item
-                a(href='#').footer__nav-a
-                  | Рейтинг открытости
-                  br
-                  | бюджетных данных
-              li.footer__nav-item
-                a(href='#').footer__nav-a
-                  | Федеральный бюджет
-                  br
-                  | для граждан
-            ul
-              li.footer__nav-item
-                A.footer__nav-a.footer__nav-a_b Сервисы
+      +e.info
+        +e.column
+          +e.about
+            +e.A.about-link(href="#") О портале
+            +e.A.about-link(href="#") Карта сайта
+        +e.column
+          +e.A.block-logo(href="#")
+            +e.DIV.block-logo-img._depfin
+            +e.SPAN.block-logo-text Департамент Финансов города Москвы
+        +e.column
+          +e.A.block-logo(href="#")
+            +e.DIV.block-logo-img._mos
+              +icon('mos').icon
+            +e.SPAN.block-logo-text Официальный портал Мэра и Правительства Москвы
+        +e.column._social
+          +social('facebook-box', 'vk', 'tw', 'insta', 'odnokl', 'youtube-play', 'telegram').__social
+        +e.column._app
+          +e.app
+            +e.app-text Мобильное<br>приложение
+            +e.A.app-link(href="#")
+              +icon('apple').icon
+            +e.A.app-link(href="#")
+              +icon('android').icon
+            +e.A.app-link(href="#")
+              +icon('windows').icon
 
-        nav.footer__column.footer__column_sh.viewport-md-lg
-          ul.footer__nav-section.footer__nav-section_min-h
-            li.footer__nav-item
-              a(href='#').footer__nav-a.footer__nav-a_b Медиацентр
-            li.footer__nav-item
-              a(href='#').footer__nav-a Новости
-            li.footer__nav-item
-              a(href='#').footer__nav-a События
-            li.footer__nav-item
-              a(href='#').footer__nav-a Инфографика
-            li.footer__nav-item
-              a(href='#').footer__nav-a Медиаматериалы
-            li.footer__nav-item
-              a(href='#').footer__nav-a Материалы для СМИ
-            li.footer__nav-item
-              a(href='#').footer__nav-a Пресс-служба
-          ul
-            li.footer__nav-item
-              a(href='#').footer__nav-a.footer__nav-a_b Обратная связь
-            li.footer__nav-item
-              a(href='#').footer__nav-a Форум
-            li.footer__nav-item.viewport-md
-              a(href='#').footer__nav-a О портале
-            li.footer__nav-item.viewport-md
-              a(href='#').footer__nav-a Карта сайта
-
-        //- footer-mob-menu
-        ul.footer-mob-menu.viewport-sm
-          li.footer-mob-menu__item
-            a(href='#').footer-mob-menu__a О бюджете
-            ul.footer-mob-sub-menu
-              li
-                a(href='#') Что такое бюджет?
-              li
-                a(href='#') Бюджетная система
-                ul.footer-mob-smallsub-menu
-                  li
-                    a(href='#') Бюджетная система РФ
-                  li
-                    a(href='#') Принципы бюджетной системы РФ
-                  li
-                    a(href='#') Этапы подготовки бюджета
-                  li
-                    a(href='#') Бюджетная политика Москвы
-                  li
-                    a(href='#') Налоговая политика Москвы
-              li
-                a(href='#') Бюджетная классификация
-              li
-                a(href='#') Глоссарий
-              li
-                a(href='#') Документы
-          li.footer-mob-menu__item
-            a(href='#').footer-mob-menu__a Бюджет Москвы
-            ul.footer-mob-sub-menu
-              li
-                a(href='#') Доходы
-              li
-                a(href='#') Расходы
-              li
-                a(href='#') Источники финансирования дефицита бюджета
-              li
-                a(href='#') Государственные программы
-              li
-                a(href='#') Адресная инвестиционная программа
-              li
-                a(href='#') Государственный долг
-              li
-                a(href='#') Межбюджетные отношения
-              li
-                a(href='#') Социально-экономическое развитие
-          li.footer-mob-menu__item
-            a(href='#').footer-mob-menu__a Аналитика
-            ul.footer-mob-sub-menu
-              li
-                a(href='#') Доходы
-              li
-                a(href='#') Расходы
-              li
-                a(href='#') Государственные программы
-              li
-                a(href='#') Государственный долг
-          li.footer-mob-menu__item
-            a(href='#').footer-mob-menu__a Открытость
-            ul.footer-mob-sub-menu
-              li
-                a(href='#') Путеводитель по бюджету
-              li
-                a(href='#') Конкурсы
-              li
-                a(href='#') Федеральный бюджет для граждан
-              li
-                a(href='#') Открытые данные
-              li
-                a(href='#') Рейтинг открытости бюджетных данных
-          li.footer-mob-menu__item
-            a(href='#').footer-mob-menu__a Медиацентр
-            ul.footer-mob-sub-menu
-              li
-                a(href='#') Новости
-              li
-                a(href='#') События
-              li
-                a(href='#') Инфографика
-              li
-                a(href='#') Медиаматериалы
-              li
-                a(href='#') Материалы для СМИ
-              li
-                a(href='#') Пресс-служба
-          li.footer-mob-menu__item
-            a(href='#').footer-mob-menu__a Сервисы
-            ul.footer-mob-add-menu
-              li.footer-mob-menu__item
-                a(href='#').footer-mob-menu__a Обратная связь
-                ul.footer-mob-sub-menu
-                  li
-                    a(href='#') Форум
-              li.footer-mob-menu__item.footer-mob-menu__item_small
-                a(href='#').footer-mob-menu__a.small О портале
-              li.footer-mob-menu__item.footer-mob-menu__item_small
-                a(href='#').footer-mob-menu__a.small Карта сайта
-
-        //- footer_absolute
-        .footer__abs
-          .footer__box.footer__box_l
-            .footer__column.viewport-lg
-              a(href='#').footer__box-a О портале
-              a(href='#').footer__box-a Карта сайта
-            .footer__column
-              //- LOGO
-              a(href='#').logo.footer__logo
-                img(src='assets/images/logo-footer.png', alt='logo').logo__img
-                span.logo__lg
-                  | Департамент Финансов
-                  br
-                  | города Москвы
-            .footer__column
-              //- LOGO
-              a(href='#').logo.footer__logo
-                img(src='assets/images/logo-footer-1.png', alt='logo').logo__img
-                span.logo__lg
-                  | Официальный портал Мэра
-                  br
-                  | и Правительства Москвы
-
-          .footer__box.footer__box_m.footer__social-apps
-            .footer__column
-              .social.footer__social
-                ul
-                  li.social__item
-                    a(href='#').social__a.social__a_fb
-                  li.social__item
-                    a(href='#').social__a.social__a_vk
-                  li.social__item
-                    a(href='#').social__a.social__a_tw
-                  li.social__item
-                    a(href='#').social__a.social__a_in
-                  li.social__item
-                    a(href='#').social__a.social__a_ok
-                  li.social__item
-                    a(href='#').social__a.social__a_yt
-                  li.social__item
-                    a(href="#").social__a.social__a_tg.fa.fa-telegram.fa-2
-            .footer__column
-              .application
-                span
-                  | Мобильное
-                  br
-                  | приложение
-                a(href='#').application__apl
-                a(href='#').application__and
-                a(href='#').application__win
-
-      //- FOOTER_BAR/
-      .footer__bar
-        .footer__bar-top
-          .wrap
-            ul
-              //- li.viewport-md
-              //-   bar-top-a Карта сайта
-              li
-                A.footer__bar-top-a Сайты Москвы
-              li
-                A.footer__bar-top-a Сайты России
-
-        .footer__bar-bottom
-          .wrap
-            p.footer__copy
-              | Все материалы сайта доступны по лицензии
-              a(href='#') Creative Commons Attribution 3.0
-              | &nbsp;при условии
-              br
-              | ссылки на первоисточник (в случае использования материалов сайта
-              br
-              | в сети Интернет – интерактивная ссылка).
-            p.footer__stat
-              | 832 уникальных посетителя сегодня.
-              br
-              | Всего порталы Москвы посетило 1004547.
+  +e.common
+    <iframe src="https://evp.mos.ru/frame/v2/footer.php?v=1.0.17&amp;site_id=2136&amp;show_blind=0&amp;hidesitemap=0&amp;hidecounter=0&amp;cur_domain=budget.mos.ru" id="footer_frame" frameborder="0" width="100%" scrolling="no" style="height: 208px;"></iframe>
