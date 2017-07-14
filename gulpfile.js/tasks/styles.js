@@ -22,9 +22,9 @@ gulp.task('styles', () => {
     .pipe(postcss([
       require('autoprefixer'),
       require('postcss-discard-comments'),
-      require('css-mqpacker')({
-        sort: true,
-      }),
+      // require('css-mqpacker')({
+      //   sort: true,
+      // }),
     ]))
     .pipe(cssimport())
     .pipe(cssnano({ zIndex: false }))
