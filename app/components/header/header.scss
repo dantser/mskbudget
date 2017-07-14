@@ -29,6 +29,10 @@ $hamburger-hover-filter    : opacity(50%) !default;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  @media (max-width: $navBreakpointTablet) {
+    background: rgba(black, .3);
+  }
+
   &_opened {
     background: rgba(black, .3);
   }
@@ -43,11 +47,11 @@ $hamburger-hover-filter    : opacity(50%) !default;
       padding-right: 0 !important;
     }
 
-    @media (max-width: $navBreakpointDesktop) {
+    @media (min-width: $navBreakpointTablet + 1px) and (max-width: $navBreakpointDesktop) {
       height: $navHeightDesktop;
     }
 
-    @media (max-width: $navBreakpointTablet) {
+    @media (min-width: $navBreakpointMobile + 1px) and (max-width: $navBreakpointTablet) {
       height: $navHeightTablet;
     }
 

@@ -36,7 +36,13 @@
       bottom: 22px;
       width: 26px;
       height: 36px;
-      opacity: .8;
+      /*opacity: .8;*/
+      opacity: 1;
+      box-shadow: 0px 0 40px 25px #1d1b27;
+    }
+    .owl-prev.disabled, .owl-next.disabled {
+      opacity: 1;
+      background: rgba(254, 227, 0, .3);
     }
     .btn-arrow {
       cursor: pointer;
@@ -222,11 +228,10 @@
     }
 }
 .graphic-table__title-wrap{
+    position: relative;
     height:100%;
     width:100%;
-    display:flex;
-    flex-flow:row nowrap;
-    align-items:center;
+    display:block;
     cursor: pointer;
 }
 .graphic-table__title{
@@ -1015,6 +1020,7 @@
       padding: 0;
       line-height: 1;
       text-align: center;
+      @include center-block;
     }
     .graphic-table__line-output {
       line-height: 1;
