@@ -6,11 +6,11 @@ include ../../blocks/social/social
 include ../../blocks/search-navbar/search-navbar
 
 mixin header()
-  +b.HEADER.header&attributes(attributes)
+  +b.HEADER.header#header&attributes(attributes)
     +e.wrap.wrap
       //- логотип в мобильной версии меню
       +logo('header').header__logo.hidden-desktop
-      +e.drop
+      +e.drop#headerDrop
         +e.drop-row
           //- логотип в десктопной версии меню
           +logo('header').header__logo.hidden-mobile
@@ -36,6 +36,6 @@ mixin header()
               +e.A(href="#login").menu2-link.btn.open-popup
                 +icon('user').menu2-icon
       +search-navbar().search-navbar
-    +e.BUTTON.open-menu.hamburger.hamburger--spin(type="button")
+    +e.BUTTON#burger.open-menu.hamburger.hamburger--spin(type="button")
       SPAN.hamburger-box
         SPAN.hamburger-inner

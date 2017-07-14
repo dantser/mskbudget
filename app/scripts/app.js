@@ -38,6 +38,7 @@ import basic_budget_figures from '../components/basic_budget_figures/basic_budge
 import menu from '../blocks/menu/menu'; // главное меню в навбаре
 import searchNavbar from '../blocks/search-navbar/search-navbar'; // форма поиска в навбаре
 import widgetCard from '../components/widget-card/widgetCard';
+import header from '../components/header/header'; // навбар
 
 $(() => {
 
@@ -89,4 +90,5 @@ $(() => {
   menu();
   searchNavbar();
   widgetCard();
+  header();
 });

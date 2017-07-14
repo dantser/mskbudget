@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 export default () => {
-  if ($('#menu .menu__link.has-dropdown').length) {
+  if ( $('#menu .menu__link.has-dropdown').length ) {
     function closeSubMenu() {
       $('#menu .menu__link.has-dropdown').removeClass('dropdown-is-active');
     }
@@ -19,6 +19,12 @@ export default () => {
       }
     }).on('focusout', function () {
       closeSubMenu();
+    });
+
+    $(document).keyup(function(e) {
+        if ( e.keyCode == 27 && $('#menu .menu__link.has-dropdown') ) { // escape key maps to keycode `27`
+          closeSubMenu();
+        }
     });
   }
 }
