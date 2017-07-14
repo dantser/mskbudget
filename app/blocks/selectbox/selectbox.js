@@ -30,6 +30,12 @@ export default function selectbox() {
       window.focus();
       selBox.addClass('active');
     });
+
+    $('.selectbox__arrow').on('mousedown click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      selBox.addClass('active');
+    });
     selBox.find('ul').click(function () {
       $(this).removeClass('active');
     });
