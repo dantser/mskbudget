@@ -1,6 +1,6 @@
 .wrapper_main {
   max-width: initial;
-  
+
   .sections>:first-child {
     padding-top: 0;
   }
@@ -23,7 +23,7 @@
       margin-left: 0;
     }
   }
-  
+
   .sections__datepicker .dp,
   .service__datepicker {
     position: relative;
@@ -31,10 +31,65 @@
     z-index: 3;
     cursor: pointer;
   }
-  
+
   .datepicker__show {
     cursor: pointer;
   }
+
+
+  .service.service_widget {
+    padding: 0;
+
+    .service__ahead {
+      padding: 14px 20px 11px;
+    }
+
+    @media (max-width: 450px) {
+      .widget-card__content+.widget-card__content {
+        display: none;
+      }
+    }
+  }
+
+  .service.service_calc {
+    @media (max-width: 450px) {
+      .widget-card__selectbox {
+        margin-top: 10px;
+      }
+
+      .widget-card__budget-total-title {
+        font-size: 11px;
+        width: inherit;
+      }
+
+      .widget-card__budget-stat {
+        font-size: 12px;
+      }
+      .widget-card__budget-stat-count {
+        font-size: 24px;
+      }
+      .widget-card__budget-total {
+
+        &+.widget-card__budget-total {
+          display: none;
+        }
+      }
+    }
+
+    @media (min-width: 331px) and (max-width: 450px) {
+      .widget-card__budget-total-count {
+        margin-left: 8px;
+      }
+    }
+
+    @media (max-width: 330px) {
+      .widget-card__budget-total-count {
+        margin-left: 0;
+      }
+    }
+  }
+
+
 
   .button {
     display: block;
@@ -122,11 +177,11 @@
   .lh-1_2 {
     line-height: 20px!important;
   }
-  
+
   .footer {
     height: 100%;
   }
-  
+
   .footer-mob-sub-menu {
     display: none;
   }
@@ -261,23 +316,23 @@
     .sections__legend {
       bottom: 20px;
     }
-    
+
     .legend__item {
       font-size: 16px;
       height: 22px;
       line-height: 22px;
       margin-bottom: 15px;
     }
-    
+
     .legend__item:before {
       width: 22px;
       height: 22px;
     }
-    
+
     .comp-diagram__num_yellow {
       top: 15px;
     }
-    
+
     .service, .news {
       margin-top: -180px;
     }
@@ -367,7 +422,7 @@
 @media (max-width: 700px) {
 
   .wrapper_main {
-    
+
     .banner__row_sub {
       vertical-align: top;
     }
@@ -395,7 +450,7 @@
     .sections__title {
       font-size: 25px;
     }
-    
+
     .tile__item {
       width: 60% !important;
     }
@@ -475,7 +530,7 @@
       }
     }
     .footer .footer-mob-add-menu {
-      margin-top: 10px;  
+      margin-top: 10px;
       width: 200%;
       position: relative;
       left: -100%;
@@ -494,7 +549,7 @@
 @media (max-width: 450px) {
 
   .wrapper_main {
-    
+
     .banner__wrap {
       padding-left: 0;
       padding-right: 0;
@@ -527,19 +582,19 @@
       left: 0;
       right: 0;
     }
-    
+
     .service:before {
       height: 84px;
     }
     .service__ahead {
       min-height: 87px;
     }
-    
+
     .service__capt {
       font-size: 12px;
       margin-bottom: 4px;
     }
-    
+
     .service-dots { bottom: 31px; }
     .service__title { font-size: 15px; margin-bottom: 3px; min-height: 30px; padding-right: 20px; }
     .service__sub-title { font-size: 12px; }
@@ -564,7 +619,7 @@
       left: 0;
       right: 0;
     }
-    
+
     .slick-dots {
       top: 25%;
     }
@@ -602,16 +657,16 @@
     .large-diagram__percent {
       padding-left: 180px;
     }
-    
+
     .comp-diagram .svg-wrap, .comp-diagram .svg-wrap .svg {
       width: 150px;
       height: 150px;
     }
-    
+
     .large-diagram__caption .rub {
       font-size: 12px;
     }
-    
+
     .footer__box_l .footer__column {
       margin-top: 15px;
     }
