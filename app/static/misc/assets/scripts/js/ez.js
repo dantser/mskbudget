@@ -774,7 +774,7 @@ function basicBudgetFiguresDiagrams () {
         data: [ 1446.2, 1598.9],
         animate: true,
         maxValue: 2050
-    }).animate();
+    });//.animate();
 
     diagram( '#diagram-2', {
         stroke: 30,
@@ -782,7 +782,7 @@ function basicBudgetFiguresDiagrams () {
         data: [ 1446.2, 1598.9],
         animate: true,
         maxValue: 2050
-    }).animate();
+    });//.animate();
 
     diagram('#diagram-3', {
         stroke: 30,
@@ -790,7 +790,7 @@ function basicBudgetFiguresDiagrams () {
         data: [ 1446.2, 1598.9],
         animate: true,
         maxValue: 2050
-    }).animate();
+    });//.animate();
 
     diagram( '#diagram-01', {
         stroke: 30,
@@ -798,7 +798,7 @@ function basicBudgetFiguresDiagrams () {
         data: [ 1446.2, 1598.9],
         animate: true,
         maxValue: 2050
-    }).animate();
+    });//.animate();
 
     diagram( '#diagram-02', {
         stroke: 30,
@@ -806,7 +806,7 @@ function basicBudgetFiguresDiagrams () {
         data: [ 1446.2, 1598.9],
         animate: true,
         maxValue: 2050
-    }).animate();
+    });//.animate();
 
     diagram('#diagram-03', {
         stroke: 30,
@@ -814,7 +814,7 @@ function basicBudgetFiguresDiagrams () {
         data: [ 1446.2, 1598.9],
         animate: true,
         maxValue: 2050
-    }).animate();
+    });//.animate();
 
     var diagram_4 = diagram('#diagram-4', {
         viewBox: 390,
@@ -851,8 +851,8 @@ function basicBudgetFiguresDiagrams () {
             $(".analityc-widget-rounds:eq(2)").addClass("_active");
     		} else {
           $(".analityc-widget-rounds:eq(1)").addClass("_active");
-          diagram_4.animate();
-          diagram_5.animate();
+          //diagram_4.animate();
+          //diagram_5.animate();
     		}
 
     		if ($this.val() ===  "Исполнение на дату") {
