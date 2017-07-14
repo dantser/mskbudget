@@ -1,3 +1,6 @@
+include ../../blocks/selectbox/selectbox
+include ../../components/widget-card/widget-card
+
 mixin main()
   // SECTIONS_ITEM(Banner)/
   .sections__item
@@ -329,87 +332,79 @@ mixin main()
       .cube-brick(data-brick-700="3", data-brick-900="2", data-brick-1100="2")
         // SERVICE_ITEM/
         .tile__item
-          .tile__inner.service
+          .tile__inner.service.service_calc
             .service__ahead.mb-10
-              h3.service__title Москва и города мира
+              h3.service__title Бюджетный калькулятор
                 button
-            p.fs-14.medium.mb-10 Выберите показатель
-            .select.service__select
-              button.select__btn Доходы
-              ul.select__drop
-                li
-                  a(href="#pl111").select__a Доходы
-                li
-                  a(href="#pl211").select__a Расходы
-                li
-                  a(href="#pl311").select__a Население
-            .select-content.select-content_vis#pl111
-              p.service__place 5 место
-              p.fs-14.medium.lh-1_2 из 8 крупнейших городов мира<br> по общему объему доходов
-            .select-content#pl211
-              p.service__place 4 место
-              p.fs-14.medium.lh-1_2 из 8 крупнейших городов мира<br> по общему объему расходов
-            .select-content#pl311
-              p.service__place 3 место
-              p.fs-14.medium.lh-1_2 из 8 крупнейших городов мира<br> по общему количеству населения
+              p.service__sub-title Предложенные Вами варианты бюджета
+            +selectbox('select', getData('widget-card-selectbox')).widget-card__selectbox
+            .widget-card__budget-stats
+              .widget-card__budget-stat
+                p.widget-card__budget-stat-title доходы
+                p.widget-card__budget-stat-count.widget-card__budget-stat-count_pos 1 579,0
+                p.widget-card__budget-stat-text млрд руб.
+              .widget-card__budget-stat
+                p.widget-card__budget-stat-title расходы
+                p.widget-card__budget-stat-count.widget-card__budget-stat-count_neg 1 588,0
+                p.widget-card__budget-stat-text млрд руб.
+            .widget-card__budget-total
+              span.widget-card__budget-total-title дефицит бюджета
+              span.widget-card__budget-total-count.widget-card__budget-total-count_blue 9,0
+              span.widget-card__budget-total-text млрд руб.
+            .widget-card__budget-total
+              span.widget-card__budget-total-title изменение государственного долга
+              span.widget-card__budget-total-count 0,0
+              span.widget-card__budget-total-text млн руб.
             a(href="#").service__more Подробнее
         // /SERVICE_ITEM
         
       .cube-brick(data-brick-700="3", data-brick-900="2", data-brick-1100="2")
         // SERVICE_ITEM/
         .tile__item
-          .tile__inner.service
+          .tile__inner.service.service_widget
             .service__ahead.mb-10
-              h3.service__title Москва и города мира
+              h3.service__title Опрос общественного мнения
                 button
-            p.fs-14.medium.mb-10 Выберите показатель
-            .select.service__select
-              button.select__btn Доходы
-              ul.select__drop
-                li
-                  a(href="#pl112").select__a Доходы
-                li
-                  a(href="#pl212").select__a Расходы
-                li
-                  a(href="#pl312").select__a Население
-            .select-content.select-content_vis#pl112
-              p.service__place 5 место
-              p.fs-14.medium.lh-1_2 из 8 крупнейших городов мира<br> по общему объему доходов
-            .select-content#pl212
-              p.service__place 4 место
-              p.fs-14.medium.lh-1_2 из 8 крупнейших городов мира<br> по общему объему расходов
-            .select-content#pl312
-              p.service__place 3 место
-              p.fs-14.medium.lh-1_2 из 8 крупнейших городов мира<br> по общему количеству населения
+            .widget-card__content
+              .widget-card__info-block
+                .widget-card__info-block-desc Вы можете пройти следующие опросы:
+                .widget-card__info-block-title Как сделать портал еще удобнее?
+                .widget-card__info-block-date до 30.01.2017
+                .widget-card__nav-buttons
+                  +arrow-button()._prev.widget-card__arrow-button
+                  +arrow-button().widget-card__arrow-button
+            .widget-card__content
+              .widget-card__info-block
+                .widget-card__info-block-desc Вы приняли участие в опросах:
+                .widget-card__info-block-title Как сделать портал еще интереснее?
+                .widget-card__nav-buttons
+                  +arrow-button()._prev.widget-card__arrow-button
+                  +arrow-button().widget-card__arrow-button
             a(href="#").service__more Подробнее
         // /SERVICE_ITEM
         
       .cube-brick(data-brick-700="4", data-brick-900="3", data-brick-1100="2")
         // SERVICE_ITEM/
         .tile__item
-          .tile__inner.service
+          .tile__inner.service.service_widget
             .service__ahead.mb-10
-              h3.service__title Москва и города мира
+              h3.service__title Викторины
                 button
-            p.fs-14.medium.mb-10 Выберите показатель
-            .select.service__select
-              button.select__btn Доходы
-              ul.select__drop
-                li
-                  a(href="#pl113").select__a Доходы
-                li
-                  a(href="#pl213").select__a Расходы
-                li
-                  a(href="#pl313").select__a Население
-            .select-content.select-content_vis#pl113
-              p.service__place 5 место
-              p.fs-14.medium.lh-1_2 из 8 крупнейших городов мира<br> по общему объему доходов
-            .select-content#pl213
-              p.service__place 4 место
-              p.fs-14.medium.lh-1_2 из 8 крупнейших городов мира<br> по общему объему расходов
-            .select-content#pl313
-              p.service__place 3 место
-              p.fs-14.medium.lh-1_2 из 8 крупнейших городов мира<br> по общему количеству населения
+            .widget-card__content
+              .widget-card__info-block
+                .widget-card__info-block-desc Вы можете пройти следующие викторины:
+                .widget-card__info-block-title История бюджета города Москвы во второй...
+                .widget-card__info-block-date до 30.01.2017
+                .widget-card__nav-buttons
+                  +arrow-button()._prev.widget-card__arrow-button
+                  +arrow-button().widget-card__arrow-button
+            .widget-card__content
+              .widget-card__info-block
+                .widget-card__info-block-desc Вы приняли участие в викторинах:
+                .widget-card__info-block-title История бюджета города Москвы в первой...
+                .widget-card__nav-buttons
+                  +arrow-button()._prev.widget-card__arrow-button
+                  +arrow-button().widget-card__arrow-button
             a(href="#").service__more Подробнее
         // /SERVICE_ITEM
         

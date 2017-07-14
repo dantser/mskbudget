@@ -8,18 +8,16 @@ include ../../blocks/dropdown-block/dropdown-block
 mixin budget_moscow_sources()
   .main._basic
     +b.section.basic-budget.moscow-sources
-      .ar.ar-left
-      .ar.ar-right
+      -left
+      -right
       .wrapper
         +page-header('Источники финансирования дефицита бюджета', ['Бюджет Москвы'], true)
-        .article-controls
+        ticle-controls
           span
           span
           span
         .analityc-widget.analityc-widget_sources.load-anim-fade(data-delay="1500")
           +analityc-widgethead-sources()
-          +icon('angle-arrow').ar._left
-          +icon('angle-arrow').ar._right
           .analityc-widget-sources.analityc-widget-sources_date._active
             H3.moscow-sources__diagram-title Исполнение доходов бюджета на 22.04.2017
             +b.linear-diagram_sources
@@ -64,7 +62,10 @@ mixin budget_moscow_sources()
                   +e.SPAN.SPAN.value 108,5 (50%)
               +e.SPAN.val 216,9
           +analityc-table()._changes.analityc-widget-sources-table_date
-            +table-income(getData('income1'))
+            +icon('angle-arrow').section__ar.section__ar_left
+            +icon('angle-arrow').section__ar.section__ar_right
+            .analityc-table__wrapper
+              +table-income(getData('income1'))
           .analityc-widget-sources.analityc-widget-sources_approved
             p.analityc-graphics__periodtext
               span Плановый период
@@ -146,6 +147,8 @@ mixin budget_moscow_sources()
                   +e.SPAN.data_green(data-char='2018') +88,5
                   +e.SPAN.data_green(data-char='2019') +9,7
           +analityc-table()._changes.analityc-widget-sources-table_approved
+            +icon('angle-arrow').section__ar.section__ar_left
+            +icon('angle-arrow').section__ar.section__ar_right
             +table-income(getData('income1'))
           .analityc-widget-sources.analityc-widget-sources_changes
             p.analityc-graphics__periodtext
@@ -245,6 +248,8 @@ mixin budget_moscow_sources()
                   +e.SPAN.data_green(data-char='2018') +88,5
                   +e.SPAN.data_green(data-char='2019') +9,7
           +analityc-table()._changes.analityc-widget-sources-table_changes
+            +icon('angle-arrow').section__ar.section__ar_left
+            +icon('angle-arrow').section__ar.section__ar_right
             +table-income(getData('income1'))
           .analityc-widget-sources.analityc-widget-sources_done
             +b.graphic._proficit
@@ -284,6 +289,8 @@ mixin budget_moscow_sources()
                 +e.title.linear-diagram__sources Всего по источникам финансирования дефицита
                 +e.SPAN.data_green 143,4
           +analityc-table()._changes.analityc-widget-sources-table_done
+            +icon('angle-arrow').section__ar.section__ar_left
+            +icon('angle-arrow').section__ar.section__ar_right
             +table-income(getData('income1'))
           a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
       +dropdown().load-anim-fade(data-delay="1700")
