@@ -1,8 +1,8 @@
 import $ from 'jquery';
 import 'babel-polyfill';
 import selectbox from '../blocks/selectbox/selectbox';
+import docCards from '../components/doc-cards/docСards';
 import tabs from '../blocks/tabs/tabs';
-import docCards from '../components/doc-cards/doc-cards';
 import question from '../blocks/question/question';
 import questions from '../components/questions/questions';
 import lkNav from '../blocks/lk-nav/lkNav';
@@ -53,6 +53,7 @@ $(() => {
   });
 
   selectbox();
+  docCards();
   question();
   questions();
   lkNav();
@@ -83,7 +84,6 @@ $(() => {
   modal();
   budget_moscow_gov_program();
   analitycGraphics();
-  docCards();
   reset();
   profile();
   basic_budget_figures();
