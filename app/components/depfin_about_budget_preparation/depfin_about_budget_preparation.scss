@@ -1040,7 +1040,27 @@
       padding-left: 8.33%;
     }
     .steps.back-round .wrap {
-      overflow: hidden;
+      position: relative;
+      /*overflow: hidden;*/
+
+      &:before, &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: calc(0% - 41px);
+        bottom: calc(0% - 20px);
+        width: 20px;
+        background-color: #282636;
+        z-index: 1;
+      }
+      &:before {
+        left: -40px;
+        box-shadow: 10px 0 35px 20px #282636;
+      }
+      &:after {
+        right: -40px;
+        box-shadow: -10px 0 35px 20px #282636;
+      }
     }
     .step__head {
       line-height: 1.2;
