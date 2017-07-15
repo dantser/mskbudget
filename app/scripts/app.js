@@ -54,6 +54,7 @@ $(() => {
 
   selectbox();
   docCards();
+  aboutBudgetPreparation();
   question();
   questions();
   lkNav();
@@ -66,7 +67,6 @@ $(() => {
   legend();
   budgetCalcPage();
   budgetCalcApp();
-  aboutBudgetPreparation();
   newsFilter();
   mediaMain();
   range();
