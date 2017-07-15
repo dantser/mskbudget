@@ -32,6 +32,14 @@
   }
 
   .section-tabs_members {
+    .owl-stage {
+      right: -90px; /*Решает проблему stagePadding*/
+
+      @media (max-width: 640px) {
+        right: -60px;
+      }
+    }
+
     .owl-prev, .owl-next {
       bottom: 22px;
       width: 26px;
@@ -1357,6 +1365,10 @@
         height: 24px;
         border-width: 4px;
       }
+    }
+
+    .section-tabs__nav-btn {
+      padding: 22px 22px 25px;
     }
     .section-tabs_documents .section-tabs__nav-list {
       padding: 0 12px;
