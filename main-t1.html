@@ -14,14 +14,14 @@
 </head>
 
 <body>
-    <header class="header header_budget">
+    <header class="header header_budget" id="header">
         <div class="header__wrap wrap">
             <a class="logo header__logo hidden-desktop" href="#">
                 <img class="logo__img" src="assets/images/logo-navbar.png" alt="logo" title="" />
                 <span class="logo__lg">Открытый бюджет</span>
                 <span class="logo__sm">города Москвы</span>
             </a>
-            <div class="header__drop">
+            <div class="header__drop" id="headerDrop">
                 <div class="header__drop-row">
                     <a class="logo header__logo hidden-mobile" href="#">
                         <img class="logo__img" src="assets/images/logo-navbar.png" alt="logo" title="" />
@@ -232,15 +232,17 @@
                 </div>
             </div>
             <div class="search-navbar search-navbar" id="search-navbar">
-                <form class="search-navbar__form" action="#">
-                    <input class="search-navbar__input" id="search-navbar-input" name="search-navbar-input" type="text" />
-                    <button class="search-navbar__button" type="submit">
-                        <svg class="search-navbar__icon"><use xlink:href="assets/images/icon.svg#icon_search"></use></svg>
-                    </button>
-                </form>
+                <div class="wrap">
+                    <form class="search-navbar__form" action="#">
+                        <input class="search-navbar__input" id="search-navbar-input" name="search-navbar-input" placeholder="Введите запрос" type="text" />
+                        <button class="search-navbar__button" type="submit">
+                            <svg class="search-navbar__icon"><use xlink:href="assets/images/icon.svg#icon_search"></use></svg>
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
-        <button class="header__open-menu hamburger hamburger--spin" type="button">
+        <button class="header__open-menu hamburger hamburger--spin" id="burger" type="button">
             <SPAN class="hamburger-box">
                 <SPAN class="hamburger-inner"></SPAN>
             </SPAN>
@@ -264,6 +266,27 @@
                 maxValue: 2050
             });
             diagram('#diagram-3', {
+                stroke: 30,
+                kind: 'triple',
+                data: [1446.2, 1598.9],
+                animate: true,
+                maxValue: 2050
+            });
+            diagram('#diagram-01', {
+                stroke: 30,
+                kind: 'triple',
+                data: [1446.2, 1598.9],
+                animate: true,
+                maxValue: 2050
+            });
+            diagram('#diagram-02', {
+                stroke: 30,
+                kind: 'triple',
+                data: [1446.2, 1598.9],
+                animate: true,
+                maxValue: 2050
+            });
+            diagram('#diagram-03', {
                 stroke: 30,
                 kind: 'triple',
                 data: [1446.2, 1598.9],

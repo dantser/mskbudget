@@ -481,38 +481,42 @@ function tabsLine(){
 	});
 
   $('.owl-carousel.owl-carousel_news').owlCarousel({
-  loop:false,
-  margin:0,
-  nav:true,
-  responsiveClass:true,
-  center:false,
-  // autoWidth:true,//разная ширина слайдов, ширину задавать на вложенный блок у слайда! + не указывать явно items:1,
-  startPosition:0,
-  items: 3,
-  responsive: {
-    0: {
-      touchDrag:true,
-      items: 1
+    loop:false,
+    margin:0,
+    nav:true,
+    responsiveClass:true,
+    center:false,
+    // autoWidth:true,//разная ширина слайдов, ширину задавать на вложенный блок у слайда! + не указывать явно items:1,
+    startPosition:0,
+    items: 4,
+    responsive: {
+      0: {
+        touchDrag:true,
+        items: 1
+      },
+      650: {
+        touchDrag: true,
+        items: 2
+      },
+      970: {
+        touchDrag: true,
+        items: 3
+      },
+      1024: {
+        touchDrag: true,
+        items: 3
+      },
+      1280: {
+        touchDrag: false,
+        items: 4
+      }
     },
-    900: {
-      touchDrag: true,
-      items: 2
-    },
-    1024: {
-      touchDrag: true,
-      items: 2
-    },
-    1280: {
-      touchDrag: false,
-      items: 3
-    }
-  },
-  dots:false,
-  mouseDrag:false,
-  touchDrag:false,
-  autoplay:false,
-  smartSpeed:500
-});
+    dots:false,
+    mouseDrag:false,
+    touchDrag:false,
+    autoplay:false,
+    smartSpeed:500
+  });
 
 $('.owl-carousel.owl-carousel_services').owlCarousel({
   loop:false,
@@ -538,7 +542,7 @@ $('.owl-carousel.owl-carousel_services').owlCarousel({
     },
     1024: {
       touchDrag: true,
-      items: 4
+      items: 3
     },
     1280: {
       touchDrag: false,
@@ -770,7 +774,7 @@ function basicBudgetFiguresDiagrams () {
         data: [ 1446.2, 1598.9],
         animate: true,
         maxValue: 2050
-    }).animate();
+    });//.animate();
 
     diagram( '#diagram-2', {
         stroke: 30,
@@ -778,7 +782,7 @@ function basicBudgetFiguresDiagrams () {
         data: [ 1446.2, 1598.9],
         animate: true,
         maxValue: 2050
-    }).animate();
+    });//.animate();
 
     diagram('#diagram-3', {
         stroke: 30,
@@ -786,7 +790,7 @@ function basicBudgetFiguresDiagrams () {
         data: [ 1446.2, 1598.9],
         animate: true,
         maxValue: 2050
-    }).animate();
+    });//.animate();
 
     diagram( '#diagram-01', {
         stroke: 30,
@@ -794,7 +798,7 @@ function basicBudgetFiguresDiagrams () {
         data: [ 1446.2, 1598.9],
         animate: true,
         maxValue: 2050
-    }).animate();
+    });//.animate();
 
     diagram( '#diagram-02', {
         stroke: 30,
@@ -802,7 +806,7 @@ function basicBudgetFiguresDiagrams () {
         data: [ 1446.2, 1598.9],
         animate: true,
         maxValue: 2050
-    }).animate();
+    });//.animate();
 
     diagram('#diagram-03', {
         stroke: 30,
@@ -810,7 +814,7 @@ function basicBudgetFiguresDiagrams () {
         data: [ 1446.2, 1598.9],
         animate: true,
         maxValue: 2050
-    }).animate();
+    });//.animate();
 
     var diagram_4 = diagram('#diagram-4', {
         viewBox: 390,
@@ -847,8 +851,8 @@ function basicBudgetFiguresDiagrams () {
             $(".analityc-widget-rounds:eq(2)").addClass("_active");
     		} else {
           $(".analityc-widget-rounds:eq(1)").addClass("_active");
-          diagram_4.animate();
-          diagram_5.animate();
+          //diagram_4.animate();
+          //diagram_5.animate();
     		}
 
     		if ($this.val() ===  "Исполнение на дату") {
@@ -1236,7 +1240,6 @@ $(document).ready(function(){
     var $this = $(this);
     var sources = $('.analityc-widget_sources'),
         arrow = $('.ar'),
-        tablearr = $('section__ar');
         sourcesGraphics = sources.find($('.analityc-widget-sources')),
         sourcesGraphicsApproved = sources.find($('.analityc-widget-sources_approved')),
         sourcesGraphicsChanges = sources.find($('.analityc-widget-sources_changes')),
@@ -1250,7 +1253,6 @@ $(document).ready(function(){
     sourcesTable.removeClass('_active');
     sourcesGraphicsButton.addClass('_active');
     sourcesTableButton.removeClass('_active');
-    tablearr.hide();
 
     if ($this.val() ===  "Закон о бюджете утвержденный") {
       sourcesGraphicsApproved.addClass('_active');
@@ -1297,7 +1299,6 @@ $(document).ready(function(){
     var $this = $(this);
     var sources = $(".analityc-widget_sources"),
         arrow = $('.ar'),
-        tablearr = $('.section__ar'),
         sourcesGraphics = sources.find($('.analityc-widget-sources')),
         sourcesGraphicsActive = sources.find($('.analityc-widget-sources._active')),
         sourcesGraphicsApproved = sources.find($('.analityc-widget-sources_approved')),
@@ -1319,25 +1320,21 @@ $(document).ready(function(){
         sourcesGraphicsApproved.addClass('_active');
         sourcesHead(1);
         arrow.show();
-        tablearr.hide();
       } else if (sourcesTableActive.hasClass('analityc-widget-sources-table_changes')) {
         sourcesTable.removeClass('_active');
         sourcesGraphicsChanges.addClass('_active');
         sourcesHead(1);
         arrow.show();
-        tablearr.hide();
       } else if (sourcesTableActive.hasClass('analityc-widget-sources-table_done')) {
         sourcesTable.removeClass('_active');
         sourcesGraphicsDone.addClass('_active');
         sourcesHead(1);
         arrow.hide();
-        tablearr.hide();
       } else if (sourcesTableActive.hasClass('analityc-widget-sources-table_date')) {
         sourcesTable.removeClass('_active');
         sourcesGraphicsDate.addClass('_active');
         sourcesHead(3);
         arrow.hide();
-        tablearr.hide();
       }
     } else if ($this.hasClass('analityc-control-button_table') && !$this.hasClass('active')) {
       $this.siblings().removeClass('active');
@@ -1347,25 +1344,21 @@ $(document).ready(function(){
         sourcesTableApproved.addClass('_active');
         sourcesHead(2);
         arrow.hide();
-        tablearr.show();
       } else if (sourcesGraphicsActive.hasClass('analityc-widget-sources_changes')) {
         sourcesGraphics.removeClass('_active');
         sourcesTableChanges.addClass('_active');
         sourcesHead(2);
         arrow.hide();
-        tablearr.show();
       } else if (sourcesGraphicsActive.hasClass('analityc-widget-sources_done')) {
         sourcesGraphics.removeClass('_active');
         sourcesTableDone.addClass('_active');
         sourcesHead(2);
         arrow.hide();
-        tablearr.show();
       } else if (sourcesGraphicsActive.hasClass('analityc-widget-sources_date')) {
         sourcesGraphics.removeClass('_active');
         sourcesTableDate.addClass('_active');
         sourcesHead(2);
         arrow.hide();
-        tablearr.show();
       }
     }
   });

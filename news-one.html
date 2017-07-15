@@ -14,14 +14,14 @@
 </head>
 
 <body>
-    <header class="header">
+    <header class="header" id="header">
         <div class="header__wrap wrap">
             <a class="logo header__logo hidden-desktop" href="#">
                 <img class="logo__img" src="assets/images/logo-navbar.png" alt="logo" title="" />
                 <span class="logo__lg">Открытый бюджет</span>
                 <span class="logo__sm">города Москвы</span>
             </a>
-            <div class="header__drop">
+            <div class="header__drop" id="headerDrop">
                 <div class="header__drop-row">
                     <a class="logo header__logo hidden-mobile" href="#">
                         <img class="logo__img" src="assets/images/logo-navbar.png" alt="logo" title="" />
@@ -232,15 +232,17 @@
                 </div>
             </div>
             <div class="search-navbar search-navbar" id="search-navbar">
-                <form class="search-navbar__form" action="#">
-                    <input class="search-navbar__input" id="search-navbar-input" name="search-navbar-input" type="text" />
-                    <button class="search-navbar__button" type="submit">
-                        <svg class="search-navbar__icon"><use xlink:href="assets/images/icon.svg#icon_search"></use></svg>
-                    </button>
-                </form>
+                <div class="wrap">
+                    <form class="search-navbar__form" action="#">
+                        <input class="search-navbar__input" id="search-navbar-input" name="search-navbar-input" placeholder="Введите запрос" type="text" />
+                        <button class="search-navbar__button" type="submit">
+                            <svg class="search-navbar__icon"><use xlink:href="assets/images/icon.svg#icon_search"></use></svg>
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
-        <button class="header__open-menu hamburger hamburger--spin" type="button">
+        <button class="header__open-menu hamburger hamburger--spin" id="burger" type="button">
             <SPAN class="hamburger-box">
                 <SPAN class="hamburger-inner"></SPAN>
             </SPAN>
@@ -276,19 +278,18 @@
                             </a>
                         </div>
                     </div>
-                    <form class="news-one__form form load-anim-fade" action="" method="POST" data-delay="1500">
-                        <div class="form__field form__field_d3">
-                            <LABEL class="form__label form__label_w1">Другие новости</LABEL>
-                            <div class="form__date-range" id="rid-0">
-                                <INPUT class="form__date-range-input jq-f-datepicker input-min" type="text" value="дд.мм.гг"></INPUT>
-                                <SPAN class="form__date-range-sep">—</SPAN>
-                                <INPUT class="form__date-range-input jq-f-datepicker input-max" type="text" value="дд.мм.гг"></INPUT>
-                                <SPAN class="form__date-range-icon"></SPAN>
-                            </div>
-                        </div>
-                        <INPUT class="form__submit" type="submit" value="Искать"></INPUT>
-                    </form>
+                    <!--+e.FORM(action='', method='POST', data-delay="1500").form.form.load-anim-fade.form__field.form__field_d3
+  LABEL.form__label.form__label_w1 Другие новости
+  .form__date-range(id='rid-0')
+    INPUT(type='text', value='дд.мм.гг').form__date-range-input.jq-f-datepicker.input-min
+    SPAN.form__date-range-sep —
+    INPUT(type='text', value='дд.мм.гг').form__date-range-input.jq-f-datepicker.input-max
+    SPAN.form__date-range-icon
+INPUT(type='submit', value='Искать').form__submit
+-->
                 </div>
+            </div>
+            <div class="wrapper page-content-wrapper page-content-wrapper_wide">
                 <div class="news-one__content load-anim-fade" data-delay="1700">
                     <h2 class="news-one__heading">Расходы на ремонт домов престарелых и интернатов увеличились в 10 раз</h2>
                     <p class="news-one__date">06.10.2016</p>
@@ -312,682 +313,443 @@
                                 прошли мероприятия по пожарной безопасности и антитеррористической защищённости.</p>
                             <p class="news-one__text">«У нас нет в городе ветхих и аварийных зданий и сооружений, в которых бы проживали инвалиды и пожилые люди», — подчеркнул он.</p>
                             <h3 class="news-one__heading news-one__heading_small">Бассейн, спортзал и новое меню</h3>
-                            <p class="news-one__text news-one__text_small">Увеличивается и количество домов престарелых и инвалидов. Новый интернат на 800 коек появился на территории Московской области. В конце декабря этого года откроется ещё один новый корпус на 200 коек в психоневрологическом интернате
+                            <p class="news-one__text">Увеличивается и количество домов престарелых и инвалидов. Новый интернат на 800 коек появился на территории Московской области. В конце декабря этого года откроется ещё один новый корпус на 200 коек в психоневрологическом интернате
                                 № 27.</p>
-                            <p class="news-one__text news-one__text_small">«Капитально отремонтированы абсолютно все. За эти пять лет на укрепление материально-технической базы учреждений социальной защиты было выделено свыше 14 миллиардов рублей, из них почти 12 миллиардов — это текущий и капитальный
+                            <p class="news-one__text">«Капитально отремонтированы абсолютно все. За эти пять лет на укрепление материально-технической базы учреждений социальной защиты было выделено свыше 14 миллиардов рублей, из них почти 12 миллиардов — это текущий и капитальный
                                 ремонт», — уточнил руководитель Департамента.</p>
-                            <p class="news-one__text news-one__text_small">Также принято решение о передаче в систему социальной защиты двух небольших психиатрических больниц. Это позволит дополнительно обеспечить комфортными местами для проживания всех нуждающихся инвалидов с нарушениями психики.</p>
-                            <div
-                                class="news-one__similar-news">
-                                <div class="news-one__similar-news-col">
-                                    <div class="news news_blue news_big">
-                                        <a class="news__thumb" href="#">
-                                            <img src="assets/images/news/1.jpg" alt="thumb" />
-                                        </a>
-                                        <a class="news__category" href="#">Новости бюджета</a>
-                                        <a class="news__title" href="#">Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»</a>
-                                        <div class="news__bottom">
-                                            <p class="news__date">8 августа 2016</p>
-                                            <div class="news__tags">
-                                                <a href="#">#итоги</a>
-                                                <a href="#">#апробация</a>
-                                                <a href="#">#старшеклассники</a>
-                                            </div>
+                            <p class="news-one__text">Также принято решение о передаче в систему социальной защиты двух небольших психиатрических больниц. Это позволит дополнительно обеспечить комфортными местами для проживания всех нуждающихся инвалидов с нарушениями психики.</p>
+                            <!--+e.similar-news+e.similar-news-col
+  +news-card(1, 'Новости бюджета', 'Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»', '8 августа 2016')._blue._big
++e.similar-news-col._text
+  +e.P.text._small При подготовке проекта столичного бюджета на 2016 год Правительство Москвы также предусмотрело значительное увеличение расходов на питание и обеспечение лекарствами пациентов домов престарелых и домов-интернатов. Это компенсирует удорожание продуктов и лекарств, связанное с девальвацией рубля, и сохранит привычные стандарты питания и медицинского обслуживания.
+  +e.P.text._small «Мы пополним меню благодаря тем средствам, которые вы нам выделите дополнительно, и я думаю, что проблем вообще с питанием не будет. Ни в этом учреждении, ни в других, в том числе в детских домах», — заявил Владимир Петросян.
+  +e.P.text._small В психоневрологическом интернате Сергей Собянин осмотрел здание физкультурно-оздоровительного центра: бассейн, спортзал, кабинет физиотерапии, зону релаксации и отдыха. Он также пообщался со спортсменами — воспитанниками интерната.-->
+                            <div class="short-newscard short-newscard_blue news-one__short-newscard">
+                                <a class="short-newscard__category" href="#">Новости бюджета</a>
+                                <p class="short-newscard__date">8 августа 2016</p>
+                                <a class="short-newscard__title" href="#">Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»</a>
+                            </div>
+                            <p class="news-one__text">При подготовке проекта столичного бюджета на 2016 год Правительство Москвы также предусмотрело значительное увеличение расходов на питание и обеспечение лекарствами пациентов домов престарелых и домов-интернатов. Это компенсирует
+                                удорожание продуктов и лекарств, связанное с девальвацией рубля, и сохранит привычные стандарты питания и медицинского обслуживания.</p>
+                            <p class="news-one__text">«Мы пополним меню благодаря тем средствам, которые вы нам выделите дополнительно, и я думаю, что проблем вообще с питанием не будет. Ни в этом учреждении, ни в других, в том числе в детских домах», — заявил Владимир Петросян.</p>
+                            <p
+                                class="news-one__text">В психоневрологическом интернате Сергей Собянин осмотрел здание физкультурно-оздоровительного центра: бассейн, спортзал, кабинет физиотерапии, зону релаксации и отдыха. Он также пообщался со спортсменами — воспитанниками интерната.</p>
+                                <h3
+                                    class="news-one__heading news-one__heading_small">Бассейн, спортзал и новое меню</h3>
+                                    <p class="news-one__text">В ПНИ №20 может поселиться 501 человек. Здесь есть отделение для пациентов с последствиями детского церебрального паралича на 200 мест, отделение милосердия для лиц, нуждающихся в постоянном постороннем уходе на 50
+                                        мест и психоневрологическое отделение на 251 место.</p>
+                                    <p class="news-one__text">Пациенты и их родственники (законные представители, опекуны) могут самостоятельно выбрать одну из форм проживания в интернате: постоянную, временную (до шести месяцев) и пятидневную.</p>
+                                    <p class="news-one__text">С 2011 года в ПНИ № 20 работает патронажное отделение, сотрудники которого обслуживают на дому 50 одиноко проживающих инвалидов I и II группы, страдающих психическими расстройствами и утративших способность к самообслуживанию.</p>
+                                    <p
+                                        class="news-one__text">Пациенты ПНИ — люди, страдающие такими заболеваниями, как последствия ДЦП, шизофрения, олигофрения, органическое поражение центральной нервной системы, болезнь Альцгеймера и другие.</p>
+                                        <p class="news-one__text">Они проживают в комфортабельных палатах, оснащённых необходимым медицинским и санитарным оборудованием, в том числе подъёмными системами.</p>
+                                        <p class="news-one__text">Для ухода за ними применяется современное оборудование, включая передвижные ванны, кресла для душа и туалета.</p>
+                                        <p class="news-one__text">В 2000 году в интернате открылся физкультурно-оздоровительный комплекс, в котором есть бассейн, спортивный и тренажёрный залы, зал для настольных игр, комната релаксации, массажный кабинет, галокамера, физиотерапевтическое
+                                            отделение, оборудованное гидромассажной ванной и душевой кафедрой, кабинет «Горный воздух».</p>
+                                        <p class="news-one__text">Работают секции по бадминтону, футболу, волейболу, баскетболу, настольному теннису, дзюдо. Зимой открыты лыжные секции.</p>
+                                        <!--+e.similar-news+e.similar-news-col
+  +news-card(2, 'Новости Москвы', 'О выплатах купонного дохода по облигациям Городского облигационного (внутреннего) займа Москвы', '5 августа 2016')._red._big
++e.similar-news-col._text
+  +e.H3.heading._small Что изменилось после ремонта
+  +e.P.text._small В 2011–2015 годах были проведены работы по капитальному и текущему ремонту здания ПНИ № 20 с благоустройством прилегающей территории на общую сумму 146 миллионов рублей.
+  +e.P.text._small В частности, отремонтировали водолечебницу, холл, раздевалку и мягкую кровлю физкультурно-оздоровительного комплекса. Комплексные работы затронули помещения двух корпусов. Также строители полностью заменили кровлю, модернизировали системы пожарной безопасности и видеонаблюдения, сделали здание доступным для маломобильных граждан. На прилегающей территории появились прогулочные дорожки, цветники и газоны.
+  +e.P.text._small Закуплено специальное оборудование на сумму 23,6 миллиона рублей, включая медицинское и реабилитационное, мебель, оборудование пищеблока, бытовую, офисную, автомобильную и уборочную технику.
+  +e.P.text._small Ремонт позволил значительно повысить комфорт проживания пациентов интерната.-->
+                                        <div class="short-newscard short-newscard_pink news-one__short-newscard">
+                                            <a class="short-newscard__category" href="#">Новости Москвы</a>
+                                            <p class="short-newscard__date">8 августа 2016</p>
+                                            <a class="short-newscard__title" href="#">О выплатах купонного дохода по облигациям Городского облигационного (внутреннего) займа Москвы</a>
                                         </div>
-                                        <button class="share__btn"></button>
-                                        <div class="share__panel">
-                                            <a class="share__a share__a_fb" href="#"></a>
-                                            <a class="share__a share__a_vk" href="#"></a>
-                                            <a class="share__a share__a_tw" href="#"></a>
-                                            <a class="share__a share__a_ok" href="#"></a>
-                                        </div>
+                                        <h3 class="news-one__heading news-one__heading_small">Что изменилось после ремонта</h3>
+                                        <p class="news-one__text">В 2011–2015 годах были проведены работы по капитальному и текущему ремонту здания ПНИ № 20 с благоустройством прилегающей территории на общую сумму 146 миллионов рублей.</p>
+                                        <p class="news-one__text">В частности, отремонтировали водолечебницу, холл, раздевалку и мягкую кровлю физкультурно-оздоровительного комплекса. Комплексные работы затронули помещения двух корпусов. Также строители полностью заменили кровлю,
+                                            модернизировали системы пожарной безопасности и видеонаблюдения, сделали здание доступным для маломобильных граждан. На прилегающей территории появились прогулочные дорожки, цветники и газоны.</p>
+                                        <p class="news-one__text">Закуплено специальное оборудование на сумму 23,6 миллиона рублей, включая медицинское и реабилитационное, мебель, оборудование пищеблока, бытовую, офисную, автомобильную и уборочную технику.</p>
+                                        <p class="news-one__text">Ремонт позволил значительно повысить комфорт проживания пациентов интерната.</p>
+                        </div>
+                        <div class="news-one__col news-one__col_side">
+                            <h2 class="news-one__heading">актуально</h2>
+                            <div class="news news_blue news_big">
+                                <a class="news__thumb" href="#">
+                                    <img src="assets/images/news/1.jpg" alt="thumb" />
+                                </a>
+                                <a class="news__category" href="#">Новости бюджета</a>
+                                <a class="news__title" href="#">Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»</a>
+                                <div class="news__bottom">
+                                    <p class="news__date">8 августа 2016</p>
+                                    <div class="news__tags">
+                                        <a href="#">#итоги</a>
+                                        <a href="#">#апробация</a>
+                                        <a href="#">#старшеклассники</a>
                                     </div>
                                 </div>
-                                <div class="news-one__similar-news-col news-one__similar-news-col_text">
-                                    <p class="news-one__text news-one__text_small">При подготовке проекта столичного бюджета на 2016 год Правительство Москвы также предусмотрело значительное увеличение расходов на питание и обеспечение лекарствами пациентов домов престарелых и домов-интернатов. Это
-                                        компенсирует удорожание продуктов и лекарств, связанное с девальвацией рубля, и сохранит привычные стандарты питания и медицинского обслуживания.</p>
-                                    <p class="news-one__text news-one__text_small">«Мы пополним меню благодаря тем средствам, которые вы нам выделите дополнительно, и я думаю, что проблем вообще с питанием не будет. Ни в этом учреждении, ни в других, в том числе в детских домах», — заявил Владимир
-                                        Петросян.</p>
-                                    <p class="news-one__text news-one__text_small">В психоневрологическом интернате Сергей Собянин осмотрел здание физкультурно-оздоровительного центра: бассейн, спортзал, кабинет физиотерапии, зону релаксации и отдыха. Он также пообщался со спортсменами — воспитанниками
-                                        интерната.</p>
+                                <button class="share__btn"></button>
+                                <div class="share__panel">
+                                    <a class="share__a share__a_fb" href="#"></a>
+                                    <a class="share__a share__a_vk" href="#"></a>
+                                    <a class="share__a share__a_tw" href="#"></a>
+                                    <a class="share__a share__a_ok" href="#"></a>
                                 </div>
-                        </div>
-                        <h3 class="news-one__heading news-one__heading_small">Бассейн, спортзал и новое меню</h3>
-                        <p class="news-one__text news-one__text_small">В ПНИ №20 может поселиться 501 человек. Здесь есть отделение для пациентов с последствиями детского церебрального паралича на 200 мест, отделение милосердия для лиц, нуждающихся в постоянном постороннем уходе на 50 мест и психоневрологическое
-                            отделение на 251 место.</p>
-                        <p class="news-one__text news-one__text_small">Пациенты и их родственники (законные представители, опекуны) могут самостоятельно выбрать одну из форм проживания в интернате: постоянную, временную (до шести месяцев) и пятидневную.</p>
-                        <p class="news-one__text news-one__text_small">С 2011 года в ПНИ № 20 работает патронажное отделение, сотрудники которого обслуживают на дому 50 одиноко проживающих инвалидов I и II группы, страдающих психическими расстройствами и утративших способность к самообслуживанию.</p>
-                        <p
-                            class="news-one__text news-one__text_small">Пациенты ПНИ — люди, страдающие такими заболеваниями, как последствия ДЦП, шизофрения, олигофрения, органическое поражение центральной нервной системы, болезнь Альцгеймера и другие.</p>
-                            <p class="news-one__text news-one__text_small">Они проживают в комфортабельных палатах, оснащённых необходимым медицинским и санитарным оборудованием, в том числе подъёмными системами.</p>
-                            <p class="news-one__text news-one__text_small">Для ухода за ними применяется современное оборудование, включая передвижные ванны, кресла для душа и туалета.</p>
-                            <p class="news-one__text news-one__text_small">В 2000 году в интернате открылся физкультурно-оздоровительный комплекс, в котором есть бассейн, спортивный и тренажёрный залы, зал для настольных игр, комната релаксации, массажный кабинет, галокамера, физиотерапевтическое
-                                отделение, оборудованное гидромассажной ванной и душевой кафедрой, кабинет «Горный воздух».</p>
-                            <p class="news-one__text news-one__text_small">Работают секции по бадминтону, футболу, волейболу, баскетболу, настольному теннису, дзюдо. Зимой открыты лыжные секции.</p>
-                            <div class="news-one__similar-news">
-                                <div class="news-one__similar-news-col">
-                                    <div class="news news_red news_big">
-                                        <a class="news__thumb" href="#">
-                                            <img src="assets/images/news/2.jpg" alt="thumb" />
-                                        </a>
-                                        <a class="news__category" href="#">Новости Москвы</a>
-                                        <a class="news__title" href="#">О выплатах купонного дохода по облигациям Городского облигационного (внутреннего) займа Москвы</a>
-                                        <div class="news__bottom">
-                                            <p class="news__date">5 августа 2016</p>
-                                            <div class="news__tags">
-                                                <a href="#">#итоги</a>
-                                                <a href="#">#апробация</a>
-                                                <a href="#">#старшеклассники</a>
-                                            </div>
-                                        </div>
-                                        <button class="share__btn"></button>
-                                        <div class="share__panel">
-                                            <a class="share__a share__a_fb" href="#"></a>
-                                            <a class="share__a share__a_vk" href="#"></a>
-                                            <a class="share__a share__a_tw" href="#"></a>
-                                            <a class="share__a share__a_ok" href="#"></a>
-                                        </div>
+                            </div>
+                            <div class="news news_red news_big">
+                                <a class="news__thumb" href="#">
+                                    <img src="assets/images/news/2.jpg" alt="thumb" />
+                                </a>
+                                <a class="news__category" href="#">Новости Москвы</a>
+                                <a class="news__title" href="#">О выплатах купонного дохода по облигациям Городского облигационного (внутреннего) займа Москвы</a>
+                                <div class="news__bottom">
+                                    <p class="news__date">5 августа 2016</p>
+                                    <div class="news__tags">
+                                        <a href="#">#итоги</a>
+                                        <a href="#">#апробация</a>
+                                        <a href="#">#старшеклассники</a>
                                     </div>
                                 </div>
-                                <div class="news-one__similar-news-col news-one__similar-news-col_text">
-                                    <h3 class="news-one__heading news-one__heading_small">Что изменилось после ремонта</h3>
-                                    <p class="news-one__text news-one__text_small">В 2011–2015 годах были проведены работы по капитальному и текущему ремонту здания ПНИ № 20 с благоустройством прилегающей территории на общую сумму 146 миллионов рублей.</p>
-                                    <p class="news-one__text news-one__text_small">В частности, отремонтировали водолечебницу, холл, раздевалку и мягкую кровлю физкультурно-оздоровительного комплекса. Комплексные работы затронули помещения двух корпусов. Также строители полностью заменили кровлю,
-                                        модернизировали системы пожарной безопасности и видеонаблюдения, сделали здание доступным для маломобильных граждан. На прилегающей территории появились прогулочные дорожки, цветники и газоны.</p>
-                                    <p class="news-one__text news-one__text_small">Закуплено специальное оборудование на сумму 23,6 миллиона рублей, включая медицинское и реабилитационное, мебель, оборудование пищеблока, бытовую, офисную, автомобильную и уборочную технику.</p>
-                                    <p class="news-one__text news-one__text_small">Ремонт позволил значительно повысить комфорт проживания пациентов интерната.</p>
+                                <button class="share__btn"></button>
+                                <div class="share__panel">
+                                    <a class="share__a share__a_fb" href="#"></a>
+                                    <a class="share__a share__a_vk" href="#"></a>
+                                    <a class="share__a share__a_tw" href="#"></a>
+                                    <a class="share__a share__a_ok" href="#"></a>
                                 </div>
                             </div>
-                    </div>
-                    <div class="news-one__col news-one__col_side">
-                        <h2 class="news-one__heading">актуально</h2>
-                        <div class="news news_blue news_big">
-                            <a class="news__thumb" href="#">
-                                <img src="assets/images/news/1.jpg" alt="thumb" />
+                            <div class="news news_green news_big">
+                                <a class="news__thumb" href="#">
+                                    <img src="assets/images/news/3.jpg" alt="thumb" />
+                                </a>
+                                <a class="news__category" href="#">Федеральные новости</a>
+                                <a class="news__title" href="#">Итоги исполнения бюджета города Москвы за первое полугодие 2016 года</a>
+                                <div class="news__bottom">
+                                    <p class="news__date">1 августа 2016</p>
+                                    <div class="news__tags">
+                                        <a href="#">#итоги</a>
+                                        <a href="#">#апробация</a>
+                                        <a href="#">#старшеклассники</a>
+                                    </div>
+                                </div>
+                                <button class="share__btn"></button>
+                                <div class="share__panel">
+                                    <a class="share__a share__a_fb" href="#"></a>
+                                    <a class="share__a share__a_vk" href="#"></a>
+                                    <a class="share__a share__a_tw" href="#"></a>
+                                    <a class="share__a share__a_ok" href="#"></a>
+                                </div>
+                            </div>
+                            <a class="alternative-link news-one__show-more-actual">
+                                <span class="alternative-link__title">показать еще</span>
                             </a>
-                            <a class="news__category" href="#">Новости бюджета</a>
-                            <a class="news__title" href="#">Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»</a>
-                            <div class="news__bottom">
-                                <p class="news__date">8 августа 2016</p>
-                                <div class="news__tags">
-                                    <a href="#">#итоги</a>
-                                    <a href="#">#апробация</a>
-                                    <a href="#">#старшеклассники</a>
-                                </div>
-                            </div>
-                            <button class="share__btn"></button>
-                            <div class="share__panel">
-                                <a class="share__a share__a_fb" href="#"></a>
-                                <a class="share__a share__a_vk" href="#"></a>
-                                <a class="share__a share__a_tw" href="#"></a>
-                                <a class="share__a share__a_ok" href="#"></a>
-                            </div>
                         </div>
-                        <div class="news news_red news_big">
-                            <a class="news__thumb" href="#">
-                                <img src="assets/images/news/2.jpg" alt="thumb" />
+                    </div>
+                    <ul class="news-one__tags">
+                        <li class="news-one__tag">
+                            <a class="news-one__tag-link" href="#">Исполнение</a>
+                        </li>
+                        <li class="news-one__tag">
+                            <a class="news-one__tag-link" href="#">Москва</a>
+                        </li>
+                        <li class="news-one__tag">
+                            <a class="news-one__tag-link" href="#">Госпрограммы</a>
+                        </li>
+                        <li class="news-one__tag">
+                            <a class="news-one__tag-link" href="#">Расходы</a>
+                        </li>
+                    </ul>
+                    <div class="news-one__social">
+                        <div class="d-sr__social">
+                            <span class="d-sr__social_txt">Поделиться новостью:</span>
+                            <a class="d-sr__social_fb" href="#" title="facebook">
+                                <i class="fa fa-facebook" aria-hidden="true"></i>
                             </a>
-                            <a class="news__category" href="#">Новости Москвы</a>
-                            <a class="news__title" href="#">О выплатах купонного дохода по облигациям Городского облигационного (внутреннего) займа Москвы</a>
-                            <div class="news__bottom">
-                                <p class="news__date">5 августа 2016</p>
-                                <div class="news__tags">
-                                    <a href="#">#итоги</a>
-                                    <a href="#">#апробация</a>
-                                    <a href="#">#старшеклассники</a>
-                                </div>
-                            </div>
-                            <button class="share__btn"></button>
-                            <div class="share__panel">
-                                <a class="share__a share__a_fb" href="#"></a>
-                                <a class="share__a share__a_vk" href="#"></a>
-                                <a class="share__a share__a_tw" href="#"></a>
-                                <a class="share__a share__a_ok" href="#"></a>
-                            </div>
-                        </div>
-                        <div class="news news_green news_big">
-                            <a class="news__thumb" href="#">
-                                <img src="assets/images/news/3.jpg" alt="thumb" />
+                            <a class="d-sr__social_t" href="#" title="twitter">
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
                             </a>
-                            <a class="news__category" href="#">Федеральные новости</a>
-                            <a class="news__title" href="#">Итоги исполнения бюджета города Москвы за первое полугодие 2016 года</a>
-                            <div class="news__bottom">
-                                <p class="news__date">1 августа 2016</p>
-                                <div class="news__tags">
-                                    <a href="#">#итоги</a>
-                                    <a href="#">#апробация</a>
-                                    <a href="#">#старшеклассники</a>
-                                </div>
-                            </div>
-                            <button class="share__btn"></button>
-                            <div class="share__panel">
-                                <a class="share__a share__a_fb" href="#"></a>
-                                <a class="share__a share__a_vk" href="#"></a>
-                                <a class="share__a share__a_tw" href="#"></a>
-                                <a class="share__a share__a_ok" href="#"></a>
-                            </div>
-                        </div>
-                        <a class="alternative-link news-one__show-more-actual">
-                            <span class="alternative-link__title">показать еще</span>
-                        </a>
-                    </div>
-                </div>
-                <ul class="news-one__tags">
-                    <li class="news-one__tag">
-                        <a class="news-one__tag-link" href="#">Исполнение</a>
-                    </li>
-                    <li class="news-one__tag">
-                        <a class="news-one__tag-link" href="#">Москва</a>
-                    </li>
-                    <li class="news-one__tag">
-                        <a class="news-one__tag-link" href="#">Госпрограммы</a>
-                    </li>
-                    <li class="news-one__tag">
-                        <a class="news-one__tag-link" href="#">Расходы</a>
-                    </li>
-                </ul>
-                <div class="news-one__social">
-                    <div class="d-sr__social">
-                        <span class="d-sr__social_txt">Поделиться новостью:</span>
-                        <a class="d-sr__social_fb" href="#" title="facebook">
-                            <i class="fa fa-facebook" aria-hidden="true"></i>
-                        </a>
-                        <a class="d-sr__social_t" href="#" title="twitter">
-                            <i class="fa fa-twitter" aria-hidden="true"></i>
-                        </a>
-                        <a class="d-sr__social_vk" href="#" title="ВКонтакте">В</a>
-                    </div>
-                </div>
-            </div>
-            <h2 class="news-one__heading news-one__heading_white load-anim-fade" data-delay="1900">Читайте также</h2>
-            <div class="news-one__card-wrapper load-anim-fade" data-delay="1900">
-                <div class="tile__item active" data-filter="budget">
-                    <div class="news news_blue news_big tile__inner">
-                        <a class="news__thumb" href="#">
-                            <img src="assets/images/news/1.jpg" alt="thumb" />
-                        </a>
-                        <a class="news__category" href="#">Новости бюджета</a>
-                        <a class="news__title" href="#">Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»</a>
-                        <div class="news__bottom">
-                            <p class="news__date">8 августа 2016</p>
-                            <div class="news__tags">
-                                <a href="#">#итоги</a>
-                                <a href="#">#апробация</a>
-                                <a href="#">#старшеклассники</a>
-                            </div>
-                        </div>
-                        <button class="share__btn"></button>
-                        <div class="share__panel">
-                            <a class="share__a share__a_fb" href="#"></a>
-                            <a class="share__a share__a_vk" href="#"></a>
-                            <a class="share__a share__a_tw" href="#"></a>
-                            <a class="share__a share__a_ok" href="#"></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="tile__item active" data-filter="moscow">
-                    <div class="news news_red news_big tile__inner">
-                        <a class="news__thumb" href="#">
-                            <img src="assets/images/news/2.jpg" alt="thumb" />
-                        </a>
-                        <a class="news__category" href="#">Новости Москвы</a>
-                        <a class="news__title" href="#">О выплатах купонного дохода по облигациям Городского облигационного (внутреннего) займа Москвы</a>
-                        <div class="news__bottom">
-                            <p class="news__date">5 августа 2016</p>
-                            <div class="news__tags">
-                                <a href="#">#итоги</a>
-                                <a href="#">#апробация</a>
-                                <a href="#">#старшеклассники</a>
-                            </div>
-                        </div>
-                        <button class="share__btn"></button>
-                        <div class="share__panel">
-                            <a class="share__a share__a_fb" href="#"></a>
-                            <a class="share__a share__a_vk" href="#"></a>
-                            <a class="share__a share__a_tw" href="#"></a>
-                            <a class="share__a share__a_ok" href="#"></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="tile__item active" data-filter="federal">
-                    <div class="news news_green news_big tile__inner">
-                        <a class="news__thumb" href="#">
-                            <img src="assets/images/news/3.jpg" alt="thumb" />
-                        </a>
-                        <a class="news__category" href="#">Федеральные новости</a>
-                        <a class="news__title" href="#">Итоги исполнения бюджета города Москвы за первое полугодие 2016 года</a>
-                        <div class="news__bottom">
-                            <p class="news__date">1 августа 2016</p>
-                            <div class="news__tags">
-                                <a href="#">#итоги</a>
-                                <a href="#">#апробация</a>
-                                <a href="#">#старшеклассники</a>
-                            </div>
-                        </div>
-                        <button class="share__btn"></button>
-                        <div class="share__panel">
-                            <a class="share__a share__a_fb" href="#"></a>
-                            <a class="share__a share__a_vk" href="#"></a>
-                            <a class="share__a share__a_tw" href="#"></a>
-                            <a class="share__a share__a_ok" href="#"></a>
+                            <a class="d-sr__social_vk" href="#" title="ВКонтакте">В</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <a class="news-one__show-more d-si__button d-si__button_show-more" href="#">Показать еще</a>
+            <div class="wrapper page-content-wrapper">
+                <div class="news-one__read-also">
+                    <h2 class="news-one__heading news-one__heading_white load-anim-fade" data-delay="1900">Читайте также</h2>
+                    <div class="news-one__card-wrapper load-anim-fade" data-delay="1900">
+                        <div class="tile__item active" data-filter="budget">
+                            <div class="news news_blue news_big tile__inner">
+                                <a class="news__thumb" href="#">
+                                    <img src="assets/images/news/1.jpg" alt="thumb" />
+                                </a>
+                                <a class="news__category" href="#">Новости бюджета</a>
+                                <a class="news__title" href="#">Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»</a>
+                                <div class="news__bottom">
+                                    <p class="news__date">8 августа 2016</p>
+                                    <div class="news__tags">
+                                        <a href="#">#итоги</a>
+                                        <a href="#">#апробация</a>
+                                        <a href="#">#старшеклассники</a>
+                                    </div>
+                                </div>
+                                <button class="share__btn"></button>
+                                <div class="share__panel">
+                                    <a class="share__a share__a_fb" href="#"></a>
+                                    <a class="share__a share__a_vk" href="#"></a>
+                                    <a class="share__a share__a_tw" href="#"></a>
+                                    <a class="share__a share__a_ok" href="#"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tile__item active" data-filter="moscow">
+                            <div class="news news_red news_big tile__inner">
+                                <a class="news__thumb" href="#">
+                                    <img src="assets/images/news/2.jpg" alt="thumb" />
+                                </a>
+                                <a class="news__category" href="#">Новости Москвы</a>
+                                <a class="news__title" href="#">О выплатах купонного дохода по облигациям Городского облигационного (внутреннего) займа Москвы</a>
+                                <div class="news__bottom">
+                                    <p class="news__date">5 августа 2016</p>
+                                    <div class="news__tags">
+                                        <a href="#">#итоги</a>
+                                        <a href="#">#апробация</a>
+                                        <a href="#">#старшеклассники</a>
+                                    </div>
+                                </div>
+                                <button class="share__btn"></button>
+                                <div class="share__panel">
+                                    <a class="share__a share__a_fb" href="#"></a>
+                                    <a class="share__a share__a_vk" href="#"></a>
+                                    <a class="share__a share__a_tw" href="#"></a>
+                                    <a class="share__a share__a_ok" href="#"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tile__item active" data-filter="federal">
+                            <div class="news news_green news_big tile__inner">
+                                <a class="news__thumb" href="#">
+                                    <img src="assets/images/news/3.jpg" alt="thumb" />
+                                </a>
+                                <a class="news__category" href="#">Федеральные новости</a>
+                                <a class="news__title" href="#">Итоги исполнения бюджета города Москвы за первое полугодие 2016 года</a>
+                                <div class="news__bottom">
+                                    <p class="news__date">1 августа 2016</p>
+                                    <div class="news__tags">
+                                        <a href="#">#итоги</a>
+                                        <a href="#">#апробация</a>
+                                        <a href="#">#старшеклассники</a>
+                                    </div>
+                                </div>
+                                <button class="share__btn"></button>
+                                <div class="share__panel">
+                                    <a class="share__a share__a_fb" href="#"></a>
+                                    <a class="share__a share__a_vk" href="#"></a>
+                                    <a class="share__a share__a_tw" href="#"></a>
+                                    <a class="share__a share__a_ok" href="#"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="news-one__show-more d-si__button d-si__button_show-more" href="#">Показать еще</a>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="range-datepicker">
-        <div class="range-datepicker__item range-datepicker__item_min" data-range="min"></div>
-        <div class="range-datepicker__item range-datepicker__item_max" data-range="max"></div>
-    </div>
-    <div class="sections__item sections__item_footer">
-        <footer class="footer footer_b">
-            <div class="wrap footer__wrap anim-fade-top">
-                <div class="footer__box viewport-md-lg">
-                    <nav class="footer__column">
-                        <ul class="footer__nav-section_min-h">
-                            <li class="footer__nav-item">
-                                <a class="footer__nav-a footer__nav-a_b" href="#">О бюджете</a>
+        <div class="range-datepicker">
+            <div class="range-datepicker__item range-datepicker__item_min" data-range="min"></div>
+            <div class="range-datepicker__item range-datepicker__item_max" data-range="max"></div>
+        </div>
+        <footer class="footer sections__item" id="footer">
+            <div class="footer__wrap wrap">
+                <div class="footer__main">
+                    <div class="footer__column">
+                        <a class="footer__heading" href="#">О бюджете</a>
+                        <ul class="footer__menu">
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Что такое бюджет?</a>
                             </li>
-                            <li class="footer__nav-item">
-                                <a class="footer__nav-a" href="#">Что такое бюджет?</a>
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Бюджетная система</a>
                             </li>
-                            <li class="footer__nav-item">
-                                <a class="footer__nav-a" href="#">Бюджетная система</a>
-                                <ul class="footer__sub-menu">
-                                    <li>
-                                        <a href="#">Бюджетная система РФ</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Принципы бюджетной системы РФ</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Этапы подготовки бюджета</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Бюджетная политика Москвы</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Налоговая политика Москвы</a>
-                                    </li>
-                                </ul>
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Бюджетная классификация</a>
                             </li>
-                            <li class="footer__nav-item">
-                                <a class="footer__nav-a" href="#">Бюджетная классификация</a>
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Глоссарий</a>
                             </li>
-                            <li class="footer__nav-item">
-                                <a class="footer__nav-a" href="#">Глоссарий</a>
-                            </li>
-                            <li class="footer__nav-item">
-                                <a class="footer__nav-a" href="#">Документы</a>
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Документы</a>
                             </li>
                         </ul>
-                    </nav>
-                    <nav class="footer__column">
-                        <ul>
-                            <li class="footer__nav-item">
-                                <a class="footer__nav-a footer__nav-a_b" href="#">Бюджет Москвы</a>
+                    </div>
+                    <div class="footer__column">
+                        <a class="footer__heading" href="#">Бюджет Москвы</a>
+                        <ul class="footer__menu">
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Что такое бюджет?</a>
                             </li>
-                            <li class="footer__nav-item">
-                                <a class="footer__nav-a" href="#">Доходы</a>
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Бюджетная система</a>
                             </li>
-                            <li class="footer__nav-item">
-                                <a class="footer__nav-a" href="#">Расходы</a>
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Бюджетная классификация</a>
                             </li>
-                            <li class="footer__nav-item">
-                                <a class="footer__nav-a" href="#">Источники финансирования
-                                    <br/>дефицита бюджета</a>
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Глоссарий</a>
                             </li>
-                            <li class="footer__nav-item">
-                                <a class="footer__nav-a" href="#">Государственные программы</a>
-                            </li>
-                            <li class="footer__nav-item">
-                                <a class="footer__nav-a" href="#">Адресная инвестиционная
-                                    <br/>программа</a>
-                            </li>
-                            <li class="footer__nav-item">
-                                <a class="footer__nav-a" href="#">Государственный долг</a>
-                            </li>
-                            <li class="footer__nav-item">
-                                <a class="footer__nav-a" href="#">Межбюджетные отношения</a>
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Документы</a>
                             </li>
                         </ul>
-                    </nav>
+                    </div>
+                    <div class="footer__column">
+                        <a class="footer__heading" href="#">Аналитика</a>
+                        <ul class="footer__menu">
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Что такое бюджет?</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Бюджетная система</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Бюджетная классификация</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Глоссарий</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Документы</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__column">
+                        <a class="footer__heading" href="#">Открытость</a>
+                        <ul class="footer__menu">
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Что такое бюджет?</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Бюджетная система</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Бюджетная классификация</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Глоссарий</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Документы</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__column">
+                        <a class="footer__heading" href="#">Медиацентр</a>
+                        <ul class="footer__menu">
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Что такое бюджет?</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Бюджетная система</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Бюджетная классификация</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Глоссарий</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Документы</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__column">
+                        <a class="footer__heading" href="#">Сервисы</a>
+                    </div>
+                    <div class="footer__column">
+                        <a class="footer__heading" href="#">Обратная связь</a>
+                        <ul class="footer__menu">
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Форум</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="footer__box viewport-md-lg">
-                    <nav class="footer__column">
-                        <ul class="footer__nav-section_min-h">
-                            <li class="footer__nav-item">
-                                <a class="footer__nav-a footer__nav-a_b" href="#">Аналитика</a>
-                            </li>
-                            <li class="footer__nav-item">
-                                <a class="footer__nav-a" href="#">Доходы</a>
-                            </li>
-                            <li class="footer__nav-item">
-                                <a class="footer__nav-a" href="#">Расходы</a>
-                            </li>
-                            <li class="footer__nav-item">
-                                <a class="footer__nav-a" href="#">Государственные программы</a>
-                            </li>
-                            <li class="footer__nav-item">
-                                <a class="footer__nav-a" href="#">Адресная инвестиционная
-                                    <br/>программа</a>
-                            </li>
-                            <li class="footer__nav-item">
-                                <a class="footer__nav-a" href="#">Социально-экономическое
-                                    <br/>развитие</a>
-                            </li>
-                            <li class="footer__nav-item">
-                                <a class="footer__nav-a" href="#">Государственный долг</a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <nav class="footer__column">
-                        <ul class="footer__nav-section">
-                            <li class="footer__nav-item">
-                                <a class="footer__nav-a footer__nav-a_b" href="#">Открытость</a>
-                            </li>
-                            <li class="footer__nav-item">
-                                <a class="footer__nav-a" href="#">Открытые данные</a>
-                            </li>
-                            <li class="footer__nav-item">
-                                <a class="footer__nav-a" href="#">Путеводитель
-                                    <br/>по бюджету</a>
-                            </li>
-                            <li class="footer__nav-item">
-                                <a class="footer__nav-a" href="#">Конкурсы</a>
-                            </li>
-                            <li class="footer__nav-item">
-                                <a class="footer__nav-a" href="#">Рейтинг открытости
-                                    <br/>бюджетных данных</a>
-                            </li>
-                            <li class="footer__nav-item">
-                                <a class="footer__nav-a" href="#">Федеральный бюджет
-                                    <br/>для граждан</a>
-                            </li>
-                        </ul>
-                        <ul>
-                            <li class="footer__nav-item">
-                                <A class="footer__nav-a footer__nav-a_b">Сервисы</A>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-                <nav class="footer__column footer__column_sh viewport-md-lg">
-                    <ul class="footer__nav-section footer__nav-section_min-h">
-                        <li class="footer__nav-item">
-                            <a class="footer__nav-a footer__nav-a_b" href="#">Медиацентр</a>
-                        </li>
-                        <li class="footer__nav-item">
-                            <a class="footer__nav-a" href="#">Новости</a>
-                        </li>
-                        <li class="footer__nav-item">
-                            <a class="footer__nav-a" href="#">События</a>
-                        </li>
-                        <li class="footer__nav-item">
-                            <a class="footer__nav-a" href="#">Инфографика</a>
-                        </li>
-                        <li class="footer__nav-item">
-                            <a class="footer__nav-a" href="#">Медиаматериалы</a>
-                        </li>
-                        <li class="footer__nav-item">
-                            <a class="footer__nav-a" href="#">Материалы для СМИ</a>
-                        </li>
-                        <li class="footer__nav-item">
-                            <a class="footer__nav-a" href="#">Пресс-служба</a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li class="footer__nav-item">
-                            <a class="footer__nav-a footer__nav-a_b" href="#">Обратная связь</a>
-                        </li>
-                        <li class="footer__nav-item">
-                            <a class="footer__nav-a" href="#">Форум</a>
-                        </li>
-                        <li class="footer__nav-item viewport-md">
-                            <a class="footer__nav-a" href="#">О портале</a>
-                        </li>
-                        <li class="footer__nav-item viewport-md">
-                            <a class="footer__nav-a" href="#">Карта сайта</a>
-                        </li>
-                    </ul>
-                </nav>
-                <ul class="footer-mob-menu viewport-sm">
-                    <li class="footer-mob-menu__item">
-                        <a class="footer-mob-menu__a" href="#">О бюджете</a>
-                        <ul class="footer-mob-sub-menu">
-                            <li>
-                                <a href="#">Что такое бюджет?</a>
-                            </li>
-                            <li>
-                                <a href="#">Бюджетная система</a>
-                                <ul class="footer-mob-smallsub-menu">
-                                    <li>
-                                        <a href="#">Бюджетная система РФ</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Принципы бюджетной системы РФ</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Этапы подготовки бюджета</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Бюджетная политика Москвы</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Налоговая политика Москвы</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">Бюджетная классификация</a>
-                            </li>
-                            <li>
-                                <a href="#">Глоссарий</a>
-                            </li>
-                            <li>
-                                <a href="#">Документы</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="footer-mob-menu__item">
-                        <a class="footer-mob-menu__a" href="#">Бюджет Москвы</a>
-                        <ul class="footer-mob-sub-menu">
-                            <li>
-                                <a href="#">Доходы</a>
-                            </li>
-                            <li>
-                                <a href="#">Расходы</a>
-                            </li>
-                            <li>
-                                <a href="#">Источники финансирования дефицита бюджета</a>
-                            </li>
-                            <li>
-                                <a href="#">Государственные программы</a>
-                            </li>
-                            <li>
-                                <a href="#">Адресная инвестиционная программа</a>
-                            </li>
-                            <li>
-                                <a href="#">Государственный долг</a>
-                            </li>
-                            <li>
-                                <a href="#">Межбюджетные отношения</a>
-                            </li>
-                            <li>
-                                <a href="#">Социально-экономическое развитие</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="footer-mob-menu__item">
-                        <a class="footer-mob-menu__a" href="#">Аналитика</a>
-                        <ul class="footer-mob-sub-menu">
-                            <li>
-                                <a href="#">Доходы</a>
-                            </li>
-                            <li>
-                                <a href="#">Расходы</a>
-                            </li>
-                            <li>
-                                <a href="#">Государственные программы</a>
-                            </li>
-                            <li>
-                                <a href="#">Государственный долг</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="footer-mob-menu__item">
-                        <a class="footer-mob-menu__a" href="#">Открытость</a>
-                        <ul class="footer-mob-sub-menu">
-                            <li>
-                                <a href="#">Путеводитель по бюджету</a>
-                            </li>
-                            <li>
-                                <a href="#">Конкурсы</a>
-                            </li>
-                            <li>
-                                <a href="#">Федеральный бюджет для граждан</a>
-                            </li>
-                            <li>
-                                <a href="#">Открытые данные</a>
-                            </li>
-                            <li>
-                                <a href="#">Рейтинг открытости бюджетных данных</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="footer-mob-menu__item">
-                        <a class="footer-mob-menu__a" href="#">Медиацентр</a>
-                        <ul class="footer-mob-sub-menu">
-                            <li>
-                                <a href="#">Новости</a>
-                            </li>
-                            <li>
-                                <a href="#">События</a>
-                            </li>
-                            <li>
-                                <a href="#">Инфографика</a>
-                            </li>
-                            <li>
-                                <a href="#">Медиаматериалы</a>
-                            </li>
-                            <li>
-                                <a href="#">Материалы для СМИ</a>
-                            </li>
-                            <li>
-                                <a href="#">Пресс-служба</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="footer-mob-menu__item">
-                        <a class="footer-mob-menu__a" href="#">Сервисы</a>
-                        <ul class="footer-mob-add-menu">
-                            <li class="footer-mob-menu__item">
-                                <a class="footer-mob-menu__a" href="#">Обратная связь</a>
-                                <ul class="footer-mob-sub-menu">
-                                    <li>
-                                        <a href="#">Форум</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="footer-mob-menu__item footer-mob-menu__item_small">
-                                <a class="footer-mob-menu__a small" href="#">О портале</a>
-                            </li>
-                            <li class="footer-mob-menu__item footer-mob-menu__item_small">
-                                <a class="footer-mob-menu__a small" href="#">Карта сайта</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                <div class="footer__abs">
-                    <div class="footer__box footer__box_l">
-                        <div class="footer__column viewport-lg">
-                            <a class="footer__box-a" href="#">О портале</a>
-                            <a class="footer__box-a" href="#">Карта сайта</a>
+                <div class="footer__info">
+                    <div class="footer__column">
+                        <div class="footer__about">
+                            <a class="footer__about-link" href="#">О портале</a>
+                            <a class="footer__about-link" href="#">Карта сайта</a>
                         </div>
-                        <div class="footer__column">
-                            <a class="logo footer__logo" href="#">
-                                <img class="logo__img" src="assets/images/logo-footer.png" alt="logo" />
-                                <span class="logo__lg">Департамент Финансов
-                                    <br/>города Москвы</span>
+                    </div>
+                    <div class="footer__column">
+                        <a class="footer__block-logo" href="#">
+                            <div class="footer__block-logo-img footer__block-logo-img_depfin"></div>
+                            <span class="footer__block-logo-text">Департамент Финансов города Москвы</span>
+                        </a>
+                    </div>
+                    <div class="footer__column">
+                        <a class="footer__block-logo" href="#">
+                            <div class="footer__block-logo-img footer__block-logo-img_mos">
+                                <svg class="footer__icon"><use xlink:href="assets/images/icon.svg#icon_mos"></use></svg>
+                            </div>
+                            <span class="footer__block-logo-text">Официальный портал Мэра и Правительства Москвы</span>
+                        </a>
+                    </div>
+                    <div class="footer__column footer__column_social">
+                        <ul class="social footer__social">
+                            <li class="social__item">
+                                <a class="social__link social__link social__link_type_facebook-box" href="#">
+                                    <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_facebook-box"></use></svg>
+                                </a>
+                            </li>
+                            <li class="social__item">
+                                <a class="social__link social__link social__link_type_vk" href="#">
+                                    <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_vk"></use></svg>
+                                </a>
+                            </li>
+                            <li class="social__item">
+                                <a class="social__link social__link social__link_type_tw" href="#">
+                                    <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_tw"></use></svg>
+                                </a>
+                            </li>
+                            <li class="social__item">
+                                <a class="social__link social__link social__link_type_insta" href="#">
+                                    <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_insta"></use></svg>
+                                </a>
+                            </li>
+                            <li class="social__item">
+                                <a class="social__link social__link social__link_type_odnokl" href="#">
+                                    <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_odnokl"></use></svg>
+                                </a>
+                            </li>
+                            <li class="social__item">
+                                <a class="social__link social__link social__link_type_youtube-play" href="#">
+                                    <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_youtube-play"></use></svg>
+                                </a>
+                            </li>
+                            <li class="social__item">
+                                <a class="social__link social__link social__link_type_telegram" href="#">
+                                    <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_telegram"></use></svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__column footer__column_app">
+                        <div class="footer__app">
+                            <div class="footer__app-text">Мобильное
+                                <br>приложение</div>
+                            <a class="footer__app-link" href="#">
+                                <svg class="footer__icon"><use xlink:href="assets/images/icon.svg#icon_apple"></use></svg>
+                            </a>
+                            <a class="footer__app-link" href="#">
+                                <svg class="footer__icon"><use xlink:href="assets/images/icon.svg#icon_android"></use></svg>
+                            </a>
+                            <a class="footer__app-link" href="#">
+                                <svg class="footer__icon"><use xlink:href="assets/images/icon.svg#icon_windows"></use></svg>
                             </a>
                         </div>
-                        <div class="footer__column">
-                            <a class="logo footer__logo" href="#">
-                                <img class="logo__img" src="assets/images/logo-footer-1.png" alt="logo" />
-                                <span class="logo__lg">Официальный портал Мэра
-                                    <br/>и Правительства Москвы</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="footer__box footer__box_m footer__social-apps">
-                        <div class="footer__column">
-                            <div class="social footer__social">
-                                <ul>
-                                    <li class="social__item">
-                                        <a class="social__a social__a_fb" href="#"></a>
-                                    </li>
-                                    <li class="social__item">
-                                        <a class="social__a social__a_vk" href="#"></a>
-                                    </li>
-                                    <li class="social__item">
-                                        <a class="social__a social__a_tw" href="#"></a>
-                                    </li>
-                                    <li class="social__item">
-                                        <a class="social__a social__a_in" href="#"></a>
-                                    </li>
-                                    <li class="social__item">
-                                        <a class="social__a social__a_ok" href="#"></a>
-                                    </li>
-                                    <li class="social__item">
-                                        <a class="social__a social__a_yt" href="#"></a>
-                                    </li>
-                                    <li class="social__item">
-                                        <a class="social__a social__a_tg fa fa-telegram fa-2" href="#"></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="footer__column">
-                            <div class="application">
-                                <span>Мобильное
-                                    <br/>приложение</span>
-                                <a class="application__apl" href="#"></a>
-                                <a class="application__and" href="#"></a>
-                                <a class="application__win" href="#"></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer__bar">
-                <div class="footer__bar-top">
-                    <div class="wrap">
-                        <ul>
-                            <li>
-                                <A class="footer__bar-top-a">Сайты Москвы</A>
-                            </li>
-                            <li>
-                                <A class="footer__bar-top-a">Сайты России</A>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="footer__bar-bottom">
-                    <div class="wrap">
-                        <p class="footer__copy">Все материалы сайта доступны по лицензии
-                            <a href="#">Creative Commons Attribution 3.0</a>&nbsp;при условии
-                            <br/>ссылки на первоисточник (в случае использования материалов сайта
-                            <br/>в сети Интернет – интерактивная ссылка).</p>
-                        <p class="footer__stat">832 уникальных посетителя сегодня.
-                            <br/>Всего порталы Москвы посетило 1004547.</p>
                     </div>
                 </div>
             </div>
         </footer>
-    </div>
-    <div class="button-top"></div>
+        <div class="common">
+            <iframe src="https://evp.mos.ru/frame/v2/footer.php?v=1.0.17&amp;site_id=2136&amp;show_blind=0&amp;hidesitemap=0&amp;hidecounter=0&amp;cur_domain=budget.mos.ru" id="footer_frame" frameborder="0" width="100%" scrolling="no" style="height: 208px;"></iframe>
+        </div>
+        <div class="button-top"></div>
     </div>
     <div id="popup-wrapper">
         <!-- POPUP(Login)-->
@@ -1170,6 +932,27 @@
                 maxValue: 2050
             });
             diagram('#diagram-3', {
+                stroke: 30,
+                kind: 'triple',
+                data: [1446.2, 1598.9],
+                animate: true,
+                maxValue: 2050
+            });
+            diagram('#diagram-01', {
+                stroke: 30,
+                kind: 'triple',
+                data: [1446.2, 1598.9],
+                animate: true,
+                maxValue: 2050
+            });
+            diagram('#diagram-02', {
+                stroke: 30,
+                kind: 'triple',
+                data: [1446.2, 1598.9],
+                animate: true,
+                maxValue: 2050
+            });
+            diagram('#diagram-03', {
                 stroke: 30,
                 kind: 'triple',
                 data: [1446.2, 1598.9],
