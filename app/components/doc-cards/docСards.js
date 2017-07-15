@@ -1,7 +1,6 @@
 import $ from 'jquery';
-import Swiper from 'swiper';
 
-export default () => {
+export default function docCards() {
   const DIR = $('.section-tabs__card_dir').parents('.owl-item');
   const TOP_BUTTON = $('.js-button-top');
   const NAV = $('.section-tabs__navigation');
@@ -18,7 +17,7 @@ export default () => {
     })
   })
 
-  TOP_BUTTON.on('click', (e)=> {
+  TOP_BUTTON.on('click', function(e) {
     e.preventDefault();
     NAV.hide();
     DIR.show();
