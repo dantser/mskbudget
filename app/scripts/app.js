@@ -3,6 +3,8 @@ import 'babel-polyfill';
 import selectbox from '../blocks/selectbox/selectbox';
 import docCards from '../components/doc-cards/docСards';
 import aboutBudgetPreparation from '../components/depfin_about_budget_preparation/depfin_about_budget_preparation';
+import mediaMain from '../components/media-main/mediaMain';
+import main from '../components/main/main';
 import tabs from '../blocks/tabs/tabs';
 import question from '../blocks/question/question';
 import questions from '../components/questions/questions';
@@ -16,7 +18,6 @@ import budgetCalcPage from '../pages/depfin_services_budget_calc/depfin_services
 import legend from '../blocks/legend/legend';
 import budgetCalcApp from '../components/budget-calc-app/budget-calc-app';
 import newsFilter from '../components/news/newsFilter';
-import mediaMain from '../components/media-main/mediaMain';
 import range from '../blocks/range/range'; // range-slider input для калькулятора бюджета
 import dragscroll from '../blocks/drag-scroll/drag-scroll'; // функция, позволяющая сделать любой блок скроллящимся через перетаскивание (добавить класс .js-drag-scroll-element)
 import openCon from '../components/open-con/openCon';
@@ -25,7 +26,6 @@ import mediaMaterials from '../components/depfin-budget-moscow-media-materials/m
 import openSlider from '../components/open-slider/openSlider';
 import govDebt from '../components/gov-debt/govDebt';
 import profileEdit from '../components/profile-edit/profileEdit';
-import main from '../components/main/main';
 import budgetaryPolicy from '../components/budgetary-policy/budgetaryPolicy';
 import documentsform from '../components/documents/documents';
 import pageHeader from '../components/page-header/pageHeader';
@@ -55,6 +55,9 @@ $(() => {
   selectbox();
   docCards();
   aboutBudgetPreparation();
+  mediaMain();
+  widgetCard();
+  main();
   question();
   questions();
   lkNav();
@@ -68,7 +71,6 @@ $(() => {
   budgetCalcPage();
   budgetCalcApp();
   newsFilter();
-  mediaMain();
   range();
   dragscroll();
   openCon();
@@ -77,7 +79,6 @@ $(() => {
   mediaMaterials();
   govDebt();
   profileEdit();
-  main();
   budgetaryPolicy();
   documentsform();
   pageHeader();
@@ -89,6 +90,5 @@ $(() => {
   basic_budget_figures();
   menu();
   searchNavbar();
-  widgetCard();
   header();
 });
