@@ -2,6 +2,7 @@ import $ from 'jquery';
 import 'babel-polyfill';
 import selectbox from '../blocks/selectbox/selectbox';
 import docCards from '../components/doc-cards/docСards';
+import aboutBudgetPreparation from '../components/depfin_about_budget_preparation/depfin_about_budget_preparation';
 import tabs from '../blocks/tabs/tabs';
 import question from '../blocks/question/question';
 import questions from '../components/questions/questions';
@@ -16,7 +17,6 @@ import legend from '../blocks/legend/legend';
 import budgetCalcApp from '../components/budget-calc-app/budget-calc-app';
 import newsFilter from '../components/news/newsFilter';
 import mediaMain from '../components/media-main/mediaMain';
-import aboutBudgetPreparation from '../components/depfin_about_budget_preparation/depfin_about_budget_preparation';
 import range from '../blocks/range/range'; // range-slider input для калькулятора бюджета
 import dragscroll from '../blocks/drag-scroll/drag-scroll'; // функция, позволяющая сделать любой блок скроллящимся через перетаскивание (добавить класс .js-drag-scroll-element)
 import openCon from '../components/open-con/openCon';

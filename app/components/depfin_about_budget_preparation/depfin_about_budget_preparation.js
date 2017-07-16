@@ -1,3 +1,4 @@
+import Swiper from 'Swiper';
 export default function aboutBudgetPreparation() {
   //
   // Загружаем таблицу на середине (на 2017)
@@ -27,7 +28,7 @@ export default function aboutBudgetPreparation() {
   $(window).resize(function(){
     prepationTableResize();
   });
-  
+
   // выделение текущего месяца
   $(document).ready(function(){
     if ($('.graphic-table').length) {
@@ -52,6 +53,55 @@ export default function aboutBudgetPreparation() {
       e.preventDefault();
       TABLINK.removeClass(ACTIVE_CLASS);
       EL.addClass(ACTIVE_CLASS);
+      $('.js-steps-detail-close').click();
     })
   })
+
+
+  //раскрытие из "синего списка"
+  $('.steps-details__participants-list a').on('click', function (e) {
+    e.preventDefault();
+    const target = $(this).attr('data-target');
+    $('.steps-details__participants-list a').removeClass('participant_active')
+    $(this).addClass('participant_active');
+    switch (target) {
+      case 'budgetCom':
+        $('[data-target-for = budgetCom]').click();
+        $('.owl-carousel.sections').trigger('to.owl.carousel', 9);
+        break;
+      case 'depFin':
+        $('[data-target-for="depFin"]').click();
+        $('.owl-carousel.sections').trigger('to.owl.carousel', 1);
+        break;
+      case 'depEc':
+        $('[data-target-for="depEc"]').click();
+        $('.owl-carousel.sections').trigger('to.owl.carousel', 2);
+        break;
+      case 'depPlan':
+        $('[data-target-for="depPlan"]').click();
+        $('.owl-carousel.sections').trigger('to.owl.carousel', 4);
+        break;
+      case 'depProp':
+        $('[data-target-for="depProp"]').click();
+        $('.owl-carousel.sections').trigger('to.owl.carousel', 4);
+        break;
+      case 'stewardBud':
+        $('[data-target-for="stewardBud"]').click();
+        $('.owl-carousel.sections').trigger('to.owl.carousel', 7);
+        break;
+      case 'adminIncome':
+        $('[data-target-for="adminIncome"]').click();
+        $('.owl-carousel.sections').trigger('to.owl.carousel', 8);
+        break;
+      case 'adminSources':
+        $('[data-target-for="adminSources"]').click();
+        $('.owl-carousel.sections').trigger('to.owl.carousel', 1);
+        break;
+      case 'coordGP':
+        $('[data-target-for="coordGP"]').click();
+        $('.owl-carousel.sections').trigger('to.owl.carousel', 10);
+        break;
+    }
+  })
+
 }
