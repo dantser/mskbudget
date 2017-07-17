@@ -10,8 +10,9 @@
 
   // в мобильной версии показываем форму поиска снизу
   @media (max-width: $navBreakpointTablet) {
-    bottom: -100vh;
-    margin-bottom: 160px;
+    position: fixed;
+    top: auto;
+    bottom: 100px;
     @include transited('150ms');
     @include transform(translateY(20px) scale(.8));
 
