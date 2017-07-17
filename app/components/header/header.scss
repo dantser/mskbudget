@@ -17,6 +17,10 @@ $hamburger-hover-filter    : opacity(50%) !default;
 
 @import '../../../node_modules/hamburgers/_sass/hamburgers/hamburgers.scss';
 
+body.mobile-menu-is-open {
+  overflow: hidden;
+}
+
 .header {
   position: fixed;
   top: -150px;
@@ -29,17 +33,54 @@ $hamburger-hover-filter    : opacity(50%) !default;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  &_short {
+    @media (min-width: $navBreakpointTablet + 1px) {
+      transform: translateY(-66px);
+      background: rgba(black, .6);
+
+      &.toppanel-is-active {
+        transform: translateY(-6px);
+      }
+    }
+
+    // поведение логотипа
+    @media (min-width: $navBreakpointXXL) {
+      .header__logo.hidden-mobile {
+        transform: translateY(42px);
+      }
+    }
+
+    @media (min-width: $navBreakpointTablet + 1px) and (max-width: $navBreakpointDesktop) {
+      .header__logo.hidden-mobile {
+        transform: translateY(58px);
+        width: 55px;
+        height: 46px;
+
+        .logo__lg,
+        .logo__sm {
+          transform: translateY(-100px);
+          opacity: 0;
+        }
+      }
+
+      .header__menu,
+      .header__link-for-blind.hidden-xxl {
+        transform: translateX(55px);
+      }
+    }
+  }
+
   // inner
   &__wrap {
     position: relative;
 
     @media (min-width: $navBreakpointXXL) {
-      height: $navHeightXXL;
+      // height: $navHeightXXL;
       padding-left: 300px !important;
       padding-right: 0 !important;
     }
 
-    @media (min-width: $navBreakpointTablet + 1px) and (max-width: $navBreakpointDesktop) {
+    @media (min-width: $navBreakpointTablet + 1px) {
       height: $navHeightDesktop;
     }
 
@@ -55,17 +96,24 @@ $hamburger-hover-filter    : opacity(50%) !default;
   // логотип
   &__logo {
     display: inline-block;
+    height: 46px;
 
     .logo__lg {
+      width: 230px;
+      padding-left: 55px;
       font-weight: 500;
       font-size: 18px;
       padding-top: 3px;
       bottom: 0;
+      @include transited;
     }
 
     .logo__sm {
+      width: 230px;
+      padding-left: 55px;
       font-size: 14px;
       bottom: 0;
+      @include transited;
     }
 
     // лого мобильного меню
@@ -116,13 +164,13 @@ $hamburger-hover-filter    : opacity(50%) !default;
         padding-top: 20px;
         text-align: center;
 
-        @media (min-width: $navBreakpointXXL) {
-          padding-top: 35px;
-        }
+        // @media (min-width: $navBreakpointXXL) {
+        //   padding-top: 35px;
+        // }
 
-        @media (max-width: $navBreakpointDesktop) {
+        // @media (max-width: $navBreakpointDesktop) {
           min-height: 46px;
-        }
+        // }
 
         @media (max-width: $navBreakpointTablet) {
           min-height: auto;
@@ -131,10 +179,11 @@ $hamburger-hover-filter    : opacity(50%) !default;
 
       &:last-child {
         padding-top: 20px;
+        min-height: 48px;
 
-        @media (min-width: $navBreakpointXXL) {
-          padding-top: 10px;
-        }
+        // @media (min-width: $navBreakpointXXL) {
+        //   padding-top: 10px;
+        // }
 
         @media (max-width: $navBreakpointTablet) {
           padding-top: 25px;
@@ -150,8 +199,8 @@ $hamburger-hover-filter    : opacity(50%) !default;
 
     &.visible-xxl {
       float: left;
-      margin-top: 0;
-      margin-left: 3px;
+      margin-top: 7px;
+      margin-left: 5px;
 
       @media (max-width: $navBreakpointDesktop) {
         display: none;
@@ -300,9 +349,9 @@ $hamburger-hover-filter    : opacity(50%) !default;
     margin: 12px auto 0;
     @include transited;
 
-    @media (min-width: $navBreakpointXXL) {
-      margin-top: 5px;
-    }
+    // @media (min-width: $navBreakpointXXL) {
+    //   margin-top: 5px;
+    // }
 
     @media (min-width: $navBreakpointTablet + 1px) {
       font-size: 20px;
@@ -321,9 +370,9 @@ $hamburger-hover-filter    : opacity(50%) !default;
     width: auto;
     margin-top: 9px;
 
-    @media (min-width: $navBreakpointXXL) {
-      margin-top: 0;
-    }
+    // @media (min-width: $navBreakpointXXL) {
+    //   margin-top: 0;
+    // }
 
     @media (max-width: $navBreakpointTablet) {
       display: flex;

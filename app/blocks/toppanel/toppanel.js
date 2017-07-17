@@ -12,7 +12,7 @@ export default function toppanel() {
 
       $toppanel.toggleClass('is-active');
       $navbar.toggleClass('toppanel-is-active');
-      $sections.toggleClass('toppanel-is-active');
+      // $sections.toggleClass('toppanel-is-active');
     });
   }
 }
