@@ -3,17 +3,19 @@ include ../../blocks/icon/icons
 include ../../blocks/currency/currency
 include ../../blocks/menu/menu
 include ../../blocks/social/social
+include ../../blocks/toppanel/toppanel
 include ../../blocks/search-navbar/search-navbar
 
 mixin header()
+  +toppanel
   +b.HEADER.header#header&attributes(attributes)
     +e.wrap.wrap
       //- логотип в мобильной версии меню
-      +logo('header').header__logo.hidden-desktop
+      +logo('header').header__logo.hidden-desktop.js-show-toppanel
       +e.drop#headerDrop
         +e.drop-row
           //- логотип в десктопной версии меню
-          +logo('header').header__logo.hidden-mobile
+          +logo('header').header__logo.hidden-mobile.js-show-toppanel
           +e.A(href="#").link-for-blind.link-for-blind.visible-xxl
             +icon('glasses').icon.link-for-blind__icon
             .link-for-blind__text Версия для слабовидящих

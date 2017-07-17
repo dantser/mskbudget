@@ -25,15 +25,14 @@ export default () => {
     });
   }
 
-  // .header_shot — это вообще нужно хоть где-нибудь?
-  // if ($(window).width() > 700 && !$('.sections').hasClass('sections_fs')) {
-  //   $(window).scroll(function() {
-  //     var scr = $(this).scrollTop();
-  //     if (scr > 21) {
-  //       $header.addClass('header_short');
-  //     } else {
-  //       $header.removeClass('header_short');
-  //     }
-  //   });
-  // }
+  if ($(window).width() > 1024 && !$('.sections').hasClass('sections_fs')) {
+    $(window).scroll(function() {
+      var scr = $(this).scrollTop();
+      if (scr > 21) {
+        $header.addClass('header_short');
+      } else {
+        $header.removeClass('header_short');
+      }
+    });
+  }
 }
