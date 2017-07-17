@@ -191,7 +191,7 @@ $hamburger-hover-filter    : opacity(50%) !default;
       position: absolute;
       top: 50%;
       left: 50%;
-      @include transform(translateX(-50%) translateY(-55%));
+      transform: translateX(-50%) translateY(-55%);
 
       .menu__link {
         padding: 8px;
@@ -199,7 +199,7 @@ $hamburger-hover-filter    : opacity(50%) !default;
 
       &.js-mobile-search-is-open {
         opacity: 0;
-        transform: translateX(-50%) translateY(-100%);
+        transform: translateX(-50%) translateY(-65%);
       }
     }
   }
@@ -326,21 +326,25 @@ $hamburger-hover-filter    : opacity(50%) !default;
     }
 
     @media (max-width: $navBreakpointTablet) {
+      display: flex;
+      justify-content: space-between;
       position: absolute;
       right: 0;
       bottom: 0;
       left: 0;
       margin-top: 0;
       padding-top: 11px;
+      padding-right: 15px;
       padding-bottom: 10px;
-      border: 1px solid rgba(white, .2);
+      padding-left: 15px;
+      border-top: 1px solid rgba(white, .2);
       text-align: center;
 
       .social__item {
         display: inline-block;
         float: none;
-        margin-right: 5px;
-        margin-left: 5px;
+        margin-left: 0;
+        margin-right: 0;
       }
     }
   }
