@@ -5,6 +5,22 @@ export default () => {
   const $burger = $('#burger');
   const $headerDrop = $('#headerDrop');
 
+  function mobileMenuClose() {
+    $header.removeClass('is-active');
+    $burger.removeClass('is-active');
+    $('.sections, .guide').removeClass('filter_blur');
+    $headerDrop.fadeOut(250);
+    $('body').removeClass('mobile-menu-is-open');
+  }
+
+  function mobileMenuShow() {
+    $header.addClass('is-active');
+    $burger.addClass('is-active');
+    $('.sections, .guide').addClass('filter_blur');
+    $headerDrop.fadeIn(250);
+    $('body').addClass('mobile-menu-is-open');
+  }
+
   // Мобильное меню
   if ($header && $burger && $headerDrop) {
     $burger.on('click', function(event) {
@@ -13,18 +29,16 @@ export default () => {
       const $headerIsOpen = $('#header.is-active').length;
 
       if ($headerIsOpen) {
-        $header.removeClass('is-active');
-        $burger.removeClass('is-active');
-        $('.sections, .guide').removeClass('filter_blur');
-        $headerDrop.fadeOut(250);
-        $('body').removeClass('mobile-menu-is-open');
+        mobileMenuClose();
       } else {
-        $header.addClass('is-active');
-        $burger.addClass('is-active');
-        $('.sections, .guide').addClass('filter_blur');
-        $headerDrop.fadeIn(250);
-        $('body').addClass('mobile-menu-is-open');
+        mobileMenuShow();
       }
+    });
+  }
+
+  if ($('.js-close-mobile-menu').length) {
+    $('.js-close-mobile-menu').on('click', function() {
+      mobileMenuClose();
     });
   }
 

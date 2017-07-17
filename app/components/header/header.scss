@@ -34,6 +34,16 @@ body.mobile-menu-is-open {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  &.toppanel-is-active {
+    @media (max-width: $navBreakpointTablet) {
+      top: 60px !important;
+
+      .header__drop {
+        top: 60px !important;
+      }
+    }
+  }
+
   &_short {
     @media (min-width: $navBreakpointTablet + 1px) {
       transform: translateY(-66px);
