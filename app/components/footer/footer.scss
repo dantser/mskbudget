@@ -39,15 +39,11 @@
 
   &__main {
     overflow: hidden;
+    padding-bottom: 40px;
 
     @media (max-width: $navBreakpointTablet) {
       padding-top: 25px;
     }
-  }
-
-  &__info {
-    overflow: hidden;
-    padding-bottom: 40px;
   }
 
   &__column {
@@ -55,20 +51,28 @@
     width: 20%;
     margin-top: 40px;
 
+    &_break-the-line {
+      @media (min-width: $navBreakpointTablet) {
+        clear: left;
+      }
+    }
+
     @media (min-width: $navBreakpointTablet + 1px) {
       &:not(:last-child) {
-        padding-right: 15px;
+        padding-right: 25px;
       }
     }
 
     @media (max-width: $navBreakpointTablet) {
       margin-top: 15px;
-    }
-
-    @media (max-width: $navBreakpointTablet) {
       width: 50%;
 
+      &:nth-child(even) {
+        clear: right;
+      }
+
       &:nth-of-type(odd) {
+        clear: left;
         padding-right: 10px;
       }
     }
@@ -131,6 +135,10 @@
     display: block;
     overflow: hidden;
 
+    @media (max-width: $navBreakpointTablet) {
+      max-width: 200px;
+    }
+
     &-img {
       float: left;
       width: 30px;
@@ -157,7 +165,7 @@
       margin-bottom: 5px;
 
       &:not(:last-child) {
-        margin-right: 5px;
+        margin-right: 0px;
       }
     }
   }
