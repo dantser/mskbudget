@@ -30,24 +30,25 @@ export default function searchNavbar() {
 
   if ($searchNavbar && $searchNavbarLink && $searchNavbarInput && $menu) {
     $(document).click(function(event) {
-
       if (!$searchNavbarLink.is(event.target) && !$searchNavbarInput.is(event.target) && $searchNavbarLink.has(event.target).length === 0) {
         closeSearch();
-      } else {
-        if (!$searchNavbar.hasClass('is-active')) {
+      } else if (!$searchNavbar.hasClass('is-active')) {
+        event.preventDefault();
+        showSearch();
+      } else if (!$searchNavbarInput.is(event.target) && $searchNavbar.hasClass('is-active')) {
+        console.log(event.target);
+        if ($(event.target).is('.js-icon-navSearchClose, .js-icon-navSearchClose *')) {
           event.preventDefault();
-          showSearch();
-        } else if (!$searchNavbarInput.is(event.target) && $searchNavbar.hasClass('is-active')) {
           closeSearch();
         }
+        closeSearch();
       }
     });
 
-
     $(document).keyup(function(e) {
-        if (e.keyCode == 27 && $searchNavbar.hasClass('is-active')) { // escape key maps to keycode `27`
-          closeSearch();
-        }
+      if (e.keyCode == 27 && $searchNavbar.hasClass('is-active')) { // escape key maps to keycode `27`
+        closeSearch();
+      }
     });
   }
 }
