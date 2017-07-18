@@ -10,7 +10,8 @@ export default function searchNavbar() {
     $searchNavbar.removeClass('is-active');
     $('.js-icon-navSearchLupa').removeClass('is-hidden');
     $('.js-icon-navSearchClose').addClass('is-hidden');
-    $('.js-mobile-search-is-open').removeClass('js-mobile-search-is-open');
+    // $('.js-mobile-search-is-open').removeClass('js-mobile-search-is-open');
+    $menu.removeClass('js-mobile-search-is-open');
     return false;
   }
 
@@ -18,6 +19,7 @@ export default function searchNavbar() {
     $searchNavbar.addClass('is-active');
     $('.js-icon-navSearchLupa').addClass('is-hidden');
     $('.js-icon-navSearchClose').removeClass('is-hidden');
+    $menu.addClass('js-mobile-search-is-open');
 
     setTimeout(function() {
       $searchNavbarInput.focus();
@@ -28,19 +30,15 @@ export default function searchNavbar() {
 
   if ($searchNavbar && $searchNavbarLink && $searchNavbarInput && $menu) {
     $(document).click(function(event) {
-      event.preventDefault();
 
       if (!$searchNavbarLink.is(event.target) && !$searchNavbarInput.is(event.target) && $searchNavbarLink.has(event.target).length === 0) {
         closeSearch();
       } else {
-        event.preventDefault();
-
         if (!$searchNavbar.hasClass('is-active')) {
+          event.preventDefault();
           showSearch();
-          $menu.addClass('js-mobile-search-is-open');
         } else if (!$searchNavbarInput.is(event.target) && $searchNavbar.hasClass('is-active')) {
           closeSearch();
-          $menu.removeClass('js-mobile-search-is-open');
         }
       }
     });
