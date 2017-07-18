@@ -19,17 +19,17 @@
 			if( Y > (ofsT+2) && Y < (ofsT+hgt-2) ){
 
 				if( X > (ofsL+wdt-5) ){
-					
+
 					_.addClass('hov-an_l');
 				}else if(  X > (ofsL-5) ){
-					
+
 					_.addClass('hov-an_r');
-					
+
 				}
 
 			}
 
-			
+
 			if( X > (ofsL+2) && X < (ofsL+wdt-2) ){
 
 				if( Y > (ofsT+hgt-5) ){
@@ -39,12 +39,12 @@
 				}
 
 			}
-			
+
 
 
 		});
 
-		
+
 		$('.hov-an').mouseleave(function(e) {
 
 			var _ = $(this),
@@ -56,7 +56,7 @@
 			hgt = _.height();
 
 			if( Y > (ofsT+2) && Y < (ofsT+hgt-2) ){
-				
+
 				if( X < (ofsL+5) ){
 					_.addClass('hov-an_l0');
 				}else{
@@ -65,14 +65,14 @@
 			}
 
 			if( X > (ofsL+2) && X < (ofsL+wdt-2) ){
-				
+
 				if( Y < (ofsT+5) ){
 					_.addClass('hov-an_b0');
 				}else{
 					_.addClass('hov-an_t0');
 				}
 			}
-			
+
 			setTimeout(function() {
 				_.removeClass('hov-an_l0 hov-an_r0 hov-an_t0 hov-an_b0 hov-an_l hov-an_r hov-an_t hov-an_b');
 			},500);
@@ -88,7 +88,7 @@
 		});
 
 
-		
+
 
 		function startAnimation(dom) {
 
@@ -169,7 +169,7 @@
 					$('.anim-fade-top').each(function() {
 						if( scr > ($(this).offset().top - winH + 121) ){
 							$(this).addClass('anim-fade-top_on');
-						}	
+						}
 					});
 
 				}
@@ -177,7 +177,7 @@
 			});
 
 		}
-		
+
 
 		$('.slider_diagrams').on('afterChange', function(cube, id) {
 			startAnimation('.slick-current');
@@ -200,16 +200,10 @@
 			$('.anim-fade-top').each(function() {
 				if( $(this).offset().top < winH ) {
 					$(this).addClass('anim-fade-top_on');
-				}	
+				}
 			});
 
 		}
-		
-
-
-		$('.header').stop().animate({top: 0}, 800);
-
-
 	});
 
 })();

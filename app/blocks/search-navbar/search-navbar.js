@@ -10,6 +10,7 @@ export default function searchNavbar() {
     $searchNavbar.removeClass('is-active');
     $('.js-icon-navSearchLupa').removeClass('is-hidden');
     $('.js-icon-navSearchClose').addClass('is-hidden');
+    $('.js-mobile-search-is-open').removeClass('js-mobile-search-is-open');
     return false;
   }
 
@@ -26,7 +27,9 @@ export default function searchNavbar() {
   }
 
   if ($searchNavbar && $searchNavbarLink && $searchNavbarInput && $menu) {
-    $(document).mouseup(function(event) {
+    $(document).click(function(event) {
+      event.preventDefault();
+
       if (!$searchNavbarLink.is(event.target) && !$searchNavbarInput.is(event.target) && $searchNavbarLink.has(event.target).length === 0) {
         closeSearch();
       } else {
