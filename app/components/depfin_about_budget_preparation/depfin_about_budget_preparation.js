@@ -62,7 +62,7 @@ export default function aboutBudgetPreparation() {
     e.preventDefault();
     const target = $(this).attr('data-target');
     var DEST = $('.section-tabs__head').offset().top;
-    $('html').animate( {scrollTop: DEST}, 800 );
+    $('body').animate( {scrollTop: DEST}, 800 );
     $('.steps-details__participants-list a').removeClass('participant_active')
     $(this).addClass('participant_active');
     switch (target) {
