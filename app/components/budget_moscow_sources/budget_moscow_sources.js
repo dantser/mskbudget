@@ -10,7 +10,6 @@ export default () => {
   const ACTIVE_TABLE = $('._active').find('.table');
 
 
-
   if (ACTIVE_TABLE.length) {
     $('.section__ar').show();
   } else {
@@ -19,8 +18,13 @@ export default () => {
 
   ARR_RIGHT.click( (e) => {
     e.preventDefault();
+    ARR_LEFT.removeClass('disabled');
     if ($('.graphic__data:last-child').is(':visible')) {
       return;
+    }
+
+    if ($('.graphic__data:nth-child(3)').is(':visible')) {
+      ARR_RIGHT.addClass('disabled');
     }
 
     if ($(window).width() < 700) {
@@ -33,8 +37,13 @@ export default () => {
 
   ARR_LEFT.on('click', (e) => {
     e.preventDefault();
+    ARR_RIGHT.removeClass('disabled');
     if ($('.graphic__data:nth-child(2)').is(':visible')) {
       return;
+    }
+
+    if ($('.graphic__data:nth-child(3)').is(':visible')) {
+      ARR_LEFT.addClass('disabled');
     }
 
     if ($(window).width() < 700) {
@@ -58,8 +67,9 @@ export default () => {
 
   $('.section__ar_right').on('click', function (e) {
     e.preventDefault();
+    console.log(1);
     // const EL = $(this);
-    // $('._active').find('.table').css('transform', 'translateX(100px)');
+    ACTIVE_TABLE.css('transform', 'translateX(100px)');
     ACTIVE_TABLE.animate( { scrollLeft: '+=460' }, 1000);
   });
 
