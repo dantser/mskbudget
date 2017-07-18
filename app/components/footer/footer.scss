@@ -1,6 +1,7 @@
 .footer {
   position: relative;
   overflow: hidden;
+  padding-bottom: 0 !important;
   font-family: $PFDinCondensedPro;
   font-size: 15px;
   line-height: 1.15;
@@ -8,11 +9,19 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #2a3a49;
   color: white;
-  background: url('../images/background/footer.png') #2a3a49 bottom center no-repeat;
 
   @media (max-width: $navBreakpointTablet) {
     background-position: left bottom;
+  }
+
+  // футер на главной странице
+  .sections_fs & {
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
   }
 
   // нарушаем правила)
@@ -34,8 +43,14 @@
     max-height: 100%;
   }
 
-  &__wrap {}
-  &__common {}
+  &__wrap {
+    background: url('../images/background/footer.png') transparent bottom center no-repeat;
+  }
+
+  &__common {
+    // фиксим отступ общего футера сайтов мос
+    font-size: 0;
+  }
 
   &__main {
     overflow: hidden;
