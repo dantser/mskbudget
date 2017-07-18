@@ -42,11 +42,6 @@
             var d = !1,
                 a = {};
             a.ie11 = /rv:11\.0/.test(navigator.userAgent.toLowerCase()), a.safari = /safari/.test(navigator.userAgent.toLowerCase()) && !/chrome/.test(navigator.userAgent.toLowerCase()), $(".sections_fs").on("beforeChange", function(e, i, s, n) {
-                if (t > 700 && "sections" == i.options.sliderId) switch (n > 0 ? ($(".header").addClass("header_short"), $(".guide").addClass("guide_short")) : ($(".header").removeClass("header_short"), $(".guide").removeClass("guide_short")), n) {
-                    case 0:
-                        break;
-                    case 1:
-                }
             }), $(".sections_fs").swipe({
                 swipe: function(e, i) {
                     "up" == i ? this.slick("slickNext") : "down" == i && this.slick("slickPrev")
