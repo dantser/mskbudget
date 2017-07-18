@@ -17,8 +17,12 @@ export default () => {
           $(this).addClass('dropdown-is-active');
         }
       }
-    }).on('blur', function() {
-      closeSubMenu();
+    });
+
+    $('body').bind('click', function(e) {
+      if ($(e.target).closest('#menu .menu__link.has-dropdown').length == 0) {
+        closeSubMenu();
+      }
     });
 
     $(document).keyup(function(e) {
@@ -28,4 +32,3 @@ export default () => {
     });
   }
 }
-
