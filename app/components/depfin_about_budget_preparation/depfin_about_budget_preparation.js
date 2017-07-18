@@ -1,8 +1,7 @@
-import Swiper from 'Swiper';
 export default function aboutBudgetPreparation() {
-  //
-  // Загружаем таблицу на середине (на 2017)
-  //
+
+  //Загружаем таблицу на середине (на 2017)
+
   var tableHolder = $(".graphic-table__holder"),
       table = $(".graphic-table__table"),
       tableFrame = $(".graphic-table__frame"),

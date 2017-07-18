@@ -53,9 +53,9 @@ $(() => {
     });
   });
 
+  aboutBudgetPreparation();
   selectbox();
   docCards();
-  aboutBudgetPreparation();
   mediaMain();
   widgetCard();
   main();
