@@ -37,6 +37,7 @@
       color: #fee300;
     }
 
+    // выпадающее меню первого уровня
     &.dropdown-is-active {
       color: #fee300;
 
@@ -48,6 +49,22 @@
         .submenu__list {
           opacity: 1;
           @include transform(translateY(0));
+
+          // выпадающее меню второго уровня
+          .dropdown-is-active {
+            color: #fee300;
+
+            + .submenu {
+              z-index: 1;
+              visibility: visible;
+              opacity: 1;
+
+              .submenu__list {
+                opacity: 1;
+                @include transform(translateY(0));
+              }
+            }
+          }
         }
       }
     }

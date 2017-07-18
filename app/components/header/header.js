@@ -11,6 +11,10 @@ export default () => {
     $('.sections, .guide').removeClass('filter_blur');
     $headerDrop.fadeOut(250);
     $('body').removeClass('mobile-menu-is-open');
+
+    // toppanel
+    $('#toppanel').removeClass('is-active');
+    $('.toppanel-is-active').removeClass('toppanel-is-active');
   }
 
   function mobileMenuShow() {

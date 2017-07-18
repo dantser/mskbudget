@@ -3,9 +3,9 @@ include ../icon/icons
 //- Пример:
 //- +social('vk', 'fb', 'tw')
 mixin social(...buttons)
-  +b('ul').social&attributes(attributes)
-    each button in buttons
-      +e('li').item
-        +e('a').link(href='#', class='__link_type_' + button)
-          +icon(button).icon
 
+  +b.UL.social&attributes(attributes)
+    each button in buttons
+      +e.LI.item
+        +e.A.link(href='#', class='__link_type_' + button, data-toggle-toppanel=(button == 'mos'))
+          +icon(button).icon
