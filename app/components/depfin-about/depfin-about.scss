@@ -13,6 +13,13 @@
 
   @include respond-to('mobile'){
     padding: 100px 0 20px;
+    font-size: 32px;
+    line-height: 48px;
+  }
+
+  @media (max-width: 580px) {
+    font-size: 16px;
+    line-height: 24px;    
   }
 
   &__head {
@@ -21,15 +28,20 @@
 
   &__main {
     margin-bottom: 91px;
+    text-align: justify;
 
     @include respond-to('mobile'){
       margin-bottom: 50px;
     }
   }
 
+  &__foot {
+    text-align: justify;
+  }
+
   &__wrapper {
-    max-width: 640px;
-    /*margin: 0 auto;*/
+    max-width: 840px;
+    margin: 0 auto;
   }
 
   &__main-subtitle {
@@ -39,8 +51,13 @@
     margin-bottom: 50px;
 
     @include respond-to('mobile'){
-      font-size: 20px;
-      margin-bottom: 30px;
+      font-size: 48px;
+      line-height: 60px;
+    }
+
+    @media (max-width: 580px) {
+      font-size: 24px;
+      line-height: 30px;
     }
   }
 
@@ -61,11 +78,20 @@
     font-weight: 500;
     text-transform: uppercase;
     margin-bottom: 17px;
+
+    @include respond-to('mobile'){
+      font-size: 36px;
+      line-height: 52px;
+    }
+
+    @media (max-width: 580px) {
+      font-size: 18px;
+      line-height: 26px;      
+    }
   }
 
   &__list {
     list-style: none;
-    padding-left: 30px;
 
     @include respond-to('mobile'){
       padding-left: 30px;
@@ -84,6 +110,14 @@
           width: 20px;
           height: 1px;
           background-color: $color-yellow;
+
+          @include respond-to('mobile'){
+            top: 24px;
+          }    
+
+          @media (max-width: 580px) {
+            top: 12px;    
+          }                
         }
       }
     }
@@ -93,7 +127,7 @@
     }
 
     &_nested {
-      padding-left: 0;
+      padding-left: 30px;
       margin-top: 13px;
     }
   }
@@ -109,6 +143,14 @@
 
   &__item {
     position: relative;
+
+    @include respond-to('mobile'){
+      padding-left: 25px;
+    }       
+
+    @media (max-width: 580px) {
+      padding-left: 12px;
+    }
 
     &-num {
       position: absolute;
