@@ -55,6 +55,7 @@ $(() => {
 
   aboutBudgetPreparation();
   selectbox();
+  dragscroll();
   docCards();
   mediaMain();
   widgetCard();
@@ -73,7 +74,6 @@ $(() => {
   budgetCalcApp();
   newsFilter();
   range();
-  dragscroll();
   openCon();
   contest();
   openSlider();

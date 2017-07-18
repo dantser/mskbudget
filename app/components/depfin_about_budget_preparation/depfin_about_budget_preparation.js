@@ -57,10 +57,12 @@ export default function aboutBudgetPreparation() {
   })
 
 
-  //раскрытие из "синего списка"
+  // раскрытие из "синего списка" и переход по якорю
   $('.steps-details__participants-list a').on('click', function (e) {
     e.preventDefault();
     const target = $(this).attr('data-target');
+    var DEST = $('.section-tabs__head').offset().top;
+    $('html').animate( {scrollTop: DEST}, 800 );
     $('.steps-details__participants-list a').removeClass('participant_active')
     $(this).addClass('participant_active');
     switch (target) {
@@ -101,6 +103,5 @@ export default function aboutBudgetPreparation() {
         $('.owl-carousel.sections').trigger('to.owl.carousel', 10);
         break;
     }
-  })
-
+  });
 }
