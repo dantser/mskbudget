@@ -1,0 +1,26 @@
+.toppanel {
+  position: fixed;
+  overflow: hidden;
+  z-index: 2500;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 60px;
+
+  transform: translateY(-60px);
+  @include transited;
+
+  &.is-active {
+    transform: translateY(0);
+  }
+}
+
+.toppanel-is-active {
+  @media (min-width: $navBreakpointTablet + 1px) {
+    transform: translateY(60px);
+  }
+}
+
+.sections {
+  @include transited;
+}

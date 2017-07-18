@@ -17,29 +17,81 @@ $hamburger-hover-filter    : opacity(50%) !default;
 
 @import '../../../node_modules/hamburgers/_sass/hamburgers/hamburgers.scss';
 
+// отключаем скроллинг, когда открыто мобильное меню
+body.mobile-menu-is-open {
+  overflow: hidden;
+}
+
 .header {
   position: fixed;
   top: -150px;
   left: 0;
   z-index: 2000;
   width: 100%;
-  background: rgba(black, .3);
+  background: rgba(black, .6);
   border-bottom: 1px solid rgba(white, 0.1);
   @include transited;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  &.toppanel-is-active {
+    @media (max-width: $navBreakpointTablet) {
+      top: 60px !important;
+
+      .header__drop {
+        top: 60px !important;
+      }
+    }
+  }
+
+  &_short {
+    @media (min-width: $navBreakpointTablet + 1px) {
+      transform: translateY(-66px);
+      background: rgba(black, .6);
+
+      &.toppanel-is-active {
+        transform: translateY(-6px);
+      }
+    }
+
+    // поведение логотипа
+    @media (min-width: $navBreakpointXXL) {
+      .header__logo.hidden-mobile {
+        transform: translateY(42px);
+      }
+    }
+
+    @media (min-width: $navBreakpointTablet + 1px) and (max-width: $navBreakpointDesktop) {
+      .header__logo.hidden-mobile {
+        transform: translateY(58px);
+        width: 55px;
+        height: 46px;
+
+        .logo__lg,
+        .logo__sm {
+          transform: translateY(-100px);
+          opacity: 0;
+        }
+      }
+
+      .header__menu,
+      .header__link-for-blind.hidden-xxl {
+        transform: translateX(55px);
+      }
+    }
+  }
 
   // inner
   &__wrap {
     position: relative;
 
     @media (min-width: $navBreakpointXXL) {
-      height: $navHeightXXL;
+      // height: $navHeightXXL;
       padding-left: 300px !important;
       padding-right: 0 !important;
     }
 
-    @media (min-width: $navBreakpointTablet + 1px) and (max-width: $navBreakpointDesktop) {
+    @media (min-width: $navBreakpointTablet + 1px) {
       height: $navHeightDesktop;
     }
 
@@ -55,17 +107,24 @@ $hamburger-hover-filter    : opacity(50%) !default;
   // логотип
   &__logo {
     display: inline-block;
+    height: 46px;
 
     .logo__lg {
+      width: 230px;
+      padding-left: 55px;
       font-weight: 500;
       font-size: 18px;
       padding-top: 3px;
       bottom: 0;
+      @include transited;
     }
 
     .logo__sm {
+      width: 230px;
+      padding-left: 55px;
       font-size: 14px;
       bottom: 0;
+      @include transited;
     }
 
     // лого мобильного меню
@@ -116,13 +175,13 @@ $hamburger-hover-filter    : opacity(50%) !default;
         padding-top: 20px;
         text-align: center;
 
-        @media (min-width: $navBreakpointXXL) {
-          padding-top: 35px;
-        }
+        // @media (min-width: $navBreakpointXXL) {
+        //   padding-top: 35px;
+        // }
 
-        @media (max-width: $navBreakpointDesktop) {
+        // @media (max-width: $navBreakpointDesktop) {
           min-height: 46px;
-        }
+        // }
 
         @media (max-width: $navBreakpointTablet) {
           min-height: auto;
@@ -131,10 +190,11 @@ $hamburger-hover-filter    : opacity(50%) !default;
 
       &:last-child {
         padding-top: 20px;
+        min-height: 48px;
 
-        @media (min-width: $navBreakpointXXL) {
-          padding-top: 10px;
-        }
+        // @media (min-width: $navBreakpointXXL) {
+        //   padding-top: 10px;
+        // }
 
         @media (max-width: $navBreakpointTablet) {
           padding-top: 25px;
@@ -150,8 +210,8 @@ $hamburger-hover-filter    : opacity(50%) !default;
 
     &.visible-xxl {
       float: left;
-      margin-top: 0;
-      margin-left: 3px;
+      margin-top: 7px;
+      margin-left: 5px;
 
       @media (max-width: $navBreakpointDesktop) {
         display: none;
@@ -191,7 +251,7 @@ $hamburger-hover-filter    : opacity(50%) !default;
       position: absolute;
       top: 50%;
       left: 50%;
-      @include transform(translateX(-50%) translateY(-55%));
+      transform: translateX(-50%) translateY(-55%);
 
       .menu__link {
         padding: 8px;
@@ -199,7 +259,18 @@ $hamburger-hover-filter    : opacity(50%) !default;
 
       &.js-mobile-search-is-open {
         opacity: 0;
-        transform: translateX(-50%) translateY(-100%);
+        transform: translateX(-50%) translateY(-65%);
+      }
+    }
+
+    // размер шрифта в меню на мобилах
+    .menu__link {
+      @media (min-width: 375px) and (max-width: 767px) {
+        font-size: 22px;
+      }
+
+      @media (min-width: 768px) and (max-width: 1024px) {
+        font-size: 28px;
       }
     }
   }
@@ -300,9 +371,9 @@ $hamburger-hover-filter    : opacity(50%) !default;
     margin: 12px auto 0;
     @include transited;
 
-    @media (min-width: $navBreakpointXXL) {
-      margin-top: 5px;
-    }
+    // @media (min-width: $navBreakpointXXL) {
+    //   margin-top: 5px;
+    // }
 
     @media (min-width: $navBreakpointTablet + 1px) {
       font-size: 20px;
@@ -321,26 +392,30 @@ $hamburger-hover-filter    : opacity(50%) !default;
     width: auto;
     margin-top: 9px;
 
-    @media (min-width: $navBreakpointXXL) {
-      margin-top: 0;
-    }
+    // @media (min-width: $navBreakpointXXL) {
+    //   margin-top: 0;
+    // }
 
     @media (max-width: $navBreakpointTablet) {
+      display: flex;
+      justify-content: space-between;
       position: absolute;
       right: 0;
       bottom: 0;
       left: 0;
       margin-top: 0;
       padding-top: 11px;
+      padding-right: 15px;
       padding-bottom: 10px;
-      border: 1px solid rgba(white, .2);
+      padding-left: 15px;
+      border-top: 1px solid rgba(white, .2);
       text-align: center;
 
       .social__item {
         display: inline-block;
         float: none;
-        margin-right: 5px;
-        margin-left: 5px;
+        margin-left: 0;
+        margin-right: 0;
       }
     }
   }
