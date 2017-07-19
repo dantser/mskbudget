@@ -20,14 +20,14 @@
     </div>
     <header class="header header_budget" id="header">
         <div class="header__wrap wrap">
-            <a class="logo header__logo hidden-desktop js-show-toppanel" href="#">
+            <a class="logo header__logo hidden-desktop" href="#">
                 <img class="logo__img" src="assets/images/logo-navbar.png" alt="logo" title="" />
                 <span class="logo__lg">Открытый бюджет</span>
                 <span class="logo__sm">города Москвы</span>
             </a>
             <div class="header__drop" id="headerDrop">
                 <div class="header__drop-row" id="header-short-nav-hidden">
-                    <a class="logo header__logo hidden-mobile js-show-toppanel" href="#">
+                    <a class="logo header__logo hidden-mobile" href="#">
                         <img class="logo__img" src="assets/images/logo-navbar.png" alt="logo" title="" />
                         <span class="logo__lg">Открытый бюджет</span>
                         <span class="logo__sm">города Москвы</span>
@@ -47,6 +47,11 @@
                         </div>
                     </div>
                     <ul class="social header__social">
+                        <li class="social__item">
+                            <a class="social__link social__link social__link_type_mos" href="#" data-toggle-toppanel="data-toggle-toppanel">
+                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_mos"></use></svg>
+                            </a>
+                        </li>
                         <li class="social__item">
                             <a class="social__link social__link social__link_type_facebook-box" href="#">
                                 <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_facebook-box"></use></svg>
@@ -96,22 +101,38 @@
                                 <div class="submenu menu__submenu">
                                     <ul class="submenu__list">
                                         <li class="submenu__item">
-                                            <a class="submenu__link is-active" href="#">Активная ссылка</a>
+                                            <a class="submenu__link" href="#">Что такое бюджет?</a>
                                         </li>
                                         <li class="submenu__item">
-                                            <a class="submenu__link" href="#">Медиаматериалы</a>
+                                            <a class="submenu__link has-dropdown" href="#">Бюджетная система</a>
+                                            <div class="submenu submenu__submenu">
+                                                <ul class="submenu__list">
+                                                    <li class="submenu__item">
+                                                        <a class="submenu__link" href="#">Бюджетная система РФ</a>
+                                                    </li>
+                                                    <li class="submenu__item">
+                                                        <a class="submenu__link" href="#">Принципы бюджетной системы</a>
+                                                    </li>
+                                                    <li class="submenu__item">
+                                                        <a class="submenu__link" href="#">Этапы подготовки бюджета</a>
+                                                    </li>
+                                                    <li class="submenu__item">
+                                                        <a class="submenu__link" href="#">Бюджетная политика Москвы</a>
+                                                    </li>
+                                                    <li class="submenu__item">
+                                                        <a class="submenu__link" href="#">Налоговая политика Москвы</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </li>
                                         <li class="submenu__item">
-                                            <a class="submenu__link" href="#">Медиаматериалы</a>
+                                            <a class="submenu__link" href="#">Бюдженая классификация</a>
                                         </li>
                                         <li class="submenu__item">
-                                            <a class="submenu__link" href="#">Медиаматериалы</a>
+                                            <a class="submenu__link" href="#">Глоссарий</a>
                                         </li>
                                         <li class="submenu__item">
-                                            <a class="submenu__link" href="#">Медиаматериалы</a>
-                                        </li>
-                                        <li class="submenu__item">
-                                            <a class="submenu__link" href="#">Медиаматериалы</a>
+                                            <a class="submenu__link" href="#">Документы</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -121,94 +142,178 @@
                                 <div class="submenu menu__submenu">
                                     <ul class="submenu__list">
                                         <li class="submenu__item">
-                                            <a class="submenu__link" href="#">Фотографии</a>
+                                            <a class="submenu__link" href="#">Основные параметры бюджета</a>
                                         </li>
                                         <li class="submenu__item">
-                                            <a class="submenu__link" href="#">Фотографии</a>
+                                            <a class="submenu__link" href="#">Доходы</a>
                                         </li>
                                         <li class="submenu__item">
-                                            <a class="submenu__link" href="#">Фотографии</a>
+                                            <a class="submenu__link" href="#">Расходы</a>
                                         </li>
                                         <li class="submenu__item">
-                                            <a class="submenu__link" href="#">Фотографии</a>
+                                            <a class="submenu__link" href="#">Источники финансирования дефицита бюджета</a>
                                         </li>
                                         <li class="submenu__item">
-                                            <a class="submenu__link" href="#">Фотографии</a>
+                                            <a class="submenu__link has-dropdown" href="#">Государственные программы</a>
+                                            <div class="submenu submenu__submenu">
+                                                <ul class="submenu__list">
+                                                    <li class="submenu__item">
+                                                        <a class="submenu__link" href="#">Развитие транспортной системы</a>
+                                                    </li>
+                                                    <li class="submenu__item">
+                                                        <a class="submenu__link" href="#">Столичное здравоохранение</a>
+                                                    </li>
+                                                    <li class="submenu__item">
+                                                        <a class="submenu__link" href="#">Столичное образование</a>
+                                                    </li>
+                                                    <li class="submenu__item">
+                                                        <a class="submenu__link" href="#">Социальная поддержка жителей города Москвы</a>
+                                                    </li>
+                                                    <li class="submenu__item">
+                                                        <a class="submenu__link" href="#">Жилище</a>
+                                                    </li>
+                                                    <li class="submenu__item">
+                                                        <a class="submenu__link" href="#">Развитие коммунально-инженерной инфраструктуры и энергосбережение</a>
+                                                    </li>
+                                                    <li class="submenu__item">
+                                                        <a class="submenu__link" href="#">Культура Москвы</a>
+                                                    </li>
+                                                    <li class="submenu__item">
+                                                        <a class="submenu__link" href="#">Спорт Москвы</a>
+                                                    </li>
+                                                    <li class="submenu__item">
+                                                        <a class="submenu__link" href="#">Открытое правительство</a>
+                                                    </li>
+                                                    <li class="submenu__item">
+                                                        <a class="submenu__link" href="#">Информационный город</a>
+                                                    </li>
+                                                    <li class="submenu__item">
+                                                        <a class="submenu__link" href="#">Развитие индустрии отдыха и туризма</a>
+                                                    </li>
+                                                    <li class="submenu__item">
+                                                        <a class="submenu__link" href="#">Экономическое развитие и инвестиционная привлекательность города Москвы</a>
+                                                    </li>
+                                                    <li class="submenu__item">
+                                                        <a class="submenu__link" href="#">Градостроительная политика</a>
+                                                    </li>
+                                                    <li class="submenu__item">
+                                                        <a class="submenu__link" href="#">Безопасный город</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </li>
                                         <li class="submenu__item">
-                                            <a class="submenu__link" href="#">Фотографии</a>
+                                            <a class="submenu__link" href="#">Адресная инвестиционная программа</a>
                                         </li>
                                         <li class="submenu__item">
-                                            <a class="submenu__link" href="#">Фотографии</a>
+                                            <a class="submenu__link" href="#">Государственный долг</a>
                                         </li>
                                         <li class="submenu__item">
-                                            <a class="submenu__link" href="#">Фотографии</a>
+                                            <a class="submenu__link" href="#">Межбюджетные отношения</a>
                                         </li>
                                         <li class="submenu__item">
-                                            <a class="submenu__link" href="#">Фотографии</a>
-                                        </li>
-                                        <li class="submenu__item">
-                                            <a class="submenu__link" href="#">Фотографии</a>
-                                        </li>
-                                        <li class="submenu__item">
-                                            <a class="submenu__link" href="#">Фотографии</a>
-                                        </li>
-                                        <li class="submenu__item">
-                                            <a class="submenu__link" href="#">Фотографии</a>
-                                        </li>
-                                        <li class="submenu__item">
-                                            <a class="submenu__link" href="#">Фотографии</a>
-                                        </li>
-                                        <li class="submenu__item">
-                                            <a class="submenu__link" href="#">Фотографии</a>
-                                        </li>
-                                        <li class="submenu__item">
-                                            <a class="submenu__link" href="#">Фотографии</a>
-                                        </li>
-                                        <li class="submenu__item">
-                                            <a class="submenu__link" href="#">Фотографии</a>
-                                        </li>
-                                        <li class="submenu__item">
-                                            <a class="submenu__link" href="#">Фотографии</a>
-                                        </li>
-                                        <li class="submenu__item">
-                                            <a class="submenu__link" href="#">Фотографии</a>
-                                        </li>
-                                        <li class="submenu__item">
-                                            <a class="submenu__link" href="#">Фотографии</a>
-                                        </li>
-                                        <li class="submenu__item">
-                                            <a class="submenu__link" href="#">Фотографии</a>
-                                        </li>
-                                        <li class="submenu__item">
-                                            <a class="submenu__link" href="#">Фотографии</a>
-                                        </li>
-                                        <li class="submenu__item">
-                                            <a class="submenu__link" href="#">Фотографии</a>
-                                        </li>
-                                        <li class="submenu__item">
-                                            <a class="submenu__link" href="#">Фотографии</a>
-                                        </li>
-                                        <li class="submenu__item">
-                                            <a class="submenu__link" href="#">Фотографии</a>
-                                        </li>
-                                        <li class="submenu__item">
-                                            <a class="submenu__link" href="#">Фотографии</a>
+                                            <a class="submenu__link" href="#">Соицально-экономическое развитие</a>
                                         </li>
                                     </ul>
                                 </div>
                             </li>
                             <li class="menu__item">
-                                <a class="menu__link" href="#">Аналитика</a>
-                            </li>
-                            <li class="menu__item">
-                                <a class="menu__link" href="#">Открытость</a>
+                                <a class="menu__link has-dropdown" href="#">Аналитика</a>
+                                <div class="submenu menu__submenu">
+                                    <ul class="submenu__list">
+                                        <li class="submenu__item">
+                                            <a class="submenu__link" href="#">Основные параметры бюджета в динамике</a>
+                                        </li>
+                                        <li class="submenu__item">
+                                            <a class="submenu__link" href="#">Доходы</a>
+                                        </li>
+                                        <li class="submenu__item">
+                                            <a class="submenu__link" href="#">Расходы</a>
+                                        </li>
+                                        <li class="submenu__item">
+                                            <a class="submenu__link" href="#">Государственные программы</a>
+                                        </li>
+                                        <li class="submenu__item">
+                                            <a class="submenu__link" href="#">Государственный долг</a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </li>
                             <li class="menu__item">
                                 <a class="menu__link" href="#">Сервисы</a>
                             </li>
                             <li class="menu__item">
-                                <a class="menu__link" href="#">Медиацентр</a>
+                                <a class="menu__link has-dropdown" href="#">Открытость</a>
+                                <div class="submenu menu__submenu">
+                                    <ul class="submenu__list">
+                                        <li class="submenu__item">
+                                            <a class="submenu__link" href="#">Путеводитель по бюджету</a>
+                                        </li>
+                                        <li class="submenu__item">
+                                            <a class="submenu__link" href="#">Конкурсы</a>
+                                        </li>
+                                        <li class="submenu__item">
+                                            <a class="submenu__link" href="#">Федеральный бюджет для граждан</a>
+                                        </li>
+                                        <li class="submenu__item">
+                                            <a class="submenu__link" href="#">Открытые данные</a>
+                                        </li>
+                                        <li class="submenu__item">
+                                            <a class="submenu__link" href="#">Рейтинг открытости бюджетных данных</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="menu__item">
+                                <a class="menu__link has-dropdown" href="#">Медиацентр</a>
+                                <div class="submenu menu__submenu">
+                                    <ul class="submenu__list">
+                                        <li class="submenu__item">
+                                            <a class="submenu__link has-dropdown" href="#">Новости</a>
+                                            <div class="submenu submenu__submenu">
+                                                <ul class="submenu__list">
+                                                    <li class="submenu__item">
+                                                        <a class="submenu__link" href="#">Новости бюджета</a>
+                                                    </li>
+                                                    <li class="submenu__item">
+                                                        <a class="submenu__link" href="#">Новости Москвы</a>
+                                                    </li>
+                                                    <li class="submenu__item">
+                                                        <a class="submenu__link" href="#">Федеральные новости</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li class="submenu__item">
+                                            <a class="submenu__link" href="#">События</a>
+                                        </li>
+                                        <li class="submenu__item">
+                                            <a class="submenu__link" href="#">Инфографика</a>
+                                        </li>
+                                        <li class="submenu__item">
+                                            <a class="submenu__link has-dropdown" href="#">Медиаматериалы</a>
+                                            <div class="submenu submenu__submenu">
+                                                <ul class="submenu__list">
+                                                    <li class="submenu__item">
+                                                        <a class="submenu__link" href="#">Фотографии</a>
+                                                    </li>
+                                                    <li class="submenu__item">
+                                                        <a class="submenu__link" href="#">Видео</a>
+                                                    </li>
+                                                    <li class="submenu__item">
+                                                        <a class="submenu__link" href="#">Презентации</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li class="submenu__item">
+                                            <a class="submenu__link" href="#">Материалы для СМИ</a>
+                                        </li>
+                                        <li class="submenu__item">
+                                            <a class="submenu__link" href="#">Пресс-служба</a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </li>
                             <li class="menu__item">
                                 <a class="menu__link" href="#">Обратная связь</a>
@@ -1853,13 +1958,13 @@
                             <a class="footer__menu-link" href="#">Что такое бюджет?</a>
                         </li>
                         <li class="footer__menu-item">
-                            <a class="footer__menu-link" href="#">Бюджетная система Москвы</a>
-                            <ul class="footer__menu footer__menu_submenu">
+                            <a class="footer__menu-link has-dropdown" href="#">Бюджетная система</a>
+                            <ul class="footer__menu">
                                 <li class="footer__menu-item">
                                     <a class="footer__menu-link" href="#">Бюджетная система РФ</a>
                                 </li>
                                 <li class="footer__menu-item">
-                                    <a class="footer__menu-link" href="#">Принципы бюджетной системы РФ</a>
+                                    <a class="footer__menu-link" href="#">Принципы бюджетной системы</a>
                                 </li>
                                 <li class="footer__menu-item">
                                     <a class="footer__menu-link" href="#">Этапы подготовки бюджета</a>
@@ -1873,7 +1978,7 @@
                             </ul>
                         </li>
                         <li class="footer__menu-item">
-                            <a class="footer__menu-link" href="#">Бюджетная классификация</a>
+                            <a class="footer__menu-link" href="#">Бюдженая классификация</a>
                         </li>
                         <li class="footer__menu-item">
                             <a class="footer__menu-link" href="#">Глоссарий</a>
@@ -1886,6 +1991,9 @@
                 <div class="footer__column">
                     <a class="footer__heading" href="#">Бюджет Москвы</a>
                     <ul class="footer__menu">
+                        <li class="footer__menu-item">
+                            <a class="footer__menu-link" href="#">Основные параметры бюджета</a>
+                        </li>
                         <li class="footer__menu-item">
                             <a class="footer__menu-link" href="#">Доходы</a>
                         </li>
@@ -1907,11 +2015,17 @@
                         <li class="footer__menu-item">
                             <a class="footer__menu-link" href="#">Межбюджетные отношения</a>
                         </li>
+                        <li class="footer__menu-item">
+                            <a class="footer__menu-link" href="#">Социально-экономическое развитие</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="footer__column">
                     <a class="footer__heading" href="#">Аналитика</a>
                     <ul class="footer__menu">
+                        <li class="footer__menu-item">
+                            <a class="footer__menu-link" href="#">Основные параметры бюджета в динамике</a>
+                        </li>
                         <li class="footer__menu-item">
                             <a class="footer__menu-link" href="#">Доходы</a>
                         </li>
@@ -1922,12 +2036,6 @@
                             <a class="footer__menu-link" href="#">Государственные программы</a>
                         </li>
                         <li class="footer__menu-item">
-                            <a class="footer__menu-link" href="#">Адресная инвестиционная программа</a>
-                        </li>
-                        <li class="footer__menu-item">
-                            <a class="footer__menu-link" href="#">Социально-экономическое развитие</a>
-                        </li>
-                        <li class="footer__menu-item">
                             <a class="footer__menu-link" href="#">Государственный долг</a>
                         </li>
                     </ul>
@@ -1936,19 +2044,19 @@
                     <a class="footer__heading" href="#">Открытость</a>
                     <ul class="footer__menu">
                         <li class="footer__menu-item">
-                            <a class="footer__menu-link" href="#">Открытые данные</a>
-                        </li>
-                        <li class="footer__menu-item">
                             <a class="footer__menu-link" href="#">Путеводитель по бюджету Москвы</a>
                         </li>
                         <li class="footer__menu-item">
                             <a class="footer__menu-link" href="#">Конкурсы</a>
                         </li>
                         <li class="footer__menu-item">
-                            <a class="footer__menu-link" href="#">Рейтинг открытости бюджетных данных</a>
+                            <a class="footer__menu-link" href="#">Федеральный бюджет для граждан</a>
                         </li>
                         <li class="footer__menu-item">
-                            <a class="footer__menu-link" href="#">Федеральный бюджет для граждан</a>
+                            <a class="footer__menu-link" href="#">Открытые данные</a>
+                        </li>
+                        <li class="footer__menu-item">
+                            <a class="footer__menu-link" href="#">Рейтинг открытости бюджетных данных</a>
                         </li>
                     </ul>
                 </div>
@@ -1959,16 +2067,13 @@
                             <a class="footer__menu-link" href="#">Новости</a>
                         </li>
                         <li class="footer__menu-item">
-                            <a class="footer__menu-link" href="#">Пресса о нас</a>
+                            <a class="footer__menu-link" href="#">События</a>
                         </li>
                         <li class="footer__menu-item">
                             <a class="footer__menu-link" href="#">Инфографика</a>
                         </li>
                         <li class="footer__menu-item">
                             <a class="footer__menu-link" href="#">Медиаматериалы</a>
-                        </li>
-                        <li class="footer__menu-item">
-                            <a class="footer__menu-link" href="#">События</a>
                         </li>
                         <li class="footer__menu-item">
                             <a class="footer__menu-link" href="#">Материалы для СМИ</a>
@@ -2064,6 +2169,9 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="footer__common">
+            <iframe src="https://evp.mos.ru/frame/v2/footer.php?v=1.0.17&amp;site_id=2136&amp;show_blind=0&amp;hidesitemap=0&amp;hidecounter=0&amp;cur_domain=budget.mos.ru" id="footer_frame" frameborder="0" width="100%" scrolling="no" style="height: 208px;"></iframe>
         </div>
     </footer>
     <div class="button-top"></div>
