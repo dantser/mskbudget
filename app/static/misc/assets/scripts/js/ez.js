@@ -665,22 +665,7 @@ function stepsDetails(){
       $(window).scrollTop(scroll);
     }
   });
-
-  $(window).resize(function(){
-    $('.graphic-table__table-tr').removeClass('active');
-    $('.step__head').removeClass('active');
-    $('.steps-details').css('top', '0').removeClass('active');
-    setTimeout(function(){
-      $('.steps-details').hide();
-    }, 250);
-    $('.steps').css('height', 'auto');
-    if ($('body').hasClass('noscroll')) {
-      $("body").css('top', "0").removeClass('noscroll');
-      $(window).scrollTop(scroll);
-    }
-  });
 }
-
 
 
 function stageSlider() {
