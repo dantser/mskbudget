@@ -6,10 +6,9 @@ include ../../blocks/table/table
 include ../../blocks/dropdown-block/dropdown-block
 
 mixin gov-debt()
-  +b.gov-debt&attributes(attributes)
+  +b.SECTION.gov-debt.section__item&attributes(attributes)
     .wrapper.wrapper_govdebt
       +page-header('Государственный долг', ['Аналитика'], true)
-      
       +e.analityc-widget.analityc-widget.load-anim-fade(data-delay="1500")
         +e.analityc-tab-links
           +e.A(href="#", data-govdebt-tab="govdebt").analityc-tab-link.active Государственный долг г. Москвы

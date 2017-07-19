@@ -1,9 +1,6 @@
 .d-abs-content_budget-prep {
   display: block;
 
-
-
-
   .d-abs__head_descr {
     padding: 0;
   }
@@ -48,11 +45,26 @@
   }
 
   .section-tabs_members {
-    .owl-stage {
-      right: -90px; /*Решает проблему stagePadding*/
+    // .owl-stage-outer   {
+    //   transform: translateX(90px);
+    //   margin: 0 40px; /*Решает проблему stagePadding*/
+    //
+    //   @media (max-width: 640px) {
+    //     transform: translateX(60px);
+    //     margin: 0 40px;
+    //   }
 
-      @media (max-width: 640px) {
-        right: -60px;
+    .section-tabs__nav-btn {
+      &:first-child {
+        margin-left: 30px;
+
+        @media screen and (max-width: 800px) {
+          margin-left: 60px;
+        }
+
+        @media screen and (max-width: 350px) {
+          margin-left: 35px;
+        }
       }
     }
 
@@ -123,6 +135,7 @@
     width:100%;
     overflow-x:auto;
     overflow-y:hidden;
+    cursor: pointer;
     cursor: grab;
     cursor: -webkit-grab;
     box-sizing: content-box;

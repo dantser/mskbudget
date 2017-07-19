@@ -6,26 +6,24 @@ include ../../blocks/alternative-link/alternative-link
 include ../analityc-widgethead/analityc-widgethead
 
 mixin open-file()
-  +b.open-file&attributes(attributes)
-    .main._basic
-      section.basic-budget
-        .wrapper
-          +page-header('Открытые данные', ['Открытость'], true)
-          
-          // content
-          .analityc-widget.analityc-widget_open.load-anim-fade(data-delay="1500")
-            +analityc-widgethead-of()
-            +e.cols
-              +e.col_one
-                - for (var i=0; i<16; i++)
-                  +b.analityc-control-group
-                    +e.text Закон о бюджете. Ведомственная структура расходов
-                    +icon('information').icon
-                    select.analityc-select.analityc-select_dir
-                      option(selected) экспорт
-                      option импорт
-                    +link(true) паспорт
-                +e.A(href="#").show-more.d-si__button_show-more Показать еще
-              +e.col_two
-                +alternative-link('условия использования', 'пояснение куда ведет ссылка')
-                +alternative-link('запросить открытые данные', 'пояснение куда ведет ссылка')
+  +b.SECTION.open-file.main._basic.basic-budget.sections__item&attributes(attributes)
+    .wrapper
+      +page-header('Открытые данные', ['Открытость'], true)
+      
+      // content
+      .analityc-widget.analityc-widget_open.load-anim-fade(data-delay="1500")
+        +analityc-widgethead-of()
+        +e.cols
+          +e.col_one
+            - for (var i=0; i<16; i++)
+              +b.analityc-control-group
+                +e.text Закон о бюджете. Ведомственная структура расходов
+                +icon('information').icon
+                select.analityc-select.analityc-select_dir
+                  option(selected) экспорт
+                  option импорт
+                +link(true) паспорт
+            +e.A(href="#").show-more.d-si__button_show-more Показать еще
+          +e.col_two
+            +alternative-link('условия использования', 'пояснение куда ведет ссылка')
+            +alternative-link('запросить открытые данные', 'пояснение куда ведет ссылка')

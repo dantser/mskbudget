@@ -2,86 +2,85 @@ include ../page-header/page-header
 include ../../blocks/dropdown-block/dropdown-block
 
 mixin basic_budget_figures()
-  .main._basic
-    section.basic-budget
-      .wrapper
-        +page-header('Основные показатели бюджета', ['Бюджет Москвы'], true)
-        .article-controls
-          span
-          span
-          span
-        .analityc-widget.analityc-widget_figures.load-anim-fade(data-delay="1500")
-          .analityc-control-group._year
-            span Год
-            select.analityc-select
-              option(selected) 2017
-              option 2016
-              option 2015
-          .analityc-control-group._stage
-            span Этап
-            select.analityc-select
-              option(selected) Закон о бюджете первоначальный
-              option Закон о внесении изменений
-              option Закон об исполнении
-              option Исполнение на дату
-          .analityc-control-group._level
-            span Уровень
-            select.analityc-select
-              option(selected) Бюджет москвы
-              option Консолидированный бюджет
-              option Бюджет региона
-          .analityc-control-group._transfer
-            span Межбюджетные трансферы
-            select.analityc-select
-              option(selected) Без межбюджетных трансфертов
-              option с трансфертами
-          .analityc-control-group._dp.basic-budget__dp
-            input(placeholder="Выберите дату исполнения").jq-spec-datepicker
-          .analityc-control-group._dp-alt.basic-budget__dp
-            input(placeholder="на 1 декабря").jq-spec-datepicker-alt
-          span.analityc-widget-label млрд. рублей
-          .analityc-widget-rounds._active
-            .legend
-              p.legend__item.legend__item_blue доходы
-              p.legend__item.legend__item_pink расходы
-              p.legend__item.legend__item_green дефицит/профицит
-            .analityc-widget-item
-              .comp-diagram.comp-diagram_dash-1(id="diagram-1")
-                a(href="#" title="Диаграмма 2017 год")
-                p.comp-diagram__year 2017
-            .analityc-widget-item
-              .comp-diagram.comp-diagram_dash-1(id="diagram-2")
-                a(href="#" title="Диаграмма 2018 год")
-                p.comp-diagram__year 2018
-            .analityc-widget-item
-              .comp-diagram.comp-diagram_dash-1(id="diagram-3")
-                a(href="#" title="Диаграмма 2019 год")
-                p.comp-diagram__year 2019
-          .analityc-widget-rounds
-            .analityc-widget-item._incoming
-              span
-                strong доходы
-              .large-diagram__svg(id="diagram-4")
-            .analityc-widget-item._outlay
-              span
-                strong расходы
-              .large-diagram__svg(id="diagram-5")
-          .analityc-widget-rounds
-            .legend
-              p.legend__item.legend__item_blue доходы
-              p.legend__item.legend__item_pink расходы
-              p.legend__item.legend__item_green дефицит/профицит
-            .analityc-widget-item
-              .comp-diagram.comp-diagram_dash-1(id="diagram-01")
-                a(href="#" title="Диаграмма 2017 год")
-                p.comp-diagram__year 2017
-            .analityc-widget-item
-              .comp-diagram.comp-diagram_dash-1(id="diagram-02")
-                a(href="#" title="Диаграмма 2018 год")
-                p.comp-diagram__year 2018
-            .analityc-widget-item
-              .comp-diagram.comp-diagram_dash-1(id="diagram-03")
-                a(href="#" title="Диаграмма 2019 год")
-                p.comp-diagram__year 2019
-          a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
-      +dropdown().load-anim-fade(data-delay="1700")
+  section.main._basic.section__item.basic-budget
+    .wrapper
+      +page-header('Основные показатели бюджета', ['Бюджет Москвы'], true)
+      .article-controls
+        span
+        span
+        span
+      .analityc-widget.analityc-widget_figures.load-anim-fade(data-delay="1500")
+        .analityc-control-group._year
+          span Год
+          select.analityc-select
+            option(selected) 2017
+            option 2016
+            option 2015
+        .analityc-control-group._stage
+          span Этап
+          select.analityc-select
+            option(selected) Закон о бюджете первоначальный
+            option Закон о внесении изменений
+            option Закон об исполнении
+            option Исполнение на дату
+        .analityc-control-group._level
+          span Уровень
+          select.analityc-select
+            option(selected) Бюджет москвы
+            option Консолидированный бюджет
+            option Бюджет региона
+        .analityc-control-group._transfer
+          span Межбюджетные трансферы
+          select.analityc-select
+            option(selected) Без межбюджетных трансфертов
+            option с трансфертами
+        .analityc-control-group._dp.basic-budget__dp
+          input(placeholder="Выберите дату исполнения").jq-spec-datepicker
+        .analityc-control-group._dp-alt.basic-budget__dp
+          input(placeholder="на 1 декабря").jq-spec-datepicker-alt
+        span.analityc-widget-label млрд. рублей
+        .analityc-widget-rounds._active
+          .legend
+            p.legend__item.legend__item_blue доходы
+            p.legend__item.legend__item_pink расходы
+            p.legend__item.legend__item_green дефицит/профицит
+          .analityc-widget-item
+            .comp-diagram.comp-diagram_dash-1(id="diagram-1")
+              a(href="#" title="Диаграмма 2017 год")
+              p.comp-diagram__year 2017
+          .analityc-widget-item
+            .comp-diagram.comp-diagram_dash-1(id="diagram-2")
+              a(href="#" title="Диаграмма 2018 год")
+              p.comp-diagram__year 2018
+          .analityc-widget-item
+            .comp-diagram.comp-diagram_dash-1(id="diagram-3")
+              a(href="#" title="Диаграмма 2019 год")
+              p.comp-diagram__year 2019
+        .analityc-widget-rounds
+          .analityc-widget-item._incoming
+            span
+              strong доходы
+            .large-diagram__svg(id="diagram-4")
+          .analityc-widget-item._outlay
+            span
+              strong расходы
+            .large-diagram__svg(id="diagram-5")
+        .analityc-widget-rounds
+          .legend
+            p.legend__item.legend__item_blue доходы
+            p.legend__item.legend__item_pink расходы
+            p.legend__item.legend__item_green дефицит/профицит
+          .analityc-widget-item
+            .comp-diagram.comp-diagram_dash-1(id="diagram-01")
+              a(href="#" title="Диаграмма 2017 год")
+              p.comp-diagram__year 2017
+          .analityc-widget-item
+            .comp-diagram.comp-diagram_dash-1(id="diagram-02")
+              a(href="#" title="Диаграмма 2018 год")
+              p.comp-diagram__year 2018
+          .analityc-widget-item
+            .comp-diagram.comp-diagram_dash-1(id="diagram-03")
+              a(href="#" title="Диаграмма 2019 год")
+              p.comp-diagram__year 2019
+        a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
+    +dropdown().load-anim-fade(data-delay="1700")

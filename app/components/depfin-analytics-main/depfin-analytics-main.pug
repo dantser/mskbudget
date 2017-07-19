@@ -6,23 +6,22 @@ include ../../blocks/table/table
 include ../../blocks/dropdown-block/dropdown-block
 
 mixin depfin-analytics-main()
-	.main._basic
-		section.basic-budget
-			.wrapper.wrapper_params
-				+page-header('Основные параметры', ['Аналитика'], true)
+	section.main._basic.basic-budget.sections__item
+		.wrapper.wrapper_params
+			+page-header('Основные параметры', ['Аналитика'], true)
 
-				//- Tab 1
-				.analityc-widget.analityc-widget_params.load-anim-fade(data-delay="1500")
-					+analityc-widgethead-main()
+			//- Tab 1
+			.analityc-widget.analityc-widget_params.load-anim-fade(data-delay="1500")
+				+analityc-widgethead-main()
 
-					+analityc-graphics-line-vertical(getData('graphic-lines-main'))
-					+analityc-graphics-line-vertical_slider(getData('graphic-lines-main'))
+				+analityc-graphics-line-vertical(getData('graphic-lines-main'))
+				+analityc-graphics-line-vertical_slider(getData('graphic-lines-main'))
 
-					+analityc-graphics-classic()
+				+analityc-graphics-classic()
 
-					+analityc-table()._params
-						+table-main(getData('main'))
+				+analityc-table()._params
+					+table-main(getData('main'))
 
-					a(href="/").analityc-more Перейти в&nbsp;раздел бюджет москвы
+				a(href="/").analityc-more Перейти в&nbsp;раздел бюджет москвы
 
-			+dropdown().load-anim-fade(data-delay="1700")
+		+dropdown().load-anim-fade(data-delay="1700")

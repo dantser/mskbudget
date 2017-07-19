@@ -8,23 +8,22 @@ include ../../blocks/dropdown-block/dropdown-block
 
 
 mixin depfin-analytics-expenses()
-	.main._basic
-		section.basic-budget
-			.wrapper.wrapper_analytics-expenses
-				+page-header('Расходы бюджета', ['Бюджет Москвы'], true)
+	section.main._basic.basic-budget.sections__item
+		.wrapper.wrapper_analytics-expenses
+			+page-header('Расходы бюджета', ['Аналитика'], true)
 
 
-				.analityc-widget.analityc-widget_analytics-expenses.load-anim-fade(data-delay="1500")
-					+analityc-widgethead-analytics-expenses()
+			.analityc-widget.analityc-widget_analytics-expenses.load-anim-fade(data-delay="1500")
+				+analityc-widgethead-analytics-expenses()
 
-					+analityc-graphics-line-vertical(getData('graphic-lines-analytics-expenses'), true)._gp
-					+analityc-graphics-line-vertical_slider(getData('graphic-lines-main'), true).analityc-graphics-line-vertical_gp
-					
-					+legend-icon()
+				+analityc-graphics-line-vertical(getData('graphic-lines-analytics-expenses'), true)._gp
+				+analityc-graphics-line-vertical_slider(getData('graphic-lines-main'), true).analityc-graphics-line-vertical_gp
+				
+				+legend-icon()
 
-					+analityc-table()._gp
-						+table-gp(getData('analytics-expenses'))
+				+analityc-table()._gp
+					+table-gp(getData('analytics-expenses'))
 
-					a(href="/").analityc-more Перейти в&nbsp;раздел бюжет москвы
-					
-			+dropdown().load-anim-fade(data-delay="1700")
+				a(href="/").analityc-more Перейти в&nbsp;раздел бюжет москвы
+				
+		+dropdown().load-anim-fade(data-delay="1700")
