@@ -18,7 +18,7 @@ mixin page-header(title, breadcrumbs, isDownloadable)
       .d-si__icons_item
         +icon('icon-rss').share.load-anim-fade(data-delay="1100")
         .share__panel.share
-          +social('facebook-box', 'vk', 'tw', 'insta', 'odnokl', 'youtube-play', 'telegram').__social
+          +social('facebook-box', 'vk', 'tw', 'odnokl').__social
       if (isDownloadable)
         .d-si__icons_item.download.load-anim-fade(title="Загрузить", data-delay="1300")
           +icon('download').download-icon
@@ -27,4 +27,3 @@ mixin page-header(title, breadcrumbs, isDownloadable)
             a(href="#" title="").download__a *.csv
             a(href="#" title="").download__a *.xls
             a(href="#" title="").download__a *.ppt(x)
-
