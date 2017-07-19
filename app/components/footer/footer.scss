@@ -23,11 +23,34 @@
     flex-direction: column;
     justify-content: flex-end;
 
-    &__wrap {
+    &__main {
       height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
+    }
+
+    @media (max-width: 480px) {
+      &__column {
+        margin-top: 10px;
+      }
+    }
+
+    @media (max-width: 320px) {
+      padding-top: 50px;
+      font-size: 10px;
+
+      &__main {
+        padding-top: 45px;
+      }
+
+      &__column {
+        margin-top: 5px;
+      }
+
+      &__heading {
+        font-size: 12px;
+      }
     }
   }
 
@@ -51,7 +74,7 @@
   }
 
   &__wrap {
-    background: url('../images/background/footer.png') transparent bottom center no-repeat;
+
   }
 
   &__common {
@@ -63,6 +86,7 @@
   &__main {
     overflow: hidden;
     padding-bottom: 40px;
+    background: url('../images/background/footer.png') transparent bottom center no-repeat;
 
     @media (max-width: $navBreakpointTablet) {
       padding-top: 25px;
