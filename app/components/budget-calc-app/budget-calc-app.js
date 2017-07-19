@@ -21,6 +21,10 @@ export default() => {
 
         $tabControls.removeClass('is-active');
         $targetTabIndicator.addClass('is-active');
+
+        setTimeout(function() {
+          $("html, body").animate({ scrollTop: 0 }, 350);
+        }, 5);
       }
     });
   }
