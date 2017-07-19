@@ -110,6 +110,11 @@ body.mobile-menu-is-open {
     display: inline-block;
     height: 46px;
 
+    &:active,
+    &:focus {
+      color: white;
+    }
+
     .logo__lg {
       width: 230px;
       padding-left: 55px;
@@ -370,20 +375,58 @@ body.mobile-menu-is-open {
   &__currency {
     display: inline-block;
     float: none;
-    margin: 12px auto 0;
+    margin: 15px auto 0;
     @include transited;
 
-    // @media (min-width: $navBreakpointXXL) {
-    //   margin-top: 5px;
-    // }
+    @media (min-width: $navBreakpointXXL) {
+      float: left;
+      margin-top: 14px;
+      margin-left: 45px;
+    }
 
-    @media (min-width: $navBreakpointTablet + 1px) {
-      font-size: 20px;
+    @media (min-width: $navBreakpointTablet + 1px) and (max-width: $navBreakpointXXL) {
+      font-size: 17px;
     }
 
     @media (max-width: $navBreakpointTablet) {
       margin-top: 0;
-      font-size: 20px;
+    }
+  }
+
+  &__icon {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  &__toppanel-link {
+    display: inline-block;
+    float: none;
+    width: 18px;
+    height: 21px;
+    margin: 8px 25px 0 60px;
+    padding: 5px;
+    box-sizing: content-box;
+    text-align: center;
+    fill: white;
+
+    &:hover {
+      color: #fee300;
+      fill: #fee300;
+    }
+
+    @media (min-width: $navBreakpointXXL) {
+      float: left;
+      margin: 8px 15px 0 42px;
+    }
+
+    @media (max-width: $navBreakpointTablet) {
+      position: absolute;
+      top: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30px;
+      height: 30px;
+      margin: 0;
     }
   }
 

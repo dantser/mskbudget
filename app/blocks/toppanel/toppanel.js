@@ -4,7 +4,7 @@ export default function toppanel() {
   const $toppanel = $('#toppanel');
   const $navbar = $('#header');
   const $navbarDrop = $('#headerDrop');
-  const $trigger = $('.js-show-toppanel');
+  const $trigger = $('*[data-toggle-toppanel]');
 
   if ($toppanel && $navbar && $navbarDrop && $trigger) {
     $trigger.on('click', (e) => {

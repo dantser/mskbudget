@@ -11,16 +11,18 @@ mixin header()
   +b.HEADER.header#header&attributes(attributes)
     +e.wrap.wrap
       //- логотип в мобильной версии меню
-      +logo('header').header__logo.hidden-desktop.js-show-toppanel
+      +logo('header').header__logo.hidden-desktop
       +e.drop#headerDrop
         +e.drop-row#header-short-nav-hidden
           //- логотип в десктопной версии меню
-          +logo('header').header__logo.hidden-mobile.js-show-toppanel
+          +logo('header').header__logo.hidden-mobile
           +e.A(href="#").link-for-blind.link-for-blind.visible-xxl
             +icon('glasses').icon.link-for-blind__icon
             .link-for-blind__text Версия для слабовидящих
           +currency().header__currency
-          +social('facebook-box', 'vk', 'tw', 'insta', 'odnokl', 'youtube-play', 'telegram').__social
+          //- +e.A.toppanel-link(href="#").js-show-toppanel
+          //-   +icon('mos').icon
+          +social('mos', 'facebook-box', 'vk', 'tw', 'insta', 'odnokl', 'youtube-play', 'telegram').__social
         +e.drop-row
           +e.A(href="#").link-for-blind.link-for-blind.hidden-xxl
             +icon('glasses').icon.link-for-blind__icon
