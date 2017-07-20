@@ -24,7 +24,11 @@ mixin media-main()
           +e.A(href="#").page-link Все события
             +icon('angle-arrow').__page-link-icon
         +e.card-wrapper
-          +e.datepicker
+          +e.datepicker.form__date-range(id='rid-1')
+            INPUT(type='text', value='дд.мм.гг').form__date-range-input.jq-f-datepicker.input-min
+            SPAN.form__date-range-sep —
+            INPUT(type='text', value='дд.мм.гг').form__date-range-input.jq-f-datepicker.input-max
+            SPAN.form__date-range-icon
           +event-card(2, 'Русский Монмартр и акунинская Москва: бесплатные экскурсии ко дню города!', '1 апреля 2016')._big.__event-card
           +event-card(3, 'Возле лужников появится кафе с фонтаном-принтером', '1 апреля 2016')._big.__event-card
           +event-card(1, 'Русский Монмартр и акунинская Москва: бесплатные экскурсии ко дню города!', '1 апреля 2016')._big.__event-card
