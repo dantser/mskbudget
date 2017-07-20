@@ -9,11 +9,16 @@ export default function depfin_services_budget_calc() {
   if ($tabsWrapper && $tabs) {
     $tabs.on('click', '.js-budget-calc__tab-control', function(event) {
       event.preventDefault();
-      const $targetTab = $($(this).attr('href'));
+      const $targetTab = $($(this).attr('data-target'));
 
       if (!$targetTab.hasClass('is-active')) {
         $tabs.removeClass('is-active');
         $targetTab.addClass('is-active');
+
+        // скроллим наверх
+        setTimeout(function() {
+          $("html, body").animate({ scrollTop: 0 }, 350);
+        }, 5);
       }
     });
   }

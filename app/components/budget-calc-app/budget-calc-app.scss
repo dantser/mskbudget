@@ -202,7 +202,7 @@
     }
 
     &:nth-child(3) {
-      width: 30%;
+      width: 29%; // ie fix
       padding-left: 7px;
       padding-right: 30px;
 
@@ -379,6 +379,19 @@
       right: 15px;
       border-width: 5px 0 5px 5px;
       border-color: transparent transparent transparent black;
+    }
+  }
+
+  &.-triangle-left {
+    position: relative;
+    padding-left: 40px;
+
+    &:after {
+      @include budget-calc-triangle;
+      left: 15px;
+      border-width: 5px 0 5px 5px;
+      border-color: transparent transparent transparent black;
+      transform: rotate(180deg) translateY(50%);
     }
   }
 
@@ -588,6 +601,15 @@
   &__text {
     padding-left: 25px;
     padding-right: 25px;
+
+    .budget-calc-btn {
+      margin-top: 10px;
+      margin-bottom: 10px;
+
+      &:not(:last-child) {
+        margin-right: 15px;
+      }
+    }
 
     @media (max-width: 786px) {
       padding-left: 15px;
@@ -1235,21 +1257,21 @@
     }
 
     .-widget-restore-inner {
-      @include display-flex;
-      @include align-items(center);
+      position: relative;
+      overflow: hidden;
     }
 
     .-widget-restore-icon {
+      float: left;
       height: 28px;
-      @include flex-basis(18px);
-      @include flex-shrink(0);
-      margin-right: 14px;
+      width: 18px;
       fill: #fee300;
       @include transited;
     }
 
     .-widget-restore-name {
-      @include flex-basis(100%);
+      float: none;
+      margin-left: 32px;
       font-size: 14px;
       line-height: 16px;
     }
