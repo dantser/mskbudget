@@ -398,10 +398,28 @@
                             </div>
                             <button class="share__btn"></button>
                             <div class="share__panel">
-                                <a class="share__a share__a_fb" href="#"></a>
-                                <a class="share__a share__a_vk" href="#"></a>
-                                <a class="share__a share__a_tw" href="#"></a>
-                                <a class="share__a share__a_ok" href="#"></a>
+                                <ul class="social news__social">
+                                    <li class="social__item">
+                                        <a class="social__link social__link social__link_type_facebook-box" href="#">
+                                            <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_facebook-box"></use></svg>
+                                        </a>
+                                    </li>
+                                    <li class="social__item">
+                                        <a class="social__link social__link social__link_type_vk" href="#">
+                                            <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_vk"></use></svg>
+                                        </a>
+                                    </li>
+                                    <li class="social__item">
+                                        <a class="social__link social__link social__link_type_tw" href="#">
+                                            <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_tw"></use></svg>
+                                        </a>
+                                    </li>
+                                    <li class="social__item">
+                                        <a class="social__link social__link social__link_type_odnokl" href="#">
+                                            <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_odnokl"></use></svg>
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                         <div class="news news_red news_big media-main__news-card active" data-filter="moscow">
@@ -420,10 +438,28 @@
                             </div>
                             <button class="share__btn"></button>
                             <div class="share__panel">
-                                <a class="share__a share__a_fb" href="#"></a>
-                                <a class="share__a share__a_vk" href="#"></a>
-                                <a class="share__a share__a_tw" href="#"></a>
-                                <a class="share__a share__a_ok" href="#"></a>
+                                <ul class="social news__social">
+                                    <li class="social__item">
+                                        <a class="social__link social__link social__link_type_facebook-box" href="#">
+                                            <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_facebook-box"></use></svg>
+                                        </a>
+                                    </li>
+                                    <li class="social__item">
+                                        <a class="social__link social__link social__link_type_vk" href="#">
+                                            <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_vk"></use></svg>
+                                        </a>
+                                    </li>
+                                    <li class="social__item">
+                                        <a class="social__link social__link social__link_type_tw" href="#">
+                                            <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_tw"></use></svg>
+                                        </a>
+                                    </li>
+                                    <li class="social__item">
+                                        <a class="social__link social__link social__link_type_odnokl" href="#">
+                                            <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_odnokl"></use></svg>
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                         <div class="news news_green news_big media-main__news-card active" data-filter="federal">
@@ -442,10 +478,28 @@
                             </div>
                             <button class="share__btn"></button>
                             <div class="share__panel">
-                                <a class="share__a share__a_fb" href="#"></a>
-                                <a class="share__a share__a_vk" href="#"></a>
-                                <a class="share__a share__a_tw" href="#"></a>
-                                <a class="share__a share__a_ok" href="#"></a>
+                                <ul class="social news__social">
+                                    <li class="social__item">
+                                        <a class="social__link social__link social__link_type_facebook-box" href="#">
+                                            <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_facebook-box"></use></svg>
+                                        </a>
+                                    </li>
+                                    <li class="social__item">
+                                        <a class="social__link social__link social__link_type_vk" href="#">
+                                            <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_vk"></use></svg>
+                                        </a>
+                                    </li>
+                                    <li class="social__item">
+                                        <a class="social__link social__link social__link_type_tw" href="#">
+                                            <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_tw"></use></svg>
+                                        </a>
+                                    </li>
+                                    <li class="social__item">
+                                        <a class="social__link social__link social__link_type_odnokl" href="#">
+                                            <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_odnokl"></use></svg>
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -475,7 +529,12 @@
                         </a>
                     </h2>
                     <div class="media-main__card-wrapper">
-                        <div class="media-main__datepicker"></div>
+                        <div class="media-main__datepicker form__date-range" id="rid-1">
+                            <INPUT class="form__date-range-input jq-f-datepicker input-min" type="text" value="дд.мм.гг"></INPUT>
+                            <SPAN class="form__date-range-sep">—</SPAN>
+                            <INPUT class="form__date-range-input jq-f-datepicker input-max" type="text" value="дд.мм.гг"></INPUT>
+                            <SPAN class="form__date-range-icon"></SPAN>
+                        </div>
                         <div class="news news_events news_big media-main__event-card">
                             <a class="news__thumb" href="#">
                                 <img src="assets/images/events/2.jpg" alt="thumb" />
@@ -1128,6 +1187,10 @@
     <script src="assets/scripts/js/owl.carousel.min.js"></script>
     <script src="assets/scripts/js/script.js"></script>
     <script src="assets/scripts/js/ez.js"></script>
+    <div class="range-datepicker range-datepicker_media">
+        <div class="range-datepicker__item range-datepicker__item_min" data-range="min"></div>
+        <div class="range-datepicker__item range-datepicker__item_max" data-range="max"></div>
+    </div>
     <script>
         $(document).ready(function() {
             /*Init Diagrams -- set id to diagram viewbox -- */
