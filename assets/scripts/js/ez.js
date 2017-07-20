@@ -407,7 +407,7 @@ function tabsLine(){
 	$('.js-label-button').click(function(){
       var sectionTabs = $(this).parents('.section-tabs');
       sectionTabs.find($('.section-tabs__nav')).slideToggle();
-      sectionTabs.find($('.owl-nav')).slideToggle();
+      sectionTabs.find($('.owl-nav')).slideDown();
       sectionTabs.find($('.section-tabs__content')).slideToggle();
       $(this).toggleClass('js-label-button-closed');
       sectionTabs.toggleClass('active');
@@ -434,7 +434,11 @@ function tabsLine(){
     stagePadding: 200,
     responsive: {
       0: {
-        touchDrag:true
+        touchDrag:true,
+        items: 1
+      },
+      769: {
+        items: "auto"
       },
       1025: {
         touchDrag: false
@@ -582,7 +586,8 @@ function sectionTabs(){
 			$(this).addClass(sectionTabNavBtnActive);
       $('.section-tabs_members').addClass('active');
       $('.owl-nav').show();
-      $('.section-tabs__head').removeClass('section-tabs__head_closed');
+      $('[data-target="'+ $(this).data('data-target-for') + '"]').addClass('participant_active');
+      $('.section-tabs_members .section-tabs__head').removeClass('section-tabs__head_closed');
       $('.section-tabs_members .section-tabs__nav, .section-tabs_members .section-tabs__content').slideDown();
       $('[data-section-tab-for="'+ $(this).data('section-tab-for') + '"]').addClass(sectionTabNavBtnActive);
 			$('[data-section-tab="'+ $(this).data('section-tab-for') + '"]').addClass(sectionTabActive);
