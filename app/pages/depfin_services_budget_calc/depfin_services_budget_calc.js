@@ -14,6 +14,11 @@ export default function depfin_services_budget_calc() {
       if (!$targetTab.hasClass('is-active')) {
         $tabs.removeClass('is-active');
         $targetTab.addClass('is-active');
+
+        // скроллим наверх
+        setTimeout(function() {
+          $("html, body").animate({ scrollTop: 0 }, 350);
+        }, 5);
       }
     });
   }

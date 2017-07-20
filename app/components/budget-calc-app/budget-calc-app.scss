@@ -312,6 +312,10 @@
   border: 1px solid #fee300;
   @include transited;
 
+  + .budget-calc-btn {
+    margin-left: 20px;
+  }
+
   &:hover {
     background-color: #E7CE00;
     border-color: #E7CE00;
@@ -379,6 +383,19 @@
       right: 15px;
       border-width: 5px 0 5px 5px;
       border-color: transparent transparent transparent black;
+    }
+  }
+
+  &.-triangle-left {
+    position: relative;
+    padding-left: 40px;
+
+    &:after {
+      @include budget-calc-triangle;
+      left: 15px;
+      border-width: 5px 0 5px 5px;
+      border-color: transparent transparent transparent black;
+      transform: rotate(180deg) translateY(50%);
     }
   }
 
@@ -1235,21 +1252,21 @@
     }
 
     .-widget-restore-inner {
-      @include display-flex;
-      @include align-items(center);
+      position: relative;
+      overflow: hidden;
     }
 
     .-widget-restore-icon {
+      float: left;
       height: 28px;
-      @include flex-basis(18px);
-      @include flex-shrink(0);
-      margin-right: 14px;
+      width: 18px;
       fill: #fee300;
       @include transited;
     }
 
     .-widget-restore-name {
-      @include flex-basis(100%);
+      float: none;
+      margin-left: 32px;
       font-size: 14px;
       line-height: 16px;
     }
