@@ -18,10 +18,7 @@ mixin news-card(image, category, title, date)
         a(href="#") #старшеклассники
     button.share__btn
     .share__panel
-      a(href="#").share__a.share__a_fb
-      a(href="#").share__a.share__a_vk
-      a(href="#").share__a.share__a_tw
-      a(href="#").share__a.share__a_ok
+      +social('facebook-box', 'vk', 'tw', 'odnokl').__social
 
 mixin event-card(image, title, date)
   +b.news._events&attributes(attributes)
@@ -62,10 +59,7 @@ mixin news-card-dropdown(image, category, title, date)
         a(href="#") #старшеклассники
     button.share__btn
     .share__panel
-      a(href="#").share__a.share__a_fb
-      a(href="#").share__a.share__a_vk
-      a(href="#").share__a.share__a_tw
-      a(href="#").share__a.share__a_ok
+      +social('facebook-box', 'vk', 'tw', 'odnokl').__social
 
 mixin short-newscard(category, date, title)
   +b.short-newscard&attributes(attributes)
