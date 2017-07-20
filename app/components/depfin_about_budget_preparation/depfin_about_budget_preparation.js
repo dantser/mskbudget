@@ -65,6 +65,7 @@ export default function aboutBudgetPreparation() {
     $('html, body').animate( {scrollTop: DEST}, 800 );
     $('.steps-details__participants-list a').removeClass('participant_active')
     $(this).addClass('participant_active');
+    $('.section-tabs_members .js-label-button-closed').click();
     switch (target) {
       case 'budgetCom':
         $('[data-target-for = budgetCom]').click();
@@ -72,11 +73,11 @@ export default function aboutBudgetPreparation() {
         break;
       case 'depFin':
         $('[data-target-for="depFin"]').click();
-        $('.owl-carousel.sections').trigger('to.owl.carousel', 1);
+        $('.owl-carousel.sections').trigger('to.owl.carousel', 2);
         break;
       case 'depEc':
         $('[data-target-for="depEc"]').click();
-        $('.owl-carousel.sections').trigger('to.owl.carousel', 2);
+        $('.owl-carousel.sections').trigger('to.owl.carousel', 3);
         break;
       case 'depPlan':
         $('[data-target-for="depPlan"]').click();
@@ -84,15 +85,15 @@ export default function aboutBudgetPreparation() {
         break;
       case 'depProp':
         $('[data-target-for="depProp"]').click();
-        $('.owl-carousel.sections').trigger('to.owl.carousel', 4);
+        $('.owl-carousel.sections').trigger('to.owl.carousel', 5);
         break;
       case 'stewardBud':
         $('[data-target-for="stewardBud"]').click();
-        $('.owl-carousel.sections').trigger('to.owl.carousel', 7);
+        $('.owl-carousel.sections').trigger('to.owl.carousel', 6);
         break;
       case 'adminIncome':
         $('[data-target-for="adminIncome"]').click();
-        $('.owl-carousel.sections').trigger('to.owl.carousel', 8);
+        $('.owl-carousel.sections').trigger('to.owl.carousel', 7);
         break;
       case 'adminSources':
         $('[data-target-for="adminSources"]').click();

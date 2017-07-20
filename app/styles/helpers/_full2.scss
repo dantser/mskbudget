@@ -8493,9 +8493,15 @@ box-shadow:inset 0px 0 30px 30px #a7a8b8 !important; }
     display:block;
 }
 .section-tabs__tab-button{
-	position:absolute;
 	top:26px;
 	right:26px;
+  position: absolute;
+
+  @media screen and (max-width: 800px) {
+    position: fixed;
+    z-index: 5;
+    opacity: .7;
+  }
 }
 .section-tabs__tab a:not([class]){
     text-decoration:none;
