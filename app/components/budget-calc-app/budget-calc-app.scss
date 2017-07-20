@@ -312,10 +312,6 @@
   border: 1px solid #fee300;
   @include transited;
 
-  + .budget-calc-btn {
-    margin-left: 20px;
-  }
-
   &:hover {
     background-color: #E7CE00;
     border-color: #E7CE00;
@@ -605,6 +601,15 @@
   &__text {
     padding-left: 25px;
     padding-right: 25px;
+
+    .budget-calc-btn {
+      margin-top: 10px;
+      margin-bottom: 10px;
+
+      &:not(:last-child) {
+        margin-right: 15px;
+      }
+    }
 
     @media (max-width: 786px) {
       padding-left: 15px;
