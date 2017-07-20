@@ -10,6 +10,8 @@ export default() => {
   const $tabControls = $('.js-budget-calc-app__tab-control');
 
   if ($calcApp && $tabsWrapper && $tabs && $tabControls) {
+    // window.dispatchEvent(new HashChangeEvent("hashchange"));
+
     $calcApp.on('click', '.js-budget-calc-app__tab-control', function(event) {
       event.preventDefault();
       const $targetTab = $($(this).attr('data-target'));
@@ -22,6 +24,7 @@ export default() => {
         $tabControls.removeClass('is-active');
         $targetTabIndicator.addClass('is-active');
 
+        // скроллим наверх
         setTimeout(function() {
           $("html, body").animate({ scrollTop: 0 }, 350);
         }, 5);
