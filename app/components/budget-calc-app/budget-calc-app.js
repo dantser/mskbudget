@@ -100,10 +100,11 @@ export default() => {
 
     if (screenWidth() > 1024 && !nowTheyInSidebar) {
       $blocksToMove.appendTo($calcAppSidebar);
-      $widgetBalance.removeClass('mr0').insertAfter('#budget-calc-app__tab_balance-indicator');
+      $widgetBalance.removeClass('mr0 mt10').insertAfter('#budget-calc-app__tab_balance-indicator');
+      // $widgetBalance.removeClass('mr0 mt0').insertAfter('#budget-calc-app__main-content');
     } else if (screenWidth() <= 1024 && nowTheyInSidebar) {
       $blocksToMove.appendTo($calcAppFooter);
-      $widgetBalance.addClass('mr0').prependTo($calcApp);
+      $widgetBalance.addClass('mr0 mt10').insertAfter('#budget-calc-app__main-content');
     }
   }
 
