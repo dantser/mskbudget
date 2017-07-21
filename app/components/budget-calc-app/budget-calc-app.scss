@@ -803,6 +803,36 @@
   // дефицит/профицит
   &__balance {
     margin-bottom: 35px;
+
+    .bc-table-row:not(.bc-table-row_expand) {
+      @media (max-width: 900px) {
+        display: flex;
+        align-items: center;
+
+        .bc-table-row__column {
+          &:first-child {
+            flex-shrink: 0;
+          }
+        }
+      }
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+
+        .bc-table-row__column {
+          width: 100%;
+          padding-left: 15px;
+          padding-right: 15px;
+        }
+      }
+    }
+
+    .bc-table-row__column {
+      @media (min-width: 769px) and (max-width: 1024px) {
+        &_name { width: 40%; }
+        &_value { width: 30%; }
+      }
+    }
   }
 
   // проверить свой вариант бюджета
@@ -878,7 +908,7 @@
               vertical-align: top;
               padding-right: 10px;
               padding-top: 5px;
-              max-width: 85px;
+              width: 85px;
             }
 
             .column-total-col2 {
@@ -1213,6 +1243,44 @@
     &:before {
       display: none;
     }
+
+    @media (max-width: $navBreakpointTablet) {
+      display: flex;
+
+      .budget-calc-app-widget__inner {
+        flex-shrink: 1;
+      }
+    }
+
+    @media (max-width: 480px) {
+      flex-direction: column;
+    }
+  }
+
+  &__mobile-notification {
+    display: none;
+    margin-left: 30px;
+
+    > p:not(:first-child) {
+      @media (max-width: 767px) {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      margin-left: 0;
+      margin-top: 30px;
+    }
+
+    p:not(:last-child) {
+      margin-bottom: 20px;
+    }
+
+    &.is-active {
+      @media (max-width: $navBreakpointTablet) {
+        display: block;
+      }
+    }
   }
 
   &_check {
@@ -1259,6 +1327,11 @@
     .-widget-restore-inner {
       position: relative;
       overflow: hidden;
+
+      @media (max-width: $navBreakpointTablet) {
+        display: flex;
+        align-items: center;
+      }
     }
 
     .-widget-restore-icon {
