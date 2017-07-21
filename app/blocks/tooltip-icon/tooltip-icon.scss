@@ -14,3 +14,53 @@
   background-color: #0d46a1;
   cursor: pointer;
 }
+
+// Само окошко с подсказкой
+.ui-tooltip {
+  z-index: 10;
+  min-height: 40px;
+  min-width: 150px;
+  max-width: 390px;
+  width: auto;
+  padding: 10px 15px;
+  font-family: $PFDinTextPro;
+  font-size: 12px;
+  line-height: 1.23;
+  border-radius: 0px;
+  background-color: white;
+  color: black;
+  box-shadow: 10px 10px 20px 0px rgba(black, .4);
+
+  @media (max-width: $navBreakpointTablet) {
+    width: 390px;
+    max-width: 95%;
+    margin: 0 auto;
+  }
+
+  .arrow-left {
+    background: none;
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: -14px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 12.5px 14px 12.5px 0;
+      border-color: transparent white transparent transparent;
+      background: none;
+
+      @media (max-width: $navBreakpointTablet) {
+        top: auto;
+        bottom: -13px;
+        transform: translate(-50%);
+        left: 50%;
+        border-width: 14px 12.5px 0 12.5px;
+        border-color: #ffffff transparent transparent transparent;
+      }
+    }
+  }
+}

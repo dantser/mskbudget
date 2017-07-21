@@ -29,6 +29,7 @@
     color: $color-yellow;
     padding-bottom: 7px;
     letter-spacing: 0.3px;
+    color: $color-yellow;
 
     &::-ms-clear {
       display: none;
@@ -51,8 +52,8 @@
       font-size: 18px;
     }
 
-    &::placeholder {
-      color: $color-white;
+    &::placeholder  {
+      color: rgba(255, 255, 255, 0.7);
       font-size: 30px;
       font-weight: 400;
       font-family: $PFDinTextPro;
@@ -64,6 +65,36 @@
       @media (max-width: 450px) {
         font-size: 18px;
       }
+    }
+
+    &:-ms-input-placeholder {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 30px;
+      font-weight: 400;
+      font-family: $PFDinTextPro;
+
+      @media (min-width: 451px) and (max-width: 700px) {
+        font-size: 26px;
+      }
+
+      @media (max-width: 450px) {
+        font-size: 18px;
+      }
+    }
+  }
+
+  .placeholder {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 30px;
+    font-weight: 400;
+    font-family: $PFDinTextPro;
+
+    @media (min-width: 451px) and (max-width: 700px) {
+      font-size: 26px;
+    }
+
+    @media (max-width: 450px) {
+      font-size: 18px;
     }
   }
 
@@ -170,7 +201,7 @@
     }
 
     &__wrapper {
-      padding: 33px 89px 28px 29px;
+      padding: 33px 29px 28px 29px;
       text-align: left;
 
       @media (min-width: 451px) and (max-width: 1280px) {
@@ -223,6 +254,14 @@
       font-size: 14.1px;
       font-weight: 400;
       vertical-align: middle;
+
+      &:hover {
+        color: $color-link;
+      }
+
+      &:active {
+        color: #1e90ff;
+      }
     }
   }
 
@@ -443,6 +482,14 @@
       font-size: 14.1px;
       font-weight: 400;
       vertical-align: middle;
+
+      &:hover {
+        color: $color-link;
+      }
+
+      &:active {
+        color: #1e90ff;
+      }
     }
   }
 }

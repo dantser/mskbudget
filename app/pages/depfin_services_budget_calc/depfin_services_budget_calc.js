@@ -18,7 +18,7 @@ export default function depfin_services_budget_calc() {
         // скроллим наверх
         setTimeout(function() {
           $("html, body").animate({ scrollTop: 0 }, 350);
-        }, 5);
+        }, 25);
       }
     });
   }
