@@ -36,7 +36,6 @@ export default function searchNavbar() {
         event.preventDefault();
         showSearch();
       } else if (!$searchNavbarInput.is(event.target) && $searchNavbar.hasClass('is-active')) {
-        console.log(event.target);
         if ($(event.target).is('.js-icon-navSearchClose, .js-icon-navSearchClose *')) {
           event.preventDefault();
           closeSearch();

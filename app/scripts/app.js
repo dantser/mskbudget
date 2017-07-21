@@ -40,6 +40,7 @@ import searchNavbar from '../blocks/search-navbar/search-navbar'; // форма 
 import widgetCard from '../components/widget-card/widgetCard';
 import header from '../components/header/header'; // навбар
 import toppanel from '../blocks/toppanel/toppanel'; // верхняя панель, общая для сайтов Москвы
+import tooltips from '../blocks/tooltip-icon/tooltip-icon'; // тултипы в калькуляторе бюджета
 import search from '../components/search/search';
 
 $(() => {
@@ -95,4 +96,5 @@ $(() => {
   searchNavbar();
   header();
   toppanel();
+  tooltips();
 });
