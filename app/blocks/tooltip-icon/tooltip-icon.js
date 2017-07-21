@@ -4,6 +4,8 @@ import 'jquery-ui-bundle';
 export default () => {
   // Подсказки/Tooltips для знаков вопроса
   const $tooltips = $('.js-tooltip');
+  const screenWidth = () => window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth || 0;
+  const position = (screenWidth() > 1024) ? 'left+40 center-8' : 'center bottom-40';
 
   if ($tooltips) {
     $tooltips.on({
@@ -12,11 +14,10 @@ export default () => {
 
         $(this).tooltip({
           show: {
-            // effect: "transfer",
             duration: 150
           },
           position: {
-            my: "left+40 center-8",
+            my: position,
             using: function(position, feedback) {
               $(this).css(position);
               $("<div>")
@@ -29,9 +30,6 @@ export default () => {
         });
         $(this).tooltip("open");
       }
-      // ,"mouseout": function() {
-      //   $(this).tooltip("close");
-      // }
     });
   }
 }
