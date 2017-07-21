@@ -334,9 +334,25 @@
                                     <svg class="header__menu2-icon js-icon-navSearchClose is-active is-hidden"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
                                 </a>
                             </li>
-                            <li class="header__menu2-item">
+                            <li class="header__menu2-item hidden">
                                 <a class="header__menu2-link btn open-popup" href="#login">
                                     <svg class="header__menu2-icon"><use xlink:href="assets/images/icon.svg#icon_user"></use></svg>
+                                </a>
+                            </li>
+                            <li class="header__menu2-item user-menu2-item">
+                                <a class="header__user" href="#">
+                                    <div class="header__user-avatar">
+                                        <IMG src="/assets/images/profile/person.jpg"></IMG>
+                                    </div>
+                                    <div class="header__user-favorites">
+                                        <svg class="header__user-favorites-icon"><use xlink:href="assets/images/icon.svg#icon_favor"></use></svg>
+                                        <span class="header__user-favorites-text">15</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="header__menu2-item header__menu2-item_logout">
+                                <a class="header__menu2-link" href="#">
+                                    <svg class="header__menu2-icon"><use xlink:href="assets/images/icon.svg#icon_logout"></use></svg>
                                 </a>
                             </li>
                         </ul>
@@ -1040,9 +1056,9 @@
                     <div class="cube-brick" data-brick-700="1" data-brick-900="1" data-brick-1100="1">
                         <!-- NEWS_ITEM/-->
                         <div class="tile__item anim-left" data-delay="100">
-                            <div class="tile__inner news news_blue">
+                            <div class="news news_blue tile__inner">
                                 <a class="news__thumb" href="#">
-                                    <img src="assets/images/post-thumb.jpg" alt="thumb" />
+                                    <img src="assets/images/news/1.jpg" alt="thumb" />
                                 </a>
                                 <a class="news__category" href="#">Новости бюджета</a>
                                 <a class="news__title" href="#">Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»</a>
@@ -1056,24 +1072,41 @@
                                 </div>
                                 <button class="share__btn"></button>
                                 <div class="share__panel">
-                                    <a class="share__a share__a_fb" href="#"></a>
-                                    <a class="share__a share__a_vk" href="#"></a>
-                                    <a class="share__a share__a_tw" href="#"></a>
-                                    <a class="share__a share__a_ok" href="#"></a>
+                                    <ul class="social news__social">
+                                        <li class="social__item">
+                                            <a class="social__link social__link social__link_type_facebook-box" href="#">
+                                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_facebook-box"></use></svg>
+                                            </a>
+                                        </li>
+                                        <li class="social__item">
+                                            <a class="social__link social__link social__link_type_vk" href="#">
+                                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_vk"></use></svg>
+                                            </a>
+                                        </li>
+                                        <li class="social__item">
+                                            <a class="social__link social__link social__link_type_tw" href="#">
+                                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_tw"></use></svg>
+                                            </a>
+                                        </li>
+                                        <li class="social__item">
+                                            <a class="social__link social__link social__link_type_odnokl" href="#">
+                                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_odnokl"></use></svg>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
-                        <!-- /NEWS_ITEM-->
                     </div>
                     <div class="cube-brick" data-brick-700="1" data-brick-900="1" data-brick-1100="1">
                         <!-- NEWS_ITEM/-->
                         <div class="tile__item anim-left" data-delay="300">
-                            <div class="tile__inner news news_red">
+                            <div class="news news_red tile__inner">
                                 <a class="news__thumb" href="#">
-                                    <img src="assets/images/post-thumb.jpg" alt="thumb" />
+                                    <img src="assets/images/news/1.jpg" alt="thumb" />
                                 </a>
                                 <a class="news__category" href="#">Новости Москвы</a>
-                                <a class="news__title" href="#">Подведены итоги предварительной апробаци</a>
+                                <a class="news__title" href="#">Подведены итоги предварительной апробации</a>
                                 <div class="news__bottom">
                                     <p class="news__date">8 августа 2016</p>
                                     <div class="news__tags">
@@ -1084,23 +1117,40 @@
                                 </div>
                                 <button class="share__btn"></button>
                                 <div class="share__panel">
-                                    <a class="share__a share__a_fb" href="#"></a>
-                                    <a class="share__a share__a_vk" href="#"></a>
-                                    <a class="share__a share__a_tw" href="#"></a>
-                                    <a class="share__a share__a_ok" href="#"></a>
+                                    <ul class="social news__social">
+                                        <li class="social__item">
+                                            <a class="social__link social__link social__link_type_facebook-box" href="#">
+                                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_facebook-box"></use></svg>
+                                            </a>
+                                        </li>
+                                        <li class="social__item">
+                                            <a class="social__link social__link social__link_type_vk" href="#">
+                                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_vk"></use></svg>
+                                            </a>
+                                        </li>
+                                        <li class="social__item">
+                                            <a class="social__link social__link social__link_type_tw" href="#">
+                                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_tw"></use></svg>
+                                            </a>
+                                        </li>
+                                        <li class="social__item">
+                                            <a class="social__link social__link social__link_type_odnokl" href="#">
+                                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_odnokl"></use></svg>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
-                        <!-- /NEWS_ITEM-->
                     </div>
                     <div class="cube-brick" data-brick-700="2" data-brick-900="1" data-brick-1100="1">
                         <!-- NEWS_ITEM/-->
                         <div class="tile__item anim-left" data-delay="600">
-                            <div class="tile__inner news news_green">
+                            <div class="news news_green tile__inner">
                                 <a class="news__thumb" href="#">
-                                    <img src="assets/images/post-thumb.jpg" alt="thumb" />
+                                    <img src="assets/images/news/1.jpg" alt="thumb" />
                                 </a>
-                                <a class="news__category" href="#">Федеральные Новости</a>
+                                <a class="news__category" href="#">Федеральные новости</a>
                                 <a class="news__title" href="#">«Бюджетная грамотность для старшеклассников»</a>
                                 <div class="news__bottom">
                                     <p class="news__date">8 августа 2016</p>
@@ -1112,21 +1162,38 @@
                                 </div>
                                 <button class="share__btn"></button>
                                 <div class="share__panel">
-                                    <a class="share__a share__a_fb" href="#"></a>
-                                    <a class="share__a share__a_vk" href="#"></a>
-                                    <a class="share__a share__a_tw" href="#"></a>
-                                    <a class="share__a share__a_ok" href="#"></a>
+                                    <ul class="social news__social">
+                                        <li class="social__item">
+                                            <a class="social__link social__link social__link_type_facebook-box" href="#">
+                                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_facebook-box"></use></svg>
+                                            </a>
+                                        </li>
+                                        <li class="social__item">
+                                            <a class="social__link social__link social__link_type_vk" href="#">
+                                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_vk"></use></svg>
+                                            </a>
+                                        </li>
+                                        <li class="social__item">
+                                            <a class="social__link social__link social__link_type_tw" href="#">
+                                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_tw"></use></svg>
+                                            </a>
+                                        </li>
+                                        <li class="social__item">
+                                            <a class="social__link social__link social__link_type_odnokl" href="#">
+                                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_odnokl"></use></svg>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
-                        <!-- /NEWS_ITEM-->
                     </div>
                     <div class="cube-brick" data-brick-700="2" data-brick-900="2" data-brick-1100="1">
                         <!-- NEWS_ITEM/-->
                         <div class="tile__item anim-left" data-delay="900">
-                            <div class="tile__inner news news_blue">
+                            <div class="news news_blue tile__inner">
                                 <a class="news__thumb" href="#">
-                                    <img src="assets/images/post-thumb.jpg" alt="thumb" />
+                                    <img src="assets/images/news/1.jpg" alt="thumb" />
                                 </a>
                                 <a class="news__category" href="#">Новости бюджета</a>
                                 <a class="news__title" href="#">Подведены итоги предварительной апробации федеральной учебной программы</a>
@@ -1140,21 +1207,38 @@
                                 </div>
                                 <button class="share__btn"></button>
                                 <div class="share__panel">
-                                    <a class="share__a share__a_fb" href="#"></a>
-                                    <a class="share__a share__a_vk" href="#"></a>
-                                    <a class="share__a share__a_tw" href="#"></a>
-                                    <a class="share__a share__a_ok" href="#"></a>
+                                    <ul class="social news__social">
+                                        <li class="social__item">
+                                            <a class="social__link social__link social__link_type_facebook-box" href="#">
+                                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_facebook-box"></use></svg>
+                                            </a>
+                                        </li>
+                                        <li class="social__item">
+                                            <a class="social__link social__link social__link_type_vk" href="#">
+                                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_vk"></use></svg>
+                                            </a>
+                                        </li>
+                                        <li class="social__item">
+                                            <a class="social__link social__link social__link_type_tw" href="#">
+                                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_tw"></use></svg>
+                                            </a>
+                                        </li>
+                                        <li class="social__item">
+                                            <a class="social__link social__link social__link_type_odnokl" href="#">
+                                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_odnokl"></use></svg>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
-                        <!-- /NEWS_ITEM-->
                     </div>
                     <div class="cube-brick" data-brick-700="3" data-brick-900="2" data-brick-1100="2">
                         <!-- NEWS_ITEM/-->
                         <div class="tile__item">
-                            <div class="tile__inner news news_blue">
+                            <div class="news news_blue tile__inner">
                                 <a class="news__thumb" href="#">
-                                    <img src="assets/images/post-thumb.jpg" alt="thumb" />
+                                    <img src="assets/images/news/1.jpg" alt="thumb" />
                                 </a>
                                 <a class="news__category" href="#">Новости бюджета</a>
                                 <a class="news__title" href="#">Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»</a>
@@ -1168,24 +1252,41 @@
                                 </div>
                                 <button class="share__btn"></button>
                                 <div class="share__panel">
-                                    <a class="share__a share__a_fb" href="#"></a>
-                                    <a class="share__a share__a_vk" href="#"></a>
-                                    <a class="share__a share__a_tw" href="#"></a>
-                                    <a class="share__a share__a_ok" href="#"></a>
+                                    <ul class="social news__social">
+                                        <li class="social__item">
+                                            <a class="social__link social__link social__link_type_facebook-box" href="#">
+                                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_facebook-box"></use></svg>
+                                            </a>
+                                        </li>
+                                        <li class="social__item">
+                                            <a class="social__link social__link social__link_type_vk" href="#">
+                                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_vk"></use></svg>
+                                            </a>
+                                        </li>
+                                        <li class="social__item">
+                                            <a class="social__link social__link social__link_type_tw" href="#">
+                                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_tw"></use></svg>
+                                            </a>
+                                        </li>
+                                        <li class="social__item">
+                                            <a class="social__link social__link social__link_type_odnokl" href="#">
+                                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_odnokl"></use></svg>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
-                        <!-- /NEWS_ITEM-->
                     </div>
                     <div class="cube-brick" data-brick-700="3" data-brick-900="2" data-brick-1100="2">
                         <!-- NEWS_ITEM/-->
                         <div class="tile__item">
-                            <div class="tile__inner news news_red">
+                            <div class="news news_red tile__inner">
                                 <a class="news__thumb" href="#">
-                                    <img src="assets/images/post-thumb.jpg" alt="thumb" />
+                                    <img src="assets/images/news/1.jpg" alt="thumb" />
                                 </a>
-                                <a class="news__category" href="#">Новости бюджета</a>
-                                <a class="news__title" href="#">Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»</a>
+                                <a class="news__category" href="#">Новости Москвы</a>
+                                <a class="news__title" href="#">Подведены итоги предварительной апробации</a>
                                 <div class="news__bottom">
                                     <p class="news__date">8 августа 2016</p>
                                     <div class="news__tags">
@@ -1196,24 +1297,41 @@
                                 </div>
                                 <button class="share__btn"></button>
                                 <div class="share__panel">
-                                    <a class="share__a share__a_fb" href="#"></a>
-                                    <a class="share__a share__a_vk" href="#"></a>
-                                    <a class="share__a share__a_tw" href="#"></a>
-                                    <a class="share__a share__a_ok" href="#"></a>
+                                    <ul class="social news__social">
+                                        <li class="social__item">
+                                            <a class="social__link social__link social__link_type_facebook-box" href="#">
+                                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_facebook-box"></use></svg>
+                                            </a>
+                                        </li>
+                                        <li class="social__item">
+                                            <a class="social__link social__link social__link_type_vk" href="#">
+                                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_vk"></use></svg>
+                                            </a>
+                                        </li>
+                                        <li class="social__item">
+                                            <a class="social__link social__link social__link_type_tw" href="#">
+                                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_tw"></use></svg>
+                                            </a>
+                                        </li>
+                                        <li class="social__item">
+                                            <a class="social__link social__link social__link_type_odnokl" href="#">
+                                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_odnokl"></use></svg>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
-                        <!-- /NEWS_ITEM-->
                     </div>
                     <div class="cube-brick" data-brick-700="4" data-brick-900="3" data-brick-1100="2">
                         <!-- NEWS_ITEM/-->
                         <div class="tile__item">
-                            <div class="tile__inner news news_green">
+                            <div class="news news_green tile__inner">
                                 <a class="news__thumb" href="#">
-                                    <img src="assets/images/post-thumb.jpg" alt="thumb" />
+                                    <img src="assets/images/news/1.jpg" alt="thumb" />
                                 </a>
-                                <a class="news__category" href="#">Новости бюджета</a>
-                                <a class="news__title" href="#">Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»</a>
+                                <a class="news__category" href="#">Федеральные новости</a>
+                                <a class="news__title" href="#">«Бюджетная грамотность для старшеклассников»</a>
                                 <div class="news__bottom">
                                     <p class="news__date">8 августа 2016</p>
                                     <div class="news__tags">
@@ -1224,24 +1342,41 @@
                                 </div>
                                 <button class="share__btn"></button>
                                 <div class="share__panel">
-                                    <a class="share__a share__a_fb" href="#"></a>
-                                    <a class="share__a share__a_vk" href="#"></a>
-                                    <a class="share__a share__a_tw" href="#"></a>
-                                    <a class="share__a share__a_ok" href="#"></a>
+                                    <ul class="social news__social">
+                                        <li class="social__item">
+                                            <a class="social__link social__link social__link_type_facebook-box" href="#">
+                                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_facebook-box"></use></svg>
+                                            </a>
+                                        </li>
+                                        <li class="social__item">
+                                            <a class="social__link social__link social__link_type_vk" href="#">
+                                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_vk"></use></svg>
+                                            </a>
+                                        </li>
+                                        <li class="social__item">
+                                            <a class="social__link social__link social__link_type_tw" href="#">
+                                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_tw"></use></svg>
+                                            </a>
+                                        </li>
+                                        <li class="social__item">
+                                            <a class="social__link social__link social__link_type_odnokl" href="#">
+                                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_odnokl"></use></svg>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
-                        <!-- /NEWS_ITEM-->
                     </div>
                     <div class="cube-brick" data-brick-700="4" data-brick-900="3" data-brick-1100="2">
                         <!-- NEWS_ITEM/-->
                         <div class="tile__item">
-                            <div class="tile__inner news news_blue">
+                            <div class="news news_blue tile__inner">
                                 <a class="news__thumb" href="#">
-                                    <img src="assets/images/post-thumb.jpg" alt="thumb" />
+                                    <img src="assets/images/news/1.jpg" alt="thumb" />
                                 </a>
                                 <a class="news__category" href="#">Новости бюджета</a>
-                                <a class="news__title" href="#">Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»</a>
+                                <a class="news__title" href="#">Подведены итоги предварительной апробации федеральной учебной программы</a>
                                 <div class="news__bottom">
                                     <p class="news__date">8 августа 2016</p>
                                     <div class="news__tags">
@@ -1252,14 +1387,31 @@
                                 </div>
                                 <button class="share__btn"></button>
                                 <div class="share__panel">
-                                    <a class="share__a share__a_fb" href="#"></a>
-                                    <a class="share__a share__a_vk" href="#"></a>
-                                    <a class="share__a share__a_tw" href="#"></a>
-                                    <a class="share__a share__a_ok" href="#"></a>
+                                    <ul class="social news__social">
+                                        <li class="social__item">
+                                            <a class="social__link social__link social__link_type_facebook-box" href="#">
+                                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_facebook-box"></use></svg>
+                                            </a>
+                                        </li>
+                                        <li class="social__item">
+                                            <a class="social__link social__link social__link_type_vk" href="#">
+                                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_vk"></use></svg>
+                                            </a>
+                                        </li>
+                                        <li class="social__item">
+                                            <a class="social__link social__link social__link_type_tw" href="#">
+                                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_tw"></use></svg>
+                                            </a>
+                                        </li>
+                                        <li class="social__item">
+                                            <a class="social__link social__link social__link_type_odnokl" href="#">
+                                                <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_odnokl"></use></svg>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
-                        <!-- /NEWS_ITEM-->
                     </div>
                 </div>
                 <!-- /NEWS_SLIDER-->
