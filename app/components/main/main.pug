@@ -1,5 +1,6 @@
 include ../../blocks/selectbox/selectbox
 include ../../components/widget-card/widget-card
+include ../../blocks/news-card/news-card
 
 mixin main()
   // SECTIONS_ITEM(Banner)/
@@ -465,178 +466,43 @@ mixin main()
     .slider(data-sides-700="4", data-sides-900="3", data-sides-1100="2")
       .cube-brick(data-brick-700="1", data-brick-900="1", data-brick-1100="1")
         // NEWS_ITEM/
-        .tile__item.anim-left(data-delay="100")
-          .tile__inner.news.news_blue
-            a(href="#").news__thumb
-              img(src="assets/images/post-thumb.jpg", alt="thumb")
-            a(href="#").news__category Новости бюджета
-            a(href="#").news__title Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»
-            .news__bottom
-              p.news__date 8 августа 2016
-              .news__tags
-                a(href="#") #итоги
-                a(href="#") #апробация
-                a(href="#") #старшеклассники
-            button.share__btn
-            .share__panel
-              a(href="#").share__a.share__a_fb
-              a(href="#").share__a.share__a_vk
-              a(href="#").share__a.share__a_tw
-              a(href="#").share__a.share__a_ok
-        // /NEWS_ITEM
+        .tile__item.anim-left(data-delay="100")  
+          +news-card(1, 'Новости бюджета', 'Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»', '8 августа 2016')._blue.tile__inner
         
       .cube-brick(data-brick-700="1", data-brick-900="1", data-brick-1100="1")
         // NEWS_ITEM/
-        .tile__item.anim-left(data-delay="300")
-          .tile__inner.news.news_red
-            a(href="#").news__thumb
-              img(src="assets/images/post-thumb.jpg", alt="thumb")
-            a(href="#").news__category Новости Москвы
-            a(href="#").news__title Подведены итоги предварительной апробаци
-            .news__bottom
-              p.news__date 8 августа 2016
-              .news__tags
-                a(href="#") #итоги
-                a(href="#") #апробация
-                a(href="#") #старшеклассники
-            button.share__btn
-            .share__panel
-              a(href="#").share__a.share__a_fb
-              a(href="#").share__a.share__a_vk
-              a(href="#").share__a.share__a_tw
-              a(href="#").share__a.share__a_ok
-        // /NEWS_ITEM
+        .tile__item.anim-left(data-delay="300")  
+          +news-card(1, 'Новости Москвы', 'Подведены итоги предварительной апробации', '8 августа 2016')._red.tile__inner
         
       .cube-brick(data-brick-700="2", data-brick-900="1", data-brick-1100="1")
         // NEWS_ITEM/
-        .tile__item.anim-left(data-delay="600")
-          .tile__inner.news.news_green
-            a(href="#").news__thumb
-              img(src="assets/images/post-thumb.jpg", alt="thumb")
-            a(href="#").news__category Федеральные Новости
-            a(href="#").news__title «Бюджетная грамотность для старшеклассников»
-            .news__bottom
-              p.news__date 8 августа 2016
-              .news__tags
-                a(href="#") #итоги
-                a(href="#") #апробация
-                a(href="#") #старшеклассники
-            button.share__btn
-            .share__panel
-              a(href="#").share__a.share__a_fb
-              a(href="#").share__a.share__a_vk
-              a(href="#").share__a.share__a_tw
-              a(href="#").share__a.share__a_ok
-        // /NEWS_ITEM
+        .tile__item.anim-left(data-delay="600")  
+          +news-card(1, 'Федеральные новости', '«Бюджетная грамотность для старшеклассников»', '8 августа 2016')._green.tile__inner
         
       .cube-brick(data-brick-700="2", data-brick-900="2", data-brick-1100="1")
         // NEWS_ITEM/
-        .tile__item.anim-left(data-delay="900")
-          .tile__inner.news.news_blue
-            a(href="#").news__thumb
-              img(src="assets/images/post-thumb.jpg", alt="thumb")
-            a(href="#").news__category Новости бюджета
-            a(href="#").news__title Подведены итоги предварительной апробации федеральной учебной программы
-            .news__bottom
-              p.news__date 8 августа 2016
-              .news__tags
-                a(href="#") #итоги
-                a(href="#") #апробация
-                a(href="#") #старшеклассники
-            button.share__btn
-            .share__panel
-              a(href="#").share__a.share__a_fb
-              a(href="#").share__a.share__a_vk
-              a(href="#").share__a.share__a_tw
-              a(href="#").share__a.share__a_ok
-        // /NEWS_ITEM
+        .tile__item.anim-left(data-delay="900")  
+          +news-card(1, 'Новости бюджета', 'Подведены итоги предварительной апробации федеральной учебной программы', '8 августа 2016')._blue.tile__inner
         
       .cube-brick(data-brick-700="3", data-brick-900="2", data-brick-1100="2")
         // NEWS_ITEM/
         .tile__item
-          .tile__inner.news.news_blue
-            a(href="#").news__thumb
-              img(src="assets/images/post-thumb.jpg", alt="thumb")
-            a(href="#").news__category Новости бюджета
-            a(href="#").news__title Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»
-            .news__bottom
-              p.news__date 8 августа 2016
-              .news__tags
-                a(href="#") #итоги
-                a(href="#") #апробация
-                a(href="#") #старшеклассники
-            button.share__btn
-            .share__panel
-              a(href="#").share__a.share__a_fb
-              a(href="#").share__a.share__a_vk
-              a(href="#").share__a.share__a_tw
-              a(href="#").share__a.share__a_ok
-        // /NEWS_ITEM
+          +news-card(1, 'Новости бюджета', 'Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»', '8 августа 2016')._blue.tile__inner
         
       .cube-brick(data-brick-700="3", data-brick-900="2", data-brick-1100="2")
         // NEWS_ITEM/
         .tile__item
-          .tile__inner.news.news_red
-            a(href="#").news__thumb
-              img(src="assets/images/post-thumb.jpg", alt="thumb")
-            a(href="#").news__category Новости бюджета
-            a(href="#").news__title Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»
-            .news__bottom
-              p.news__date 8 августа 2016
-              .news__tags
-                a(href="#") #итоги
-                a(href="#") #апробация
-                a(href="#") #старшеклассники
-            button.share__btn
-            .share__panel
-              a(href="#").share__a.share__a_fb
-              a(href="#").share__a.share__a_vk
-              a(href="#").share__a.share__a_tw
-              a(href="#").share__a.share__a_ok
-        // /NEWS_ITEM
+          +news-card(1, 'Новости Москвы', 'Подведены итоги предварительной апробации', '8 августа 2016')._red.tile__inner
         
       .cube-brick(data-brick-700="4", data-brick-900="3", data-brick-1100="2")
         // NEWS_ITEM/
         .tile__item
-          .tile__inner.news.news_green
-            a(href="#").news__thumb
-              img(src="assets/images/post-thumb.jpg", alt="thumb")
-            a(href="#").news__category Новости бюджета
-            a(href="#").news__title Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»
-            .news__bottom
-              p.news__date 8 августа 2016
-              .news__tags
-                a(href="#") #итоги
-                a(href="#") #апробация
-                a(href="#") #старшеклассники
-            button.share__btn
-            .share__panel
-              a(href="#").share__a.share__a_fb
-              a(href="#").share__a.share__a_vk
-              a(href="#").share__a.share__a_tw
-              a(href="#").share__a.share__a_ok
-        // /NEWS_ITEM
+          +news-card(1, 'Федеральные новости', '«Бюджетная грамотность для старшеклассников»', '8 августа 2016')._green.tile__inner
         
       .cube-brick(data-brick-700="4", data-brick-900="3", data-brick-1100="2")
         // NEWS_ITEM/
         .tile__item
-          .tile__inner.news.news_blue
-            a(href="#").news__thumb
-              img(src="assets/images/post-thumb.jpg", alt="thumb")
-            a(href="#").news__category Новости бюджета
-            a(href="#").news__title Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»
-            .news__bottom
-              p.news__date 8 августа 2016
-              .news__tags
-                a(href="#") #итоги
-                a(href="#") #апробация
-                a(href="#") #старшеклассники
-            button.share__btn
-            .share__panel
-              a(href="#").share__a.share__a_fb
-              a(href="#").share__a.share__a_vk
-              a(href="#").share__a.share__a_tw
-              a(href="#").share__a.share__a_ok
-        // /NEWS_ITEM
+          +news-card(1, 'Новости бюджета', 'Подведены итоги предварительной апробации федеральной учебной программы', '8 августа 2016')._blue.tile__inner
+
     // /NEWS_SLIDER
   // /NEWS_SECTION
