@@ -803,6 +803,36 @@
   // дефицит/профицит
   &__balance {
     margin-bottom: 35px;
+
+    .bc-table-row:not(.bc-table-row_expand) {
+      @media (max-width: 900px) {
+        display: flex;
+        align-items: center;
+
+        .bc-table-row__column {
+          &:first-child {
+            flex-shrink: 0;
+          }
+        }
+      }
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+
+        .bc-table-row__column {
+          width: 100%;
+          padding-left: 15px;
+          padding-right: 15px;
+        }
+      }
+    }
+
+    .bc-table-row__column {
+      @media (min-width: 769px) and (max-width: 1024px) {
+        &_name { width: 40%; }
+        &_value { width: 30%; }
+      }
+    }
   }
 
   // проверить свой вариант бюджета
