@@ -10,7 +10,7 @@ mixin searchForm(placeholder)
       input.d-si__search(type="text", placeholder=placeholder)
       input.d-si__submit(type="submit" value="")
     +e.filter
-      +link(true)._dashed._light-yellow._extra.filter-link Расширенный поиск
+      +link()._dashed._light-yellow._extra.filter-link Расширенный поиск
       +b.extra-search.modal
         +e.wrapper
           +e.cols
@@ -36,57 +36,57 @@ mixin searchForm(placeholder)
             +e.col_two
               +e.title Раздел
               +e.checkbox
-                +checkbox-all() О бюджете
+                +checkbox-all(true) О бюджете
                 +icon('caret').icon.js-icon
                 +e.checkbox-group
-                  +checkbox() один
-                  +checkbox() два
-                  +checkbox() три
-                  +checkbox() четыре
+                  +checkbox(true) один
+                  +checkbox(true) два
+                  +checkbox(true) три
+                  +checkbox(true) четыре
               +e.checkbox
-                +checkbox-all() Бюджет Москвы
+                +checkbox-all(true) Бюджет Москвы
                 +icon('caret').icon.js-icon
                 +e.checkbox-group
-                  +checkbox() один
-                  +checkbox() два
-                  +checkbox() три
-                  +checkbox() четыре
+                  +checkbox(true) один
+                  +checkbox(true) два
+                  +checkbox(true) три
+                  +checkbox(true) четыре
               +e.checkbox
-                +checkbox-all() Аналитика
+                +checkbox-all(true) Аналитика
                 +icon('caret').icon.js-icon
                 +e.checkbox-group
-                  +checkbox() один
-                  +checkbox() два
-                  +checkbox() три
-                  +checkbox() четыре
-              +checkbox() Сервисы
+                  +checkbox(true) один
+                  +checkbox(true) два
+                  +checkbox(true) три
+                  +checkbox(true) четыре
+              +checkbox(true) Сервисы
               +e.checkbox
-                +checkbox-all() Открытость
+                +checkbox-all(true) Открытость
                 +icon('caret').icon.js-icon
                 +e.checkbox-group
-                  +checkbox() один
-                  +checkbox() два
-                  +checkbox() три
-                  +checkbox() четыре
+                  +checkbox(true) один
+                  +checkbox(true) два
+                  +checkbox(true) три
+                  +checkbox(true) четыре
               +e.checkbox
-                +checkbox-all() Медиацентр
+                +checkbox-all(true) Медиацентр
                 +icon('caret').icon.js-icon
                 +e.checkbox-group
-                  +checkbox() один
-                  +checkbox() два
-                  +checkbox() три
-                  +checkbox() четыре
-              +checkbox() Обратная связь
-          +button(true)._kind_blue Искать
+                  +checkbox(true) один
+                  +checkbox(true) два
+                  +checkbox(true) три
+                  +checkbox(true) четыре
+              +checkbox(true) Обратная связь
+          +button()._kind_blue Искать
           +e.INPUT.reset(type="reset" value="Сбросить фильтр")
           u.btn-close.js-close-modal
-      +link(true)._dashed._light-yellow._tags.filter-link Поиск по тэгам
+      +link()._dashed._light-yellow._tags.filter-link Поиск по тэгам
       +b.tags.modal
         +e.wrapper
           +e.title Тэги
           +e.list
             - for (var i = 0; i<25; i++)
               +tag('Банки', 'searchTag')
-          +button(true)._kind_blue Искать
+          +button()._kind_blue Искать
           +e.INPUT.reset(type="reset" value="Сбросить все фильтры")
           u.btn-close.js-close-modal

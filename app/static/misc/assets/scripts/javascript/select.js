@@ -3,7 +3,7 @@ function getPasteEvent() {
     var el = document.createElement('input'),
         name = 'onpaste';
     el.setAttribute(name, '');
-    return (typeof el[name] === 'function')?'paste':'input';             
+    return (typeof el[name] === 'function')?'paste':'input';
 }
 
 var pasteEventName = getPasteEvent() + ".mask",
@@ -298,7 +298,7 @@ $.fn.extend({
 
 					focusText = input.val();
 					pos = checkVal();
-					
+
 					caretTimeoutId = setTimeout(function(){
 						writeBuffer();
 						if (pos == mask.length) {
@@ -316,9 +316,9 @@ $.fn.extend({
 				.bind("keydown.mask", keydownEvent)
 				.bind("keypress.mask", keypressEvent)
 				.bind(pasteEventName, function() {
-					setTimeout(function() { 
+					setTimeout(function() {
 						var pos=checkVal(true);
-						input.caret(pos); 
+						input.caret(pos);
 						if (settings.completed && pos == input.val().length)
 							settings.completed.call(input);
 					}, 0);
@@ -346,7 +346,7 @@ $(document).on('click', '.select__btn', function () {
 	var _ = $(this);
 
 	if(!_.hasClass('select__btn_act')){
-		
+
 		$('.select__drop').slideUp(321, function() {
 			$('.select__btn').removeClass('select__btn_act');
 		});
@@ -390,7 +390,7 @@ initDp = function() {
 	if($( ".jq-datepicker" ).length > 0){
 		$('.jq-datepicker').datepicker({
 			dateFormat:'dd.mm.yy',
-			changeMonth: true, 
+			changeMonth: true,
 			changeYear: true,
 			showOtherMonths: true,
 			selectOtherMonths: true,
@@ -402,7 +402,7 @@ initDp = function() {
 			dayNamesMin: ['вс', 'пн','вт','ср','чт','пт','сб'],
 			beforeShow: function(input, inst) {
 				$('#ui-datepicker-div').removeClass(function() {
-					return $('input').get(0).id; 
+					return $('input').get(0).id;
 				});
 				$('#ui-datepicker-div').removeClass('datepicker__show');
 				$('#ui-datepicker-div').addClass($(this).attr('class'));
@@ -419,8 +419,8 @@ $(document).on('click', function(e) {
 
 if($( ".range-datepicker__item" ).length > 0){
 	$('.range-datepicker__item').datepicker({
-		dateFormat:'dd.mm.y',
-		changeMonth: true, 
+		dateFormat:'dd.mm.yy',
+		changeMonth: true,
 		changeYear: true,
 		showOtherMonths: true,
 		selectOtherMonths: true,
@@ -432,7 +432,7 @@ if($( ".range-datepicker__item" ).length > 0){
 		dayNamesMin: ['вс', 'пн','вт','ср','чт','пт','сб'],
 		maxDate: "+0D",
 		onSelect: function(value, ui) {
-			
+
 			var range = $(this).attr('data-range'),
 			boxId = $(this).parent().attr('data-range-box');
 
@@ -442,16 +442,16 @@ if($( ".range-datepicker__item" ).length > 0){
 				$('.range-datepicker').fadeOut(321);
 				$( ".range-datepicker__item_min, .range-datepicker__item_max" ).removeAttr('style');
 				$('.form__date-range').removeClass('form__date-range_focus');
-				
+
 			} else if(range == 'min') {
 
 				$('#'+boxId+' .input-min').val(value);
 				$(this).fadeOut(321).next().fadeIn(321);
 				$('.range-datepicker__item_max').datepicker('option', {minDate: value});
 
-			} 
+			}
 
-		}, 
+		},
 	});
 
 
@@ -529,7 +529,7 @@ if ($('.jq-f-datepicker').length > 0) {
 				minV = _.parent().find('.input-min').val();
 
 				if( checkDateFormat(maxV) && checkDateFormat(minV) ){
-					
+
 					if(!compareDates(maxV, minV)){
 						_.val('дд.мм.гг');
 					}
@@ -560,7 +560,7 @@ if ($('.jq-f-datepicker').length > 0) {
 			}
 
 		}
-		
+
 	});
 
 	$('#form-find-document').submit(function() {
@@ -592,7 +592,7 @@ if ($('.jq-f-datepicker').length > 0) {
 			}
 
 		});
-		
+
 		return submit;
 	});
 
@@ -616,7 +616,7 @@ $(document).on('click', '.datepicker__show', function () {
 	var _ = $(this);
 
 	if(!_.hasClass('datepicker__show_act')){
-		
+
 		$('.datepicker__panel').slideUp(321, function() {
 			$('.datepicker__show').removeClass('datepicker__show_act');
 		});
@@ -635,7 +635,7 @@ $(document).on('click', '.datepicker__show', function () {
 	return false;
 });
 
-$(document).on('click', '.datepicker__col_years a', function () { 
+$(document).on('click', '.datepicker__col_years a', function () {
 	var parent = $(this).parent().parent().parent().parent();
 	if(!$(this).hasClass('datepicker__a_act')){
 
@@ -651,7 +651,7 @@ $(document).on('click', '.datepicker__col_years a', function () {
 	return false;
 });
 
-$(document).on('click', '.datepicker__col_months a', function () { 
+$(document).on('click', '.datepicker__col_months a', function () {
 
 	var parent = $(this).parent().parent().parent().parent().parent();
 	if(!$(this).hasClass('datepicker__a_act')){
@@ -668,7 +668,7 @@ $(document).on('click', '.datepicker__col_months a', function () {
 	return false;
 });
 
-$(document).on('click', '.datepicker__close', function () { 
+$(document).on('click', '.datepicker__close', function () {
 
 	$(this).parent().slideUp(321).prev().removeClass('datepicker__show_act');
 
@@ -765,7 +765,7 @@ function hoverHandler(_, hover) {
 		}
 
 	}
-	
+
 }
 
 
@@ -788,7 +788,7 @@ if (winW < 1100) {
 }
 
 $('.on-hover').click(function() {
-	return false; 
+	return false;
 });
 
 

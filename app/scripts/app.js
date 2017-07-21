@@ -40,6 +40,7 @@ import searchNavbar from '../blocks/search-navbar/search-navbar'; // форма 
 import widgetCard from '../components/widget-card/widgetCard';
 import header from '../components/header/header'; // навбар
 import toppanel from '../blocks/toppanel/toppanel'; // верхняя панель, общая для сайтов Москвы
+import search from '../components/search/search';
 
 $(() => {
 
@@ -63,6 +64,7 @@ $(() => {
   question();
   questions();
   lkNav();
+  search();
   regions();
   tabs();
   searchForm();

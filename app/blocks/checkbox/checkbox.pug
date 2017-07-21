@@ -1,17 +1,30 @@
 include ../icon/icons
 
-mixin checkbox()
+mixin checkbox(checked)
   +b.LABEL.checkbox&attributes(attributes)
-    +e.INPUT(type='checkbox', id='d-sii__chbox-s-first').control
-    +e.box
-      +icon('icon-ok-ch').mark
-    +e.text
-      block
-        
-mixin checkbox-all()
+    if checked
+      +e.INPUT(type='checkbox', id='d-sii__chbox-s-first', checked=checked).control
+      +e.box
+        +icon('icon-ok-ch').mark
+      +e.text
+        block
+    else 
+      +e.INPUT(type='checkbox', id='d-sii__chbox-s-first').control
+      +e.box
+        +icon('icon-ok-ch').mark
+      +e.text
+        block
+mixin checkbox-all(checked)
   +b.LABEL.checkbox&attributes(attributes)
-    +e.INPUT(type='checkbox', name='all').control
-    +e.box
-      +icon('icon-ok-ch').mark
-    +e.text
-      block
+    if checked
+      +e.INPUT(type='checkbox', name='all', checked=checked).control
+      +e.box
+        +icon('icon-ok-ch').mark
+      +e.text
+        block
+    else
+      +e.INPUT(type='checkbox', name='all').control
+      +e.box
+        +icon('icon-ok-ch').mark
+      +e.text
+        block
