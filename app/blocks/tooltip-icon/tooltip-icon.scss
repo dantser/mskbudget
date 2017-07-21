@@ -31,6 +31,12 @@
   color: black;
   box-shadow: 10px 10px 20px 0px rgba(black, .4);
 
+  @media (max-width: $navBreakpointTablet) {
+    width: 390px;
+    max-width: 95%;
+    margin: 0 auto;
+  }
+
   .arrow-left {
     background: none;
 
@@ -46,6 +52,15 @@
       border-width: 12.5px 14px 12.5px 0;
       border-color: transparent white transparent transparent;
       background: none;
+
+      @media (max-width: $navBreakpointTablet) {
+        top: auto;
+        bottom: -13px;
+        transform: translate(-50%);
+        left: 50%;
+        border-width: 14px 12.5px 0 12.5px;
+        border-color: #ffffff transparent transparent transparent;
+      }
     }
   }
 }
