@@ -40,18 +40,17 @@ export default () => {
     const checkBoxes = $("input[name=a\\[\\]]");
     checkBoxes.prop("checked", !checkBoxes.prop("checked"));
   })
-  
+
   $(document).ready(function(){
-    
+
     if ($('._regions').length) {
-    
+
       const regionSlider = new Swiper('.d-smr__chart-wrapper', {
         slidesPerView: 3,
         nextButton: '._regions__ar-right',
         prevButton: '._regions__ar-left',
         wrapperClass: 'd-smr__chart',
         slideClass: 'd-smr__chart-col',
-        grabCursor: true,
         resistanceRatio: 0.1,
         onSetTranslate: function(swiper, translate) {
           swiper.container.find('.d-smr__chart').css('transform', 'translate(' + translate + 'px, 0)');
@@ -83,7 +82,7 @@ export default () => {
           }
         }
        });
-      
+
       function checkSlidesAmount(swiper) {
         var slidesAmount = swiper.wrapper.find('.d-smr__chart-col.active').length;
         var visibleSlidesAmount = swiper.params.slidesPerView;
@@ -98,7 +97,7 @@ export default () => {
           $('.d-smr__chart-rightlg').hide();
         }
       }
-      
+
       function checkChartHeaderHeight() {
         var largestHeight = 0;
         var chartHeaderHeight = 0;
@@ -111,9 +110,9 @@ export default () => {
         $('._regions .d-smr__chart-header').outerHeight(largestHeight);
         $('.d-smr__chart-col, .d-smr__chart-subjects').css('padding-top', largestHeight+'px');
       }
-      
+
       checkChartHeaderHeight();
-      
+
       $(window).on('scroll', function(){
         if ($('._regions').length) {
           var regionsScroll = $(window).scrollTop();
@@ -122,7 +121,7 @@ export default () => {
           var headerHeight = $('.header').height();
           var colHeadTopDistance = $('._regions .d-smr__chart-container').offset().top - headerHeight;
           var colHeadBottomDistance = $('.footer').offset().top - $(window).height() - 100;
-          
+
           if (regionsScroll >= arrowTopDistance && regionsScroll <= arrowBottomDistance) {
             $('._regions__ar-left, ._regions__ar-right').addClass('active');
             $('.arrow-hide').addClass('active');
@@ -130,7 +129,7 @@ export default () => {
             $('._regions__ar-left, ._regions__ar-right').removeClass('active');
             $('.arrow-hide').removeClass('active');
           }
-          
+
           //if (regionsScroll >= colHeadTopDistance && regionsScroll <= colHeadBottomDistance) {
           //  $('._regions .d-smr__chart-header').css('top', (regionsScroll - colHeadTopDistance)+'px');
           //  $('._regions .d-smr__chart-header').addClass('active');
@@ -140,14 +139,14 @@ export default () => {
           //}
         }
       });
-      
+
       $('.js-hide-col').on('click', function(e){
         e.preventDefault();
         $(this).parents('._regions .d-smr__chart-col').removeClass('active');
         regionSlider.update(true);
         checkSlidesAmount(regionSlider);
       });
-      
+
       $('.d-smr__add-char-item input').change(function(){
         if (this.checked) {
           $(this).next().next().find('input').prop('checked', true);
@@ -155,11 +154,11 @@ export default () => {
           $(this).next().next().find('input').prop('checked', false);
         }
       });
-      
+
       $('.d-smr__add-char-list-wrapper').scrollbar();
-      
+
     }
-    
+
   });
 
 };

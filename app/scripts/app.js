@@ -62,6 +62,7 @@ $(() => {
   mediaMain();
   widgetCard();
   main();
+  pageHeader();
   question();
   questions();
   lkNav();
@@ -85,7 +86,6 @@ $(() => {
   profileEdit();
   budgetaryPolicy();
   documentsform();
-  pageHeader();
   modal();
   budget_moscow_gov_program();
   analitycGraphics();

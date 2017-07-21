@@ -431,14 +431,9 @@ function tabsLine(){
 		touchDrag:false,
 		autoplay:false,
 		smartSpeed:400,
-    stagePadding: 200,
     responsive: {
       0: {
         touchDrag:true,
-        items: 1
-      },
-      769: {
-        items: "auto"
       },
       1025: {
         touchDrag: false

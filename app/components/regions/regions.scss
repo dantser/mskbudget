@@ -1,20 +1,8 @@
 ._regions {
-  padding-top: 175px;
   background: url('../images/depfin-services-interview/content-bg.jpg') no-repeat;
   width: 100%;
   position: relative;
-
-  @media screen and (max-width: 1140px) {
-    padding-top: 172px;
-  }
-
-  @media screen and (max-width: 700px) {
-    padding-top: 93px;
-  }
-
-  @media screen and (max-width: 550px) {
-    padding-top: 78px;
-  }
+  padding-bottom: 80px !important;
 
   .dropdown.jq-selectbox {
     border: none !important;
@@ -40,7 +28,7 @@
   &__ar-left,
   &__ar-right {
     opacity: 0;
-    background: #fee300 url('../images/ar-left_2.svg') center center no-repeat;
+    background: #fee300 url('../images/ar-left_2.png') center center no-repeat;
     background-size: 11px;
     width: 45px;
     height: 45px;
@@ -154,11 +142,14 @@
     overflow: hidden;
     display: inline-block;
     vertical-align: top;
+    width: 75%;
     width: calc(100% - 235px);
     padding-left: 12px;
     margin-left: -12px;
     z-index: 3;
     box-sizing: content-box;
+    cursor: grab;
+    cursor: pointer;
     @media screen and (max-width: 550px) {
       width: 100%;
       position: absolute;
@@ -246,6 +237,9 @@
     background-color: #fff;
     width: 100%;
     z-index: 3;
+    cursor: pointer;
+    cursor: grab;
+    z-index: 5;
     span {
       font-family: $PFDinCondensedPro;
       display: block;
@@ -451,13 +445,16 @@
     line-height: 14px;
 
     .graph {
+      width: 80%;
       width: calc(100% - 36px);
 
       @media screen and (max-width:1140px) {
+        width: 70%;
         width: calc(100% - 42px);
       }
 
       @media screen and (max-width:550px) {
+        width: 69%;
         width: calc(99% - 43px);
       }
     }
