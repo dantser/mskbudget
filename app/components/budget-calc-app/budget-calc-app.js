@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import matchHeight from 'jquery-match-height';
 
-export default() => {
+export default () => {
 
   // Табы для калькулятора бюджета
   const $calcApp = $('#budget-calc-app');
@@ -11,32 +11,40 @@ export default() => {
 
   if ($calcApp && $tabsWrapper && $tabs && $tabControls) {
     $calcApp.on('click', '.js-budget-calc-app__tab-control', function(event) {
-      event.preventDefault();
-      const $targetTab = $($(this).attr('data-target'));
-      const $targetTabIndicator = $($targetTab.attr('data-state-indicator'));
+      // Тултипы
+      if (event.target.classList.contains('js-tooltip')) {
+        return;
+      } else {
+        event.preventDefault();
+        const $targetTab = $($(this).attr('data-target'));
+        const $targetTabIndicator = $($targetTab.attr('data-state-indicator'));
 
-      if (!$targetTab.hasClass('is-active')) {
-        $tabs.removeClass('is-active');
-        $targetTab.addClass('is-active');
+        if (!$targetTab.hasClass('is-active')) {
+          $tabs.removeClass('is-active');
+          $targetTab.addClass('is-active');
 
-        $tabControls.removeClass('is-active');
-        $targetTabIndicator.addClass('is-active');
+          $tabControls.removeClass('is-active');
+          $targetTabIndicator.addClass('is-active');
 
-        // скроллим наверх
-        setTimeout(function() {
-          $("html, body").animate({ scrollTop: 0 }, 350);
-        }, 5);
+          // скроллим наверх
+          setTimeout(function() {
+            $("html, body").animate({ scrollTop: 0 }, 350);
+          }, 25);
+        }
       }
     });
   }
 
   // аккордеоны
-  const $tableRow = $('.js-table-row-accordeon');
-
-  if ($tableRow) {
-    $tableRow.on('click', function(event) {
-      event.preventDefault();
-      $(this).toggleClass('is-active');
+  if ($('.js-table-row-accordeon')) {
+    $calcApp.on('click', '.js-table-row-accordeon', function(event) {
+      // Тултипы
+      if (event.target.classList.contains('js-tooltip')) {
+        return;
+      } else {
+        event.preventDefault();
+        $(this).toggleClass('is-active');
+      }
     });
   }
 
@@ -92,7 +100,7 @@ export default() => {
   const $widgetBalance = $('#budget-calc-app__widget_not-balanced');
 
   function screenWidth() {
-     return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth || 0;
+    return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth || 0;
   }
 
   function moveAroundThoseWidgets() {

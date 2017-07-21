@@ -36,9 +36,19 @@ mixin header()
               +e.A(href="#").menu2-link#search-navbar-link
                 +icon('search').menu2-icon.js-icon-navSearchLupa
                 +icon('cross').menu2-icon.js-icon-navSearchClose.is-active.is-hidden
-            +e.LI.menu2-item
+            +e.LI.menu2-item.hidden
               +e.A(href="#login").menu2-link.btn.open-popup
                 +icon('user').menu2-icon
+            +e.LI.menu2-item.user-menu2-item
+              +e.A.user(href="#")
+                +e.DIV.user-avatar
+                  IMG(src="/assets/images/profile/person.jpg")
+                +e.DIV.user-favorites
+                  +icon('favor').user-favorites-icon
+                  +e.SPAN.user-favorites-text 15
+            +e.LI.menu2-item._logout
+              +e.A(href="#").menu2-link
+                +icon('logout').menu2-icon
       +search-navbar().search-navbar
     +e.BUTTON#burger.open-menu.hamburger.hamburger--spin(type="button")
       SPAN.hamburger-box
