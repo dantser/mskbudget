@@ -29,9 +29,9 @@ export default () => {
         });
         $(this).tooltip("open");
       }
-      ,"mouseout": function() {
-        $(this).tooltip("close");
-      }
+      // ,"mouseout": function() {
+      //   $(this).tooltip("close");
+      // }
     });
   }
 }
