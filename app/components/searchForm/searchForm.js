@@ -16,7 +16,7 @@ export default () => {
 
     EL.on('click', (e) => {
       e.preventDefault();
-      TABS_LINK.removeClass(ACTIVE_CLASS);
+      EL.siblings('.filter-link').removeClass(ACTIVE_CLASS);
       EL.toggleClass(ACTIVE_CLASS);
     });
 
