@@ -174,7 +174,12 @@
 // @media (max-width: 700px) {
   // .wrap { margin: 0 20px !important; }
 // }
-
+.form__label_w1, .form__label_w3 {
+  cursor: default;
+  &:hover {
+    opacity: 1 !important;
+  }
+}
 /*Share*/
 .news .share__btn { display: block; position: absolute; bottom: 0; right: 0; width: 47px; height: 47px; z-index: 2; line-height: 47px; text-align: center; }
 
@@ -297,7 +302,11 @@
 
 .form__field_d4 { width: 315px; padding-left: 120px; }
 
-.form__label { display: block; position: absolute; font-size: 14px; font-weight: 500; color: #FFF; text-transform: uppercase; top: 11px; left: 0; }
+.form__label { display: block; position: absolute; transition: all 0.25s ease-in-out; font-size: 14px; font-weight: 500; color: #FFF; text-transform: uppercase; top: 11px; left: 0;
+  &:hover {
+    opacity: .7;
+  }
+ }
 
 .form__text {
   width: 100%;
@@ -352,7 +361,9 @@
   .form__date-range:before { width: 17px; height: 18px; background-image: url("../images/sprite@2x.png"); -moz-background-size: 480px auto; -o-background-size: 480px auto; background-size: 480px auto; background-repeat: no-repeat; background-position: -98px -117px; margin-top: -9px; right: 7px; }
   .form__submit { width: 195px; } }
 
-@media (max-width: 900px) { .form__field_d3, .form__field_d4 { width: 100%; } }
+@media (max-width: 900px) { .form__field_d3, .form__field_d4 { width: 100%; }
+.form__field_d4 {padding-left: 180px;}
+}
 
 @media (max-width: 700px) {
   .form__label { position: static; margin-bottom: 5px; }
@@ -389,7 +400,7 @@
 .tile:after { display: block; width: 100%; content: ""; clear: both; }
 
 .tile__item { position: relative; float: left; display: -webkit-box; display: -webkit-flex; display: -moz-box; display: -ms-flexbox; display: flex; height: auto; width: 25%; margin-bottom: 14px; height: 100%; }
-
+.tile__item:nth-child(n+5) { display: none;}
 .tile__inner { -webkit-box-flex: 1; -webkit-flex: 1; -moz-box-flex: 1; -ms-flex: 1; flex: 1; margin: 0 7px; }
 
 .tile_pt { padding-top: 11.25rem; }
@@ -420,8 +431,14 @@
 @media (max-width: 700px) {
   /*important из за неправильного переопределения медиа запрсов*/
   .tile__item { width: 50% !important; height: 100%; }
-  .tile__inner { margin: 0; } }
 
+}
+.form__text:focus, .form__text:active, .form__select-btn:focus, .form__select-btn:active {
+  border-color: $color-yellow;
+}
+.form__submit:focus {
+  opacity: .7;
+}
 /*Documents*/
 .documents-card_page {
   margin: 0 -7px;
@@ -433,6 +450,8 @@
   @media (max-width: 580px) {
     margin: 0;
   }
+
+
 
   .tile_sh {
     margin: 0 !important;
