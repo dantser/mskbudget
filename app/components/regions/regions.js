@@ -21,7 +21,18 @@ export default () => {
   //  }
   //  $('.d-smr__chart-col:visible[data-char]').css('display', 'none').prev().css('display', 'table-cell');
   //});
+  $('.d-smr__add-char-item').click(function(){
+  var inputCount = $(this).parent().find('.d-smr__add-char-item input:checked').length,
+      checkboxCount = $(this).siblings('.d-smr__add-char-item').length + 1;
 
+  console.log(inputCount + " " + checkboxCount);
+
+  if (inputCount != checkboxCount) {
+    $(this).parents('.d-smr__add-char-item').find('>input').prop('checked', false);
+  } else {
+    $(this).parents('.d-smr__add-char-item').find('>input').prop('checked', true);
+  }
+});
   SORT.each(function () {
     const EL = $(this);
     EL.on('click', (e) => {
