@@ -42,6 +42,7 @@ import header from '../components/header/header'; // навбар
 import toppanel from '../blocks/toppanel/toppanel'; // верхняя панель, общая для сайтов Москвы
 import tooltips from '../blocks/tooltip-icon/tooltip-icon'; // тултипы в калькуляторе бюджета
 import search from '../components/search/search';
+import news_one from '../components/news-one/news-one';
 
 $(() => {
 
@@ -69,6 +70,7 @@ $(() => {
   search();
   regions();
   tabs();
+  news_one();
   searchForm();
   sources();
   govProgram();
