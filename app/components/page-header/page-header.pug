@@ -15,8 +15,8 @@ mixin page-header(title, breadcrumbs, isDownloadable)
     +page-head(title, breadcrumbs)
     .d-si__head_icons
       +favor().icons-item.load-anim-fade(data-delay="900")
-      .d-si__icons_item
-        +icon('icon-rss').share.load-anim-fade(data-delay="1100")
+      .d-si__icons_item.load-anim-fade(data-delay="1100")
+        +icon('icon-rss').share
         .share__panel.share
           +social('facebook-box', 'vk', 'tw', 'odnokl').__social
       if (isDownloadable)
