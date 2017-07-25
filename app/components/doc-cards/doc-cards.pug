@@ -36,9 +36,9 @@ mixin doc-cards(data)
 
 mixin doc-cards-owl(data)
   +b.section-tabs._documents&attributes(attributes)
-    .owl-carousel.owl-loaded.documents
-      +e.nav
-        +e.nav-list
+    +e.nav
+      +e.nav-list
+        .owl-carousel.owl-loaded.documents
           each item in data
             +e.owl-item
               .tile__item
