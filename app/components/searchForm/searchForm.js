@@ -36,6 +36,15 @@ export default () => {
     });
   });
 
+  //закрыть выпадающие окна фильтра по клику в любом месте
+  $(document).mouseup(function(e) {
+    var modal = $('.modal');
+    if (modal.has(e.target).length === 0){
+      if ($('.link').hasClass('active'))
+        $('.link').removeClass(ACTIVE_CLASS);
+    }
+  })
+
   OPEN_ICON.each( function () { // eslint-disable-line
     const EL = $(this);
     const OPEN_GROUP = '.extra-search__checkbox-group';

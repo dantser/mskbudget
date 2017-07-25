@@ -1,4 +1,5 @@
 .search {
+
   display: inline-block;
   vertical-align: super;
   margin-right: 21px;
@@ -496,6 +497,158 @@
       &:active {
         color: #1e90ff;
       }
+    }
+  }
+}
+
+.search_news {
+  margin-right: 0;
+
+  .d-si__search {
+    width: 830px;
+    font-size: 18px;
+    &::placeholder {
+      color: rgba($color-white, .2);
+      font-size: 18px;
+    }
+  }
+
+  .search__search-line {
+    margin-right: 12px;
+  }
+
+  .link {
+    padding: 10px 10px 20px;
+  }
+
+  .extra-search__icon {
+    display: inline-block;
+    position: relative;
+    top: 4px;
+    left: 0;
+  }
+
+  .extra-search__cols {
+    font-weight: 500;
+  }
+
+  .extra-search__col_two {
+    min-height: 272px;
+    padding-left: 25px;
+  }
+
+  .extra-search__col_two .checkbox {
+    display: inline-block;
+    width: auto;
+  }
+
+  .extra-search__checkbox-group {
+    padding-left: 10px;
+  }
+
+  .extra-search__checkbox-group .checkbox {
+    display: block;
+  }
+
+  .d-si__submit {
+    top: 3px;
+  }
+
+  .btn-close {
+    position: absolute;
+    display: none;
+    top: 10px;
+    right: 10px;
+  }
+
+  @media screen and (max-width: 1280px) {
+    .search__filter {
+      display: inline-block;
+    }
+    .search__search-line {
+      width: calc(100% - 290px);
+      display: inline-block;
+    }
+    .d-si__search {
+      width: 100%;
+      display: inline-block;
+    }
+    .tags {
+      width: 1067px;
+    }
+  }
+
+  @media screen and (max-width: 1179px) {
+    .tags {
+      width: 900px;
+    }
+  }
+
+  @media screen and (max-width: 992px) {
+    .d-si__search-form {
+      margin-top: 0;
+    }
+    .tags {
+      width: 580px;
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    .extra-search {
+      width: 538px;
+    }
+    .btn-close {
+      display: block;
+    }
+    .button {
+      line-height: normal;
+      width: inherit;
+      height: inherit;
+      font-size: 14.5px;
+    }
+  }
+
+  @media screen and (max-width: 639px) {
+    .search__search-line {
+      width: 100%;
+      margin-right: 0;
+    }
+    .d-si__submit {
+      right: 7px;
+    }
+    .search__filter {
+      margin-top: 0;
+      display: block;
+      text-align: left;
+    }
+    .extra-search {
+      width: 100%;
+    }
+    .tags {
+      width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    .search__filter {
+      text-align: justify;
+      margin-top: 11px;
+
+      &:after {
+        width: 100%;
+        height: 0;
+        content: "";
+        display: inline-block;
+      }
+    }
+
+    .link {
+      padding: 10px 0 20px;
+      font-size: 18px;
+    }
+
+    .link_extra {
+      transform: none;
     }
   }
 }

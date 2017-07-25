@@ -90,3 +90,44 @@ mixin searchForm(placeholder)
           +button()._kind_blue Искать
           +e.INPUT.reset(type="reset" value="Сбросить все фильтры")
           u.btn-close.js-close-modal
+
+mixin searchFormNews(placeholder)
+  +b.FORM.search.search_news.d-si__search-form(action="#")
+    +e.search-line
+      input.d-si__search(type="text", placeholder=placeholder)
+      input.d-si__submit(type="submit" value="")
+    +e.filter
+      +link()._dashed._light-yellow._extra.filter-link Расширенный поиск
+      +b.extra-search.modal
+        +e.wrapper
+          +e.cols
+            +e.col_one
+              +e.title Дата публикации
+              .form__date-range(id='rid-0')
+                INPUT(type='text', value='дд.мм.гг').form__date-range-input.jq-f-datepicker.input-min
+                SPAN.form__date-range-sep —
+                INPUT(type='text', value='дд.мм.гг').form__date-range-input.jq-f-datepicker.input-max
+                SPAN.form__date-range-icon
+              +checkbox() искать только в заголовках страниц
+            +e.col_two
+              +e.title Раздел
+              +e.checkbox
+                +checkbox-all(true) Медиацентр
+                +icon('caret').icon.js-icon
+                +e.checkbox-group
+                  +checkbox(true) Новости бюджета
+                  +checkbox(true) Новости Москвы
+                  +checkbox(true) Федеральные новости
+          +button()._kind_blue Искать
+          +e.INPUT.reset(type="reset" value="Сбросить фильтр")
+          u.btn-close.js-close-modal
+      +link()._dashed._light-yellow._tags.filter-link Поиск по тэгам
+      +b.tags.modal
+        +e.wrapper
+          +e.title Тэги
+          +e.list
+            - for (var i = 0; i<25; i++)
+              +tag('Банки', 'searchTag')
+          +button()._kind_blue Искать
+          +e.INPUT.reset(type="reset" value="Сбросить все фильтры")
+          u.btn-close.js-close-modal
