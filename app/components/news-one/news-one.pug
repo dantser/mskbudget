@@ -101,11 +101,7 @@ mixin news-one()
         +e.social
           .d-sr__social
             span.d-sr__social_txt Поделиться новостью:
-            a(href="#" title="facebook").d-sr__social_fb
-              i(aria-hidden='true').fa.fa-facebook
-            a(href="#" title="twitter").d-sr__social_t
-              i(aria-hidden='true').fa.fa-twitter
-            a(href="#" title="ВКонтакте").d-sr__social_vk В
+            +social('facebook-box', 'vk', 'tw', 'odnokl', 'printer').__social.d-si-content__social
     
     .wrapper.page-content-wrapper
       +e.read-also
