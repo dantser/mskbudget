@@ -40,7 +40,7 @@ export default () => {
   $(document).mouseup(function(e) {
     var modal = $('.modal');
     if (modal.has(e.target).length === 0){
-      if ($('.link').hasClass('active'))
+      if ($('.link').hasClass('active') && !$('.form__date-range').hasClass('form__date-range_focus'))
         $('.link').removeClass(ACTIVE_CLASS);
     }
   })
