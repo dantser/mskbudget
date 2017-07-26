@@ -467,7 +467,30 @@
                         <input class="jq-spec-datepicker" placeholder="Выберите дату исполнения" value="Выберите дату исполнения" />
                     </div>
                     <div class="analityc-control-group _dp-alt basic-budget__dp">
-                        <input class="jq-spec-datepicker-alt" placeholder="на 1 декабря" value="на 1 декабря" />
+                        <select class="analityc-select analityc-select_date analityc-select_disabled" disabled="disabled">
+                            <option>01</option>
+                        </select>
+                        <select class="analityc-select analityc-select_month">
+                            <option>января</option>
+                            <option>февраля</option>
+                            <option>марта</option>
+                            <option>апреля</option>
+                            <option>мая</option>
+                            <option>июня</option>
+                            <option>июля</option>
+                            <option>августа</option>
+                            <option>сентября</option>
+                            <option>октября</option>
+                            <option>ноября</option>
+                            <option>декабря</option>
+                        </select>
+                        <select class="analityc-select analityc-select_year">
+                            <option>2014</option>
+                            <option>2015</option>
+                            <option>2016</option>
+                            <option>2017</option>
+                            <option>2018</option>
+                        </select>
                     </div>
                     <span class="analityc-widget-label">млрд. рублей</span>
                     <div class="analityc-widget-rounds _active">
@@ -1702,27 +1725,6 @@
     <script>
         $(document).ready(function() {
             /*Init Diagrams -- set id to diagram viewbox -- */
-            diagram('#diagram-1', {
-                stroke: 30,
-                kind: 'triple',
-                data: [1446.2, 1597.2],
-                animate: false,
-                maxValue: 2070
-            });
-            diagram('#diagram-2', {
-                stroke: 30,
-                kind: 'triple',
-                data: [1446.2, 1598.9],
-                animate: true,
-                maxValue: 2050
-            });
-            diagram('#diagram-3', {
-                stroke: 30,
-                kind: 'triple',
-                data: [1446.2, 1598.9],
-                animate: true,
-                maxValue: 2050
-            });
             diagram('#diagram-01', {
                 stroke: 30,
                 kind: 'triple2',
@@ -1740,6 +1742,27 @@
             diagram('#diagram-03', {
                 stroke: 30,
                 kind: 'triple2',
+                data: [1446.2, 1598.9],
+                animate: true,
+                maxValue: 2050
+            });
+            diagram('#diagram-1', {
+                stroke: 30,
+                kind: 'triple',
+                data: [1446.2, 1597.2],
+                animate: false,
+                maxValue: 2070
+            });
+            diagram('#diagram-2', {
+                stroke: 30,
+                kind: 'triple',
+                data: [1446.2, 1598.9],
+                animate: true,
+                maxValue: 2050
+            });
+            diagram('#diagram-3', {
+                stroke: 30,
+                kind: 'triple',
                 data: [1446.2, 1598.9],
                 animate: true,
                 maxValue: 2050

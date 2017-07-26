@@ -393,12 +393,12 @@ $(document).on('keyup', function(e){
 
 
 //init func
+basicBudgetFiguresDiagrams();
 tabsLine();
 sectionTabs();
 stepsDetails();
 stageSlider();
 dateSlider();
-basicBudgetFiguresDiagrams();
 });
 //$(document).ready * end
 
@@ -753,6 +753,30 @@ function dateSlider() {
 
 
 function basicBudgetFiguresDiagrams () {
+  diagram( '#diagram-01', {
+      stroke: 30,
+      kind: 'triple',
+      data: [ 1446.2, 1598.9],
+      animate: true,
+      maxValue: 2050
+  });//.animate();
+
+  diagram( '#diagram-02', {
+      stroke: 30,
+      kind: 'triple',
+      data: [ 1446.2, 1598.9],
+      animate: true,
+      maxValue: 2050
+  });//.animate();
+
+  diagram('#diagram-03', {
+      stroke: 30,
+      kind: 'triple',
+      data: [ 1446.2, 1598.9],
+      animate: true,
+      maxValue: 2050
+  });//.animate();
+
     diagram( '#diagram-1', {
         stroke: 30,
         kind: 'triple',
@@ -770,30 +794,6 @@ function basicBudgetFiguresDiagrams () {
     });//.animate();
 
     diagram('#diagram-3', {
-        stroke: 30,
-        kind: 'triple',
-        data: [ 1446.2, 1598.9],
-        animate: true,
-        maxValue: 2050
-    });//.animate();
-
-    diagram( '#diagram-01', {
-        stroke: 30,
-        kind: 'triple',
-        data: [ 1446.2, 1598.9],
-        animate: true,
-        maxValue: 2050
-    });//.animate();
-
-    diagram( '#diagram-02', {
-        stroke: 30,
-        kind: 'triple',
-        data: [ 1446.2, 1598.9],
-        animate: true,
-        maxValue: 2050
-    });//.animate();
-
-    diagram('#diagram-03', {
         stroke: 30,
         kind: 'triple',
         data: [ 1446.2, 1598.9],
