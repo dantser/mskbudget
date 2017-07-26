@@ -4780,7 +4780,7 @@ function (t, e) {
         },
         loop: {
           type: Boolean,
-          default: !0
+          default: true
         },
         animationSpeed: {
           type: Number,

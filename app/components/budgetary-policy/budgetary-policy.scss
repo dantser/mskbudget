@@ -290,7 +290,7 @@
 // }
 
 .carousel-3d-slide {
-  background-color: rgba(105, 106, 121, .4)!important;;
+  background-color: #222 !important;;
   -webkit-box-shadow: inset 25px 0 20px rgba(167, 168, 184, .3), inset -25px 0 20px rgba(167, 168, 184, .3) !important;
   box-shadow: inset 25px 0 20px rgba(167, 168, 184, .3), inset -25px 0 20px rgba(167, 168, 184,.3) !important;
   overflow: auto !important;
@@ -327,7 +327,7 @@
 }
 
 .carousel-3d-slide .d-slide {
-  opacity: 0;
+  opacity: .6;
   -webkit-transition: all .3s ease;
   transition: all .3s ease;
 }
@@ -813,4 +813,55 @@
       display: none;
     }
   }
+}
+
+@media screen and (min-width:0\0) {
+
+  .carousel-3d-slide {
+    margin-left: -40px !important;
+    transform-origin: left center;
+    -ms-transform-origin: left center;
+    transform: scale(0.9);
+    -ms-transform: scale(0.9);
+  }
+
+  .carousel-3d-slide.current {
+    margin-left: 0 !important;
+    transform-origin: center;
+    -ms-transform-origin: center;
+    transform: scale(1);
+    -ms-transform: scale(1);
+    z-index: 101 !important;
+  }
+
+  .carousel-3d-slide.current ~ .carousel-3d-slide {
+    margin-left: 40px !important;
+    transform-origin: right center;
+    -ms-transform-origin: right center;
+    transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    z-index: 100;
+  }
+
+  .carousel-3d-slide.current ~ .carousel-3d-slide + .carousel-3d-slide { z-index: 99; }
+  .carousel-3d-slide.current ~ .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide { z-index: 98; }
+  .carousel-3d-slide.current ~ .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide { z-index: 97; }
+  .carousel-3d-slide.current ~ .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide { z-index: 96; }
+  .carousel-3d-slide.current ~ .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide { z-index: 95; }
+  .carousel-3d-slide.current ~ .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide { z-index: 94; }
+  .carousel-3d-slide.current ~ .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide { z-index: 93; }
+  .carousel-3d-slide.current ~ .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide { z-index: 92; }
+  .carousel-3d-slide.current ~ .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide { z-index: 91; }
+  .carousel-3d-slide.current ~ .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide { z-index: 90; }
+  .carousel-3d-slide.current ~ .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide { z-index: 89; }
+  .carousel-3d-slide.current ~ .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide { z-index: 88; }
+  .carousel-3d-slide.current ~ .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide { z-index: 87; }
+  .carousel-3d-slide.current ~ .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide { z-index: 86; }
+  .carousel-3d-slide.current ~ .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide { z-index: 85; }
+  .carousel-3d-slide.current ~ .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide { z-index: 84; }
+  .carousel-3d-slide.current ~ .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide { z-index: 83; }
+  .carousel-3d-slide.current ~ .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide { z-index: 82; }
+  .carousel-3d-slide.current ~ .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide { z-index: 81; }
+  .carousel-3d-slide.current ~ .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide + .carousel-3d-slide { z-index: 80; }
+
 }
