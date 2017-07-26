@@ -6,7 +6,7 @@ include ../../blocks/social/social
 include ../../blocks/toppanel/toppanel
 include ../../blocks/search-navbar/search-navbar
 
-mixin header()
+mixin header(blind)
   +toppanel
   +b.HEADER.header#header&attributes(attributes)
     +e.wrap.wrap
@@ -16,9 +16,14 @@ mixin header()
         +e.drop-row#header-short-nav-hidden
           //- логотип в десктопной версии меню
           +logo('header').header__logo.hidden-mobile
-          +e.A(href="#").link-for-blind.link-for-blind.visible-xxl
-            +icon('glasses').icon.link-for-blind__icon
-            .link-for-blind__text Версия для слабовидящих
+          if !blind
+            +e.A(href="#").link-for-blind.link-for-blind.visible-xxl
+              +icon('glasses').icon.link-for-blind__icon
+              .link-for-blind__text Версия для слабовидящих
+          else
+            +e.A(href="#").link-for-blind.link-for-blind.visible-xxl
+              +icon('glasses').icon.link-for-blind__icon
+              .link-for-blind__text Полная версия
           +currency().header__currency
           //- +e.A.toppanel-link(href="#").js-show-toppanel
           //-   +icon('mos').icon
