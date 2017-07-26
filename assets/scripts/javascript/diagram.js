@@ -294,7 +294,7 @@ var diagram;
 
         if( _.options.kind == 'triple' ){
 
-            values = '<div class="comp-diagram__values"><div id="value-path-'+ _.element +'-2" class="comp-diagram__num comp-diagram__num_blue diagram-value" data-value="'+ path.val[2] +'">'+ path.val[2] +'</div><div id="value-path-'+ _.element +'-1" class="comp-diagram__num comp-diagram__num_pink diagram-value" data-value="'+ path.val[1] +'">'+ path.val[1] +'</div><div id="value-path-'+ _.element +'-0" class="comp-diagram__num comp-diagram__num_yellow diagram-value" data-pre-val="'+ path.preV +'" data-value="'+ path.val[0] +'">'+ path.val[0] +'</div></div>';
+            values = '<div class="comp-diagram__values"><div id="value-path-'+ _.element +'-2" class="comp-diagram__num comp-diagram__num_blue diagram-value" data-value="'+ path.val[2] +'">'+ path.val[2] + ' +100.0' +'</div><div id="value-path-'+ _.element +'-1" class="comp-diagram__num comp-diagram__num_pink diagram-value" data-value="'+ path.val[1] +'">'+ path.val[1] +'</div><div id="value-path-'+ _.element +'-0" class="comp-diagram__num comp-diagram__num_yellow diagram-value" data-pre-val="'+ path.preV +'" data-value="'+ path.val[0] +'">'+ path.val[0] +'</div></div>';
 
             svgBody += '<g><path id="path-'+ _.element +'-0" fill="none" stroke="url(#svg-gradient_'+ _.element +'-0)" stroke-width="'+ _.options.stroke +'" stroke-linecap="round" stroke-miterlimit="10" d="'+ path.path[0] +'" class="anim-diagram last" data-radius="'+ path.radius[0] +'"/><rect x="0" y="0" width="100%" height="100%" fill="none" /></g>';
 
