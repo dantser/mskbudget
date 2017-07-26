@@ -37,7 +37,27 @@ mixin basic_budget_figures()
         .analityc-control-group._dp.basic-budget__dp
           input(placeholder="Выберите дату исполнения", value="Выберите дату исполнения").jq-spec-datepicker
         .analityc-control-group._dp-alt.basic-budget__dp
-          input(placeholder="на 1 декабря" value="на 1 декабря").jq-spec-datepicker-alt
+          select(disabled).analityc-select.analityc-select_date.analityc-select_disabled
+            option 01
+          select.analityc-select.analityc-select_month
+            option(selected=selected) января
+            option февраля
+            option марта
+            option апреля
+            option мая
+            option июня
+            option июля
+            option августа
+            option сентября
+            option октября
+            option ноября
+            option декабря
+          select.analityc-select.analityc-select_year
+            option 2014
+            option(selected=selected) 2015
+            option 2016
+            option 2017
+            option 2018
         span.analityc-widget-label млрд. рублей
         .analityc-widget-rounds._active
           .legend

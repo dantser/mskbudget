@@ -11,6 +11,15 @@
   font-family: $PFDinCondensedPro;
 }
 
+
+.analityc-select {
+  cursor: pointer;
+}
+
+.analityc-select_disabled {
+  background-color: $color-light-gray!important;
+  cursor: default;
+}
 .basic-budget {
   background: #282635 url(../images/basic-budget/bg.png) top center no-repeat;
   background-size: 100%;
@@ -20,6 +29,83 @@
   .owl-carousel.owl-hidden {
     opacity: 1 !important;
   }
+
+  .analityc-control-group._dp {
+    @media (min-width: 701px) and (max-width: 800px) {
+      margin-left: 0;
+    }
+  }
+
+  .analityc-control-group._dp-alt {
+
+    @media (min-width: 701px) and (max-width: 800px) {
+      margin-left: 0;
+      width: 65%;
+    }
+
+    .analityc-select {
+      display: inline-block;
+      width: 95px;
+      width: 24%;
+      margin-right: 10px;
+      &:last-child {
+        margin-right: 0;
+      }
+      &_date {
+        width: 48px;
+        width: 10%;
+
+        @media (min-width: 701px) and (max-width: 800px) {
+          width: 15%;
+        }
+
+        @media (max-width: 700px) and (min-width: 551px) {
+          width: 13%;
+        }
+      }
+
+      &_year {
+        width: 65px;
+        width: 15%;
+
+        @media (min-width: 701px) and (max-width: 800px) {
+          width: 25%;
+        }
+
+        @media (max-width: 700px) and (min-width: 551px) {
+          width: 17%;
+        }
+      }
+
+      &_month {
+
+        @media (min-width: 701px) and (max-width: 800px) {
+          width: 40%;
+        }
+        @media (max-width: 700px) and (min-width: 551px) {
+          width: 30%;
+        }
+      }
+
+      &_month, &_year, &_date  {
+        background-position: 95% 11px;
+
+        @media (max-width: 1140px) and (min-width: 901px) {
+          background-position: 95% 15px;
+        }
+
+        @media (min-width: 701px) and (max-width: 800px) {
+          background-position: 95% 15px;
+        }
+
+        @media (max-width: 700px) and (min-width: 551px) {
+          background-position: 95% 23px;
+        }
+      }
+
+    }
+  }
+
 }
 
 .wrapper {
@@ -264,7 +350,7 @@
   margin-left: 99px;
   margin-left: 10.1%;
   width: 361px;
-  width: calc(33.2%-1px);
+  width: calc(33.2% - 1px);
   margin-top: 13px;
   position: relative;
   display: none;
