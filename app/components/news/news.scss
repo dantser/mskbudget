@@ -41,7 +41,7 @@
 
   &__card-wrapper {
     margin-top: 34px;
-    text-align: justify;
+    font-size: 0;
     &:after {
       content: '';
       display: inline-block;
@@ -52,13 +52,20 @@
 
   .tile__item {
     margin-bottom: 44px;
-    width: 344px;
+    width: 32%;
+    margin-right: 2%;
     text-align: left;
     float: none;
-    display: inline-flex;
+    display: inline-block;
+    vertical-align: top;
     opacity: 0;
     pointer-events: none;
     transition: all .25s ease-in-out;
+    
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+
     &.active {
       opacity: 1;
       pointer-events: all;
@@ -121,27 +128,29 @@
     }
   }
 
-  @media screen and (max-width: 1179px) {
+  @media screen and (max-width: 1180px) {
     &__subscribe {
       top: 18px;
       .wrap {
         margin: 0;
       }
     }
-    .tile__item {
-      width: 302px;
+
+    .tile__item { 
+      width: 32%; margin-bottom: 28px; 
     }
+
     &__show-more {
       margin: 27px auto 0;
     }
   }
 
-  @media screen and (min-width: 701px) and (max-width: 1179px) {
+  @media screen and (min-width: 701px) and (max-width: 1180px) {
     padding-top: 214px;
   }
 
   @media screen and (max-width: 992px) {
-    &__subscribe {
+    .subscribe {
       position: static;
       margin-top: 31px;
     }
@@ -153,7 +162,6 @@
     }
     &__card-wrapper {
       margin-top: 47px;
-      text-align: center;
     }
     .tile__item {
       &:nth-child(n+7) {
@@ -165,8 +173,16 @@
   @media screen and (max-width: 900px) {
     padding-bottom: 90px;
     .tile__item {
-      width: 276px !important;
+      width: 48%;
       margin-bottom: 36px;
+
+      &:nth-child(3n) {
+        margin-right: 2%;
+      }
+
+      &:nth-child(even) {
+        margin-right: 0;
+      }
     }
     &__show-more {
       margin: 13px auto 0;
@@ -247,7 +263,7 @@
       margin-top: 35px;
     }
     .tile__item {
-      width: 290px !important;
+      width: 100%;
       &:nth-child(n+5) {
         display: none;
       }
@@ -260,7 +276,7 @@
   @media screen and (max-width: 450px) {
 
     &__subscribe {
-      margin-top: 13px!important;
+      margin-top: 25px!important;
     }
 
     &__content {
