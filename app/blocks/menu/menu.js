@@ -4,7 +4,7 @@ export default () => {
   // выпадающее меню первого уровня
   if ($('#menu .menu__link.has-dropdown').length) {
     function closeMenu() {
-      $('#menu .menu__link.has-dropdown').removeClass('dropdown-is-active');
+      $('#menu .has-dropdown').removeClass('dropdown-is-active');
     }
 
     $('#menu .menu__link.has-dropdown').on('click', function(event) {
