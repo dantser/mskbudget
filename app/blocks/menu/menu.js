@@ -64,6 +64,10 @@ export default () => {
           closeSubMenu();
           return;
         } else if ($(this).hasClass('has-dropdown')) {
+          if (e.target.offsetTop > 0) {
+            // const correctTop = e.target.nextElementSibling.offsetTop + e.target.offsetTop;
+            e.target.nextElementSibling.setAttribute('style','transform: translateY(' + e.target.offsetTop + 'px)');
+          }
           $(this).addClass('dropdown-is-active');
         }
       }
