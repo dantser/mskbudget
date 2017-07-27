@@ -61,6 +61,7 @@ $(() => {
   dragscroll();
   docCards();
   mediaMain();
+  documentsform();
   widgetCard();
   main();
   pageHeader();
@@ -87,7 +88,6 @@ $(() => {
   govDebt();
   profileEdit();
   budgetaryPolicy();
-  documentsform();
   modal();
   budget_moscow_gov_program();
   analitycGraphics();
