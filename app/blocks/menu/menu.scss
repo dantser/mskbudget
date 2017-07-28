@@ -146,8 +146,17 @@
     }
   }
 
-  // подменю второго уровня
+  // подменю 2-го уровня
   .subsubmenu {
-    border-top: 1px solid rgba(white, .41);
+    &:after {
+      @include ghost;
+      bottom: auto;
+      height: 0;
+      border-top: 1px solid #4f4f4f;
+    }
+
+    .submenu__link {
+      font-size: 14px;
+    }
   }
 }
