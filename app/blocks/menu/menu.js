@@ -6,7 +6,6 @@ export default () => {
   // закрываем выпадающие меню на всех уровнях
   if ($('#menu .menu__link.has-dropdown, #menu .submenu__link.has-dropdown').length) {
     function closeMenu() {
-      console.log('closeMenu() fired!');
       return $('#menu .has-dropdown').removeClass('dropdown-is-active');
     }
 
@@ -53,7 +52,6 @@ export default () => {
   if ($('#menu .submenu__link.has-dropdown').length) {
     // закрываем выпадающие меню второго уровня
     function closeSubMenu() {
-      console.log('closeSubMenu() fired!');
       return $('#menu .submenu__link.has-dropdown').removeClass('dropdown-is-active');
     }
 

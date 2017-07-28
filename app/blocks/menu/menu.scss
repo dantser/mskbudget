@@ -101,7 +101,7 @@
       left: -100vw;
       right: -100%;
       right: -100vw;
-      background-color: rgba(black, .65);
+      background-color: black;
       @include transited;
     }
 
@@ -143,6 +143,20 @@
       &:hover {
         color: #fee300;
       }
+    }
+  }
+
+  // подменю 2-го уровня
+  .subsubmenu {
+    &:after {
+      @include ghost;
+      bottom: auto;
+      height: 0;
+      border-top: 1px solid #4f4f4f;
+    }
+
+    .submenu__link {
+      font-size: 14px;
     }
   }
 }
