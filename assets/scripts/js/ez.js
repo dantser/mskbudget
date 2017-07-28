@@ -755,7 +755,7 @@ function dateSlider() {
 function basicBudgetFiguresDiagrams () {
   diagram( '#diagram-01', {
       stroke: 30,
-      kind: 'triple',
+      kind: 'triple2',
       data: [ 1446.2, 1598.9],
       animate: true,
       maxValue: 2050
@@ -763,7 +763,7 @@ function basicBudgetFiguresDiagrams () {
 
   diagram( '#diagram-02', {
       stroke: 30,
-      kind: 'triple',
+      kind: 'triple2',
       data: [ 1446.2, 1598.9],
       animate: true,
       maxValue: 2050
@@ -771,7 +771,7 @@ function basicBudgetFiguresDiagrams () {
 
   diagram('#diagram-03', {
       stroke: 30,
-      kind: 'triple',
+      kind: 'triple2',
       data: [ 1446.2, 1598.9],
       animate: true,
       maxValue: 2050
