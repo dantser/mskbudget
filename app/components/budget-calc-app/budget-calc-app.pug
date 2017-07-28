@@ -10,7 +10,7 @@ mixin budget-calc-app()
   +b.budget-calc-app#budget-calc-app&attributes(attributes)
     +e.sidebar#budget-calc-app__sidebar
       +e.sidebar-inner
-        +b.A.budget-calc-app-widget._link._incomes.js-budget-calc-app__tab-control#budget-calc-app__tab_incomes-indicator.is-active(data-target="#budget-calc-app__tab_incomes" href="#")
+        +b.A.budget-calc-app-widget._link._incomes.js-budget-calc-app__tab-control#budget-calc-app__tab_incomes-indicator(data-target="#budget-calc-app__tab_incomes" href="#")
           +e.DIV.inner
             +e.DIV.name.has-tooltip доходы
               +tooltip-icon("Текст тултипа может быть как длинным, так и неприлично коротким. Но в целях предотвращения непредсказуемого поведения этих вспылвающих подсказок, а так же побочных эффектов, связанных с хаотичными изменениями в этой прекрасной системе дизайна, мы вынуждены и просто обязаны использовать такой длинный текст для тестирования вёрстки.")
@@ -53,7 +53,7 @@ mixin budget-calc-app()
           p Для этого вы можете <br>- увеличить доходы бюджета <br>- снизить расходы бюджета <br>- привлечь источники финансирования дефицита бюджета
 
     +e.main-content#budget-calc-app__main-content
-      +e.tab._incomes.is-active.js-budget-calc-app__tab#budget-calc-app__tab_incomes(data-state-indicator="#budget-calc-app__tab_incomes-indicator")
+      +e.tab._incomes.js-budget-calc-app__tab#budget-calc-app__tab_incomes(data-state-indicator="#budget-calc-app__tab_incomes-indicator")
         +e.heading МЕРЫ ПО ИЗМЕНЕНИЮ ДОХОДНОЙ ЧАСТИ БЮДЖЕТА
         +e.text Изменение элементов налогообложения в пределах полномочий субъекта Российской Федерации, установленных законодательством Российской Федерации о налогах и сборах.
         +e.incomes
@@ -73,12 +73,9 @@ mixin budget-calc-app()
               SPAN.-num 1 433 185,2
               SPAN.-text млн руб.
           +b.bc-table-row._expand
-            +b.notification.is-active
-              | Решение об эмиссии отдельных выпусков облигаций Городского облигационного (внутреннего) займа Москвы утверждаются Правительством Москвы. Предельный объем ежегодной эмиссии устанавливается постановлениями Правительства Москвы. Превышение предельного объема заимствований может оказать негативное влияние на ранее выпущенные облигационные займы.
-            +b.notification._alert.is-active
-              | Внимание! <br>Ежегодные расходы на обслуживание государственного долга изменились на 743,7 млн руб.
-            +b.notification._info.text-center.is-active
-              | Если вы хотите сохранить несколько вариантов бюджета, <a href="#">зарегистируйтесь</a>!
+            +b.notification.is-active Решение об эмиссии отдельных выпусков облигаций Городского облигационного (внутреннего) займа Москвы утверждаются Правительством Москвы. Предельный объем ежегодной эмиссии устанавливается постановлениями Правительства Москвы. Превышение предельного объема заимствований может оказать негативное влияние на ранее выпущенные облигационные займы.
+            +b.notification._alert.is-active Внимание! <br>Ежегодные расходы на обслуживание государственного долга изменились на 743,7 млн руб.
+            +b.notification._info.text-center.is-active Если вы хотите сохранить несколько вариантов бюджета, <a href="#">зарегистируйтесь</a>!
 
           +b.bc-table-row.is-accordeon-row.js-table-row-accordeon
             +e.column._name
@@ -1274,10 +1271,17 @@ mixin budget-calc-app()
           +budget-calc-btn('Сохранить и проверить свой вариант бюджета').-triangle-right.js-budget-calc-app__tab-control(data-target="#budget-calc-app__tab_check" href="#")
 
       //- таб "Проверить свой вариант бюджета"
-      +e.tab._check.js-budget-calc-app__tab#budget-calc-app__tab_check
+      +e.tab._check.js-budget-calc-app__tab#budget-calc-app__tab_check.is-active
         +e.heading ваше предложение
         +e.check
           +b.notification._info.is-active Если вы хотите сохранить несколько вариантов бюджета, <a href="#">зарегистируйтесь</a>!
+          +b.check-row.check-footer__text
+            +e.check-smallheading Выберите другой вариант бюджета:
+            +e.check-mysaveslist.d-smr__add-char
+              p.d-smr__add-char-label #1: 7 апреля 2017 г.
+              .d-smr__add-char-block
+                ul.d-smr__add-char-list.scroll-pane
+                  li.d-smr__add-char-item #2: 3 апреля 2017 г.
           +e.check-heading Доходы бюджета
           +b.check-row
             +e.column._name Увеличение коэффициента, отражающего региональные особенности рынка труда, используемого для определения размера фиксированного ежемесячного авансового платежа по налогу на доходы физических лиц до 2,32741
@@ -1315,7 +1319,7 @@ mixin budget-calc-app()
             +e.column._text-smaller Предельные значения установлены в образовательных целях. Привлечение бюджетных кредитов от других бюджетов бюджетной системы Российской Федерации связано с рядом ограничений, в том числе устойчивостью финансового состояния города Москвы.
           +b.notification._alert.mt30.is-active Государственный долг города Москвы на конец года измениться на 10 464,5 млн. руб.
           +e.check-heading итого
-          +b.check-row
+          +b.check-row.pt5
             +e.column._total
               .column-total-col1
                 .total-caption доходы
@@ -1340,6 +1344,9 @@ mixin budget-calc-app()
                 .total-num-text млрд руб.
                 .text-small.text-alert -8,0
                 .text-small.text-muted -152,9
+            +e.check-row.check-footer__text
+              +budget-calc-btn('сохранить этот вариант').-triangle-right.-green(href="#")
+              +budget-calc-btn('удалить этот вариант').-triangle-right.-red-border(href="#")
             +b.notification._info.mb30.is-active Если вы хотите сохранить несколько вариантов бюджета, <a href="#">зарегистируйтесь</a>!
 
           +b.check-footer
@@ -1360,7 +1367,7 @@ mixin budget-calc-app()
                 +e.A.share-btn._vk(href="#")
                   +icon('vk').icon
             +e.text В случае, если Вы хотите представить свой вариант бюджета на рассмотрение специалистам городских органов власти, Вы можете воспользоваться ссылкой "Предложить свой вариант".
-            +e.text
+            +e.text.budget-calc-app__text
               +budget-calc-btn('в начало').-triangle-left.js-budget-calc__tab-control(href="#" data-target="#budget-calc__tab_intro")
               +budget-calc-btn('предложить свой вариант').-triangle-right.-blue
 

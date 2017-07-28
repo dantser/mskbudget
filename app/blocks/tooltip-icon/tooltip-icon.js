@@ -21,7 +21,7 @@ export default () => {
       theme: 'light',
       size: 'big',
       arrowSize: 'big',
-      inertia: true,
+      // inertia: true,
       // delay: [0, 0],
       popperOptions: {
         modifiers: {

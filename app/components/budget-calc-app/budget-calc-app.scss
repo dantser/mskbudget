@@ -23,9 +23,7 @@
 
   &_heading {
     border-bottom: 2px solid #e5e5e5;
-  }
-
-  // epand-row
+  } // epand-row
   &_expand {
     display: none;
     position: relative;
@@ -57,7 +55,7 @@
       }
     }
 
-    .bc-table-row_expand-header + .bc-table-row {
+    .bc-table-row_expand-header+.bc-table-row {
       @media (max-width: 768px) {
         border-top-color: transparent;
       }
@@ -109,7 +107,7 @@
   &.is-active {
     background-color: #f6f6f5;
 
-    + .bc-table-row_expand {
+    +.bc-table-row_expand {
       display: table;
       border-top-color: transparent;
 
@@ -146,9 +144,7 @@
     line-height: 1.25;
     font-weight: 500;
     text-transform: uppercase;
-    color: black;
-
-    // firefox fix
+    color: black; // firefox fix
     display: -moz-deck;
 
     @media (max-width: 768px) {
@@ -310,14 +306,13 @@
   color: black;
   background-color: #fee300;
   border: 1px solid #fee300;
+  -webkit-font-smoothing: antialiased;
   @include transited;
 
   &:hover {
     background-color: #E7CE00;
     border-color: #E7CE00;
-  }
-
-  // &:active {
+  } // &:active {
   //   @include transform(translateY(1px));
   // }
 
@@ -353,6 +348,47 @@
       &.-triangle-right:after {
         border-color: transparent transparent transparent black;
       }
+    }
+  }
+
+  &.-red-border {
+    background-color: transparent;
+    color: #e82535;
+    border-color: #e82535;
+
+    &.-svg-icon {
+      fill: #e82535;
+    }
+
+    &.-triangle-right:after {
+      border-color: transparent transparent transparent #e82535;
+    }
+
+    &:hover {
+      background-color: #e82535;
+      color: white;
+
+      &.-svg-icon {
+        fill: white;
+      }
+
+      &.-triangle-right:after {
+        border-color: transparent transparent transparent white;
+      }
+    }
+  }
+
+  &.-green {
+    background-color: #75b025;
+    border-color: #75b025;
+    color: white;
+
+    &.-triangle-right:after {
+      border-color: transparent transparent transparent white;
+    }
+
+    &:hover {
+      background-color: darken(#75b025, 5%);
     }
   }
 
@@ -399,17 +435,15 @@
     position: relative;
     padding-right: 40px;
 
-    > svg,
-    > .icon {
+    >svg,
+    >.icon {
       position: absolute;
       top: 50%;
       right: 15px;
       @include transform(translateY(-50%));
       height: 10px;
       max-height: 10px;
-      width: 10px;
-      // @include transited;
-
+      width: 10px; // @include transited;
       &.icon-90deg {
         @include transform(rotate(90deg) translateX(-40%));
       }
@@ -440,9 +474,7 @@
     p:not(:last-child) {
       margin-bottom: 15px;
     }
-  }
-
-  // сообщения в теле калькулятор
+  } // сообщения в теле калькулятор
   .notification {
     display: none;
     padding: 13px 15px;
@@ -483,9 +515,7 @@
         text-decoration: none;
       }
     }
-  }
-
-  // стили значка подсказки внутри калькулятора бюджета
+  } // стили значка подсказки внутри калькулятора бюджета
   .tooltip-icon {
     position: absolute;
     top: 50%;
@@ -493,9 +523,7 @@
     margin-top: -1px;
     @include transform(translateY(-50%));
     @include transited;
-  }
-
-  // для всех заголовков со знаком "?" и подсказкой в виде тултипа
+  } // для всех заголовков со знаком "?" и подсказкой в виде тултипа
   .has-tooltip {
     display: inline-block;
     position: relative;
@@ -616,34 +644,58 @@
       padding-right: 15px;
       font-size: 13px;
     }
-  }
-
-  // различные иконки
+  } // различные иконки
   &__icon {
-    &.costs-study { fill: #30b069; }
-    &.costs-park { fill: #c52323; }
-    &.costs-car { fill: #af3b81; }
-    &.costs-health-care { fill: #fca600; }
-    &.costs-crane { fill: #838a9a; }
-    &.costs-briefcase { fill: #7a1212; }
-    &.costs-football { fill: #ff0036; }
-    &.costs-paint { fill: #14a865; }
-    &.costs-wifi { fill: #1ccbea; }
-    &.costs-light { fill: #969caa; }
-    &.costs-safe-shield { fill: #26c38d; }
-    &.costs-darts { fill: #ccdd0f; }
-    &.costs-home { fill: #7d40ad; }
-    &.costs-health-cross { fill: #0059d2; }
-    &.costs-darts { fill: #ccdd0f; }
-  }
-
-  // доходы
+    &.costs-study {
+      fill: #30b069;
+    }
+    &.costs-park {
+      fill: #c52323;
+    }
+    &.costs-car {
+      fill: #af3b81;
+    }
+    &.costs-health-care {
+      fill: #fca600;
+    }
+    &.costs-crane {
+      fill: #838a9a;
+    }
+    &.costs-briefcase {
+      fill: #7a1212;
+    }
+    &.costs-football {
+      fill: #ff0036;
+    }
+    &.costs-paint {
+      fill: #14a865;
+    }
+    &.costs-wifi {
+      fill: #1ccbea;
+    }
+    &.costs-light {
+      fill: #969caa;
+    }
+    &.costs-safe-shield {
+      fill: #26c38d;
+    }
+    &.costs-darts {
+      fill: #ccdd0f;
+    }
+    &.costs-home {
+      fill: #7d40ad;
+    }
+    &.costs-health-cross {
+      fill: #0059d2;
+    }
+    &.costs-darts {
+      fill: #ccdd0f;
+    }
+  } // доходы
   &__incomes {
     margin-top: 35px;
     margin-bottom: 35px;
-  }
-
-  // расходы
+  } // расходы
   &__costs {
     position: relative;
     overflow: hidden;
@@ -662,27 +714,35 @@
       &.is-active {
         background-color: #f6f6f5;
 
-        > .budget-calc-app__costs-item-expand {
+        >.budget-calc-app__costs-item-expand {
           height: auto;
-          .budget-calc-app__costs-item-expand-inner { opacity: 1; }
+          .budget-calc-app__costs-item-expand-inner {
+            opacity: 1;
+          }
         }
-      }
-
-      // сетка
+      } // сетка
       @media (min-width: 1200px) {
         float: left;
         width: 33.33%;
 
-        &:nth-of-type(3n) { clear: right; }
-        &:nth-of-type(3n+1) { clear: left; }
+        &:nth-of-type(3n) {
+          clear: right;
+        }
+        &:nth-of-type(3n+1) {
+          clear: left;
+        }
       }
 
       @media (min-width: 640px) and (max-width: 1199px) {
         float: left;
         width: 50%;
 
-        &:nth-of-type(2n) { clear: right; }
-        &:nth-of-type(2n+1) { clear: left; }
+        &:nth-of-type(2n) {
+          clear: right;
+        }
+        &:nth-of-type(2n+1) {
+          clear: left;
+        }
       }
 
       &-icon {
@@ -789,18 +849,14 @@
               font-weight: 500;
               text-transform: uppercase;
             }
-          }
-
-          // 0_o
+          } // 0_o
           .bc-table-row__column:nth-child(1) {
             width: 43%;
           }
         }
       }
     }
-  }
-
-  // дефицит/профицит
+  } // дефицит/профицит
   &__balance {
     margin-bottom: 35px;
 
@@ -829,13 +885,15 @@
 
     .bc-table-row__column {
       @media (min-width: 769px) and (max-width: 1024px) {
-        &_name { width: 40%; }
-        &_value { width: 30%; }
+        &_name {
+          width: 40%;
+        }
+        &_value {
+          width: 30%;
+        }
       }
     }
-  }
-
-  // проверить свой вариант бюджета
+  } // проверить свой вариант бюджета
   &__check {
 
     &-heading {
@@ -859,12 +917,34 @@
       padding-top: 30px;
       border-bottom: 1px solid #e5e5e5;
 
+      &__check-smallheading {
+        display: inline-block;
+        font-family: $PFDinCondensedPro;
+        font-size: 14px;
+        line-height: 34px;
+        font-weight: 500;
+        text-transform: uppercase;
+        color: black;
+      }
+
+      &__check-mysaveslist {
+        display: inline-block;
+        margin: 0 auto 0 25px !important;
+      }
+
       &__column {
         padding-bottom: 30px;
 
-        .text-muted { color: rgba(black, .6); }
-        .text-small { font-size: 14px; line-height: 1.5; }
-        .text-big   { font-size: 48px; }
+        .text-muted {
+          color: rgba(black, .6);
+        }
+        .text-small {
+          font-size: 14px;
+          line-height: 1.5;
+        }
+        .text-big {
+          font-size: 48px;
+        }
 
         &:not(:last-child) {
           @media (max-width: 768px) {
@@ -917,8 +997,12 @@
             }
           }
 
-          @media (min-width: 1200px) { @include rage; }
-          @media (max-width: 768px)  { @include rage; }
+          @media (min-width: 1200px) {
+            @include rage;
+          }
+          @media (max-width: 768px) {
+            @include rage;
+          }
 
           .total-caption,
           .total-num-text {
@@ -944,27 +1028,25 @@
 
         @media (min-width: 769px) {
           display: inline-block;
-          vertical-align: top;
-
-          // firefox fix
+          vertical-align: top; // firefox fix
           display: -moz-deck;
 
           &:nth-child(1) {
-              width: 40%;
-              padding-left: 30px;
-              padding-right: 10px;
+            width: 40%;
+            padding-left: 30px;
+            padding-right: 10px;
           }
 
           &:nth-child(2) {
-              width: 25%;
-              padding-left: 10px;
-              padding-right: 10px;
+            width: 25%;
+            padding-left: 10px;
+            padding-right: 10px;
           }
 
           &:nth-child(3) {
-              width: 35%;
-              padding-left: 10px;
-              padding-right: 30px;
+            width: 35%;
+            padding-left: 10px;
+            padding-right: 30px;
           }
 
           &_total {
@@ -977,12 +1059,7 @@
 
   .check-footer {
     background-color: #f6f6f5;
-    padding: 30px;
-
-    @media (max-width: 768px) {
-      padding-left: 15px;
-      padding-right: 15px;
-    }
+    padding: 30px 0;
 
     @media (min-width: 769px) {
       padding-bottom: 55px;
@@ -1020,7 +1097,12 @@
       padding-top: 15px;
       padding-bottom: 15px;
 
-      @media (min-width: 769px) {
+      @media (max-width: $navBreakpointTablet) {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+
+      @media (min-width: $navBreakpointMobile + 1px) {
         float: left;
         width: 66%;
         padding-right: 20px;
@@ -1028,6 +1110,10 @@
 
       @media (max-width: 480px) {
         margin-bottom: 15px;
+      }
+
+      @media (min-width: $navBreakpointDesktop) {
+        padding-right: 70px;
       }
     }
 
@@ -1076,7 +1162,9 @@
         &_twitter {
           background-color: #40bff5;
 
-          svg { width: 19px; }
+          svg {
+            width: 19px;
+          }
 
           &:hover {
             background-color: darken(#40bff5, 5%);
@@ -1086,7 +1174,9 @@
         &_vk {
           background-color: #6084a8;
 
-          svg { width: 20px; }
+          svg {
+            width: 20px;
+          }
 
           &:hover {
             background-color: darken(#6084a8, 5%);
@@ -1096,13 +1186,19 @@
     }
 
     &__text {
-      padding: 15px 25px;
+      padding: 15px 30px;
       font-size: 16px;
       line-height: 20px;
 
-      @media (max-width: 480px) {
-        padding-left: 0;
-        padding-right: 0;
+      @media (max-width: $navBreakpointMobile) {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+
+      .budget-calc-btn {
+        &:not(:last-child) {
+          margin-right: 15px;
+        }
       }
     }
 
@@ -1215,7 +1311,9 @@
     }
   }
 
-  &:not(:last-child) { margin-bottom: 10px; }
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
 
   &_link {
     cursor: pointer;
@@ -1225,9 +1323,15 @@
     }
   }
 
-  &_incomes { @include gradient('to right bottom, #004ccf 0%, #00ffff 100%'); }
-  &_costs   { @include gradient('to right bottom, #ff695b 0%, #9d308a 100%'); }
-  &_balance { @include gradient('to right bottom, #30b069 0%, #fee300 100%'); }
+  &_incomes {
+    @include gradient('to right bottom, #004ccf 0%, #00ffff 100%');
+  }
+  &_costs {
+    @include gradient('to right bottom, #ff695b 0%, #9d308a 100%');
+  }
+  &_balance {
+    @include gradient('to right bottom, #30b069 0%, #fee300 100%');
+  }
 
   &_incomes,
   &_costs,
@@ -1261,7 +1365,7 @@
     display: none;
     margin-left: 30px;
 
-    > p:not(:first-child) {
+    >p:not(:first-child) {
       @media (max-width: 767px) {
         display: none;
       }
@@ -1398,9 +1502,7 @@
     font-size: 12px;
     line-height: 14px;
     font-weight: 400;
-  }
-
-  // если виджет в футере
+  } // если виджет в футере
   .budget-calc-app__footer & {
     margin-top: 10px;
     margin-right: 0;
