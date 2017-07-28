@@ -406,7 +406,11 @@ dateSlider();
 function tabsLine(){
 	$('.js-label-button').click(function(){
       var sectionTabs = $(this).parents('.section-tabs');
-      sectionTabs.find($('.section-tabs__nav')).slideToggle();
+      setTimeout(() => {
+        $(this).parents('.section-tabs').find(".whitescreen1").fadeToggle(100);
+      }, 500)
+
+      sectionTabs.find($('.section-tabs__nav')).slideToggle('slow');
       sectionTabs.find($('.owl-nav')).slideDown();
       sectionTabs.find($('.section-tabs__content')).slideToggle();
       $(this).toggleClass('js-label-button-closed');
