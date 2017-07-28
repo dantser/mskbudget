@@ -1271,7 +1271,7 @@ mixin budget-calc-app()
           +budget-calc-btn('Сохранить и проверить свой вариант бюджета').-triangle-right.js-budget-calc-app__tab-control(data-target="#budget-calc-app__tab_check" href="#")
 
       //- таб "Проверить свой вариант бюджета"
-      +e.tab._check.js-budget-calc-app__tab#budget-calc-app__tab_check.is-active
+      +e.tab._check.js-budget-calc-app__tab#budget-calc-app__tab_check
         +e.heading ваше предложение
         +e.check
           +b.notification._info.is-active Если вы хотите сохранить несколько вариантов бюджета, <a href="#">зарегистируйтесь</a>!
@@ -1369,7 +1369,39 @@ mixin budget-calc-app()
             +e.text В случае, если Вы хотите представить свой вариант бюджета на рассмотрение специалистам городских органов власти, Вы можете воспользоваться ссылкой "Предложить свой вариант".
             +e.text.budget-calc-app__text
               +budget-calc-btn('в начало').-triangle-left.js-budget-calc__tab-control(href="#" data-target="#budget-calc__tab_intro")
-              +budget-calc-btn('предложить свой вариант').-triangle-right.-blue
+              +budget-calc-btn('предложить свой вариант').-triangle-right.-blue.js-budget-calc-app__tab-control(href="#" data-target="#budget-calc-app__tab_thanks")
+      //- таб "Спасибо за ваш вариант бюджета"
+      +e.tab._thanks.js-budget-calc-app__tab#budget-calc-app__tab_thanks.is-active
+        +e.heading СПАСИБО ЗА ВАШ ВАРИАНТ БЮДЖЕТА ГОРОДА МОСКВЫ!
+        +e.text
+          +e.P.thanks-paragraph Уважаемый посетитель Портала Открытый бюджет Москвы!
+          +e.P.thanks-paragraph Обращаем Ваше внимание, что направление подготовленного Вами проекта бюджета на рассмотрение специалистам Департамента финансов является формой проведения опроса общественного мнения. В связи с этим, рассмотрение таких предложений не осуществляется в порядке, устанавливаемом требованиями законодательства Российской Федерации о рассмотрении обращений граждан органами государственной власти (Федеральный закон от 02.05.2006 года № 59-ФЗ «О порядке рассмотрения обращений граждан Российской Федерации»).
+          +e.P.thanks-paragraph Вместе с тем, выражая глубокую заинтересованность в поддержании диалога городских властей с жителями и гостями города по вопросам финансирования основных направлений городского хозяйства, Департамент финансов города Москвы организует рассмотрение всех поступающих предложений для учёта мнения граждан при формировании городского бюджета на очередной период. Кроме того, наиболее интересные предложения посетителей будут опубликованы для общего доступа на Портале Открытый бюджет.
+        +e.thanks-send
+          +e.heading.thanks-form-heading Отправить на рассмотрение
+          +e.text
+            +e.FORM.thanks-form(action="#")
+              +e.DIV.thanks-form-row
+                +e.INPUT.thanks-form-input(type="text" placeholder="Представьтесь" required)
+              +e.DIV.thanks-form-row
+                +e.INPUT.thanks-form-input(type="email" placeholder="E-mail" required)
+              +e.DIV.thanks-form-row
+                +e.TEXTAREA.thanks-form-textarea(placeholder="Комментарий" required)
+              +e.DIV.thanks-form-row
+                +e.DIV.thanks-form-captcha captcha
+                +e.INPUT.thanks-form-input(type="text" placeholder="Код с картинки" required)
+              +e.DIV.thanks-form-row
+                +e.SUBMIT.thanks-form-submit.budget-calc-btn Отправить
+        +e.thanks-howitworks
+          +e.text
+            +e.thanks-howitworks-heading Что дальше?
+            +e.OL.thanks-howitworks-list
+              +e.LI.thanks-howitworks-item Ваше предложение направляется на портал
+              +e.LI.thanks-howitworks-item Модератор проверит Ваше предложение
+              +e.LI.thanks-howitworks-item Специалисты Департамента финансов рассмотрят Ваше предложение
+              +e.LI.thanks-howitworks-item Наиболее интересные предложения будут направлены в органы исполнительной власти города Москвы
+              +e.LI.thanks-howitworks-item Органы исполнительной власти города Москвы подготовят ответ
+              +e.LI.thanks-howitworks-item Наиболее интересные предложения будут опубликованы на портале
 
 
 

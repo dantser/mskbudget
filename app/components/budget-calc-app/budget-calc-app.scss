@@ -608,13 +608,18 @@
 
   &__heading {
     margin-bottom: 25px;
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-left: 30px;
+    padding-right: 30px;
     font-family: $PFDinCondensedPro;
     font-size: 24px;
     line-height: 1;
     font-weight: 500;
     text-transform: uppercase;
+
+    &_small {
+      font-size: 18px;
+      line-height: 20px;
+    }
 
     @media (max-width: 768px) {
       padding-left: 15px;
@@ -627,12 +632,12 @@
   }
 
   &__text {
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-left: 30px;
+    padding-right: 30px;
 
     .budget-calc-btn {
-      margin-top: 10px;
-      margin-bottom: 10px;
+      margin-top: 15px;
+      margin-bottom: 15px;
 
       &:not(:last-child) {
         margin-right: 15px;
@@ -1270,6 +1275,67 @@
       }
     }
   }
+
+  // Спасибо
+  &__thanks {
+    &-paragraph {
+      margin-bottom: 20px;
+    }
+
+    &-send {
+      background-color: #f6f6f5;
+      padding: 25px 0 35px;
+    }
+
+    &-form {
+      @include placeholder-color(#c5c5c5);
+
+      &-row {
+        overflow: hidden;
+      }
+
+      &-input,
+      &-textarea,
+      &-captcha {
+        float: left;
+        width: 100%;
+        max-width: 400px;
+        margin: 10px 0;
+        padding: 9px 10px !important;
+        font-family: $PFDinTextPro;
+        font-size: 18px;
+        line-height: 20px;
+        background-color: white;
+        border: 1px solid #c5c5c5;
+        border-radius: 2px;
+        @include transited;
+
+        &:focus,
+        &:hover,
+        &:active {
+          border-color: black;
+        }
+      }
+
+      &-input {
+
+      }
+
+      &-textarea {
+        min-height: 120px;
+        max-width: 100%;
+      }
+
+      &-captcha {
+        width: auto;
+        margin-right: 20px;
+      }
+
+      &-submit {
+
+      }
+    }
+  }
 }
 
 
@@ -1508,3 +1574,4 @@
     margin-right: 0;
   }
 }
+
