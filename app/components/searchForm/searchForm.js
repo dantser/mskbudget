@@ -28,6 +28,29 @@ export default () => {
     });
   });
 
+  $('input[name="all"]').change(function(){
+    if (this.checked) {
+      $(this).parents('.checkbox').siblings('.extra-search__checkbox-group').find('input').prop('checked', true);
+    } else {
+      $(this).parents('.checkbox').siblings('.extra-search__checkbox-group').find('input').prop('checked', false);
+    }
+  });
+  //чекбоксы
+  $('.extra-search__checkbox-group').click(function(){
+  var inputCount = $(this).find('.checkbox__control:checked').length,
+      checkboxCount = $(this).find('.checkbox').length;
+
+  console.log(inputCount + " " + checkboxCount);
+
+  if (inputCount != checkboxCount) {
+    $(this).siblings('.checkbox').find('.checkbox__control[name="all"]').prop('checked', false);
+  } else {
+    $(this).siblings('.checkbox').find('.checkbox__control[name="all"]').prop('checked', true);
+  }
+});
+
+
+
   CLOSE_MODAL.each( function () { // eslint-disable-line
     const EL = $(this);
     EL.on('click', (e) => {
@@ -55,10 +78,10 @@ export default () => {
   });
 
 
-  //выделяем все чекбоксы в группе
-  $('input[name="all"]').on('change', function () {
-    $(this).parents('.extra-search__checkbox').find('.checkbox__control').prop('checked', this.checked);
-  });
+  // //выделяем все чекбоксы в группе
+  // $('input[name="all"]').on('change', function () {
+  //   $(this).parents('.extra-search__checkbox').find('.checkbox__control').prop('checked', this.checked);
+  // });
 
   //сбрасываем чекбоксы
   const el = $('.extra-search__reset');
