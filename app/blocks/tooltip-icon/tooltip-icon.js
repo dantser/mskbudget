@@ -22,7 +22,7 @@ export default () => {
       size: 'big',
       arrowSize: 'big',
       inertia: true,
-      delay: [0, 20000000],
+      // delay: [0, 0],
       popperOptions: {
         modifiers: {
           flip: {
