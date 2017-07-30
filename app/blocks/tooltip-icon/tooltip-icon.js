@@ -8,8 +8,6 @@ export default () => {
   const screenWidth = () => window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth || 0;
   const tooltipPosition = (screenWidth() > 559) ? 'right' : 'top';
 
-  console.log(screenWidth(), tooltipPosition);
-
   if (tooltips) {
     tippy('.js-tooltip', {
       position: tooltipPosition,
