@@ -1,9 +1,10 @@
 import $ from 'jquery';
-
+import 'jquery-ui-bundle';
 export default () => {
 
 
   $(document).ready(function(){
+    $('select').selectmenu();
 
     if($( ".jq-spec-datepicker-alt" ).length > 0){
 		$('.jq-spec-datepicker-alt').datepicker({
@@ -13,20 +14,42 @@ export default () => {
 			showOtherMonths: true,
 			selectOtherMonths: false,
 			firstDay: 1,
+      showAnim: 'slideDown',
 			monthNames: ['январь','февраль','март','апрель','май','июнь',
 			'июль','август','сентябрь','октябрь','ноябрь','декабрь'],
 			monthNamesShort: ['января','февраля','марта','апреля','мая','июня',
 			'июля','августа','сентября','октября','ноября','декабря'],
 			dayNamesMin: ['вс', 'пн','вт','ср','чт','пт','сб'],
 			beforeShow: function(input, inst) {
+
 				$('#ui-datepicker-div').removeClass(function() {
 					return $('input').get(0).id;
 				});
 				$('#ui-datepicker-div').removeClass('datepicker__show');
 				$('#ui-datepicker-div').addClass($(this).attr('class'));
 			}
+      // afterShow: function() {
+      //   $('select').select2({
+      //     minimumResultsForSearch: -1
+      //   });
+      // }
 		});
 	}
+
+  $('.jq-spec-datepicker').on('click', function () {
+    $('select').selectmenu({
+      closeOnSelect: false,
+      autoClose: false
+    });
+
+  });
+  $('.ui-datepicker-title .ui-selectmenu-button').on('change', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    $('.ui-selectmenu-menu').addClass('ui-selectmenu-open')
+  })
+
+
 
 
     $(document).on('click', function () {
@@ -48,5 +71,112 @@ export default () => {
     }
 
   });
+
+
+  $(".analityc-control-group._stage select").selectmenu({
+    change: function () {
+    if ($(this).parents('.analityc-widget_figures')) {
+      var $this = $(this),
+          dp = $(".analityc-control-group._dp"),
+          dp_alt = $(".analityc-control-group._dp-alt");
+
+      $(".analityc-widget-rounds").removeClass("_active");
+      if ($this.val() === "Закон о бюджете первоначальный") {
+          $(".analityc-widget-rounds:eq(0)").addClass("_active");
+      } else if ($this.val() === "Закон о внесении изменений") {
+          $(".analityc-widget-rounds:eq(2)").addClass("_active");
+      } else {
+        $(".analityc-widget-rounds:eq(1)").addClass("_active");
+        //diagram_4.animate();
+        //diagram_5.animate();
+      }
+
+      if ($this.val() ===  "Исполнение на дату") {
+        dp.show();
+        $(".analityc-control-group._percent").hide();
+
+        if ($(".analityc-control-group._level .analityc-select").val() ===  "Консолидированный бюджет") {
+          dp.hide();
+          dp_alt.show();
+        }
+      }
+      else {
+        dp.hide();
+        dp_alt.hide();
+        $(".analityc-control-group._percent").show();
+      }
+    }
+  }
+});
+
+$(".analityc-control-group._level .analityc-select").on("change", function () {
+  if ($(this).parents('.analityc-widget_figures')) {
+    var $this = $(this),
+        dp = $(".analityc-control-group._dp"),
+        dp_alt = $(".analityc-control-group._dp-alt");
+
+    if ($(".analityc-control-group._stage .analityc-select").val() ===  "Исполнение на дату") {
+      dp.show();
+      dp_alt.hide();
+      $(".analityc-control-group._percent").hide();
+
+      if ($this.val() ===  "Консолидированный бюджет") {
+        dp_alt.show();
+        dp.hide();
+      }
+    } else {
+      dp_alt.hide();
+      dp.hide();
+    }
+  }
+});
+
+$(".analityc-control-button").on("click", function(e) {
+  if (!$(this).parents('.analityc-widget__income') && !$(this).parents('.analityc-widget__expenses') && !$(this).parents('.analityc-widget_sources') && !$(this).parents('.analityc-widget_moscow-gov-program')) {
+  e.preventDefault();
+  var table = $(".analityc-control-button_table");
+  var $this = $(this);
+  $('.analityc-control-button').removeClass('active');
+  $this.toggleClass('active');
+  $(".analityc-widget-sources").removeClass("_active");
+
+   if (table.hasClass("active")) {
+
+      $(".analityc-widget-sources_table").addClass("_active");
+  } else {
+    $(".analityc-widget-sources_table").removeClass("_active");
+  }
+  }
+})
+
+$(".analityc-control-group._stage .analityc-select").on("change", function () {
+  if (!$(this).parents('.analityc-widget__income') && !$(this).parents('.analityc-widget__expenses')) {
+    var $this = $(this);
+    $(".analityc-widget-sources").removeClass("_active");
+
+    if ($this.val() ===  "Исполнение на дату") {
+        $(".analityc-widget-sources:eq(0)").addClass("_active");
+    } else if($this.val() ===  "Закон о бюджете утвержденный") {
+            $(".analityc-widget-sources:eq(1)").addClass("_active");
+    } else if($this.val() ===  "Закон о внесении изменений") {
+            $(".analityc-widget-sources:eq(2)").addClass("_active");
+    } else if($this.val() ===  "Закон об исполнении") {
+            $(".analityc-widget-sources:eq(3)").addClass("_active");
+    }
+
+    if ($this.val() ===  "Исполнение на дату") {
+            $(".analityc-control-group._dp").show();
+            $(".analityc-control-switcher").hide();
+
+    } else if ($this.val() ===  "Закон о внесении изменений") {
+            $(".analityc-control-group._dp").hide();
+            $(".analityc-control-switcher").css('display', 'inline-block');
+    }
+    else {
+            $(".analityc-control-group._dp").hide();
+            $(".analityc-control-switcher").hide();
+    }
+  }
+});
 
 }

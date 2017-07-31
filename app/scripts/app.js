@@ -59,6 +59,7 @@ $(() => {
   aboutBudgetPreparation();
   selectbox();
   dragscroll();
+  basic_budget_figures();
   docCards();
   mediaMain();
   documentsform();
@@ -93,7 +94,6 @@ $(() => {
   analitycGraphics();
   reset();
   profile();
-  basic_budget_figures();
   menu();
   searchNavbar();
   header();
