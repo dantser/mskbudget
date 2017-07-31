@@ -10,7 +10,7 @@ mixin budget-calc-app()
   +b.budget-calc-app#budget-calc-app&attributes(attributes)
     +e.sidebar#budget-calc-app__sidebar
       +e.sidebar-inner
-        +b.A.budget-calc-app-widget._link._incomes.js-budget-calc-app__tab-control#budget-calc-app__tab_incomes-indicator(data-target="#budget-calc-app__tab_incomes" href="#")
+        +b.A.budget-calc-app-widget._link._incomes.js-budget-calc-app__tab-control#budget-calc-app__tab_incomes-indicator(data-target="#budget-calc-app__tab_incomes" href="#").is-active
           +e.DIV.inner
             +e.DIV.name.has-tooltip доходы
               +tooltip-icon("Текст тултипа может быть как длинным, так и неприлично коротким. Но в целях предотвращения непредсказуемого поведения этих вспылвающих подсказок, а так же побочных эффектов, связанных с хаотичными изменениями в этой прекрасной системе дизайна, мы вынуждены и просто обязаны использовать такой длинный текст для тестирования вёрстки.")
@@ -53,7 +53,7 @@ mixin budget-calc-app()
           p Для этого вы можете <br>- увеличить доходы бюджета <br>- снизить расходы бюджета <br>- привлечь источники финансирования дефицита бюджета
 
     +e.main-content#budget-calc-app__main-content
-      +e.tab._incomes.js-budget-calc-app__tab#budget-calc-app__tab_incomes(data-state-indicator="#budget-calc-app__tab_incomes-indicator")
+      +e.tab._incomes.js-budget-calc-app__tab#budget-calc-app__tab_incomes(data-state-indicator="#budget-calc-app__tab_incomes-indicator").is-active
         +e.heading МЕРЫ ПО ИЗМЕНЕНИЮ ДОХОДНОЙ ЧАСТИ БЮДЖЕТА
         +e.text Изменение элементов налогообложения в пределах полномочий субъекта Российской Федерации, установленных законодательством Российской Федерации о налогах и сборах.
         +e.incomes
@@ -1371,7 +1371,7 @@ mixin budget-calc-app()
               +budget-calc-btn('в начало').-triangle-left.js-budget-calc__tab-control(href="#" data-target="#budget-calc__tab_intro")
               +budget-calc-btn('предложить свой вариант').-triangle-right.-blue.js-budget-calc-app__tab-control(href="#" data-target="#budget-calc-app__tab_thanks")
       //- таб "Спасибо за ваш вариант бюджета"
-      +e.tab._thanks.js-budget-calc-app__tab#budget-calc-app__tab_thanks.is-active
+      +e.tab._thanks.js-budget-calc-app__tab#budget-calc-app__tab_thanks
         +e.heading СПАСИБО ЗА ВАШ ВАРИАНТ БЮДЖЕТА ГОРОДА МОСКВЫ!
         +e.text
           +e.P.thanks-paragraph Уважаемый посетитель Портала Открытый бюджет Москвы!
