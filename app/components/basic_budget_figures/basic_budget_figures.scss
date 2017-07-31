@@ -312,7 +312,12 @@ label {
   margin: 0;
   cursor: pointer;
 }
-
+.ui-icon {
+  display: none;
+}
+.ui-selectmenu-text {
+  text-align: left;
+}
 .ui-datepicker-title {
   .ui-datepicker-month+.ui-selectmenu-button {
     font-weight: 500 !important; height: 1.86667em; border: 1px solid #CCC; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; padding-left: 0.6em; margin: 0 0.33333em; text-transform: uppercase; font-weight: 400; font-size: 1.06667em; position: relative;
@@ -364,7 +369,7 @@ label {
   padding: 3px 1em 3px 0.4em;
 }
 
-.ui-selectmenu-button.ui-button {
+.ui-selectmenu-button.ui-button, .analityc-select {
   box-sizing: content-box;
   display: block;
   font-size: 14px;
@@ -389,6 +394,95 @@ label {
   //   background-image: none !important;
   // }
 }
+
+.ui-datepicker-title select {
+        display: none;
+    }
+.ui-datepicker-title .dropdown {
+  border-top: none;
+  position: relative;
+
+}
+.ui-datepicker-title .dropdown dt a {
+  background: url(../images/select-ar.png) 87% 8px no-repeat;
+}
+.dropdown dd, .dropdown dt, .dropdown ul {
+    margin: 0px;
+    padding: 10px;
+}
+
+
+
+.dropdown a, .dropdown a:visited {
+    text-decoration: none;
+    outline: none;
+    font-size: 14px;
+    text-transform: uppercase;
+    padding: 3px 2em 3px 0.4em;
+    font-weight: 500;
+}
+
+.dropdown dt a span {
+    cursor: pointer;
+    display: block;
+}
+
+.dropdown span.value {
+    display: none;
+}
+
+.dropdown dd ul li a {
+    padding: 3px 1em 3px .4em;
+    display: block;
+}
+
+.dropdown dd ul li a:hover {
+    color: white;
+    background-color: $color-link;
+}
+
+.dropdown dd ul {
+    background: white none repeat scroll 0 0;
+    max-height: 450px;
+    overflow-y: auto;
+    width: auto;
+    min-width: 90px;
+    color: black;
+    display: none;
+    padding: 5px 0px;
+    position: absolute;
+    top: 2px;
+    list-style: none;
+    text-align: left;
+    border: 1px solid #d5d5d5;
+    // box-shadow: 3px 3px 3px gray;
+    z-index: 1;font-family: $PFDinCondensedPro;
+    font-weight: 500;
+}
+
+.ui-datepicker-month-list, .ui-datepicker-year-list {
+    display: inline-block;
+    margin: 0;
+}
+
+.ui-datepicker-month-list {
+    display: inline-block;
+    margin: 0;
+}
+
+.ui-datepicker-year-list {
+    padding-left: 5px;
+}
+
+.ui-datepicker-year-list .dateListItem {
+  min-width: 60px;
+}
+
+.ui-datepicker-header
+{
+  height: 1.8em;
+}
+
 .analityc-control-group._year .analityc-select {
   width: 72px;
   width: calc(100% - 12px);

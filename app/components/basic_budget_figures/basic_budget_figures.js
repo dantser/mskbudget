@@ -1,60 +1,104 @@
 import $ from 'jquery';
-import 'jquery-ui-bundle';
-export default () => {
 
+export default () => {
+  function appendList(inst, className) {
+      const $selectElement = inst.dpDiv.find('.' + className);
+      console.log($selectElement);
+      const selected = $selectElement.find("option[selected]");
+      const $listElement = $('<dl class="{0} dropdown"></dl>'.replace('{0}', className + '-list')).appendTo($selectElement.parent());
+      $listElement.append('<dt><a href="#">' + selected.text() + '<span class="value">' + selected.val() + '</span></a></dt>');
+      $listElement.append('<dd><ul class="dateListItem" ></ul></dd>');
+      $selectElement.children('option').each(function () {
+          const $listItem = $listElement.find(".dateListItem").append('<li><a href="#">' + $(this).text() + '<span class="value">' + $(this).val() + '</span></a></li>');
+          $listItem.hide();
+          $listItem.find('a').click(function (e) {
+              e.preventDefault();
+              $selectElement.val($(this).find('span').text());
+              $selectElement.change();
+          });
+      });
+      $listElement.find('dt a').click(function (e) {
+          e.preventDefault();
+          $(this).closest('dt')
+            .siblings('dd')
+            .find('.dateListItem')
+            .toggle();
+      });
+  }
+
+  function convertToLists(inst) {
+      const self = this;
+      setTimeout(function () {
+        inst.dpDiv.addClass('datePickerWithLists');
+        appendList(inst, 'ui-datepicker-month');
+        appendList(inst, 'ui-datepicker-year');
+      }, 0);
+  };
+
+  //   if($( ".jq-spec-datepicker-alt" ).length > 0){
+  // 	$('.jq-spec-datepicker-alt').datepicker({
+  // 		dateFormat:'на dd M',
+  // 		changeMonth: true,
+  // 		changeYear: true,
+  // 		showOtherMonths: true,
+  // 		selectOtherMonths: false,
+  // 		firstDay: 1,
+  // 		monthNames: ['январь','февраль','март','апрель','май','июнь',
+  // 		'июль','август','сентябрь','октябрь','ноябрь','декабрь'],
+  // 		monthNamesShort: ['января','февраля','марта','апреля','мая','июня',
+  // 		'июля','августа','сентября','октября','ноября','декабря'],
+  // 		dayNamesMin: ['вс', 'пн','вт','ср','чт','пт','сб'],
+  // 		beforeShow: function(input, inst) {
+  //
+  // 			$('#ui-datepicker-div').removeClass(function() {
+  // 				return $('input').get(0).id;
+  // 			});
+  // 			$('#ui-datepicker-div').removeClass('datepicker__show');
+  // 			$('#ui-datepicker-div').addClass($(this).attr('class'));
+  // 		},
+  //     onChangeMonthYear: function (year, month, inst) {
+  //       convertToLists(inst);
+  //     }
+  // 	});
+  // }
+
+  if($( ".jq-spec-datepicker" ).length > 0){
+  $('.jq-spec-datepicker').datepicker({
+  dateFormat:'dd M yy',
+  changeMonth: true,
+  changeYear: true,
+  showOtherMonths: true,
+  selectOtherMonths: false,
+  firstDay: 1,
+  monthNames: ['январь','февраль','март','апрель','май','июнь',
+  'июль','август','сентябрь','октябрь','ноябрь','декабрь'],
+  monthNamesShort: ['январь','февраль','март','апрель','май','июнь',
+  'июль','август','сентябрь','октябрь','ноябрь','декабрь'],
+  dayNamesMin: ['вс', 'пн','вт','ср','чт','пт','сб'],
+  beforeShow: function(input, inst) {
+    convertToLists(inst);
+  },
+  onChangeMonthYear: function (year, month, inst) {
+    convertToLists(inst);
+  }
+  });
+  }
 
   $(document).ready(function(){
-    $('select').selectmenu();
 
-    if($( ".jq-spec-datepicker-alt" ).length > 0){
-		$('.jq-spec-datepicker-alt').datepicker({
-			dateFormat:'на dd M',
-			changeMonth: true,
-			changeYear: true,
-			showOtherMonths: true,
-			selectOtherMonths: false,
-			firstDay: 1,
-      showAnim: 'slideDown',
-			monthNames: ['январь','февраль','март','апрель','май','июнь',
-			'июль','август','сентябрь','октябрь','ноябрь','декабрь'],
-			monthNamesShort: ['января','февраля','марта','апреля','мая','июня',
-			'июля','августа','сентября','октября','ноября','декабря'],
-			dayNamesMin: ['вс', 'пн','вт','ср','чт','пт','сб'],
-			beforeShow: function(input, inst) {
 
-				$('#ui-datepicker-div').removeClass(function() {
-					return $('input').get(0).id;
-				});
-				$('#ui-datepicker-div').removeClass('datepicker__show');
-				$('#ui-datepicker-div').addClass($(this).attr('class'));
-			}
-      // afterShow: function() {
-      //   $('select').select2({
-      //     minimumResultsForSearch: -1
-      //   });
-      // }
-		});
-	}
 
-  $('.jq-spec-datepicker').on('click', function () {
-    $('select').selectmenu({
-      closeOnSelect: false,
-      autoClose: false
-    });
+  // $('.jq-spec-datepicker, .ui-icon').on('click', function () {
+  //   $('select').selectmenu();
+  //
+  // });
 
+
+
+  $(document).on('click', function () {
+    $('.jq-spec-datepicker-alt').blur().removeClass('hasDatepicker');
+    $('.dateListItem').blur();
   });
-  $('.ui-datepicker-title .ui-selectmenu-button').on('change', function (e) {
-    e.preventDefault();
-    e.stopPropagation();
-    $('.ui-selectmenu-menu').addClass('ui-selectmenu-open')
-  })
-
-
-
-
-    $(document).on('click', function () {
-      $('.jq-spec-datepicker-alt').blur().removeClass('hasDatepicker');
-    });
 
     if ($('.basic_budget_figures').length) {
       var diagramIndex = 1;
@@ -67,14 +111,13 @@ export default () => {
         diagramFilterG.attr('filter', 'url(#f'+diagramIndex+')');
         diagramIndex ++;
       });
-
     }
-
   });
 
 
-  $(".analityc-control-group._stage select").selectmenu({
-    change: function () {
+
+
+  $(".analityc-control-group._stage select").on('change', function () {
     if ($(this).parents('.analityc-widget_figures')) {
       var $this = $(this),
           dp = $(".analityc-control-group._dp"),
@@ -106,8 +149,7 @@ export default () => {
         $(".analityc-control-group._percent").show();
       }
     }
-  }
-});
+  });
 
 $(".analityc-control-group._level .analityc-select").on("change", function () {
   if ($(this).parents('.analityc-widget_figures')) {
