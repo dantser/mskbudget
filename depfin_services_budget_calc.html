@@ -536,8 +536,7 @@
                                                     <br>Исходное значение: -152,1</div>
                                             </div>
                                         </a>
-                                        <div class="budget-calc-app-widget budget-calc-app-widget_not-balanced" id="budget-calc-app__widget_not-balanced" data-modal="true" data-modal-text="&lt;div class='text-left'&gt;Бюджет дефицитный: расходы превышают доходы в пределах допустимого уровня.&lt;br&gt;&lt;br&gt;&lt;strong&gt;Вам необходимо сбалансировать Ваш бюджет.&lt;/strong&gt;&lt;br&gt;Для этого вы можете:&lt;br&gt;- снизить доходы бюджета&lt;br&gt;- увеличить расходы бюджета&lt;br&gt;- отказаться от привлечения излишних источников финансирования дефицита бюджета&lt;/div&gt;"
-                                            data-modal-btn-yes="Продолжить">
+                                        <div class="budget-calc-app-widget budget-calc-app-widget_not-balanced" id="budget-calc-app__widget_not-balanced">
                                             <div class="budget-calc-app-widget__inner">
                                                 <div class="budget-calc-app-widget__name has-tooltip">не сбалансировано
                                                     <div class="tooltip-icon js-tooltip" title="Текст тултипа может быть как длинным, так и неприлично коротким. Но в целях предотвращения непредсказуемого поведения этих вспылвающих подсказок, а так же побочных эффектов, связанных с хаотичными изменениями в этой прекрасной системе дизайна, мы вынуждены и просто обязаны использовать такой длинный текст для тестирования вёрстки.">?</div>
@@ -581,7 +580,7 @@
                                     </div>
                                 </div>
                                 <div class="budget-calc-app__main-content" id="budget-calc-app__main-content">
-                                    <div class="budget-calc-app__tab budget-calc-app__tab_incomes is-active js-budget-calc-app__tab" id="budget-calc-app__tab_incomes" data-state-indicator="#budget-calc-app__tab_incomes-indicator">
+                                    <div class="budget-calc-app__tab budget-calc-app__tab_incomes js-budget-calc-app__tab is-active" id="budget-calc-app__tab_incomes" data-state-indicator="#budget-calc-app__tab_incomes-indicator">
                                         <div class="budget-calc-app__heading">МЕРЫ ПО ИЗМЕНЕНИЮ ДОХОДНОЙ ЧАСТИ БЮДЖЕТА</div>
                                         <div class="budget-calc-app__text">Изменение элементов налогообложения в пределах полномочий субъекта Российской Федерации, установленных законодательством Российской Федерации о налогах и сборах.</div>
                                         <div class="budget-calc-app__incomes">
@@ -4064,7 +4063,8 @@
                             </div>
                             <div class="budget-calc-app__text">
                                 <a class="budget-calc-btn -triangle-left js-budget-calc__tab-control" href="#" data-target="#budget-calc__tab_intro">в начало</a>
-                                <a class="budget-calc-btn -triangle-right js-budget-calc-app__tab-control" href="#" data-target="#budget-calc-app__tab_check">Сохранить и проверить свой вариант бюджета</a>
+                                <a class="budget-calc-btn -triangle-right js-budget-calc-app__tab-control" href="#" data-target="#budget-calc-app__tab_check" data-modal="true" data-modal-text="&lt;div class='text-left'&gt;Бюджет дефицитный: расходы превышают доходы в пределах допустимого уровня.&lt;br&gt;&lt;br&gt;&lt;strong&gt;Вам необходимо сбалансировать Ваш бюджет.&lt;/strong&gt;&lt;br&gt;Для этого вы можете:&lt;br&gt;- снизить доходы бюджета&lt;br&gt;- увеличить расходы бюджета&lt;br&gt;- отказаться от привлечения излишних источников финансирования дефицита бюджета&lt;/div&gt;"
+                                    data-modal-btn-yes="Продолжить">Сохранить и проверить свой вариант бюджета</a>
                             </div>
                         </div>
                         <div class="budget-calc-app__tab budget-calc-app__tab_check js-budget-calc-app__tab" id="budget-calc-app__tab_check">
@@ -4072,6 +4072,17 @@
                             <div class="budget-calc-app__check">
                                 <div class="notification notification_info is-active">Если вы хотите сохранить несколько вариантов бюджета,
                                     <a href="#">зарегистируйтесь</a>!</div>
+                                <div class="check-row check-footer__text">
+                                    <div class="check-row__check-smallheading">Выберите другой вариант бюджета:</div>
+                                    <div class="check-row__check-mysaveslist d-smr__add-char">
+                                        <p class="d-smr__add-char-label">#1: 7 апреля 2017 г.</p>
+                                        <div class="d-smr__add-char-block">
+                                            <ul class="d-smr__add-char-list scroll-pane">
+                                                <li class="d-smr__add-char-item">#2: 3 апреля 2017 г.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="budget-calc-app__check-heading">Доходы бюджета</div>
                                 <div class="check-row">
                                     <div class="check-row__column check-row__column_name">Увеличение коэффициента, отражающего региональные особенности рынка труда, используемого для определения размера фиксированного ежемесячного авансового платежа по налогу на доходы физических лиц до 2,32741</div>
@@ -4122,7 +4133,7 @@
                             </div>
                             <div class="notification notification_alert mt30 is-active">Государственный долг города Москвы на конец года измениться на 10 464,5 млн. руб.</div>
                             <div class="budget-calc-app__check-heading">итого</div>
-                            <div class="check-row">
+                            <div class="check-row pt5">
                                 <div class="check-row__column check-row__column_total">
                                     <div class="column-total-col1">
                                         <div class="total-caption">доходы</div>
@@ -4156,6 +4167,10 @@
                                         <div class="text-small text-muted">-152,9</div>
                                     </div>
                                 </div>
+                                <div class="check-row__check-row check-footer__text">
+                                    <a class="budget-calc-btn -triangle-right -green" href="#">сохранить этот вариант</a>
+                                    <a class="budget-calc-btn -triangle-right -red-border" href="#">удалить этот вариант</a>
+                                </div>
                                 <div class="notification notification_info mb30 is-active">Если вы хотите сохранить несколько вариантов бюджета,
                                     <a href="#">зарегистируйтесь</a>!</div>
                             </div>
@@ -4186,10 +4201,58 @@
                                     </div>
                                 </div>
                                 <div class="check-footer__text">В случае, если Вы хотите представить свой вариант бюджета на рассмотрение специалистам городских органов власти, Вы можете воспользоваться ссылкой "Предложить свой вариант".</div>
-                                <div class="check-footer__text">
+                                <div class="check-footer__text budget-calc-app__text">
                                     <a class="budget-calc-btn -triangle-left js-budget-calc__tab-control" href="#" data-target="#budget-calc__tab_intro">в начало</a>
-                                    <a class="budget-calc-btn -triangle-right -blue" href="#">предложить свой вариант</a>
+                                    <a class="budget-calc-btn -triangle-right -blue js-budget-calc-app__tab-control" href="#" data-target="#budget-calc-app__tab_thanks">предложить свой вариант</a>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="budget-calc-app__tab budget-calc-app__tab_thanks js-budget-calc-app__tab" id="budget-calc-app__tab_thanks">
+                        <div class="budget-calc-app__heading">СПАСИБО ЗА ВАШ ВАРИАНТ БЮДЖЕТА ГОРОДА МОСКВЫ!</div>
+                        <div class="budget-calc-app__text">
+                            <p class="budget-calc-app__thanks-paragraph">Уважаемый посетитель Портала Открытый бюджет Москвы!</p>
+                            <p class="budget-calc-app__thanks-paragraph">Обращаем Ваше внимание, что направление подготовленного Вами проекта бюджета на рассмотрение специалистам Департамента финансов является формой проведения опроса общественного мнения. В связи с этим, рассмотрение таких предложений
+                                не осуществляется в порядке, устанавливаемом требованиями законодательства Российской Федерации о рассмотрении обращений граждан органами государственной власти (Федеральный закон от 02.05.2006 года № 59-ФЗ «О порядке
+                                рассмотрения обращений граждан Российской Федерации»).</p>
+                            <p class="budget-calc-app__thanks-paragraph">Вместе с тем, выражая глубокую заинтересованность в поддержании диалога городских властей с жителями и гостями города по вопросам финансирования основных направлений городского хозяйства, Департамент финансов города Москвы
+                                организует рассмотрение всех поступающих предложений для учёта мнения граждан при формировании городского бюджета на очередной период. Кроме того, наиболее интересные предложения посетителей будут опубликованы для общего
+                                доступа на Портале Открытый бюджет.</p>
+                        </div>
+                        <div class="budget-calc-app__thanks-send">
+                            <div class="budget-calc-app__heading thanks-form-heading">Отправить на рассмотрение</div>
+                            <div class="budget-calc-app__text">
+                                <form class="budget-calc-app__thanks-form" action="#">
+                                    <div class="budget-calc-app__thanks-form-row">
+                                        <input class="budget-calc-app__thanks-form-input" type="text" placeholder="Представьтесь" required="required" />
+                                    </div>
+                                    <div class="budget-calc-app__thanks-form-row">
+                                        <input class="budget-calc-app__thanks-form-input" type="email" placeholder="E-mail" required="required" />
+                                    </div>
+                                    <div class="budget-calc-app__thanks-form-row">
+                                        <textarea class="budget-calc-app__thanks-form-textarea" placeholder="Комментарий" required="required"></textarea>
+                                    </div>
+                                    <div class="budget-calc-app__thanks-form-row">
+                                        <div class="budget-calc-app__thanks-form-captcha">Вставляйте капчу сюда</div>
+                                        <input class="budget-calc-app__thanks-form-input" type="text" placeholder="Код с картинки" required="required" />
+                                    </div>
+                                    <div class="budget-calc-app__thanks-form-row">
+                                        <submit class="budget-calc-app__thanks-form-submit budget-calc-btn -border">Отправить</submit>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="budget-calc-app__thanks-howitworks">
+                            <div class="budget-calc-app__text">
+                                <div class="budget-calc-app__thanks-howitworks-heading">Что дальше?</div>
+                                <ol class="budget-calc-app__thanks-howitworks-list">
+                                    <li class="budget-calc-app__thanks-howitworks-item">Ваше предложение направляется на портал</li>
+                                    <li class="budget-calc-app__thanks-howitworks-item">Модератор проверит Ваше предложение</li>
+                                    <li class="budget-calc-app__thanks-howitworks-item">Специалисты Департамента финансов рассмотрят Ваше предложение</li>
+                                    <li class="budget-calc-app__thanks-howitworks-item">Наиболее интересные предложения будут направлены в органы исполнительной власти города Москвы</li>
+                                    <li class="budget-calc-app__thanks-howitworks-item">Органы исполнительной власти города Москвы подготовят ответ</li>
+                                    <li class="budget-calc-app__thanks-howitworks-item">Наиболее интересные предложения будут опубликованы на портале</li>
+                                </ol>
                             </div>
                         </div>
                     </div>
