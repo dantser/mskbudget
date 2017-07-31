@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 export default function toppanel() {
-  const $toppanel = $('#toppanel');
+  const $toppanel = $('.top-panel-frame-wrp');
   const $navbar = $('#header');
   const $navbarDrop = $('#headerDrop');
   const $trigger = $('*[data-toggle-toppanel]');
