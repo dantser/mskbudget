@@ -45,6 +45,16 @@ export default function() {
           vex.dialog.alert({
             unsafeMessage: content,
             showCloseButton: true,
+
+            // @DANGER
+            // Используется для тестирования вёрстки по желанию заказчика
+            // Убрать на продакшене
+            callback: function(value) {
+              if (value && document.getElementById('budget-calc-app__tab_check-indicator')) {
+                document.getElementById('budget-calc-app__tab_check-indicator').click();
+              }
+            }
+            // @DANGER
           });
         } else if (modalType === 'confirm') {
           vex.dialog.confirm({

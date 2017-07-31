@@ -308,6 +308,7 @@
   border: 1px solid #fee300;
   -webkit-font-smoothing: antialiased;
   @include transited;
+  cursor: pointer;
 
   &:hover {
     background-color: #E7CE00;
@@ -449,7 +450,266 @@
       }
     }
   }
+
+  &.-border {
+    min-width: auto;
+    padding-top: 10px;
+    padding-right: 25px;
+    padding-bottom: 7px;
+    padding-left: 25px;
+    font-size: 20px;
+    line-height: 1;
+    box-shadow: 0 2px 0px #cbb426;
+
+    &:active {
+      box-shadow: 0 2px 0px #fee300;
+      border-color: #fee300;
+      background-color: #fee300 !important;
+      padding-top: 12px;
+      padding-bottom: 5px;
+    }
+  }
 }
+
+
+.budget-calc-app-widget {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  margin-right: 10px;
+  padding: 20px 10px 11px 20px;
+  background-color: white;
+  text-decoration: none;
+  color: black;
+  @include transited('all 300ms linear');
+
+  &:before {
+    @include ghost;
+    z-index: 0;
+    @include transform(translateX(5px));
+    @include transited('transform 200ms ease-in-out');
+    background-color: white;
+  }
+
+  &:hover {
+    &:before {
+      @include transform(translateX(0px));
+    }
+  }
+
+  &.is-active {
+    color: white;
+
+    &:before {
+      @include transform(translateX(100%));
+    }
+
+    .tooltip-icon {
+      background-color: white;
+      color: #0d46a1;
+    }
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+
+  &_link {
+    cursor: pointer;
+
+    &.is-active {
+      cursor: default;
+    }
+  }
+
+  &_incomes {
+    @include gradient('to right bottom, #004ccf 0%, #00ffff 100%');
+  }
+  &_costs {
+    @include gradient('to right bottom, #ff695b 0%, #9d308a 100%');
+  }
+  &_balance {
+    @include gradient('to right bottom, #30b069 0%, #fee300 100%');
+  }
+
+  &_incomes,
+  &_costs,
+  &_balance {
+    @media (max-width: 1024px) {
+      min-width: 32.37%;
+    }
+  }
+
+  &_not-balanced {
+    padding-bottom: 16px;
+
+    &:before {
+      display: none;
+    }
+
+    @media (max-width: $navBreakpointTablet) {
+      display: flex;
+
+      .budget-calc-app-widget__inner {
+        flex-shrink: 1;
+      }
+    }
+
+    @media (max-width: 480px) {
+      flex-direction: column;
+    }
+  }
+
+  &__mobile-notification {
+    display: none;
+    margin-left: 30px;
+
+    >p:not(:first-child) {
+      @media (max-width: 767px) {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      margin-left: 0;
+      margin-top: 30px;
+    }
+
+    p:not(:last-child) {
+      margin-bottom: 20px;
+    }
+
+    &.is-active {
+      @media (max-width: $navBreakpointTablet) {
+        display: block;
+      }
+    }
+  }
+
+  &_check {
+    margin-top: 10px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    padding-right: 25px;
+    background-color: #fee300;
+
+    &:hover {
+      background-color: #E7CE00;
+    }
+
+    &:before {
+      display: none;
+    }
+
+    &:after {
+      @include budget-calc-triangle;
+      right: 16px;
+      border-width: 5px 0 5px 5px;
+      border-color: transparent transparent transparent black;
+    }
+  }
+
+  &_restore {
+    padding-top: 18px;
+    padding-bottom: 18px;
+    padding-left: 3px;
+    color: #fee300;
+    background-color: transparent;
+
+    &:before {
+      display: none;
+    }
+
+    &:after {
+      @include budget-calc-triangle;
+      right: 16px;
+      border-width: 5px 0 5px 5px;
+      border-color: transparent transparent transparent #fee300;
+    }
+
+    .-widget-restore-inner {
+      position: relative;
+      overflow: hidden;
+
+      @media (max-width: $navBreakpointTablet) {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    .-widget-restore-icon {
+      float: left;
+      height: 28px;
+      width: 18px;
+      fill: #fee300;
+      @include transited;
+    }
+
+    .-widget-restore-name {
+      float: none;
+      margin-left: 32px;
+      font-size: 14px;
+      line-height: 16px;
+    }
+
+    &:hover {
+      color: white;
+
+      .-widget-restore-icon {
+        fill: white;
+      }
+
+      &:after {
+        border-color: transparent transparent transparent white;
+      }
+    }
+  }
+
+  &__inner {
+    position: relative;
+  }
+
+  &__name {
+    font-family: $PFDinCondensedPro;
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  &__value {
+    margin-top: 15px;
+    font-family: $PFDinCondensedPro;
+    font-size: 48px;
+    line-height: 1;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+  }
+
+  &__value-notice {
+    font-family: $PFDinCondensedPro;
+    font-size: 14px;
+    line-height: 1;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  &__description {
+    margin-top: 20px;
+    font-family: $PFDinTextPro;
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 400;
+  } // если виджет в футере
+  .budget-calc-app__footer & {
+    margin-top: 10px;
+    margin-right: 0;
+  }
+}
+
+
+
 
 // основные стили калькулятора
 .budget-calc-app {
@@ -464,7 +724,9 @@
     line-height: 16px;
 
     &.is-active {
-      display: block;
+      @media (min-width: $navBreakpointTablet + 1px) {
+        display: block;
+      }
     }
 
     strong {
@@ -1283,8 +1545,9 @@
     }
 
     &-send {
-      background-color: #f6f6f5;
+      margin-top: 32px;
       padding: 25px 0 35px;
+      background-color: #f6f6f5;
     }
 
     &-form {
@@ -1335,243 +1598,64 @@
 
       }
     }
+
+    &-howitworks {
+      padding-top: 32px;
+      padding-bottom: 20px;
+
+      &-heading {
+        float: left;
+        margin-top: 2px;
+        font-family: $PFDinCondensedPro;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 1;
+        text-transform: uppercase;
+
+        @media (max-width: $navBreakpointMobile) {
+          float: none;
+          margin-top: 0;
+          margin-bottom: 25px;
+        }
+      }
+
+      &-list {
+        float: none;
+        margin-top: -5px;
+        margin-left: 215px;
+        counter-reset: myCounter;
+
+        @media (max-width: $navBreakpointMobile) {
+          margin-left: 35px;
+        }
+      }
+
+      &-item {
+        position: relative;
+        list-style: none;
+
+        &:before {
+          position: absolute;
+          left: -35px;
+          top: 50%;
+          transform: translateY(-50%);
+          display: inline-block;
+          counter-increment: myCounter;
+          content: counter(myCounter);
+          width: 20px;
+          height: 20px;
+          font-size: 12px;
+          line-height: 20px;
+          text-align: center;
+          border-radius: 50%;
+          background-color: #d0d4dd;
+          color: black;
+        }
+
+        &:not(:last-child) {
+          margin-bottom: 15px;
+        }
+      }
+    }
   }
 }
-
-
-.budget-calc-app-widget {
-  display: block;
-  position: relative;
-  overflow: hidden;
-  margin-right: 10px;
-  padding: 20px 10px 11px 20px;
-  background-color: white;
-  text-decoration: none;
-  color: black;
-  @include transited('all 300ms linear');
-
-  &:before {
-    @include ghost;
-    z-index: 0;
-    @include transform(translateX(5px));
-    @include transited('transform 200ms ease-in-out');
-    background-color: white;
-  }
-
-  &:hover {
-    &:before {
-      @include transform(translateX(0px));
-    }
-  }
-
-  &.is-active {
-    color: white;
-
-    &:before {
-      @include transform(translateX(100%));
-    }
-
-    .tooltip-icon {
-      background-color: white;
-      color: #0d46a1;
-    }
-  }
-
-  &:not(:last-child) {
-    margin-bottom: 10px;
-  }
-
-  &_link {
-    cursor: pointer;
-
-    &.is-active {
-      cursor: default;
-    }
-  }
-
-  &_incomes {
-    @include gradient('to right bottom, #004ccf 0%, #00ffff 100%');
-  }
-  &_costs {
-    @include gradient('to right bottom, #ff695b 0%, #9d308a 100%');
-  }
-  &_balance {
-    @include gradient('to right bottom, #30b069 0%, #fee300 100%');
-  }
-
-  &_incomes,
-  &_costs,
-  &_balance {
-    @media (max-width: 1024px) {
-      min-width: 32.37%;
-    }
-  }
-
-  &_not-balanced {
-    padding-bottom: 16px;
-
-    &:before {
-      display: none;
-    }
-
-    @media (max-width: $navBreakpointTablet) {
-      display: flex;
-
-      .budget-calc-app-widget__inner {
-        flex-shrink: 1;
-      }
-    }
-
-    @media (max-width: 480px) {
-      flex-direction: column;
-    }
-  }
-
-  &__mobile-notification {
-    display: none;
-    margin-left: 30px;
-
-    >p:not(:first-child) {
-      @media (max-width: 767px) {
-        display: none;
-      }
-    }
-
-    @media (max-width: 480px) {
-      margin-left: 0;
-      margin-top: 30px;
-    }
-
-    p:not(:last-child) {
-      margin-bottom: 20px;
-    }
-
-    &.is-active {
-      @media (max-width: $navBreakpointTablet) {
-        display: block;
-      }
-    }
-  }
-
-  &_check {
-    margin-top: 10px;
-    padding-top: 18px;
-    padding-bottom: 18px;
-    padding-right: 25px;
-    background-color: #fee300;
-
-    &:hover {
-      background-color: #E7CE00;
-    }
-
-    &:before {
-      display: none;
-    }
-
-    &:after {
-      @include budget-calc-triangle;
-      right: 16px;
-      border-width: 5px 0 5px 5px;
-      border-color: transparent transparent transparent black;
-    }
-  }
-
-  &_restore {
-    padding-top: 18px;
-    padding-bottom: 18px;
-    padding-left: 3px;
-    color: #fee300;
-    background-color: transparent;
-
-    &:before {
-      display: none;
-    }
-
-    &:after {
-      @include budget-calc-triangle;
-      right: 16px;
-      border-width: 5px 0 5px 5px;
-      border-color: transparent transparent transparent #fee300;
-    }
-
-    .-widget-restore-inner {
-      position: relative;
-      overflow: hidden;
-
-      @media (max-width: $navBreakpointTablet) {
-        display: flex;
-        align-items: center;
-      }
-    }
-
-    .-widget-restore-icon {
-      float: left;
-      height: 28px;
-      width: 18px;
-      fill: #fee300;
-      @include transited;
-    }
-
-    .-widget-restore-name {
-      float: none;
-      margin-left: 32px;
-      font-size: 14px;
-      line-height: 16px;
-    }
-
-    &:hover {
-      color: white;
-
-      .-widget-restore-icon {
-        fill: white;
-      }
-
-      &:after {
-        border-color: transparent transparent transparent white;
-      }
-    }
-  }
-
-  &__inner {
-    position: relative;
-  }
-
-  &__name {
-    font-family: $PFDinCondensedPro;
-    font-size: 18px;
-    line-height: 20px;
-    font-weight: 500;
-    text-transform: uppercase;
-  }
-
-  &__value {
-    margin-top: 15px;
-    font-family: $PFDinCondensedPro;
-    font-size: 48px;
-    line-height: 1;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: -2px;
-  }
-
-  &__value-notice {
-    font-family: $PFDinCondensedPro;
-    font-size: 14px;
-    line-height: 1;
-    font-weight: 500;
-    text-transform: uppercase;
-  }
-
-  &__description {
-    margin-top: 20px;
-    font-family: $PFDinTextPro;
-    font-size: 12px;
-    line-height: 14px;
-    font-weight: 400;
-  } // если виджет в футере
-  .budget-calc-app__footer & {
-    margin-top: 10px;
-    margin-right: 0;
-  }
-}
-
