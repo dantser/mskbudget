@@ -38,11 +38,11 @@ export default () => {
 
       setTimeout(function(){
         $('.news-page .tile__item').addClass('active');
-        if ($(window).width() < 992) {
-          $('.news-page .tile__item:nth-child(n+7)').css('display', 'none');
-        }
+
         if ($(window).width() < 639) {
-          $('.news-page .tile__item:nth-child(n+5)').css('display', 'none');
+          $('.news-page .tile__item:visible:gt(3)').css('display', 'none');
+        } else {
+          $('.news-page .tile__item:visible:gt(5)').css('display', 'none');
         }
       }, 500);
     });
@@ -81,7 +81,6 @@ export default () => {
     for (var i=1; i<=news.length; i++) {
       if ($(window).width() <= 900) {
         if (i % 2 == 0) {
-          console.log('even')
           news[i-1].css('margin-right', '0');
         }
       }

@@ -7,6 +7,10 @@
   &__head {
     margin-bottom: 36px;
     max-width: 794px;
+
+    @media (max-width: 991px) {
+      margin-bottom: 46px;
+    }     
   }
 
   &__heading {
@@ -15,6 +19,12 @@
     text-transform: uppercase;
     margin-bottom: 17px;
     letter-spacing: .05px;
+
+    @media (max-width: 991px) {
+      font-size: 48px;
+      line-height: 58px;
+      margin-bottom: 28px;
+    } 
   }
 
   &__description {
@@ -22,6 +32,11 @@
     font-size: 18px;
     line-height: 26px;
     letter-spacing: 0.12px;
+
+    @media (max-width: 991px) {
+      font-size: 32px;
+      line-height: 52px;
+    } 
   }
 
   .button {
@@ -36,6 +51,17 @@
     padding-right: 20px;
     box-shadow: 0 2px 0 #ccb600 !important;
 
+    @media (max-width: 991px) {
+      display: inline-block;
+      width: auto;
+      height: auto;
+      padding: 20px 20px;
+      padding-right: 78px;
+      font-size: 36px;
+      margin-top: 33px;
+      letter-spacing: 1px;
+    }     
+
     &::after {
       @include pseudo;
       border: 5px solid transparent;
@@ -43,6 +69,12 @@
       top: 50%;
       right: 9px;
       transform: translateY(-50%);
+
+      @media (max-width: 991px) {
+        border: 9px solid transparent;
+        border-left: 10px solid #000;
+        right: 21px;
+      }        
     }
   }
   // head end
@@ -78,6 +110,11 @@
     font-size: 24px;
     font-weight: 500;
     margin-bottom: 12px;
+
+    @media (max-width: 991px) {
+      font-size: 48px;
+      margin-bottom: 28px;
+    }        
   }
 
   &__text {
@@ -85,6 +122,12 @@
     font-size: 16px;
     line-height: 22px;
     letter-spacing: .1px;
+
+    @media (max-width: 991px) {
+      font-size: 32px;
+      line-height: 52px;
+      margin-bottom: 16px;
+    }      
 
     & > a {
      color: $color-link;
@@ -94,10 +137,18 @@
     &:last-of-type {
       line-height: 21px;
       margin-bottom: 20px;
+
+      @media (max-width: 991px) {
+        line-height: 52px;
+      } 
     }
 
     &:nth-of-type(3) {
       line-height: 24px;
+
+      @media (max-width: 991px) {
+        line-height: 52px;
+      }         
     }
   }
 

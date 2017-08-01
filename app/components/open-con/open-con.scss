@@ -4,6 +4,11 @@
   .analityc-widget_con {
     margin: 41px 0 27px;
     padding: 39px 42px 17px 40px;
+
+    @media (max-width: 991px) {
+      margin: 55px -40px 27px;
+      padding: 39px 32px 17px
+    }     
   }
 
   .basic-budget {
@@ -12,6 +17,10 @@
 
   &__control {
     margin-top: 21px;
+
+    @media (max-width: 991px) {
+      margin-top: 38px;
+    }    
 
     * {
       display: inline-block;
@@ -23,6 +32,17 @@
       color: $color-white;
       text-transform: uppercase;
       margin-right: 61px;
+
+      @media (max-width: 991px) {
+        font-size: 36px;
+      }
+    }
+
+    .buttons-set {
+      @media (max-width: 991px) {
+        width: 100%;
+        margin-top: 16px;
+      }  
     }
 
     .buttons-set__item {
@@ -36,7 +56,24 @@
         .button-light {
           padding-left: 43px;
           padding-right: 62px;
+
+          @media (max-width: 991px) {
+            padding-right: 10px;
+          }            
         }
+      }
+
+      @media (max-width: 991px) {
+        width: 50%;
+      }    
+
+      .button-light {
+        @media (max-width: 991px) {
+          width: 100%;
+          padding: 22px 10px 22px 14px;
+          font-size: 26px;
+          line-height: 26px;
+        }   
       }
     }
   }
@@ -44,10 +81,21 @@
   .analityc-control-switcher_con {
     margin: 0;
 
+    @media (max-width: 991px) {
+      margin-top: 36px;
+    }      
+
     & > a {
       font-size: 13px;
       padding-left: 16px;
       padding-right: 19px;
+
+      @media (max-width: 991px) {
+        padding-left: 24px;
+        padding-right: 24px;
+        font-size: 26px;
+        line-height: 68px;
+      }         
 
       &:nth-child(2) {
         border-right: 1px solid $color-link;
