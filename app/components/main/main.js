@@ -61,7 +61,7 @@ export default () => {
 			monthNamesShort: ['январь','февраль','март','апрель','май','июнь',
 			'июль','август','сентябрь','октябрь','ноябрь','декабрь'],
 			dayNamesMin: ['вс', 'пн','вт','ср','чт','пт','сб'],
-            beforeShowDay: DisableSpecificDates,
+      beforeShowDay: DisableSpecificDates,
 			beforeShow: function(input, inst) {
         convertToLists(inst);
 				$('#ui-datepicker-div').removeClass(function() {
