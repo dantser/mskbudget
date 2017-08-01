@@ -12,7 +12,7 @@ mixin basic_budget_figures()
       .analityc-widget.analityc-widget_figures.load-anim-fade(data-delay="1500")
         .analityc-control-group._year
           span Год
-          select
+          select.analityc-select
             option(selected) 2017
             option 2016
             option 2015
@@ -35,7 +35,7 @@ mixin basic_budget_figures()
             option(selected) Без межбюджетных трансфертов
             option с трансфертами
         .analityc-control-group._dp.basic-budget__dp
-          input(placeholder="Выберите дату исполнения", value="Выберите дату исполнения").jq-spec-datepicker
+          input(placeholder="Выберите дату исполнения", value="Выберите дату исполнения", readonly).jq-spec-datepicker-one
         .analityc-control-group._dp-alt.basic-budget__dp
           select(disabled).analityc-select.analityc-select_date.analityc-select_disabled
             option 01

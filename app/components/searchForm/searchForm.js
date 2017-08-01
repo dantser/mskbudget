@@ -11,6 +11,8 @@ export default () => {
   //плэйсходер для ie
   $('input').placeholder();
 
+
+
   TABS_LINK.each( function () { // eslint-disable-line
     const EL = $(this);
 
@@ -20,13 +22,15 @@ export default () => {
       EL.toggleClass(ACTIVE_CLASS);
     });
 
-    $(document).on('click', function(e) {
-      if (!$(e.target).closest('.search__filter').length && $('.range-datepicker').is(':hidden')) {
-        TABS_LINK.removeClass(ACTIVE_CLASS);
-      }
-      e.stopPropagation();
-    });
   });
+
+
+      $(document).on('click', function(e) {
+        if (!$(e.target).closest('.search__filter').length && $('.range-datepicker').is(':hidden')) {
+          TABS_LINK.removeClass(ACTIVE_CLASS);
+        }
+        e.stopPropagation();
+      });
 
   $('input[name="all"]').change(function(){
     if (this.checked) {
@@ -40,7 +44,6 @@ export default () => {
   var inputCount = $(this).find('.checkbox__control:checked').length,
       checkboxCount = $(this).find('.checkbox').length;
 
-  console.log(inputCount + " " + checkboxCount);
 
   if (inputCount != checkboxCount) {
     $(this).siblings('.checkbox').find('.checkbox__control[name="all"]').prop('checked', false);
@@ -60,13 +63,13 @@ export default () => {
   });
 
   //закрыть выпадающие окна фильтра по клику в любом месте
-  $(document).mouseup(function(e) {
-    var modal = $('.modal');
-    if (modal.has(e.target).length === 0){
-      if ($('.link').hasClass('active') && !$('.form__date-range').hasClass('form__date-range_focus'))
-        $('.link').removeClass(ACTIVE_CLASS);
-    }
-  })
+  // $(document).mouseup(function(e) {
+  //   var modal = $('.modal');
+  //   if (modal.has(e.target).length === 0){
+  //     if ($('.link').hasClass('active') && !$('.form__date-range').hasClass('form__date-range_focus'))
+  //       $('.link').removeClass(ACTIVE_CLASS);
+  //   }
+  // })
 
   OPEN_ICON.each( function () { // eslint-disable-line
     const EL = $(this);

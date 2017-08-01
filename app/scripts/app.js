@@ -56,10 +56,10 @@ $(() => {
     });
   });
 
+  basic_budget_figures();
   aboutBudgetPreparation();
   selectbox();
   dragscroll();
-  basic_budget_figures();
   docCards();
   mediaMain();
   documentsform();
