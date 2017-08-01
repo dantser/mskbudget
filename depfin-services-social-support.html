@@ -14,10 +14,6 @@
 </head>
 
 <body>
-    <div class="toppanel" id="toppanel">
-        <iframe src="https://pevp.mos.ru/frame/v2/header.php?v=1.0.17&amp;site_id=2129&amp;is_search_main=0&amp;show_blind=1&amp;text=&amp;cur_domain=findep.mos.ru&amp;ref_url=http%3A%2F%2Ffindep.mos.ru%2F&amp;ref_parent_url= " frameborder="0" width="100%"
-            scrolling="no" id="header__iframe" class="toppanel__frame top-panel-frame"></iframe>
-    </div>
     <header class="header" id="header">
         <div class="header__wrap wrap">
             <a class="logo header__logo hidden-desktop" href="#">
@@ -986,10 +982,29 @@
                     </div>
                 </div>
             </div>
-            <div class="footer__common">
-                <iframe src="https://evp.mos.ru/frame/v2/footer.php?v=1.0.17&amp;site_id=2136&amp;show_blind=0&amp;hidesitemap=0&amp;hidecounter=0&amp;cur_domain=budget.mos.ru" id="footer_frame" frameborder="0" width="100%" scrolling="no" style="height: 208px;"></iframe>
-            </div>
+            <div class="footer__common"></div>
         </footer>
+        <!-- Код общего хедера и футера сайтов Москвы-->
+        <script>
+            (function(d, w, c) {
+                var n = d.getElementsByTagName("script")[0],
+                    s = d.createElement("script"),
+                    f = function() {
+                        n.parentNode.insertBefore(s, n);
+                    },
+                    protocol = "https:";
+                current_domain = window.location.hostname;
+                s.type = "text/javascript";
+                s.charset = "utf-8";
+                s.async = true;
+                s.src = protocol + "//evp.mos.ru/frame/v2/all.php?cur_domain=" + current_domain + "&async=1&set_lang=ru&langs=ru&site_id=2136";
+                if (w.opera == "[object Opera]") {
+                    d.addEventListener("DOMContentLoaded", f, false);
+                } else {
+                    f();
+                }
+            })(document, window, "evp_header_callbacks");
+        </script>
         <div class="button-top"></div>
     </div>
     <div id="popup-wrapper">

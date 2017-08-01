@@ -16,10 +16,6 @@
 <body>
     <div id="whitescreen"></div>
     <div class="wrapper wrapper_main">
-        <div class="toppanel" id="toppanel">
-            <iframe src="https://pevp.mos.ru/frame/v2/header.php?v=1.0.17&amp;site_id=2129&amp;is_search_main=0&amp;show_blind=1&amp;text=&amp;cur_domain=findep.mos.ru&amp;ref_url=http%3A%2F%2Ffindep.mos.ru%2F&amp;ref_parent_url= " frameborder="0" width="100%"
-                scrolling="no" id="header__iframe" class="toppanel__frame top-panel-frame"></iframe>
-        </div>
         <header class="header" id="header">
             <div class="header__wrap wrap">
                 <a class="logo header__logo hidden-desktop" href="#">
@@ -677,82 +673,14 @@
                         <div class="tile__item anim-left" data-delay="600">
                             <div class="tile__inner service">
                                 <div class="service__ahead">
-                                    <h3 class="service__title">Государственный долг
+                                    <h3 class="service__title">Государственные долг
                                         <button></button>
                                         <svg class="service__icon"><use xlink:href="assets/images/icon.svg#icon_pin"></use></svg>
                                     </h3>
                                     <div class="service__sub-title">
                                         <span>по состоянию на</span>
-                                        <div class="datepicker service__datepicker">
-                                            <button class="datepicker__show">01.10.2016</button>
-                                            <div class="datepicker__panel">
-                                                <ul class="datepicker__col datepicker__col_years">
-                                                    <li>
-                                                        <a class="datepicker__a" href="#">2011</a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="datepicker__a" href="#">2012</a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="datepicker__a" href="#">2013</a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="datepicker__a" href="#">2014</a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="datepicker__a" href="#">2015</a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="datepicker__a datepicker__a_act" href="#">2016</a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="datepicker__a" href="#">2017</a>
-                                                    </li>
-                                                </ul>
-                                                <div class="datepicker__col-wrap">
-                                                    <ul class="datepicker__col datepicker__col_months">
-                                                        <li>
-                                                            <a class="datepicker__a" href="#" data-month="01">январь</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="datepicker__a" href="#" data-month="02">февраль</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="datepicker__a" href="#" data-month="03">март</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="datepicker__a" href="#" data-month="04">апрель</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="datepicker__a" href="#" data-month="05">май</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="datepicker__a" href="#" data-month="06">июнь</a>
-                                                        </li>
-                                                    </ul>
-                                                    <ul class="datepicker__col datepicker__col_months">
-                                                        <li>
-                                                            <a class="datepicker__a" href="#" data-month="07">июль</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="datepicker__a" href="#" data-month="08">август</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="datepicker__a" href="#" data-month="09">сентябрь</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="datepicker__a datepicker__a_act" href="#" data-month="10">октябрь</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="datepicker__a" href="#" data-month="11">ноябрь</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="datepicker__a" href="#" data-month="12">декабрь</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <button class="datepicker__close"></button>
-                                            </div>
+                                        <div class="service__datepicker">
+                                            <input class="datepicker__show jq-spec-datepicker" value="01.06.2017" tabindex="0" />
                                         </div>, млрд. руб </div>
                                 </div>
                                 <div class="segment-diagram" id="diagram-7">
@@ -1647,10 +1575,29 @@
                         </div>
                     </div>
                 </div>
-                <div class="footer__common">
-                    <iframe src="https://evp.mos.ru/frame/v2/footer.php?v=1.0.17&amp;site_id=2136&amp;show_blind=0&amp;hidesitemap=0&amp;hidecounter=0&amp;cur_domain=budget.mos.ru" id="footer_frame" frameborder="0" width="100%" scrolling="no" style="height: 208px;"></iframe>
-                </div>
+                <div class="footer__common"></div>
             </footer>
+            <!-- Код общего хедера и футера сайтов Москвы-->
+            <script>
+                (function(d, w, c) {
+                    var n = d.getElementsByTagName("script")[0],
+                        s = d.createElement("script"),
+                        f = function() {
+                            n.parentNode.insertBefore(s, n);
+                        },
+                        protocol = "https:";
+                    current_domain = window.location.hostname;
+                    s.type = "text/javascript";
+                    s.charset = "utf-8";
+                    s.async = true;
+                    s.src = protocol + "//evp.mos.ru/frame/v2/all.php?cur_domain=" + current_domain + "&async=1&set_lang=ru&langs=ru&site_id=2136";
+                    if (w.opera == "[object Opera]") {
+                        d.addEventListener("DOMContentLoaded", f, false);
+                    } else {
+                        f();
+                    }
+                })(document, window, "evp_header_callbacks");
+            </script>
         </div>
     </div>
     <div id="popup-wrapper">
