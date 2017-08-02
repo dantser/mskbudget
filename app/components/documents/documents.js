@@ -29,6 +29,7 @@ export default function () {
     e.preventDefault();
     $('.sort__a').removeClass('sort__a_act');
     $(this).addClass('sort__a_act');
+    $(this).toggleClass('sort__a_top')
   });
 
 }
