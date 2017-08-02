@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html>
+  <head>
+		<meta charset="utf-8">
+		<title>Quarto theme for phpBB 3 documentation</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Bootstrap CSS -->
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+		<link href="assets/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/fontello.css">
+    <link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700&amp;subset=latin' rel='stylesheet' type='text/css'>
+        
+
+		 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		 <!--[if lt IE 9]>
+			 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			 <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+		 <![endif]-->
+	</head>
+	<body data-spy="scroll" data-target="#nav">
+    <div class="container">
+        <h1 class="text-center logo-bg">Quarto theme for phpBB 3</h1>
+
+        <div id="body" data-spy="scroll" data-target=".navbar-inner">
+            <div class="col-md-3">
+
+              <div id="nav-wrapper">
+                  <div id="nav" class="navbar">
+                      <div class="navbar-inner">
+                          <ul class="nav">
+                             <li>
+                               <a href="#package">Package</a>
+                             </li>
+                             <li>
+                               <a href="#installation">Installation</a>
+                             </li>
+                             <li>
+                               <a href="#addnav">How do I add or edit a navigation link?</a>
+                             </li>
+                             <li>
+                               <a href="#addsidebar">How do I add and edit the sidebar?</a>
+                             </li>
+                             <li>
+                               <a href="#addprefooter">How do I add and edit the prefooter blocks?</a>
+                               <ul>
+                                 <li>
+                                   <a href="#addprefootermain">How to add prefooter blocks</a>
+                                 </li>
+                                 <li>
+                                   <a href="#addprefooteredit">How to edit prefooter block content</a>
+                                 </li>
+                                 <li>
+                                   <a href="#addprefooterdisable">How to disable one or two prefooter blocks</a>
+                                 </li>
+                               </ul>
+                             </li>
+                             <li>
+                               <a href="#addsocial">How do I add and edit the social links?</a>
+                             </li>
+                             <li>
+                               <a href="#addlogo">How do I add my own logo?</a>
+                             </li>
+                             <li>
+                               <a href="#changebackground">How do I change the background?</a>
+                             </li>
+                             <li>
+                               <a href="#fonts">Fonts</a>
+                             </li>
+                             <li>
+                               <a href="#sourcefiles">PSD and AI Files Description</a>
+                             </li>
+                             <li>
+                               <a href="#support">Support</a>
+                             </li>
+                           </ul> <!-- container -->
+                      </div> <!-- navbar-inner -->
+                  </div> <!-- navbar -->
+              </div>
+            </div>
+
+            <div class="col-md-9">
+              <div id="content">
+                <section id="package">
+                  <h2 class="page-header">1. Package</h2>
+
+                  <p>&ldquo;Quarto&rdquo; theme has five color schemes in both dark and light versions: <strong>Asphalt</strong>, <strong>Teal</strong>, <strong>Amazon</strong>, <strong>Red</strong>, <strong>Cherry</strong>.</p>
+
+                  <p>The package contains the following folders: &ldquo;Themes&rdquo;,
+                  &ldquo;PSD &amp; AI&rdquo; and &ldquo;Documentation&rdquo;.</p>
+
+                  <ul>
+                      <li>&ldquo;<strong>Themes</strong>&rdquo; contains all 10 theme
+                    color variations for uploading;</li>
+
+                      <li>&nbsp;&ldquo;<strong>PSD &amp; AI</strong>&rdquo; contains the
+                      Adobe Photoshop and Adobe Illustrator files used for creating the
+                      theme (not for uploading).</li>
+
+                      <li>&ldquo;<strong>Documentation</strong>&rdquo; contains the Metro
+                      theme documentation</li>
+                  </ul>                  
+                </section>
+
+                  <section id="installation">
+                  <h2 class="page-header">2. Installation</h2>
+
+                  <p>To install any of the color schemes you must &mdash;</p>
+
+                  <ol>
+                      <li>Upload the folder with the theme color variation you prefer
+                      (<code>quarto_asphalt</code>, <code>quarto_red</code> etc.) into the
+                      styles folder of the phpBB3 board. In the directory tree of your
+                      ftp client it will be <code>phpBB3/styles/</code>. (replacing
+                      <code>phpBB3</code> with your boards folder name).</li>
+
+                      <li><p>Now you can set about installing the newly uploaded style to
+                        your board. Navigate in the board's ACP to <strong>Customise</strong> &mdash; <strong>Install Styles</strong>. You should see your recently uploaded styles listed (assuming you uploaded it to the correct location and the style is valid).</p>
+                        <img alt="" height="416" src="assets/img/intallation_01.PNG" width="794">
+                      </li>
+
+                      <li>
+                          <p>Simply click &ldquo;<strong>Install style</strong>&rdquo; and the installation is complete!
+                      </li>
+                  </ol>                  
+                </section>
+
+                <section id="addnav">
+                  <h2 class="page-header">3. How do I add or edit a navigation link?</h2>
+
+                  <p>
+                    <img src="assets/img/nav.png" alt="">
+                  </p>
+
+                  <p>If you want to add a link to the main navigation menu, follow these
+                  steps:</p>
+
+                  <ol>
+                      <li>Using FTP browse to the following file –
+                      <code>styles/YOUR_THEME/template/navbar_header.html</code> and download it to your computer.</li>
+
+                      <li>
+                          <p>Find</p>
+                          <pre class="prettyprint">&lt;!-- Add your nav link below --&gt;</pre>
+
+                          <p>and add after</p>
+                          <pre class="prettyprint">
+    &lt;li class=&quot;small-icon&quot; data-last-responsive=&quot;true&quot;&gt;
+      &lt;a href=&quot;YOUR_LINK&quot; title=&quot;LINK_TITLE&quot; role=&quot;menuitem&quot;&gt;YOU_LINK_NAME&lt;/a&gt;
+    &lt;/li&gt;</pre>
+                      </li>
+
+                      <li>Replace <strong>YOUR_LINK</strong> with your URL and <strong>
+                          YOU_LINK_NAME</strong> with the URL name.
+
+                          <div class="bs-callout bs-callout-info">
+                              <p>E.g. a navigation link to a custom page could look like
+                              this &mdash;</p>
+                              <pre class="prettyprint">&lt;<strong>a</strong> href=&quot;http://yourforum.com/custom-page.php&quot; title=&quot;It's our custom page&quot;&gt;Custom Page&lt;/<strong>a</strong>&gt;</pre>
+                          </div>
+                      </li>
+                      <li>Save the template and upload it to <code>styles/YOUR_THEME/template/</code></li>
+                  </ol>
+               
+                </section>
+
+
+                <section id="addsidebar">
+                  <h2 class="page-header">4. How do I add and edit the sidebar?</h2>
+
+                  <ol>
+                      <li>
+                          <p>Using FTP browse to the following file &mdash;
+                          <code>styles/YOUR_THEME/template/index_body.html</code> and download it to your computer.</p>
+                      </li>
+
+                      <li>
+                          <p>Find</p>
+                          <pre class="prettyprint">&lt;!-- NOTE: Indexbody page outer start --&gt;
+&lt;div class=&quot;page-body-inner&quot;&gt;
+
+&lt;!-- INCLUDE forumlist_body.html --&gt;</pre>
+
+                          <p>and replace with</p>
+                          <pre class="prettyprint">&lt;!-- NOTE: Indexbody page outer start --&gt;
+&lt;div class=&quot;page-body-inner&quot;&gt;
+
+  &lt;div class=&quot;page-body-inner-with-sidebar&quot;&gt;
+    &lt;!-- INCLUDE forumlist_body.html --&gt;
+  &lt;/div&gt;
+  
+&lt;!-- INCLUDE sidebar.html --&gt;</pre>
+                      </li>
+
+                      <li>Now using FTP browse to the following file &mdash;
+                      <code>styles/YOUR_THEME/template/sidebar.html</code> and download it to your computer.</li>
+
+                      <li>
+                          <p>Replace &ldquo;<code>Your Sidebar Block Header</code>&rdquo;
+                          and &ldquo;<code>Your sidebar content goes here</code>&rdquo;
+                          with the content you need.</p>
+                      </li>
+
+                      <li>Save the template and upload it to <code>styles/YOUR_THEME/template/</code></li>
+
+                      <li>
+                          <p>If you need more sidebar blocks, just copy and paste all the
+                          code from</p>
+                          <pre class="prettyprint">&lt;!-- Sidebar block beginning --&gt;  </pre>
+
+                          <p>to</p>
+                          <pre class="prettyprint">&lt;!-- Sidebar block end --&gt;</pre>
+
+                          <p>below the first block.</p>
+                      </li>
+
+                      <!-- <li>
+                          <strong>(Optional)</strong> If you also want to add the sidebar
+                          to the <strong>Topic list</strong> (<em>viewforum</em>) and
+                          <strong>Topic</strong> (<em>viewtopic</em>) pages, just apply
+                          the steps 1-3 and 7 from this section to the following
+                          templates:
+
+                          <ul>
+                              <li><code>viewforum_body.html</code></li>
+
+                              <li><code>viewtopic_body.html</code></li>
+                          </ul>
+                      </li> -->
+                  </ol>                  
+                </section>
+
+                <section id="addprefooter">
+                  <h2 class="page-header">5. How do I add and edit the prefooter
+                  blocks?</h2>
+
+                  <p>
+                    <img alt="" src="assets/img/prefooter-blocks.png" >
+                  </p>
+
+                  <h3 id="addprefootermain">5.1 How to add prefooter blocks to the Quarto theme</h3>
+
+                  <ol>
+                      <li>Using FTP browse to the following file &mdash;
+                      <code>styles/YOUR_THEME/template/overall_footer.html</code> and download it to your computer.</li>
+
+                      <li>
+                          <p>Find</p>
+                          <pre class="prettyprint">&lt;!-- Prefooter blocks go below --&gt;</pre>
+
+                          <p>and add after</p>
+                          <pre class="prettyprint">&lt;!-- INCLUDE prefooter_blocks.html --&gt;</pre>
+                      </li>
+                      <li>Save the template and upload it to <code>styles/YOUR_THEME/template/</code></li>
+                  </ol><br>
+
+                  <h3 id="addprefooteredit">5.2 How to edit prefooter block content</h3>
+
+                  <ol>
+                      <li>Using FTP browse to the following file &mdash;
+                      <code>styles/YOUR_THEME/template/prefooter_blocks.html</code> and download it to your computer.</li>
+
+                      <li>
+                          <p>Replace <strong>BLOCK_HEADER</strong> and
+                          <strong>BLOCK_CONTENT</strong> with your live header and
+                          content inside each block -</p>
+                          <pre class="prettyprint">&lt;!-- Prefooter block beginning --&gt;
+      &lt;div class=&quot;prefooter-block width-33&quot;&gt;
+          &lt;h2&gt;<strong>BLOCK_HEADER</strong>&lt;/h2&gt;
+          &lt;p&gt;<strong>BLOCK_CONTENT</strong>&lt;/p&gt;                   
+      &lt;/div&gt;
+      &lt;!-- Prefooter block end --&gt;</pre>
+                      </li>
+                      <li>Save the template and upload it to <code>styles/YOUR_THEME/template/</code></li>
+                  </ol>
+                  <br>
+
+                  <h3 id="addprefooterdisable">5.3 How to disable one or two prefooter blocks</h3>
+
+                  <p>You can have up to three prefooter blocks at a time. By default all
+                  three blocks are available. If you only need one or two blocks, you can
+                  disable the others.</p>
+
+                  <ol>
+                      <li>Using FTP browse to the following file &mdash;
+                      <code>styles/YOUR_THEME/template/overall_footer.html</code> and download it to your computer.</li>
+
+                      <li>
+                          <p>Each block starts with <code>&lt;!-- Sidebar block beginning
+                          --&gt;</code> and ends with <code>&lt;!-- Sidebar block end
+                          --&gt;</code>. So delete these lines and all the code between
+                          them to disable unnecessary blocks</p>
+                      </li>
+
+                      <li>
+                          <p>Don't forget to change <code>width-33</code> in the
+                          following line to <code>width-50</code> if you're using two
+                          column prefooter or to <code>width-100</code> if you need only
+                          one column.</p>
+                          <pre class="prettyprint">&lt;div class=&quot;prefooter-block width-33&quot;&gt;</pre>
+                      </li>
+                      <li>Save the template and upload it to <code>styles/YOUR_THEME/template/</code></li>
+                  </ol>
+                
+                </section>
+
+                <section id="addsocial">
+                  <h2 class="page-header">6. How do I add and edit the social links?</h2>
+
+                  <p>You can add links to your social accounts. The links are located in
+                  the footer</p>
+                  <p>
+                    <img alt="" height="93" src="assets/img/documentation_clip_image001_0000.png" width="473">
+                  </p>
+
+                  <ol>
+                      <li>Using FTP browse to the following file &mdash;
+                      <code>styles/YOUR_THEME/template/overall_footer.html</code> and download it to your computer.</li>
+
+                      <li>
+                          <p>Find</p>
+                          <pre class="prettyprint">&lt;!-- Social links go below --&gt;</pre>
+
+                          <p>and add after</p>
+                          <pre class="prettyprint">&lt;!-- INCLUDE footer_social_links.html --&gt;</pre>
+                      </li>
+
+                      <li>Now using FTP browse to the following file &mdash;
+                      <code>styles/YOUR_THEME/template/footer_social_links.html</code> and download it to your computer.</li>
+
+                      <li>
+                          <p>Edit the following line and paste you social account link
+                          instead of <strong>YOUR_SOCIAL_ACCOUN_LINK</strong>, and social
+                          account shortcode instead of
+                          <strong>SOCIAL_ACCOUNT_SHORTCODE</strong>.</p>
+                          <pre class="prettyprint">&lt;li&gt;&lt;a href=&quot;YOUR_SOCIAL_ACCOUN_LINK&quot; class=&quot;COCIAL_ACCOUNT_SHORTCODE&quot;&gt;&lt;/a&gt;&lt;/li&gt;</pre>
+
+                          <div class="bs-callout bs-callout-info">
+                              <p>E.g. a link to our Twitter account looks like this
+                              &mdash;</p>
+                              <pre class="prettyprint">&lt;li&gt;&lt;a href=&quot;https://twitter.com/PixelGoose&quot; target=&quot;_blank&quot; class=&quot;icon-twitter&quot;&gt;&lt;/a&gt;&lt;/li&gt;</pre>
+                          </div>
+
+                          <p>Repeat it for each link you want to add.</p>
+
+                          <p>Here&rsquo;s all available social network icons &mdash;</p>
+
+                              <table class="table table-bordered table-striped table-hover">
+                                <thead>
+                                  <tr>
+                                        <th>Social Network</th>
+                                        <th>Shortcode</th>
+                                      </tr>
+                                </thead>
+                                <tbody>
+
+                                  <tr>
+                                        <td><i class="icon-dribbble"></i> Dribble</td>
+                                        <td><code>icon-dribbble</code></td>
+                                  </tr>
+                                  <tr>
+                                        <td><i class="icon-facebook"></i> Facebook</td>
+                                        <td><code>icon-facebook</code></td>
+                                  </tr>
+                                  <tr>
+                                        <td><i class="icon-facebook-squared"></i> Facebook</td>
+                                        <td><code>icon-facebook-squared</code></td>
+                                  </tr>
+                                  <tr>
+                                        <td><i class="icon-flickr"></i> Flickr</td>
+                                        <td><code>icon-flickr</code></td>
+                                  </tr>
+                                  <tr>
+                                        <td><i class="icon-foursquare"></i> Foursquare</td>
+                                        <td><code>icon-foursquare</code></td>
+                                  </tr>
+                                  <tr>
+                                        <td><i class="icon-github"></i> Github</td>
+                                        <td><code>icon-github</code></td>
+                                  </tr>
+                                  <tr>
+                                        <td><i class="icon-github-squared"></i> Github</td>
+                                        <td><code>icon-github-squared</code></td>
+                                  </tr>
+                                  <tr>
+                                        <td><i class="icon-gplus"></i> Google Plus</td>
+                                        <td><code>icon-gplus</code></td>
+                                  </tr>
+                                  <tr>
+                                        <td><i class="icon-gplus-squared"></i> Google Plus </td>
+                                        <td><code>icon-gplus-squared</code></td>
+                                  </tr>
+                                  <tr>
+                                        <td><i class="icon-instagramm"></i> Instagram</td>
+                                        <td><code>icon-instagramm</code></td>
+                                  </tr>
+                                  <tr>
+                                        <td><i class="icon-linkedin"></i> Linkedin</td>
+                                        <td><code>icon-linkedin</code></td>
+                                  </tr>
+                                  <tr>
+                                        <td><i class="icon-linkedin-squared"></i> Linkedin</td>
+                                        <td><code>icon-linkedin-squared</code></td>
+                                  </tr>
+                                  <tr>
+                                        <td><i class="icon-pinterest-circled"></i> Pinterest</td>
+                                        <td><code>icon-pinterest-circled</code></td>
+                                  </tr>
+                                  <tr>
+                                        <td><i class="icon-pinterest-squared"></i> Pinterest</td>
+                                        <td><code>icon-pinterest-squared</code></td>
+                                  </tr>
+                                  <tr>
+                                        <td><i class="icon-tumblr"></i> Tumblr</td>
+                                        <td><code>icon-tumblr</code></td>
+                                  </tr>
+                                  <tr>
+                                        <td><i class="icon-tumblr-squared"></i> Tumblr</td>
+                                        <td><code>icon-tumblr-squared</code></td>
+                                  </tr>
+                                  <tr>
+                                        <td><i class="icon-twitter"></i> Twitter</td>
+                                        <td><code>icon-twitter</code></td>
+                                  </tr>
+                                  <tr>
+                                        <td><i class="icon-twitter-squared"></i> Twitter</td>
+                                        <td><code>icon-twitter-squared</code></td>
+                                  </tr>
+                                  <tr>
+                                        <td><i class="icon-vimeo-squared"></i> Vimeo</td>
+                                        <td><code>icon-vimeo-squared</code></td>
+                                  </tr>
+                                  <tr>
+                                        <td><i class="icon-vkontakte"></i> VK</td>
+                                        <td><code>icon-vkontakte</code></td>
+                                  </tr>
+                                  <tr>
+                                        <td><i class="icon-weibo"></i> Weibo</td>
+                                        <td><code>icon-weibo</code></td>
+                                  </tr>
+                                  <tr>
+                                        <td><i class="icon-xing"></i> Xing</td>
+                                        <td><code>icon-xing</code></td>
+                                  </tr>
+                                  <tr>
+                                        <td><i class="icon-xing-squared"></i> Xing</td>
+                                        <td><code>icon-xing-squared</code></td>
+                                  </tr>
+                                  <tr>
+                                        <td><i class="icon-youtube"></i> Youtube</td>
+                                        <td><code>icon-youtube</code></td>
+                                  </tr>
+                                  <tr>
+                                        <td><i class="icon-youtube-squared"></i> Youtube</td>
+                                        <td><code>icon-youtube-squared</code></td>
+                                  </tr>
+
+                                </tbody>
+                              </table>
+                      </li>
+                      <li>Save the template and upload it to <code>styles/YOUR_THEME/template/</code></li>
+                  </ol>
+               
+                </section>
+
+                <section id="addlogo">
+                  <h2 class="page-header">7. How do I add my own logo?</h2>
+                                    <ol>
+                    <li><p>Create your logo and using your FTP client, upload it to &mdash; <code>/styles/YOUR_THEME/theme/images/</code></p>
+                    </li>
+
+                    <li><p>Download and open the file <code>/styles/YOUR_THEME/theme/imageset.css</code> in a text editor</p>
+                    <li>
+                      <p>Find the following css-rule:</p>
+                      <pre class="prettyprint">
+.imageset.site_logo {
+  background-image: url("./images/<span class="blue">site_logo.svg</span>");
+  padding-left: <span class="green">164px</span>;
+  padding-top: <span class="red">42px</span>;
+}</pre>
+                      <p>Legend: <span class="blue">file name and type</span>; <span class="green">width</span> in pixels; <span class="red">height</span> in pixels.</p>
+                    </li>
+                    <li>Edit the file name, width, and height to match your new logo.</li>
+                    <li>Save the template and upload it to <code>/styles/YOUR_THEME/theme/images/</code></li>
+
+                  </ol>
+                </section>
+
+                <section id="changebackground">
+                  <h2 class="page-header">8. How do I change the background?</h2>
+                  <p>&ldquo;Quarto&rdquo; theme is ready for visual customization and one of the best way to give it a unique view is to use a beautiful and memorable background. The theme has 15 premade backgrounds (patterns and images) for each version so you can easily use one of them or add your own background image.</p>
+                  <p>The premade background images are stored inside <code>/styles/YOUR_THEME/theme/images/bg-images/</code> directory and have unique names. Follow these steps to install theme:</p>
+                  <ol>
+                    <li>Using FTP browse to the following file —
+                      <code>styles/YOUR_THEME/theme/quarto.css</code>
+                    </li>
+                    <li><p>Find the following lines</p>
+                    <pre class="prettyprint">/* Body background
+---------------------------------------- */</pre>
+
+                    </li>
+                    <li><p>Add the following code after the lines:</p>
+                    <pre class="prettyprint">body {
+  background-image: url("./images/bg-images/YOUR_BACKGROUND_IMAGE");
+  background-attachment: scroll;
+  background-position: center top;
+  background-repeat: repeat;
+}</pre>
+
+                    </li>
+                  <li>Don't forget to replace <strong>YOUR_BACKGROUND_IMAGE</strong> with your actual background image that can be found in <code>//styles/YOUR_THEME/theme/images/bg-images/</code>.
+                  </li>
+                  <li>Save the template and upload it to <code>styles/YOUR_THEME/template/</code></li>
+                  </ol>
+                  <div class="bs-callout bs-callout-info">
+                      <p>You can also use your own image or pattern. You can find a lot of them on image stocks like <a href="http://subtlepatterns.com/" target="_blank">Subtle Patterns</a> and <a href="http://www.freeimages.com/" target="_blank">FreeImages</a>.</p>
+                  </div> 
+                  <div class="bs-callout bs-callout-info">
+                      <p>If you are going to use a big background image, consider using the following css-rules:</p>
+                      <pre class="prettyprint">
+background-attachment: fixed;
+background-size: 100 auto;
+                      </pre>
+                      <p>In the first instance you'll get a fixed background and in the second one your background will stretch in full width at any screen resolution and will look nice.</p>
+                  </div> 
+                </section>     
+                             
+                <section id="fonts">
+                  <h2 class="page-header">9. Fonts</h2>
+
+                  <p>The main font used in the theme is <a href=
+                  "https://www.google.com/fonts/specimen/Noto+Sans" target=
+                  "_blank">Noto Sans</a>. Only &ldquo;<strong>Normal 400</strong>&rdquo;, &ldquo;<strong>Normal 400 Italic</strong>&rdquo;,
+                  &ldquo;<strong>Bold 700</strong>&rdquo;, &ldquo;<strong>Bold 700 Italic</strong>&rdquo; styles of the font are
+                  used.</p>
+
+                  <p>If your forum language is not using the Latin character set, some of
+                  the type symbols may be missing or replaced by default font set. To
+                  avoid that you should add your character set to the font link.</p>
+
+                  <ol>
+                      <li>Using FTP browse to the following file &mdash;
+                      <code>styles/YOUR_THEME/template/overall_header.html</code></li>
+
+                      <li>
+                          <p>Find the following line -</p>
+                          <pre class="prettyprint">&lt;link href='//fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'&gt;</pre>
+                      </li>
+
+                      <li>
+                          <p>Add to the end of the link your character set, e.g.
+                          <code>&amp;subset=latin,cyrillic</code> -</p>
+                          <pre class="prettyprint">&lt;link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700&amp;<strong>subset=latin,cyrillic</strong>' rel='stylesheet' type='text/css' /&gt;</pre>
+
+                          <p>You can add the following extra character sets:
+                          <code>cyrillic</code>, <code>cyrillic-ext</code>,
+                          <code>greek-ext</code>, <code>greek</code>,
+                          <code>latin-ext</code>, <code>devanagari</code>, <code>vietnamese</code>. And don&rsquo;t forget to set
+                          <code>latin</code> as the first character set in this case.</p>
+                      </li>
+                      <li>Save the template and upload it to <code>styles/YOUR_THEME/template/</code></li>
+                  </ol>
+
+                  <div class="bs-callout bs-callout-info">
+                      <p>We also use <a href="http://fortawesome.github.io/Font-Awesome/"
+                      target="_blank">Font Awesome</a> as a main icon font in our theme.
+                      If you want to extend its usage in the theme, you can see the Font
+                      Awesome documentation <a href=
+                      "http://fortawesome.github.io/Font-Awesome/examples/" target=
+                      "_blank">here</a>.</p>
+                  </div>                  
+                </section>
+                <section id="sourcefiles">
+                  <h2 class="page-header">10. PSD and AI Files Description</h2>
+
+                  <p>All icons are stored in vector format inside PSD and AI files. So
+                  they can be easily customized for any color scheme.</p>
+
+                  <ul>
+                    <li><code>icons-asphalt.psd</code> &mdash; icon set for Quarto Asphalt</li>
+                    <li><code>icons-cyan.psd</code> &mdash; icon set for Quarto Cyan</li>
+                    <li><code>icons-amazon.psd</code> &mdash; icon set for Quarto Amazon</li>
+                    <li><code>icons-red.psd</code> &mdash; icon set for Quarto Red</li>
+                    <li><code>icons-cherry.psd</code> &mdash; icon set for Quarto Cherry</li>
+                    <li><code>icons-asphalt.ai</code> &mdash; icon set for Quarto Asphalt</li>
+                    <li><code>icons-cyan.ai</code> &mdash; icon set for Quarto Cyan</li>
+                    <li><code>icons-amazon.ai</code> &mdash; icon set for Quarto Amazon</li>
+                    <li><code>icons-red.ai</code> &mdash; icon set for Quarto Red</li>
+                    <li><code>icons-cherry.ai</code> &mdash; icon set for Quarto Cherry</li>
+                    <li><code>site_logo.ai</code> &mdash; site logo</li>
+                  </ul>
+
+                  <div class="bs-callout bs-callout-info">
+                      <strong>PSD-files</strong> can be edited with <a href=
+                      "http://www.adobe.com/products/photoshopfamily.html" target=
+                      "_blank">Adobe Photoshop</a>. <strong>AI-files</strong> can be
+                      edited with both <a href=
+                      "http://www.adobe.com/products/illustrator.html" target=
+                      "_blank">Adobe Illustrator</a> and <a href=
+                      "http://www.inkscape.org/" target="_blank">Inkscape</a>.
+                  </div>                  
+                </section>
+
+                <section id="support">
+                  <h2 class="page-header">11. Support</h2>
+
+                  <p>If you have any questions that are not answered in this
+                  documentation, feel free to contact us via <a href=
+                  "http://themeforest.net/user/PixelGoose" target="_blank">our
+                  profile</a> at themeforest.net</p>
+
+                  <p class="text-center"><a href="http://pixelgoose.com/" target="_blank">PixelGoose Studio</a></p>
+
+                  <p class="text-center"><a href="http://pixelgoose.com/" target="_blank"><img alt="PixelGoose" height="80" src=
+                  "assets/img/documentation_clip_image001_0001.png" width="80"></a></p>                  
+                </section>
+
+              </div>
+            </div><!-- -->
+        </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="assets/js/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/google-code-prettify/run_prettify.js"></script>
+
+    <script type="text/javascript">
+      $(function() {
+          
+          $('#nav').affix({
+              offset: { top: $('#nav').offset().top }
+          });
+      });
+    </script>
+
+	</body>
+</html>

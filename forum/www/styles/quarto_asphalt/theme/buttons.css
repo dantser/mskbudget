@@ -1,0 +1,316 @@
+/* Button Styles
+---------------------------------------- */
+
+.button {
+	cursor: pointer;
+	display: inline-block;
+	height: 32px;
+	line-height: 32px;
+	font-size: 13px;
+	white-space: nowrap;
+	border: none;
+	background: transparent none 0 0 repeat-x;
+	padding: 0 10px 2px;
+	font-family: 'Noto Sans', sans-serif;
+	position: relative;
+	text-decoration: none !important;
+	outline-style: none !important;
+	vertical-align: bottom;
+	margin-bottom: 10px;
+}
+
+
+
+.dropdown-select {
+	padding-right: 30px;
+}
+
+.icon-button:before {
+	background: transparent 0 0 no-repeat;
+	content: '';
+	display: inline-block;
+	float: right;
+	height: 12px;
+	margin: 3px 0 0 2px;
+	width: 12px;
+}
+
+.dropdown-select.icon-button:before {
+	margin-right: 4px;
+}
+
+.dropdown-select:after {
+	background-position: -103px 10px;
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 33px;
+	width: 16px;
+	font-size: 10px;
+	font-family: FontAwesome;
+	line-height: 32px;
+	padding-left: 5px;
+}
+
+.dropdown-visible .dropdown-select:after, .nojs .dropdown-container:hover .dropdown-select:after {
+	background-position: -103px -10px;
+}
+
+.buttons, .buttons .button {
+	float: left;
+}
+
+.buttons .button, .dropdown-select {
+	margin-right: 10px;
+}
+
+#jumpbox .dropdown-select {
+	margin: 0;
+}
+
+/* Big button images */
+.post-icon:before, .newpm-icon:before, .reply-all:before,
+.reply-icon:before, .pmreply-icon:before,
+.locked-icon:before, .forwardpm-icon:before	 {
+	background-image: none !important;
+	float: none !important;
+	display: inline;
+	margin-right: 3px;
+	font-size: 14px;
+}
+.reply-icon:before, .pmreply-icon:before					{ font-family: FontAwesome; content: "\f055"; }
+
+.post-icon:before, .newpm-icon:before, .reply-all:before	{ font-family: FontAwesome; content: "\f040"; }
+.post-icon:hover:before,
+.newpm-icon:hover:before,
+.reply-all:hover:before										{ background-position: 0 -20px; }
+
+.locked-icon:before											{ font-family: FontAwesome; content: "\f023"; }
+
+.forwardpm-icon:before										{ font-family: FontAwesome; content: "\f064"; }
+
+.modtools-icon {
+	font-size: 0;
+}
+.tools-icon,
+.modtools-icon {
+	width: 21px;
+}
+.tools-icon, .modtools-icon, .search-icon, .search-adv-icon {
+	position: relative;
+}
+.tools-icon:before, .modtools-icon:before, .search-icon:before, .search-adv-icon:before {
+	height: 16px;
+	width: 16px;
+	font-family: FontAwesome;
+	font-size: 16px;
+	line-height: 16px;
+	float: none;
+	margin: 0;
+	display: block;
+	position: absolute;
+	left: 13px;
+	top: 11px;
+}
+.headerbar .search-icon:before,
+.headerbar .search-adv-icon:before {
+	width: 20px;
+	height: 20px;
+	left: 0;
+	top: 0;
+	opacity: .4
+}
+
+.dropdown-visible .tools-icon:before,
+.nojs .dropdown-container:hover .tools-icon:before			{ background-position: -80px -20px; }
+
+.search-icon:before											{ content:"\f002"; }
+.headerbar .search-icon:before								{ content: ""; background-image: url(./images/search.svg) !important; }
+
+.search-adv-icon:before										{ content:"\f013"; }
+.headerbar .search-adv-icon:before							{ content:""; background-image: url(./images/setting.svg) !important;}
+
+.tools-icon:before											{ content:"\f0ad" !important; }
+.modtools-icon:before										{ content:"\f06e" !important; }
+.dropdown-visible .modtools-icon:before,
+.nojs .dropdown-container:hover .modtools-icon:before		{ background-position: -225px -20px; }
+
+/* Icon images
+---------------------------------------- */
+.small-icon {
+	background-position: 0 50%;
+	background-repeat: no-repeat;
+	background-image: none;
+}
+
+.small-icon > a {
+	display: inline-block;
+	/*padding: 0 0 0 18px;*/
+}
+
+ul.linklist.bulletin > li.small-icon:before {
+	display: none;
+}
+
+.dropdown .small-icon > a {
+	display: inline-block;
+}
+
+/* Poster contact icons
+----------------------------------------*/
+.contact-icons.dropdown-contents {
+	min-width: 0;
+	padding: 0;
+	font-size: 0;
+}
+
+.contact-icon {
+	background-repeat: no-repeat;
+	display: block;
+	height: 16px;
+	width: 16px;
+}
+.contact-icons a {
+	border-bottom: 1px solid;
+	border-right: 1px solid;
+	display: block;
+	float: left;
+	padding: 8px;
+}
+
+.contact-icons .last-cell {
+	border-right: none;
+}
+
+.contact-icons div:last-child a {
+	border-bottom: none;
+}
+
+.contact-icons div {
+	clear: left;
+}
+
+/* Profile icons */
+.pm-icon		{ background-position: 0 0; }
+.email-icon		{ background-position: -20px 0; }
+.jabber-icon	{ background-position: -80px 0; }
+.phpbb_icq-icon	{ background-position: -61px 0 ; }
+.phpbb_wlm-icon	{ background-position: -182px 0; }
+.phpbb_aol-icon	{ background-position: -244px 0; }
+.phpbb_website-icon		{ background-position: -40px 0; }
+.phpbb_youtube-icon		{ background-position: -98px 0; }
+.phpbb_facebook-icon	{ background-position: -119px 0; }
+.phpbb_googleplus-icon	{ background-position: -140px 0; }
+.phpbb_skype-icon		{ background-position: -161px 0; }
+.phpbb_twitter-icon		{ background-position: -203px 0; }
+.phpbb_yahoo-icon		{ background-position: -224px 0; }
+
+/* Post control buttons
+--------------------------------------------- */
+.post-buttons {
+	float: right;
+	list-style: none;
+	margin-top: 2px;
+}
+
+.has-profile .post-buttons {
+	float: none;
+	position: absolute;
+	margin: 0;
+	right: 0;
+	top: 5px;
+}
+
+.post-buttons > li {
+	float: left;
+}
+
+.post-buttons .icon-button,
+.post-buttons .icon-button:hover {
+	padding: 0 5px;
+	background-color: transparent;
+	box-shadow: none;
+}
+
+.hastouch .post-buttons .icon-button {
+	padding: 2px 8px;
+}
+
+.post-buttons .icon-button span {
+	display: block;
+	height: 0;
+	overflow: hidden;
+	position: absolute;
+	width: 1px;
+}
+
+.post-buttons .icon-button:before {
+	margin-left: 0;
+}
+
+.quote-icon,							
+.edit-icon,							
+.warn-icon,							
+.delete-icon,							
+.report-icon,							
+.info-icon,							
+.button.responsive-menu-link	{
+	padding: 0 !important;
+}
+.quote-icon:before,							
+.edit-icon:before,							
+.warn-icon:before,							
+.delete-icon:before,							
+.report-icon:before,							
+.info-icon:before,							
+.button.responsive-menu-link:before	{
+	font-family: FontAwesome;
+	font-size: 18px;
+	height: 26px;
+	width: 26px;
+	line-height: 26px;
+	color: #555555;
+	text-align: center;
+}
+.quote-icon:hover:before,							
+.edit-icon:hover:before,							
+.warn-icon:hover:before,							
+.delete-icon:hover:before,							
+.report-icon:hover:before,							
+.info-icon:hover:before,							
+.button.responsive-menu-link:hover:before	{
+	color: #F01F4B;
+}	
+
+.quote-icon:before							{ content: "\f10d"; background-image: none !important; }
+.edit-icon:before							{ content: "\f044"; background-image: none !important; }
+.warn-icon:before							{ content: "\f165"; background-image: none !important; }
+.delete-icon:before							{ content: "\f014"; background-image: none !important; }
+.report-icon:before							{ content: "\f071"; background-image: none !important; }
+.info-icon:before							{ content: "\f05a"; background-image: none !important; }
+.button.responsive-menu-link:before			{ content: "\f0c9"; background-image: none !important; }
+
+/* Responsive buttons in post body */
+.post-buttons .dropdown {
+	top: 20px;
+}
+
+.post-buttons .dropdown a {
+	display: block;
+	font-size: 1em;
+	text-align: right;
+}
+#topicreview .post-buttons > li > label,
+.post-buttons > li#expand {
+	line-height: 30px;
+}
+.hasjs .postbody .post-buttons {
+	max-width: 40%;
+}
+
+/* Browser-specific tweaks */
+button::-moz-focus-inner {
+	padding: 0;
+	border: 0
+}
