@@ -240,9 +240,9 @@ button, input[type="submit"] {
 
 .letter__btn:hover { color: #FFF; }
 .letter__btn:focus { color: rgba(255, 255, 255, .6); }
-.letter__slider { overflow: hidden; position: relative; -webkit-overflow-scrolling: touch;min-height: 500px; padding-bottom: 45px; -webkit-mask-image: -webkit-linear-gradient(left, transparent 0.5%, black 7%, black 93%, transparent 99.5%); cursor: pointer; cursor: -webkit-grab; cursor: -moz-grab; cursor: grab; }
+.letter__slider { overflow: auto; position: relative; -webkit-overflow-scrolling: touch;min-height: 500px; padding-bottom: 65px; -webkit-mask-image: -webkit-linear-gradient(left, transparent 0.5%, black 7%, black 93%, transparent 99.5%); cursor: pointer; cursor: -webkit-grab; cursor: -moz-grab; cursor: grab; overflow-x: scroll; overflow-y: hidden; margin-bottom: -20px;}
 
-.letter__track { position: relative; -webkit-transition: 0.5s; -moz-transition: 0.5s; -o-transition: 0.5s; transition: 0.5s; }
+.letter__track { position: relative; -webkit-transition: 0.5s; -moz-transition: 0.5s; -o-transition: 0.5s; transition: 0.5s; box-sizing: content-box; }
 
 .letter__track:after { display: block; width: 100%; content: ""; clear: both; }
 
@@ -255,15 +255,17 @@ button, input[type="submit"] {
     border-top: none;
 }
 
+.letter-slider-container { overflow: hidden; }
+
 .letter__dropdown.dropdown_active .letter__a {color: #fff; font-weight: 700;}
 
 .letter__dropdown .dropdown__close { color: #fee300; font-size: 12px; }
 
 .letter__dropdown .dropdown__content { padding: 15px 0 25px; }
 
-.letter__a { font-size: 16px; line-height: 20px; color: #fee300; text-decoration: none; -webkit-transition: 0.5s; -moz-transition: 0.5s; -o-transition: 0.5s; transition: 0.5s; }
+body .letter .letter__a { font-size: 16px; line-height: 20px; color: #fee300; text-decoration: none; -webkit-transition: 0.5s; -moz-transition: 0.5s; -o-transition: 0.5s; transition: 0.5s; padding: 0; text-transform: none; font-weight: 400; }
 
-.letter__a:hover { color: #FFF; }
+body .letter .letter__a:hover { color: #FFF; }
 
 .letter__tit { font-size: 16px; color: #FFF; font-weight: 700; line-height: 20px; margin-bottom: 6px; }
 
@@ -377,7 +379,7 @@ button, input[type="submit"] {
   .letter__line-arrow_r { margin-left: 10px; }
   .letter__item { width: 125px; padding-right: 15px; }
   .letter__char { font-size: 36px; height: 50px; }
-  .letter__a, .letter__tit, .letter__p { font-size: 12px; line-height: 18px;}
+  body .letter .letter__a, .letter__tit, .letter__p { font-size: 12px; line-height: 18px;}
   .letter__slider { min-height: 300px; -webkit-mask-image: -webkit-linear-gradient(left, transparent 0.5%, black 10%, black 85%, transparent 99.5%); }
   .letter__hover { width: 50px; }
 }
