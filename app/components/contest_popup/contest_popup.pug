@@ -1,0 +1,88 @@
+include ../../blocks/icon/icons
+include ../../blocks/button/icons
+
+mixin contest_popup()
+
+	mixin participant(number)
+		+e.participant
+			+icon('close').hide
+
+			+e.participant-number 
+				| Участник №
+				+e.js-participant-number 
+
+			+participant-field('ФИО', 'fio')
+			+participant-field('Дата рождения', 'birth')
+			+participant-field('Должность', 'position')
+			+participant-field('Контактный телефон', 'phone')
+			+participant-field('Электронная почта', 'email')
+			+participant-field('Адрес', 'address')
+
+	mixin participant-field(label, name)
+		+e.participant-field
+			+e.LABEL(for='').label= label
+			+e.INPUT(type='text' name='p-'+name id='p-'+name).fio
+
+	mixin option(type, label, name, isOther)
+		+e.option-field
+			+e.INPUT(type='checkbox' name=type+'-'+name id=type+'-'+name)
+			+e.chbox
+			+e.LABEL(for=type+'-'+name).label= label
+
+			if (isOther)
+				+e.INPUT(type='text' name=type+'-'+'other')
+
+	+b.contest_popup&attributes(attributes)
+		+e.head
+			+e.H3.title Заявка
+			+icon('close').close
+
+		+e.FORM(method='POST' action='#').application
+
+			+e.participants
+				+particapant()
+				+particapant()
+
+				+button()._kind_yellow.js-button-addparticipant
+
+			+e.options
+				+e.option
+					
+					+e.option-title Номинация конкурса:
+
+					+option('n', '&laquo;Бюджет города Москвы: сколько я плачу и что получаю?&raquo', 'f1')
+					+option('n', '&laquo;Интерактивный бюджет города Москвы для граждан&raquo', 'f2')
+					+option('n', '&laquo;Разработка рейтинга понятности бюджета города Москвы для граждан&raquo', 'f3')
+					+option('n', '&laquo;Популярный словарь бюджетных терминов&raquo', 'f4')
+					+option('n', '&laquo;Проекты инициативного бюджетирования в городе Москве&raquo', 'f5')
+					+option('n', '&laquo;Бюджет города Москвы: просто о сложном&raquo', 'f6')
+				
+				+e.option
+					+e.option-title Приложением к заявке является проект, представленный в формате:
+
+					+option('f', '&laquo;Презентация&raquo', 'f1')
+					+option('f', '&laquo;Видео&raquo', 'f2')
+					+option('f', '&laquo;Интернет-брошюра&raquo', 'f3')
+					+option('f', '&laquo;Мультипликационный ролик&raquo', 'f4')
+					+option('f', '&laquo;Фото-коллаж&raquo', 'f5')
+					+option('f', '&laquo;Иное (указать)&raquo', 'f6', true)
+						
+				+e.option
+					+e.option-title Приложением представлено на:
+
+					+option('t', '&laquo;Бумажном носителе информации на __ листах&raquo', 'f1')
+					+option('t', '&laquo;Электронном носителе информации&raquo', 'f2')
+					+option('t', '&laquo;Иное (указать)&raquo', 'f3', true)
+
+				+e.extra
+					+button()._kind_yellow.js-button-attachment
+					+e.UL.attachments
+						+e.LI.attachment
+							+e.SPAN.document Document 1
+							+icon()
+						+e.LI.attachment
+							+e.SPAN.document Document 2
+							+icon()
+
+				+button(true)
+
