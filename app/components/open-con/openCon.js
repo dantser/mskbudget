@@ -19,4 +19,13 @@ export default () => {
     $('.tabs__tab').hide();
     $('.tabs__tab:first-child').show();
   })
+
+  const PROPOSAL = $('.open-con .js-button-proposal');
+
+  PROPOSAL.click(function(e) {
+    e.preventDefault();
+    $('.open-con__con').hide();
+    $('.open-con__popup').show();
+  })
+
 }
