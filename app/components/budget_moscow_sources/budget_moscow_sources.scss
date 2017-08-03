@@ -83,6 +83,10 @@
     margin-bottom: 55px;
   }
 
+  .analityc-control-button_graphics svg, .analityc-control-button_table svg {
+    width: 29px;
+  }
+
   .analityc-select {
     line-height: 30px;
 
@@ -109,6 +113,7 @@
   }
 
   .analityc-control-buttons {
+    margin-top: 23px;
 
     @media screen and (max-width: 1020px) {
       margin-top: 25px;
@@ -204,12 +209,21 @@
 
   .analityc-control-switcher_big.active {
     display: inline-block !important;
+    margin-top: 23px;
+  }
+
+  .analityc-control-group._year, .analityc-control-group._stage, .analityc-control-group._level {
+    @media (max-width: 1140px) and (min-width: 1020px) {
+      margin-bottom: 0;
+    }
   }
 
   .analityc-control-group._dp {
     display: none;
-    margin-top: 32px;
-    margin-left: 3%;
+    margin-top: 23px;
+    margin-left: 3.2%;
+    width: 361px;
+    width: calc(33.6% - 1px);
 
     &::before {
       background-position: -209px -116px;
@@ -222,7 +236,8 @@
     }
 
     @media (max-width: 1024px) and (min-width: 761px) {
-      width: 35%;
+      width: 36.4%;
+      margin-left: 2%;
     }
 
     @media screen and (max-width: 760px) {
@@ -237,6 +252,7 @@
 
     input {
       height: 30px !important;
+      line-height: 30px;
 
       &::-webkit-input-placeholder {
         font-size: 14px;
@@ -252,6 +268,13 @@
       &::-ms-clear {
         display: none;
       }
+    }
+  }
+  .analityc-control-buttons.active+.analityc-control-switcher {
+    margin-left: 3.2%;
+
+    @media (max-width: 1024px) and (min-width: 761px) {
+      margin-left: 2%;
     }
   }
 
