@@ -45,6 +45,8 @@ import search from '../components/search/search';
 import news_one from '../components/news-one/news-one';
 import analitycWidgethead from '../components/analityc-widgethead/analityc-widgethead';
 import aboutBudget from '../components/depfin-about-budget/aboutBudget';
+import openReit from '../components/depfin-budget-moscow-open-reit/openReit';
+
 
 $(() => {
 
@@ -73,6 +75,7 @@ $(() => {
   questions();
   lkNav();
   search();
+  openReit();
   regions();
   tabs();
   news_one();
