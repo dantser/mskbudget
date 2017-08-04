@@ -125,38 +125,38 @@ budget.extend("common", {
 
 		},0)
 
-    function appendList(inst, className) {
-        var $selectElement = inst.dpDiv.find('.' + className);
-        var selected = $selectElement.find("option[selected]");
-        var $listElement = $('<dl class="{0} dropdown"></dl>'.replace('{0}', className + '-list')).appendTo($selectElement.parent());
-        $listElement.append('<dt><a href="#">' + selected.text() + '<span class="value">' + selected.val() + '</span></a></dt>');
-        $listElement.append('<dd><ul class="dateListItem" ></ul></dd>');
-        $selectElement.children('option').each(function () {
-            var $listItem = $listElement.find(".dateListItem").append('<li><a href="#">' + $(this).text() + '<span class="value">' + $(this).val() + '</span></a></li>');
-            $listItem.hide();
-            $listItem.find('a').click(function (e) {
-                e.preventDefault();
-                $selectElement.val($(this).find('span').text());
-                $selectElement.change();
-            });
-        });
-        $listElement.find('dt a').click(function (e) {
-            e.preventDefault();
-            $(this).closest('dt')
-              .siblings('dd')
-              .find('.dateListItem')
-              .toggle();
-        });
-    }
-
-    function convertToLists(inst) {
-        var self = this;
-        setTimeout(function () {
-          inst.dpDiv.addClass('datePickerWithLists');
-          appendList(inst, 'ui-datepicker-month');
-          appendList(inst, 'ui-datepicker-year');
-        }, 0);
-    };
+    // function appendList(inst, className) {
+    //     var $selectElement = inst.dpDiv.find('.' + className);
+    //     var selected = $selectElement.find("option[selected]");
+    //     var $listElement = $('<dl class="{0} dropdown"></dl>'.replace('{0}', className + '-list')).appendTo($selectElement.parent());
+    //     $listElement.append('<dt><a href="#">' + selected.text() + '<span class="value">' + selected.val() + '</span></a></dt>');
+    //     $listElement.append('<dd><ul class="dateListItem" ></ul></dd>');
+    //     $selectElement.children('option').each(function () {
+    //         var $listItem = $listElement.find(".dateListItem").append('<li><a href="#">' + $(this).text() + '<span class="value">' + $(this).val() + '</span></a></li>');
+    //         $listItem.hide();
+    //         $listItem.find('a').click(function (e) {
+    //             e.preventDefault();
+    //             $selectElement.val($(this).find('span').text());
+    //             $selectElement.change();
+    //         });
+    //     });
+    //     $listElement.find('dt a').click(function (e) {
+    //         e.preventDefault();
+    //         $(this).closest('dt')
+    //           .siblings('dd')
+    //           .find('.dateListItem')
+    //           .toggle();
+    //     });
+    // }
+    //
+    // function convertToLists(inst) {
+    //     var self = this;
+    //     setTimeout(function () {
+    //       inst.dpDiv.addClass('datePickerWithLists');
+    //       appendList(inst, 'ui-datepicker-month');
+    //       appendList(inst, 'ui-datepicker-year');
+    //     }, 0);
+    // };
 
 		if ($( ".datepicker" ).length) {
 			$( ".datepicker" ).datepicker();
@@ -177,12 +177,12 @@ budget.extend("common", {
 			dateFormat: 'dd.mm.yy',
 			firstDay: 1,
 			isRTL: false,
-      beforeShow: function(input, inst) {
-        convertToLists(inst);
-      },
-      onChangeMonthYear: function (year, month, inst) {
-        convertToLists(inst);
-      }
+      // beforeShow: function(input, inst) {
+      //   convertToLists(inst);
+      // },
+      // onChangeMonthYear: function (year, month, inst) {
+      //   convertToLists(inst);
+      // }
 			};
 			$.datepicker.setDefaults($.datepicker.regional['ru']);
 		}
@@ -867,38 +867,38 @@ function basicBudgetFiguresDiagrams () {
         animate: true
     });
 
-    function appendList(inst, className) {
-        var $selectElement = inst.dpDiv.find('.' + className);
-        var selected = $selectElement.find("option[selected]");
-        var $listElement = $('<dl class="{0} dropdown"></dl>'.replace('{0}', className + '-list')).appendTo($selectElement.parent());
-        $listElement.append('<dt><a href="#">' + selected.text() + '<span class="value">' + selected.val() + '</span></a></dt>');
-        $listElement.append('<dd><ul class="dateListItem" ></ul></dd>');
-        $selectElement.children('option').each(function () {
-            var $listItem = $listElement.find(".dateListItem").append('<li><a href="#">' + $(this).text() + '<span class="value">' + $(this).val() + '</span></a></li>');
-            $listItem.hide();
-            $listItem.find('a').click(function (e) {
-                e.preventDefault();
-                $selectElement.val($(this).find('span').text());
-                $selectElement.change();
-            });
-        });
-        $listElement.find('dt a').click(function (e) {
-            e.preventDefault();
-            $(this).closest('dt')
-              .siblings('dd')
-              .find('.dateListItem')
-              .toggle();
-        });
-    }
-
-    function convertToLists(inst) {
-        var self = this;
-        setTimeout(function () {
-          inst.dpDiv.addClass('datePickerWithLists');
-          appendList(inst, 'ui-datepicker-month');
-          appendList(inst, 'ui-datepicker-year');
-        }, 0);
-    };
+    // function appendList(inst, className) {
+    //     var $selectElement = inst.dpDiv.find('.' + className);
+    //     var selected = $selectElement.find("option[selected]");
+    //     var $listElement = $('<dl class="{0} dropdown"></dl>'.replace('{0}', className + '-list')).appendTo($selectElement.parent());
+    //     $listElement.append('<dt><a href="#">' + selected.text() + '<span class="value">' + selected.val() + '</span></a></dt>');
+    //     $listElement.append('<dd><ul class="dateListItem" ></ul></dd>');
+    //     $selectElement.children('option').each(function () {
+    //         var $listItem = $listElement.find(".dateListItem").append('<li><a href="#">' + $(this).text() + '<span class="value">' + $(this).val() + '</span></a></li>');
+    //         $listItem.hide();
+    //         $listItem.find('a').click(function (e) {
+    //             e.preventDefault();
+    //             $selectElement.val($(this).find('span').text());
+    //             $selectElement.change();
+    //         });
+    //     });
+    //     $listElement.find('dt a').click(function (e) {
+    //         e.preventDefault();
+    //         $(this).closest('dt')
+    //           .siblings('dd')
+    //           .find('.dateListItem')
+    //           .toggle();
+    //     });
+    // }
+    //
+    // function convertToLists(inst) {
+    //     var self = this;
+    //     setTimeout(function () {
+    //       inst.dpDiv.addClass('datePickerWithLists');
+    //       appendList(inst, 'ui-datepicker-month');
+    //       appendList(inst, 'ui-datepicker-year');
+    //     }, 0);
+    // };
 
     //   if($( ".jq-spec-datepicker-alt" ).length > 0){
     // 	$('.jq-spec-datepicker-alt').datepicker({
@@ -940,12 +940,12 @@ function basicBudgetFiguresDiagrams () {
     monthNamesShort: ['январь','февраль','март','апрель','май','июнь',
     'июль','август','сентябрь','октябрь','ноябрь','декабрь'],
     dayNamesMin: ['вс', 'пн','вт','ср','чт','пт','сб'],
-    beforeShow: function(input, inst) {
-      convertToLists(inst);
-    },
-    onChangeMonthYear: function (year, month, inst) {
-      convertToLists(inst);
-    }
+    // beforeShow: function(input, inst) {
+    //   convertToLists(inst);
+    // },
+    // onChangeMonthYear: function (year, month, inst) {
+    //   convertToLists(inst);
+    // }
     });
     }
 
