@@ -439,6 +439,36 @@
     .whatIsBudget-revenues {
         width: 100%!important;
     }
+    .whatIsBudget-line {
+        bottom: calc(100% - 25px) !important;
+    }
+    .whatIsBudget-revenues__item {
+        position: static;
+    }
+}
+
+/*iPad*/
+@media screen and (max-width: 1000px) and (min-width: 641px) {
+    .whatIsBudget-revenues, 
+    .whatIsBudget-revenues:nth-child(1), 
+    .whatIsBudget-revenues:nth-child(2), 
+    .whatIsBudget-revenues:nth-child(3) {
+        width: 100%;
+        float: none;
+        padding: 0;
+        margin: 22px 0 0;
+    }
+    .whatIsBudget-revenues:first-child {
+        margin: 0;
+    }
+    .whatIsBudget-revenues:nth-child(1) .whatIsBudget-revenues__title, 
+    .whatIsBudget-revenues:nth-child(2) .whatIsBudget-revenues__title {
+        max-width: 100%;
+    }
+    .whatIsBudget-revenues__list {
+        max-width: 100%;
+        margin-top: 22px;
+    }
 }
 
 @media (max-width: 640px) {
@@ -532,6 +562,52 @@
         margin-right: -6px;
         top: 50%;
         transform: translateY(calc(-50% + 2px));
+    }
+}
+
+/*iPad*/
+@media screen and (max-width: 1000px) and (min-width: 641px) {
+    .whatIsBudget-financingOfDeficit__wrapper {
+        background-size: 2px 26px,calc(50% - 61px) 2px;
+        background-position: 50% 0,62px 24px;
+    }
+    .whatIsBudget-financingOfDeficit, 
+    .whatIsBudget-financingOfDeficit:first-child, 
+    .whatIsBudget-financingOfDeficit:nth-child(2), 
+    .whatIsBudget-financingOfDeficit:nth-child(6), 
+    .whatIsBudget-financingOfDeficit:nth-child(7) {
+        width: auto;
+        float: none;
+        margin-right: 0;
+    }
+    .whatIsBudget-financingOfDeficit:nth-child(1), 
+    .whatIsBudget-financingOfDeficit:nth-child(2) {
+        margin-left: 105px;
+        margin-bottom: 30px;
+    }
+    .whatIsBudget-financingOfDeficit:nth-child(5) {
+        margin-top: 0;
+    }
+    .whatIsBudget-financingOfDeficit:nth-child(7) {
+        background-size: 2px 76px;
+    }
+    .whatIsBudget-financingOfDeficit:first-child .whatIsBudget-financingOfDeficit__title:before, 
+    .whatIsBudget-financingOfDeficit:first-child .whatIsBudget-financingOfDeficit__title:after, 
+    .whatIsBudget-financingOfDeficit:nth-child(2) .whatIsBudget-financingOfDeficit__title:before,
+    .whatIsBudget-financingOfDeficit:nth-child(2) .whatIsBudget-financingOfDeficit__title:after,
+    .whatIsBudget-financingOfDeficit:nth-child(6) .whatIsBudget-financingOfDeficit__title:before,
+    .whatIsBudget-financingOfDeficit:nth-child(7) .whatIsBudget-financingOfDeficit__title:before {
+        display: none;
+    }
+    .whatIsBudget-financingOfDeficit__suitcase:before {
+        height: 76px;
+        top: -53px;
+    }
+    .whatIsBudget-publicDebt__wrapper {
+        padding: 42px 0 0 44px;
+    }
+    .whatIsBudget-publicDebt {
+        display: block;
     }
 }
 
@@ -769,7 +845,9 @@
     .whatIsBudget-expenditures__list+.whatIsBudget-expenditures__list {
         margin-left: 0;
     }
-
+    .whatIsBudget-expenditures__item+.whatIsBudget-expenditures__item {
+        margin-top: 4px;
+    }
     .whatIsBudget-expenditures_departments {
 
       .whatIsBudget-expenditures__list {
