@@ -110,6 +110,10 @@
         font-size: 14px;
       }
     }
+
+    @media screen and (min-width:0\0) {
+      background-image: none !important;
+    }
   }
 
   .analityc-control-buttons {
@@ -147,7 +151,7 @@
     @media screen and (max-width: 1020px) {
       margin-right: 2%;
       margin-left: 0;
-      width: 28.1%;
+      width: 38.1%;
     }
 
     @media screen and (max-width: 760px) {
@@ -213,8 +217,10 @@
   }
 
   .analityc-control-group._year, .analityc-control-group._stage, .analityc-control-group._level {
+
     @media (max-width: 1140px) and (min-width: 1020px) {
       margin-bottom: 0;
+
     }
   }
 
@@ -264,12 +270,9 @@
         font-size: 14px;
         color: black;
       }
-
-      &::-ms-clear {
-        display: none;
-      }
     }
   }
+
   .analityc-control-buttons.active+.analityc-control-switcher {
     margin-left: 3.2%;
 
@@ -316,12 +319,13 @@
     height: 26px;
 
     &_left {
-      left: 101%;
+      right: 101%;
+      transform: rotate(180deg);
     }
 
     &_right {
-      right: 101%;
-      transform: rotate(180deg);
+      left: 101%;
+
     }
 
     @media (max-width: 1088px) {
@@ -365,7 +369,8 @@
     }
 
     &__wrapper {
-      overflow-x: scroll;
+      overflow-x: auto;
+      overflow-y: hidden;
     }
   }
 
@@ -480,16 +485,16 @@
           border: 10px solid transparent;
           border-left: 10px solid #0062d5;
 
-          @media (max-width: 1140px) {
-            right: 73px;
-            border-left: none;
-            border-right: 10px solid #00f7fd;
-          }
+          // @media (max-width: 1140px) {
+          //   right: 41px;
+          //   border-left: none;
+          //   border-right: 10px solid #00f7fd;
+          // }
         }
 
         .linear-diagram__value {
-          right: 7px;
-          top: 6px;
+          right: 13px;
+          top: 8px;
         }
       }
     }
@@ -790,6 +795,12 @@
             display: none;
           }
         }
+
+        &:last-child {
+          &::after {
+            right: 50%;
+          }
+        }
       }
 
       &_green {
@@ -950,7 +961,7 @@
               right: 40px;
 
               @media (max-width: 1140px) {
-                left: 30px;
+                left: -16px;
                 right: 0;
               }
             }
