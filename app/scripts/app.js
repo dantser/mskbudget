@@ -43,6 +43,7 @@ import toppanel from '../blocks/toppanel/toppanel'; // верхняя панел
 import tooltips from '../blocks/tooltip-icon/tooltip-icon'; // тултипы в калькуляторе бюджета
 import search from '../components/search/search';
 import news_one from '../components/news-one/news-one';
+import analitycWidgethead from '../components/analityc-widgethead/analityc-widgethead';
 
 $(() => {
 
@@ -65,6 +66,7 @@ $(() => {
   documentsform();
   widgetCard();
   main();
+  analitycWidgethead();
   pageHeader();
   question();
   questions();

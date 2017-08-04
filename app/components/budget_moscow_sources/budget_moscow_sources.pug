@@ -60,11 +60,11 @@ mixin budget_moscow_sources()
                 +e.fill
                   +e.SPAN.SPAN.value 108,5 (50%)
               +e.SPAN.val 216,9
-          +analityc-table()._changes.analityc-widget-sources-table_date
+          +analityc-table_slider()._changes.analityc-widget-sources-table_date
             +icon('angle-arrow').section__ar.section__ar_left
             +icon('angle-arrow').section__ar.section__ar_right
             .analityc-table__wrapper
-              +table-income(getData('income1'))
+              +table-income_slider(getData('income1'))
           .analityc-widget-sources.analityc-widget-sources_approved
             p.analityc-graphics__periodtext
               span Плановый период
@@ -145,10 +145,11 @@ mixin budget_moscow_sources()
                   +e.SPAN.data_green(data-char='2017') +217,9
                   +e.SPAN.data_green(data-char='2018') +88,5
                   +e.SPAN.data_green(data-char='2019') +9,7
-          +analityc-table()._changes.analityc-widget-sources-table_approved
+          +analityc-table_slider()._changes.analityc-widget-sources-table_approved
             +icon('angle-arrow').section__ar.section__ar_left
             +icon('angle-arrow').section__ar.section__ar_right
-            +table-income(getData('income1'))
+            .analityc-table__wrapper
+              +table-income_slider(getData('income1'))
           .analityc-widget-sources.analityc-widget-sources_changes
             p.analityc-graphics__periodtext
               span Плановый период
@@ -246,10 +247,11 @@ mixin budget_moscow_sources()
                   +e.SPAN.data_green(data-char='2017') +217,9
                   +e.SPAN.data_green(data-char='2018') +88,5
                   +e.SPAN.data_green(data-char='2019') +9,7
-          +analityc-table()._changes.analityc-widget-sources-table_changes
+          +analityc-table_slider()._changes.analityc-widget-sources-table_changes
             +icon('angle-arrow').section__ar.section__ar_left
             +icon('angle-arrow').section__ar.section__ar_right
-            +table-income(getData('income1'))
+            .analityc-table__wrapper
+              +table-income_slider(getData('income1'))
           .analityc-widget-sources.analityc-widget-sources_done
             +b.graphic._proficit
               +e.row._caption
@@ -287,9 +289,10 @@ mixin budget_moscow_sources()
               +e.row.__total
                 +e.title.linear-diagram__sources Всего по источникам финансирования дефицита
                 +e.SPAN.data_green 143,4
-          +analityc-table()._changes.analityc-widget-sources-table_done
+          +analityc-table_slider()._changes.analityc-widget-sources-table_done
             +icon('angle-arrow').section__ar.section__ar_left
             +icon('angle-arrow').section__ar.section__ar_right
-            +table-income(getData('income1'))
+            .analityc-table__wrapper
+              +table-income_slider(getData('income1'))
           a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
       +dropdown().load-anim-fade(data-delay="1700")
