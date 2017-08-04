@@ -19,20 +19,22 @@
     height: 17px;
     max-height: 17px;
     padding: 5px;
+
+    box-sizing: content-box;
+    @include transited;
+
+  }
+
+  &__icon { // svg
+    max-width: 100%;
+    max-height: 100%;
     color: white;
     fill: white;
-    box-sizing: content-box;
     @include transited;
 
     &:hover {
       color: #fee300;
       fill: #fee300;
     }
-  }
-
-  &__icon { // svg
-    max-width: 100%;
-    max-height: 100%;
-    @include transited;
   }
 }

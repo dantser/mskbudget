@@ -91,7 +91,93 @@ mixin table-income(data)
         | Неналоговые доходы, в том числе:
 
       +dataType(data, 'nonTax')
+mixin table-income_slider(data)
 
+  mixin dataType(data, type)
+    case data.length
+      when 3
+        - var cells = 'three';
+      when 2
+        - var cells = 'two';
+      when 1
+        - var cells = 'one';
+
+    each item in data
+      if (typeof data[0].total === "object")
+        +e.col._one= item[type].initial
+        +e.col._one= item[type].change
+        +e.col._one= item[type].final
+      else
+        +e(class= 'col_'+cells)= item.total
+
+
+  +b.table&attributes(attributes)
+    +e.P.periodtext
+      span Плановый период
+
+    +e.row._caption
+      +e.col._four Виды доходов
+
+      if (data[0].year)
+        each item in data
+          +e.col._four= item.year
+            if item.leftperiod
+              +e.SPAN.period-left
+            if item.rightperiod
+              +e.SPAN.period-right
+      else
+        +e.col._four МЛРД РУБ.
+        +e.col._four %
+
+    if (typeof data[0].total === "object")
+      +e.row._subcaption
+        +e.col._four empty
+
+        +e.col._one Закон перво- начальный
+        +e.col._one Изменение
+        +e.col._one Закон с учетом Изменений
+
+        +e.col._one Закон перво- начальный
+        +e.col._one Изменение
+        +e.col._one Закон с учетом Изменений
+
+        +e.col._one Закон перво- начальный
+        +e.col._one Изменение
+        +e.col._one Закон с учетом Изменений
+
+    +e.row
+      +e.col._four Доходы, всего
+
+      +dataType(data, 'total')
+
+    +e.row._opened._hassub
+      +e.col._four
+        +icon('angle-arrow').arrow
+        | Налоговые доходы, в том числе:
+
+      +dataType(data, 'tax')
+
+    +e.row._subrow_tax
+      +e.col._four._subcol Налог на прибыль организаций
+
+      +dataType(data, 'org')
+
+    +e.row._subrow_tax
+      +e.col._four._subcol Налог на доходы физических лиц
+
+      +dataType(data, 'ndfl')
+
+    +e.row
+      +e.col._four ...
+
+      +dataType(data, 'other')
+
+    +e.row._hassub
+      +e.col._four
+        +icon('angle-arrow').arrow
+        | Неналоговые доходы, в том числе:
+
+      +dataType(data, 'nonTax')
 //- таблица в расходах бюджета
 mixin table-expenses(data)
 

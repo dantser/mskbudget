@@ -54,30 +54,100 @@ export default () => {
     }
   });
 
+// стрелочки внутри таблицы
   TABLE_ARROW.each( function () { // eslint-disable-line
     const EL = $(this);
-
     EL.on('click', (e) => {
       e.preventDefault();
       // EL.closest('.table__row').nextAll('.table__row_subrow').slideToggle();
       EL.parents('.table__row').toggleClass('table__row_opened');
-      $('.table__row_subrow_tax').toggle();
+      EL.parents('.table__row').nextAll('.table__row').each(function () {
+        if ( !$(this).hasClass('table__row_hassub') ) {
+          $('.table__row_subrow_tax').toggle();
+        } else {
+          return false;
+        }
+      })
+
+
     });
   })
 
+
+//стрелочки сколлящие таблицу
   $('.section__ar_right').on('click', function (e) {
-    e.preventDefault();
-    console.log(1);
-    // const EL = $(this);
-    ACTIVE_TABLE.css('transform', 'translateX(100px)');
-    ACTIVE_TABLE.animate( { scrollLeft: '+=460' }, 1000);
+    $('.analityc-table__wrapper').animate( { scrollLeft: '+=100' }, 300);
+    console.log($('.table').offset().left);
   });
 
   $('.section__ar_left').on('click', function (e) {
-    e.preventDefault();
-    // const EL = $(this);
-    ACTIVE_TABLE.animate( { scrollLeft: '-=460' }, 1000);
-    // ACTIVE_TABLE.css('transform', 'translateX(-100px)');
+    $('.analityc-table__wrapper').animate( { scrollLeft: '-=100' }, 300);
+  });
 
+  function arrowActive(el) {
+    var sL = el.scrollLeft(),
+        leftArr = $('.section__ar_left'),
+        rightArr = $('.section__ar_right');
+
+    if (sL === 0) {
+      leftArr.addClass('section__ar_disabled');
+    } else if (sL === ( el.prop('scrollWidth') - el.width().toFixed(0) ) ) {
+      rightArr.addClass('section__ar_disabled');
+    } else {
+      leftArr.removeClass('section__ar_disabled');
+      rightArr.removeClass('section__ar_disabled');
+    }
+  }
+
+  arrowActive($('.analityc-table__wrapper'));
+
+  $('.analityc-table__wrapper').scroll(function(){
+    arrowActive($(this));
+  });
+ // --конец стрелочек скроллящих таблицу
+
+  // const changesSlider = new Swiper('.analityc-widget-sources-table_date', {
+  //   // nextButton: '.section__ar_left',
+  //   // prevButton: '.section__ar_right',
+  //   // slidesPerView: 'auto',
+  //   // freeMode: true,
+  //   // spaceBetween: 0,
+  //   // scrollContainer: true,
+  //   // autoWidth: true
+  //
+  // });
+  //
+  //
+  // const v_swiper = new Swiper('.v-swiper', {
+  //   // nextButton: '.section__ar_left',
+  //   // prevButton: '.section__ar_right',
+  //   slidesPerView: 'auto',
+  //   freeMode: true,
+  //   spaceBetween: 0,
+  //   scrollContainer: true,
+  //   autoWidth: true
+  //
+  // });
+
+
+  // стрелочки на графиках в адаптиве
+  $('.ar-left, .ar-right').hide();
+  $(window).on('scroll', function(){
+    if ($('.moscow-sources').length) {
+      if ($('.analityc-widget-sources_changes').hasClass('_active') || $('.analityc-widget-sources_approved').hasClass('_active')) {
+        var sourcesScroll = $(window).scrollTop();
+        var arrowTopDistance = $('.moscow-sources .analityc-widget_sources').offset().top - $(window).height() / 4;
+        var arrowBottomDistance = $('.footer').offset().top - $(window).height() / 1.3;
+        var headerHeight = $('.header').height();
+        var colHeadTopDistance = $('.moscow-sources .analityc-widget_sources').offset().top - headerHeight;
+        var colHeadBottomDistance = $('.footer').offset().top - $(window).height() - 200;
+
+        if (sourcesScroll >= arrowTopDistance && sourcesScroll <= arrowBottomDistance) {
+          $('.ar-left, .ar-right').show();
+        } else {
+          $('.ar-left, .ar-right').hide();
+        }
+      }
+    }
   });
 };

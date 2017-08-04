@@ -43,6 +43,8 @@ import toppanel from '../blocks/toppanel/toppanel'; // верхняя панел
 import tooltips from '../blocks/tooltip-icon/tooltip-icon'; // тултипы в калькуляторе бюджета
 import search from '../components/search/search';
 import news_one from '../components/news-one/news-one';
+import analitycWidgethead from '../components/analityc-widgethead/analityc-widgethead';
+import openReit from '../components/depfin-budget-moscow-open-reit/openReit';
 
 $(() => {
 
@@ -65,11 +67,13 @@ $(() => {
   documentsform();
   widgetCard();
   main();
+  analitycWidgethead();
   pageHeader();
   question();
   questions();
   lkNav();
   search();
+  openReit();
   regions();
   tabs();
   news_one();
