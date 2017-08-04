@@ -89,6 +89,8 @@ export default () => {
         leftArr = $('.section__ar_left'),
         rightArr = $('.section__ar_right');
 
+    if (el.length > 0) {
+
     if (sL === 0) {
       leftArr.addClass('section__ar_disabled');
     } else if (sL === ( el.prop('scrollWidth') - el.width().toFixed(0) ) ) {
@@ -96,6 +98,8 @@ export default () => {
     } else {
       leftArr.removeClass('section__ar_disabled');
       rightArr.removeClass('section__ar_disabled');
+    }
+
     }
   }
 
