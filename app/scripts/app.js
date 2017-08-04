@@ -44,6 +44,7 @@ import tooltips from '../blocks/tooltip-icon/tooltip-icon'; // тултипы в
 import search from '../components/search/search';
 import news_one from '../components/news-one/news-one';
 import analitycWidgethead from '../components/analityc-widgethead/analityc-widgethead';
+import aboutBudget from '../components/depfin-about-budget/aboutBudget';
 
 $(() => {
 
@@ -101,4 +102,5 @@ $(() => {
   header();
   toppanel();
   tooltips();
+  aboutBudget();
 });

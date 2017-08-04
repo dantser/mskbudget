@@ -1,358 +1,361 @@
 include ../doc-cards/doc-cards
 
 mixin depfin-about-budget()
-  +b.SECTION.whatIsBudget.depfin-about-budget.sections__item&attributes(attributes)
-    .whatIsBudget-conception
-      dt.whatIsBudget-termin
-        h1 Бюджет
-      dd.whatIsBudget-definition
-        | это форма
-        em.whatIsBudget-definition__accent._blue
-          span образования
-        | &nbsp;и&nbsp;
-        em.whatIsBudget-definition__accent._red
-          span расходования
-        | &nbsp;денежных средств, предназначенных для&nbsp;финансового обеспечения задач и&nbsp;функций государства и&nbsp;местного самоуправления.
-      p.whatIsBudget-instruction Для приведения весов в движение наведите курсор или нажмите на левую/правую сторону весов. Для раскрытия подробной информации по доходам, расходам или источникам финансирования дефицита бюджета нажмите на соответствующую гирю под весами. Приятного изучения!
-    .budgetScales
-      .budgetScales-legend__wrapper
-        p.budgetScales-legend._center Сбалансированность
-        p.budgetScales-legend._left Денежные средства, поступающие в&nbsp;бюджет
-        p.budgetScales-legend._right Денежные средства, выплачиваемые из&nbsp;бюджета
+  .js-resolution-320
+    +b.SECTION.whatIsBudget.depfin-about-budget.sections__item&attributes(attributes)
+      .whatIsBudget-conception
+        dt.whatIsBudget-termin
+          h1 Бюджет
+        dd.whatIsBudget-definition
+          | это форма
+          em.whatIsBudget-definition__accent._blue
+            span образования
+          | &nbsp;и&nbsp;
+          em.whatIsBudget-definition__accent._red
+            span расходования
+          | &nbsp;денежных средств, предназначенных для&nbsp;финансового обеспечения задач и&nbsp;функций государства и&nbsp;местного самоуправления.
+        p.whatIsBudget-instruction Для приведения весов в движение наведите курсор или нажмите на левую/правую сторону весов. Для раскрытия подробной информации по доходам, расходам или источникам финансирования дефицита бюджета нажмите на соответствующую гирю под весами. Приятного изучения!
+      .budgetScales
+        .budgetScales-legend__wrapper
+          p.budgetScales-legend._center Сбалансированность
+          p.budgetScales-legend._left Денежные средства, поступающие в&nbsp;бюджет
+          p.budgetScales-legend._right Денежные средства, выплачиваемые из&nbsp;бюджета
 
-      div(data-advantage='').budgetScales-platform
-        .budgetScales-pattern._surplus
-        .budgetScales-pattern._deficit
+        div(data-advantage='').budgetScales-platform
+          .budgetScales-pattern._surplus
+          .budgetScales-pattern._deficit
 
-        .budgetScales-pointer._surplus
-        .budgetScales-pointer._balance
-        .budgetScales-pointer._deficit
+          .budgetScales-pointer._surplus
+          .budgetScales-pointer._balance
+          .budgetScales-pointer._deficit
 
-        div(data-status='').budgetScales-mainWeight._revenues
-          span Доходы бюджета
-          .budgetScales-game
-        div(data-status='').budgetScales-mainWeight._expenditures
-          span Расходы бюджета
-          .budgetScales-game
+          div(data-status='').budgetScales-mainWeight._revenues
+            span Доходы бюджета
+            .budgetScales-game
+          div(data-status='').budgetScales-mainWeight._expenditures
+            span Расходы бюджета
+            .budgetScales-game
 
-        p.budgetScales-supportingWeight._financingOfDeficit Источники финансирования дефицита
-        p.budgetScales-supportingWeight._useOfSurplus Направление использования профицита
+          p.budgetScales-supportingWeight._financingOfDeficit Источники финансирования дефицита
+          p.budgetScales-supportingWeight._useOfSurplus Направление использования профицита
 
-      .budgetScales-rockerArm
-        .budgetScales-rockerArm__indicate
-        //- .budgetScales-rockerArm__arrow
-        .budgetScales-rockerArm__pivot
+        .budgetScales-rockerArm
+          .budgetScales-rockerArm__indicate
+          //- .budgetScales-rockerArm__arrow
+          .budgetScales-rockerArm__pivot
 
-      .budgetScales-activeZone__wrapper
-        .budgetScales-activeZone._surplus
-        .budgetScales-activeZone._balance
-        .budgetScales-activeZone._deficit
-    .whatIsBudget-characteristic__wrapper
-      dl.whatIsBudget-characteristic._surplus
-        dd.whatIsBudget-characteristic__termin Профицит
-        dd.whatIsBudget-characteristic__definition
-          div
-            h2 Доходы > расходов
-            p Превышение доходов бюджета над его расходами
-            p Сложившийся профицит средств может быть направлен на&nbsp;погашение государственного долга, на&nbsp;пополнение резервных фондов, а&nbsp;также использован как остаток, переходящий на&nbsp;следующий год
+        .budgetScales-activeZone__wrapper
+          .budgetScales-activeZone._surplus
+          .budgetScales-activeZone._balance
+          .budgetScales-activeZone._deficit
+      .whatIsBudget-characteristic__wrapper
+        dl.whatIsBudget-characteristic._surplus
+          dd.whatIsBudget-characteristic__termin Профицит
+          dd.whatIsBudget-characteristic__definition
+            div
+              h2 Доходы > расходов
+              p Превышение доходов бюджета над его расходами
+              p Сложившийся профицит средств может быть направлен на&nbsp;погашение государственного долга, на&nbsp;пополнение резервных фондов, а&nbsp;также использован как остаток, переходящий на&nbsp;следующий год
 
-      dl.whatIsBudget-characteristic._balance.active
-        dd.whatIsBudget-characteristic__termin._show Сбалансированность
-        dd.whatIsBudget-characteristic__definition
-          div
-            p ситуация, при которой объём предусмотренных бюджетом расходов соответствует суммарному объёму поступлений в бюджет
+        dl.whatIsBudget-characteristic._balance.active
+          dd.whatIsBudget-characteristic__termin._show Сбалансированность
+          dd.whatIsBudget-characteristic__definition
+            div
+              p ситуация, при которой объём предусмотренных бюджетом расходов соответствует суммарному объёму поступлений в бюджет
 
-      dl.whatIsBudget-characteristic._deficit
-        dd.whatIsBudget-characteristic__termin Дефицит
-        dd.whatIsBudget-characteristic__definition
-          div
-            h2 Доходы < расходов
-            p Превышение расходов бюджета над его доходами
-            p Нехватка денежных средств обеспечивается за&nbsp;счёт источников финансирования дефицита бюджета
+        dl.whatIsBudget-characteristic._deficit
+          dd.whatIsBudget-characteristic__termin Дефицит
+          dd.whatIsBudget-characteristic__definition
+            div
+              h2 Доходы < расходов
+              p Превышение расходов бюджета над его доходами
+              p Нехватка денежных средств обеспечивается за&nbsp;счёт источников финансирования дефицита бюджета
 
-    .whatIsBudget-component__outer
-      ul.whatIsBudget-component__wrapper
-        li(title='Нажать').whatIsBudget-component
-          dl.whatIsBudget-component__conception
-            dt.whatIsBudget-component__termin Доходы бюджета
-            dd.whatIsBudget-component__definition Денежные средства, поступающие в&nbsp;бюджет
-        li(title='Нажать').whatIsBudget-component
-          span.whatIsBudget-component__termin Источники финансирования дефицита
-        li(title='Нажать').whatIsBudget-component
-          dl.whatIsBudget-component__conception
-            dt.whatIsBudget-component__termin Расходы бюджета
-            dd.whatIsBudget-component__definition Денежные средства, выплачиваемые из&nbsp;бюджета
+      .whatIsBudget-component__outer
+        ul.whatIsBudget-component__wrapper
+          li(title='Нажать').whatIsBudget-component
+            dl.whatIsBudget-component__conception
+              dt.whatIsBudget-component__termin Доходы бюджета
+              dd.whatIsBudget-component__definition Денежные средства, поступающие в&nbsp;бюджет
+          li(title='Нажать').whatIsBudget-component
+            span.whatIsBudget-component__termin Источники финансирования дефицита
+          li(title='Нажать').whatIsBudget-component
+            dl.whatIsBudget-component__conception
+              dt.whatIsBudget-component__termin Расходы бюджета
+              dd.whatIsBudget-component__definition Денежные средства, выплачиваемые из&nbsp;бюджета
 
-  .whatIsBudget-chart
-    ul.whatIsBudget-revenues__wrapper.clearfix
-      li.whatIsBudget-revenues
-        h2.whatIsBudget-revenues__title
-          | Неналоговые доходы
-          span.whatIsBudget-line
-        p.whatIsBudget-revenues__description Все доходы, поступающие в&nbsp;бюджет города, не&nbsp;отнесённые к&nbsp;налоговым доходам и&nbsp;безвозмездным поступлениям
-        ul.whatIsBudget-revenues__list
-          li.whatIsBudget-revenues__item.whatIsBudget-revenues__item--direct-l
-            h3.whatIsBudget-revenues__subtitle Доходы от&nbsp;использования и&nbsp;продажи имущества, находящегося в&nbsp;государственной собственности
-            .whatIsBudget-revenues__examples
-              p Доходы от&nbsp;использования и&nbsp;продажи имущества, находящегося в&nbsp;государственной собственности
-              p Конкретные размеры налоговых ставок местных налогов и&nbsp;сборов определяются представительными органами муниципальных образований (законодательными органами государственной власти городов федерального значения: Москвы, Санкт-Петербурга и&nbsp;Севастополя) в&nbsp;порядке и&nbsp;пределах, предусмотренных Налоговым кодексом Российской Федерации
-              p Пример: земельный налог, налог на&nbsp;имущество физических лиц, торговый сбор
-              .whatIsBudget-revenues__close.btn-close-c.btn-close-c--xl
+    .whatIsBudget-chart
+      ul.whatIsBudget-revenues__wrapper.clearfix
+        li.whatIsBudget-revenues
+          h2.whatIsBudget-revenues__title
+            | Неналоговые доходы
+            span.whatIsBudget-line
+          p.whatIsBudget-revenues__description Все доходы, поступающие в&nbsp;бюджет города, не&nbsp;отнесённые к&nbsp;налоговым доходам и&nbsp;безвозмездным поступлениям
+          ul.whatIsBudget-revenues__list
+            li.whatIsBudget-revenues__item.whatIsBudget-revenues__item--direct-l
+              h3.whatIsBudget-revenues__subtitle Доходы от&nbsp;использования и&nbsp;продажи имущества, находящегося в&nbsp;государственной собственности
+              .whatIsBudget-revenues__examples
+                p Доходы от&nbsp;использования и&nbsp;продажи имущества, находящегося в&nbsp;государственной собственности
+                p Конкретные размеры налоговых ставок местных налогов и&nbsp;сборов определяются представительными органами муниципальных образований (законодательными органами государственной власти городов федерального значения: Москвы, Санкт-Петербурга и&nbsp;Севастополя) в&nbsp;порядке и&nbsp;пределах, предусмотренных Налоговым кодексом Российской Федерации
+                p Пример: земельный налог, налог на&nbsp;имущество физических лиц, торговый сбор
+                .whatIsBudget-revenues__close.btn-close-c.btn-close-c--xl
 
-          li.whatIsBudget-revenues__item.whatIsBudget-revenues__item--direct-l
-            h3.whatIsBudget-revenues__subtitle Штрафные санкции, возмещение ущерба
-            .whatIsBudget-revenues__examples
-              p Доходы от&nbsp;использования и&nbsp;продажи имущества, находящегося в&nbsp;государственной собственности
-              p Конкретные размеры налоговых ставок местных налогов и&nbsp;сборов определяются представительными органами муниципальных образований (законодательными органами государственной власти городов федерального значения: Москвы, Санкт-Петербурга и&nbsp;Севастополя) в&nbsp;порядке и&nbsp;пределах, предусмотренных Налоговым кодексом Российской Федерации
-              p Пример: земельный налог, налог на&nbsp;имущество физических лиц, торговый сбор
-              .whatIsBudget-revenues__close.btn-close-c.btn-close-c--xl
-      li.whatIsBudget-revenues
-        h2.whatIsBudget-revenues__title
-          | Налоговые доходы
-          span.whatIsBudget-line
-        p.whatIsBudget-revenues__description Поступления от&nbsp;уплаты налогов и&nbsp;сборов, установленных Налоговым кодексом Российской Федерации
-        ul.whatIsBudget-revenues__list
-          li.whatIsBudget-revenues__item
-            h3.whatIsBudget-revenues__subtitle Федеральные налоги и&nbsp;сборы
-            .whatIsBudget-revenues__examples
-              p Налоги и&nbsp;сборы, устанавливаемые нормативными правовыми актами представительных органов муниципальных образований (законами городов федерального значения: Москвы, Санкт-Петербурга и&nbsp;Севастополя) о&nbsp;налогах и&nbsp;сборах в&nbsp;соответствии с&nbsp;Налоговым кодексом Российской Федерации
-              p Конкретные размеры налоговых ставок местных налогов и&nbsp;сборов определяются представительными органами муниципальных образований (законодательными органами государственной власти городов федерального значения: Москвы, Санкт-Петербурга и&nbsp;Севастополя) в&nbsp;порядке и&nbsp;пределах, предусмотренных Налоговым кодексом Российской Федерации
-              p Пример: земельный налог, налог на&nbsp;имущество физических лиц, торговый сбор
-              .btn-close-c.btn-close-c--xl.whatIsBudget-revenues__close
-          li.whatIsBudget-revenues__item
-            h3.whatIsBudget-revenues__subtitle Федеральные налоги и&nbsp;сборы
-            .whatIsBudget-revenues__examples
-              p Налоги и&nbsp;сборы, устанавливаемые нормативными правовыми актами представительных органов муниципальных образований (законами городов федерального значения: Москвы, Санкт-Петербурга и&nbsp;Севастополя) о&nbsp;налогах и&nbsp;сборах в&nbsp;соответствии с&nbsp;Налоговым кодексом Российской Федерации
-              p Конкретные размеры налоговых ставок местных налогов и&nbsp;сборов определяются представительными органами муниципальных образований (законодательными органами государственной власти городов федерального значения: Москвы, Санкт-Петербурга и&nbsp;Севастополя) в&nbsp;порядке и&nbsp;пределах, предусмотренных Налоговым кодексом Российской Федерации
-              p Пример: земельный налог, налог на&nbsp;имущество физических лиц, торговый сбор
-              .btn-close-c.btn-close-c--xl.whatIsBudget-revenues__close
-          li.whatIsBudget-revenues__item
-            h3.whatIsBudget-revenues__subtitle Федеральные налоги и&nbsp;сборы
-            .whatIsBudget-revenues__examples
-              p Налоги и&nbsp;сборы, устанавливаемые нормативными правовыми актами представительных органов муниципальных образований (законами городов федерального значения: Москвы, Санкт-Петербурга и&nbsp;Севастополя) о&nbsp;налогах и&nbsp;сборах в&nbsp;соответствии с&nbsp;Налоговым кодексом Российской Федерации
-              p Конкретные размеры налоговых ставок местных налогов и&nbsp;сборов определяются представительными органами муниципальных образований (законодательными органами государственной власти городов федерального значения: Москвы, Санкт-Петербурга и&nbsp;Севастополя) в&nbsp;порядке и&nbsp;пределах, предусмотренных Налоговым кодексом Российской Федерации
-              p Пример: земельный налог, налог на&nbsp;имущество физических лиц, торговый сбор
-              .btn-close-c.btn-close-c--xl.whatIsBudget-revenues__close
-          .li.whatIsBudget-revenues__item
-            h3.whatIsBudget-revenues__subtitle Федеральные налоги и&nbsp;сборы
-            .whatIsBudget-revenues__examples
-              p Налоги и&nbsp;сборы, устанавливаемые нормативными правовыми актами представительных органов муниципальных образований (законами городов федерального значения: Москвы, Санкт-Петербурга и&nbsp;Севастополя) о&nbsp;налогах и&nbsp;сборах в&nbsp;соответствии с&nbsp;Налоговым кодексом Российской Федерации
-              p Конкретные размеры налоговых ставок местных налогов и&nbsp;сборов определяются представительными органами муниципальных образований (законодательными органами государственной власти городов федерального значения: Москвы, Санкт-Петербурга и&nbsp;Севастополя) в&nbsp;порядке и&nbsp;пределах, предусмотренных Налоговым кодексом Российской Федерации
-              p Пример: земельный налог, налог на&nbsp;имущество физических лиц, торговый сбор
-              .btn-close-c.btn-close-c--xl.whatIsBudget-revenues__close
-      li.whatIsBudget-revenues
-        h2.whatIsBudget-revenues__title
-          | Безвозмездные поступления
-          span.whatIsBudget-line
-        p.whatIsBudget-revenues__description Дотации, субсидии, субвенции, иные межбюджетные трансферты, а&nbsp;также доходы от&nbsp;возврата и&nbsp;возврат остатков
-    .whatIsBudget-financingOfDeficit__wrapper.clearfix
-      ul.whatIsBudget-financingOfDeficit__holder
-        li.whatIsBudget-financingOfDeficit
-          h2.whatIsBudget-financingOfDeficit__title
-            | Внутренние источники
-            span.whatIsBudget-financingOfDeficit__line1
-          ul.whatIsBudget-financingOfDeficit__list
-            li.whatIsBudget-financingOfDeficit__item Средства, поступившие от&nbsp;размещения государственных ценных бумаг, номинированных в&nbsp;валюте Российской Федерации
-            li.whatIsBudget-financingOfDeficit__item Бюджетные кредиты
-            li.whatIsBudget-financingOfDeficit__item Банковские кредиты в&nbsp;валюте Российской Федерации
-            li.whatIsBudget-financingOfDeficit__item Поступления от&nbsp;продажи акций и&nbsp;иных форм участия в&nbsp;капитале, находящихся в&nbsp;собственности города Москвы
-            li.whatIsBudget-financingOfDeficit__item Прочие источники внутреннего финансирования
-        li.whatIsBudget-financingOfDeficit
-          h2.whatIsBudget-financingOfDeficit__title
-            | Внешние источники
-            span.whatIsBudget-financingOfDeficit__line2
-          ul.whatIsBudget-financingOfDeficit__list
-            li.whatIsBudget-financingOfDeficit__item Средства, поступившие от&nbsp;размещения государственных займов в&nbsp;иностранной валюте
-            li.whatIsBudget-financingOfDeficit__item Кредиты иностранных государств, международных финансовых организаций и&nbsp;иностранных юридических лиц в&nbsp;иностранной валюте
-            li.whatIsBudget-financingOfDeficit__item Банковские кредиты в&nbsp;иностранной валюте
-            li.whatIsBudget-financingOfDeficit__item Поступления от&nbsp;продажи акций и&nbsp;иных форм участия в&nbsp;капитале, находящихся в&nbsp;собственности города Москвы
-            li.whatIsBudget-financingOfDeficit__item Прочие источники внешнего финансирования
-        li.whatIsBudget-financingOfDeficit
-          h2.whatIsBudget-financingOfDeficit__title
-            | Заёмные источники финансирования дефицита бюджета
-            span.whatIsBudget-financingOfDeficit__line3
-            //- span.whatIsBudget-financingOfDeficit__line4
-        li.whatIsBudget-financingOfDeficit
-          h2.whatIsBudget-financingOfDeficit__title Долговые обязательства
-          p.whatIsBudget-financingOfDeficit__description Кредиты и&nbsp;займы, привлеченные для финансирования дефицита бюджета
-        li.whatIsBudget-financingOfDeficit
-          h2.whatIsBudget-financingOfDeficit__suitcase
-            | Государственный долг
-            span.whatIsBudget-financingOfDeficit__line5
-          p.whatIsBudget-financingOfDeficit__description Обязательства, возникающие при осуществлении государственных заимствований или предоставлении государственных гарантий по&nbsp;обязательствам третьих лиц
-        li.whatIsBudget-financingOfDeficit
-          h2.whatIsBudget-financingOfDeficit__title
-            | Государственный внутренний долг
-            span.whatIsBudget-financingOfDeficit__line6
-          p.whatIsBudget-financingOfDeficit__description Долговые обязательства, возникающие в&nbsp;валюте Российской Федерации, а&nbsp;также обязательства в&nbsp;иностранной валюте в&nbsp;рамках использования целевых иностранных кредитов
-          ul.whatIsBudget-publicDebt__wrapper
-            li.whatIsBudget-publicDebt
-              h3.whatIsBudget-publicDebt__title Государственные ценные бумаги
-              .whatIsBudget-publicDebt__description._active
-                p Государственные ценные бумаги могут быть выпущены в&nbsp;виде облигаций или иных ценных бумаг, отнесенных к&nbsp;эмиссионным ценным бумагам
-                .whatIsBudget-publicDebt__close
-            li.whatIsBudget-publicDebt
-              h3.whatIsBudget-publicDebt__title Бюджетные кредиты
-              .whatIsBudget-publicDebt__description._active
-                p Государственные ценные бумаги могут быть выпущены в&nbsp;виде облигаций или иных ценных бумаг, отнесенных к&nbsp;эмиссионным ценным бумагам
-                .whatIsBudget-publicDebt__close
-            li.whatIsBudget-publicDebt
-              h3.whatIsBudget-publicDebt__title Банковские кредиты
-              .whatIsBudget-publicDebt__description._active
-                p Государственные ценные бумаги могут быть выпущены в&nbsp;виде облигаций или иных ценных бумаг, отнесенных к&nbsp;эмиссионным ценным бумагам
-                .whatIsBudget-publicDebt__close
-            li.whatIsBudget-publicDebt
-              h3.whatIsBudget-publicDebt__title Государственные гарантии
-              .whatIsBudget-publicDebt__description._active
-                p Государственные ценные бумаги могут быть выпущены в&nbsp;виде облигаций или иных ценных бумаг, отнесенных к&nbsp;эмиссионным ценным бумагам
-                .whatIsBudget-publicDebt__close
-        li.whatIsBudget-financingOfDeficit
-          h2.whatIsBudget-financingOfDeficit__title
-            | Государственный внешний долг
-            span.whatIsBudget-financingOfDeficit__line7
-          p.whatIsBudget-financingOfDeficit__description Долговые обязательства, возникающие в&nbsp;иностранной валюте, за&nbsp;исключением обязательств в&nbsp;иностранной валюте в&nbsp;рамках использования целевых иностранных кредитов
-          ul.whatIsBudget-publicDebt__wrapper
-            li.whatIsBudget-publicDebt
-              h3.whatIsBudget-publicDebt__title Государственные ценные бумаги
-              .whatIsBudget-publicDebt__description
-                p Государственные ценные бумаги могут быть выпущены в&nbsp;виде облигаций или иных ценных бумаг, отнесенных к&nbsp;эмиссионным ценным бумагам
-                .whatIsBudget-publicDebt__close
-            li.whatIsBudget-publicDebt
-              h3.whatIsBudget-publicDebt__title Банковские кредиты
-              .whatIsBudget-publicDebt__description
-                p Государственные ценные бумаги могут быть выпущены в&nbsp;виде облигаций или иных ценных бумаг, отнесенных к&nbsp;эмиссионным ценным бумагам
-                .whatIsBudget-publicDebt__close
-    ul.whatIsBudget-expenditures__wrapper
-      p.whatIsBudget-expenditures__classification Классификация расходов
-      .whatIsBudget-expenditures__titleWrapper
-        h2(data-item='0').whatIsBudget-expenditures__title._active По&nbsp;разделам и&nbsp;подразделам
-        h2(data-item='1').whatIsBudget-expenditures__title По&nbsp;видам
-        h2(data-item='2').whatIsBudget-expenditures__title По&nbsp;программам
-        h2(data-item='3').whatIsBudget-expenditures__title По&nbsp;ведомствам
+            li.whatIsBudget-revenues__item.whatIsBudget-revenues__item--direct-l
+              h3.whatIsBudget-revenues__subtitle Штрафные санкции, возмещение ущерба
+              .whatIsBudget-revenues__examples
+                p Доходы от&nbsp;использования и&nbsp;продажи имущества, находящегося в&nbsp;государственной собственности
+                p Конкретные размеры налоговых ставок местных налогов и&nbsp;сборов определяются представительными органами муниципальных образований (законодательными органами государственной власти городов федерального значения: Москвы, Санкт-Петербурга и&nbsp;Севастополя) в&nbsp;порядке и&nbsp;пределах, предусмотренных Налоговым кодексом Российской Федерации
+                p Пример: земельный налог, налог на&nbsp;имущество физических лиц, торговый сбор
+                .whatIsBudget-revenues__close.btn-close-c.btn-close-c--xl
+        li.whatIsBudget-revenues
+          h2.whatIsBudget-revenues__title
+            | Налоговые доходы
+            span.whatIsBudget-line
+          p.whatIsBudget-revenues__description Поступления от&nbsp;уплаты налогов и&nbsp;сборов, установленных Налоговым кодексом Российской Федерации
+          ul.whatIsBudget-revenues__list
+            li.whatIsBudget-revenues__item
+              h3.whatIsBudget-revenues__subtitle Федеральные налоги и&nbsp;сборы
+              .whatIsBudget-revenues__examples
+                p Налоги и&nbsp;сборы, устанавливаемые нормативными правовыми актами представительных органов муниципальных образований (законами городов федерального значения: Москвы, Санкт-Петербурга и&nbsp;Севастополя) о&nbsp;налогах и&nbsp;сборах в&nbsp;соответствии с&nbsp;Налоговым кодексом Российской Федерации
+                p Конкретные размеры налоговых ставок местных налогов и&nbsp;сборов определяются представительными органами муниципальных образований (законодательными органами государственной власти городов федерального значения: Москвы, Санкт-Петербурга и&nbsp;Севастополя) в&nbsp;порядке и&nbsp;пределах, предусмотренных Налоговым кодексом Российской Федерации
+                p Пример: земельный налог, налог на&nbsp;имущество физических лиц, торговый сбор
+                .btn-close-c.btn-close-c--xl.whatIsBudget-revenues__close
+            li.whatIsBudget-revenues__item
+              h3.whatIsBudget-revenues__subtitle Федеральные налоги и&nbsp;сборы
+              .whatIsBudget-revenues__examples
+                p Налоги и&nbsp;сборы, устанавливаемые нормативными правовыми актами представительных органов муниципальных образований (законами городов федерального значения: Москвы, Санкт-Петербурга и&nbsp;Севастополя) о&nbsp;налогах и&nbsp;сборах в&nbsp;соответствии с&nbsp;Налоговым кодексом Российской Федерации
+                p Конкретные размеры налоговых ставок местных налогов и&nbsp;сборов определяются представительными органами муниципальных образований (законодательными органами государственной власти городов федерального значения: Москвы, Санкт-Петербурга и&nbsp;Севастополя) в&nbsp;порядке и&nbsp;пределах, предусмотренных Налоговым кодексом Российской Федерации
+                p Пример: земельный налог, налог на&nbsp;имущество физических лиц, торговый сбор
+                .btn-close-c.btn-close-c--xl.whatIsBudget-revenues__close
+            li.whatIsBudget-revenues__item
+              h3.whatIsBudget-revenues__subtitle Федеральные налоги и&nbsp;сборы
+              .whatIsBudget-revenues__examples
+                p Налоги и&nbsp;сборы, устанавливаемые нормативными правовыми актами представительных органов муниципальных образований (законами городов федерального значения: Москвы, Санкт-Петербурга и&nbsp;Севастополя) о&nbsp;налогах и&nbsp;сборах в&nbsp;соответствии с&nbsp;Налоговым кодексом Российской Федерации
+                p Конкретные размеры налоговых ставок местных налогов и&nbsp;сборов определяются представительными органами муниципальных образований (законодательными органами государственной власти городов федерального значения: Москвы, Санкт-Петербурга и&nbsp;Севастополя) в&nbsp;порядке и&nbsp;пределах, предусмотренных Налоговым кодексом Российской Федерации
+                p Пример: земельный налог, налог на&nbsp;имущество физических лиц, торговый сбор
+                .btn-close-c.btn-close-c--xl.whatIsBudget-revenues__close
+            .li.whatIsBudget-revenues__item
+              h3.whatIsBudget-revenues__subtitle Федеральные налоги и&nbsp;сборы
+              .whatIsBudget-revenues__examples
+                p Налоги и&nbsp;сборы, устанавливаемые нормативными правовыми актами представительных органов муниципальных образований (законами городов федерального значения: Москвы, Санкт-Петербурга и&nbsp;Севастополя) о&nbsp;налогах и&nbsp;сборах в&nbsp;соответствии с&nbsp;Налоговым кодексом Российской Федерации
+                p Конкретные размеры налоговых ставок местных налогов и&nbsp;сборов определяются представительными органами муниципальных образований (законодательными органами государственной власти городов федерального значения: Москвы, Санкт-Петербурга и&nbsp;Севастополя) в&nbsp;порядке и&nbsp;пределах, предусмотренных Налоговым кодексом Российской Федерации
+                p Пример: земельный налог, налог на&nbsp;имущество физических лиц, торговый сбор
+                .btn-close-c.btn-close-c--xl.whatIsBudget-revenues__close
+        li.whatIsBudget-revenues
+          h2.whatIsBudget-revenues__title
+            | Безвозмездные поступления
+            span.whatIsBudget-line
+          p.whatIsBudget-revenues__description Дотации, субсидии, субвенции, иные межбюджетные трансферты, а&nbsp;также доходы от&nbsp;возврата и&nbsp;возврат остатков
+      .whatIsBudget-financingOfDeficit__wrapper.clearfix
+        ul.whatIsBudget-financingOfDeficit__holder
+          li.whatIsBudget-financingOfDeficit
+            h2.whatIsBudget-financingOfDeficit__title
+              | Внутренние источники
+              span.whatIsBudget-financingOfDeficit__line1
+            ul.whatIsBudget-financingOfDeficit__list
+              li.whatIsBudget-financingOfDeficit__item Средства, поступившие от&nbsp;размещения государственных ценных бумаг, номинированных в&nbsp;валюте Российской Федерации
+              li.whatIsBudget-financingOfDeficit__item Бюджетные кредиты
+              li.whatIsBudget-financingOfDeficit__item Банковские кредиты в&nbsp;валюте Российской Федерации
+              li.whatIsBudget-financingOfDeficit__item Поступления от&nbsp;продажи акций и&nbsp;иных форм участия в&nbsp;капитале, находящихся в&nbsp;собственности города Москвы
+              li.whatIsBudget-financingOfDeficit__item Прочие источники внутреннего финансирования
+          li.whatIsBudget-financingOfDeficit
+            h2.whatIsBudget-financingOfDeficit__title
+              | Внешние источники
+              span.whatIsBudget-financingOfDeficit__line2
+            ul.whatIsBudget-financingOfDeficit__list
+              li.whatIsBudget-financingOfDeficit__item Средства, поступившие от&nbsp;размещения государственных займов в&nbsp;иностранной валюте
+              li.whatIsBudget-financingOfDeficit__item Кредиты иностранных государств, международных финансовых организаций и&nbsp;иностранных юридических лиц в&nbsp;иностранной валюте
+              li.whatIsBudget-financingOfDeficit__item Банковские кредиты в&nbsp;иностранной валюте
+              li.whatIsBudget-financingOfDeficit__item Поступления от&nbsp;продажи акций и&nbsp;иных форм участия в&nbsp;капитале, находящихся в&nbsp;собственности города Москвы
+              li.whatIsBudget-financingOfDeficit__item Прочие источники внешнего финансирования
+          li.whatIsBudget-financingOfDeficit
+            h2.whatIsBudget-financingOfDeficit__title
+              | Заёмные источники финансирования дефицита бюджета
+              span.whatIsBudget-financingOfDeficit__line3
+              //- span.whatIsBudget-financingOfDeficit__line4
+          li.whatIsBudget-financingOfDeficit
+            h2.whatIsBudget-financingOfDeficit__title Долговые обязательства
+            p.whatIsBudget-financingOfDeficit__description Кредиты и&nbsp;займы, привлеченные для финансирования дефицита бюджета
+          li.whatIsBudget-financingOfDeficit
+            h2.whatIsBudget-financingOfDeficit__suitcase
+              | Государственный долг
+              span.whatIsBudget-financingOfDeficit__line5
+            p.whatIsBudget-financingOfDeficit__description Обязательства, возникающие при осуществлении государственных заимствований или предоставлении государственных гарантий по&nbsp;обязательствам третьих лиц
+          li.whatIsBudget-financingOfDeficit
+            h2.whatIsBudget-financingOfDeficit__title
+              | Государственный внутренний долг
+              span.whatIsBudget-financingOfDeficit__line6
+            p.whatIsBudget-financingOfDeficit__description Долговые обязательства, возникающие в&nbsp;валюте Российской Федерации, а&nbsp;также обязательства в&nbsp;иностранной валюте в&nbsp;рамках использования целевых иностранных кредитов
+            ul.whatIsBudget-publicDebt__wrapper
+              li.whatIsBudget-publicDebt
+                h3.whatIsBudget-publicDebt__title Государственные ценные бумаги
+                .whatIsBudget-publicDebt__description._active
+                  p Государственные ценные бумаги могут быть выпущены в&nbsp;виде облигаций или иных ценных бумаг, отнесенных к&nbsp;эмиссионным ценным бумагам
+                  .whatIsBudget-publicDebt__close
+              li.whatIsBudget-publicDebt
+                h3.whatIsBudget-publicDebt__title Бюджетные кредиты
+                .whatIsBudget-publicDebt__description._active
+                  p Государственные ценные бумаги могут быть выпущены в&nbsp;виде облигаций или иных ценных бумаг, отнесенных к&nbsp;эмиссионным ценным бумагам
+                  .whatIsBudget-publicDebt__close
+              li.whatIsBudget-publicDebt
+                h3.whatIsBudget-publicDebt__title Банковские кредиты
+                .whatIsBudget-publicDebt__description._active
+                  p Государственные ценные бумаги могут быть выпущены в&nbsp;виде облигаций или иных ценных бумаг, отнесенных к&nbsp;эмиссионным ценным бумагам
+                  .whatIsBudget-publicDebt__close
+              li.whatIsBudget-publicDebt
+                h3.whatIsBudget-publicDebt__title Государственные гарантии
+                .whatIsBudget-publicDebt__description._active
+                  p Государственные ценные бумаги могут быть выпущены в&nbsp;виде облигаций или иных ценных бумаг, отнесенных к&nbsp;эмиссионным ценным бумагам
+                  .whatIsBudget-publicDebt__close
+          li.whatIsBudget-financingOfDeficit
+            h2.whatIsBudget-financingOfDeficit__title
+              | Государственный внешний долг
+              span.whatIsBudget-financingOfDeficit__line7
+            p.whatIsBudget-financingOfDeficit__description Долговые обязательства, возникающие в&nbsp;иностранной валюте, за&nbsp;исключением обязательств в&nbsp;иностранной валюте в&nbsp;рамках использования целевых иностранных кредитов
+            ul.whatIsBudget-publicDebt__wrapper
+              li.whatIsBudget-publicDebt
+                h3.whatIsBudget-publicDebt__title Государственные ценные бумаги
+                .whatIsBudget-publicDebt__description
+                  p Государственные ценные бумаги могут быть выпущены в&nbsp;виде облигаций или иных ценных бумаг, отнесенных к&nbsp;эмиссионным ценным бумагам
+                  .whatIsBudget-publicDebt__close
+              li.whatIsBudget-publicDebt
+                h3.whatIsBudget-publicDebt__title Банковские кредиты
+                .whatIsBudget-publicDebt__description
+                  p Государственные ценные бумаги могут быть выпущены в&nbsp;виде облигаций или иных ценных бумаг, отнесенных к&nbsp;эмиссионным ценным бумагам
+                  .whatIsBudget-publicDebt__close
+      ul.whatIsBudget-expenditures__wrapper
+        p.whatIsBudget-expenditures__classification Классификация расходов
+        .whatIsBudget-expenditures__titleWrapper
+          h2(data-item='0').whatIsBudget-expenditures__title._active По&nbsp;разделам и&nbsp;подразделам
+          h2(data-item='1').whatIsBudget-expenditures__title По&nbsp;видам
+          h2(data-item='2').whatIsBudget-expenditures__title По&nbsp;программам
+          h2(data-item='3').whatIsBudget-expenditures__title По&nbsp;ведомствам
 
-      h2(data-item='0').whatIsBudget-expenditures__title-fake По&nbsp;разделам и&nbsp;подразделам
-      .whatIsBudget-expenditures__listWrapper.whatIsBudget-expenditures_divisions(style="display:block")
-        ul.whatIsBudget-expenditures__list
-          li.whatIsBudget-expenditures__item
-            h3.whatIsBudget-expenditures__subtitle Общегосударственные вопросы
-            .whatIsBudget-expenditures__description
-              p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
-              .whatIsBudget-expenditures__close
-          li.whatIsBudget-expenditures__item
-            h3.whatIsBudget-expenditures__subtitle Национальная безопасность и&nbsp;правоохранительная деятельность
-            .whatIsBudget-expenditures__description
-              p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
-              .whatIsBudget-expenditures__close
-          li.whatIsBudget-expenditures__item
-            h3.whatIsBudget-expenditures__subtitle Общеэкономические вопросы
-            .whatIsBudget-expenditures__description
-              p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
-              .whatIsBudget-expenditures__close
-          li.whatIsBudget-expenditures__item
-            h3.whatIsBudget-expenditures__subtitle Жилищно-коммунальное хозяйство
-            .whatIsBudget-expenditures__description
-              p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
-              .whatIsBudget-expenditures__close
-        ul.whatIsBudget-expenditures__list
-          li.whatIsBudget-expenditures__item
-            h3.whatIsBudget-expenditures__subtitle Охрана окружающей среды
-            .whatIsBudget-expenditures__description
-              p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
-              .whatIsBudget-expenditures__close
-          li.whatIsBudget-expenditures__item
-            h3.whatIsBudget-expenditures__subtitle Образование
-            .whatIsBudget-expenditures__description
-              p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
-              .whatIsBudget-expenditures__close
-          li.whatIsBudget-expenditures__item
-            h3.whatIsBudget-expenditures__subtitle Культура, кинематография
-            .whatIsBudget-expenditures__description
-              p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
-              .whatIsBudget-expenditures__close
-          li.whatIsBudget-expenditures__item
-            h3.whatIsBudget-expenditures__subtitle Физическая культура и&nbsp;спорт
-            .whatIsBudget-expenditures__description
-              p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
-              .whatIsBudget-expenditures__close
-          li.whatIsBudget-expenditures__item
-            h3.whatIsBudget-expenditures__subtitle Здравоохранение
-            .whatIsBudget-expenditures__description
-              p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
-              .whatIsBudget-expenditures__close
-          li.whatIsBudget-expenditures__item
-            h3.whatIsBudget-expenditures__subtitle Средства массовой информации
-            .whatIsBudget-expenditures__description
-              p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
-              .whatIsBudget-expenditures__close
-          li.whatIsBudget-expenditures__item
-            h3.whatIsBudget-expenditures__subtitle Социальная политика
-            .whatIsBudget-expenditures__description
-              p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
-              .whatIsBudget-expenditures__close
-        ul.whatIsBudget-expenditures__list
-          li.whatIsBudget-expenditures__item
-            h3.whatIsBudget-expenditures__subtitle Обслуживание государственного и&nbsp;муниципального долга
-            .whatIsBudget-expenditures__description
-              p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
-              .whatIsBudget-expenditures__close
-          li.whatIsBudget-expenditures__item
-            h3.whatIsBudget-expenditures__subtitle Межбюджетные трансферты общего характера бюджетам бюджетной системы Российской Федерации
-            .whatIsBudget-expenditures__description
-              p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
-              .whatIsBudget-expenditures__close
-      h2(data-item='1').whatIsBudget-expenditures__title-fake По&nbsp;видам
-      .whatIsBudget-expenditures__listWrapper.whatIsBudget-expenditures_types(style="display:none")
-        ul.whatIsBudget-expenditures__list
-          li.whatIsBudget-expenditures__item
-            h3.whatIsBudget-expenditures__subtitle Общегосударственные вопросы
-            .whatIsBudget-expenditures__description
-              p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
-              .whatIsBudget-expenditures__close
-          li.whatIsBudget-expenditures__item
-            h3.whatIsBudget-expenditures__subtitle Национальная безопасность и&nbsp;правоохранительная деятельность
-            .whatIsBudget-expenditures__description
-              p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
-              .whatIsBudget-expenditures__close
-          li.whatIsBudget-expenditures__item
-            h3.whatIsBudget-expenditures__subtitle Общеэкономические вопросы
-            .whatIsBudget-expenditures__description
-              p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
-              .whatIsBudget-expenditures__close
-          li.whatIsBudget-expenditures__item
-            h3.whatIsBudget-expenditures__subtitle Жилищно-коммунальное хозяйство
-            .whatIsBudget-expenditures__description
-              p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
-              .whatIsBudget-expenditures__close
-        ul.whatIsBudget-expenditures__list
-          li.whatIsBudget-expenditures__item
-            h3.whatIsBudget-expenditures__subtitle Обслуживание государственного и&nbsp;муниципального долга
-            .whatIsBudget-expenditures__description
-              p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
-              .whatIsBudget-expenditures__close
-          li.whatIsBudget-expenditures__item
-            h3.whatIsBudget-expenditures__subtitle Межбюджетные трансферты общего характера бюджетам бюджетной системы Российской Федерации
-            .whatIsBudget-expenditures__description
-              p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
-              .whatIsBudget-expenditures__close
-      h2(data-item='2').whatIsBudget-expenditures__title-fake По&nbsp;программам
-      .whatIsBudget-expenditures__listWrapper.whatIsBudget-expenditures_programs(style="display:none")
-        ul.whatIsBudget-expenditures__list
-          li.whatIsBudget-expenditures__item
-            h3.whatIsBudget-expenditures__subtitle Обслуживание государственного и&nbsp;муниципального долга
-            .whatIsBudget-expenditures__description
-              p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
-              .whatIsBudget-expenditures__close
-          li.whatIsBudget-expenditures__item
-            h3.whatIsBudget-expenditures__subtitle Межбюджетные трансферты общего характера бюджетам бюджетной системы Российской Федерации
-            .whatIsBudget-expenditures__description
-              p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
-              .whatIsBudget-expenditures__close
-      
-      h2(data-item='3').whatIsBudget-expenditures__title-fake По&nbsp;ведомствам
-      .whatIsBudget-expenditures__listWrapper.whatIsBudget-expenditures_departments(style="display:none")
-        ul.whatIsBudget-expenditures__list
-          li.whatIsBudget-expenditures__item._active
-            .whatIsBudget-expenditures__description
-              p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt totam eligendi officia, aspernatur, distinctio unde quae adipisci necessitatibus eveniet, at sunt qui! Dignissimos deserunt facere, itaque veniam hic consequuntur amet.  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores qui ratione, officia, eligendi optio cupiditate, libero dicta culpa doloribus, fugit perferendis! Temporibus dolores similique quas ut vel distinctio, dignissimos ipsum.
-              .whatIsBudget-expenditures__close
+        h2(data-item='0').whatIsBudget-expenditures__title-fake По&nbsp;разделам и&nbsp;подразделам
+        .whatIsBudget-expenditures__listWrapper.whatIsBudget-expenditures_divisions(style="display:block")
+          ul.whatIsBudget-expenditures__list
+            li.whatIsBudget-expenditures__item
+              h3.whatIsBudget-expenditures__subtitle Общегосударственные вопросы
+              .whatIsBudget-expenditures__description
+                p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
+                .whatIsBudget-expenditures__close
+            li.whatIsBudget-expenditures__item
+              h3.whatIsBudget-expenditures__subtitle Национальная безопасность и&nbsp;правоохранительная деятельность
+              .whatIsBudget-expenditures__description
+                p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
+                .whatIsBudget-expenditures__close
+            li.whatIsBudget-expenditures__item
+              h3.whatIsBudget-expenditures__subtitle Общеэкономические вопросы
+              .whatIsBudget-expenditures__description
+                p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
+                .whatIsBudget-expenditures__close
+            li.whatIsBudget-expenditures__item
+              h3.whatIsBudget-expenditures__subtitle Жилищно-коммунальное хозяйство
+              .whatIsBudget-expenditures__description
+                p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
+                .whatIsBudget-expenditures__close
+          ul.whatIsBudget-expenditures__list
+            li.whatIsBudget-expenditures__item
+              h3.whatIsBudget-expenditures__subtitle Охрана окружающей среды
+              .whatIsBudget-expenditures__description
+                p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
+                .whatIsBudget-expenditures__close
+            li.whatIsBudget-expenditures__item
+              h3.whatIsBudget-expenditures__subtitle Образование
+              .whatIsBudget-expenditures__description
+                p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
+                .whatIsBudget-expenditures__close
+            li.whatIsBudget-expenditures__item
+              h3.whatIsBudget-expenditures__subtitle Культура, кинематография
+              .whatIsBudget-expenditures__description
+                p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
+                .whatIsBudget-expenditures__close
+            li.whatIsBudget-expenditures__item
+              h3.whatIsBudget-expenditures__subtitle Физическая культура и&nbsp;спорт
+              .whatIsBudget-expenditures__description
+                p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
+                .whatIsBudget-expenditures__close
+            li.whatIsBudget-expenditures__item
+              h3.whatIsBudget-expenditures__subtitle Здравоохранение
+              .whatIsBudget-expenditures__description
+                p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
+                .whatIsBudget-expenditures__close
+            li.whatIsBudget-expenditures__item
+              h3.whatIsBudget-expenditures__subtitle Средства массовой информации
+              .whatIsBudget-expenditures__description
+                p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
+                .whatIsBudget-expenditures__close
+            li.whatIsBudget-expenditures__item
+              h3.whatIsBudget-expenditures__subtitle Социальная политика
+              .whatIsBudget-expenditures__description
+                p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
+                .whatIsBudget-expenditures__close
+          ul.whatIsBudget-expenditures__list
+            li.whatIsBudget-expenditures__item
+              h3.whatIsBudget-expenditures__subtitle Обслуживание государственного и&nbsp;муниципального долга
+              .whatIsBudget-expenditures__description
+                p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
+                .whatIsBudget-expenditures__close
+            li.whatIsBudget-expenditures__item
+              h3.whatIsBudget-expenditures__subtitle Межбюджетные трансферты общего характера бюджетам бюджетной системы Российской Федерации
+              .whatIsBudget-expenditures__description
+                p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
+                .whatIsBudget-expenditures__close
+        h2(data-item='1').whatIsBudget-expenditures__title-fake По&nbsp;видам
+        .whatIsBudget-expenditures__listWrapper.whatIsBudget-expenditures_types(style="display:none")
+          ul.whatIsBudget-expenditures__list
+            li.whatIsBudget-expenditures__item
+              h3.whatIsBudget-expenditures__subtitle Общегосударственные вопросы
+              .whatIsBudget-expenditures__description
+                p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
+                .whatIsBudget-expenditures__close
+            li.whatIsBudget-expenditures__item
+              h3.whatIsBudget-expenditures__subtitle Национальная безопасность и&nbsp;правоохранительная деятельность
+              .whatIsBudget-expenditures__description
+                p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
+                .whatIsBudget-expenditures__close
+            li.whatIsBudget-expenditures__item
+              h3.whatIsBudget-expenditures__subtitle Общеэкономические вопросы
+              .whatIsBudget-expenditures__description
+                p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
+                .whatIsBudget-expenditures__close
+            li.whatIsBudget-expenditures__item
+              h3.whatIsBudget-expenditures__subtitle Жилищно-коммунальное хозяйство
+              .whatIsBudget-expenditures__description
+                p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
+                .whatIsBudget-expenditures__close
+          ul.whatIsBudget-expenditures__list
+            li.whatIsBudget-expenditures__item
+              h3.whatIsBudget-expenditures__subtitle Обслуживание государственного и&nbsp;муниципального долга
+              .whatIsBudget-expenditures__description
+                p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
+                .whatIsBudget-expenditures__close
+            li.whatIsBudget-expenditures__item
+              h3.whatIsBudget-expenditures__subtitle Межбюджетные трансферты общего характера бюджетам бюджетной системы Российской Федерации
+              .whatIsBudget-expenditures__description
+                p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
+                .whatIsBudget-expenditures__close
+        h2(data-item='2').whatIsBudget-expenditures__title-fake По&nbsp;программам
+        .whatIsBudget-expenditures__listWrapper.whatIsBudget-expenditures_programs(style="display:none")
+          ul.whatIsBudget-expenditures__list
+            li.whatIsBudget-expenditures__item
+              h3.whatIsBudget-expenditures__subtitle Обслуживание государственного и&nbsp;муниципального долга
+              .whatIsBudget-expenditures__description
+                p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
+                .whatIsBudget-expenditures__close
+            li.whatIsBudget-expenditures__item
+              h3.whatIsBudget-expenditures__subtitle Межбюджетные трансферты общего характера бюджетам бюджетной системы Российской Федерации
+              .whatIsBudget-expenditures__description
+                p Пример: расходы на&nbsp;обеспечение деятельности учреждений культуры
+                .whatIsBudget-expenditures__close
+        
+        h2(data-item='3').whatIsBudget-expenditures__title-fake По&nbsp;ведомствам
+        .whatIsBudget-expenditures__listWrapper.whatIsBudget-expenditures_departments(style="display:none")
+          ul.whatIsBudget-expenditures__list
+            li.whatIsBudget-expenditures__item._active
+              .whatIsBudget-expenditures__description
+                p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt totam eligendi officia, aspernatur, distinctio unde quae adipisci necessitatibus eveniet, at sunt qui! Dignissimos deserunt facere, itaque veniam hic consequuntur amet.  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores qui ratione, officia, eligendi optio cupiditate, libero dicta culpa doloribus, fugit perferendis! Temporibus dolores similique quas ut vel distinctio, dignissimos ipsum.
+                .whatIsBudget-expenditures__close
+  
+
   +doc-cards-dropdown(getData('doc-cards-dropdown'))

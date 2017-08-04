@@ -1,3 +1,32 @@
+import $ from 'jquery';
+
+export default () => {
+	$(document).ready(function(){
+
+		var maxWidth  = $('.js-resolution-320').width();
+		var maxHeight = $('.js-resolution-320').height();
+
+		$(window).resize(function(evt) {
+		    var $window = $(window);
+		    var width = $window.width();
+		    var height = $window.height();
+		    var scale;
+
+		    // early exit
+		    if(width >= maxWidth && height >= maxHeight) {
+		        $('js-resolution-320').css({'-webkit-transform': ''});
+		        $('.sections').css({ width: '', height: '' });
+		        return;
+		    }
+		    
+		    scale = Math.min(width/maxWidth, height/maxHeight);
+		    
+		    $('js-resolution-320').css({'-webkit-transform': 'scale(' + scale + ')'});
+		    $('.sections').css({ width: maxWidth * scale, height: maxHeight * scale });
+		});
+	})
+}
+
 // import $ from 'jquery';
 //
 // export default () => {
