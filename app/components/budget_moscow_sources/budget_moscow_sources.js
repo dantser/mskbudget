@@ -77,7 +77,6 @@ export default () => {
 //стрелочки сколлящие таблицу
   $('.section__ar_right').on('click', function (e) {
     $('.analityc-table__wrapper').animate( { scrollLeft: '+=100' }, 300);
-    console.log($('.table').offset().left);
   });
 
   $('.section__ar_left').on('click', function (e) {
@@ -98,8 +97,10 @@ export default () => {
       rightArr.removeClass('section__ar_disabled');
     }
   }
+  $('.analityc-table__wrapper').each(function () {
+    arrowActive($('.analityc-table__wrapper'));
+  })
 
-  arrowActive($('.analityc-table__wrapper'));
 
   $('.analityc-table__wrapper').scroll(function(){
     arrowActive($(this));
