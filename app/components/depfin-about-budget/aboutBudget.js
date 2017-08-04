@@ -1,30 +1,39 @@
 import $ from 'jquery';
 
 export default () => {
-	$(document).ready(function(){
 
-		var maxWidth  = $('.js-resolution-320').width();
-		var maxHeight = $('.js-resolution-320').height();
 
-		$(window).resize(function(evt) {
-		    var $window = $(window);
-		    var width = $window.width();
-		    var height = $window.height();
-		    var scale;
+	$(window).on('load resize', pageScale);
 
-		    // early exit
-		    if(width >= maxWidth && height >= maxHeight) {
-		        $('js-resolution-320').css({'-webkit-transform': ''});
-		        $('.sections').css({ width: '', height: '' });
-		        return;
-		    }
-		    
-		    scale = Math.min(width/maxWidth, height/maxHeight);
-		    
-		    $('js-resolution-320').css({'-webkit-transform': 'scale(' + scale + ')'});
-		    $('.sections').css({ width: maxWidth * scale, height: maxHeight * scale });
-		});
-	})
+	$('.whatIsBudget-component').click(function() {
+		pageScale();
+	});
+
+	function pageScale() {
+		if ($(window).width() < '640') {
+			var maxWidth  = $('.js-resolution-320').width();
+			var maxHeight = $('.js-resolution-320').height();
+
+	    var $window = $(window);
+	    var width = $window.width();
+	    var height = $window.height();
+	    var scale;
+
+	    // early exit
+	    if(width >= maxWidth && height >= maxHeight) {
+	        // $('.js-resolution-320').css({'-webkit-transform': '', '-moz-transform': '', '-ms-transform': '', '-o-transform': '', 'transform': ''});
+	        $('.js-resolution-320').attr('style', '-webkit-transform: ' + '' + '; -moz-transform: ' + '' + '; -ms-transform:' + '' + '; -o-transform:' + '' + '; transform:' + '' + ';');
+	        $('.js-resolution-wrap').css({ width: '', height: '' });
+	        return;
+	    }
+	    
+	    scale = width/maxWidth;
+	    
+	    // $('.js-resolution-320').css({'-webkit-transform': 'scale(' + scale + ')', '-moz-transform': 'scale(' + scale + ')', '-ms-transform': 'scale(' + scale + ')', '-o-transform': 'scale(' + scale + ')', 'transform': 'scale(' + scale + ')'});
+      $('.js-resolution-320').attr('style', '-webkit-transform: scale(' + scale + '); -moz-transform: scale(' + scale + '); -ms-transform: scale(' + scale + '); -o-transform:(' + scale + '); transform: scale(' + scale + ');');
+	    $('.js-resolution-wrap').css({ width: maxWidth * scale, height: maxHeight * scale });
+		}
+	}
 }
 
 // import $ from 'jquery';
