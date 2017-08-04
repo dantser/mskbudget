@@ -1,0 +1,29 @@
+include ../page-header/page-header
+include ../widget-card/widget-card
+
+mixin wcard()
+	.tile__item
+		.tile__inner
+			+widget-card()
+				+widget-card-head('Card', '')
+				+widget-card-content()
+					+e.P.content Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam expedita est officiis magni ipsa velit numquam suscipit hic ipsam rem adipisci necessitatibus minus eveniet mollitia amet, architecto quaerat odit debitis.
+				+widget-card-bottom-link()
+
+
+mixin depfin-services-main()
+	+b.SECTION.depfin-services-main&attributes(attributes)
+		.wrapper
+			+page-header('Сервисы')
+			+e.P.description
+				+e.B Сервисы
+				| &nbsp;— это интерактивные инструменты изучения информации на бюджетную тематику. Заходя в любой из сервисов, Вы сможете в простой и понятной форме изучить информацию в различных срезах.
+			.tile
+				+wcard()
+				+wcard()
+				+wcard()
+				+wcard()
+				+wcard()
+				+wcard()
+
+
