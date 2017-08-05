@@ -133,3 +133,10 @@ mixin searchFormNews(placeholder)
           +button()._kind_blue Искать
           +e.INPUT.reset(type="reset" value="Сбросить все фильтры")
           u.btn-close.js-close-modal
+
+mixin searchFormWidget(placeholder)
+  +b.FORM.search.search_widget.d-si__search-form(action="#")
+    +e.search-line
+      input.d-si__search(type="text", placeholder=placeholder)
+      input.d-si__submit(type="submit" value="")
+      +icon('icon-glass').__submit

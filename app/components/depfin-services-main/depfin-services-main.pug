@@ -1,13 +1,41 @@
 include ../page-header/page-header
 include ../widget-card/widget-card
+include ../searchForm/searchForm
+include ../../blocks/selectbox/selectbox
 
-mixin wcard()
+mixin widget-card-edu()
 	.tile__item
 		.tile__inner
 			+widget-card()
-				+widget-card-head('Card', '')
+				+widget-card-head('Обучающий сервис', 'Пройдите обучающий курс бюджетной тематики')
 				+widget-card-content()
-					+e.P.content Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam expedita est officiis magni ipsa velit numquam suscipit hic ipsam rem adipisci necessitatibus minus eveniet mollitia amet, architecto quaerat odit debitis.
+					+e.passed-stages
+						.d-sq__head_ss
+							SPAN.d-sq__head_ss-s 
+								|Пройдено
+								br
+								b 0 из 9
+								br
+								|уроков
+							canvas(width='103', height='103', default-fill='#efefef', stroke-width='9', sector-count='9', fill-sectors='').sectored_round
+					+e.lessons-list
+						+e.A(href='#').lesson._active Урок 1: Что такое бюджетая система?
+						+e.A(href='#').lesson Урок 2: зачем используется бюджетная классификация?
+				+e.bottom-link-wrap
+					+widget-card-bottom-link(true, 'Пройти курс')._gradiented
+
+mixin widget-card-regions()
+	.tile__item
+		.tile__inner
+			+widget-card()
+				+widget-card-head('Москва и субъекты РФ')
+				+widget-card-content()
+					+e.map
+						img(src='assets/images/map_mini.png')
+					+e.search
+						+searchFormWidget('Поиск')
+					+e.select
+						+selectbox('select', getData('widget-card-selectbox'))
 				+widget-card-bottom-link()
 
 
@@ -19,11 +47,7 @@ mixin depfin-services-main()
 				+e.B Сервисы
 				| &nbsp;— это интерактивные инструменты изучения информации на бюджетную тематику. Заходя в любой из сервисов, Вы сможете в простой и понятной форме изучить информацию в различных срезах.
 			.tile
-				+wcard()
-				+wcard()
-				+wcard()
-				+wcard()
-				+wcard()
-				+wcard()
+				+widget-card-edu()
+				+widget-card-regions()
 
 

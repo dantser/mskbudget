@@ -10,16 +10,18 @@
   line-height: 1.2;
 
   &__head {
+    position: relative;
     min-height: 84px;
     background-color: #edf0f2;
     padding: 14px 20px 11px;
-    position: relative;
   }
 
   &__title {
+    position: relative;
+    padding-right: 30px;
     font-size: 16px;
     text-transform: uppercase;
-    padding-right: 30px;
+    margin-bottom: 7px;
   }
 
   &__subtitle {
@@ -31,33 +33,71 @@
     padding-right: 42px;
   }
 
-  &__favor {
-    position: absolute;
-    top: 14px;
-    right: 18px;
-    width: 16px;
-    height: 16px;
+  &__state {
+    font-size: 14px;
+    color: #666;
+  }
 
-    svg {
-      width: 100%;
-      height: 100%;
-      stroke: rgba(#0d46a1, .5);
-      stroke-width: 2px;
-      transition: all .2s ease-in-out;
+  &__datepicker {
+    position: relative;
+    display: inline-block;
+    z-index: 3;
+    cursor: pointer;
+
+    input {
+      width: 60px;
+      min-width: 60px;
+      color: #0d46a1;
+      text-decoration: none;
+      border-bottom: 1px dashed #b6c7e3;
+      cursor: pointer;
     }
+  }
+
+  &__pin {
+    width: 18px;
+    height: 18px;
+    display: block;
+    position: absolute;
+    top: -4px;
+    cursor: pointer;
+    opacity: 1;
+    right: 11px;
+    fill: #aabdda;
 
     &:hover {
       opacity: .7;
     }
 
-    &_active svg {
-      stroke: $color-link;
-      fill: $color-link;
+    &_active {
+      fill: #0d46a1;
+    }
+  }
+
+  &__favor {
+    display: block;
+    position: absolute;
+    right: -14px;
+    top: -4px;
+    width: 18px;
+    height: 18px;
+    background-image: url(../images/sprite.png);
+    background-repeat: no-repeat;
+    background-position: -140px -115px;
+    cursor: pointer;
+
+    &:hover {
+      filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+      opacity: .7;
+    }
+
+    &.active {
+      background-position: -212px -92px;
     }
   }
 
   &__content {
-    padding: 0 19px;
+    padding: 0 20px;
 
     & + .widget-card__content {
       border-top: 1px solid #e4e8eb;
@@ -169,9 +209,63 @@
   }
 
   &__passed-stages {
+    position: relative;
     width: 103px;
     height: 103px;
-    margin-top: 10px;
+    margin: 10px auto 0;
+  }
+
+  .d-sq__head_ss {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    left: 0;
+    min-height: auto;
+    width: 103px;
+  }
+
+  .d-sq__head_ss-s {
+    font-size: 12px;
+    line-height: 12px;
+    color: $color-black;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    margin-top: 30px;
+
+    b {
+      font-size: 18px;
+      line-height: 20px;
+    }
+  }
+
+  .d-sq__head_ss .sectored_round {
+    width: 103px; 
+    height: 103px; 
+  }
+
+  &__lessons-list {
+    margin-top: 25px;
+    padding-right: 10px;
+  }
+
+  &__lesson {
+    display: block;
+    font-size: 13px;
+    line-height: 16px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #999999;
+
+    & + .widget-card__lesson {
+      margin-top: 19px;
+    }
+
+    &_active {
+      font-size: 18px;
+      line-height: 20px;
+      color: #0d46a1;
+    }
   }
 
   &__lessons {
@@ -235,6 +329,20 @@
     }
   }
 
+  &__map {
+    display: block;
+    width: 125px;
+    margin: 6px auto 0;
+  }
+
+  &__bottom-link-wrap {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 20px;
+    padding: 0 20px;
+  }
+
   &__bottom-link {
     position: absolute;
     left: 0;
@@ -251,6 +359,30 @@
     &:hover {
       opacity: .7;
     }
+
+    &_gradiented {
+      display: block;
+      position: relative;
+      padding: 0 19px 0 60px;
+      line-height: 36px;
+      color: $color-white;
+      text-transform: uppercase;
+      background-image: linear-gradient(90deg, rgba(48, 176, 147, 1) 0%, rgba(248, 168, 4, 1) 100%);
+
+      .widget-card__bottom-link-icon {
+        fill: #fff;
+        right: 10px;
+      }
+    }
+  }
+
+  &__bottom-link-img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 60px;
+    height: 100%;
+    background: url(../images/edu-hat.png) 50% 50% no-repeat;
   }
 
   &__bottom-link-icon {
