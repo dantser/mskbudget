@@ -39,6 +39,6 @@ mixin widget-card-info-block(desc, title, date)
 mixin widget-card-bottom-link(img, text)
 	+e.A(href="#").bottom-link&attributes(attributes)= text ? text : 'Подробнее'
 		if img
-			+e.bottom-link-img
+			+icon(img).bottom-link-img
 		+icon('angle-arrow').bottom-link-icon
 			block

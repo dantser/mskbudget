@@ -21,4 +21,19 @@ export default function range() {
       });
     });
   }
+
+  // для страницы Сервисы - сводная
+  const sliderForWidgets = document.getElementById('widget_card_calc');
+
+  if(sliderForWidgets) {
+    noUiSlider.create(sliderForWidgets, {
+      start: 200.4,
+      tooltips: true,
+      // format: wNumb({ decimals: 1 }),
+      range: {
+        'min': 0,
+        'max': 400.8
+      }
+    });
+  }
 }

@@ -104,8 +104,20 @@
     }
   }
 
+  &__search {
+    margin-top: 5px;
+  }
+
+  &__select {
+    margin-top: 10px;
+  }
+
   &__selectbox {
     margin-top: 20px;
+  }
+
+  &__range {
+    margin-top: 19px;
   }
 
   &__budget-stats {
@@ -215,59 +227,6 @@
     margin: 10px auto 0;
   }
 
-  .d-sq__head_ss {
-    position: relative;
-    right: auto;
-    bottom: auto;
-    left: 0;
-    min-height: auto;
-    width: 103px;
-  }
-
-  .d-sq__head_ss-s {
-    font-size: 12px;
-    line-height: 12px;
-    color: $color-black;
-    width: 100%;
-    text-align: center;
-    margin: 0;
-    margin-top: 30px;
-
-    b {
-      font-size: 18px;
-      line-height: 20px;
-    }
-  }
-
-  .d-sq__head_ss .sectored_round {
-    width: 103px; 
-    height: 103px; 
-  }
-
-  &__lessons-list {
-    margin-top: 25px;
-    padding-right: 10px;
-  }
-
-  &__lesson {
-    display: block;
-    font-size: 13px;
-    line-height: 16px;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: #999999;
-
-    & + .widget-card__lesson {
-      margin-top: 19px;
-    }
-
-    &_active {
-      font-size: 18px;
-      line-height: 20px;
-      color: #0d46a1;
-    }
-  }
-
   &__lessons {
     text-align: center;
     margin-bottom: 27px;
@@ -316,6 +275,25 @@
     margin-top: 1px;
   }
 
+  &__info-block-items {
+    position: relative;
+    height: 127px;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 6px;
+    background-color: #f5f2dc;
+  }
+
+  &__info-block-item {  
+    @include center-block;
+    display: none;
+    width: 170px;
+
+    &_active {
+      display: block;
+    }
+  }
+
   &__nav-buttons {
     margin-top: 9px;
   }
@@ -323,10 +301,6 @@
   &__arrow-button {
     width: 30px;
     height: 30px;
-
-    & + .widget-card__arrow-button {
-      margin-left: 3px;
-    }
   }
 
   &__map {
@@ -376,13 +350,82 @@
     }
   }
 
+  &__results {
+    margin-top: 11px;
+  }
+
+  &__results-total {
+    font-size: 22px;
+  }
+
+  &__results-rating {
+    padding: 5px 9px;
+    background-image: linear-gradient( 90deg, rgb(157,48,138) 0%, rgb(255,105,91) 100%);
+    color: $color-white;
+    margin-top: 7px;
+  }
+
+  &__results-pos {
+    font-size: 30px;
+    line-height: 30px;
+  }
+
+  &__results-in {
+    font-size: 14px;
+    line-height: 14px;
+    opacity: .5;
+  }
+
+  &__value {
+    margin-top: 36px;
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 14px;
+  }
+
+  &__value-title {
+    margin-bottom: 7px;
+  }
+
+  &__value-value {
+    display: inline-block;
+    font-size: 60px;
+    line-height: 60px;
+    letter-spacing: -3px;
+    margin-top: -5px;
+    /*градиентный цвет текста - chrome*/
+    background: linear-gradient(90deg, #021398 0%, #ff0036 40%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #021398;
+  }
+
+  &__value-units {
+    display: inline-block;
+    color: #7f7f7f;
+    margin-left: 8px;
+    vertical-align: top;
+  }
+
+  &__logo {
+    position: relative;
+    width: 47px;
+    height: 59px;
+    margin: 0 auto;
+    margin-top: 9px;
+
+    img {
+      @include fill-img;
+    }
+  }
+
   &__bottom-link-img {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 60px;
-    height: 100%;
-    background: url(../images/edu-hat.png) 50% 50% no-repeat;
+    @include center-block;
+    transform: translateY(-50%);
+    left: 15px;
+    width: 33px;
+    height: 35px;
+    fill: white;
   }
 
   &__bottom-link-icon {
@@ -393,5 +436,64 @@
     margin: auto;
     width: 10px;
     height: 10px;
+  }
+}
+
+/*стили для каждой из карточек*/
+.widget-card-calc {
+
+  .widget-card__select {
+    margin-top: 20px;
+  }
+
+  .widget-card__bottom-link_gradiented {
+    padding: 13px 19px 13px 65px;
+    font-size: 14px;
+    line-height: 16px;
+    background-image: linear-gradient(-90deg, #ff0036, #021398);
+  }
+}
+
+.widget-card-gov-programs {
+  .service-dot-cont_act {
+    margin-top: 12px;
+  }
+}
+
+.widget-card-invest-program {
+  .segment-diagram {
+    margin-top: 12px;
+  }
+}
+
+.widget-card-gov-debt {
+  .segment-diagram {
+    margin-top: 12px;
+  }
+}
+
+.widget-card-cities {
+  .widget-card__results-rating {
+    background-image: linear-gradient( 90deg, #eb212e 0%, #ccaa26 100%);
+  }
+}
+
+.widget-card-gov-programs-result {
+  .widget-card__select {
+    margin-top: 20px;
+  }
+
+  .widget-card__nav-buttons {
+    margin-top: 30px;
+  }
+}
+
+.widget-card-social-support {
+  .widget-card__select {
+    margin-top: 20px;
+  }
+
+  .widget-card__nav-buttons {
+    margin-top: 30px;
   }
 }

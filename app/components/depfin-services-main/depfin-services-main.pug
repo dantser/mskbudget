@@ -1,33 +1,35 @@
 include ../page-header/page-header
 include ../widget-card/widget-card
+include ../../blocks/passed-stages/passed-stages
 include ../searchForm/searchForm
 include ../../blocks/selectbox/selectbox
+include ../../blocks/search-form/search-form
+include ../../blocks/range/range
+include ../../blocks/arrow-button/arrow-button
 
 mixin widget-card-edu()
 	.tile__item
 		.tile__inner
-			+widget-card()
+			+widget-card().widget-card-edu
 				+widget-card-head('Обучающий сервис', 'Пройдите обучающий курс бюджетной тематики')
 				+widget-card-content()
-					+e.passed-stages
-						.d-sq__head_ss
-							SPAN.d-sq__head_ss-s 
-								|Пройдено
-								br
-								b 0 из 9
-								br
-								|уроков
-							canvas(width='103', height='103', default-fill='#efefef', stroke-width='9', sector-count='9', fill-sectors='').sectored_round
+					+e.lessons
+						+passed-stages().widget-card__passed-stages
+							+e.round
+								canvas(width='78', height='78', default-fill='#efefef', stroke-width='7', sector-count='9', fill-sectors='').sectored_round
+								+e.P.innertext Пройдено
+									span 0 из 9
+									| уроков
 					+e.lessons-list
-						+e.A(href='#').lesson._active Урок 1: Что такое бюджетая система?
-						+e.A(href='#').lesson Урок 2: зачем используется бюджетная классификация?
+						+e.lessons-text._active Урок 1: Что такое бюджетая система?
+						+e.lessons-text Урок 2: зачем используется бюджетная классификация?
 				+e.bottom-link-wrap
 					+widget-card-bottom-link(true, 'Пройти курс')._gradiented
 
 mixin widget-card-regions()
 	.tile__item
 		.tile__inner
-			+widget-card()
+			+widget-card().widget-card-regions
 				+widget-card-head('Москва и субъекты РФ')
 				+widget-card-content()
 					+e.map
@@ -36,6 +38,187 @@ mixin widget-card-regions()
 						+searchFormWidget('Поиск')
 					+e.select
 						+selectbox('select', getData('widget-card-selectbox'))
+					+e.results
+						+e.results-total 300 тыс. руб. на 1 жителя
+						+e.results-rating 
+							+e.results-pos 8 место
+							+e.results-in из 85 субъектов РФ
+				+widget-card-bottom-link()
+
+mixin widget-card-calc()
+	.tile__item
+		.tile__inner
+			+widget-card().widget-card-calc
+				+widget-card-head('Бюджетный калькулятор')
+				+widget-card-content()
+					+e.select
+						+selectbox('select', getData('widget-card-selectbox'))
+					+e.range
+						+range-for-widgets('widget_card_calc')
+					+e.value
+						+e.value-title Дефицит
+						+e.value-value -47,5
+						+e.value-units млрд руб.
+				+e.bottom-link-wrap
+					+widget-card-bottom-link('calc', 'Предложите свой вариант бюджета!')._gradiented
+
+mixin widget-card-gov-programs()
+	.tile__item
+		.tile__inner
+			+widget-card().widget-card-gov-programs
+				+widget-card-head('Государственные программы', false, true)
+				+widget-card-content()
+					.service-dot-cont.service-dot-cont_act#serv-d-2
+						.dashed-diagram.service__dashed-diagram
+							.dashed-diagram__diagram#diagram-8
+								.dashed-diagram__value.dashed-diagram__value_top
+									span план
+									p.dashed-diagram__value-p 1 637,3
+								.dashed-diagram__value.dashed-diagram__value_bottom
+									p.dashed-diagram__value-p 1 167,7
+									| факт
+						p.service__capt Программные расходы
+					.service-dot-cont#serv-d-1
+						.dashed-diagram.service__dashed-diagram
+							.dashed-diagram__diagram#diagram-9
+								.dashed-diagram__value.dashed-diagram__value_top
+									span план
+									p.dashed-diagram__value-p 113,4
+								.dashed-diagram__value.dashed-diagram__value_bottom
+									p.dashed-diagram__value-p 46,5
+									| факт
+						p.service__capt Непрограммные направления деятельности
+					.service-dots
+						button(data-cont="serv-d-1").service-dots__btn
+						button(data-cont="serv-d-2").service-dots__btn.active
+				+widget-card-bottom-link()
+
+mixin widget-card-invest-program()
+	.tile__item
+		.tile__inner
+			+widget-card().widget-card-invest-program
+				+widget-card-head('Адресная инвестиционная программа', 'на 2016 год, млрд. руб.')
+				+widget-card-content()
+					.segment-diagram#diagram-6
+						.segment-diagram__value
+							span Всего
+							p.segment-diagram__value-num 347,2
+						p.segment-diagram__floating.segment-diagram__floating_green#floating_diagram-6-0 Строительство
+							span 150,7
+						p.segment-diagram__floating.segment-diagram__floating_violet#floating_diagram-6-1 Образование
+							span 60,8
+						p.segment-diagram__floating.segment-diagram__floating_blue#floating_diagram-6-2 Медицина
+							span 35,2
+						p.segment-diagram__floating.segment-diagram__floating_gray#floating_diagram-6-3 Прочее
+							span 100,5
+					ul.diagram-tabs.service__diagram-tabs
+						li.diagram-tabs__item.diagram-tabs__item_green
+							a(href="#").diagram-tabs__btn.diagram-tabs__btn_house#button_diagram-6-0 150,7
+								span.diagram-tabs__span-hov
+								span.diagram-tabs__span-js
+							p.diagram-tabs__caption Строительство
+						li.diagram-tabs__item.diagram-tabs__item_violet
+							a(href="#").diagram-tabs__btn.diagram-tabs__btn_edu#button_diagram-6-1 60,8
+								span.diagram-tabs__span-hov
+								span.diagram-tabs__span-js
+							p.diagram-tabs__caption Образование
+						li.diagram-tabs__item.diagram-tabs__item_blue
+							a(href="#").diagram-tabs__btn.diagram-tabs__btn_med#button_diagram-6-2 35,2
+								span.diagram-tabs__span-hov
+								span.diagram-tabs__span-js
+							p.diagram-tabs__caption Медицина
+						li.diagram-tabs__item.diagram-tabs__item_gray
+							a(href="#").diagram-tabs__btn.diagram-tabs__btn_other#button_diagram-6-3 100,5
+								span.diagram-tabs__span-hov
+								span.diagram-tabs__span-js
+							p.diagram-tabs__caption Прочее
+				+widget-card-bottom-link()
+
+mixin widget-card-gov-debt()
+	.tile__item
+		.tile__inner
+			+widget-card().widget-card-gov-debt
+				+widget-card-head('Государственный долг', false, true)
+				+widget-card-content()
+					.segment-diagram#diagram-7
+						.segment-diagram__value
+							span Всего
+							p.segment-diagram__value-num 77,2
+						p.segment-diagram__floating.segment-diagram__floating_green#floating_diagram-7-0 Бюджетные&nbsp;кредиты
+							span 21,4
+						p.segment-diagram__floating.segment-diagram__floating_blue#floating_diagram-7-1 Внутренний&nbsp;долг
+							span 28,8
+						p.segment-diagram__floating.segment-diagram__floating_violet#floating_diagram-7-2 Внешний&nbsp;долг
+							span 48,4
+					ul.diagram-tabs.service__diagram-tabs
+						li.diagram-tabs__item.diagram-tabs__item_green
+							a(href="#").diagram-tabs__btn.diagram-tabs__btn_bank#button_diagram-7-0 21,4
+								span.diagram-tabs__span-hov
+								span.diagram-tabs__span-js
+							p.diagram-tabs__caption Бюджетные кредиты
+						li.diagram-tabs__item.diagram-tabs__item_blue
+							a(href="#").diagram-tabs__btn.diagram-tabs__btn_bag#button_diagram-7-1 28,8
+								span.diagram-tabs__span-hov
+								span.diagram-tabs__span-js
+							p.diagram-tabs__caption Внутренний долг
+						li.diagram-tabs__item.diagram-tabs__item_violet
+							a(href="#").diagram-tabs__btn.diagram-tabs__btn_build#button_diagram-7-2 48,4
+								span.diagram-tabs__span-hov
+								span.diagram-tabs__span-js
+							p.diagram-tabs__caption Внешний долг
+				+widget-card-bottom-link()
+
+mixin widget-card-cities()
+	.tile__item
+		.tile__inner
+			+widget-card().widget-card-cities
+				+widget-card-head('Москва и города мира')
+				+widget-card-content()
+					+e.logo
+						img(src='assets/images/logo.png')
+					+e.select
+						+selectbox('select', getData('widget-card-selectbox'))
+					+e.select
+						+selectbox('select', getData('widget-card-selectbox'))
+					+e.results
+						+e.results-total 12 500 тысяч человек
+						+e.results-rating
+							+e.results-pos 8 место
+							+e.results-in из 8 крупнейших городов мира
+				+widget-card-bottom-link()
+
+mixin widget-card-gov-programs-result()
+	.tile__item
+		.tile__inner
+			+widget-card().widget-card-gov-programs-result
+				+widget-card-head('Результаты реализации государственных программ')
+				+widget-card-content()
+					+e.select
+						+selectbox('select', getData('widget-card-selectbox'))
+					+e.nav-buttons
+						+arrow-button()._prev.widget-card__arrow-button
+						+arrow-button().widget-card__arrow-button
+					+e.info-block-items
+						+e.info-block-item._active Будет построено 10 новых стадионов
+						+e.info-block-item Будет построено 10 новых стадионов
+						+e.info-block-item Будет построено 10 новых стадионов
+				+widget-card-bottom-link()
+
+mixin widget-card-social-support()
+	.tile__item
+		.tile__inner
+			+widget-card().widget-card-social-support
+				+widget-card-head('Социальная поддержка населения')
+				+widget-card-content()
+					+e.select
+						+selectbox('select', getData('widget-card-selectbox'))
+					+e.nav-buttons
+						+arrow-button()._prev.widget-card__arrow-button
+						+arrow-button().widget-card__arrow-button
+					+e.info-block-items
+						+e.info-block-item._active Компенсация понесенных расходов на ритуальные услуги умерших инвалидов и участников Великой Отечественной войны 1941-1945 годов
+						+e.info-block-item Компенсация понесенных расходов на ритуальные услуги умерших инвалидов и участников Великой Отечественной войны 1941-1945 годов
+						+e.info-block-item Компенсация понесенных расходов на ритуальные услуги умерших инвалидов и участников Великой Отечественной войны 1941-1945 годов
 				+widget-card-bottom-link()
 
 
@@ -47,7 +230,14 @@ mixin depfin-services-main()
 				+e.B Сервисы
 				| &nbsp;— это интерактивные инструменты изучения информации на бюджетную тематику. Заходя в любой из сервисов, Вы сможете в простой и понятной форме изучить информацию в различных срезах.
 			.tile
+				+widget-card-gov-programs()
+				+widget-card-invest-program()
+				+widget-card-gov-debt()
+				+widget-card-cities()
+				+widget-card-gov-programs-result()
+				+widget-card-social-support()
+				+widget-card-calc()
 				+widget-card-edu()
 				+widget-card-regions()
-
+				
 
