@@ -1,7 +1,23 @@
 .depfin-services-main {
-  background: #282635 url(../images/depfin-services-main/bg.jpg) top no-repeat;
-  background-size: 100%;
+  background: #282635 url(../images/depfin-services-main/bg.jpg) 50% 0 / cover no-repeat;
   color: #000;
+
+  .wrapper {
+    @media (max-width: 1140px) {
+      padding-left: 75px;
+      padding-right: 75px;
+    }
+
+    @media (max-width: 900px) {
+      padding-left: 40px;
+      padding-right: 40px;    
+    }
+
+    @media (max-width: 580px) {
+      padding-left: 27px;
+      padding-right: 27px;    
+    }
+  }
 
 	&__description {
 		max-width: 650px;
@@ -10,14 +26,54 @@
     letter-spacing: 1px;
 		color: $color-white;
 		margin-top: 35px;
+
+    @media (max-width: 900px) {
+      margin-top: 30px;
+    }
+  
+    @media (max-width: 580px) {
+      margin-top: 12px;
+    }
 	}
 
   .tile {
-    margin: 34px -.5% 0 -.5%;
+    margin: 34px -5px 0;
+
+    @media (max-width: 1140px) {
+      margin: 34px -10px 0;
+    }
+
+    @media (max-width: 900px) {
+      margin: 43px -10px 0;
+    }
+
+    @media (max-width: 580px) {
+      margin: 34px -10px 0;
+    }
+
   }
   .tile__item {
-  	width: 24%;
-    margin: 0 .5% 14px;
+    width: calc(100%/4);
+    padding: 0 5px;
+    margin-bottom: 14px;
+
+    @media (max-width: 1140px) {
+      width: calc(100%/3);
+      padding: 0 10px;
+      margin-bottom: 37px;
+    }
+
+    @media (max-width: 900px) {
+      width: calc(100%/2);
+      padding: 0 10px;
+      margin: 0;
+      margin-bottom: 28px;
+    }
+
+    @media (max-width: 580px) {
+      width: 100%;
+      margin-bottom: 13px;
+    }
   }
   .tile__inner {
     width: 100%;

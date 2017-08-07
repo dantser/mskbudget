@@ -57,6 +57,10 @@
       color: #ababab;
       pointer-events: none;
     }
+
+    div {
+      background: url(../images/ball.png) 50% 50% / cover no-repeat;
+    }
   }
 
   &__arrow {
@@ -89,6 +93,46 @@
     ul {
       opacity: 1;
       pointer-events: all;
+    }
+  }
+}
+
+.selectbox-for-widgets {
+  height: auto;
+  padding: 9px 12px 4px 48px;
+  line-height: 1em;
+
+  & img {
+    @include center-block;
+    transform: translateY(-50%);
+    left: 10px;
+    width: 26px;
+    height: auto;
+  }
+
+  & i {
+    display: block;
+    font-size: 12px;
+    opacity: .4;
+    margin-top: 3px;
+  }
+
+  & span {
+    font-size: 16px;
+  }
+
+  .selectbox__select {
+    display: block;
+    padding: 0 12px 0 0;
+    line-height: 1em;
+    white-space: normal;
+  }
+
+  ul {
+
+    li {
+      position: relative;
+      padding: 9px 12px 4px 48px;
     }
   }
 }

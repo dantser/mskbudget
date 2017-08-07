@@ -9,6 +9,31 @@
   background-color: #fff;
   line-height: 1.2;
 
+  & > *:nth-child(n+2) {
+    @media (max-width: 580px) {
+      display: none;
+    }
+  }
+
+  @media (max-width: 580px) {
+    min-height: 0;
+    padding-bottom: 0;
+  }
+
+  /*Если карточка раскрыта на мобильном разрешении*/
+  &_active {
+    min-height: 400px;
+    padding-bottom: 40px;
+
+    .widget-card__arrow-open {
+      transform: rotate(-90deg);
+    }
+
+    .widget-card > *:nth-child(n+2) {
+      display: block;
+    }
+  }
+
   &__head {
     position: relative;
     min-height: 84px;
@@ -71,6 +96,10 @@
 
     &_active {
       fill: #0d46a1;
+    }
+
+    @media (max-width: 580px) {
+      right: 31px;
     }
   }
 
@@ -298,6 +327,21 @@
     height: 30px;
   }
 
+  &__arrow-open {
+    display: none;
+    position: relative;
+    top: 2px;
+    width: 11px;
+    height: 1em;
+    fill: $color-black;
+    transform: rotate(90deg);
+    margin-left: 8px;
+
+    @media (max-width: 580px) {
+      display: inline-block;
+    }
+  }
+  
   &__map {
     display: block;
     width: 125px;
@@ -334,6 +378,7 @@
       position: relative;
       padding: 0 19px 0 60px;
       line-height: 36px;
+      font-weight: 500;
       color: $color-white;
       text-transform: uppercase;
       background-image: linear-gradient(90deg, rgba(48, 176, 147, 1) 0%, rgba(248, 168, 4, 1) 100%);
@@ -453,17 +498,39 @@
   .service-dot-cont_act {
     margin-top: 12px;
   }
+
+  @media (max-width: 900px) {
+    .dashed-diagram__diagram, .dashed-diagram__diagram .svg {
+      width: 180px!important; 
+      height: 180px!important;
+    }
+  }
+
 }
 
 .widget-card-invest-program {
   .segment-diagram {
     margin-top: 12px;
   }
+
+  @media (max-width: 900px) {
+    .segment-diagram, .segment-diagram .svg {
+      width: 197px!important; 
+      height: 197px!important;
+    }
+  }
 }
 
 .widget-card-gov-debt {
   .segment-diagram {
     margin-top: 12px;
+  }
+
+  @media (max-width: 900px) {
+    .segment-diagram, .segment-diagram .svg {
+      width: 197px!important; 
+      height: 197px!important;
+    }
   }
 }
 

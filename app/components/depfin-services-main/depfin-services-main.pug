@@ -24,7 +24,7 @@ mixin widget-card-edu()
 						+e.lessons-text._active Урок 1: Что такое бюджетая система?
 						+e.lessons-text Урок 2: зачем используется бюджетная классификация?
 				+e.bottom-link-wrap
-					+widget-card-bottom-link(true, 'Пройти курс')._gradiented
+					+widget-card-bottom-link('edu-hat', 'Пройти курс')._gradiented
 
 mixin widget-card-regions()
 	.tile__item
@@ -194,7 +194,8 @@ mixin widget-card-gov-programs-result()
 				+widget-card-head('Результаты реализации государственных программ')
 				+widget-card-content()
 					+e.select
-						+selectbox('select', getData('widget-card-selectbox'))
+						+selectbox('select', getData('widget-card-selectbox-with-icon-period')).selectbox-for-widgets
+
 					+e.nav-buttons
 						+arrow-button()._prev.widget-card__arrow-button
 						+arrow-button().widget-card__arrow-button
@@ -211,7 +212,7 @@ mixin widget-card-social-support()
 				+widget-card-head('Социальная поддержка населения')
 				+widget-card-content()
 					+e.select
-						+selectbox('select', getData('widget-card-selectbox'))
+						+selectbox('select', getData('widget-card-selectbox-with-icon')).selectbox-for-widgets
 					+e.nav-buttons
 						+arrow-button()._prev.widget-card__arrow-button
 						+arrow-button().widget-card__arrow-button
@@ -276,7 +277,7 @@ mixin widget-card-budget-web
 					+e.search
 						+searchFormWidget('Поиск')
 					+e.select
-						+selectbox('select', getData('widget-card-selectbox'))
+						+selectbox('select', getData('widget-card-selectbox-with-icon2')).selectbox-for-widgets
 					+e.nav-buttons
 						+arrow-button()._prev.widget-card__arrow-button
 						+arrow-button().widget-card__arrow-button

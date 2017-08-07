@@ -4,16 +4,43 @@ export default function selectbox() {
   $('.selectbox').each(function () {
     const wrapper = '<ul></ul>';
     const selBox = $(this);
+
+    if (selBox.hasClass('selectbox-for-widgets')) {
+      const img = selBox.find('option:eq(0)').data('image');
+      const period = selBox.find('option:eq(0)').data('period');
+      selBox.prepend('<img src="assets/images/' + img + '.png">');
+      if (period)
+        selBox.append('<i>' + period + '</i>')
+    }
+
     selBox.find('select').after(wrapper);
     selBox.find('option').each(function () {
       const ttext = $(this).text();
       const vval = $(this).val();
-      if ($(this).attr('data-locked')) {
-        const li = `<li class="locked" data-val=${vval}>${ttext}</li>`;
-        selBox.find('ul').append(li);
+
+      if (selBox.hasClass('selectbox-for-widgets')) {
+
+        const img = $(this).data('image');
+        const period = $(this).data('period');
+
+        if ($(this).attr('data-locked')) {
+          const li = '<li class="locked" data-val=' + vval + '><img src="assets/images/' + img + '.png"><span>' + ttext + '</span>' + (period ? '<i>' + period +'</i>' : '') + '</li>';
+          selBox.find('ul').append(li);
+        } else {
+          const li = '<li data-val=' + vval + '><img src="assets/images/' + img + '.png"><span>' + ttext + '</span>' + (period ? '<i>' + period +'</i>' : '') + '</li>';
+          selBox.find('ul').append(li);
+        }
+
       } else {
-        const li = `<li data-val=${vval}>${ttext}</li>`;
-        selBox.find('ul').append(li);
+
+        if ($(this).attr('data-locked')) {
+          const li = '<li class="locked" data-val=' + vval + '>' + ttext + '</li>';
+          selBox.find('ul').append(li);
+        } else {
+          const li = '<li data-val=' + vval + '>' + ttext + '</li>';
+          selBox.find('ul').append(li);
+        }
+
       }
     });
     selBox.find('li').click(function () {
