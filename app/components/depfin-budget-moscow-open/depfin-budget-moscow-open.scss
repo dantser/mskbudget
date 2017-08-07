@@ -81,6 +81,10 @@
       content: '';
       display: inline-block;
     }
+
+    @media screen and (max-width: 768px) {
+      text-align: center;
+    }
   }
 
   &__item {
@@ -96,6 +100,15 @@
   	@media (max-width: 1169px) {
 			width: 267px;
   	}
+
+    @media (min-width: 638px) and (max-width: 768px) {
+      margin-right: 20px;
+
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+    }
+
 
 		&:nth-child(n + 4) {
 	  	@media (max-width: 1169px) {
@@ -194,21 +207,23 @@
 		}
 	}
 
-	&__more {
-		position: relative;
-		padding-right: 18px;
-		font-family: $PFDinCondensedPro;
-		font-size: 18px;
-		line-height: 1em;
-		font-weight: 400;
-		color: $color-yellow;
-		text-decoration: none;
-		vertical-align: top;
+	&__page-link {
+    font-family: $PFDinCondensedPro;
+    display: inline-block;
+    color: #fee300;
+    text-decoration: none;
+    vertical-align: top;
+    font-size: 18px;
+    text-transform: none;
+    line-height: 1em;
+    font-weight: 400;
 		margin-left: 16px;
 
-		&:hover svg {
-			right: -5px;
-		}
+    &:hover {
+      .depfin-budget-moscow-open__page-link-icon {
+        margin-left: 10px;
+      }
+    }
 
 		@media (max-width: 580px) {
 			display: inline-block;
@@ -216,14 +231,12 @@
 			margin-bottom: 29px;
 		}
 
-		svg {
-			@include center-block;
-			left: auto;
-			right: 0;
-			width: 9px;
-			height: 13px;
-			fill: $color-yellow;
-			transition: all .25s ease-in-out;
-		}
+    .depfin-budget-moscow-open__page-link-icon {
+      width: 10px;
+      height: 10px;
+      fill: #fee300;
+      margin-left: 5px;
+      transition: all .25s ease-in-out;
+    }
 	}
 }
