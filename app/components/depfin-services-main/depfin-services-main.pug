@@ -221,6 +221,68 @@ mixin widget-card-social-support()
 						+e.info-block-item Компенсация понесенных расходов на ритуальные услуги умерших инвалидов и участников Великой Отечественной войны 1941-1945 годов
 				+widget-card-bottom-link()
 
+mixin widget-card-polls()
+	.tile__item
+		.tile__inner
+			+widget-card().widget-card-polls
+				+widget-card-head('Опрос общественного мнения', 'Примите участие в опросах')
+				+widget-card-content()
+					+e.nav-buttons
+						+arrow-button()._prev.widget-card__arrow-button
+						+arrow-button().widget-card__arrow-button
+					+e.info-block-title Как сделать портал еще удобнее?
+					+e.info-block-date до 30.01.2017
+					+widget-card-bottom-link(false, 'Пройти опрос')._gradiented
+				+widget-card-bottom-link()
+
+mixin widget-card-quiz()
+	.tile__item
+		.tile__inner
+			+widget-card().widget-card-quiz
+				+widget-card-head('Викторины', 'Проверь свои знания в викторине')
+				+widget-card-content()
+					+e.nav-buttons
+						+arrow-button()._prev.widget-card__arrow-button
+						+arrow-button().widget-card__arrow-button
+					+e.info-block-title История бюджета города Москвы во второй половине XX – начале ХХI века
+					+e.info-block-date Создана 30.01.2017
+					+widget-card-bottom-link(false, 'Пройти викторину')._gradiented
+				+widget-card-bottom-link()
+
+mixin widget-card-municipalities
+	.tile__item
+		.tile__inner
+			+widget-card().widget-card-municipalities
+				+widget-card-head('Внутригородские муниципальные образования')
+				+widget-card-content()
+					+e.map
+						img(src='assets/images/map_mini2.png')
+					+e.search
+						+searchFormWidget('Поиск')
+					+e.select
+						+selectbox('select', getData('widget-card-selectbox'))
+					+e.results
+						+e.results-total 57 700 человек
+				+widget-card-bottom-link()
+
+mixin widget-card-budget-web
+	.tile__item
+		.tile__inner
+			+widget-card().widget-card-budget-web
+				+widget-card-head('Бюджетная сеть', 'Сводная информация о сети государственных учреждений г. Москвы')
+				+widget-card-content()
+					+e.map
+						img(src='assets/images/map_mini2.png')
+					+e.search
+						+searchFormWidget('Поиск')
+					+e.select
+						+selectbox('select', getData('widget-card-selectbox'))
+					+e.nav-buttons
+						+arrow-button()._prev.widget-card__arrow-button
+						+arrow-button().widget-card__arrow-button
+					+e.results
+						+e.results-total 12 детских садов
+				+widget-card-bottom-link()
 
 mixin depfin-services-main()
 	+b.SECTION.depfin-services-main&attributes(attributes)
@@ -235,9 +297,13 @@ mixin depfin-services-main()
 				+widget-card-gov-debt()
 				+widget-card-cities()
 				+widget-card-gov-programs-result()
+				+widget-card-polls()
+				+widget-card-municipalities()
 				+widget-card-social-support()
 				+widget-card-calc()
+				+widget-card-quiz()
 				+widget-card-edu()
 				+widget-card-regions()
+				+widget-card-budget-web()
 				
 
