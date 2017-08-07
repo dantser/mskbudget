@@ -415,15 +415,48 @@
                 <div class="tile">
                     <div class="tile__item">
                         <div class="tile__inner">
-                            <div class="widget-card">
+                            <div class="widget-card widget-card-gov-programs">
                                 <div class="widget-card__head">
-                                    <p class="widget-card__title">Card</p>
-                                    <div class="favor widget-card__favor" title="Добавить в избранное">
-                                        <svg class="favor__icon"><use xlink:href="assets/images/icon.svg#icon_favor"></use></svg>
-                                    </div>
+                                    <h3 class="widget-card__title">Государственные программы
+                                        <svg class="widget-card__pin"><use xlink:href="assets/images/icon.svg#icon_pin"></use></svg>
+                                        <button class="widget-card__favor"></button>
+                                    </h3>
+                                    <p class="widget-card__state">по состоянию на
+                                        <span class="widget-card__datepicker">
+                                            <INPUT class="datepicker__show jq-spec-datepicker" value="21.10.2016" tabindex="0"></INPUT>
+                                        </span>, млрд. руб </p>
                                 </div>
                                 <div class="widget-card__content">
-                                    <p class="widget-card__content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam expedita est officiis magni ipsa velit numquam suscipit hic ipsam rem adipisci necessitatibus minus eveniet mollitia amet, architecto quaerat odit debitis.</p>
+                                    <div class="service-dot-cont service-dot-cont_act" id="serv-d-2">
+                                        <div class="dashed-diagram service__dashed-diagram">
+                                            <div class="dashed-diagram__diagram" id="diagram-8">
+                                                <div class="dashed-diagram__value dashed-diagram__value_top">
+                                                    <span>план</span>
+                                                    <p class="dashed-diagram__value-p">1 637,3</p>
+                                                </div>
+                                                <div class="dashed-diagram__value dashed-diagram__value_bottom">
+                                                    <p class="dashed-diagram__value-p">1 167,7</p>факт</div>
+                                            </div>
+                                        </div>
+                                        <p class="service__capt">Программные расходы</p>
+                                    </div>
+                                    <div class="service-dot-cont" id="serv-d-1">
+                                        <div class="dashed-diagram service__dashed-diagram">
+                                            <div class="dashed-diagram__diagram" id="diagram-9">
+                                                <div class="dashed-diagram__value dashed-diagram__value_top">
+                                                    <span>план</span>
+                                                    <p class="dashed-diagram__value-p">113,4</p>
+                                                </div>
+                                                <div class="dashed-diagram__value dashed-diagram__value_bottom">
+                                                    <p class="dashed-diagram__value-p">46,5</p>факт</div>
+                                            </div>
+                                        </div>
+                                        <p class="service__capt">Непрограммные направления деятельности</p>
+                                    </div>
+                                    <div class="service-dots">
+                                        <button class="service-dots__btn" data-cont="serv-d-1"></button>
+                                        <button class="service-dots__btn active" data-cont="serv-d-2"></button>
+                                    </div>
                                 </div>
                                 <a class="widget-card__bottom-link" href="#">Подробнее
                                     <svg class="widget-card__bottom-link-icon"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
@@ -433,15 +466,63 @@
                     </div>
                     <div class="tile__item">
                         <div class="tile__inner">
-                            <div class="widget-card">
+                            <div class="widget-card widget-card-invest-program">
                                 <div class="widget-card__head">
-                                    <p class="widget-card__title">Card</p>
-                                    <div class="favor widget-card__favor" title="Добавить в избранное">
-                                        <svg class="favor__icon"><use xlink:href="assets/images/icon.svg#icon_favor"></use></svg>
-                                    </div>
+                                    <h3 class="widget-card__title">Адресная инвестиционная программа
+                                        <svg class="widget-card__pin"><use xlink:href="assets/images/icon.svg#icon_pin"></use></svg>
+                                        <button class="widget-card__favor"></button>
+                                    </h3>
+                                    <p class="widget-card__subtitle">на 2016 год, млрд. руб.</p>
                                 </div>
                                 <div class="widget-card__content">
-                                    <p class="widget-card__content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam expedita est officiis magni ipsa velit numquam suscipit hic ipsam rem adipisci necessitatibus minus eveniet mollitia amet, architecto quaerat odit debitis.</p>
+                                    <div class="segment-diagram" id="diagram-6">
+                                        <div class="segment-diagram__value">
+                                            <span>Всего</span>
+                                            <p class="segment-diagram__value-num">347,2</p>
+                                        </div>
+                                        <p class="segment-diagram__floating segment-diagram__floating_green" id="floating_diagram-6-0">Строительство
+                                            <span>150,7</span>
+                                        </p>
+                                        <p class="segment-diagram__floating segment-diagram__floating_violet" id="floating_diagram-6-1">Образование
+                                            <span>60,8</span>
+                                        </p>
+                                        <p class="segment-diagram__floating segment-diagram__floating_blue" id="floating_diagram-6-2">Медицина
+                                            <span>35,2</span>
+                                        </p>
+                                        <p class="segment-diagram__floating segment-diagram__floating_gray" id="floating_diagram-6-3">Прочее
+                                            <span>100,5</span>
+                                        </p>
+                                    </div>
+                                    <ul class="diagram-tabs service__diagram-tabs">
+                                        <li class="diagram-tabs__item diagram-tabs__item_green">
+                                            <a class="diagram-tabs__btn diagram-tabs__btn_house" href="#" id="button_diagram-6-0">150,7
+                                                <span class="diagram-tabs__span-hov"></span>
+                                                <span class="diagram-tabs__span-js"></span>
+                                            </a>
+                                            <p class="diagram-tabs__caption">Строительство</p>
+                                        </li>
+                                        <li class="diagram-tabs__item diagram-tabs__item_violet">
+                                            <a class="diagram-tabs__btn diagram-tabs__btn_edu" href="#" id="button_diagram-6-1">60,8
+                                                <span class="diagram-tabs__span-hov"></span>
+                                                <span class="diagram-tabs__span-js"></span>
+                                            </a>
+                                            <p class="diagram-tabs__caption">Образование</p>
+                                        </li>
+                                        <li class="diagram-tabs__item diagram-tabs__item_blue">
+                                            <a class="diagram-tabs__btn diagram-tabs__btn_med" href="#" id="button_diagram-6-2">35,2
+                                                <span class="diagram-tabs__span-hov"></span>
+                                                <span class="diagram-tabs__span-js"></span>
+                                            </a>
+                                            <p class="diagram-tabs__caption">Медицина</p>
+                                        </li>
+                                        <li class="diagram-tabs__item diagram-tabs__item_gray">
+                                            <a class="diagram-tabs__btn diagram-tabs__btn_other" href="#" id="button_diagram-6-3">100,5
+                                                <span class="diagram-tabs__span-hov"></span>
+                                                <span class="diagram-tabs__span-js"></span>
+                                            </a>
+                                            <p class="diagram-tabs__caption">Прочее</p>
+                                        </li>
+                                    </ul>
                                 </div>
                                 <a class="widget-card__bottom-link" href="#">Подробнее
                                     <svg class="widget-card__bottom-link-icon"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
@@ -451,15 +532,56 @@
                     </div>
                     <div class="tile__item">
                         <div class="tile__inner">
-                            <div class="widget-card">
+                            <div class="widget-card widget-card-gov-debt">
                                 <div class="widget-card__head">
-                                    <p class="widget-card__title">Card</p>
-                                    <div class="favor widget-card__favor" title="Добавить в избранное">
-                                        <svg class="favor__icon"><use xlink:href="assets/images/icon.svg#icon_favor"></use></svg>
-                                    </div>
+                                    <h3 class="widget-card__title">Государственный долг
+                                        <svg class="widget-card__pin"><use xlink:href="assets/images/icon.svg#icon_pin"></use></svg>
+                                        <button class="widget-card__favor"></button>
+                                    </h3>
+                                    <p class="widget-card__state">по состоянию на
+                                        <span class="widget-card__datepicker">
+                                            <INPUT class="datepicker__show jq-spec-datepicker" value="21.10.2016" tabindex="0"></INPUT>
+                                        </span>, млрд. руб </p>
                                 </div>
                                 <div class="widget-card__content">
-                                    <p class="widget-card__content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam expedita est officiis magni ipsa velit numquam suscipit hic ipsam rem adipisci necessitatibus minus eveniet mollitia amet, architecto quaerat odit debitis.</p>
+                                    <div class="segment-diagram" id="diagram-7">
+                                        <div class="segment-diagram__value">
+                                            <span>Всего</span>
+                                            <p class="segment-diagram__value-num">77,2</p>
+                                        </div>
+                                        <p class="segment-diagram__floating segment-diagram__floating_green" id="floating_diagram-7-0">Бюджетные&nbsp;кредиты
+                                            <span>21,4</span>
+                                        </p>
+                                        <p class="segment-diagram__floating segment-diagram__floating_blue" id="floating_diagram-7-1">Внутренний&nbsp;долг
+                                            <span>28,8</span>
+                                        </p>
+                                        <p class="segment-diagram__floating segment-diagram__floating_violet" id="floating_diagram-7-2">Внешний&nbsp;долг
+                                            <span>48,4</span>
+                                        </p>
+                                    </div>
+                                    <ul class="diagram-tabs service__diagram-tabs">
+                                        <li class="diagram-tabs__item diagram-tabs__item_green">
+                                            <a class="diagram-tabs__btn diagram-tabs__btn_bank" href="#" id="button_diagram-7-0">21,4
+                                                <span class="diagram-tabs__span-hov"></span>
+                                                <span class="diagram-tabs__span-js"></span>
+                                            </a>
+                                            <p class="diagram-tabs__caption">Бюджетные кредиты</p>
+                                        </li>
+                                        <li class="diagram-tabs__item diagram-tabs__item_blue">
+                                            <a class="diagram-tabs__btn diagram-tabs__btn_bag" href="#" id="button_diagram-7-1">28,8
+                                                <span class="diagram-tabs__span-hov"></span>
+                                                <span class="diagram-tabs__span-js"></span>
+                                            </a>
+                                            <p class="diagram-tabs__caption">Внутренний долг</p>
+                                        </li>
+                                        <li class="diagram-tabs__item diagram-tabs__item_violet">
+                                            <a class="diagram-tabs__btn diagram-tabs__btn_build" href="#" id="button_diagram-7-2">48,4
+                                                <span class="diagram-tabs__span-hov"></span>
+                                                <span class="diagram-tabs__span-js"></span>
+                                            </a>
+                                            <p class="diagram-tabs__caption">Внешний долг</p>
+                                        </li>
+                                    </ul>
                                 </div>
                                 <a class="widget-card__bottom-link" href="#">Подробнее
                                     <svg class="widget-card__bottom-link-icon"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
@@ -469,15 +591,52 @@
                     </div>
                     <div class="tile__item">
                         <div class="tile__inner">
-                            <div class="widget-card">
+                            <div class="widget-card widget-card-cities">
                                 <div class="widget-card__head">
-                                    <p class="widget-card__title">Card</p>
-                                    <div class="favor widget-card__favor" title="Добавить в избранное">
-                                        <svg class="favor__icon"><use xlink:href="assets/images/icon.svg#icon_favor"></use></svg>
-                                    </div>
+                                    <h3 class="widget-card__title">Москва и города мира
+                                        <svg class="widget-card__pin"><use xlink:href="assets/images/icon.svg#icon_pin"></use></svg>
+                                        <button class="widget-card__favor"></button>
+                                    </h3>
                                 </div>
                                 <div class="widget-card__content">
-                                    <p class="widget-card__content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam expedita est officiis magni ipsa velit numquam suscipit hic ipsam rem adipisci necessitatibus minus eveniet mollitia amet, architecto quaerat odit debitis.</p>
+                                    <div class="widget-card__logo">
+                                        <img src="assets/images/logo.png" />
+                                    </div>
+                                    <div class="widget-card__select">
+                                        <div class="selectbox">
+                                            <select class="selectbox__select" name="select">
+                                                <option value="opt1">Пункты селекта</option>
+                                                <option value="opt2">Еще пункт</option>
+                                                <option value="opt3">Еще пункт2</option>
+                                                <option value="opt4">Еще пункт3</option>
+                                                <option value="opt5" data-locked="data-locked" disabled="disabled">Залоченный пункт</option>
+                                            </select>
+                                            <span class="selectbox__arrow">
+                                                <span></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="widget-card__select">
+                                        <div class="selectbox">
+                                            <select class="selectbox__select" name="select">
+                                                <option value="opt1">Пункты селекта</option>
+                                                <option value="opt2">Еще пункт</option>
+                                                <option value="opt3">Еще пункт2</option>
+                                                <option value="opt4">Еще пункт3</option>
+                                                <option value="opt5" data-locked="data-locked" disabled="disabled">Залоченный пункт</option>
+                                            </select>
+                                            <span class="selectbox__arrow">
+                                                <span></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="widget-card__results">
+                                        <div class="widget-card__results-total">12 500 тысяч человек</div>
+                                        <div class="widget-card__results-rating">
+                                            <div class="widget-card__results-pos">8 место</div>
+                                            <div class="widget-card__results-in">из 8 крупнейших городов мира</div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <a class="widget-card__bottom-link" href="#">Подробнее
                                     <svg class="widget-card__bottom-link-icon"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
@@ -487,15 +646,41 @@
                     </div>
                     <div class="tile__item">
                         <div class="tile__inner">
-                            <div class="widget-card">
+                            <div class="widget-card widget-card-gov-programs-result">
                                 <div class="widget-card__head">
-                                    <p class="widget-card__title">Card</p>
-                                    <div class="favor widget-card__favor" title="Добавить в избранное">
-                                        <svg class="favor__icon"><use xlink:href="assets/images/icon.svg#icon_favor"></use></svg>
-                                    </div>
+                                    <h3 class="widget-card__title">Результаты реализации государственных программ
+                                        <svg class="widget-card__pin"><use xlink:href="assets/images/icon.svg#icon_pin"></use></svg>
+                                        <button class="widget-card__favor"></button>
+                                    </h3>
                                 </div>
                                 <div class="widget-card__content">
-                                    <p class="widget-card__content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam expedita est officiis magni ipsa velit numquam suscipit hic ipsam rem adipisci necessitatibus minus eveniet mollitia amet, architecto quaerat odit debitis.</p>
+                                    <div class="widget-card__select">
+                                        <div class="selectbox">
+                                            <select class="selectbox__select" name="select">
+                                                <option value="opt1">Пункты селекта</option>
+                                                <option value="opt2">Еще пункт</option>
+                                                <option value="opt3">Еще пункт2</option>
+                                                <option value="opt4">Еще пункт3</option>
+                                                <option value="opt5" data-locked="data-locked" disabled="disabled">Залоченный пункт</option>
+                                            </select>
+                                            <span class="selectbox__arrow">
+                                                <span></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="widget-card__nav-buttons">
+                                        <a class="arrow-button arrow-button_prev widget-card__arrow-button" href="#">
+                                            <svg class="arrow-button__icon"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
+                                        </a>
+                                        <a class="arrow-button widget-card__arrow-button" href="#">
+                                            <svg class="arrow-button__icon"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
+                                        </a>
+                                    </div>
+                                    <div class="widget-card__info-block-items">
+                                        <div class="widget-card__info-block-item widget-card__info-block-item_active">Будет построено 10 новых стадионов</div>
+                                        <div class="widget-card__info-block-item">Будет построено 10 новых стадионов</div>
+                                        <div class="widget-card__info-block-item">Будет построено 10 новых стадионов</div>
+                                    </div>
                                 </div>
                                 <a class="widget-card__bottom-link" href="#">Подробнее
                                     <svg class="widget-card__bottom-link-icon"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
@@ -505,15 +690,340 @@
                     </div>
                     <div class="tile__item">
                         <div class="tile__inner">
-                            <div class="widget-card">
+                            <div class="widget-card widget-card-polls">
                                 <div class="widget-card__head">
-                                    <p class="widget-card__title">Card</p>
-                                    <div class="favor widget-card__favor" title="Добавить в избранное">
-                                        <svg class="favor__icon"><use xlink:href="assets/images/icon.svg#icon_favor"></use></svg>
-                                    </div>
+                                    <h3 class="widget-card__title">Опрос общественного мнения
+                                        <svg class="widget-card__pin"><use xlink:href="assets/images/icon.svg#icon_pin"></use></svg>
+                                        <button class="widget-card__favor"></button>
+                                    </h3>
+                                    <p class="widget-card__subtitle">Примите участие в опросах</p>
                                 </div>
                                 <div class="widget-card__content">
-                                    <p class="widget-card__content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam expedita est officiis magni ipsa velit numquam suscipit hic ipsam rem adipisci necessitatibus minus eveniet mollitia amet, architecto quaerat odit debitis.</p>
+                                    <div class="widget-card__nav-buttons">
+                                        <a class="arrow-button arrow-button_prev widget-card__arrow-button" href="#">
+                                            <svg class="arrow-button__icon"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
+                                        </a>
+                                        <a class="arrow-button widget-card__arrow-button" href="#">
+                                            <svg class="arrow-button__icon"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
+                                        </a>
+                                    </div>
+                                    <div class="widget-card__info-block-title">Как сделать портал еще удобнее?</div>
+                                    <div class="widget-card__info-block-date">до 30.01.2017</div>
+                                    <a class="widget-card__bottom-link widget-card__bottom-link_gradiented" href="#">Пройти опрос
+                                        <svg class="widget-card__bottom-link-icon"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
+                                    </a>
+                                </div>
+                                <a class="widget-card__bottom-link" href="#">Подробнее
+                                    <svg class="widget-card__bottom-link-icon"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tile__item">
+                        <div class="tile__inner">
+                            <div class="widget-card widget-card-municipalities">
+                                <div class="widget-card__head">
+                                    <h3 class="widget-card__title">Внутригородские муниципальные образования
+                                        <svg class="widget-card__pin"><use xlink:href="assets/images/icon.svg#icon_pin"></use></svg>
+                                        <button class="widget-card__favor"></button>
+                                    </h3>
+                                </div>
+                                <div class="widget-card__content">
+                                    <div class="widget-card__map">
+                                        <img src="assets/images/map_mini2.png" />
+                                    </div>
+                                    <div class="widget-card__search">
+                                        <form class="search search search_widget d-si__search-form" action="#">
+                                            <div class="search__search-line">
+                                                <input class="d-si__search" type="text" placeholder="Поиск" />
+                                                <input class="d-si__submit" type="submit" value="" />
+                                                <svg class="search__submit"><use xlink:href="assets/images/icon.svg#icon_icon-glass"></use></svg>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="widget-card__select">
+                                        <div class="selectbox">
+                                            <select class="selectbox__select" name="select">
+                                                <option value="opt1">Пункты селекта</option>
+                                                <option value="opt2">Еще пункт</option>
+                                                <option value="opt3">Еще пункт2</option>
+                                                <option value="opt4">Еще пункт3</option>
+                                                <option value="opt5" data-locked="data-locked" disabled="disabled">Залоченный пункт</option>
+                                            </select>
+                                            <span class="selectbox__arrow">
+                                                <span></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="widget-card__results">
+                                        <div class="widget-card__results-total">57 700 человек</div>
+                                    </div>
+                                </div>
+                                <a class="widget-card__bottom-link" href="#">Подробнее
+                                    <svg class="widget-card__bottom-link-icon"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tile__item">
+                        <div class="tile__inner">
+                            <div class="widget-card widget-card-social-support">
+                                <div class="widget-card__head">
+                                    <h3 class="widget-card__title">Социальная поддержка населения
+                                        <svg class="widget-card__pin"><use xlink:href="assets/images/icon.svg#icon_pin"></use></svg>
+                                        <button class="widget-card__favor"></button>
+                                    </h3>
+                                </div>
+                                <div class="widget-card__content">
+                                    <div class="widget-card__select">
+                                        <div class="selectbox">
+                                            <select class="selectbox__select" name="select">
+                                                <option value="opt1">Пункты селекта</option>
+                                                <option value="opt2">Еще пункт</option>
+                                                <option value="opt3">Еще пункт2</option>
+                                                <option value="opt4">Еще пункт3</option>
+                                                <option value="opt5" data-locked="data-locked" disabled="disabled">Залоченный пункт</option>
+                                            </select>
+                                            <span class="selectbox__arrow">
+                                                <span></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="widget-card__nav-buttons">
+                                        <a class="arrow-button arrow-button_prev widget-card__arrow-button" href="#">
+                                            <svg class="arrow-button__icon"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
+                                        </a>
+                                        <a class="arrow-button widget-card__arrow-button" href="#">
+                                            <svg class="arrow-button__icon"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
+                                        </a>
+                                    </div>
+                                    <div class="widget-card__info-block-items">
+                                        <div class="widget-card__info-block-item widget-card__info-block-item_active">Компенсация понесенных расходов на ритуальные услуги умерших инвалидов и участников Великой Отечественной войны 1941-1945 годов</div>
+                                        <div class="widget-card__info-block-item">Компенсация понесенных расходов на ритуальные услуги умерших инвалидов и участников Великой Отечественной войны 1941-1945 годов</div>
+                                        <div class="widget-card__info-block-item">Компенсация понесенных расходов на ритуальные услуги умерших инвалидов и участников Великой Отечественной войны 1941-1945 годов</div>
+                                    </div>
+                                </div>
+                                <a class="widget-card__bottom-link" href="#">Подробнее
+                                    <svg class="widget-card__bottom-link-icon"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tile__item">
+                        <div class="tile__inner">
+                            <div class="widget-card widget-card-calc">
+                                <div class="widget-card__head">
+                                    <h3 class="widget-card__title">Бюджетный калькулятор
+                                        <svg class="widget-card__pin"><use xlink:href="assets/images/icon.svg#icon_pin"></use></svg>
+                                        <button class="widget-card__favor"></button>
+                                    </h3>
+                                </div>
+                                <div class="widget-card__content">
+                                    <div class="widget-card__select">
+                                        <div class="selectbox">
+                                            <select class="selectbox__select" name="select">
+                                                <option value="opt1">Пункты селекта</option>
+                                                <option value="opt2">Еще пункт</option>
+                                                <option value="opt3">Еще пункт2</option>
+                                                <option value="opt4">Еще пункт3</option>
+                                                <option value="opt5" data-locked="data-locked" disabled="disabled">Залоченный пункт</option>
+                                            </select>
+                                            <span class="selectbox__arrow">
+                                                <span></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="widget-card__range">
+                                        <div class="range-for-widgets">
+                                            <div class="range-for-widgets__slider js-range-for-widgets-slider" id="widget_card_calc"></div>
+                                            <div class="range-for-widgets__output">
+                                                <div class="range-for-widgets__min-value">
+                                                    <span class="output-num">0</span>
+                                                </div>
+                                                <div class="range-for-widgets__max-value">
+                                                    <span class="output-num">400,8</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="widget-card__value">
+                                        <div class="widget-card__value-title">Дефицит</div>
+                                        <div class="widget-card__value-value">-47,5</div>
+                                        <div class="widget-card__value-units">млрд руб.</div>
+                                    </div>
+                                </div>
+                                <div class="widget-card__bottom-link-wrap">
+                                    <a class="widget-card__bottom-link widget-card__bottom-link_gradiented" href="#">Предложите свой вариант бюджета!
+                                        <svg class="widget-card__bottom-link-img"><use xlink:href="assets/images/icon.svg#icon_calc"></use></svg>
+                                        <svg class="widget-card__bottom-link-icon"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tile__item">
+                        <div class="tile__inner">
+                            <div class="widget-card widget-card-quiz">
+                                <div class="widget-card__head">
+                                    <h3 class="widget-card__title">Викторины
+                                        <svg class="widget-card__pin"><use xlink:href="assets/images/icon.svg#icon_pin"></use></svg>
+                                        <button class="widget-card__favor"></button>
+                                    </h3>
+                                    <p class="widget-card__subtitle">Проверь свои знания в викторине</p>
+                                </div>
+                                <div class="widget-card__content">
+                                    <div class="widget-card__nav-buttons">
+                                        <a class="arrow-button arrow-button_prev widget-card__arrow-button" href="#">
+                                            <svg class="arrow-button__icon"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
+                                        </a>
+                                        <a class="arrow-button widget-card__arrow-button" href="#">
+                                            <svg class="arrow-button__icon"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
+                                        </a>
+                                    </div>
+                                    <div class="widget-card__info-block-title">История бюджета города Москвы во второй половине XX – начале ХХI века</div>
+                                    <div class="widget-card__info-block-date">Создана 30.01.2017</div>
+                                    <a class="widget-card__bottom-link widget-card__bottom-link_gradiented" href="#">Пройти викторину
+                                        <svg class="widget-card__bottom-link-icon"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
+                                    </a>
+                                </div>
+                                <a class="widget-card__bottom-link" href="#">Подробнее
+                                    <svg class="widget-card__bottom-link-icon"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tile__item">
+                        <div class="tile__inner">
+                            <div class="widget-card widget-card-edu">
+                                <div class="widget-card__head">
+                                    <h3 class="widget-card__title">Обучающий сервис
+                                        <svg class="widget-card__pin"><use xlink:href="assets/images/icon.svg#icon_pin"></use></svg>
+                                        <button class="widget-card__favor"></button>
+                                    </h3>
+                                    <p class="widget-card__subtitle">Пройдите обучающий курс бюджетной тематики</p>
+                                </div>
+                                <div class="widget-card__content">
+                                    <div class="widget-card__lessons">
+                                        <div class="passed-stages widget-card__passed-stages">
+                                            <div class="passed-stages__round">
+                                                <canvas class="sectored_round" width="78" height="78" default-fill="#efefef" stroke-width="7" sector-count="9" fill-sectors=""></canvas>
+                                                <p class="passed-stages__innertext">Пройдено
+                                                    <span>0 из 9</span>уроков</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="widget-card__lessons-list">
+                                        <div class="widget-card__lessons-text widget-card__lessons-text_active">Урок 1: Что такое бюджетая система?</div>
+                                        <div class="widget-card__lessons-text">Урок 2: зачем используется бюджетная классификация?</div>
+                                    </div>
+                                </div>
+                                <div class="widget-card__bottom-link-wrap">
+                                    <a class="widget-card__bottom-link widget-card__bottom-link_gradiented" href="#">Пройти курс
+                                        <svg class="widget-card__bottom-link-img"><use xlink:href="assets/images/icon.svg#icon_true"></use></svg>
+                                        <svg class="widget-card__bottom-link-icon"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tile__item">
+                        <div class="tile__inner">
+                            <div class="widget-card widget-card-regions">
+                                <div class="widget-card__head">
+                                    <h3 class="widget-card__title">Москва и субъекты РФ
+                                        <svg class="widget-card__pin"><use xlink:href="assets/images/icon.svg#icon_pin"></use></svg>
+                                        <button class="widget-card__favor"></button>
+                                    </h3>
+                                </div>
+                                <div class="widget-card__content">
+                                    <div class="widget-card__map">
+                                        <img src="assets/images/map_mini.png" />
+                                    </div>
+                                    <div class="widget-card__search">
+                                        <form class="search search search_widget d-si__search-form" action="#">
+                                            <div class="search__search-line">
+                                                <input class="d-si__search" type="text" placeholder="Поиск" />
+                                                <input class="d-si__submit" type="submit" value="" />
+                                                <svg class="search__submit"><use xlink:href="assets/images/icon.svg#icon_icon-glass"></use></svg>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="widget-card__select">
+                                        <div class="selectbox">
+                                            <select class="selectbox__select" name="select">
+                                                <option value="opt1">Пункты селекта</option>
+                                                <option value="opt2">Еще пункт</option>
+                                                <option value="opt3">Еще пункт2</option>
+                                                <option value="opt4">Еще пункт3</option>
+                                                <option value="opt5" data-locked="data-locked" disabled="disabled">Залоченный пункт</option>
+                                            </select>
+                                            <span class="selectbox__arrow">
+                                                <span></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="widget-card__results">
+                                        <div class="widget-card__results-total">300 тыс. руб. на 1 жителя</div>
+                                        <div class="widget-card__results-rating">
+                                            <div class="widget-card__results-pos">8 место</div>
+                                            <div class="widget-card__results-in">из 85 субъектов РФ</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a class="widget-card__bottom-link" href="#">Подробнее
+                                    <svg class="widget-card__bottom-link-icon"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tile__item">
+                        <div class="tile__inner">
+                            <div class="widget-card widget-card-budget-web">
+                                <div class="widget-card__head">
+                                    <h3 class="widget-card__title">Бюджетная сеть
+                                        <svg class="widget-card__pin"><use xlink:href="assets/images/icon.svg#icon_pin"></use></svg>
+                                        <button class="widget-card__favor"></button>
+                                    </h3>
+                                    <p class="widget-card__subtitle">Сводная информация о сети государственных учреждений г. Москвы</p>
+                                </div>
+                                <div class="widget-card__content">
+                                    <div class="widget-card__map">
+                                        <img src="assets/images/map_mini2.png" />
+                                    </div>
+                                    <div class="widget-card__search">
+                                        <form class="search search search_widget d-si__search-form" action="#">
+                                            <div class="search__search-line">
+                                                <input class="d-si__search" type="text" placeholder="Поиск" />
+                                                <input class="d-si__submit" type="submit" value="" />
+                                                <svg class="search__submit"><use xlink:href="assets/images/icon.svg#icon_icon-glass"></use></svg>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="widget-card__select">
+                                        <div class="selectbox">
+                                            <select class="selectbox__select" name="select">
+                                                <option value="opt1">Пункты селекта</option>
+                                                <option value="opt2">Еще пункт</option>
+                                                <option value="opt3">Еще пункт2</option>
+                                                <option value="opt4">Еще пункт3</option>
+                                                <option value="opt5" data-locked="data-locked" disabled="disabled">Залоченный пункт</option>
+                                            </select>
+                                            <span class="selectbox__arrow">
+                                                <span></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="widget-card__nav-buttons">
+                                        <a class="arrow-button arrow-button_prev widget-card__arrow-button" href="#">
+                                            <svg class="arrow-button__icon"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
+                                        </a>
+                                        <a class="arrow-button widget-card__arrow-button" href="#">
+                                            <svg class="arrow-button__icon"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
+                                        </a>
+                                    </div>
+                                    <div class="widget-card__results">
+                                        <div class="widget-card__results-total">12 детских садов</div>
+                                    </div>
                                 </div>
                                 <a class="widget-card__bottom-link" href="#">Подробнее
                                     <svg class="widget-card__bottom-link-icon"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
