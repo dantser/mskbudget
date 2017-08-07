@@ -27,4 +27,30 @@ export default () => {
     spaceBetween: 30
 
   });
+
+  if ($(window).width() < 641) {
+    var SliderSettings = {
+      nextButton: '.analityc-graphics_round-next',
+      prevButton: '.analityc-graphics_round-prev',
+      slidesPerView: '1',
+      centeredSlides: true,
+      spaceBetween: 30,
+      speed: 500,
+      observer: true,
+      observeParents: true
+    };
+    var analitycGraphicsRound = new Swiper('.round-graphics_slider', SliderSettings);
+
+    var analitycGraphicsColumn = new Swiper('.column-graphics_slider', SliderSettings);
+
+    // $('.analityc-select').on('change', function () {
+    //   if (analitycGraphicsColumn.is(':visible')){
+    //     analitycGraphicsColumn.update();
+    //   } else if (analitycGraphicsRound.is(':visible')){
+    //     analitycGraphicsRound.update();
+    //   }
+    //
+    //
+    // })
+  }
 }

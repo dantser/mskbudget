@@ -223,7 +223,7 @@
       width: 7.2%;
     }
     .analityc-control-group._stage {
-      width: 35.7%;
+      width: 34.7%;
       margin-left: 2.1%;
     }
     .analityc-control-group._level {
@@ -232,7 +232,7 @@
     }
     .analityc-control-group._transfer {
       margin-left: 1.1%;
-      width: 28%;
+      width: 29%;
     }
   }
   .analityc-bottomtip {
@@ -241,7 +241,7 @@
   }
 }
 
-@media screen and (min-width: 761px) and (max-width: 1140px) {
+@media screen and (min-width: 769px) and (max-width: 1140px) {
   .analityc-widgethead {
     .jq-selectbox__select-text {
       font-size: 14px;
@@ -279,7 +279,15 @@
   }
 }
 
-@media screen and (min-width: 761px) and (max-width: 1020px) {
+@media (max-width: 768px) and (min-width: 320px) {
+  .analityc-widget_expenses .analityc-control-group._classify {
+    margin-left: 0;
+    width: 100%;
+    margin-top: 15px;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1020px) {
   .analityc-widgethead .jq-selectbox li {
     font-size: 14px;
     font-family: inherit;
@@ -290,27 +298,29 @@
 }
 
 @media screen and (max-width: 760px) {
+  .analityc-control-buttons + .analityc-control-switcher_large {
+    display: block;
+    margin-left: 0;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
   .analityc-control-button {
     background-size: contain;
   }
   .analityc-control-button + .analityc-control-button {
     margin-left: 20px;
   }
-  .analityc-control-buttons + .analityc-control-switcher_large {
-    display: block;
-    margin-left: 0;
-    width: 100%;
-  }
   .analityc-widget_expenses .analityc-control-group._classify {
     width: 100%;
   }
   .analityc-control-group._classify {
     .analityc-select {
-      box-sizing: border-box;
-      padding-right: 50px;
       width: 100%;
+      white-space: normal;
     }
   }
+
   .analityc-widgethead {
     position: relative;
     .analityc-control-group._stage {
@@ -333,9 +343,12 @@
       margin-top: 0;
     }
   }
+  .analityc-widget_expenses .analityc-widgethead .analityc-control-switcher {
+    margin-left: 0;
+  }
 }
 
-@media screen and (min-width: 551px) and (max-width: 760px) {
+@media screen and (min-width: 551px) and (max-width: 768px) {
   .analityc-control-switcher a {
     font-size: 18px;
     padding: 0 70px;
@@ -348,6 +361,8 @@
     }
     .analityc-select {
       height: 52px;
+      padding: 0 0 0 12px !important;
+      font-size: 20px;
     }
     .jq-selectbox__select-text {
       font-size: 20px;
@@ -360,7 +375,7 @@
       font-family: inherit;
     }
     .analityc-select {
-      background: #f5f5f5 url(../images/select-ar.png) right 14px top 12px no-repeat !important;
+      background: #f5f5f5 url(../images/select-ar.png) right 14px top 20px no-repeat !important;
       background-size: 14px !important;
     }
     .analityc-control-group {
@@ -370,10 +385,10 @@
     .analityc-control-buttons {
       right: 0;
     }
-    .analityc-control-button {
-      width: 80px;
-      height: 50px;
-    }
+    // .analityc-control-button {
+    //   width: 80px;
+    //   height: 50px;
+    // }
   }
   .analityc-bottomtip {
     margin-top: 19px;
