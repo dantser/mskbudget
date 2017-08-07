@@ -2,6 +2,92 @@
   display: block;
   position: relative;
 
+
+//slider
+  .swiper-wrapper {
+    display: inherit;
+    @media screen and (max-width: 640px) {
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+      display: -ms-flexbox;
+      display: -webkit-box;
+    }
+  }
+
+  // .swiper-slide {
+  //   width: 100% !important;
+  // }
+
+  @media screen and (max-width: 640px) {
+    .swiper-container {
+      overflow: visible;
+    }
+    .analityc-graphics_round-next, .analityc-graphics_round-prev {
+      position: absolute;
+      top: 0;
+      bottom: 50%;
+      transform: translateY(100%);
+      margin: auto;
+      z-index: 2;
+      width: 46px;
+      height: 46px;
+      background-color: $color-yellow;
+      color: $color-black;
+      text-indent: -9999px;
+      overflow: hidden;
+      cursor: pointer;
+      user-select: none;
+    }
+    .analityc-graphics_round-next::after, .analityc-graphics_round-prev::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      z-index: 2;
+      width: 14px;
+      height: 14px;
+      border-bottom: 2px solid currentColor;
+    }
+    .analityc-graphics_round-next {
+      right: -40px;
+
+      @media screen and (max-width: 480px) {
+        right: -15px;
+      }
+
+      &::after {
+        right: 8px;
+        border-right: 2px solid currentColor;
+        transform: rotate(-45deg);
+      }
+      &.swiper-button-disabled {
+        background-color: rgba(254, 227, 0, .3);
+      }
+    }
+    .analityc-graphics_round-prev {
+      left: -40px;
+      @media screen and (max-width: 480px) {
+        left: -15px;
+      }
+      &::after {
+        left: 8px;
+        border-left: 2px solid currentColor;
+        transform: rotate(45deg);
+      }
+      &.swiper-button-disabled {
+        background-color: rgba(254, 227, 0, .3);
+      }
+    }
+  }
+
+
+
+  //---slider
+
   &__periodtext {
     font-size: 16px;
     font-weight: 500;
@@ -2074,7 +2160,7 @@
     text-align: center;
     width: 100%;
     white-space: nowrap;
-    overflow: hidden;
+    // overflow: hidden;
   }
   .analityc-graphics__col {
     width: 100%;

@@ -19,7 +19,10 @@ mixin budget_expenses()
         +analityc-graphics-round('expenses4')._approved._kinds
         +analityc-graphics-column('expenses5', true)._changes
         +analityc-table()._changes
-          +table-expenses(getData('expenses1'))
+          +icon('angle-arrow').section__ar.section__ar_left
+          +icon('angle-arrow').section__ar.section__ar_right
+          .analityc-table__wrapper
+            +table-expenses(getData('expenses1'))
         +analityc-graphics-singleround-alt('expenses5')._done
         +analityc-graphics-line('Исполнение расходов бюджета на 22.04.2017', getData('graphic-lines-expenses1'))._date-one
         +analityc-graphics-line('Исполнение расходов бюджета на 01.02.2017', getData('graphic-lines-expenses1'))._date-two
