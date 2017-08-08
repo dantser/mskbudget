@@ -20,6 +20,10 @@ export default () => {
     })
   });
 
+  $('.widget-card__arrow-button').on('click', function (e) {
+    e.preventDefault();
+  });
+
   // виджет москва и города мира
   $('.selectbox_cities').find('li').on('click', function () {
     const newval = $(this).data('val');
