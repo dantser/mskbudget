@@ -1291,6 +1291,31 @@
       line-height: 30px;
     }
 
+    &-abs {
+      display: none;
+      position: absolute;
+      left: -80px;
+      width: 75px;
+      font-size: 14px;
+      line-height: 26px;
+      text-align: center;
+      color: white;
+      border-radius: 2px;
+      z-index: 1;
+      cursor: pointer;
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: -17px;
+        border: 10px solid transparent;
+        border-left: 10px solid;
+      }
+    }
+
     &-total {
       height: 30px;
       width: 33%;
@@ -1300,6 +1325,13 @@
 
       &_green {
         background-image: linear-gradient(to right, #fee300 0%, #30b069 100%);
+      
+        .analityc-multiline__line-abs {
+          background-image: linear-gradient(to right, #fee300 0%, #30b069 100%);
+          &::after {
+            border-left-color: #30b069;
+          }
+        }
       }
 
       &_red {
@@ -1307,10 +1339,28 @@
         .analityc-multiline__line-value {
           color: $color-white;
         }
+
+        .analityc-multiline__line-abs {
+          background-image: linear-gradient(to right, #9d308a 0%, #ff695b 100%);
+          &::after {
+            border-left-color: #ff695b;
+          }
+        }
       }
 
       &_blue {
         background-image: linear-gradient(to right, #004ccf 0%, #00ffff 100%);
+      
+        .analityc-multiline__line-abs {
+          background-image: linear-gradient(to right, #004ccf 0%, #00ffff 100%);
+          &::after {
+            border-left-color: #00ffff;
+          }
+        }
+      }
+
+      &:hover .analityc-multiline__line-abs {
+        display: block;
       }
     }
 

@@ -53,4 +53,15 @@ export default () => {
     //
     // })
   }
+
+  // График analityc-multiline - не показывать попапы для линий со значениями
+  const MULTILINE_BAR = $('.analityc-multiline__line-bar');
+  MULTILINE_BAR.each(function() {
+    if ($(this).outerWidth() > 200) {
+      $(this).find('.analityc-multiline__line-abs').remove();
+    } else {
+      $(this).find('.analityc-multiline__line-value').text('');
+    }
+  })
+
 }
