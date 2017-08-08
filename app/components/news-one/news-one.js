@@ -7,6 +7,6 @@ export default () => {
   })
   $('.news-one__show-more').on('click', function (e) {
     e.preventDefault();
-    $('.tile__item:nth-child(n+4)').css('display', 'inline-flex');
+    $('.tile__item:nth-child(n+4)').css('display', 'inline-block');
   })
 }
