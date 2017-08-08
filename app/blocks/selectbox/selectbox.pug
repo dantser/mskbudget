@@ -8,3 +8,13 @@ mixin selectbox(name, data)
 					option(value=obj.val, data-image=obj.img, data-period=obj.period)= obj.text
 		+e.SPAN.arrow
 			span
+mixin selectbox-cities(name, data)
+	+b.selectbox._cities&attributes(attributes) 
+		+e.SELECT.select(name=name)
+			each obj in data
+				if (obj.locked)
+					option(value=obj.val, data-locked, disabled, data-image=obj.img, data-period=obj.period)= obj.text
+				else
+					option(value=obj.val, data-image=obj.img, data-period=obj.period)= obj.text
+		+e.SPAN.arrow
+			span

@@ -35,7 +35,7 @@ mixin widget-card-regions()
 					+e.map
 						img(src='assets/images/map_mini.png')
 					+e.search
-						+searchFormWidget('Поиск')
+						+searchFormWidget('самарская область')
 					+e.select
 						+selectbox('select', getData('widget-card-selectbox'))
 					+e.results
@@ -64,7 +64,7 @@ mixin widget-card-calc()
 
 mixin widget-card-gov-programs()
 	.tile__item
-		.tile__inner
+		.tile__inner.service
 			+widget-card().widget-card-gov-programs
 				+widget-card-head('Государственные программы', false, true)
 				+widget-card-content()
@@ -177,10 +177,25 @@ mixin widget-card-cities()
 					+e.logo
 						img(src='assets/images/logo.png')
 					+e.select
-						+selectbox('select', getData('widget-card-selectbox'))
+						+selectbox-cities('select', getData('widget-card-selectbox-cities'))
 					+e.select
-						+selectbox('select', getData('widget-card-selectbox'))
-					+e.results
+						+selectbox('select', getData('widget-card-selectbox-cities2'))
+					+e.results._moscow
+						+e.results-total 12 500 тысяч человек
+						+e.results-rating
+							+e.results-pos 8 место
+							+e.results-in из 8 крупнейших городов мира
+					+e.results._london
+						+e.results-total 12 500 тысяч человек
+						+e.results-rating
+							+e.results-pos 8 место
+							+e.results-in из 8 крупнейших городов мира
+					+e.results._paris
+						+e.results-total 12 500 тысяч человек
+						+e.results-rating
+							+e.results-pos 8 место
+							+e.results-in из 8 крупнейших городов мира
+					+e.results._berlin
 						+e.results-total 12 500 тысяч человек
 						+e.results-rating
 							+e.results-pos 8 место
@@ -259,7 +274,7 @@ mixin widget-card-municipalities
 					+e.map
 						img(src='assets/images/map_mini2.png')
 					+e.search
-						+searchFormWidget('Поиск')
+						+searchFormWidget('замоскворечье')
 					+e.select
 						+selectbox('select', getData('widget-card-selectbox'))
 					+e.results
@@ -275,7 +290,7 @@ mixin widget-card-budget-web
 					+e.map
 						img(src='assets/images/map_mini2.png')
 					+e.search
-						+searchFormWidget('Поиск')
+						+searchFormWidget('замоскворечье')
 					+e.select
 						+selectbox('select', getData('widget-card-selectbox-with-icon2')).selectbox-for-widgets
 					+e.nav-buttons
@@ -307,4 +322,3 @@ mixin depfin-services-main()
 				+widget-card-regions()
 				+widget-card-budget-web()
 				
-

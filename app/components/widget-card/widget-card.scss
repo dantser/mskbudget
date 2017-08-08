@@ -88,7 +88,11 @@
     cursor: pointer;
     opacity: 1;
     right: 11px;
-    fill: #aabdda;
+    stroke: #a1b5d4;
+    stroke-width: 4;
+    fill: transparent;
+    transform: scale(-1, 1);
+    transition: all .25s ease-in-out;
 
     &:hover {
       opacity: .7;
@@ -96,11 +100,16 @@
 
     &_active {
       fill: #0d46a1;
+      stroke-width: 1;
     }
 
     @media (max-width: 580px) {
       right: 31px;
     }
+  }
+  .noUi-tooltip {
+    background: #fff;
+    padding: 5px;
   }
 
   &__favor {
@@ -120,7 +129,7 @@
       opacity: .7;
     }
 
-    &.active {
+    &_active {
       background-position: -212px -92px;
     }
   }
@@ -308,7 +317,7 @@
     background-color: #f5f2dc;
   }
 
-  &__info-block-item {  
+  &__info-block-item {
     @include center-block;
     display: none;
     width: 170px;
@@ -341,7 +350,7 @@
       display: inline-block;
     }
   }
-  
+
   &__map {
     display: block;
     width: 125px;
@@ -392,6 +401,10 @@
 
   &__results {
     margin-top: 11px;
+
+    &_paris, &_london, &_berlin {
+      display: none;
+    }
   }
 
   &__results-total {
@@ -415,6 +428,8 @@
     line-height: 14px;
     opacity: .5;
   }
+
+
 
   &__value {
     margin-top: 36px;
@@ -499,9 +514,13 @@
     margin-top: 12px;
   }
 
+  .service-dot-cont {
+    margin-top: 12px;
+  }
+
   @media (max-width: 900px) {
     .dashed-diagram__diagram, .dashed-diagram__diagram .svg {
-      width: 180px!important; 
+      width: 180px!important;
       height: 180px!important;
     }
   }
@@ -515,7 +534,7 @@
 
   @media (max-width: 900px) {
     .segment-diagram, .segment-diagram .svg {
-      width: 197px!important; 
+      width: 197px!important;
       height: 197px!important;
     }
   }
@@ -528,7 +547,7 @@
 
   @media (max-width: 900px) {
     .segment-diagram, .segment-diagram .svg {
-      width: 197px!important; 
+      width: 197px!important;
       height: 197px!important;
     }
   }
