@@ -84,7 +84,7 @@
     height: 18px;
     display: block;
     position: absolute;
-    top: -4px;
+    top: -5px;
     cursor: pointer;
     opacity: 1;
     right: 11px;
@@ -315,6 +315,11 @@
     text-align: center;
     margin-top: 6px;
     background-color: #f5f2dc;
+    overflow: hidden;
+
+    &_opt2, &_opt3, &_opt4 {
+      display: none;
+    }
   }
 
   &__info-block-item {
@@ -405,10 +410,23 @@
     &_paris, &_london, &_berlin {
       display: none;
     }
+
+    &_opt2, &_opt3, &_opt4 {
+      display: none;
+    }
+
+    &_active {
+      display: inline-block;
+    }
   }
+
 
   &__results-total {
     font-size: 22px;
+
+    &_opt2, &_opt3, &_opt4 {
+      display: none;
+    }
   }
 
   &__results-rating {
@@ -629,7 +647,6 @@
   .widget-card__select {
     margin-bottom: 8px;
   }
-
   .widget-card__nav-buttons,
   .widget-card__results {
     display: inline-block;
@@ -637,11 +654,21 @@
     margin-top: 0;
   }
 
-  .widget-card__nav-buttons {
-
-  }
-
   .widget-card__results {
-    margin-left: 10px;
+    &_opt1, &_opt2, &_opt3, &_opt4 {
+      display: none;
+    }
   }
+
+  .widget-card__results_active {
+    display: inline-block;
+  }
+
+  .widget-card__nav-buttons {
+    margin-right: 10px;
+  }
+
+  // .widget-card__results {
+  //   margin-left: 10px;
+  // }
 }

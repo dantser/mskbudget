@@ -38,7 +38,22 @@ mixin widget-card-regions()
 						+searchFormWidget('самарская область')
 					+e.select
 						+selectbox('select', getData('widget-card-selectbox'))
-					+e.results
+					+e.results._opt1
+						+e.results-total 300 тыс. руб. на 1 жителя
+						+e.results-rating 
+							+e.results-pos 8 место
+							+e.results-in из 85 субъектов РФ
+					+e.results._opt2
+						+e.results-total 300 тыс. руб. на 1 жителя
+						+e.results-rating 
+							+e.results-pos 8 место
+							+e.results-in из 85 субъектов РФ
+					+e.results._opt3
+						+e.results-total 300 тыс. руб. на 1 жителя
+						+e.results-rating 
+							+e.results-pos 8 место
+							+e.results-in из 85 субъектов РФ
+					+e.results._opt4
 						+e.results-total 300 тыс. руб. на 1 жителя
 						+e.results-rating 
 							+e.results-pos 8 место
@@ -214,10 +229,22 @@ mixin widget-card-gov-programs-result()
 					+e.nav-buttons
 						+arrow-button()._prev.widget-card__arrow-button
 						+arrow-button().widget-card__arrow-button
-					+e.info-block-items
+					+e.info-block-items._opt1
 						+e.info-block-item._active Будет построено 10 новых стадионов
-						+e.info-block-item Будет построено 10 новых стадионов
-						+e.info-block-item Будет построено 10 новых стадионов
+						+e.info-block-item Будет построено 11 новых стадионов
+						+e.info-block-item Будет построено 12 новых стадионов
+					+e.info-block-items._opt2
+						+e.info-block-item._active Будет построено 13 новых стадионов
+						+e.info-block-item Будет построено 14 новых стадионов
+						+e.info-block-item Будет построено 15 новых стадионов
+					+e.info-block-items._opt3
+						+e.info-block-item._active Будет построено 16 новых стадионов
+						+e.info-block-item Будет построено 17 новых стадионов
+						+e.info-block-item Будет построено 18 новых стадионов
+					+e.info-block-items._opt4
+						+e.info-block-item._active Будет построено 19 новых стадионов
+						+e.info-block-item Будет построено 20 новых стадионов
+						+e.info-block-item Будет построено 21 новых стадионов
 				+widget-card-bottom-link()
 
 mixin widget-card-social-support()
@@ -231,7 +258,19 @@ mixin widget-card-social-support()
 					+e.nav-buttons
 						+arrow-button()._prev.widget-card__arrow-button
 						+arrow-button().widget-card__arrow-button
-					+e.info-block-items
+					+e.info-block-items._opt1
+						+e.info-block-item._active Компенсация понесенных расходов на ритуальные услуги умерших инвалидов и участников Великой Отечественной войны 1941-1945 годов
+						+e.info-block-item Компенсация понесенных расходов на ритуальные услуги умерших инвалидов и участников Великой Отечественной войны 1941-1945 годов
+						+e.info-block-item Компенсация понесенных расходов на ритуальные услуги умерших инвалидов и участников Великой Отечественной войны 1941-1945 годов
+					+e.info-block-items._opt2
+						+e.info-block-item._active Компенсация понесенных расходов на ритуальные услуги умерших инвалидов и участников Великой Отечественной войны 1941-1945 годов
+						+e.info-block-item Компенсация понесенных расходов на ритуальные услуги умерших инвалидов и участников Великой Отечественной войны 1941-1945 годов
+						+e.info-block-item Компенсация понесенных расходов на ритуальные услуги умерших инвалидов и участников Великой Отечественной войны 1941-1945 годов
+					+e.info-block-items._opt3
+						+e.info-block-item._active Компенсация понесенных расходов на ритуальные услуги умерших инвалидов и участников Великой Отечественной войны 1941-1945 годов
+						+e.info-block-item Компенсация понесенных расходов на ритуальные услуги умерших инвалидов и участников Великой Отечественной войны 1941-1945 годов
+						+e.info-block-item Компенсация понесенных расходов на ритуальные услуги умерших инвалидов и участников Великой Отечественной войны 1941-1945 годов
+					+e.info-block-items._opt4
 						+e.info-block-item._active Компенсация понесенных расходов на ритуальные услуги умерших инвалидов и участников Великой Отечественной войны 1941-1945 годов
 						+e.info-block-item Компенсация понесенных расходов на ритуальные услуги умерших инвалидов и участников Великой Отечественной войны 1941-1945 годов
 						+e.info-block-item Компенсация понесенных расходов на ритуальные услуги умерших инвалидов и участников Великой Отечественной войны 1941-1945 годов
@@ -276,9 +315,12 @@ mixin widget-card-municipalities
 					+e.search
 						+searchFormWidget('замоскворечье')
 					+e.select
-						+selectbox('select', getData('widget-card-selectbox'))
+						+selectbox('select', getData('widget-card-selectbox-vmo'))
 					+e.results
-						+e.results-total 57 700 человек
+						+e.results-total._opt1 57 700 человек
+						+e.results-total._opt2 57 700 кв.м
+						+e.results-total._opt3 57 700 децибел
+						+e.results-total._opt4 57 700 атомов
 				+widget-card-bottom-link()
 
 mixin widget-card-budget-web
@@ -296,8 +338,14 @@ mixin widget-card-budget-web
 					+e.nav-buttons
 						+arrow-button()._prev.widget-card__arrow-button
 						+arrow-button().widget-card__arrow-button
-					+e.results
+					+e.results._opt1._active
 						+e.results-total 12 детских садов
+					+e.results._opt2
+						+e.results-total 13 школ
+					+e.results._opt3
+						+e.results-total 14 больниц
+					+e.results._opt4
+						+e.results-total 15 
 				+widget-card-bottom-link()
 
 mixin depfin-services-main()
