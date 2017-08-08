@@ -24,6 +24,11 @@
     text-decoration: none;
     @include transited;
 
+    .blindmode-header & {
+      text-transform: uppercase;
+    }
+
+
     &:active,
     &:focus {
       color: white;
@@ -103,6 +108,11 @@
       right: -100vw;
       background-color: black;
       @include transited;
+
+      .blindmode-header & {
+        background-color: white;
+        border-top: 1px solid black;
+      }
     }
 
     &__list { // ul
@@ -125,6 +135,10 @@
       line-height: 1;
       text-decoration: none;
       @include transited;
+
+      .blindmode-header & {
+        font-size: 18px;
+      }
 
       &.is-active {
         font-weight: 500;
@@ -157,6 +171,10 @@
 
     .submenu__link {
       font-size: 14px;
+
+      .blindmode-header & {
+        font-size: 18px;
+      }
     }
   }
 }

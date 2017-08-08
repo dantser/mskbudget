@@ -94,6 +94,10 @@ body.mobile-menu-is-open {
       // height: $navHeightXXL;
       padding-left: 300px !important;
       padding-right: 0 !important;
+
+      .blindmode-header & {
+        padding-left: 250px !important;
+      }
     }
 
     @media (min-width: $navBreakpointTablet + 1px) {
@@ -152,6 +156,10 @@ body.mobile-menu-is-open {
         position: absolute;
         top: 37px;
         left: -300px;
+
+        .blindmode-header & {
+          left: -250px;
+        }
       }
     }
   }
@@ -613,11 +621,19 @@ body.mobile-menu-is-open {
     fill: #fee300;
   }
 
+  .blindmode-header & {
+    line-height: 19px;
+  }
+
   &__icon {
     display: inline-block;
     vertical-align: top;
     max-width: 27px;
     max-height: 19px;
+
+    .blindmode-header & {
+      display: none;
+    }
   }
 
   &__text {

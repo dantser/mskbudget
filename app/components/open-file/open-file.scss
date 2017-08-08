@@ -154,6 +154,95 @@
   .alternative-link {
     margin-bottom: 3px;
   }
+
+  &__popups {
+    display: none;
+    margin-top: 48px;
+    background-color: $color-white;
+  }
+
+  &__popup-head {
+    position: relative;
+    padding: 20px 70px 20px 40px;
+    background-color: $color-yellow;
+  }
+
+  &__popup-title {
+    font-size: 24px;
+    line-height: 24px;
+    text-transform: uppercase;
+  }
+
+  &__popup-close {
+    @include center-block;
+    transform: translateY(-50%);
+    left: auto;
+    right: 43px;
+    width: 20px;
+    height: 20px;
+    fill: $color-black;
+    cursor: pointer;
+  }
+
+  &__popup-content {
+    font-family: $PFDinTextPro;
+    padding: 33px 135px 92px 206px;
+    color: $color-black;
+    font-weight: 400;
+  }
+
+  &__popup-text {
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: -.3px;
+
+    &_bold {
+      line-height: 20px;
+      font-weight: 900;
+      letter-spacing: 0px;
+      margin-top: 18px;
+    }
+
+    &_small {
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
+
+  &__popup-list {
+    padding-left: 34px;
+    font-size: 16px;
+    line-height: 20px;
+    margin-top: 20px;
+  }
+
+  &__popup-item {
+    line-height: 20px;
+
+    & + .open-file__popup-item {
+      margin-top: 10px;
+    }
+  }
+
+  &__popup-terms {
+    .open-file__popup-text_small {
+      margin-top: 20px;
+    }
+  }
+
+  &__popup-termin {
+    font-weight: 900;
+  }
+
+  &__popup-about {
+    .open-file__popup-text:nth-child(2) {
+      margin-top: 25px;
+    }
+
+    .open-file__popup-text_small {
+      margin-top: 19px;
+    }
+  }
 }
 
 
