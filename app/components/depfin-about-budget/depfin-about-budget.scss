@@ -465,8 +465,17 @@
     .whatIsBudget-line {
         bottom: calc(100% - 25px) !important;
     }
-    .whatIsBudget-revenues__item {
-        position: static;
+    .whatIsBudget-revenues__item .whatIsBudget-revenues__examples {
+        top: 0!important;
+        transform: none;
+        width: auto!important;
+        margin-left: 0!important;
+    }
+    .whatIsBudget-revenues__item .whatIsBudget-revenues__examples:before {
+        display: none!important;
+    }
+    .whatIsBudget-financingOfDeficit:nth-child(7) .whatIsBudget-publicDebt__close {
+        top: 20px;
     }
 }
 
@@ -540,6 +549,11 @@
 .whatIsBudget-financingOfDeficit__line5 {
     height: 80px;
 }
+.whatIsBudget-publicDebt__close {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+}
 
 @media screen and (max-width: 1000px) {
     .whatIsBudget-financingOfDeficit__wrapper {
@@ -585,6 +599,9 @@
         margin-right: -6px;
         top: 50%;
         transform: translateY(calc(-50% + 2px));
+    }
+    .whatIsBudget-publicDebt__close {
+        top: -30px;
     }
 }
 
