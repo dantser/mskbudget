@@ -1,20 +1,30 @@
 .service__icon {
-  width: 18px;
-  height: 18px;
+  width: 17px;
+  height: 17px;
   display: block;
   position: absolute;
   top: 0;
   cursor: pointer;
   opacity: 1;
   right: 19px;
-  fill: #AABDDA;
-
-  &_active {
-    fill: $color-link;
-  }
+  stroke: #a1b5d4;
+  stroke-width: 4;
+  fill: transparent;
+  transform: scale(-1, 1);
+  transition: all .25s ease-in-out;
 
   &:hover {
     opacity: .7;
+  }
+
+  &_active {
+    fill: #0d46a1;
+    stroke-width: 1;
+  }
+
+  @media screen and (max-width: 320px) {
+    right: 16px;
+    width: 15px;
   }
 }
 
@@ -787,8 +797,8 @@
 
 @media (max-width: 580px) {
   .wrapper_main {
-    [data-slick-index="4"] .large-diagram { 
-      top: calc(50% + 19px); 
+    [data-slick-index="4"] .large-diagram {
+      top: calc(50% + 19px);
     }
   }
 }
@@ -799,8 +809,8 @@
       padding: 13.625rem 30px 0;
     }
 
-    .banner_ban-3 .banner__wrap { 
-      padding: 8.625rem 30px 0; 
+    .banner_ban-3 .banner__wrap {
+      padding: 8.625rem 30px 0;
     }
 
     .sections__ahead .wrap, .sections__subscribe .wrap {

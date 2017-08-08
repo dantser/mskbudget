@@ -84,7 +84,7 @@
     height: 18px;
     display: block;
     position: absolute;
-    top: -4px;
+    top: -5px;
     cursor: pointer;
     opacity: 1;
     right: 11px;
@@ -196,12 +196,20 @@
       background: -webkit-linear-gradient(left, #30b069, #fee300);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+
+      @media screen\0 {
+        color: #30b069;
+      }
     }
 
     &_neg {
       background: -webkit-linear-gradient(left, #021398, #ff0036);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+
+      @media screen\0 {
+        color: #021398;
+      }
     }
   }
 
@@ -242,6 +250,10 @@
       background: -webkit-linear-gradient(#004ccf, #00ffff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+
+      @media screen\0 {
+        color: #004ccf;
+      }
     }
   }
 
@@ -315,6 +327,11 @@
     text-align: center;
     margin-top: 6px;
     background-color: #f5f2dc;
+    overflow: hidden;
+
+    &_opt2, &_opt3, &_opt4 {
+      display: none;
+    }
   }
 
   &__info-block-item {
@@ -405,10 +422,23 @@
     &_paris, &_london, &_berlin {
       display: none;
     }
+
+    &_opt2, &_opt3, &_opt4 {
+      display: none;
+    }
+
+    &_active {
+      display: inline-block;
+    }
   }
+
 
   &__results-total {
     font-size: 22px;
+
+    &_opt2, &_opt3, &_opt4 {
+      display: none;
+    }
   }
 
   &__results-rating {
@@ -629,7 +659,6 @@
   .widget-card__select {
     margin-bottom: 8px;
   }
-
   .widget-card__nav-buttons,
   .widget-card__results {
     display: inline-block;
@@ -637,11 +666,21 @@
     margin-top: 0;
   }
 
-  .widget-card__nav-buttons {
-
-  }
-
   .widget-card__results {
-    margin-left: 10px;
+    &_opt1, &_opt2, &_opt3, &_opt4 {
+      display: none;
+    }
   }
+
+  .widget-card__results_active {
+    display: inline-block;
+  }
+
+  .widget-card__nav-buttons {
+    margin-right: 10px;
+  }
+
+  // .widget-card__results {
+  //   margin-left: 10px;
+  // }
 }
