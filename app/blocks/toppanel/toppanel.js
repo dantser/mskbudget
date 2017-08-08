@@ -6,7 +6,7 @@ export default function toppanel() {
   const $navbarDrop = $('#headerDrop');
   const $trigger = $('*[data-toggle-toppanel]');
 
-  if ($toppanel && $navbar && $navbarDrop && $trigger) {
+  if ($toppanel && $navbar && $trigger) {
     $trigger.on('click', (e) => {
       e.preventDefault();
 
