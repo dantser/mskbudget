@@ -58,15 +58,24 @@ export default function selectbox() {
       selBox.addClass('active');
     });
 
+    $(this).on('click', function (e) {
+      $(this).find('select').click();
+      e.stopPropagation();
+    })
+
     $('.selectbox__arrow').on('mousedown click', function (e) {
       e.preventDefault();
       e.stopPropagation();
-      selBox.addClass('active');
+      $(this).parents('.selectbox').addClass('active');
     });
     selBox.find('ul').click(function () {
       $(this).removeClass('active');
+
+      setTimeout(function () {
+        $('body').click();
+      },100)
     });
-    $('html').click(() => {
+    $('body, html').click(() => {
       $('.selectbox').removeClass('active');
     });
   });
