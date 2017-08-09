@@ -297,6 +297,8 @@
     }
   }
 
+
+
   &__info-block {
     padding: 15px 0 16px;
   }
@@ -340,9 +342,19 @@
     @include center-block;
     display: none;
     width: 170px;
+    transition: all 0.5s ease-in-out;
 
     &_active {
-      display: block;
+      display: block !important;
+    }
+  }
+
+  &__info {
+
+    display: none;
+
+    &_active {
+      display: block!important;
     }
   }
 
@@ -432,6 +444,14 @@
 
     &_active {
       display: inline-block;
+    }
+
+    &-total {
+      display: none;
+
+      &_active {
+        display: inline-block;
+      }
     }
   }
 

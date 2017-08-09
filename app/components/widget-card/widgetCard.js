@@ -20,21 +20,102 @@ export default () => {
     })
   });
 
-  $('.widget-card__arrow-button').on('click', function (e) {
+  // стрелочки в виджетах
+  $('.arrow-button_next').on('click', function (e) {
     e.preventDefault();
+    const widgetCard = $(this).parents('.widget-card').find('.widget-card__info-block-items_active');
+
+    widgetCard.find('.widget-card__info-block-item_active')
+    .removeClass('widget-card__info-block-item_active')
+    .next('.widget-card__info-block-item').addClass('widget-card__info-block-item_active');
+
+    if (!widgetCard.find('.widget-card__info-block-item').is('.widget-card__info-block-item_active')) {
+      widgetCard.find('.widget-card__info-block-item:first-child').addClass('widget-card__info-block-item_active');
+    }
   });
 
-  $('.widget-card__title').each(function () {
-    $(this).on('click', function () {
-      var $this = $(this);
-      $this.parents('.widget-card').find('.service__diagram-tabs').hide();
-      $this.parents('.widget-card').toggleClass('widget-card_active');
-      $this.parents('.widget-card__head').siblings().slideToggle(321);
-      setTimeout(function () {
-        $this.parents('.widget-card').find('.service__diagram-tabs').show();
-      }, 321)
-    })
+  $('.arrow-button_prev').on('click', function (e) {
+    e.preventDefault();
+    const widgetCard = $(this).parents('.widget-card').find('.widget-card__info-block-items_active');
+
+    widgetCard.find('.widget-card__info-block-item_active')
+    .removeClass('widget-card__info-block-item_active')
+    .prev('.widget-card__info-block-item').addClass('widget-card__info-block-item_active', 100);
+
+    if (!widgetCard.find('.widget-card__info-block-item').is('.widget-card__info-block-item_active')) {
+      widgetCard.find('.widget-card__info-block-item:last-child').addClass('widget-card__info-block-item_active');
+    }
   });
+
+  // опросы и обучающий сервис
+  $('.widget-card-polls .arrow-button_next, .widget-card-quiz .arrow-button_next').on('click', function (e) {
+    e.preventDefault();
+    const widgetCard = $(this).parents('.widget-card').find('.widget-card__info-block_active');
+
+    widgetCard.find('.widget-card__info_active').removeClass('widget-card__info_active')
+    .next('.widget-card__info').addClass('widget-card__info_active');
+
+    if (!widgetCard.find('.widget-card__info').is('.widget-card__info_active')) {
+      widgetCard.find('.widget-card__info:first-child').addClass('widget-card__info_active');
+    }
+  });
+
+  $('.widget-card-polls .arrow-button_prev, .widget-card-quiz .arrow-button_prev').on('click', function (e) {
+    e.preventDefault();
+    const widgetCard = $(this).parents('.widget-card').find('.widget-card__info-block_active');
+
+    widgetCard.find('.widget-card__info_active').removeClass('widget-card__info_active')
+    .prev('.widget-card__info').addClass('widget-card__info_active');
+
+    if (!widgetCard.find('.widget-card__info').is('.widget-card__info_active')) {
+      widgetCard.find('.widget-card__info:last-child').addClass('widget-card__info_active');
+    }
+  });
+
+  // бюджетная сеть
+  $('.widget-card-budget-web .arrow-button_next').on('click', function (e) {
+    e.preventDefault();
+    const widgetCard = $(this).parents('.widget-card').find('.widget-card__results_active');
+
+    widgetCard.find('.widget-card__results-total_active')
+    .removeClass('widget-card__results-total_active')
+    .next('.widget-card__results-total').addClass('widget-card__results-total_active');
+
+    if (!widgetCard.find('.widget-card__results-total').is('.widget-card__results-total_active')) {
+      widgetCard.find('.widget-card__results-total:first-child').addClass('widget-card__results-total_active');
+    }
+  });
+
+  $('.widget-card-budget-web .arrow-button_prev').on('click', function (e) {
+    e.preventDefault();
+    const widgetCard = $(this).parents('.widget-card').find('.widget-card__results_active');
+
+    widgetCard.find('.widget-card__results-total_active')
+    .removeClass('widget-card__results-total_active')
+    .prev('.widget-card__results-total').addClass('widget-card__results-total_active');
+
+    if (!widgetCard.find('.widget-card__results-total').is('.widget-card__results-total_active')) {
+      widgetCard.find('.widget-card__results-total:last-child').addClass('widget-card__results-total_active');
+    }
+  });
+
+//конец стрелочек в виджетах
+
+
+// сворачивание-разворачивание карточек в мобильной версии
+  if ($(window).width() < 581) {
+    $('.widget-card__title').each(function () {
+      $(this).on('click', function () {
+        var $this = $(this);
+        $this.parents('.widget-card').find('.service__diagram-tabs').hide();
+        $this.parents('.widget-card').toggleClass('widget-card_active');
+        $this.parents('.widget-card__head').siblings().slideToggle(321);
+        setTimeout(function () {
+          $this.parents('.widget-card').find('.service__diagram-tabs').show();
+        }, 321)
+      })
+    })
+  };
 
   // виджет москва и города мира
   $('.selectbox_cities').find('li').on('click', function () {
@@ -60,13 +141,13 @@ export default () => {
     const newval = $(this).data('val');
     $('.widget-card-gov-programs-result').find('.widget-card__info-block-items').hide();
     if (newval == "opt1") {
-      $('.widget-card-gov-programs-result .widget-card__info-block-items_opt1').show(321);
+      $('.widget-card-gov-programs-result .widget-card__info-block-items_opt1').show(321).addClass('widget-card__info-block-items_active');
     } else if (newval == "opt2") {
-      $('.widget-card-gov-programs-result .widget-card__info-block-items_opt2').show(321);
+      $('.widget-card-gov-programs-result .widget-card__info-block-items_opt2').show(321).addClass('widget-card__info-block-items_active');
     } else if (newval == "opt3") {
-      $('.widget-card-gov-programs-result .widget-card__info-block-items_opt3').show(321);
+      $('.widget-card-gov-programs-result .widget-card__info-block-items_opt3').show(321).addClass('widget-card__info-block-items_active');
     } else if (newval == "opt4") {
-      $('.widget-card-gov-programs-result .widget-card__info-block-items_opt4').show(321);
+      $('.widget-card-gov-programs-result .widget-card__info-block-items_opt4').show(321).addClass('widget-card__info-block-items_active');
     }
   });
   // виджет социальная поддержка населения
@@ -74,13 +155,13 @@ export default () => {
     const newval = $(this).data('val');
     $('.widget-card-social-support').find('.widget-card__info-block-items').hide();
     if (newval == "opt1") {
-      $('.widget-card-social-support .widget-card__info-block-items_opt1').show(321);
+      $('.widget-card-social-support .widget-card__info-block-items_opt1').show(321).addClass('widget-card__info-block-items_active');
     } else if (newval == "opt2") {
-      $('.widget-card-social-support .widget-card__info-block-items_opt2').show(321);
+      $('.widget-card-social-support .widget-card__info-block-items_opt2').show(321).addClass('widget-card__info-block-items_active');
     } else if (newval == "opt3") {
-      $('.widget-card-social-support .widget-card__info-block-items_opt3').show(321);
+      $('.widget-card-social-support .widget-card__info-block-items_opt3').show(321).addClass('widget-card__info-block-items_active');
     } else if (newval == "opt4") {
-      $('.widget-card-social-support .widget-card__info-block-items_opt4').show(321);
+      $('.widget-card-social-support .widget-card__info-block-items_opt4').show(321).addClass('widget-card__info-block-items_active');
     }
   });
   // виджет внутригородские муниципальные образования
