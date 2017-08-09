@@ -51,6 +51,12 @@ export default () => {
       e.stopPropagation();
       $('.news-page__buttons-set-wrapper').addClass('active');
       $('.news-page__buttons-set').slideDown();
+
+      const activeText = $(this).find('.output');
+      $('.button-light').on('click', function () {
+        const newText = $(this).html();
+        activeText.text(newText);
+      })
     });
 
     $('html').click(function(){
@@ -86,7 +92,7 @@ export default () => {
       }
       else {
         if (i % 3 == 0) {
-          news[i-1].css('margin-right', '0');  
+          news[i-1].css('margin-right', '0');
         }
       }
     }
