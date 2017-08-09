@@ -54,10 +54,20 @@ export default () => {
     // })
   }
 
-  // График analityc-multiline - не показывать попапы для линий со значениями
+  // График analityc-multiline - попапы для коротких линий
   const MULTILINE_BAR = $('.analityc-multiline__line-bar');
+
+  var MULTILINE_BAR_WIDTH = 80;
+
+  $(window).on('load resize', function() {
+    if ($(window).width() <= 900)
+      MULTILINE_BAR_WIDTH = 150;
+    else
+      MULTILINE_BAR_WIDTH = 80;
+  });
+
   MULTILINE_BAR.each(function() {
-    if ($(this).outerWidth() > 200) {
+    if ($(this).outerWidth() > 80) {
       $(this).find('.analityc-multiline__line-abs').remove();
     } else {
       $(this).find('.analityc-multiline__line-value').text('');

@@ -1179,6 +1179,10 @@
 
   .analityc-graphics__periodtext {
     width: 61%;
+
+    @media (max-width: 1140px) {
+      display: none;
+    }
   }
 
   .graphic {
@@ -1187,6 +1191,15 @@
       display: table;
       width: 100%;
       margin-bottom: 25px;
+
+      @media (max-width: 900px) {
+        margin-bottom: 31px;
+      }  
+
+      @media (max-width: 450px) {
+        margin-bottom: 10px;
+      }  
+
     }
 
     &__title {
@@ -1196,6 +1209,15 @@
       font-weight: 400;
       line-height: 16px;
       margin-right: 26px;
+
+      @media (max-width: 1140px) {
+        width: 30%;
+      }
+
+      @media (max-width: 450px) {
+        width: 8%;
+      }
+
     }
 
     &__data {
@@ -1215,6 +1237,19 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
 
+      @media (max-width: 1140px) {
+        width: 19%;
+      }
+
+      @media (max-width: 900px) {
+        font-size: 30px;
+      }
+
+      @media (max-width: 450px) {
+        width: 16%;
+        font-size: 15px;
+      }
+
       &:nth-child(3) {
         background-image: linear-gradient(to right, #9d308a 0%, #ff695b 100%);
       }
@@ -1225,6 +1260,15 @@
 
       &:last-child {
         width: 6%;
+
+        @media (max-width: 1140px) {
+          width: 4%;
+        }
+
+        @media (max-width: 1140px) {
+          width: 9%;
+        }
+        
       }
     }
 
@@ -1235,6 +1279,10 @@
       border: 1px solid #d7d7d7;
       border-bottom: 0;
       margin-bottom: 2px;
+
+      @media (max-width: 1140px) {
+        display: none;
+      }
     }
 
     &__period-left {
@@ -1250,36 +1298,95 @@
     }
   }
 
-
-
   &__title {
+    position: relative;
     font-size: 14px;
     cursor: pointer;
     font-family: $PFDinTextPro;
     font-weight: 400;
     text-decoration: underline !important;
     color: $color-link;
-    width: 22%;
+    width: 25.5%;
     display: inline-block;
     vertical-align: middle;
     margin-right: 20px;
+    padding-left: 32px;
+
+    @media (max-width: 1140px) {
+      width: 28%;
+    }
+
+    @media (max-width: 900px) {
+      width: 8%;
+      font-size: 0;
+    }
+
+    @media (max-width: 450px) {
+      width: 4%;
+      padding-left: 0;
+    }
+
+    &-icon {
+      @include center-block;
+      left: 0;
+      transform: translateY(-50%);
+      display: block;
+      width: 23px;
+      height: 23px;
+
+      @media (max-width: 900px) {
+        width: 50px;
+        height: 50px;
+      }
+
+      @media (max-width: 450px) {
+        width: 23px;
+        height: 23px;
+      }      
+    }
   }
 
   &__line {
     margin-bottom: 8px;
 
+    @media (max-width: 900px) {
+      margin-bottom: 15px;
+    }
+
+    @media (max-width: 450px) {
+      margin-bottom: 4px;
+    }
+
+
     &-bar {
       display: inline-block;
       vertical-align: middle;
       position: relative;
-      width: 70%;
+      width: 68%;
+
+      @media (max-width: 1140px) {
+        width: 65%;
+      }
+
+      @media (max-width: 900px) {
+        width: 75%;
+      }      
 
       &-value {
         font-size: 14px;
         display: inline-block;
         vertical-align: middle;
-        margin-left: 10px;
+        margin-left: 5px;
         line-height: 30px;
+
+        @media (max-width: 900px) {
+          font-size: 24px;
+        } 
+
+        @media (max-width: 450px) {
+          font-size: 12px;
+        } 
+
       }
     }
 
@@ -1289,6 +1396,17 @@
       color: $color-black;
       text-align: center;
       line-height: 30px;
+
+      @media (max-width: 900px) {
+        font-size: 24px;
+        line-height: 53px;
+      }
+
+      @media (max-width: 450px) {
+        font-size: 12px;
+        line-height: 27px;
+      }
+
     }
 
     &-abs {
@@ -1322,6 +1440,13 @@
       display: inline-block;
       vertical-align: middle;
 
+      @media (max-width: 900px) {
+        height: 53px;
+      }
+      
+      @media (max-width: 450px) {
+        height: 27px;
+      }      
 
       &_green {
         background-image: linear-gradient(to right, #fee300 0%, #30b069 100%);
@@ -1369,78 +1494,156 @@
     &_social {
       .analityc-multiline__line-bar {
         width: 60%;
+        @media (max-width: 1140px) {
+          width: 57%;
+        }
+        @media (max-width: 900px) {
+          width: 67%;
+        }
       }
     }
 
     &_edu {
       .analityc-multiline__line-bar {
-        width: 55%;
+        width: 44%;
+        @media (max-width: 1140px) {
+          width: 41%;
+        }
+        @media (max-width: 900px) {
+          width: 51%;
+        }
       }
     }
 
     &_healthcare {
       .analityc-multiline__line-bar {
-        width: 50%;
+        width: 37%;
+        @media (max-width: 1140px) {
+          width: 34%;
+        }
+        @media (max-width: 900px) {
+          width: 44%;
+        }
       }
     }
 
     &_home {
       .analityc-multiline__line-bar {
-        width: 30%;
+        width: 16%;
+        @media (max-width: 1140px) {
+          width: 13%;
+        }
+        @media (max-width: 900px) {
+          width: 23%;
+        }
       }
     }
 
     &_environment {
       .analityc-multiline__line-bar {
-        width: 25%;
+        width: 11%;
+        @media (max-width: 1140px) {
+          width: 8%;
+        }
+        @media (max-width: 900px) {
+          width: 18%;
+        }
       }
     }
 
     &_utilities {
       .analityc-multiline__line-bar {
-        width: 23%;
+        width: 10%;
+        @media (max-width: 1140px) {
+          width: 7%;
+        }
+        @media (max-width: 900px) {
+          width: 17%;
+        }
       }
     }
 
     &_info {
       .analityc-multiline__line-bar {
-        width: 21%;
+        width: 8%;
+        @media (max-width: 1140px) {
+          width: 5%;
+        }
+        @media (max-width: 900px) {
+          width: 15%;
+        }
       }
     }
 
     &_culture {
       .analityc-multiline__line-bar {
-        width: 19%;
+        width: 6%;
+        @media (max-width: 1140px) {
+          width: 3%;
+        }
+        @media (max-width: 900px) {
+          width: 13%;
+        }
       }
     }
 
     &_sport {
       .analityc-multiline__line-bar {
-        width: 17%;
+        width: 6%;
+        @media (max-width: 1140px) {
+          width: 3%;
+        }
+        @media (max-width: 900px) {
+          width: 13%;
+        }
       }
     }
 
     &_economics {
       .analityc-multiline__line-bar {
-        width: 15%;
+        width: 5%;
+        @media (max-width: 1140px) {
+          width: 2.5%;
+        }
+        @media (max-width: 900px) {
+          width: 13%;
+        }
       }
     }
 
     &_safety {
       .analityc-multiline__line-bar {
-        width: 13%;
+        width: 4%;
+        @media (max-width: 1140px) {
+          width: 2%;
+        }
+        @media (max-width: 900px) {
+          width: 12%;
+        }
       }
     }
 
     &_urban {
       .analityc-multiline__line-bar {
-        width: 11%;
+        width: 2.5%;
+        @media (max-width: 1140px) {
+          width: 1.5%;
+        }
+        @media (max-width: 900px) {
+          width: 11%;
+        }
       }
     }
 
     &_openness {
       .analityc-multiline__line-bar {
-        width: 9%;
+        width: 2%;
+        @media (max-width: 1140px) {
+          width: 1.5%;
+        }
+        @media (max-width: 900px) {
+          width: 11%;
+        }
       }
     }
   }
@@ -1452,16 +1655,28 @@
   margin-top: 50px;
 
   &__title {
+    position: relative;
     font-size: 14px;
     cursor: pointer;
     font-family: $PFDinTextPro;
     font-weight: 400;
     text-decoration: underline !important;
     color: $color-link;
-    width: 22%;
+    width: 25.5%;
+    /*width: 22%;*/
     display: inline-block;
     vertical-align: middle;
     margin-right: 20px;
+    padding-left: 32px;
+
+    &-icon {
+      @include center-block;
+      left: 0;
+      transform: translateY(-50%);
+      display: block;
+      width: 23px;
+      height: 23px;
+    }
   }
 
   &__line {
@@ -1481,7 +1696,7 @@
       display: inline-block;
       vertical-align: middle;
       position: relative;
-      width: 70%;
+      width: 72%;
 
       &-value {
         font-size: 14px;
@@ -1519,79 +1734,79 @@
 
     &_social {
       .analityc-line__line-bar {
-        width: 60%;
+        width: 65%;
       }
     }
 
     &_edu {
       .analityc-line__line-bar {
-        width: 55%;
+        width: 46%;
       }
     }
 
     &_healthcare {
       .analityc-line__line-bar {
-        width: 50%;
+        width: 39%;
       }
     }
 
     &_home {
       .analityc-line__line-bar {
-        width: 30%;
+        width: 17%;
       }
     }
 
     &_environment {
       .analityc-line__line-bar {
-        width: 25%;
+        width: 14.5%;
       }
     }
 
     &_utilities {
       .analityc-line__line-bar {
-        width: 23%;
+        width: 11.5%;
       }
     }
 
     &_info {
       .analityc-line__line-bar {
-        width: 21%;
+        width: 9%;
       }
     }
 
     &_culture {
       .analityc-line__line-bar {
-        width: 19%;
+        width: 8%;
       }
     }
 
     &_sport {
       .analityc-line__line-bar {
-        width: 17%;
+        width: 7.5%;
       }
     }
 
     &_economics {
       .analityc-line__line-bar {
-        width: 15%;
+        width: 6.5%;
       }
     }
 
     &_safety {
       .analityc-line__line-bar {
-        width: 13%;
+        width: 4.2%;
       }
     }
 
     &_urban {
       .analityc-line__line-bar {
-        width: 11%;
+        width: 2.7%;
       }
     }
 
     &_openness {
       .analityc-line__line-bar {
-        width: 9%;
+        width: 2.5%;
       }
     }
   }
@@ -1768,7 +1983,6 @@
   margin-top: 50px;
 
   &__round {
-    width: 35%;
     text-align: center;
     display: inline-block;
     vertical-align: middle;
@@ -1780,7 +1994,7 @@
 
     &-content {
       height: 340px;
-      width: 350px;
+      width: 316px;
       background-color: $color-light-gray;
     }
   }
@@ -1790,7 +2004,7 @@
     cursor: pointer;
     font-family: $PFDinTextPro;
     font-weight: 400;
-    width: 34%;
+    width: 27%;
     display: inline-block;
     vertical-align: middle;
     text-align: right;
@@ -1798,7 +2012,7 @@
   }
 
   &__lines {
-    width: 55%;
+    width: 69.3%;
     display: inline-block;
     vertical-align: middle;
   }
@@ -1810,7 +2024,7 @@
       display: inline-block;
       vertical-align: middle;
       background-image: linear-gradient(to right, #021398 0%, #ff0036 100%);
-      width: 60%;
+      width: 69%;
       height: 30px;
       position: relative;
 
@@ -1836,27 +2050,27 @@
 
     &:nth-child(2) {
       .analityc-mix__line-bar {
-        width: 35%;
+        width: 26.5%;
       }
     }
     &:nth-child(3) {
       .analityc-mix__line-bar {
-        width: 30%;
+        width: 18.5%;
       }
     }
     &:nth-child(4) {
       .analityc-mix__line-bar {
-        width: 28%;
+        width: 16.5%;
       }
     }
     &:nth-child(5) {
       .analityc-mix__line-bar {
-        width: 5%;
+        width: 3%;
       }
     }
     &:nth-child(6) {
       .analityc-mix__line-bar {
-        width: 5%;
+        width: 2.8%;
       }
     }
   }
