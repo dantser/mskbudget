@@ -190,6 +190,7 @@ mixin analityc-graphics-multiline(data)
     each obj in data
       +e.DIV(class="__line_"+obj.class)
         +e.A(href="#").title= obj.title
+          +icon('edu-hat').title-icon
         +e.line-bar
           +e.line-total._green
             +e.line-value= obj.values[0]
@@ -208,6 +209,7 @@ mixin analityc-graphics-line-alt(data)
       each obj in data
         +e.DIV(class="__line_"+obj.class)
           +e.A(href="#").title= obj.title
+            +icon('edu-hat').title-icon
           +e.line-bar._overwidth
             +e.line-total._altred
             +e.line-fill
