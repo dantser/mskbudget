@@ -24,6 +24,18 @@ export default () => {
     e.preventDefault();
   });
 
+  $('.widget-card__title').each(function () {
+    $(this).on('click', function () {
+      var $this = $(this);
+      $this.parents('.widget-card').find('.service__diagram-tabs').hide();
+      $this.parents('.widget-card').toggleClass('widget-card_active');
+      $this.parents('.widget-card__head').siblings().slideToggle(321);
+      setTimeout(function () {
+        $this.parents('.widget-card').find('.service__diagram-tabs').show();
+      }, 321)
+    })
+  });
+
   // виджет москва и города мира
   $('.selectbox_cities').find('li').on('click', function () {
     const newval = $(this).data('val');

@@ -22,6 +22,7 @@
 
   /*Если карточка раскрыта на мобильном разрешении*/
   &_active {
+    transition: all .321s ease-in-out;
     min-height: 400px;
     padding-bottom: 40px;
 
@@ -29,9 +30,10 @@
       transform: rotate(-90deg);
     }
 
-    .widget-card > *:nth-child(n+2) {
-      display: block;
-    }
+    // .widget-card > *:nth-child(n+2) {
+    //   display: block;
+    //   transition: all 1s ease-in-out;
+    // }
   }
 
   &__head {
@@ -104,7 +106,7 @@
     }
 
     @media (max-width: 580px) {
-      right: 31px;
+      right: 10px;
     }
   }
   .noUi-tooltip {
@@ -362,6 +364,7 @@
     fill: $color-black;
     transform: rotate(90deg);
     margin-left: 8px;
+    transition: all .5s ease-in-out;
 
     @media (max-width: 580px) {
       display: inline-block;
