@@ -431,6 +431,7 @@ if($( ".range-datepicker__item" ).length > 0){
 		'июль','август','сентябрь','октябрь','ноябрь','декабрь'],
 		dayNamesMin: ['вс', 'пн','вт','ср','чт','пт','сб'],
 		maxDate: "+0D",
+
 		onSelect: function(value, ui) {
 
 			var range = $(this).attr('data-range'),

@@ -30,7 +30,13 @@ export default () => {
 			monthNamesShort: ['январь','февраль','март','апрель','май','июнь',
 			'июль','август','сентябрь','октябрь','ноябрь','декабрь'],
 			dayNamesMin: ['вс', 'пн','вт','ср','чт','пт','сб'],
-      beforeShowDay: DisableSpecificDates,
+      beforeShowDay: function (date) {
+
+        if (date.getDate() == 1) {
+            return [true, ''];
+        }
+        return [false, ''];
+      },
 			beforeShow: function(input, inst) {
 				$('#ui-datepicker-div').removeClass(function() {
 					return $('input').get(0).id;

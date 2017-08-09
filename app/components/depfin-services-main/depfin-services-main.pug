@@ -228,8 +228,8 @@ mixin widget-card-gov-programs-result()
 
 					+e.nav-buttons
 						+arrow-button()._prev.widget-card__arrow-button
-						+arrow-button().widget-card__arrow-button
-					+e.info-block-items._opt1
+						+arrow-button()._next.widget-card__arrow-button
+					+e.info-block-items._opt1.widget-card__info-block-items_active
 						+e.info-block-item._active Будет построено 10 новых стадионов
 						+e.info-block-item Будет построено 11 новых стадионов
 						+e.info-block-item Будет построено 12 новых стадионов
@@ -257,23 +257,23 @@ mixin widget-card-social-support()
 						+selectbox('select', getData('widget-card-selectbox-with-icon')).selectbox-for-widgets
 					+e.nav-buttons
 						+arrow-button()._prev.widget-card__arrow-button
-						+arrow-button().widget-card__arrow-button
-					+e.info-block-items._opt1
+						+arrow-button()._next.widget-card__arrow-button
+					+e.info-block-items._opt1.widget-card__info-block-items_active
 						+e.info-block-item._active Компенсация понесенных расходов на ритуальные услуги умерших инвалидов и участников Великой Отечественной войны 1941-1945 годов
-						+e.info-block-item Компенсация понесенных расходов на ритуальные услуги умерших инвалидов и участников Великой Отечественной войны 1941-1945 годов
-						+e.info-block-item Компенсация понесенных расходов на ритуальные услуги умерших инвалидов и участников Великой Отечественной войны 1941-1945 годов
+						+e.info-block-item второй блок
+						+e.info-block-item третий блок
 					+e.info-block-items._opt2
 						+e.info-block-item._active Компенсация понесенных расходов на ритуальные услуги умерших инвалидов и участников Великой Отечественной войны 1941-1945 годов
-						+e.info-block-item Компенсация понесенных расходов на ритуальные услуги умерших инвалидов и участников Великой Отечественной войны 1941-1945 годов
-						+e.info-block-item Компенсация понесенных расходов на ритуальные услуги умерших инвалидов и участников Великой Отечественной войны 1941-1945 годов
+						+e.info-block-item второй блок
+						+e.info-block-item третий блок
 					+e.info-block-items._opt3
 						+e.info-block-item._active Компенсация понесенных расходов на ритуальные услуги умерших инвалидов и участников Великой Отечественной войны 1941-1945 годов
-						+e.info-block-item Компенсация понесенных расходов на ритуальные услуги умерших инвалидов и участников Великой Отечественной войны 1941-1945 годов
-						+e.info-block-item Компенсация понесенных расходов на ритуальные услуги умерших инвалидов и участников Великой Отечественной войны 1941-1945 годов
+						+e.info-block-item второй блок
+						+e.info-block-item третий блок
 					+e.info-block-items._opt4
 						+e.info-block-item._active Компенсация понесенных расходов на ритуальные услуги умерших инвалидов и участников Великой Отечественной войны 1941-1945 годов
-						+e.info-block-item Компенсация понесенных расходов на ритуальные услуги умерших инвалидов и участников Великой Отечественной войны 1941-1945 годов
-						+e.info-block-item Компенсация понесенных расходов на ритуальные услуги умерших инвалидов и участников Великой Отечественной войны 1941-1945 годов
+						+e.info-block-item второй блок
+						+e.info-block-item третий блок
 				+widget-card-bottom-link()
 
 mixin widget-card-polls()
@@ -284,10 +284,20 @@ mixin widget-card-polls()
 				+widget-card-content()
 					+e.nav-buttons
 						+arrow-button()._prev.widget-card__arrow-button
-						+arrow-button().widget-card__arrow-button
-					+e.info-block-title Как сделать портал еще удобнее?
-					+e.info-block-date до 30.01.2017
-					+widget-card-bottom-link(false, 'Пройти опрос')._gradiented
+						+arrow-button()._next.widget-card__arrow-button
+					+e.info-block._active
+						+e.info._opt1._active
+							+e.info-block-title Как сделать портал еще удобнее?
+							+e.info-block-date до 30.01.2017
+							+widget-card-bottom-link(false, 'Пройти опрос')._gradiented
+						+e.info._opt2
+							+e.info-block-title Как сделать портал еще интереснее?
+							+e.info-block-date до 30.01.2017
+							+widget-card-bottom-link(false, 'Пройти опрос')._gradiented
+						+e.info._opt3
+							+e.info-block-title Как сделать портал еще смешнее?
+							+e.info-block-date до 30.01.2017
+							+widget-card-bottom-link(false, 'Пройти опрос')._gradiented
 				+widget-card-bottom-link()
 
 mixin widget-card-quiz()
@@ -298,10 +308,21 @@ mixin widget-card-quiz()
 				+widget-card-content()
 					+e.nav-buttons
 						+arrow-button()._prev.widget-card__arrow-button
-						+arrow-button().widget-card__arrow-button
-					+e.info-block-title История бюджета города Москвы во второй половине XX – начале ХХI века
-					+e.info-block-date Создана 30.01.2017
-					+widget-card-bottom-link(false, 'Пройти викторину')._gradiented
+						+arrow-button()._next.widget-card__arrow-button
+					+e.info-block._active
+						+e.info._opt1._active
+							+e.info-block-title История бюджета города Москвы во второй половине XX – начале ХХI века
+							+e.info-block-date Создана 30.01.2017
+							+widget-card-bottom-link(false, 'Пройти викторину')._gradiented
+						+e.info._opt2
+							+e.info-block-title История бюджета города Москвы во первой половине XX – начале ХХI века
+							+e.info-block-date Создана 30.01.2017
+							+widget-card-bottom-link(false, 'Пройти викторину')._gradiented
+						+e.info._opt3
+							+e.info-block-title История бюджета города Москвы в третьей(?) половине XX – начале ХХI века
+							+e.info-block-date Создана 30.01.2017
+							+widget-card-bottom-link(false, 'Пройти викторину')._gradiented
+				
 				+widget-card-bottom-link()
 
 mixin widget-card-municipalities
@@ -337,15 +358,23 @@ mixin widget-card-budget-web
 						+selectbox('select', getData('widget-card-selectbox-with-icon2')).selectbox-for-widgets
 					+e.nav-buttons
 						+arrow-button()._prev.widget-card__arrow-button
-						+arrow-button().widget-card__arrow-button
+						+arrow-button()._next.widget-card__arrow-button
 					+e.results._opt1._active
-						+e.results-total 12 детских садов
-					+e.results._opt2
+						+e.results-total._active 12 детских садов
 						+e.results-total 13 школ
-					+e.results._opt3
 						+e.results-total 14 больниц
+					+e.results._opt2
+						+e.results-total._active 13 детских садов
+						+e.results-total 14 школ
+						+e.results-total 15 больниц
+					+e.results._opt3
+						+e.results-total._active 14 детских садов
+						+e.results-total 15 школ
+						+e.results-total 16 больниц
 					+e.results._opt4
-						+e.results-total 15 
+						+e.results-total._active 15 детских садов
+						+e.results-total 16 школ
+						+e.results-total 17 больниц
 				+widget-card-bottom-link()
 
 mixin depfin-services-main()

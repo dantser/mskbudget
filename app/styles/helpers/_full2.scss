@@ -460,7 +460,7 @@ button::-moz-focus-inner { padding: 0; border: 0; }
 
 .service__ahead { min-height: 87px; position: relative; z-index: 2; }
 
-.service__title { font-size: 18px; font-weight: 500; margin-bottom: 7px; padding-right: 50px; min-height: 36px; position: relative; }
+.service__title { font-size: 17px; font-weight: 500; margin-bottom: 7px; padding-right: 50px; min-height: 36px; position: relative; }
 
 .service__title button { display: block; position: absolute; right: -5px; top: 0; width: 18px; height: 18px; background-image: url("../images/sprite.png"); background-repeat: no-repeat; background-position: -140px -115px; cursor: pointer; }
 
@@ -805,11 +805,38 @@ button::-moz-focus-inner { padding: 0; border: 0; }
     height: 270px;
   }
 }
-@media (min-width: 901px) and (max-width: 1180px) { .comp-diagram { width: 280px; height: 280px; -o-background-size: 100% auto; -moz-background-size: 100% auto; background-size: 100% auto;}
-  .comp-diagram .svg-wrap { width: 220px;}
+
+@media screen and (width: 1152px) {
+  .comp-diagram .svg-wrap .svg { width: 276px; height: 211px}
+  .comp-diagram__values .comp-diagram__num_pink { margin-bottom: 29px; margin-left: -86px; }
+  .comp-diagram__values .comp-diagram__num_blue { margin-bottom: 29px; margin-left: -112px; }
+  .comp-diagram .comp-diagram__year { margin-left: -124px; }
+  .sections__ahead.sections__ahead_ab {
+    top: 122px;
+  }
+}
+
+@media screen and (width: 1024px) {
+  .sections__ahead.sections__ahead_ab {
+    top: 122px;
+  }
+
+  .comp-diagram .comp-diagram__year { margin-left: -107px; }
+}
+@media (max-width: 1180px) and (min-width: 1153px) {
   .comp-diagram .svg-wrap .svg { width: 220px; height: 220px; }
   .comp-diagram__num_pink { margin-bottom: 29px; margin-left: -92px; }
   .comp-diagram__num_blue { margin-bottom: 29px; margin-left: -117px; }
+}
+
+@media (max-width: 1151px) and (min-width: 901px)  {
+  .comp-diagram .svg-wrap .svg { width: 220px; height: 220px; }
+  .comp-diagram__num_pink { margin-bottom: 29px; margin-left: -92px; }
+  .comp-diagram__num_blue { margin-bottom: 29px; margin-left: -117px; }
+}
+
+@media (min-width: 901px) and (max-width: 1180px) { .comp-diagram { width: 280px; height: 280px; -o-background-size: 100% auto; -moz-background-size: 100% auto; background-size: 100% auto;}
+  .comp-diagram .svg-wrap { width: 220px;}
   .comp-diagram__year { margin-left: -124px; } }
 
 @media (max-width: 900px) { .comp-diagram { position: absolute; top: 50%; left: 50%; margin: -167px 0 0 -167px; -o-background-size: 100% auto; -moz-background-size: 100% auto; background-size: 100% auto; } }
@@ -1922,7 +1949,7 @@ button::-moz-focus-inner { padding: 0; border: 0; }
 /*Small Form*/
 .small-form__form { width: 100%; float: right; position: relative; background: #fff; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; }
 
-.small-form__form label { display: block; position: absolute; font-size: 16px; color: #A9A9A9; top: 9px; left: 10px; }
+.small-form__form label { display: block; position: absolute; font-size: 16px; color: #A9A9A9; top: 9px; left: 10px; margin: 0}
 
 .small-form__text { display: block; height: 32px; width: 100%; padding: 7px 42px 7px 10px; font-size: 16px; color: #000; }
 

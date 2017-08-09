@@ -22,6 +22,7 @@
 
   /*Если карточка раскрыта на мобильном разрешении*/
   &_active {
+    transition: all .321s ease-in-out;
     min-height: 400px;
     padding-bottom: 40px;
 
@@ -29,9 +30,10 @@
       transform: rotate(-90deg);
     }
 
-    .widget-card > *:nth-child(n+2) {
-      display: block;
-    }
+    // .widget-card > *:nth-child(n+2) {
+    //   display: block;
+    //   transition: all 1s ease-in-out;
+    // }
   }
 
   &__head {
@@ -104,7 +106,7 @@
     }
 
     @media (max-width: 580px) {
-      right: 31px;
+      right: 10px;
     }
   }
   .noUi-tooltip {
@@ -295,6 +297,8 @@
     }
   }
 
+
+
   &__info-block {
     padding: 15px 0 16px;
   }
@@ -338,9 +342,19 @@
     @include center-block;
     display: none;
     width: 170px;
+    transition: all 0.5s ease-in-out;
 
     &_active {
-      display: block;
+      display: block !important;
+    }
+  }
+
+  &__info {
+
+    display: none;
+
+    &_active {
+      display: block!important;
     }
   }
 
@@ -362,6 +376,7 @@
     fill: $color-black;
     transform: rotate(90deg);
     margin-left: 8px;
+    transition: all .5s ease-in-out;
 
     @media (max-width: 580px) {
       display: inline-block;
@@ -429,6 +444,14 @@
 
     &_active {
       display: inline-block;
+    }
+
+    &-total {
+      display: none;
+
+      &_active {
+        display: inline-block;
+      }
     }
   }
 
