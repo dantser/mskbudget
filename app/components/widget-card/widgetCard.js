@@ -102,11 +102,15 @@ export default () => {
 //конец стрелочек в виджетах
 
 
+
 // сворачивание-разворачивание карточек в мобильной версии
   if ($(window).width() < 581) {
     $('.widget-card__title').each(function () {
       $(this).on('click', function () {
         var $this = $(this);
+        if ($this.parents().hasClass('dropdown-block') || $this.parents().hasClass('wrapper_main')) {   //убираем сворачивание виджетов в блоке дропдаунов
+          return;
+        }
         $this.parents('.widget-card').find('.service__diagram-tabs').hide();
         $this.parents('.widget-card').toggleClass('widget-card_active');
         $this.parents('.widget-card__head').siblings().slideToggle(321);
@@ -116,6 +120,8 @@ export default () => {
       })
     })
   };
+
+
 
   // виджет москва и города мира
   $('.selectbox_cities').find('li').on('click', function () {

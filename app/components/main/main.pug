@@ -1,6 +1,7 @@
 include ../../blocks/selectbox/selectbox
 include ../../components/widget-card/widget-card
 include ../../blocks/news-card/news-card
+include ../../components/depfin-services-main/depfin-services-main
 
 mixin main()
   // SECTIONS_ITEM(Banner)/
@@ -223,7 +224,7 @@ mixin main()
         .tile__item.anim-left(data-delay="600")
           .tile__inner.service
             .service__ahead
-              h3.service__title Государственные долг
+              h3.service__title Государственный долг
                 button
                 +icon('pin').service__icon
               .service__sub-title
@@ -263,143 +264,145 @@ mixin main()
       .cube-brick(data-brick-700="2", data-brick-900="2", data-brick-1100="1")
         // SERVICE_ITEM/
         .tile__item.anim-left(data-delay="900")
-          .tile__inner.service
-            .service__ahead.mb-10
-              h3.service__title Москва и города мира
-                button
-                +icon('pin').service__icon
-            p.fs-14.medium.mb-10.xs-fs-11 Выберите показатель
-            .select.service__select
-              button.select__btn Доходы
-              ul.select__drop
-                li
-                  a(href="#pl1").select__a Доходы
-                li
-                  a(href="#pl2").select__a Расходы
-                li
-                  a(href="#pl3").select__a Население
-            .select-content.select-content_vis#pl1
-              p.service__place 5 место
-              p.fs-14.medium.lh-1_2 из 8 крупнейших городов мира<br> по общему объему доходов
-            .select-content#pl2
-              p.service__place 4 место
-              p.fs-14.medium.lh-1_2 из 8 крупнейших городов мира<br> по общему объему расходов
-            .select-content#pl3
-              p.service__place 3 место
-              p.fs-14.medium.lh-1_2 из 8 крупнейших городов мира<br> по общему количеству населения
-            a(href="#").service__more Подробнее
+          .tile__inner.service.service__cities
+            +widget-card().widget-card-cities
+              +widget-card-head('Москва и города мира')
+              +widget-card-content()
+                +e.logo
+                  img(src='assets/images/logo.png')
+                +e.select
+                  +selectbox-cities('select', getData('widget-card-selectbox-cities'))
+                +e.select
+                  +selectbox('select', getData('widget-card-selectbox-cities2'))
+                +e.results._moscow
+                  +e.results-total 12 500 тысяч человек
+                  +e.results-rating
+                    +e.results-pos 8 место
+                    +e.results-in из 8 крупнейших городов мира
+                +e.results._london
+                  +e.results-total 12 500 тысяч человек
+                  +e.results-rating
+                    +e.results-pos 8 место
+                    +e.results-in из 8 крупнейших городов мира
+                +e.results._paris
+                  +e.results-total 12 500 тысяч человек
+                  +e.results-rating
+                    +e.results-pos 8 место
+                    +e.results-in из 8 крупнейших городов мира
+                +e.results._berlin
+                  +e.results-total 12 500 тысяч человек
+                  +e.results-rating
+                    +e.results-pos 8 место
+                    +e.results-in из 8 крупнейших городов мира
+              a(href="#").service__more Подробнее
         // /SERVICE_ITEM
         
       .cube-brick(data-brick-700="3", data-brick-900="2", data-brick-1100="2")
         // SERVICE_ITEM/
         .tile__item
           .tile__inner.service.service_calc
-            .service__ahead.mb-10
-              h3.service__title Бюджетный калькулятор
-                button
-                +icon('pin').service__icon
-              p.service__sub-title Предложенные Вами варианты бюджета
-            +selectbox('select', getData('widget-card-selectbox')).widget-card__selectbox
-            .widget-card__budget-stats
-              .widget-card__budget-stat
-                p.widget-card__budget-stat-title доходы
-                p.widget-card__budget-stat-count.widget-card__budget-stat-count_pos 1 579,0
-                p.widget-card__budget-stat-text млрд руб.
-              .widget-card__budget-stat
-                p.widget-card__budget-stat-title расходы
-                p.widget-card__budget-stat-count.widget-card__budget-stat-count_neg 1 588,0
-                p.widget-card__budget-stat-text млрд руб.
-            .widget-card__budget-total
-              span.widget-card__budget-total-title дефицит бюджета
-              span.widget-card__budget-total-count.widget-card__budget-total-count_blue 9,0
-              span.widget-card__budget-total-text млрд руб.
-            .widget-card__budget-total
-              span.widget-card__budget-total-title изменение государственного долга
-              span.widget-card__budget-total-count 0,0
-              span.widget-card__budget-total-text млн руб.
-            a(href="#").service__more Подробнее
+            +widget-card().widget-card-calc
+              +widget-card-head('Бюджетный калькулятор')
+              +widget-card-content()
+                +e.select
+                  +selectbox('select', getData('widget-card-selectbox'))
+                +e.range
+                  +range-for-widgets('widget_card_calc')
+                +e.value
+                  +e.value-title Дефицит
+                  +e.value-value -47,5
+                  +e.value-units млрд руб.
+              +e.bottom-link-wrap
+                +widget-card-bottom-link('calc', 'Предложите свой вариант бюджета!')._gradiented
         // /SERVICE_ITEM
         
       .cube-brick(data-brick-700="3", data-brick-900="2", data-brick-1100="2")
         // SERVICE_ITEM/
         .tile__item
           .tile__inner.service.service_widget
-            .service__ahead.mb-10
-              h3.service__title Опрос общественного мнения
-                button
-                +icon('pin').service__icon
-            .widget-card__content
-              .widget-card__info-block
-                .widget-card__info-block-desc Вы можете пройти следующие опросы:
-                .widget-card__info-block-title Как сделать портал еще удобнее?
-                .widget-card__info-block-date до 30.01.2017
-                .widget-card__nav-buttons
+            +widget-card().widget-card-polls
+              +widget-card-head('Опрос общественного мнения', 'Примите участие в опросах')
+              +widget-card-content()
+                +e.nav-buttons
                   +arrow-button()._prev.widget-card__arrow-button
-                  +arrow-button().widget-card__arrow-button
-            .widget-card__content
-              .widget-card__info-block
-                .widget-card__info-block-desc Вы приняли участие в опросах:
-                .widget-card__info-block-title Как сделать портал еще интереснее?
-                .widget-card__nav-buttons
-                  +arrow-button()._prev.widget-card__arrow-button
-                  +arrow-button().widget-card__arrow-button
-            a(href="#").service__more Подробнее
+                  +arrow-button()._next.widget-card__arrow-button
+                +e.info-block._active
+                  +e.info._opt1._active
+                    +e.info-block-title Как сделать портал еще интереснее? Как?
+                    +e.info-block-date до 30.01.2017
+                    +widget-card-bottom-link(false, 'Пройти опрос')._gradiented
+                  +e.info._opt2
+                    +e.info-block-title Как сделать портал еще удобнее? Как?
+                    +e.info-block-date до 30.01.2017
+                    +widget-card-bottom-link(false, 'Пройти опрос')._gradiented
+                  +e.info._opt3
+                    +e.info-block-title Как сделать портал еще смешнее? Как? 
+                    +e.info-block-date до 30.01.2017
+                    +widget-card-bottom-link(false, 'Пройти опрос')._gradiented
+              a(href="#").service__more Подробнее
         // /SERVICE_ITEM
         
       .cube-brick(data-brick-700="4", data-brick-900="3", data-brick-1100="2")
         // SERVICE_ITEM/
         .tile__item
           .tile__inner.service.service_widget
-            .service__ahead.mb-10
-              h3.service__title Викторины
-                button
-                +icon('pin').service__icon
-            .widget-card__content
-              .widget-card__info-block
-                .widget-card__info-block-desc Вы можете пройти следующие викторины:
-                .widget-card__info-block-title История бюджета города Москвы во второй...
-                .widget-card__info-block-date до 30.01.2017
-                .widget-card__nav-buttons
+            +widget-card().widget-card-quiz
+              +widget-card-head('Викторины', 'Проверь свои знания в викторине')
+              +widget-card-content()
+                +e.nav-buttons
                   +arrow-button()._prev.widget-card__arrow-button
-                  +arrow-button().widget-card__arrow-button
-            .widget-card__content
-              .widget-card__info-block
-                .widget-card__info-block-desc Вы приняли участие в викторинах:
-                .widget-card__info-block-title История бюджета города Москвы в первой...
-                .widget-card__nav-buttons
-                  +arrow-button()._prev.widget-card__arrow-button
-                  +arrow-button().widget-card__arrow-button
-            a(href="#").service__more Подробнее
+                  +arrow-button()._next.widget-card__arrow-button
+                +e.info-block._active
+                  +e.info._opt1._active
+                    +e.info-block-title История бюджета города Москвы во второй половине XX – начале ХХI века
+                    +e.info-block-date Создана 30.01.2017
+                    +widget-card-bottom-link(false, 'Пройти викторину')._gradiented
+                  +e.info._opt2
+                    +e.info-block-title История бюджета города Москвы во первой половине XX – начале ХХI века
+                    +e.info-block-date Создана 30.01.2017
+                    +widget-card-bottom-link(false, 'Пройти викторину')._gradiented
+                  +e.info._opt3
+                    +e.info-block-title История бюджета города Москвы в третьей(?) половине XX – начале ХХI века
+                    +e.info-block-date Создана 30.01.2017
+                    +widget-card-bottom-link(false, 'Пройти викторину')._gradiented
+      				
+              a(href="#").service__more Подробнее
         // /SERVICE_ITEM
         
       .cube-brick(data-brick-700="4", data-brick-900="3", data-brick-1100="2")
         // SERVICE_ITEM/
         .tile__item
-          .tile__inner.service
-            .service__ahead.mb-10
-              h3.service__title Москва и города мира
-                button
-                +icon('pin').service__icon
-            p.fs-14.medium.mb-10 Выберите показатель
-            .select.service__select
-              button.select__btn Доходы
-              ul.select__drop
-                li
-                  a(href="#pl11").select__a Доходы
-                li
-                  a(href="#pl21").select__a Расходы
-                li
-                  a(href="#pl31").select__a Население
-            .select-content.select-content_vis#pl11
-              p.service__place 5 место
-              p.fs-14.medium.lh-1_2 из 8 крупнейших городов мира<br> по общему объему доходов
-            .select-content#pl21
-              p.service__place 4 место
-              p.fs-14.medium.lh-1_2 из 8 крупнейших городов мира<br> по общему объему расходов
-            .select-content#pl31
-              p.service__place 3 место
-              p.fs-14.medium.lh-1_2 из 8 крупнейших городов мира<br> по общему количеству населения
-            a(href="#").service__more Подробнее
+          .tile__inner.service.service__cities
+            +widget-card().widget-card-cities
+              +widget-card-head('Москва и города мира')
+              +widget-card-content()
+                +e.logo
+                  img(src='assets/images/logo.png')
+                +e.select
+                  +selectbox-cities('select', getData('widget-card-selectbox-cities'))
+                +e.select
+                  +selectbox('select', getData('widget-card-selectbox-cities2'))
+                +e.results._moscow
+                  +e.results-total 12 500 тысяч человек
+                  +e.results-rating
+                    +e.results-pos 8 место
+                    +e.results-in из 8 крупнейших городов мира
+                +e.results._london
+                  +e.results-total 12 500 тысяч человек
+                  +e.results-rating
+                    +e.results-pos 8 место
+                    +e.results-in из 8 крупнейших городов мира
+                +e.results._paris
+                  +e.results-total 12 500 тысяч человек
+                  +e.results-rating
+                    +e.results-pos 8 место
+                    +e.results-in из 8 крупнейших городов мира
+                +e.results._berlin
+                  +e.results-total 12 500 тысяч человек
+                  +e.results-rating
+                    +e.results-pos 8 место
+                    +e.results-in из 8 крупнейших городов мира
+              a(href="#").service__more Подробнее
         // /SERVICE_ITEM            
     // /SERVICES_SLIDER
   // /SERVICES_SECTION
