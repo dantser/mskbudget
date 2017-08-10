@@ -3,7 +3,7 @@
   height: 17px;
   display: block;
   position: absolute;
-  top: 0;
+  top: -1px;
   cursor: pointer;
   opacity: 1;
   right: 19px;
@@ -12,6 +12,7 @@
   fill: transparent;
   transform: scale(-1, 1);
   transition: all .25s ease-in-out;
+  border: 1px solid transparent;
 
   &:hover {
     opacity: .7;
@@ -80,6 +81,8 @@
       }
     }
 
+
+
     @media (max-width: 900px) {
 
       .widget-card__content+.widget-card__content {
@@ -88,7 +91,438 @@
     }
   }
 
+  .service__more {
+    font-weight: normal;
+  }
+
+  .widget-card {
+
+    @media (max-width: 900px) and (min-width: 769px) {
+      min-height: 298px;
+    }
+
+    @media (max-width: 768px) {
+      min-height: 397px;
+    }
+
+    @media (max-width: 650px) {
+      min-height: 1px;
+    }
+
+    @media (max-width: 480px) {
+      min-height: 380px;
+    }
+
+    @media (max-width: 320px) {
+      min-height: 100%;
+    }
+
+    &>:nth-child(n+2) {
+      @media (max-width: 580px) {
+        display: block;
+      }
+    }
+
+    &__arrow-open {
+      @media (max-width: 580px) {
+        display: none;
+      }
+    }
+
+    &__nav-buttons {
+      @media (max-width: 640px) {
+        margin-top: 9px;
+      }
+
+    }
+
+    &__head {
+      @media (max-width: 640px) {
+        min-height: 1px;
+        height: 61px;
+        padding: 10px 15px 30px;
+      }
+
+      @media (max-width: 480px) {
+        min-height: 84px;
+        padding: 14px 20px 11px;
+        height: inherit;
+      }
+
+      @media (max-width: 320px) {
+        min-height: 1px;
+        height: 61px;
+        padding: 10px 15px 30px;
+      }
+    }
+
+    &__title {
+      @media (max-width: 900px) {
+        font-size: 15px;
+        margin-bottom: 3px;
+        min-height: 12px;
+        text-transform: lowercase;
+        line-height: 15px;
+
+        &::first-letter {
+          text-transform: uppercase;
+        }
+      }
+
+      @media (max-width: 480px) {
+        font-size: 17px;
+        margin-bottom: 7px;
+        min-height: 36px;
+        line-height: 20.4px;
+      }
+
+      @media (max-width: 320px) {
+        font-size: 15px;
+        margin-bottom: 3px;
+        min-height: 12px;
+        text-transform: lowercase;
+        line-height: 15px;
+      }
+    }
+
+    &__subtitle {
+      color: #666;
+      @media (max-width: 900px) {
+        font-size: 12px;
+        margin-top: 0;
+      }
+      @media (max-width: 480px) {
+        margin-top: 9px;
+        font-size: 14px;
+      }
+
+      @media (max-width: 320px) {
+        font-size: 12px;
+        margin-top: 0;
+      }
+    }
+
+    &__favor {
+      @media (max-width: 320px) {
+        right: -5px;
+        top: 0;
+      }
+    }
+
+    &__pin {
+      @media (max-width: 320px) {
+        right: 16px;
+        top: -2px;
+        width: 15px;
+      }
+    }
+
+    &__logo {
+      @media (max-width: 900px) {
+        width: 31px;
+        height: 30px;
+      }
+
+      @media (width: 768px) {
+        width: 47px;
+        height: 59px;
+      }
+      @media (max-width: 480px) {
+        width: 47px;
+        height: 59px;
+      }
+
+      @media (max-width: 320px) {
+        width: 31px;
+        height: 30px;
+      }
+    }
+
+    &__results-rating {
+      @media (max-width: 900px) {
+        padding: 1px 9px;
+      }
+
+      @media (width: 768px) {
+        padding: 5px 9px;
+      }
+
+      @media (max-width: 480px) {
+        padding: 5px 9px;
+      }
+
+      @media (max-width: 320px) {
+        padding: 1px 9px;
+      }
+    }
+
+    &__results-pos {
+      @media (max-width: 900px) {
+        font-size: 16px;
+      }
+
+      @media (width: 768px) {
+        font-size: 30px;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 30px;
+      }
+
+      @media (max-width: 320px) {
+        font-size: 16px;
+      }
+    }
+
+    &__value {
+      @media (max-width: 900px) {
+        margin-top: 8px;
+        font-size: 12px;
+
+        &-value {
+          font-size: 32px;
+          line-height: 32px;
+          letter-spacing: -1px;
+        }
+      }
+
+      @media (width: 768px) {
+        margin-top: 36px;
+        font-size: 14px;
+        line-height: 14px;
+
+        &-value {
+          font-size: 60px;
+          line-height: 60px;
+          letter-spacing: -3px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        margin-top: 36px;
+        font-size: 14px;
+        line-height: 14px;
+
+        &-value {
+          font-size: 60px;
+          line-height: 60px;
+          letter-spacing: -3px;
+        }
+      }
+
+      @media (max-width: 320px) {
+        margin-top: 8px;
+        font-size: 12px;
+
+        &-value {
+          font-size: 32px;
+          line-height: 32px;
+          letter-spacing: -1px;
+        }
+      }
+    }
+
+    &__range {
+      @media (max-width: 900px) {
+        margin-top: 16px;
+      }
+      @media (width: 768px) {
+        margin-top: 19px;
+      }
+      @media (max-width: 480px) {
+        margin-top: 19px;
+      }
+      @media (max-width: 320px) {
+        margin-top: 16px;
+      }
+    }
+
+    &__bottom-link.widget-card__bottom-link_gradiented {
+      @media (max-width: 900px) {
+        font-size: 12px;
+        line-height: 13px;
+      }
+    }
+
+    &__bottom-link-wrap {
+      @media (max-width: 640px) {
+        bottom: 0;
+      }
+    }
+
+    &-calc {
+      .widget-card__bottom-link {
+        @media (max-width: 900px) {
+          height: 36px;
+          padding: 4px 15px 9px 57px;
+        }
+        @media (width: 768px) {
+          height: inherit;
+          padding: 13px 19px 13px 65px;
+          font-size: 14px;
+          line-height: 16px;
+        }
+        @media (max-width: 480px) {
+          height: inherit;
+          padding: 13px 19px 13px 65px;
+          font-size: 14px;
+          line-height: 16px;
+        }
+
+        @media (max-width: 320px) {
+          height: 36px;
+          padding: 4px 15px 9px 57px;
+          font-size: 12px;
+        }
+      }
+
+      .widget-card__bottom-link-wrap {
+        @media (max-width: 480px) {
+          bottom: 20px;
+        }
+      }
+    }
+
+    &__bottom-link-img {
+      @media (max-width: 900px) {
+        width: 21px;
+      }
+    }
+
+    &__info-block {
+      @media (max-width: 900px) {
+        padding-top: 4px;
+
+        &-title {
+          font-size: 14px;
+        }
+
+        &-date {
+          font-size: 12px;
+        }
+      }
+
+      @media (width: 768px) {
+        padding-top: 15px;
+
+        &-title {
+          font-size: 20px;
+        }
+
+        &-date {
+          font-size: 14px;
+        }
+      }
+    }
+
+    &-polls .widget-card__bottom-link_gradiented, &-quiz .widget-card__bottom-link_gradiented {
+      @media (max-width: 900px) {
+        padding-top: 7px;
+      }
+
+      @media (width: 768px) {
+        padding-top: 12px;
+      }
+
+      @media (max-width: 480px) {
+        padding-top: 12px;
+      }
+
+      @media (max-width: 320px) {
+        padding-top: 7px;
+      }
+    }
+
+    &.widget-card-quiz .widget-card__info-block-date, &.widget-card-polls .widget-card__info-block-date {
+      @media (max-width: 900px) {
+        margin-top: 0;
+      }
+    }
+
+    &-quiz, &-polls {
+      @media (max-width: 900px) {
+        padding-bottom: 22px;
+      }
+
+
+    }
+
+    &-polls {
+      @media (max-width: 640px) {
+        padding-bottom: 37px;
+      }
+    }
+
+    .selectbox {
+      @media (max-width: 900px) {
+        height: 27px;
+        line-height: 27px;
+      }
+
+      @media (width: 768px) {
+        line-height: 32px;
+        height: 100%;
+      }
+
+      @media (max-width: 480px) {
+        line-height: 32px;
+        height: 100%;
+      }
+
+      @media (max-width: 320px) {
+        height: 27px;
+        line-height: 27px;
+      }
+      &__select {
+        @media (max-width: 900px) {
+          font-size: 12px;
+        }
+        @media (width: 768px) {
+          font-size: 14px;
+        }
+
+        @media (max-width: 480px) {
+          font-size: 14px;
+        }
+      }
+    }
+
+
+    &__results-in {
+      font-size: 12px;
+    }
+
+    &__bottom-link {
+      @media (max-width: 900px) {
+        height: 30px;
+        line-height: 30px;
+        font-size: 12px;
+      }
+
+      @media (width: 768px) {
+        line-height: 36px;
+        font-size: 16px;
+        height: 36px;
+      }
+      @media (max-width: 480px) {
+        line-height: 36px;
+        font-size: 16px;
+        height: 36px;
+      }
+      @media (max-width: 320px) {
+        height: 30px;
+        line-height: 30px;
+        font-size: 12px;
+      }
+    }
+  }
+
+  .service__cities {
+    padding: 0 !important;
+  }
+
   .service.service_calc {
+    padding: 0;
     @media (max-width: 900px) {
       .widget-card__selectbox {
         margin-top: 10px;
@@ -717,6 +1151,16 @@
   }
 }
 
+@media (max-width: 480px) {
+  .wrapper_main {
+    .service {
+      min-height: 380px;
+      height: 245px;
+      width: 250px;
+    }
+  }
+}
+
 @media (min-height: 611px) and (max-width: 650px) {
   .wrapper_main {
     .news {
@@ -863,10 +1307,10 @@
     }
 
     .service-dots { bottom: 31px; }
-    .service__title { font-size: 15px; margin-bottom: 3px; min-height: 30px; padding-right: 20px; }
+    .service__title { font-size: 15px; margin-bottom: 3px; min-height: 30px; padding-right: 35px; }
     .service__sub-title { font-size: 12px; }
     .service__dashed-diagram { height: 140px; }
-    .service__more { height: 30px; line-height: 30px; font-size: 12px; padding-left: 14px; }
+    .service__more { height: 30px; line-height: 30px; font-size: 12px; padding-left: 14px; font-weight: normal;}
     .service__more:after { right: 14px; }
     .service__diagram-tabs { bottom: 30px; height: 45px;}
     .diagram-tabs__btn {
@@ -990,7 +1434,13 @@
     }
   }
 }
-
+@media (max-width: 640px) {
+  .wrapper_main {
+    .service__diagram-tabs {
+      bottom: 29px;
+    }
+  }
+}
 @media (max-height: 550px) and (max-width: 450px) {
   .wrapper_main {
     .tile__item {
@@ -999,7 +1449,7 @@
     .service {
       max-width: 230px !important;
       min-height: 250px !important;
-      padding: 10px 10px 30px !important;
+      // padding: 10px 10px 30px !important;
       top: 30px !important;
     }
     .service:before {
