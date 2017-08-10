@@ -1,37 +1,21 @@
 import $ from 'jquery';
 
 export default function toppanel() {
-  // const $toppanel = $('.top-panel-frame-wrp');
-  const $toppanel = $('body > div:first');
-  const $navbar = $('#header');
-  const $navbarDrop = $('#headerDrop');
-  const $trigger = $('*[data-toggle-toppanel]');
-  const $position = $(window).scrollTop();
-  const hideToppanelOnScrollDown = false;
+  // Скрыть/показать топпанель ДИТа
+  $('a[data-toggle-toppanel="data-toggle-toppanel"]').on('click', function(e) {
+    e.preventDefault();
+    $('.top-panel-frame-wrp').toggleClass('is-active');
+    $('#header').toggleClass('toppanel-is-active');
+  });
 
-console.log($toppanel);
-  if ($toppanel && $navbar && $trigger) {
-    // Скрыть/показать топпанель ДИТа
-    $trigger.on('click', (e) => {
-      e.preventDefault();
+  // Скрываем топпанель ДИТ при скролле страницы вниз
+  // в файле app/components/header/header.js
 
-      $toppanel.toggleClass('is-active');
-      $navbar.toggleClass('toppanel-is-active');
-      // $navbarDrop.toggleClass('toppanel-is-active');
-    });
-
-    // Скрываем топпанель ДИТ при скролле страницы вниз
-    if (hideToppanelOnScrollDown) {
-      $(window).scroll(function() {
-        var $scroll = $(window).scrollTop();
-        console.log($toppanel.hasClass('is-active'));
-        if ($scroll > $position && $toppanel.hasClass('is-active') && $navbar.hasClass('toppanel-is-active')) {
-          $toppanel.removeClass('is-active');
-          $navbar.removeClass('toppanel-is-active');
-
-          console.log('ska');
-        }
-      });
+  // Скрываем топпанель ДИТ при клике за её пределами
+  $('body').on('click', function(e) {
+    if (!e.target.closest('a[data-toggle-toppanel="data-toggle-toppanel"]') && !e.target.closest('.top-panel-frame-wrp')) {
+      $('.top-panel-frame-wrp').removeClass('is-active');
+      $('#header').removeClass('toppanel-is-active');
     }
-  }
+  });
 }

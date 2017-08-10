@@ -2,34 +2,96 @@ include ../page-header/page-header
 include ../../blocks/icon/icons
 include ../../blocks/button/button
 include ../../blocks/link/link
-include ../../blocks/alternative-link/alternative-link
-include ../analityc-widgethead/analityc-widgethead
+include ../../blocks/selectbox/selectbox
+include ../searchForm/searchForm
+include ../../blocks/link/link
+include ../../blocks/button/button
 
 mixin open-file()
-  +b.SECTION.open-file.main._basic.basic-budget.sections__item&attributes(attributes)
-    .wrapper
-      +page-header('Открытые данные', ['Открытость'], true)
-      
+  +b.SECTION.open-file.sections__item&attributes(attributes)
+    .wrapper.page-content-wrapper
+      +e.head
+        +page-header('Открытые данные', ['Открытость'], true)
+        +e.search-form
+          +searchFormOpen('Закон о бюджете. Доходы')
+
       // content
-      .analityc-widget.analityc-widget_open.load-anim-fade(data-delay="1500")
-        +analityc-widgethead-of()
-        +e.cols
-          +e.col_one
-            - for (var i=0; i<16; i++)
-              +b.analityc-control-group
-                +e.text Закон о бюджете. Ведомственная структура расходов
-                +icon('information').icon
-                select.analityc-select.analityc-select_dir
-                  option(selected) экспорт
-                  option импорт
-                +link(true) паспорт
-            +e.A(href="#").show-more.d-si__button_show-more Показать еще
-          +e.col_two
-            +alternative-link('условия использования', 'пояснение куда ведет ссылка')
-            +alternative-link('запросить открытые данные', 'пояснение куда ведет ссылка')
+      +e.content.load-anim-fade(data-delay="1500")
+        +e.table-wrap
+          +e.table
+
+            +e.rows.open-file__caption
+              +e.H3.col._left Наименование
+              +e.H3.col._right Дата последнего обновления
+
+            +e.rows.open-file__sort
+              +e.A(href='#').col._left 
+                +e.SPAN По алфавиту А-Я
+              +e.A(href='#').col._right 
+                +e.SPAN По дате
+
+            +e.rows.open-file__main
+
+              +e.row
+                +e.col._left
+                  +e.row-wrap
+                    +e.row-title Закон о бюджете. Ведомственная структура
+                    +e.row-controls
+                      +e.BUTTON.row-description.open-file__row-control описание
+                      +selectbox('select', getData('widget-card-selectbox')).open-file__row-control
+                      +selectbox('select', getData('widget-card-selectbox')).open-file__row-control
+                  +e.row-about
+                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus velit optio doloremque libero, recusandae quasi illo consequatur voluptatem nobis esse reiciendis tempore illum provident, molestiae a deleniti ex magni at?
+                
+                +e.col._right
+                  +e.row-date 12.06.2015
+              
+              +e.row._active
+                +e.col._left
+                  +e.row-wrap
+                    +e.row-title Закон о бюджете. Ведомственная структура
+                    +e.row-controls
+                      +e.BUTTON.row-description.open-file__row-control описание
+                      +selectbox('select', getData('widget-card-selectbox')).open-file__row-control
+                      +selectbox('select', getData('widget-card-selectbox')).open-file__row-control
+                  +e.row-about
+                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus velit optio doloremque libero, recusandae quasi illo consequatur voluptatem nobis esse reiciendis tempore illum provident, molestiae a deleniti ex magni at?
+                
+                +e.col._right
+                  +e.row-date 12.06.2015
+              
+              +e.row
+                +e.col._left
+                  +e.row-wrap
+                    +e.row-title Закон о бюджете. Ведомственная структура
+                    +e.row-controls
+                      +e.BUTTON.row-description.open-file__row-control описание
+                      +selectbox('select', getData('widget-card-selectbox')).open-file__row-control
+                      +selectbox('select', getData('widget-card-selectbox')).open-file__row-control
+                  +e.row-about
+                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus velit optio doloremque libero, recusandae quasi illo consequatur voluptatem nobis esse reiciendis tempore illum provident, molestiae a deleniti ex magni at?
+                
+                +e.col._right
+                  +e.row-date 12.06.2015
+
+        +e.A(href="#").show-more.d-si__button_show-more Показать еще
       
+        +e.links
+          +link()
+            | что такое открытые данные?
+            +icon('right-arrow').icon
+
+          +link()
+            | условия использования
+            +icon('right-arrow').icon
+
+        +e.get
+          +button()._kind_yellow
+            | запросить открытые данные
+
       // popups
       +e.popups
+
         +e.popup-terms
           +e.popup-head
             +e.H3.popup-title Условия использования
@@ -43,7 +105,6 @@ mixin open-file()
               +e.LI.popup-item условия использования набора данных не предполагают ограничений использования набора данных в  некоммерческих и коммерческих целях;
               +e.LI.popup-item пользователи, получившие набор данных, вправе копировать, публиковать, распространять и передавать набор данных третьим лицам, адаптировать, объединять набор данных с другими наборами данных, а также использовать набор данных в собственных приложениях.
             +e.P.popup-text._small Пользователь портала «Открытый бюджет города Москвы» должен предоставлять информацию об источнике набора данных в случаях, когда он публично демонстрирует эти данные. Разработчик программы или приложения, использующего набор данных, должен указывать в публично распространяемом приложении источник получения набора данных.
-
 
         +e.popup-about
           +e.popup-head

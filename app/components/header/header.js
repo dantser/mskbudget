@@ -4,6 +4,7 @@ export default () => {
   const $header = $('#header');
   const $burger = $('#burger');
   const $headerDrop = $('#headerDrop');
+  const $toppanel = $('.top-panel-frame-wrp');
 
   function mobileMenuClose() {
     $header.removeClass('is-active');
@@ -13,8 +14,8 @@ export default () => {
     $('body').removeClass('mobile-menu-is-open');
 
     // toppanel
-    $('#toppanel').removeClass('is-active');
-    $('.toppanel-is-active').removeClass('toppanel-is-active');
+    $toppanel.removeClass('is-active');
+    $header.removeClass('toppanel-is-active');
   }
 
   function mobileMenuShow() {
@@ -72,10 +73,11 @@ export default () => {
       }
 
       if (st > lastScrollTop && st > delta) {
-        $('#header').addClass('header_short');
+        $header.addClass('header_short').removeClass('toppanel-is-active');
+        $toppanel.removeClass('is-active');
       } else {
         if (st + $(window).height() < $(document).height()) {
-          $('#header').removeClass('header_short');
+          $header.removeClass('header_short');
         }
       }
 
