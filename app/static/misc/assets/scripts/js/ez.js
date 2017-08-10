@@ -177,6 +177,7 @@ budget.extend("common", {
 			dateFormat: 'dd.mm.yy',
 			firstDay: 1,
 			isRTL: false,
+      beforeShowDay: DisableSpecificDates
       // beforeShow: function(input, inst) {
       //   convertToLists(inst);
       // },
@@ -184,6 +185,33 @@ budget.extend("common", {
       //   convertToLists(inst);
       // }
 			};
+
+      function DisableSpecificDates(date) {
+
+        var disableddates = ["8-6-2017", "8-9-2017", "8-15-2017", "8-23-2017", "4-15-2017", "4-20-2017", "4-28-2017", "4-4-2017"];
+        var m = date.getMonth();
+        var d = date.getDate();
+        var y = date.getFullYear();
+        var day = date.getDay();
+
+        // First convert the date in to the mm-dd-yyyy format
+        // Take note that we will increment the month count by 1
+        var currentdate = (m + 1) + '-' + d + '-' + y ;
+
+         // We will now check if the date belongs to disableddates array
+        for (var i = 0; i < disableddates.length; i++) {
+
+          // Now check if the current date is in disabled dates array.
+          if ($.inArray(currentdate, disableddates) != -1 ) {
+            return [false];
+          } else if (day == 1 || day == 0) {
+            return [false] ;
+          } else {
+            return [true];
+          }
+        }
+
+      }
 			$.datepicker.setDefaults($.datepicker.regional['ru']);
 		}
 
@@ -491,9 +519,12 @@ function tabsLine(){
 		nav:true,
 		responsiveClass:true,
 		center:false,
+    mouseDrag: true,
+    touchDrag:true,
+
 		// autoWidth:true,//разная ширина слайдов, ширину задавать на вложенный блок у слайда! + не указывать явно items:1,
     startPosition:0,
-    items: 4,
+    items: 'auto',
     responsive: {
       0: {
         touchDrag:true,
@@ -517,8 +548,6 @@ function tabsLine(){
       }
     },
 		dots:false,
-		mouseDrag:false,
-		touchDrag:false,
 		autoplay:false,
 		smartSpeed:500
 	});
@@ -940,6 +969,7 @@ function basicBudgetFiguresDiagrams () {
     monthNamesShort: ['январь','февраль','март','апрель','май','июнь',
     'июль','август','сентябрь','октябрь','ноябрь','декабрь'],
     dayNamesMin: ['вс', 'пн','вт','ср','чт','пт','сб'],
+    beforeShowDay: DisableSpecificDates
     // beforeShow: function(input, inst) {
     //   convertToLists(inst);
     // },
@@ -947,6 +977,33 @@ function basicBudgetFiguresDiagrams () {
     //   convertToLists(inst);
     // }
     });
+    }
+
+    function DisableSpecificDates(date) {
+
+      var disableddates = ["8-6-2017", "8-9-2017", "8-15-2017", "8-23-2017"];
+      var m = date.getMonth();
+      var d = date.getDate();
+      var y = date.getFullYear();
+      var day = date.getDay();
+
+      // First convert the date in to the mm-dd-yyyy format
+      // Take note that we will increment the month count by 1
+      var currentdate = (m + 1) + '-' + d + '-' + y ;
+
+       // We will now check if the date belongs to disableddates array
+      for (var i = 0; i < disableddates.length; i++) {
+
+        // Now check if the current date is in disabled dates array.
+        if ($.inArray(currentdate, disableddates) != -1 ) {
+          return [false];
+        } else if (day == 1 || day == 0) {
+          return [false] ;
+        } else {
+          return [true];
+        }
+      }
+
     }
 
 

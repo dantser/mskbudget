@@ -17,8 +17,8 @@ export default () => {
 
   $(document).ready(function(){
 
-    if($( ".jq-spec-datepicker" ).length > 0){
-		$('.jq-spec-datepicker').datepicker({
+    if($( ".jq-spec-datepicker-alt" ).length > 0){
+		$('.jq-spec-datepicker-alt').datepicker({
 			dateFormat:'dd.mm.yy',
 			changeMonth: true,
 			changeYear: true,
@@ -46,6 +46,30 @@ export default () => {
 			}
 		});
 	}
+
+  if($( ".jq-spec-datepicker" ).length > 0){
+  $('.jq-spec-datepicker').datepicker({
+    dateFormat:'dd.mm.yy',
+    changeMonth: true,
+    changeYear: true,
+    showOtherMonths: true,
+    selectOtherMonths: false,
+    firstDay: 1,
+    monthNames: ['январь','февраль','март','апрель','май','июнь',
+    'июль','август','сентябрь','октябрь','ноябрь','декабрь'],
+    monthNamesShort: ['январь','февраль','март','апрель','май','июнь',
+    'июль','август','сентябрь','октябрь','ноябрь','декабрь'],
+    dayNamesMin: ['вс', 'пн','вт','ср','чт','пт','сб'],
+    beforeShowDay: DisableSpecificDates,
+    beforeShow: function(input, inst) {
+      $('#ui-datepicker-div').removeClass(function() {
+        return $('input').get(0).id;
+      });
+      $('#ui-datepicker-div').removeClass('datepicker__show');
+      $('#ui-datepicker-div').addClass($(this).attr('class'));
+    }
+  });
+}
 
     function DisableSpecificDates(date) {
 

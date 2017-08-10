@@ -42,7 +42,7 @@ mixin analityc-widgethead-income(type)
       a(href="#").active млрд руб.
       a(href="#") млн руб.
     .analityc-control-group._dp
-      input(placeholder="Выберите дату исполнения").datepicker
+      input(placeholder="Выберите дату исполнения", value="Выберите дату исполнения", readonly="readonly").datepicker
 
 
 //- type - тип шапки расходов бюджета (один из трех)
@@ -202,7 +202,7 @@ mixin analityc-widgethead-sources(type)
       a(href="#").active млрд руб.
       a(href="#") млн руб.
     .analityc-control-group._dp
-      input(placeholder="22.04.2017", value="22.04.2017", readonly).datepicker
+      input(placeholder="22.04.2017", value="22.04.2017", readonly="readonly").datepicker
 
 mixin analityc-widgethead-analityc-income()
   +b.analityc-widgethead._income&attributes(attributes)
@@ -880,7 +880,7 @@ mixin analityc-widgethead-govdebt()
         option Закон о внесении изменений
         option Исполнение на дату
     .analityc-control-group._dp
-      input(placeholder="Выберите дату исполнения").datepicker
+      input(placeholder="Выберите дату исполнения", value="Выберите дату исполнения", readonly="readonly").gov-debt__datepicker
     .analityc-control-switcher
         a(href="#").active доля от общей суммы, %
         a(href="#") млрд. руб.
@@ -920,4 +920,4 @@ mixin analityc-widgethead-moscow-gp()
       a(href="#", data-type='gp').active Государственные программы
       a(href="#", data-type='structure') Структура
     .analityc-control-group._dp
-      input(placeholder="Выберите дату исполнения").datepicker
+      input(placeholder="Выберите дату исполнения", value="Выберите дату исполнения", readonly="readonly").datepicker

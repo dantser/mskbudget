@@ -137,8 +137,8 @@ mixin main()
     .slider(data-sides-700="4", data-sides-900="3", data-sides-1100="2")
       .cube-brick(data-brick-700="1", data-brick-900="1", data-brick-1100="1")
         // SERVICE_ITEM/
-        .tile__item.anim-left(data-delay="100")
-          .tile__inner.service
+        .tile__item.anim-left(data-delay="100").js_dropable
+          .tile__inner.service.js_draggable
             .service__ahead
               h3.service__title Государственные программы
                 button
@@ -146,7 +146,7 @@ mixin main()
               .service__sub-title
                 span по состоянию на
                 .service__datepicker
-                  input(value='01.06.2017', tabindex="0").datepicker__show.jq-spec-datepicker
+                  input(value='01.06.2017', tabindex="0").datepicker__show.jq-spec-datepicker-alt
                 | , млрд. руб 
             .service-dot-cont.service-dot-cont_act#serv-d-2
               .dashed-diagram.service__dashed-diagram
@@ -176,8 +176,8 @@ mixin main()
         
       .cube-brick(data-brick-700="1", data-brick-900="1", data-brick-1100="1")
         // SERVICE_ITEM/
-        .tile__item.anim-left(data-delay="300")
-          .tile__inner.service
+        .tile__item.anim-left(data-delay="300").js_dropable
+          .tile__inner.service.js_draggable
             .service__ahead
               h3.service__title Адресная инвестиционная программа
                 button
@@ -221,8 +221,8 @@ mixin main()
         
       .cube-brick(data-brick-700="2", data-brick-900="1", data-brick-1100="1")
         // SERVICE_ITEM/
-        .tile__item.anim-left(data-delay="600")
-          .tile__inner.service
+        .tile__item.anim-left(data-delay="600").js_dropable
+          .tile__inner.service.js_draggable
             .service__ahead
               h3.service__title Государственный долг
                 button
@@ -263,8 +263,8 @@ mixin main()
         
       .cube-brick(data-brick-700="2", data-brick-900="2", data-brick-1100="1")
         // SERVICE_ITEM/
-        .tile__item.anim-left(data-delay="900")
-          .tile__inner.service.service__cities
+        .tile__item.anim-left(data-delay="900").js_dropable
+          .tile__inner.service.service__cities.js_draggable
             +widget-card().widget-card-cities
               +widget-card-head('Москва и города мира')
               +widget-card-content()
@@ -299,8 +299,8 @@ mixin main()
         
       .cube-brick(data-brick-700="3", data-brick-900="2", data-brick-1100="2")
         // SERVICE_ITEM/
-        .tile__item
-          .tile__inner.service.service_calc
+        .tile__item.js_dropable
+          .tile__inner.service.service_calc.js_draggable
             +widget-card().widget-card-calc
               +widget-card-head('Бюджетный калькулятор')
               +widget-card-content()
@@ -318,8 +318,8 @@ mixin main()
         
       .cube-brick(data-brick-700="3", data-brick-900="2", data-brick-1100="2")
         // SERVICE_ITEM/
-        .tile__item
-          .tile__inner.service.service_widget
+        .tile__item.js_dropable
+          .tile__inner.service.service_widget.js_draggable
             +widget-card().widget-card-polls
               +widget-card-head('Опрос общественного мнения', 'Примите участие в опросах')
               +widget-card-content()
@@ -344,8 +344,8 @@ mixin main()
         
       .cube-brick(data-brick-700="4", data-brick-900="3", data-brick-1100="2")
         // SERVICE_ITEM/
-        .tile__item
-          .tile__inner.service.service_widget
+        .tile__item.js_dropable
+          .tile__inner.service.service_widget.js_draggable
             +widget-card().widget-card-quiz
               +widget-card-head('Викторины', 'Проверь свои знания в викторине')
               +widget-card-content()
@@ -371,8 +371,8 @@ mixin main()
         
       .cube-brick(data-brick-700="4", data-brick-900="3", data-brick-1100="2")
         // SERVICE_ITEM/
-        .tile__item
-          .tile__inner.service.service__cities
+        .tile__item.js_dropable
+          .tile__inner.service.service__cities.js_draggable
             +widget-card().widget-card-cities
               +widget-card-head('Москва и города мира')
               +widget-card-content()
