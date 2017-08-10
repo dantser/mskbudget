@@ -14,8 +14,8 @@ export default () => {
     $('body').removeClass('mobile-menu-is-open');
 
     // toppanel
-    $('#toppanel').removeClass('is-active');
-    $('.toppanel-is-active').removeClass('toppanel-is-active');
+    $toppanel.removeClass('is-active');
+    $header.removeClass('toppanel-is-active');
   }
 
   function mobileMenuShow() {
