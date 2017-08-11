@@ -208,7 +208,8 @@ mixin analityc-graphics-line-alt(data)
     +e.lines
       each obj in data
         +e.DIV(class="__line_"+obj.class)
-          +e.A(href="#").title= obj.title
+          +e.A(href="#").title
+            span= obj.title
             +icon('edu-hat').title-icon
           +e.line-bar._overwidth
             +e.line-total._altred
@@ -229,6 +230,7 @@ mixin analityc-graphics-mix(data)
               strong= item.title
           else
             +e.P.title= item.title
+              +icon('edu-hat').title-icon
           if item.overwidth
             +e.line-bar._overwidth
               +e.line-values 
