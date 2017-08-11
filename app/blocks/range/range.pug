@@ -12,11 +12,11 @@ mixin range(id)
         span.output-text млн. руб.
 
 //- для страницы Сервисы - сводная
-mixin range-for-widgets(id)
+mixin range-for-widgets(id, min, max)
   +b.range-for-widgets&attributes(attributes)
     +e.slider.js-range-for-widgets-slider(id=id)
     +e.output
       +e.min-value
-        span.output-num 0
+        span.output-num=min
       +e.max-value
-        span.output-num 400,8
+        span.output-num=max

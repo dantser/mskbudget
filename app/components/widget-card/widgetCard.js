@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import 'jquery-ui-bundle';
 
 export default () => {
   const FAVOR = $('.widget-card__favor');
@@ -156,6 +157,7 @@ export default () => {
       $('.widget-card-gov-programs-result .widget-card__info-block-items_opt4').show(321).addClass('widget-card__info-block-items_active');
     }
   });
+
   // виджет социальная поддержка населения
   $('.widget-card-social-support').find('li').on('click', function () {
     const newval = $(this).data('val');
@@ -210,6 +212,21 @@ export default () => {
       $('.widget-card-budget-web .widget-card__results_opt3').addClass('widget-card__results_active');
     } else if (newval == "opt4") {
       $('.widget-card-budget-web .widget-card__results_opt4').addClass('widget-card__results_active');
+    }
+  });
+
+  // виджет калькулятор
+  $('.widget-card-calc').find('li').on('click', function () {
+    const newval = $(this).data('val');
+    $('.widget-card-calc').find('.widget-card__output-calc').removeClass('widget-card__output-calc_active').hide(321);
+    if (newval == "opt1") {
+      $('.widget-card-calc .widget-card__output-calc_opt1').show(321);
+    } else if (newval == "opt2") {
+      $('.widget-card-calc .widget-card__output-calc_opt2').show(321);
+    } else if (newval == "opt3") {
+      $('.widget-card-calc .widget-card__output-calc_opt3').show(321);
+    } else if (newval == "opt4") {
+      $('.widget-card-calc .widget-card__output-calc_opt4').show(321);
     }
   });
 }
