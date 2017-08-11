@@ -12,12 +12,13 @@ export default () => {
       EL.toggleClass('widget-card__favor_active');
     })
   });
-
+  
   PIN.each(function () {
     const EL = $(this);
     EL.on('click', (e) => {
       e.preventDefault();
       EL.toggleClass('widget-card__pin_active');
+      EL.parents('.tile__item').toggleClass('tile__item_pinned');
     })
   });
 

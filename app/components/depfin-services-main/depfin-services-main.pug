@@ -8,7 +8,7 @@ include ../../blocks/range/range
 include ../../blocks/arrow-button/arrow-button
 
 mixin widget-card-edu()
-	.tile__item
+	.tile__item.ui-state-default
 		.tile__inner
 			+widget-card().widget-card-edu
 				+widget-card-head('Обучающий сервис', 'Пройдите обучающий курс бюджетной тематики')
@@ -27,7 +27,7 @@ mixin widget-card-edu()
 					+widget-card-bottom-link('edu-hat', 'Пройти курс')._gradiented
 
 mixin widget-card-regions()
-	.tile__item
+	.tile__item.ui-state-default
 		.tile__inner
 			+widget-card().widget-card-regions
 				+widget-card-head('Москва и субъекты РФ')
@@ -61,7 +61,7 @@ mixin widget-card-regions()
 				+widget-card-bottom-link()
 
 mixin widget-card-calc()
-	.tile__item
+	.tile__item.ui-state-default
 		.tile__inner
 			+widget-card().widget-card-calc
 				+widget-card-head('Бюджетный калькулятор')
@@ -100,7 +100,7 @@ mixin widget-card-calc()
 					+widget-card-bottom-link('calc', 'Предложите свой вариант бюджета!')._gradiented
 
 mixin widget-card-gov-programs()
-	.tile__item
+	.tile__item.ui-state-default
 		.tile__inner.service
 			+widget-card().widget-card-gov-programs
 				+widget-card-head('Государственные программы', false, true)
@@ -131,7 +131,7 @@ mixin widget-card-gov-programs()
 				+widget-card-bottom-link()
 
 mixin widget-card-invest-program()
-	.tile__item
+	.tile__item.ui-state-default
 		.tile__inner
 			+widget-card().widget-card-invest-program
 				+widget-card-head('Адресная инвестиционная программа', 'на 2016 год, млрд. руб.')
@@ -172,7 +172,7 @@ mixin widget-card-invest-program()
 				+widget-card-bottom-link()
 
 mixin widget-card-gov-debt()
-	.tile__item
+	.tile__item.ui-state-default
 		.tile__inner
 			+widget-card().widget-card-gov-debt
 				+widget-card-head('Государственный долг', false, true)
@@ -206,7 +206,7 @@ mixin widget-card-gov-debt()
 				+widget-card-bottom-link()
 
 mixin widget-card-cities()
-	.tile__item
+	.tile__item.ui-state-default
 		.tile__inner
 			+widget-card().widget-card-cities
 				+widget-card-head('Москва и города мира')
@@ -240,7 +240,7 @@ mixin widget-card-cities()
 				+widget-card-bottom-link()
 
 mixin widget-card-gov-programs-result()
-	.tile__item
+	.tile__item.ui-state-default
 		.tile__inner
 			+widget-card().widget-card-gov-programs-result
 				+widget-card-head('Результаты реализации государственных программ')
@@ -270,7 +270,7 @@ mixin widget-card-gov-programs-result()
 				+widget-card-bottom-link()
 
 mixin widget-card-social-support()
-	.tile__item
+	.tile__item.ui-state-default
 		.tile__inner
 			+widget-card().widget-card-social-support
 				+widget-card-head('Социальная поддержка населения')
@@ -299,7 +299,7 @@ mixin widget-card-social-support()
 				+widget-card-bottom-link()
 
 mixin widget-card-polls()
-	.tile__item
+	.tile__item.ui-state-default
 		.tile__inner
 			+widget-card().widget-card-polls
 				+widget-card-head('Опрос общественного мнения', 'Примите участие в опросах')
@@ -323,7 +323,7 @@ mixin widget-card-polls()
 				+widget-card-bottom-link()
 
 mixin widget-card-quiz()
-	.tile__item
+	.tile__item.ui-state-default
 		.tile__inner
 			+widget-card().widget-card-quiz
 				+widget-card-head('Викторины', 'Проверь свои знания в викторине')
@@ -348,7 +348,7 @@ mixin widget-card-quiz()
 				+widget-card-bottom-link()
 
 mixin widget-card-municipalities
-	.tile__item
+	.tile__item.ui-state-default
 		.tile__inner
 			+widget-card().widget-card-municipalities
 				+widget-card-head('Внутригородские муниципальные образования')
@@ -367,7 +367,7 @@ mixin widget-card-municipalities
 				+widget-card-bottom-link()
 
 mixin widget-card-budget-web
-	.tile__item
+	.tile__item.ui-state-default
 		.tile__inner
 			+widget-card().widget-card-budget-web
 				+widget-card-head('Бюджетная сеть', 'Сводная информация о сети государственных учреждений г. Москвы')
@@ -407,17 +407,18 @@ mixin depfin-services-main()
 				+e.B Сервисы
 				| &nbsp;— это интерактивные инструменты изучения информации на бюджетную тематику. Заходя в любой из сервисов, Вы сможете в простой и понятной форме изучить информацию в различных срезах.
 			.tile
-				+widget-card-gov-programs()
-				+widget-card-invest-program()
-				+widget-card-gov-debt()
-				+widget-card-cities()
-				+widget-card-gov-programs-result()
-				+widget-card-polls()
-				+widget-card-municipalities()
-				+widget-card-social-support()
-				+widget-card-calc()
-				+widget-card-quiz()
-				+widget-card-edu()
-				+widget-card-regions()
-				+widget-card-budget-web()
+				.sortable
+					+widget-card-gov-programs()
+					+widget-card-invest-program()
+					+widget-card-gov-debt()
+					+widget-card-cities()
+					+widget-card-gov-programs-result()
+					+widget-card-polls()
+					+widget-card-municipalities()
+					+widget-card-social-support()
+					+widget-card-calc()
+					+widget-card-quiz()
+					+widget-card-edu()
+					+widget-card-regions()
+					+widget-card-budget-web()
 				
