@@ -270,7 +270,7 @@ body.mobile-menu-is-open {
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translateX(-50%) translateY(-55%);
+      transform: translateX(-50%) translateY(-60%);
 
       .menu__link {
         padding: 8px;
@@ -278,7 +278,13 @@ body.mobile-menu-is-open {
 
       &.js-mobile-search-is-open {
         opacity: 0;
-        transform: translateX(-50%) translateY(-65%);
+        transform: translateX(-50%) translateY(-70%);
+      }
+    }
+
+    @media (max-height: 530px) {
+      .toppanel-is-active & {
+        transform: translateX(-50%) translateY(-60%) scale(.8);
       }
     }
 

@@ -725,13 +725,13 @@ budget.extend("whatIsBudgetWeight", {
                         });
                 }
 
-                if (Modernizr.mobile) {
+                //if (Modernizr.mobile) {
 
                         this.elements.$zoneSurplus.on("click", function (event) {
                                 _this.rollToTheLeft();
-                                if ($(window).width() < 800) {
+                                //if ($(window).width() < 800) {
                                   $('.whatIsBudget-component:first-child .whatIsBudget-component__termin').click();
-                                }
+                                //}
                         });
 
                         this.elements.$zoneBalance.on("click", function (event) {
@@ -741,11 +741,11 @@ budget.extend("whatIsBudgetWeight", {
 
                         this.elements.$zoneDeficit.on("click", function (event) {
                                 _this.rollToTheRight();
-                                if ($(window).width() < 800) {
+                                //if ($(window).width() < 800) {
                                   $('.whatIsBudget-component:last-child .whatIsBudget-component__termin').click();
-                                }
+                                //}
                         });
-                }
+                //}
 
 
                 this.elements.$componentItem.on("click", ".whatIsBudget-component__termin", function (event) {

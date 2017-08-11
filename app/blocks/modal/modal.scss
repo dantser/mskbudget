@@ -1,30 +1,165 @@
 @import '../../node_modules/vex-js/dist/css/vex.css';
 @import '../../node_modules/vex-js/dist/css/vex-theme-default.css';
 
+// Родные анимации надо перенастроить под трансформацию для центровки
+// модального окна
+@keyframes vex-flyin {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-60%);
+    -webkit-transform: translateX(-50%) translateY(-60%);
+    -moz-transform: translateX(-50%) translateY(-60%);
+    -ms-transform: translateX(-50%) translateY(-60%);
+    -o-transform: translateX(-50%) translateY(-60%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+  }
+}
+
+@-webkit-keyframes vex-flyin {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-50%) translateY(-60%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+  }
+}
+
+@-moz-keyframes vex-flyin {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(-50%) translateY(-60%);
+  }
+  100% {
+    opacity: 1;
+    -moz-transform: translateX(-50%) translateY(-50%);
+  }
+}
+
+@-ms-keyframes vex-flyin {
+  0% {
+    opacity: 0;
+    -ms-transform: translateX(-50%) translateY(-60%);
+  }
+  100% {
+    opacity: 1;
+    -ms-transform: translateX(-50%) translateY(-50%);
+  }
+}
+
+@-o-keyframes vex-flyin {
+  0% {
+    opacity: 0;
+    -o-transform: translateX(-50%) translateY(-60%);
+  }
+  100% {
+    opacity: 1;
+    -o-transform: translateX(-50%) translateY(-50%);
+  }
+}
+
+@keyframes vex-flyout {
+  0% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-60%);
+    -webkit-transform: translateX(-50%) translateY(-60%);
+    -moz-transform: translateX(-50%) translateY(-60%);
+    -ms-transform: translateX(-50%) translateY(-60%);
+    -o-transform: translateX(-50%) translateY(-60%);
+  }
+}
+
+@-webkit-keyframes vex-flyout {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(-50%) translateY(-60%);
+  }
+}
+
+@-moz-keyframes vex-flyout {
+  0% {
+    opacity: 1;
+    -moz-transform: translateX(-50%) translateY(-50%);
+  }
+  100% {
+    opacity: 0;
+    -moz-transform: translateX(-50%) translateY(-60%);
+  }
+}
+
+@-ms-keyframes vex-flyout {
+  0% {
+    opacity: 1;
+    -ms-transform: translateX(-50%) translateY(-50%);
+  }
+  100% {
+    opacity: 0;
+    -ms-transform: translateX(-50%) translateY(-60%);
+  }
+}
+
+@-o-keyframes vex-flyout {
+  0% {
+    opacity: 1;
+    -o-transform: translateX(-50%) translateY(-50%);
+  }
+  100% {
+    opacity: 0;
+    -o-transform: translateX(-50%) translateY(-60%);
+  }
+}
+
 // body class when modal window is open
 // если не изменить параметр по-умолчанию: hidden
 // то страница будет скроллиться до самого верха
 // при каждом открытии модального окна
 body.vex-open,
 .vex-open {
-  overflow: visible;
+  overflow: hidden;
 }
 
 .login-form__field label {margin: 0}
 
 .vex.vex-theme-default {
-  padding-top: 160px;
-  padding-bottom: 160px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   z-index: 3000;
 
   .vex-overlay {
+    top: -500px;
+    bottom: -500px;
     background: rgba(#24242d, .4);
   }
 
   .vex-content {
-    position: relative;
-    width: auto;
-    max-width: 580px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    transform: translateX(-50%) translateY(-50%);
+    max-width: 100%;
+    width: 580px;
     min-width: 320px;
     padding: 40px 50px;
     font-family: $PFDinTextPro;
@@ -41,7 +176,6 @@ body.vex-open,
       padding-right: 15px;
     }
 
-    // помошники
     .text-left { text-align: left; }
     .text-right { text-align: right; }
     .text-center { text-align: center; }
@@ -54,10 +188,6 @@ body.vex-open,
     width: 40px;
     height: 40px;
     border-radius: 0;
-
-    @media (max-width: 768px) {
-      @include transform(translateX(8px) translateY(-50px));
-    }
 
     @media (min-width: 769px) {
       @include transform(translateX(50px) translateY(-8px));
@@ -128,6 +258,10 @@ body.vex-open,
 
     &:not(:last-child) {
       margin-right: 18px;
+    }
+
+    &:not(:first-child) {
+      margin-top: 10px;
     }
 
     &:active {
