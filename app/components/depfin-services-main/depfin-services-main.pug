@@ -8,7 +8,7 @@ include ../../blocks/range/range
 include ../../blocks/arrow-button/arrow-button
 
 mixin widget-card-edu()
-	.tile__item
+	.tile__item.ui-state-default
 		.tile__inner
 			+widget-card().widget-card-edu
 				+widget-card-head('Обучающий сервис', 'Пройдите обучающий курс бюджетной тематики')
@@ -27,7 +27,7 @@ mixin widget-card-edu()
 					+widget-card-bottom-link('edu-hat', 'Пройти курс')._gradiented
 
 mixin widget-card-regions()
-	.tile__item
+	.tile__item.ui-state-default
 		.tile__inner
 			+widget-card().widget-card-regions
 				+widget-card-head('Москва и субъекты РФ')
@@ -39,46 +39,68 @@ mixin widget-card-regions()
 					+e.select
 						+selectbox('select', getData('widget-card-selectbox'))
 					+e.results._opt1
-						+e.results-total 300 тыс. руб. на 1 жителя
+						+e.results-total._active 300 тыс. руб. на 1 жителя
 						+e.results-rating 
 							+e.results-pos 8 место
 							+e.results-in из 85 субъектов РФ
 					+e.results._opt2
-						+e.results-total 300 тыс. руб. на 1 жителя
+						+e.results-total._active 300 тыс. руб. на 1 жителя
 						+e.results-rating 
 							+e.results-pos 8 место
 							+e.results-in из 85 субъектов РФ
 					+e.results._opt3
-						+e.results-total 300 тыс. руб. на 1 жителя
+						+e.results-total._active 300 тыс. руб. на 1 жителя
 						+e.results-rating 
 							+e.results-pos 8 место
 							+e.results-in из 85 субъектов РФ
 					+e.results._opt4
-						+e.results-total 300 тыс. руб. на 1 жителя
+						+e.results-total._active 300 тыс. руб. на 1 жителя
 						+e.results-rating 
 							+e.results-pos 8 место
 							+e.results-in из 85 субъектов РФ
 				+widget-card-bottom-link()
 
 mixin widget-card-calc()
-	.tile__item
+	.tile__item.ui-state-default
 		.tile__inner
 			+widget-card().widget-card-calc
 				+widget-card-head('Бюджетный калькулятор')
 				+widget-card-content()
 					+e.select
 						+selectbox('select', getData('widget-card-selectbox'))
-					+e.range
-						+range-for-widgets('widget_card_calc')
-					+e.value
-						+e.value-title Дефицит
-						+e.value-value -47,5
-						+e.value-units млрд руб.
+					+e.output-calc._opt1._active
+						+e.range
+							+range-for-widgets('widget_card_calc1', "0", "400.8")
+						+e.value
+							+e.value-title Дефицит
+							+e.value-value -47,5
+							+e.value-units млрд руб.
+					+e.output-calc._opt2
+						+e.range
+							+range-for-widgets('widget_card_calc2', "20", "500")
+						+e.value
+							+e.value-title Профицит
+							+e.value-value 5
+							+e.value-units млрд руб.
+					+e.output-calc._opt3
+						+e.range
+							+range-for-widgets('widget_card_calc3', "300", "600")
+						+e.value
+							+e.value-title Дефицит
+							+e.value-value -10,3
+							+e.value-units млрд руб.
+					+e.output-calc._opt4
+						+e.range
+							+range-for-widgets('widget_card_calc4', "2", "200")
+						+e.value
+							+e.value-title Профицит
+							+e.value-value 500
+							+e.value-units млрд руб.
 				+e.bottom-link-wrap
 					+widget-card-bottom-link('calc', 'Предложите свой вариант бюджета!')._gradiented
 
 mixin widget-card-gov-programs()
-	.tile__item
+	.tile__item.ui-state-default
 		.tile__inner.service
 			+widget-card().widget-card-gov-programs
 				+widget-card-head('Государственные программы', false, true)
@@ -109,7 +131,7 @@ mixin widget-card-gov-programs()
 				+widget-card-bottom-link()
 
 mixin widget-card-invest-program()
-	.tile__item
+	.tile__item.ui-state-default
 		.tile__inner
 			+widget-card().widget-card-invest-program
 				+widget-card-head('Адресная инвестиционная программа', 'на 2016 год, млрд. руб.')
@@ -150,7 +172,7 @@ mixin widget-card-invest-program()
 				+widget-card-bottom-link()
 
 mixin widget-card-gov-debt()
-	.tile__item
+	.tile__item.ui-state-default
 		.tile__inner
 			+widget-card().widget-card-gov-debt
 				+widget-card-head('Государственный долг', false, true)
@@ -184,7 +206,7 @@ mixin widget-card-gov-debt()
 				+widget-card-bottom-link()
 
 mixin widget-card-cities()
-	.tile__item
+	.tile__item.ui-state-default
 		.tile__inner
 			+widget-card().widget-card-cities
 				+widget-card-head('Москва и города мира')
@@ -195,30 +217,30 @@ mixin widget-card-cities()
 						+selectbox-cities('select', getData('widget-card-selectbox-cities'))
 					+e.select
 						+selectbox('select', getData('widget-card-selectbox-cities2'))
-					+e.results._moscow
-						+e.results-total 12 500 тысяч человек
+					+e.results._moscow._active
+						+e.results-total._active 12 500 тысяч человек
 						+e.results-rating
 							+e.results-pos 8 место
 							+e.results-in из 8 крупнейших городов мира
 					+e.results._london
-						+e.results-total 12 500 тысяч человек
+						+e.results-total._active 12 500 тысяч человек
 						+e.results-rating
 							+e.results-pos 8 место
 							+e.results-in из 8 крупнейших городов мира
 					+e.results._paris
-						+e.results-total 12 500 тысяч человек
+						+e.results-total._active 12 500 тысяч человек
 						+e.results-rating
 							+e.results-pos 8 место
 							+e.results-in из 8 крупнейших городов мира
 					+e.results._berlin
-						+e.results-total 12 500 тысяч человек
+						+e.results-total._active 12 500 тысяч человек
 						+e.results-rating
 							+e.results-pos 8 место
 							+e.results-in из 8 крупнейших городов мира
 				+widget-card-bottom-link()
 
 mixin widget-card-gov-programs-result()
-	.tile__item
+	.tile__item.ui-state-default
 		.tile__inner
 			+widget-card().widget-card-gov-programs-result
 				+widget-card-head('Результаты реализации государственных программ')
@@ -248,7 +270,7 @@ mixin widget-card-gov-programs-result()
 				+widget-card-bottom-link()
 
 mixin widget-card-social-support()
-	.tile__item
+	.tile__item.ui-state-default
 		.tile__inner
 			+widget-card().widget-card-social-support
 				+widget-card-head('Социальная поддержка населения')
@@ -277,7 +299,7 @@ mixin widget-card-social-support()
 				+widget-card-bottom-link()
 
 mixin widget-card-polls()
-	.tile__item
+	.tile__item.ui-state-default
 		.tile__inner
 			+widget-card().widget-card-polls
 				+widget-card-head('Опрос общественного мнения', 'Примите участие в опросах')
@@ -301,7 +323,7 @@ mixin widget-card-polls()
 				+widget-card-bottom-link()
 
 mixin widget-card-quiz()
-	.tile__item
+	.tile__item.ui-state-default
 		.tile__inner
 			+widget-card().widget-card-quiz
 				+widget-card-head('Викторины', 'Проверь свои знания в викторине')
@@ -326,7 +348,7 @@ mixin widget-card-quiz()
 				+widget-card-bottom-link()
 
 mixin widget-card-municipalities
-	.tile__item
+	.tile__item.ui-state-default
 		.tile__inner
 			+widget-card().widget-card-municipalities
 				+widget-card-head('Внутригородские муниципальные образования')
@@ -338,14 +360,14 @@ mixin widget-card-municipalities
 					+e.select
 						+selectbox('select', getData('widget-card-selectbox-vmo'))
 					+e.results
-						+e.results-total._opt1 57 700 человек
+						+e.results-total._opt1._active 57 700 человек
 						+e.results-total._opt2 57 700 кв.м
 						+e.results-total._opt3 57 700 децибел
 						+e.results-total._opt4 57 700 атомов
 				+widget-card-bottom-link()
 
 mixin widget-card-budget-web
-	.tile__item
+	.tile__item.ui-state-default
 		.tile__inner
 			+widget-card().widget-card-budget-web
 				+widget-card-head('Бюджетная сеть', 'Сводная информация о сети государственных учреждений г. Москвы')
@@ -385,17 +407,18 @@ mixin depfin-services-main()
 				+e.B Сервисы
 				| &nbsp;— это интерактивные инструменты изучения информации на бюджетную тематику. Заходя в любой из сервисов, Вы сможете в простой и понятной форме изучить информацию в различных срезах.
 			.tile
-				+widget-card-gov-programs()
-				+widget-card-invest-program()
-				+widget-card-gov-debt()
-				+widget-card-cities()
-				+widget-card-gov-programs-result()
-				+widget-card-polls()
-				+widget-card-municipalities()
-				+widget-card-social-support()
-				+widget-card-calc()
-				+widget-card-quiz()
-				+widget-card-edu()
-				+widget-card-regions()
-				+widget-card-budget-web()
+				.sortable
+					+widget-card-gov-programs()
+					+widget-card-invest-program()
+					+widget-card-gov-debt()
+					+widget-card-cities()
+					+widget-card-gov-programs-result()
+					+widget-card-polls()
+					+widget-card-municipalities()
+					+widget-card-social-support()
+					+widget-card-calc()
+					+widget-card-quiz()
+					+widget-card-edu()
+					+widget-card-regions()
+					+widget-card-budget-web()
 				

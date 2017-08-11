@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import 'jquery-ui-bundle';
 
 export default () => {
   const FAVOR = $('.widget-card__favor');
@@ -11,17 +12,18 @@ export default () => {
       EL.toggleClass('widget-card__favor_active');
     })
   });
-
+  
   PIN.each(function () {
     const EL = $(this);
     EL.on('click', (e) => {
       e.preventDefault();
       EL.toggleClass('widget-card__pin_active');
+      EL.parents('.tile__item').toggleClass('tile__item_pinned');
     })
   });
 
   // стрелочки в виджетах
-  $('.arrow-button_next').on('click', function (e) {
+  $('.widget-card-gov-programs-result .arrow-button_next, .widget-card-social-support .arrow-button_next').on('click', function (e) {
     e.preventDefault();
     const widgetCard = $(this).parents('.widget-card').find('.widget-card__info-block-items_active');
 
@@ -34,13 +36,13 @@ export default () => {
     }
   });
 
-  $('.arrow-button_prev').on('click', function (e) {
+  $('.widget-card-gov-programs-result .arrow-button_prev, .widget-card-social-support .arrow-button_prev').on('click', function (e) {
     e.preventDefault();
     const widgetCard = $(this).parents('.widget-card').find('.widget-card__info-block-items_active');
 
     widgetCard.find('.widget-card__info-block-item_active')
     .removeClass('widget-card__info-block-item_active')
-    .prev('.widget-card__info-block-item').addClass('widget-card__info-block-item_active', 100);
+    .prev('.widget-card__info-block-item').addClass('widget-card__info-block-item_active');
 
     if (!widgetCard.find('.widget-card__info-block-item').is('.widget-card__info-block-item_active')) {
       widgetCard.find('.widget-card__info-block-item:last-child').addClass('widget-card__info-block-item_active');
@@ -156,6 +158,7 @@ export default () => {
       $('.widget-card-gov-programs-result .widget-card__info-block-items_opt4').show(321).addClass('widget-card__info-block-items_active');
     }
   });
+
   // виджет социальная поддержка населения
   $('.widget-card-social-support').find('li').on('click', function () {
     const newval = $(this).data('val');
@@ -210,6 +213,21 @@ export default () => {
       $('.widget-card-budget-web .widget-card__results_opt3').addClass('widget-card__results_active');
     } else if (newval == "opt4") {
       $('.widget-card-budget-web .widget-card__results_opt4').addClass('widget-card__results_active');
+    }
+  });
+
+  // виджет калькулятор
+  $('.widget-card-calc').find('li').on('click', function () {
+    const newval = $(this).data('val');
+    $('.widget-card-calc').find('.widget-card__output-calc').removeClass('widget-card__output-calc_active').hide(321);
+    if (newval == "opt1") {
+      $('.widget-card-calc .widget-card__output-calc_opt1').show(321);
+    } else if (newval == "opt2") {
+      $('.widget-card-calc .widget-card__output-calc_opt2').show(321);
+    } else if (newval == "opt3") {
+      $('.widget-card-calc .widget-card__output-calc_opt3').show(321);
+    } else if (newval == "opt4") {
+      $('.widget-card-calc .widget-card__output-calc_opt4').show(321);
     }
   });
 }

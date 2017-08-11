@@ -21,19 +21,26 @@ export default function range() {
       });
     });
   }
+  function sliderForWidgets(id, start, min, max) {
+    const sliderForWidgets = document.getElementById(id);
 
-  // для страницы Сервисы - сводная
-  const sliderForWidgets = document.getElementById('widget_card_calc');
-
-  if(sliderForWidgets) {
-    noUiSlider.create(sliderForWidgets, {
-      start: 200.4,
-      tooltips: true,
-      // format: wNumb({ decimals: 1 }),
-      range: {
-        'min': 0,
-        'max': 400.8
-      }
-    });
+    if(sliderForWidgets) {
+      noUiSlider.create(sliderForWidgets, {
+        start: start,
+        tooltips: true,
+        // format: wNumb({ decimals: 1 }),
+        range: {
+          'min': min,
+          'max': max
+        }
+      });
+    }
   }
+
+  sliderForWidgets('widget_card_calc1', 200.4, 0, 400.8);
+  sliderForWidgets('widget_card_calc2', 195.4, 20, 500);
+  sliderForWidgets('widget_card_calc3', 150, 300, 600);
+  sliderForWidgets('widget_card_calc4', 100, 2, 200);
+  // для страницы Сервисы - сводная
+
 }
