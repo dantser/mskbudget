@@ -134,10 +134,10 @@ mixin main()
     // /SERVICES_AHEAD
     
     // SERVICES_SLIDER/
-    .slider(data-sides-700="4", data-sides-900="3", data-sides-1100="2")
+    .slider(id="services-slider", data-sides-700="4", data-sides-900="3", data-sides-1100="2")
       .cube-brick(data-brick-700="1", data-brick-900="1", data-brick-1100="1")
         // SERVICE_ITEM/
-        .tile__item.anim-left(data-delay="100").js_dropable
+        .tile__item.anim-left.js_dropable(data-delay="100")
           .tile__inner.service.js_draggable
             .service__ahead
               h3.service__title Государственные программы
@@ -176,7 +176,7 @@ mixin main()
         
       .cube-brick(data-brick-700="1", data-brick-900="1", data-brick-1100="1")
         // SERVICE_ITEM/
-        .tile__item.anim-left(data-delay="300").js_dropable
+        .tile__item.anim-left.js_dropable(data-delay="300")
           .tile__inner.service.js_draggable
             .service__ahead
               h3.service__title Адресная инвестиционная программа
@@ -221,7 +221,7 @@ mixin main()
         
       .cube-brick(data-brick-700="2", data-brick-900="1", data-brick-1100="1")
         // SERVICE_ITEM/
-        .tile__item.anim-left(data-delay="600").js_dropable
+        .tile__item.anim-left.js_dropable(data-delay="600")
           .tile__inner.service.js_draggable
             .service__ahead
               h3.service__title Государственный долг
@@ -263,7 +263,7 @@ mixin main()
         
       .cube-brick(data-brick-700="2", data-brick-900="2", data-brick-1100="1")
         // SERVICE_ITEM/
-        .tile__item.anim-left(data-delay="900").js_dropable
+        .tile__item.anim-left.js_dropable(data-delay="900")
           .tile__inner.service.service__cities.js_draggable
             +widget-card().widget-card-cities
               +widget-card-head('Москва и города мира')

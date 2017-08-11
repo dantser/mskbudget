@@ -21,7 +21,7 @@ export default () => {
   });
 
   // стрелочки в виджетах
-  $('.arrow-button_next').on('click', function (e) {
+  $('.widget-card-gov-programs-result .arrow-button_next, .widget-card-social-support .arrow-button_next').on('click', function (e) {
     e.preventDefault();
     const widgetCard = $(this).parents('.widget-card').find('.widget-card__info-block-items_active');
 
@@ -34,13 +34,13 @@ export default () => {
     }
   });
 
-  $('.arrow-button_prev').on('click', function (e) {
+  $('.widget-card-gov-programs-result .arrow-button_prev, .widget-card-social-support .arrow-button_prev').on('click', function (e) {
     e.preventDefault();
     const widgetCard = $(this).parents('.widget-card').find('.widget-card__info-block-items_active');
 
     widgetCard.find('.widget-card__info-block-item_active')
     .removeClass('widget-card__info-block-item_active')
-    .prev('.widget-card__info-block-item').addClass('widget-card__info-block-item_active', 100);
+    .prev('.widget-card__info-block-item').addClass('widget-card__info-block-item_active');
 
     if (!widgetCard.find('.widget-card__info-block-item').is('.widget-card__info-block-item_active')) {
       widgetCard.find('.widget-card__info-block-item:last-child').addClass('widget-card__info-block-item_active');
