@@ -4,7 +4,7 @@
 		var winW = $(window).width();
 
 
-
+console.log('1');
 setTimeout(function() {
 
 	var dragIndex, prevDropIndex,
@@ -23,10 +23,12 @@ setTimeout(function() {
 		$(this).css('width', $(this).innerWidth()).addClass('js_draggable-'+ i)
 		.attr('data-index', i)
 		.attr('data-index-drop', i);
+		console.log('draggable');
 	});
 
 
 	function moveVidgets(dropObj) {
+		console.log('move');
 
 		var incestor = dropObj.closest('.slick-slide');
 
@@ -37,21 +39,21 @@ setTimeout(function() {
 
 		var prevObj = incestor.find('.js_dropable-'+ prevDropIndex);
 		var prevOffsetsLeft = prevObj.offset().left;
-		
-		
+
+
 		var dragInDropObj = incestor.find('.js_draggable-'+ dragInDropIndex),
 		dragInDropOffsetLeft = incestor.find('.js_dropable-'+ dragInDropIndex).offset().left;
 
 		dragInDropObj.css('left', prevOffsetsLeft - dragInDropOffsetLeft + 7)
 		.attr('data-index-drop', prevDropIndex);
 
-		
+
 		dropObj.attr('data-index-drag', dragIndex);
 		prevObj.attr('data-index-drag', dragInDropIndex);
 
 
 		incestor.find('.js_draggable-'+ dragIndex).attr('data-index-drop', dropIndex);
-		
+
 		prevDropIndex = dropIndex;
 
 	}
@@ -70,7 +72,8 @@ setTimeout(function() {
 	}
 
 	function replaceVidgets(direct,replXObj) {
-		
+		console.log('replaceVidgets');
+
 
 		var replX = replXObj.html(),
 		curSlideIndex = +replXObj.closest('.slick-slide').attr('data-original-index');
@@ -92,8 +95,8 @@ setTimeout(function() {
 
 			var replYInd = $('#services-slider').find('.slick-original-'+ nextSlideIndex).find('.js_dropable').last().attr('data-index-drag');
 		}
-		
-		
+
+
 		var replYObj = $('.js_draggable-'+ replYInd),
 		replY = replYObj.html();
 
@@ -115,13 +118,15 @@ setTimeout(function() {
 	$( ".js_draggable" ).draggable({
 		//revert: "invalid",
 		start: function() {
+
 			$('#services-slider').swipe("disable");
 			dragIndex = $(this).attr('data-index');
 			prevDropIndex = $(this).attr('data-index-drop');
+			console.log('start');
 		},
 		stop: function() {
 			$('#services-slider').swipe("enable");
-
+			console.log('stop');
 			dropVidgets($(this));
 
 			for (var i = 0; i < slidesCount; i++) {
@@ -148,11 +153,11 @@ setTimeout(function() {
 			}
 		}
 	});
-	
+
 },1500);
 
-	
 
 
-	}); 
+
+	});
 }());
