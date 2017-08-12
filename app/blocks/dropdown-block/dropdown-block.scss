@@ -1,4 +1,8 @@
 .dropdown-block {
+
+  // .js-drag-scroll-element {
+  //   display: inline-block;
+  // }
   .section-tabs {
     border-bottom: none;
     border-top: 1px solid rgba(254,227,0,.2);
@@ -25,6 +29,7 @@
 
 
 .section-tabs {
+  z-index: 5;
 
   &__nav-list {
     position: relative;
@@ -37,7 +42,7 @@
       top: 0;
       bottom: 59px;
       margin: auto;
-      z-index: 2;
+      z-index: 4;
       width: 46px;
       height: 46px;
       background:#fee300;
@@ -105,6 +110,8 @@
     margin-right: 5px;
   }
 
+
+
   .btn-arrow {
     &::after {
       @media screen and (max-width: 800px) and (min-width: 631px) {
@@ -126,10 +133,65 @@
   }
 
   &_documents, &_news, &_services {
-    .owl-carousel {
-      max-width: 1100px !important;
-      margin: auto;
+    .dd-holder {
+      background-color: rbg(29,27,39);
+
+      position: relative;
     }
+
+    .section-tabs__content {
+      display: block;
+    }
+
+      .section-tabs__nav {
+        max-width: 1100px !important;
+        margin: auto;
+        position: relative;
+        padding-bottom: 0!important;
+
+        @media (max-width: 1024px) {
+          max-width: 822px !important;
+        }
+
+        @media (max-width: 840px) {
+          max-width: 548px !important;
+        }
+
+        @media (max-width: 480px) {
+          max-width: 281px !important;
+        }
+
+        &-list {
+          padding: 0 !important;
+        }
+
+        &::after, &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: 8px;
+          z-index: 3;
+          max-height: 480px;
+
+          @media (max-width: 1440px) {
+            max-height: 420px;
+          }
+
+        }
+
+        &::before {
+          right: -1px;
+          background: linear-gradient(90deg,rgba(29,27,39,0) 0,#1d1b27);
+          filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr="#000000FF",endColorstr="#1d1b27");
+        }
+
+        &::after {
+          left: -1px;
+          background: linear-gradient(90deg,#1d1b27 0,rgba(29,27,39,0));
+          filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr="#1d1b27",endColorstr="#000000FF");
+        }
+      }
 
     .owl-stage-outer:after,
     .owl-stage-outer:before{
@@ -139,7 +201,8 @@
     }
 
     .tile__inner {
-      margin: 0 4px;
+      margin: 0 !important;
+      padding-bottom: 56px;
     }
 
     .section-tabs__nav-leftbtn, .section-tabs__nav-rightbtn {

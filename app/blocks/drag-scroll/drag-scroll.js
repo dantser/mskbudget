@@ -13,6 +13,7 @@ export default function dragscroll() {
         elementToScroll.scrollTop(elementToScroll.scrollTop() + (curYPos - NcurYPos));
         curXPos = NcurXPos;
         curYPos = NcurYPos;
+        $(this).css('cursor', 'move');
       }
     });
 
@@ -24,10 +25,15 @@ export default function dragscroll() {
 
     elementToScroll.mouseup(function() {
       clicked = false;
+      $(this).css('cursor', 'inherit');
     });
   }
 
   // implementation
   var elementToScroll = $(".js-drag-scroll-element");
   clickAndDragScroll(elementToScroll);
+  var elementToScroll2 = $(".js-drag-scroll-element2");
+  clickAndDragScroll(elementToScroll2);
+  var elementToScroll3 = $(".js-drag-scroll-element3");
+  clickAndDragScroll(elementToScroll3);
 }

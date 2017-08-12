@@ -47,6 +47,7 @@ import analitycWidgethead from '../components/analityc-widgethead/analityc-widge
 import aboutBudget from '../components/depfin-about-budget/aboutBudget';
 import openReit from '../components/depfin-budget-moscow-open-reit/openReit';
 import depfinServices from '../components/depfin-services-main/depfin-services-main';
+import dropdown from '../blocks/dropdown-block/dropdown';
 
 $(() => {
 
@@ -70,6 +71,7 @@ $(() => {
   widgetCard();
   depfinServices();
   main();
+  dropdown();
   analitycWidgethead();
   pageHeader();
   question();
