@@ -510,9 +510,9 @@ function tabsLine(){
 
 	$('.js-label-button').click(function(){
       var sectionTabs = $(this).parents('.section-tabs');
-      // setTimeout( function() {
-      //   sectionTabs.find(".whitescreen1").fadeToggle(100);
-      // }, 500)
+      setTimeout( function() {
+        sectionTabs.find(".whitescreen1").fadeToggle(100);
+      }, 500)
 
       sectionTabs.find($('.section-tabs__nav')).slideToggle();
       sectionTabs.find($('.owl-nav')).toggle();
