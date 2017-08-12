@@ -78,27 +78,27 @@
     }
   }
 
-  @media screen and (max-width: 640px) {
+  @media screen and (max-width: 900px) {
     .social__link {
+      width: 13px;
+      height: 20px;
+      max-height: 20px;
+    }
+
+    .social__item {
+      float: none;
       width: 13px;
     }
 
-    .social__item:not(:last-child) {
-      margin-right: 5px;
-    }
-
     div.share__panel.share {
-      left: -40px !important;
+      left: 0!important;
+      background: red!important;
+      width: 21px!important;
+      height: auto!important;
+      background: rgba(0,0,0,.6)!important;
+      border-radius: 2px;
     }
 
-    .download__a {
-      font-size: 16px !important;
-      margin-right: 7px !important;
-    }
-
-    .download__panel {
-      left: -20px !important;
-    }
   }
   &__icon {
     fill: #d0ccd3;
@@ -157,6 +157,13 @@
     text-align: center;
     line-height: 50px;
     white-space: nowrap;
+
+    @media screen and (max-width: 900px) {
+      left: -10px !important;
+      background: rgba(0,0,0,.6);
+      border-radius: 2px;
+    }
+
   }
 
   .download__a {
@@ -169,6 +176,15 @@
     text-decoration: none;
     font-weight: 500 !important;
     font-family: $PFDinCompressedPro !important;
+
+    @media screen and (max-width: 900px) {
+      display: block;
+      font-size: 16px !important;
+      line-height: 16px;
+      margin-top: 14px;
+      margin-right: 0px;
+    }
+
 
     &:hover {
       color: $color-yellow;

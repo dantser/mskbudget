@@ -426,6 +426,12 @@
   overflow: hidden;
   list-style-type: none;
   text-align: left;
+
+  &.width595 {
+    width: 100%;
+    margin-top: 20px;
+    padding: 0 25px;
+  }
 }
 
 .d-slide__tax .d-slide__body_list {
@@ -449,6 +455,10 @@
   line-height: 22px;
   left: 22px;
   margin-bottom: 14px;
+
+  &.none {
+    background: none;
+  }
 }
 
 .d-slide__body_list li {
@@ -833,7 +843,9 @@
     color: #fee300;
     background-color: #293a4a;
     transition: all ease 0.5s;
-    position: relative;
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
     &:before {
       content: '';
       display: block;

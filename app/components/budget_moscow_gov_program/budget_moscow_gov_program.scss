@@ -151,7 +151,7 @@
         display: block;
       }
     }
-
+/*start*/
     &-table {
       &_done, &_structure, &_changes, &_date {
         display: none;
@@ -159,10 +159,21 @@
           display: block;
         }
       }
+
+      .analityc-table__wrapper {
+        overflow-x: auto;
+        overflow-y: hidden;
+      }
+
+      .table {
+        @media (max-width: 900px) {
+          min-width: 980px;
+        }
+      }
     }
   }
 
-  .analityc-widget-sources, .analityc-table {
+  .analityc-widget-sources {
     margin-top: 64px;
 
     @media (max-width: 1140px) {
@@ -177,6 +188,18 @@
       margin-top: 26px;
     }
 
+  }
+
+  .analityc-table {
+    margin-top: 64px;
+
+    @media (max-width: 1140px) {
+      margin-top: 7px;
+    }
+
+    @media (max-width: 900px) {
+      margin-top: 0;
+    }
   }
 
   .analityc-widget-moscow-gov-program {
@@ -208,13 +231,21 @@
     width: 21px;
     height: 26px;
 
+    @media (max-width: 900px) {
+      display: inline;
+    } 
+
+    &_disabled {
+      opacity: 0;
+    }
+
     &_left {
-      left: 96%;
+      right: 101%;
+      transform: rotate(180deg);
     }
 
     &_right {
-      right: 96%;
-      transform: rotate(180deg);
+      left: 101%;
     }
   }
 
