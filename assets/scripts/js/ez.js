@@ -510,9 +510,9 @@ function tabsLine(){
 
 	$('.js-label-button').click(function(){
       var sectionTabs = $(this).parents('.section-tabs');
-      // setTimeout( function() {
-      //   sectionTabs.find(".whitescreen1").fadeToggle(100);
-      // }, 500)
+      setTimeout( function() {
+        sectionTabs.find(".whitescreen1").fadeToggle(100);
+      }, 500)
 
       sectionTabs.find($('.section-tabs__nav')).slideToggle();
       sectionTabs.find($('.owl-nav')).toggle();
@@ -1235,25 +1235,29 @@ $(document).ready(function(){
         gpTableStructure.addClass('_active');
         gpHead(1);
         arrow.hide();
-        tablearr.show();
+        if ($(window).width() < 900)
+          tablearr.show();
       } else if (gpGraphicsActive.hasClass('analityc-widget-moscow-gov-program_changes')) {
         gpGraphics.removeClass('_active');
         gpTableChanges.addClass('_active');
         gpHead(2);
         arrow.hide();
-        tablearr.show();
+        if ($(window).width() < 900)
+          tablearr.show();
       } else if (gpGraphicsActive.hasClass('analityc-widget-moscow-gov-program_done')) {
         gpGraphics.removeClass('_active');
         gpTableDone.addClass('_active');
         gpHead(2);
         arrow.hide();
-        tablearr.show();
+        if ($(window).width() < 900)
+          tablearr.show();
       } else if (gpGraphicsActive.hasClass('analityc-widget-moscow-gov-program_date')) {
         gpGraphics.removeClass('_active');
         gpTableDate.addClass('_active');
         gpHead(3);
         arrow.hide();
-        tablearr.show();
+        if ($(window).width() < 900)
+          tablearr.show();
       }
     }
   });
