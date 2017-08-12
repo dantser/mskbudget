@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 export default function docCards() {
-  const DIR = $('.section-tabs__card_dir').parents('.owl-item');
+  const DIR = $('.section-tabs__card_dir').parents('.tile__item');
   const TOP_BUTTON = $('.js-button-top');
   const NAV = $('.section-tabs__navigation');
   const FAVOR = $('.section-tabs__is-added');

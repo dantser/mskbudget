@@ -2,6 +2,18 @@ import $ from 'jquery';
 
 
 export default () => {
+  function slider(item) {
+    const parent = $(item);
+    const slideCnt = parent.find('.tile__item').length;
+    const slideWidth = parent.find('.tile__item').outerWidth(true);
+    const wrapperWidth = slideCnt * slideWidth;
+
+    parent.find('.section-tabs__content').css('width', wrapperWidth+'px')
+  }
+
+  slider('.section-tabs_documents');
+  slider('.section-tabs_news');
+  slider('.section-tabs_services');
 
   // $('.btn-arrow--prev').each(function() {
   //   const EL = $(this);

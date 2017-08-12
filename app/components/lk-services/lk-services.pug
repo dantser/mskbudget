@@ -72,8 +72,8 @@ mixin lk-services-dropdown()
               +e.U.button.btn-close.js-section-tabs-hide
     +e.nav
       +e.nav-list
-        .owl-carousel.owl-loaded.owl-carousel_services
-          +e.owl-item
+        .dd-holder.js-drag-scroll-element3
+          +e.content
             .tile__item
               .tile__inner
                 +widget-card().widget-card-calc.lk-services__widget-card
@@ -89,7 +89,6 @@ mixin lk-services-dropdown()
                       +e.value-units млрд руб.
                   +e.bottom-link-wrap
                     +widget-card-bottom-link('calc', 'Предложите свой вариант бюджета!')._gradiented
-          +e.owl-item
             .tile__item
               .tile__inner
                 +widget-card().widget-card-polls.lk-services__widget-card
@@ -112,7 +111,6 @@ mixin lk-services-dropdown()
                         +e.info-block-date до 30.01.2017
                         +widget-card-bottom-link(false, 'Пройти опрос')._gradiented
                   +widget-card-bottom-link()
-          +e.owl-item
             .tile__item
               .tile__inner
                 +widget-card().widget-card-quiz.lk-services__widget-card
@@ -136,7 +134,6 @@ mixin lk-services-dropdown()
                         +widget-card-bottom-link(false, 'Пройти викторину')._gradiented
                   
                   +widget-card-bottom-link()
-          +e.owl-item
             .tile__item
               .tile__inner
                 +widget-card().widget-card-quiz.lk-services__widget-card
@@ -160,7 +157,6 @@ mixin lk-services-dropdown()
                         +widget-card-bottom-link(false, 'Пройти викторину')._gradiented
                   
                   +widget-card-bottom-link()
-          +e.owl-item
             .tile__item
               .tile__inner
                 +widget-card().widget-card-quiz.lk-services__widget-card
@@ -184,3 +180,6 @@ mixin lk-services-dropdown()
                         +widget-card-bottom-link(false, 'Пройти викторину')._gradiented
                   
                   +widget-card-bottom-link()
+    .owl-nav
+      .owl-prev.disabled
+      .owl-next

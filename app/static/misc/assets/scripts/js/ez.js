@@ -472,15 +472,51 @@ dateSlider();
 
 //
 function tabsLine(){
+  $('.owl-nav').each(function () {
+    var next = $(this).find('.owl-next');
+    var prev = $(this).find('.owl-prev');
+    next.on('click', function (e) {
+      $(this).parents('.section-tabs').find('.dd-holder').animate( { scrollLeft: '+=280' }, 300);
+    });
+
+    prev.on('click', function (e) {
+      $(this).parents('.section-tabs').find('.dd-holder').animate( { scrollLeft: '-=280' }, 300);
+    });
+
+
+  })
+
+  function arrowActive(el) {
+    var sL = el.scrollLeft(),
+        leftArr = el.parents('.section-tabs').find('.owl-prev'),
+        rightArr = el.parents('.section-tabs').find('.owl-next');
+
+    if (sL === 0) {
+      leftArr.addClass('disabled');
+    } else if (sL === ( el.prop('scrollWidth') - el.width().toFixed(0) ) ) {
+      rightArr.addClass('disabled');
+    } else {
+      leftArr.removeClass('disabled');
+      rightArr.removeClass('disabled');
+    }
+  }
+
+  arrowActive($('.dd-holder'));
+  $('.dd-holder').each(function () {
+    $(this).scroll(function(){
+      arrowActive($(this));
+    });
+  })
+
 	$('.js-label-button').click(function(){
       var sectionTabs = $(this).parents('.section-tabs');
-      setTimeout( function() {
-        sectionTabs.find(".whitescreen1").fadeToggle(100);
-      }, 500)
+      // setTimeout( function() {
+      //   sectionTabs.find(".whitescreen1").fadeToggle(100);
+      // }, 500)
 
-      sectionTabs.find($('.section-tabs__nav')).slideToggle('slow');
-      sectionTabs.find($('.owl-nav')).slideDown();
-      sectionTabs.find($('.section-tabs__content')).slideToggle();
+      sectionTabs.find($('.section-tabs__nav')).slideToggle();
+      sectionTabs.find($('.owl-nav')).toggle();
+      // sectionTabs.find($('.section-tabs__content')).slideToggle();
       $(this).toggleClass('js-label-button-closed');
       sectionTabs.toggleClass('active');
       sectionTabs.find($('.section-tabs__head')).toggleClass('section-tabs__head_closed');
@@ -513,120 +549,120 @@ function tabsLine(){
     }
 	});
 
-    $('.owl-carousel.documents').owlCarousel({
-		loop:false,
-		margin:0,
-		nav:true,
-		responsiveClass:true,
-		center:false,
-    mouseDrag: true,
-    touchDrag:true,
+  //   $('.owl-carousel.documents').owlCarousel({
+	// 	loop:false,
+	// 	margin:0,
+	// 	nav:true,
+	// 	responsiveClass:true,
+	// 	center:false,
+  //   mouseDrag: true,
+  //   touchDrag:true,
+  //
+	// 	// autoWidth:true,//разная ширина слайдов, ширину задавать на вложенный блок у слайда! + не указывать явно items:1,
+  //   startPosition:0,
+  //   items: 'auto',
+  //   responsive: {
+  //     0: {
+  //       touchDrag:true,
+  //       items: 1
+  //     },
+  //     650: {
+  //       touchDrag: true,
+  //       items: 2
+  //     },
+  //     970: {
+  //       touchDrag: true,
+  //       items: 3
+  //     },
+  //     1024: {
+  //       touchDrag: true,
+  //       items: 3
+  //     },
+  //     1280: {
+  //       touchDrag: false,
+  //       items: 4
+  //     }
+  //   },
+	// 	dots:false,
+	// 	autoplay:false,
+	// 	smartSpeed:500
+	// });
 
-		// autoWidth:true,//разная ширина слайдов, ширину задавать на вложенный блок у слайда! + не указывать явно items:1,
-    startPosition:0,
-    items: 'auto',
-    responsive: {
-      0: {
-        touchDrag:true,
-        items: 1
-      },
-      650: {
-        touchDrag: true,
-        items: 2
-      },
-      970: {
-        touchDrag: true,
-        items: 3
-      },
-      1024: {
-        touchDrag: true,
-        items: 3
-      },
-      1280: {
-        touchDrag: false,
-        items: 4
-      }
-    },
-		dots:false,
-		autoplay:false,
-		smartSpeed:500
-	});
-
-  $('.owl-carousel.owl-carousel_news').owlCarousel({
-    loop:false,
-    margin:0,
-    nav:true,
-    responsiveClass:true,
-    center:false,
-    // autoWidth:true,//разная ширина слайдов, ширину задавать на вложенный блок у слайда! + не указывать явно items:1,
-    startPosition:0,
-    items: 4,
-    responsive: {
-      0: {
-        touchDrag:true,
-        items: 1
-      },
-      650: {
-        touchDrag: true,
-        items: 2
-      },
-      970: {
-        touchDrag: true,
-        items: 3
-      },
-      1024: {
-        touchDrag: true,
-        items: 3
-      },
-      1280: {
-        touchDrag: false,
-        items: 4
-      }
-    },
-    dots:false,
-    mouseDrag:false,
-    touchDrag:false,
-    autoplay:false,
-    smartSpeed:500
-  });
-
-$('.owl-carousel.owl-carousel_services').owlCarousel({
-  loop:false,
-  margin:0,
-  nav:true,
-  responsiveClass:true,
-  center:false,
-  // autoWidth:true,//разная ширина слайдов, ширину задавать на вложенный блок у слайда! + не указывать явно items:1,
-  startPosition:0,
-  items: 4,
-  responsive: {
-    0: {
-      touchDrag:true,
-      items: 1
-    },
-    650: {
-      touchDrag: true,
-      items: 2
-    },
-    970: {
-      touchDrag: true,
-      items: 3
-    },
-    1024: {
-      touchDrag: true,
-      items: 3
-    },
-    1280: {
-      touchDrag: false,
-      items: 4
-    }
-  },
-  dots:false,
-  mouseDrag:false,
-  touchDrag:false,
-  autoplay:false,
-  smartSpeed:500
-});
+//   $('.owl-carousel.owl-carousel_news').owlCarousel({
+//     loop:false,
+//     margin:0,
+//     nav:true,
+//     responsiveClass:true,
+//     center:false,
+//     // autoWidth:true,//разная ширина слайдов, ширину задавать на вложенный блок у слайда! + не указывать явно items:1,
+//     startPosition:0,
+//     items: 4,
+//     responsive: {
+//       0: {
+//         touchDrag:true,
+//         items: 1
+//       },
+//       650: {
+//         touchDrag: true,
+//         items: 2
+//       },
+//       970: {
+//         touchDrag: true,
+//         items: 3
+//       },
+//       1024: {
+//         touchDrag: true,
+//         items: 3
+//       },
+//       1280: {
+//         touchDrag: false,
+//         items: 4
+//       }
+//     },
+//     dots:false,
+//     mouseDrag:false,
+//     touchDrag:false,
+//     autoplay:false,
+//     smartSpeed:500
+//   });
+//
+// $('.owl-carousel.owl-carousel_services').owlCarousel({
+//   loop:false,
+//   margin:0,
+//   nav:true,
+//   responsiveClass:true,
+//   center:false,
+//   // autoWidth:true,//разная ширина слайдов, ширину задавать на вложенный блок у слайда! + не указывать явно items:1,
+//   startPosition:0,
+//   items: 4,
+//   responsive: {
+//     0: {
+//       touchDrag:true,
+//       items: 1
+//     },
+//     650: {
+//       touchDrag: true,
+//       items: 2
+//     },
+//     970: {
+//       touchDrag: true,
+//       items: 3
+//     },
+//     1024: {
+//       touchDrag: true,
+//       items: 3
+//     },
+//     1280: {
+//       touchDrag: false,
+//       items: 4
+//     }
+//   },
+//   dots:false,
+//   mouseDrag:false,
+//   touchDrag:false,
+//   autoplay:false,
+//   smartSpeed:500
+// });
 
 	// var owl = $('.owl-carousel');
   //
