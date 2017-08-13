@@ -1346,7 +1346,12 @@ mixin budget-calc-app()
                 .text-small.text-alert -8,0
                 .text-small.text-muted -152,9
             +e.check-row.check-footer__text.js-budget-calc__toggle-if-register.is-hidden
-              +budget-calc-btn('сохранить этот вариант').-triangle-right.-green(href="#")
+              +budget-calc-btn('сохранить этот вариант').-triangle-right.-green(href="#").js-budget-calc-save-the-budget
+              +e.UL.saved-budgets-list.js-saved-budgets-list
+                +e.LI.saved-budgets-list-item
+                  +e.A.saved-budgets-list-link(href="#") Сохранить вместо №1: 7 АПРЕЛЯ 2017 Г.
+                +e.LI.saved-budgets-list-item
+                  +e.A.saved-budgets-list-link(href="#") Сохранить как №7: 27 МАЯ 2017 Г.
               +budget-calc-btn('удалить этот вариант').-triangle-right.-red-border(href="#")
             +b.notification._info.mb30.is-active.js-budget-calc__toggle-if-register Если вы хотите сохранить несколько вариантов бюджета, <a href="#" class="js-budget-calc__toggle-if-register">зарегистируйтесь</a>!
 

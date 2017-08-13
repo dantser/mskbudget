@@ -16,6 +16,19 @@ export default () => {
   // @DANGER дев-скрипт для показа страниц заказчику
 
 
+  // Выпадающий список при сохранении своего варианта бюджета
+  // триггер: кнопка "Сохранить этот вариант"
+  const $saveThisBudgetBtn = $('.js-budget-calc-save-the-budget');
+  const $savedBudgetsList = $('.js-saved-budgets-list');
+
+  if ($saveThisBudgetBtn.length && $savedBudgetsList.length) {
+    $saveThisBudgetBtn.on('click', function(e) {
+      e.preventDefault();
+      $saveThisBudgetBtn.toggleClass('is-active');
+      $savedBudgetsList.toggleClass('is-active');
+    });
+  }
+
   // Табы для калькулятора бюджета
   const $calcApp = $('#budget-calc-app');
   const $tabsWrapper = $('#budget-calc-app__main-content');
