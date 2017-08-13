@@ -11,9 +11,9 @@ export default () => {
     tippy('.js-tooltip', {
       // @TEST
       // trigger: 'click',
-      delay: [5, 100],
+      delay: [10, 100],
       performance: true,
-      // animation: 'shift',
+      animation: 'shift',
 
       position: tooltipPosition,
       offset: 20,
