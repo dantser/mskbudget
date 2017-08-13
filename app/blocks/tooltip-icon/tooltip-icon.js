@@ -2,14 +2,16 @@
 import tippy from 'tippy.js';
 
 export default () => {
-  // Подсказки/Tooltips для знаков вопроса
-  // const tooltips = document.querySelectorAll('.js-tooltip');
+  // Подсказки/Tooltips для в калькуляторе Бюджета
   const tooltips = document.querySelectorAll('.js-tooltip');
   const screenWidth = () => window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth || 0;
   const tooltipPosition = (screenWidth() > 559) ? 'right' : 'top';
 
   if (tooltips) {
     tippy('.js-tooltip', {
+      // @TEST
+      // trigger: 'click',
+      // delay: [5, 5],
       position: tooltipPosition,
       offset: 20,
       animation: 'perspective',
@@ -20,7 +22,6 @@ export default () => {
       size: 'big',
       arrowSize: 'big',
       // inertia: true,
-      // delay: [0, 0],
       popperOptions: {
         modifiers: {
           flip: {
