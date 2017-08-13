@@ -1,5 +1,6 @@
 include ../../blocks/tooltip-icon/tooltip-icon
 include ../../blocks/range/range
+include ../../blocks/social/social
 include ../../blocks/checkbox/checkbox
 
 mixin budget-calc-btn(text)
@@ -1360,12 +1361,13 @@ mixin budget-calc-app()
                   +e.INPUT.form-input._submit(type="submit" value="отправить")
               +e.share
                 +e.actions-heading поделиться
-                +e.A.share-btn._facebook(href="#")
-                  +icon('fb').icon
-                +e.A.share-btn._twitter(href="#")
-                  +icon('tw').icon
-                +e.A.share-btn._vk(href="#")
-                  +icon('vk').icon
+                +social('facebook-box', 'vk', 'tw', 'odnokl').__social-links
+                //- +e.A.share-btn._facebook(href="#")
+                //-   +icon('fb').icon
+                //- +e.A.share-btn._twitter(href="#")
+                //-   +icon('tw').icon
+                //- +e.A.share-btn._vk(href="#")
+                //-   +icon('vk').icon
             +e.text В случае, если Вы хотите представить свой вариант бюджета на рассмотрение специалистам городских органов власти, Вы можете воспользоваться ссылкой "Предложить свой вариант".
             +e.text.budget-calc-app__text
               +budget-calc-btn('в начало').-triangle-left.js-budget-calc__tab-control(href="#" data-target="#budget-calc__tab_intro")
