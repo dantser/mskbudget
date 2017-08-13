@@ -1275,8 +1275,8 @@ mixin budget-calc-app()
       +e.tab._check.js-budget-calc-app__tab#budget-calc-app__tab_check
         +e.heading ваше предложение
         +e.check
-          +b.notification._info.is-active Если вы хотите сохранить несколько вариантов бюджета, <a href="#">зарегистируйтесь</a>!
-          +b.check-row.check-footer__text
+          +b.notification._info.is-active.js-budget-calc__toggle-if-register Если вы хотите сохранить несколько вариантов бюджета, <a href="#" class="js-budget-calc__toggle-if-register">зарегистируйтесь</a>!
+          +b.check-row.check-footer__text.js-budget-calc__toggle-if-register.is-hidden
             +e.check-smallheading Выберите другой вариант бюджета:
             +e.check-mysaveslist.d-smr__add-char
               p.d-smr__add-char-label #1: 7 апреля 2017 г.
@@ -1345,10 +1345,10 @@ mixin budget-calc-app()
                 .total-num-text млрд руб.
                 .text-small.text-alert -8,0
                 .text-small.text-muted -152,9
-            +e.check-row.check-footer__text
+            +e.check-row.check-footer__text.js-budget-calc__toggle-if-register.is-hidden
               +budget-calc-btn('сохранить этот вариант').-triangle-right.-green(href="#")
               +budget-calc-btn('удалить этот вариант').-triangle-right.-red-border(href="#")
-            +b.notification._info.mb30.is-active Если вы хотите сохранить несколько вариантов бюджета, <a href="#">зарегистируйтесь</a>!
+            +b.notification._info.mb30.is-active.js-budget-calc__toggle-if-register Если вы хотите сохранить несколько вариантов бюджета, <a href="#" class="js-budget-calc__toggle-if-register">зарегистируйтесь</a>!
 
           +b.check-footer
             +e.text Уважаемый посетитель Портала Открытый бюджет Москвы, благодарим Вас за проявленный интерес к Бюджетному калькулятору! Вы можете сохранить для себя подготовленный Вами вариант бюджета или поделиться им со своими друзьями и знакомыми.
