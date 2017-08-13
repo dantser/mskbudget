@@ -523,13 +523,13 @@
   }
 
   &_incomes {
-    @include gradient('to right bottom, #004ccf 0%, #00ffff 100%');
+    @include gradient('to right bottom', #004ccf, #00ffff);
   }
   &_costs {
-    @include gradient('to right bottom, #ff695b 0%, #9d308a 100%');
+    @include gradient('to right bottom', #ff695b, #9d308a);
   }
   &_balance {
-    @include gradient('to right bottom, #30b069 0%, #fee300 100%');
+    @include gradient('to right bottom', #30b069, #fee300);
   }
 
   &_incomes,
@@ -807,6 +807,11 @@
     z-index: 1;
     width: 230px;
     float: left;
+
+    // Так надо, правки.
+    @media (max-width: 1023px) {
+      overflow-x: scroll !important;
+    }
   }
 
   &__main-content {
@@ -823,8 +828,11 @@
   @media (max-width: 1024px) {
     &__sidebar {
       display: block;
-      overflow-x: scroll;
+
+      // Так надо, правки.
+      overflow-x: hidden;
       overflow-y: hidden;
+
       white-space: nowrap;
       float: none;
       width: 100%;

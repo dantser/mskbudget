@@ -1,6 +1,7 @@
 extends ../../layouts/default
 include ../../components/page-header/page-header
 include ../../components/budget-calc-app/budget-calc-app
+include ../../blocks/button-top/button-top
 
 block head
   - var pageTitle = 'бюджетный калькулятор города Москвы'
@@ -82,7 +83,7 @@ block page
                   +e.tab-description Бюджетный калькулятор города Москвы — это образовательный инструмент, который позволит любому гражданину принять участие в виртуальном планировании бюджета города Москвы и в упрощенной форме демонстрирует принципы бюджетного планирования.
                   +budget-calc-app().__budget-calc-app
         +footer()
-        //- +button-top()
+    +button-top()
 
   +popup-wrapper()
 
