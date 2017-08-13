@@ -11,17 +11,19 @@ export default () => {
     tippy('.js-tooltip', {
       // @TEST
       // trigger: 'click',
-      // delay: [5, 5],
+      delay: [5, 100],
+      performance: true,
+      // animation: 'shift',
+
       position: tooltipPosition,
       offset: 20,
-      animation: 'perspective',
+      // animation: 'perspective',
       duration: 200,
       arrow: true,
       distance: 20,
       theme: 'light',
       size: 'big',
       arrowSize: 'big',
-      // inertia: true,
       popperOptions: {
         modifiers: {
           flip: {
