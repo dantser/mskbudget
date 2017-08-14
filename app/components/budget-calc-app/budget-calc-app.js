@@ -3,13 +3,39 @@ import matchHeight from 'jquery-match-height';
 
 export default () => {
 
+  // @DANGER дев-скрипт для показа страниц заказчику
+  const $registeredContent = $('.js-budget-calc__toggle-if-register');
+
+  if ($registeredContent.length) {
+    $registeredContent.on('click', function(e) {
+      e.preventDefault();
+      $('.js-budget-calc__toggle-if-register.is-active').removeClass('is-active');
+      $('.js-budget-calc__toggle-if-register.is-hidden').removeClass('is-hidden');
+    });
+  }
+  // @DANGER дев-скрипт для показа страниц заказчику
+
+
+  // Выпадающий список при сохранении своего варианта бюджета
+  // триггер: кнопка "Сохранить этот вариант"
+  const $saveThisBudgetBtn = $('.js-budget-calc-save-the-budget');
+  const $savedBudgetsList = $('.js-saved-budgets-list');
+
+  if ($saveThisBudgetBtn.length && $savedBudgetsList.length) {
+    $saveThisBudgetBtn.on('click', function(e) {
+      e.preventDefault();
+      $saveThisBudgetBtn.toggleClass('is-active');
+      $savedBudgetsList.toggleClass('is-active');
+    });
+  }
+
   // Табы для калькулятора бюджета
   const $calcApp = $('#budget-calc-app');
   const $tabsWrapper = $('#budget-calc-app__main-content');
   const $tabs = $('.js-budget-calc-app__tab');
   const $tabControls = $('.js-budget-calc-app__tab-control');
 
-  if ($calcApp && $tabsWrapper && $tabs && $tabControls) {
+  if ($calcApp.length && $tabsWrapper.length && $tabs.length && $tabControls.length) {
     $calcApp.on('click', '.js-budget-calc-app__tab-control', function(event) {
       // Тултипы
       if (event.target.classList.contains('js-tooltip')) {
@@ -36,7 +62,7 @@ export default () => {
   }
 
   // аккордеоны
-  if ($('.js-table-row-accordeon')) {
+  if ($('.js-table-row-accordeon').length) {
     $calcApp.on('click', '.js-table-row-accordeon', function(event) {
       // Тултипы
       if (event.target.classList.contains('js-tooltip')) {
@@ -55,7 +81,7 @@ export default () => {
   const $costsItemLink = $('.js-budget-calc-app__costs-item-link');
   const costsItemClassName = '.js-budget-calc-app__costs-item';
 
-  if ($costsItemLink && $calcAppCostsTab) {
+  if ($costsItemLink.length && $calcAppCostsTab.length) {
     $costsItemLink.on('click', function(event) {
       event.preventDefault();
 
@@ -84,7 +110,7 @@ export default () => {
   const $costsItemsLinks = $('.js-bc-match-height-2');
   const $costsItemsValues = $('.js-bc-match-height-3');
 
-  if (typeof(matchHeight) && $costsItems && $costsItemsLinks && $costsItemsValues) {
+  if (typeof(matchHeight) && $costsItems.length && $costsItemsLinks.length && $costsItemsValues.length) {
     $costsItems.matchHeight();
     $costsItemsLinks.matchHeight();
     $costsItemsValues.matchHeight();
@@ -116,7 +142,7 @@ export default () => {
     }
   }
 
-  if ($calcAppFooter && $calcAppSidebar && $blocksToMove && $widgetBalance) {
+  if ($calcAppFooter.length && $calcAppSidebar.length && $blocksToMove.length && $widgetBalance.length) {
     window.addEventListener('load', moveAroundThoseWidgets);
     window.addEventListener('resize', moveAroundThoseWidgets);
   }

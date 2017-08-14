@@ -1,3 +1,8 @@
+// @DEUBG
+.is-hidden {
+  display: none !important;
+}
+
 // стрелка для кнопок и прочего декора
 @mixin budget-calc-triangle {
   content: '';
@@ -388,7 +393,8 @@
       border-color: transparent transparent transparent white;
     }
 
-    &:hover {
+    &:hover,
+    &.is-active {
       background-color: darken(#75b025, 5%);
     }
   }
@@ -492,8 +498,10 @@
   }
 
   &:hover {
-    &:before {
-      @include transform(translateX(0px));
+    @media (min-width: 1025px) {
+      &:before {
+        @include transform(translateX(0px));
+      }
     }
   }
 
@@ -523,13 +531,13 @@
   }
 
   &_incomes {
-    @include gradient('to right bottom, #004ccf 0%, #00ffff 100%');
+    @include gradient('to right bottom', #004ccf, #00ffff);
   }
   &_costs {
-    @include gradient('to right bottom, #ff695b 0%, #9d308a 100%');
+    @include gradient('to right bottom', #ff695b, #9d308a);
   }
   &_balance {
-    @include gradient('to right bottom, #30b069 0%, #fee300 100%');
+    @include gradient('to right bottom', #30b069, #fee300);
   }
 
   &_incomes,
@@ -807,6 +815,11 @@
     z-index: 1;
     width: 230px;
     float: left;
+
+    // Так надо, правки.
+    @media (max-width: 1000px) {
+      overflow-x: scroll !important;
+    }
   }
 
   &__main-content {
@@ -823,8 +836,12 @@
   @media (max-width: 1024px) {
     &__sidebar {
       display: block;
-      overflow-x: scroll;
+
+      // Так надо, правки.
+      overflow: hidden;
+      overflow-x: hidden;
       overflow-y: hidden;
+
       white-space: nowrap;
       float: none;
       width: 100%;
@@ -1184,6 +1201,68 @@
       padding-top: 30px;
       border-bottom: 1px solid #e5e5e5;
 
+      .budget-calc-btn:not(:first-child) {
+        margin-top: 15px;
+      }
+
+      &__saved-budgets-list {
+        position: absolute;
+        z-index: 1;
+        overflow: hidden;
+        width: 353px;
+        max-width: 100%;
+        margin-top: 1px;
+        list-style: none;
+        color: white;
+        text-transform: uppercase;
+        background-color: #73b20f;
+        border-radius: 3px;
+
+        &:not(.is-active) { display: none; }
+
+        &-item {
+          position: relative;
+          overflow: hidden;
+          padding-bottom: 1px;
+
+          &:not(:last-child) {
+            &:before {
+              content: '';
+              position: absolute;
+              bottom: 0;
+              left: 20px;
+              right: 14px;
+              border-top: 1px solid rgba(white, .2);
+            }
+          }
+        }
+
+        &-link {
+          position: relative;
+          display: block;
+          padding: 15px 20px;
+          font-family: $PFDinCondensedPro;
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 1;
+          text-decoration: none !important;
+          -webkit-font-smoothing: antialiased;
+          @include transited;
+
+          &:before {
+            @include budget-calc-triangle;
+            border-width: 5px 0 5px 5px;
+            right: 14px;
+            left: auto;
+            border-color: transparent transparent transparent white;
+          }
+
+          &:hover {
+            background-color: rgba(white, .2);
+          }
+        }
+      }
+
       &__check-smallheading {
         display: inline-block;
         font-family: $PFDinCondensedPro;
@@ -1197,6 +1276,18 @@
       &__check-mysaveslist {
         display: inline-block;
         margin: 0 auto 0 25px !important;
+
+        @media (max-width: 768px) {
+          display: block;
+          width: 100%;
+          margin-left: 0 !important;
+        }
+      }
+
+      .d-smr__add-char-block {
+        @media (max-width: 768px) {
+          width: 100%;
+        }
       }
 
       &__column {
@@ -1384,6 +1475,25 @@
       }
     }
 
+    &__social-links {
+      @media (min-width: 769px) {
+        margin-top: 10px;
+      }
+
+      .social__link {
+        opacity: .8;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+
+      .social__link_type_facebook-box .social__icon { fill: #3b5998; }
+      .social__link_type_vk .social__icon { fill: #45668e; }
+      .social__link_type_tw .social__icon { fill: #1da1f2; }
+      .social__link_type_odnokl .social__icon { fill: #ed812b; }
+    }
+
     &__share {
       padding-top: 15px;
       padding-bottom: 15px;
@@ -1474,6 +1584,7 @@
       padding-top: 5px;
 
       &-input {
+        height: 38px;
 
         &-email-wrap {
           overflow: hidden;

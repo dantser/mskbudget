@@ -30,6 +30,47 @@ window.onload = function () {
             $("body").on("click", "#carousel", function (event) {
                 car_count.html(($dslide.filter(".current").index() + 1) + " из " + $dslide.length);
             });
+          
+            //свайп на горизонтальном iPad
+            if (Modernizr.mobile) {
+              
+              var pointerEventToXY = function(e){
+                var out = {x:0, y:0};
+                if(e.type == 'touchstart' || e.type == 'touchmove' || e.type == 'touchend' || e.type == 'touchcancel'){
+                  var touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
+                  out.x = touch.clientX;
+                  out.y = touch.clientY;
+                }
+                return out;
+              };
+              
+              $('.carousel-3d-slider').on('touchstart', function(e) {
+                touchstart_pos = pointerEventToXY(e);
+              }).on('touchmove', function(e) {
+                touchend_pos = pointerEventToXY(e);
+                if (Math.abs(touchstart_pos.y - touchend_pos.y) < 60 && Math.abs(touchstart_pos.x - touchend_pos.x) > 60) {
+                  e.preventDefault();
+                }
+              }).on('touchend', function(e) {
+                touchend_pos = pointerEventToXY(e);
+                if (Math.abs(touchstart_pos.y - touchend_pos.y) < 60 && Math.abs(touchstart_pos.x - touchend_pos.x) > 60) {
+                  if (touchstart_pos.x > touchend_pos.x) {
+                    if ($('.carousel-3d-slide.current').next().length > 0) {
+                      $('.carousel-3d-slide.current').next().click();
+                    } else {
+                      $('.carousel-3d-slide').first().click();
+                    }
+                  } else {
+                    if ($('.carousel-3d-slide.current').prev().length > 0) {
+                      $('.carousel-3d-slide.current').prev().click();
+                    } else {
+                      $('.carousel-3d-slide').last().click();
+                    }
+                  }
+                }
+              });
+              
+            }
 
         } else {
             var $carousel_count = $(".carousel-count", $carousel),
@@ -63,6 +104,11 @@ window.onload = function () {
 
             $mobile_carousel.on('touchstart', function(e) {
                 touchstart_pos = pointerEventToXY(e);
+            }).on('touchmove', function(e) {
+                touchend_pos = pointerEventToXY(e);
+                if (Math.abs(touchstart_pos.y - touchend_pos.y) < 60 && Math.abs(touchstart_pos.x - touchend_pos.x) > 60) {
+                  e.preventDefault();
+                }
             }).on('touchend', function(e) {
                 touchend_pos = pointerEventToXY(e);
                 if (Math.abs(touchstart_pos.y - touchend_pos.y) < 60 && Math.abs(touchstart_pos.x - touchend_pos.x) > 60) {

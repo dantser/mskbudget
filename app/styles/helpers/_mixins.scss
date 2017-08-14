@@ -324,9 +324,10 @@ div {
 }
 
 // linear gradient mixin
-@mixin gradient($args) {
-  @include vendor(background, linear-gradient(unquote($args)));
-  @include vendor(zoom, 1);
+@mixin gradient($direction, $start, $stop) {
+  background-image: linear-gradient(unquote($direction), #{$start} 0%, #{$stop} 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#{$start}, endColorstr=#{$stop});
+  zoom: 1;
 }
 
 /*Префиксы для gradient-palette, пока без IE9*/
