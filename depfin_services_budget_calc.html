@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
-    <meta http-equiv="X-UA-Compatible" content="IE=9">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>бюджетный калькулятор города Москвы</title>
     <!--[if lte IE 9]><script type="text/javascript" src="assets/scripts/js/html5.min.js"></script><![endif]-->
     <meta name="description" content="">
@@ -4066,9 +4066,9 @@
                         <div class="budget-calc-app__tab budget-calc-app__tab_check js-budget-calc-app__tab" id="budget-calc-app__tab_check">
                             <div class="budget-calc-app__heading">ваше предложение</div>
                             <div class="budget-calc-app__check">
-                                <div class="notification notification_info is-active">Если вы хотите сохранить несколько вариантов бюджета,
-                                    <a href="#">зарегистируйтесь</a>!</div>
-                                <div class="check-row check-footer__text">
+                                <div class="notification notification_info is-active js-budget-calc__toggle-if-register">Если вы хотите сохранить несколько вариантов бюджета,
+                                    <a href="#" class="js-budget-calc__toggle-if-register">зарегистируйтесь</a>!</div>
+                                <div class="check-row check-footer__text js-budget-calc__toggle-if-register is-hidden">
                                     <div class="check-row__check-smallheading">Выберите другой вариант бюджета:</div>
                                     <div class="check-row__check-mysaveslist d-smr__add-char">
                                         <p class="d-smr__add-char-label">#1: 7 апреля 2017 г.</p>
@@ -4163,12 +4163,20 @@
                                         <div class="text-small text-muted">-152,9</div>
                                     </div>
                                 </div>
-                                <div class="check-row__check-row check-footer__text">
-                                    <a class="budget-calc-btn -triangle-right -green" href="#">сохранить этот вариант</a>
+                                <div class="check-row__check-row check-footer__text js-budget-calc__toggle-if-register is-hidden">
+                                    <a class="budget-calc-btn -triangle-right -green js-budget-calc-save-the-budget" href="#">сохранить этот вариант</a>
+                                    <ul class="check-row__saved-budgets-list js-saved-budgets-list">
+                                        <li class="check-row__saved-budgets-list-item">
+                                            <a class="check-row__saved-budgets-list-link" href="#">Сохранить вместо №1: 7 АПРЕЛЯ 2017 Г.</a>
+                                        </li>
+                                        <li class="check-row__saved-budgets-list-item">
+                                            <a class="check-row__saved-budgets-list-link" href="#">Сохранить как №7: 27 МАЯ 2017 Г.</a>
+                                        </li>
+                                    </ul>
                                     <a class="budget-calc-btn -triangle-right -red-border" href="#">удалить этот вариант</a>
                                 </div>
-                                <div class="notification notification_info mb30 is-active">Если вы хотите сохранить несколько вариантов бюджета,
-                                    <a href="#">зарегистируйтесь</a>!</div>
+                                <div class="notification notification_info mb30 is-active js-budget-calc__toggle-if-register">Если вы хотите сохранить несколько вариантов бюджета,
+                                    <a href="#" class="js-budget-calc__toggle-if-register">зарегистируйтесь</a>!</div>
                             </div>
                             <div class="check-footer">
                                 <div class="check-footer__text">Уважаемый посетитель Портала Открытый бюджет Москвы, благодарим Вас за проявленный интерес к Бюджетному калькулятору! Вы можете сохранить для себя подготовленный Вами вариант бюджета или поделиться им со своими друзьями
@@ -4185,15 +4193,28 @@
                                     </div>
                                     <div class="check-footer__share">
                                         <div class="check-footer__actions-heading">поделиться</div>
-                                        <a class="check-footer__share-btn check-footer__share-btn_facebook" href="#">
-                                            <svg class="check-footer__icon"><use xlink:href="assets/images/icon.svg#icon_fb"></use></svg>
-                                        </a>
-                                        <a class="check-footer__share-btn check-footer__share-btn_twitter" href="#">
-                                            <svg class="check-footer__icon"><use xlink:href="assets/images/icon.svg#icon_tw"></use></svg>
-                                        </a>
-                                        <a class="check-footer__share-btn check-footer__share-btn_vk" href="#">
-                                            <svg class="check-footer__icon"><use xlink:href="assets/images/icon.svg#icon_vk"></use></svg>
-                                        </a>
+                                        <ul class="social check-footer__social-links">
+                                            <li class="social__item">
+                                                <a class="social__link social__link social__link_type_facebook-box" href="#">
+                                                    <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_facebook-box"></use></svg>
+                                                </a>
+                                            </li>
+                                            <li class="social__item">
+                                                <a class="social__link social__link social__link_type_vk" href="#">
+                                                    <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_vk"></use></svg>
+                                                </a>
+                                            </li>
+                                            <li class="social__item">
+                                                <a class="social__link social__link social__link_type_tw" href="#">
+                                                    <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_tw"></use></svg>
+                                                </a>
+                                            </li>
+                                            <li class="social__item">
+                                                <a class="social__link social__link social__link_type_odnokl" href="#">
+                                                    <svg class="social__icon"><use xlink:href="assets/images/icon.svg#icon_odnokl"></use></svg>
+                                                </a>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                                 <div class="check-footer__text">В случае, если Вы хотите представить свой вариант бюджета на рассмотрение специалистам городских органов власти, Вы можете воспользоваться ссылкой "Предложить свой вариант".</div>
@@ -4506,6 +4527,7 @@
         })(document, window, "evp_header_callbacks");
     </script>
     </div>
+    <div class="button-top"></div>
     <div id="popup-wrapper">
         <!-- POPUP(Login)-->
         <div class="popup-login popup-window" id="login">
