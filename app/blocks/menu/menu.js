@@ -1,15 +1,15 @@
 import $ from 'jquery';
 
 export default () => {
-  // главное меню на ДЕКСТОПЕ: экран шире чем 1024px
-
-  // закрываем выпадающие меню на всех уровнях
   if ($('#menu .menu__link.has-dropdown, #menu .submenu__link.has-dropdown').length) {
+
     function closeMenu() {
-      return $('#menu .has-dropdown').removeClass('dropdown-is-active');
+      return $('#menu .has-dropdown.dropdown-is-active').removeClass('dropdown-is-active');
     }
 
-    // показываем меню по ховеру
+
+    // показываем подменю 1-го уровня по ховеру
+    // ДЕСКТОП
     $('#menu .menu__link').on('mouseover', function(e) {
       if ($(window).outerWidth() > 1024) {
         if (!$(this).hasClass('has-dropdown')) {
@@ -25,6 +25,23 @@ export default () => {
         }
       }
     });
+
+    // МОБИЛА
+    $('#menu .menu__link.has-dropdown').on('click', function(e) {
+      if ($(window).outerWidth() <= 1024) {
+        e.preventDefault();
+
+        if (!$(this).hasClass('dropdown-is-active')) {
+          const _this = this;
+          $.when(closeMenu()).then(function() {
+            $(_this).addClass('dropdown-is-active');
+          });
+        } else {
+          closeMenu();
+        }
+      }
+    });
+
 
     // скрываем, если курсор вышел за пределы хедера
     $('.sections').on('mouseenter', function(e) {
@@ -48,14 +65,15 @@ export default () => {
     });
   }
 
-  // выпадающее меню второго уровня
+  // выпадающее подменю второго уровня
   if ($('#menu .submenu__link.has-dropdown').length) {
-    // закрываем выпадающие меню второго уровня
+
     function closeSubMenu() {
       return $('#menu .submenu__link.has-dropdown').removeClass('dropdown-is-active');
     }
 
-    // показываем меню
+    // показываем подменю 2-го уровня
+    // ДЕКСТОП
     $('#menu .submenu__link').on('mouseover', function(e) {
       if ($(window).outerWidth() > 1024) {
         if (!$(this).hasClass('has-dropdown') && $(this).parents('.subsubmenu').length == 0) {
@@ -63,11 +81,22 @@ export default () => {
           return;
         } else if ($(this).hasClass('has-dropdown')) {
           if (e.target.offsetTop > 0) {
-            // const correctTop = e.target.nextElementSibling.offsetTop + e.target.offsetTop;
             e.target.nextElementSibling.setAttribute('style','transform: translateY(' + e.target.offsetTop + 'px)');
           }
           $(this).addClass('dropdown-is-active');
         }
+      }
+    });
+
+    // МОБИЛА
+    $('#menu .submenu__link.has-dropdown').on('click', function(e) {
+      if ($(window).outerWidth() <= 1024) {
+          e.preventDefault();
+          if ($(this).hasClass('dropdown-is-active')) {
+            closeSubMenu();
+          } else {
+            $(this).addClass('dropdown-is-active');
+          }
       }
     });
   }

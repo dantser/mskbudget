@@ -24,13 +24,8 @@ body.mobile-menu-is-open {
 
 // Блюр для sections если открыто мобильное меню
 .filter_blur {
-  filter: url("data:image/svg+xml;utf9,<svg%20version='1.1'%20xmlns='http://www.w3.org/2000/svg'><filter%20id='filter_blur'><feGaussianBlur%20stdDeviation='10'%20/></filter></svg>#filter_blur");
-  // filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='10');
-  // filter: blur(10px);
-  // -webkit-filter: blur(10px);
-  // -moz-filter: blur(10px);
-  // -o-filter: blur(10px);
-  // -ms-filter: blur(10px);
+  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='10');
+  filter: blur(10px);
 }
 
 
@@ -186,7 +181,7 @@ body.mobile-menu-is-open {
       right: 0;
       bottom: 0;
       left: 0;
-      background-color: rgba(black, .3);
+      background-color: rgba(black, .4);
     }
 
     &-row {
@@ -271,6 +266,7 @@ body.mobile-menu-is-open {
     position: relative;
     z-index: 3;
     @include transited;
+    // will-change: transform, opacity;
 
     @media (min-width: $navBreakpointTablet +1px) and (max-width: $navBreakpointDesktop) {
       float: left;
@@ -278,9 +274,10 @@ body.mobile-menu-is-open {
 
     @media (max-width: $navBreakpointTablet) {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translateX(-50%) translateY(-60%);
+      top: 50px;
+      right: 0;
+      bottom: 100px;
+      left: 0;
 
       .menu__link {
         padding: 8px;
@@ -288,13 +285,21 @@ body.mobile-menu-is-open {
 
       &.js-mobile-search-is-open {
         opacity: 0;
-        transform: translateX(-50%) translateY(-70%);
+        transform: translateY(-10%);
+      }
+
+      .menu__list {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        left: 0;
+        transform: translateY(-50%);
       }
     }
 
     @media (max-height: 530px) {
       .toppanel-is-active & {
-        transform: translateX(-50%) translateY(-60%) scale(.8);
+        transform: translateY(-10%) scale(.8);
       }
     }
 

@@ -51,6 +51,10 @@
         visibility: visible;
         opacity: 1;
 
+        @media (max-width: $navBreakpointTablet) {
+          display: block;
+        }
+
         .submenu__list {
           opacity: 1;
           @include transform(translateY(0));
@@ -63,6 +67,10 @@
               z-index: 1;
               visibility: visible;
               opacity: 1;
+
+              @media (max-width: $navBreakpointTablet) {
+                display: block;
+              }
 
               .submenu__list {
                 opacity: 1;
@@ -88,15 +96,12 @@
     right: 0;
     min-height: 55px;
     @include transited;
-    @include vendor(transition-delay, 0);
+    transition-delay: 0;
 
-    // @media (min-width: $navBreakpointXXL) {
-    //   top: 46px; // this part sucks
-    // }
-
-    // скрываем на мобиле
     @media (max-width: $navBreakpointTablet) {
+      position: relative;
       display: none;
+      top: 0;
     }
 
     // bg
@@ -113,6 +118,10 @@
         background-color: white;
         border-top: 1px solid black;
       }
+
+      @media (max-width: $navBreakpointTablet) {
+        display: none;
+      }
     }
 
     &__list { // ul
@@ -122,10 +131,19 @@
       @include transform(translateY(-50px));
       @include transited;
       @include vendor(transition-delay, 50ms);
+
+      @media (max-width: $navBreakpointTablet) {
+        margin-top: 0;
+        text-align: center;
+      }
     }
 
     &__item { // li
       float: left;
+
+      @media (max-width: $navBreakpointTablet) {
+        float: none;
+      }
     }
 
     &__link { // a
@@ -135,6 +153,11 @@
       line-height: 1;
       text-decoration: none;
       @include transited;
+
+      @media (max-width: $navBreakpointTablet) {
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
 
       .blindmode-header & {
         font-size: 18px;
@@ -167,6 +190,10 @@
       bottom: auto;
       height: 0;
       border-top: 1px solid #4f4f4f;
+
+      @media (max-width: $navBreakpointTablet) {
+        display: none;
+      }
     }
 
     .submenu__link {
