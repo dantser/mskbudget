@@ -12,26 +12,41 @@ mixin analityc-graphics-round(legendtype)
         +e.col.swiper-slide
           +e.P.year 2017
           +e.graphic._round
+            .segment-diagram#diagram-10
+              .segment-diagram__value
+                p.segment-diagram__value-num 1885,7
+                span.segment-diagram__val.segment-diagram__val1 20,8%
+                span.segment-diagram__val.segment-diagram__val2  14,3%
+                span.segment-diagram__val.segment-diagram__val3  12,2%
+                span.segment-diagram__val.segment-diagram__val4  21,9%
+                span.segment-diagram__val.segment-diagram__val5  7,7%
+                span.segment-diagram__val.segment-diagram__val6  23,2%
         +e.col.swiper-slide
           +e.SPAN.period-left
           +e.P.year 2018
           +e.graphic._round
-            .segment-diagram#diagram-10
+            .segment-diagram#diagram-11
               .segment-diagram__value
-                span Всего
-                p.segment-diagram__value-num 347,2
-              p.segment-diagram__floating.segment-diagram__floating_green#floating_diagram-6-0 Строительство
-                span 150,7
-              p.segment-diagram__floating.segment-diagram__floating_violet#floating_diagram-6-1 Образование
-                span 60,8
-              p.segment-diagram__floating.segment-diagram__floating_blue#floating_diagram-6-2 Медицина
-                span 35,2
-              p.segment-diagram__floating.segment-diagram__floating_gray#floating_diagram-6-3 Прочее
-                span 100,5
+                p.segment-diagram__value-num 1885,7
+                span.segment-diagram__val.segment-diagram__val1 20,8%
+                span.segment-diagram__val.segment-diagram__val2  14,3%
+                span.segment-diagram__val.segment-diagram__val3  12,2%
+                span.segment-diagram__val.segment-diagram__val4  21,9%
+                span.segment-diagram__val.segment-diagram__val5  7,7%
+                span.segment-diagram__val.segment-diagram__val6  23,2%
         +e.col.swiper-slide
           +e.SPAN.period-right
           +e.P.year 2019
           +e.graphic._round
+            .segment-diagram#diagram-12
+              .segment-diagram__value
+                p.segment-diagram__value-num 1885,7
+                span.segment-diagram__val.segment-diagram__val1 20,8%
+                span.segment-diagram__val.segment-diagram__val2  14,3%
+                span.segment-diagram__val.segment-diagram__val3  12,2%
+                span.segment-diagram__val.segment-diagram__val4  21,9%
+                span.segment-diagram__val.segment-diagram__val5  7,7%
+                span.segment-diagram__val.segment-diagram__val6  23,2%
       span.analityc-graphics_round-next
       span.analityc-graphics_round-prev
       if legendtype == 'income1'
@@ -49,6 +64,191 @@ mixin analityc-graphics-round(legendtype)
       if legendtype == 'expenses5'
         +legend(getData('legend-expenses5')).analityc-graphics__legend
      
+     
+     
+mixin analityc-graphics-round2(legendtype)
+  +b.analityc-graphics&attributes(attributes)._round
+    +e.P.periodtext
+      span Плановый период
+    .swiper-container.round-graphics_slider
+      +e.cols.swiper-wrapper
+        +e.col.swiper-slide
+          +e.P.year 2017
+          +e.graphic._round
+            .segment-diagram#diagram-13
+              .segment-diagram__value
+                p.segment-diagram__value-num 1885,7
+                span.segment-diagram__val.segment-diagram__val1 20,8%
+                span.segment-diagram__val.segment-diagram__val2  14,3%
+                span.segment-diagram__val.segment-diagram__val3  12,2%
+                span.segment-diagram__val.segment-diagram__val4  21,9%
+                span.segment-diagram__val.segment-diagram__val5  7,7%
+                span.segment-diagram__val.segment-diagram__val6  23,2%
+        +e.col.swiper-slide
+          +e.SPAN.period-left
+          +e.P.year 2018
+          +e.graphic._round
+            .segment-diagram#diagram-14
+              .segment-diagram__value
+                p.segment-diagram__value-num 1885,7
+                span.segment-diagram__val.segment-diagram__val1 20,8%
+                span.segment-diagram__val.segment-diagram__val2  14,3%
+                span.segment-diagram__val.segment-diagram__val3  12,2%
+                span.segment-diagram__val.segment-diagram__val4  21,9%
+                span.segment-diagram__val.segment-diagram__val5  7,7%
+                span.segment-diagram__val.segment-diagram__val6  23,2%
+        +e.col.swiper-slide
+          +e.SPAN.period-right
+          +e.P.year 2019
+          +e.graphic._round
+            .segment-diagram#diagram-15
+              .segment-diagram__value
+                p.segment-diagram__value-num 1885,7
+                span.segment-diagram__val.segment-diagram__val1 20,8%
+                span.segment-diagram__val.segment-diagram__val2  14,3%
+                span.segment-diagram__val.segment-diagram__val3  12,2%
+                span.segment-diagram__val.segment-diagram__val4  21,9%
+                span.segment-diagram__val.segment-diagram__val5  7,7%
+                span.segment-diagram__val.segment-diagram__val6  23,2%
+      span.analityc-graphics_round-next
+      span.analityc-graphics_round-prev
+      if legendtype == 'income1'
+        +legend(getData('legend-income1')).analityc-graphics__legend
+      if legendtype == 'income2'
+        +legend(getData('legend-income2')).analityc-graphics__legend
+      if legendtype == 'expenses1'
+        +legend(getData('legend-expenses1')).analityc-graphics__legend
+      if legendtype == 'expenses2'
+        +legend(getData('legend-expenses2')).analityc-graphics__legend
+      if legendtype == 'expenses3'
+        +legend(getData('legend-expenses3')).analityc-graphics__legend
+      if legendtype == 'expenses4'
+        +legend(getData('legend-expenses4')).analityc-graphics__legend
+      if legendtype == 'expenses5'
+        +legend(getData('legend-expenses5')).analityc-graphics__legend
+             
+             
+mixin analityc-graphics-round3(legendtype)
+  +b.analityc-graphics&attributes(attributes)._round
+    +e.P.periodtext
+      span Плановый период
+    .swiper-container.round-graphics_slider
+      +e.cols.swiper-wrapper
+        +e.col.swiper-slide
+          +e.P.year 2017
+          +e.graphic._round
+            .segment-diagram#diagram-16
+              .segment-diagram__value
+                p.segment-diagram__value-num 1885,7
+                span.segment-diagram__val.segment-diagram__val1 20,8%
+                span.segment-diagram__val.segment-diagram__val2  14,3%
+                span.segment-diagram__val.segment-diagram__val3  12,2%
+                span.segment-diagram__val.segment-diagram__val4  21,9%
+                span.segment-diagram__val.segment-diagram__val5  7,7%
+                span.segment-diagram__val.segment-diagram__val6  23,2%
+        +e.col.swiper-slide
+          +e.SPAN.period-left
+          +e.P.year 2018
+          +e.graphic._round
+            .segment-diagram#diagram-17
+              .segment-diagram__value
+                p.segment-diagram__value-num 1885,7
+                span.segment-diagram__val.segment-diagram__val1 20,8%
+                span.segment-diagram__val.segment-diagram__val2  14,3%
+                span.segment-diagram__val.segment-diagram__val3  12,2%
+                span.segment-diagram__val.segment-diagram__val4  21,9%
+                span.segment-diagram__val.segment-diagram__val5  7,7%
+                span.segment-diagram__val.segment-diagram__val6  23,2%
+        +e.col.swiper-slide
+          +e.SPAN.period-right
+          +e.P.year 2019
+          +e.graphic._round
+            .segment-diagram#diagram-18
+              .segment-diagram__value
+                p.segment-diagram__value-num 1885,7
+                span.segment-diagram__val.segment-diagram__val1 20,8%
+                span.segment-diagram__val.segment-diagram__val2  14,3%
+                span.segment-diagram__val.segment-diagram__val3  12,2%
+                span.segment-diagram__val.segment-diagram__val4  21,9%
+                span.segment-diagram__val.segment-diagram__val5  7,7%
+                span.segment-diagram__val.segment-diagram__val6  23,2%
+      span.analityc-graphics_round-next
+      span.analityc-graphics_round-prev
+      if legendtype == 'income1'
+        +legend(getData('legend-income1')).analityc-graphics__legend
+      if legendtype == 'income2'
+        +legend(getData('legend-income2')).analityc-graphics__legend
+      if legendtype == 'expenses1'
+        +legend(getData('legend-expenses1')).analityc-graphics__legend
+      if legendtype == 'expenses2'
+        +legend(getData('legend-expenses2')).analityc-graphics__legend
+      if legendtype == 'expenses3'
+        +legend(getData('legend-expenses3')).analityc-graphics__legend
+      if legendtype == 'expenses4'
+        +legend(getData('legend-expenses4')).analityc-graphics__legend
+      if legendtype == 'expenses5'
+        +legend(getData('legend-expenses5')).analityc-graphics__legend
+mixin analityc-graphics-round4(legendtype)
+  +b.analityc-graphics&attributes(attributes)._round
+    +e.P.periodtext
+      span Плановый период
+    .swiper-container.round-graphics_slider
+      +e.cols.swiper-wrapper
+        +e.col.swiper-slide
+          +e.P.year 2017
+          +e.graphic._round
+            .segment-diagram#diagram-19
+              .segment-diagram__value
+                p.segment-diagram__value-num 1885,7
+                span.segment-diagram__val.segment-diagram__val1 20,8%
+                span.segment-diagram__val.segment-diagram__val2  14,3%
+                span.segment-diagram__val.segment-diagram__val3  12,2%
+                span.segment-diagram__val.segment-diagram__val4  21,9%
+                span.segment-diagram__val.segment-diagram__val5  7,7%
+                span.segment-diagram__val.segment-diagram__val6  23,2%
+        +e.col.swiper-slide
+          +e.SPAN.period-left
+          +e.P.year 2018
+          +e.graphic._round
+            .segment-diagram#diagram-20
+              .segment-diagram__value
+                p.segment-diagram__value-num 1885,7
+                span.segment-diagram__val.segment-diagram__val1 20,8%
+                span.segment-diagram__val.segment-diagram__val2  14,3%
+                span.segment-diagram__val.segment-diagram__val3  12,2%
+                span.segment-diagram__val.segment-diagram__val4  21,9%
+                span.segment-diagram__val.segment-diagram__val5  7,7%
+                span.segment-diagram__val.segment-diagram__val6  23,2%
+        +e.col.swiper-slide
+          +e.SPAN.period-right
+          +e.P.year 2019
+          +e.graphic._round
+            .segment-diagram#diagram-21
+              .segment-diagram__value
+                p.segment-diagram__value-num 1885,7
+                span.segment-diagram__val.segment-diagram__val1 20,8%
+                span.segment-diagram__val.segment-diagram__val2  14,3%
+                span.segment-diagram__val.segment-diagram__val3  12,2%
+                span.segment-diagram__val.segment-diagram__val4  21,9%
+                span.segment-diagram__val.segment-diagram__val5  7,7%
+                span.segment-diagram__val.segment-diagram__val6  23,2%
+      span.analityc-graphics_round-next
+      span.analityc-graphics_round-prev
+      if legendtype == 'income1'
+        +legend(getData('legend-income1')).analityc-graphics__legend
+      if legendtype == 'income2'
+        +legend(getData('legend-income2')).analityc-graphics__legend
+      if legendtype == 'expenses1'
+        +legend(getData('legend-expenses1')).analityc-graphics__legend
+      if legendtype == 'expenses2'
+        +legend(getData('legend-expenses2')).analityc-graphics__legend
+      if legendtype == 'expenses3'
+        +legend(getData('legend-expenses3')).analityc-graphics__legend
+      if legendtype == 'expenses4'
+        +legend(getData('legend-expenses4')).analityc-graphics__legend
+      if legendtype == 'expenses5'
+        +legend(getData('legend-expenses5')).analityc-graphics__legend
+          
 //- legendtype - тип легенды(json файл)
 mixin analityc-graphics-column(legendtype, expenses)
   +b.analityc-graphics&attributes(attributes)._column
@@ -60,6 +260,45 @@ mixin analityc-graphics-column(legendtype, expenses)
         +e.col.swiper-slide
           +e.P.year 2017
           +e.graphic._column
+            .column1
+              .column-area.column-area1
+                .column-value 495,4
+              .column-area.column-area2
+                .column-value 233
+              .column-area.column-area3
+                .column-value 276,2
+              .column-area.column-area4
+                .column-value 391,2
+              .column-area.column-area5
+                .column-value 434,5
+              .column-area.column-area6
+                .column-value 146,2
+            .subcolumn
+              .column-area.column-area1
+                .column-value +10,0
+              .column-area.column-area2
+                .column-value +10,0
+              .column-area.column-area3
+                .column-value +10,0
+              .column-area.column-area4
+                .column-value +10,0
+              .column-area.column-area5
+                .column-value +10,0
+              .column-area.column-area6
+                .column-value +10,0
+            .column2
+              .column-area.column-area1
+                .column-value 505,4
+              .column-area.column-area2
+                .column-value 243
+              .column-area.column-area3
+                .column-value 286,2
+              .column-area.column-area4
+                .column-value 401,2
+              .column-area.column-area5
+                .column-value 444,5
+              .column-area.column-area6
+                .column-value 156,2
           +e.bottom
             if expenses
               p Бюджет дейтсвующий
@@ -133,6 +372,15 @@ mixin analityc-graphics-singleround-alt(legendtype)
       +e.col
         +e.P.year 2016
         +e.graphic._round
+          .segment-diagram#diagram-22
+            .segment-diagram__value
+              p.segment-diagram__value-num 1885,7
+              span.segment-diagram__val.segment-diagram__val1 20,8%
+              span.segment-diagram__val.segment-diagram__val2  14,3%
+              span.segment-diagram__val.segment-diagram__val3  12,2%
+              span.segment-diagram__val.segment-diagram__val4  21,9%
+              span.segment-diagram__val.segment-diagram__val5  7,7%
+              span.segment-diagram__val.segment-diagram__val6  23,2%
     if legendtype == 'income1'
       +legend(getData('legend-income1')).analityc-graphics__legend
     if legendtype == 'income2'
