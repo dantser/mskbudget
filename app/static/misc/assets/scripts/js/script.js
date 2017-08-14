@@ -789,13 +789,14 @@ budget.extend("whatIsBudgetWeight", {
                 });
         },
         gameWithWeight: function gameWithWeight(index) {
-
+                /*
                 TweenMax.to(this.elements.$game[index], 0.1, { autoAlpha: 1 });
                 TweenMax.to(this.elements.$game[index], 0.4, { autoAlpha: 0, delay: 0.6 });
 
                 TweenMax.to(this.elements.$game[index], 0.2, { x: -25 });
                 TweenMax.to(this.elements.$game[index], 0.4, { x: 25, delay: 0.2 });
                 TweenMax.to(this.elements.$game[index], 0.2, { x: 0, delay: 0.5 });
+                */
         },
         showInformation: function showInformation(index) {
 
@@ -918,8 +919,7 @@ budget.extend("whatIsBudgetWeight", {
         alignmentToTheRight: function alignmentToTheRight() {
                 var _this4 = this;
 
-                TweenMax.fromTo(this.elements.weight.$useOfSurplus, 1.5, { autoAlpha: 0 }, { autoAlpha: 1 });
-                TweenMax.fromTo(this.elements.weight.$useOfSurplus, 1.5, { y: -150 }, { y: 0, ease: Bounce.easeOut });
+                this.elements.weight.$useOfSurplus.addClass('_active _bounce');
 
                 setTimeout(function () {
 
@@ -929,21 +929,24 @@ budget.extend("whatIsBudgetWeight", {
                 setTimeout(function () {
 
                         _this4.elements.weight.$revenues.attr("data-status", "");
+                        _this4.elements.weight.$useOfSurplus.removeClass('_active');
+                        _this4.block.weight = false;
+                        _this4.elements.$activeZoneWrapper.removeClass("_noactive");
+                        clearTimeout(_this4.timeout);
+                        _this4.timeout = false;
 
-                        TweenMax.to(_this4.elements.weight.$useOfSurplus, 2.5, { autoAlpha: 0, onComplete: function onComplete() {
-
-                                        _this4.block.weight = false;
-                                        _this4.elements.$activeZoneWrapper.removeClass("_noactive");
-                                        clearTimeout(_this4.timeout);
-                                        _this4.timeout = false;
-                                } });
+                        setTimeout(function(){
+                          _this4.elements.weight.$useOfSurplus.removeClass('_bounce');
+                        }, 2500);
                 }, 6000);
         },
         alignmentToTheLeft: function alignmentToTheLeft() {
                 var _this5 = this;
 
-                TweenMax.fromTo(this.elements.weight.$financingOfDeficit, 1.5, { autoAlpha: 0 }, { autoAlpha: 1 });
-                TweenMax.fromTo(this.elements.weight.$financingOfDeficit, 1.5, { y: -150 }, { y: 0, ease: Bounce.easeOut });
+                //TweenMax.fromTo(this.elements.weight.$financingOfDeficit, 1.5, { autoAlpha: 0 }, { autoAlpha: 1 });
+                //TweenMax.fromTo(this.elements.weight.$financingOfDeficit, 1.5, { y: -150 }, { y: 0, ease: Bounce.easeOut });
+
+                this.elements.weight.$financingOfDeficit.addClass('_active _bounce');
 
                 setTimeout(function () {
 
@@ -953,14 +956,15 @@ budget.extend("whatIsBudgetWeight", {
                 setTimeout(function () {
 
                         _this5.elements.weight.$expenditures.attr("data-status", "");
+                        _this5.elements.weight.$financingOfDeficit.removeClass('_active');
+                        _this5.block.weight = false;
+                        _this5.elements.$activeZoneWrapper.removeClass("_noactive");
+                        clearTimeout(_this5.timeout);
+                        _this5.timeout = false;
 
-                        TweenMax.to(_this5.elements.weight.$financingOfDeficit, 2.5, { autoAlpha: 0, onComplete: function onComplete() {
-
-                                        _this5.block.weight = false;
-                                        _this5.elements.$activeZoneWrapper.removeClass("_noactive");
-                                        clearTimeout(_this5.timeout);
-                                        _this5.timeout = false;
-                                } });
+                        setTimeout(function(){
+                          _this5.elements.weight.$financingOfDeficit.removeClass('_bounce');
+                        }, 2500);
                 }, 6000);
         },
         alignmentToTheCenter: function alignmentToTheCenter() {
