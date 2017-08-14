@@ -30,6 +30,47 @@ window.onload = function () {
             $("body").on("click", "#carousel", function (event) {
                 car_count.html(($dslide.filter(".current").index() + 1) + " из " + $dslide.length);
             });
+          
+            //свайп на горизонтальном iPad
+            if (Modernizr.mobile) {
+              
+              var pointerEventToXY = function(e){
+                var out = {x:0, y:0};
+                if(e.type == 'touchstart' || e.type == 'touchmove' || e.type == 'touchend' || e.type == 'touchcancel'){
+                  var touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
+                  out.x = touch.clientX;
+                  out.y = touch.clientY;
+                }
+                return out;
+              };
+              
+              $('.carousel-3d-slider').on('touchstart', function(e) {
+                touchstart_pos = pointerEventToXY(e);
+              }).on('touchmove', function(e) {
+                touchend_pos = pointerEventToXY(e);
+                if (Math.abs(touchstart_pos.y - touchend_pos.y) < 60 && Math.abs(touchstart_pos.x - touchend_pos.x) > 60) {
+                  e.preventDefault();
+                }
+              }).on('touchend', function(e) {
+                touchend_pos = pointerEventToXY(e);
+                if (Math.abs(touchstart_pos.y - touchend_pos.y) < 60 && Math.abs(touchstart_pos.x - touchend_pos.x) > 60) {
+                  if (touchstart_pos.x > touchend_pos.x) {
+                    if ($('.carousel-3d-slide.current').next().length > 0) {
+                      $('.carousel-3d-slide.current').next().click();
+                    } else {
+                      $('.carousel-3d-slide').first().click();
+                    }
+                  } else {
+                    if ($('.carousel-3d-slide.current').prev().length > 0) {
+                      $('.carousel-3d-slide.current').prev().click();
+                    } else {
+                      $('.carousel-3d-slide').last().click();
+                    }
+                  }
+                }
+              });
+              
+            }
 
         } else {
             var $carousel_count = $(".carousel-count", $carousel),
@@ -63,6 +104,11 @@ window.onload = function () {
 
             $mobile_carousel.on('touchstart', function(e) {
                 touchstart_pos = pointerEventToXY(e);
+            }).on('touchmove', function(e) {
+                touchend_pos = pointerEventToXY(e);
+                if (Math.abs(touchstart_pos.y - touchend_pos.y) < 60 && Math.abs(touchstart_pos.x - touchend_pos.x) > 60) {
+                  e.preventDefault();
+                }
             }).on('touchend', function(e) {
                 touchend_pos = pointerEventToXY(e);
                 if (Math.abs(touchstart_pos.y - touchend_pos.y) < 60 && Math.abs(touchstart_pos.x - touchend_pos.x) > 60) {
@@ -789,13 +835,14 @@ budget.extend("whatIsBudgetWeight", {
                 });
         },
         gameWithWeight: function gameWithWeight(index) {
-
+                /*
                 TweenMax.to(this.elements.$game[index], 0.1, { autoAlpha: 1 });
                 TweenMax.to(this.elements.$game[index], 0.4, { autoAlpha: 0, delay: 0.6 });
 
                 TweenMax.to(this.elements.$game[index], 0.2, { x: -25 });
                 TweenMax.to(this.elements.$game[index], 0.4, { x: 25, delay: 0.2 });
                 TweenMax.to(this.elements.$game[index], 0.2, { x: 0, delay: 0.5 });
+                */
         },
         showInformation: function showInformation(index) {
 
@@ -918,8 +965,7 @@ budget.extend("whatIsBudgetWeight", {
         alignmentToTheRight: function alignmentToTheRight() {
                 var _this4 = this;
 
-                TweenMax.fromTo(this.elements.weight.$useOfSurplus, 1.5, { autoAlpha: 0 }, { autoAlpha: 1 });
-                TweenMax.fromTo(this.elements.weight.$useOfSurplus, 1.5, { y: -150 }, { y: 0, ease: Bounce.easeOut });
+                this.elements.weight.$useOfSurplus.addClass('_active _bounce');
 
                 setTimeout(function () {
 
@@ -929,21 +975,24 @@ budget.extend("whatIsBudgetWeight", {
                 setTimeout(function () {
 
                         _this4.elements.weight.$revenues.attr("data-status", "");
+                        _this4.elements.weight.$useOfSurplus.removeClass('_active');
+                        _this4.block.weight = false;
+                        _this4.elements.$activeZoneWrapper.removeClass("_noactive");
+                        clearTimeout(_this4.timeout);
+                        _this4.timeout = false;
 
-                        TweenMax.to(_this4.elements.weight.$useOfSurplus, 2.5, { autoAlpha: 0, onComplete: function onComplete() {
-
-                                        _this4.block.weight = false;
-                                        _this4.elements.$activeZoneWrapper.removeClass("_noactive");
-                                        clearTimeout(_this4.timeout);
-                                        _this4.timeout = false;
-                                } });
+                        setTimeout(function(){
+                          _this4.elements.weight.$useOfSurplus.removeClass('_bounce');
+                        }, 2500);
                 }, 6000);
         },
         alignmentToTheLeft: function alignmentToTheLeft() {
                 var _this5 = this;
 
-                TweenMax.fromTo(this.elements.weight.$financingOfDeficit, 1.5, { autoAlpha: 0 }, { autoAlpha: 1 });
-                TweenMax.fromTo(this.elements.weight.$financingOfDeficit, 1.5, { y: -150 }, { y: 0, ease: Bounce.easeOut });
+                //TweenMax.fromTo(this.elements.weight.$financingOfDeficit, 1.5, { autoAlpha: 0 }, { autoAlpha: 1 });
+                //TweenMax.fromTo(this.elements.weight.$financingOfDeficit, 1.5, { y: -150 }, { y: 0, ease: Bounce.easeOut });
+
+                this.elements.weight.$financingOfDeficit.addClass('_active _bounce');
 
                 setTimeout(function () {
 
@@ -953,14 +1002,15 @@ budget.extend("whatIsBudgetWeight", {
                 setTimeout(function () {
 
                         _this5.elements.weight.$expenditures.attr("data-status", "");
+                        _this5.elements.weight.$financingOfDeficit.removeClass('_active');
+                        _this5.block.weight = false;
+                        _this5.elements.$activeZoneWrapper.removeClass("_noactive");
+                        clearTimeout(_this5.timeout);
+                        _this5.timeout = false;
 
-                        TweenMax.to(_this5.elements.weight.$financingOfDeficit, 2.5, { autoAlpha: 0, onComplete: function onComplete() {
-
-                                        _this5.block.weight = false;
-                                        _this5.elements.$activeZoneWrapper.removeClass("_noactive");
-                                        clearTimeout(_this5.timeout);
-                                        _this5.timeout = false;
-                                } });
+                        setTimeout(function(){
+                          _this5.elements.weight.$financingOfDeficit.removeClass('_bounce');
+                        }, 2500);
                 }, 6000);
         },
         alignmentToTheCenter: function alignmentToTheCenter() {
