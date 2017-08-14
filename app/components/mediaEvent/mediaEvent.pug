@@ -7,7 +7,7 @@ mixin mediaEvent()
 			+e.header
 				+page-header('События', ['Медиацентр'])
 				+e.FORM.search-group
-					+e.search-title Другие новости
+					+e.search-title Другие события
 					// datepicker
 					.form__date-range(id='rid-0')
 						INPUT(type='text', value='дд.мм.гг').form__date-range-input.jq-f-datepicker.input-min
@@ -20,7 +20,8 @@ mixin mediaEvent()
 				+e.H3.title В Москве пройдет финансовый форум
 				+e.SPAN.date 16.03.2017
 				+e.img
-					+e.IMG(src='assets/images/events/event.jpg')
+					+e.img-wrap
+						+e.IMG(src='assets/images/events/event.jpg')
 					+e.SPAN Московский финансовый форум в 2016 году
 				+e.paragraph._one
 					+e.P.text Столкнувшись с глобальными внешними вызовами, российская экономика находится на пороге перемен, обусловленных трансформацией мировых сырьевых рынков и непростой макроэкономической конъюнктурой. Новая реальность требует серьезных структурных реформ, направленных на ускорение темпов роста и обеспечение долгосрочной устойчивости национальной экономики.
