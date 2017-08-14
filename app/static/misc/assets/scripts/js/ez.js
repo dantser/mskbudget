@@ -521,7 +521,7 @@ function tabsLine(){
 
       sectionTabs.find($('.section-tabs__nav')).slideToggle();
       sectionTabs.find($('.owl-nav')).toggle();
-      // sectionTabs.find($('.section-tabs__content')).slideToggle();
+
       $(this).toggleClass('js-label-button-closed');
       sectionTabs.toggleClass('active');
       sectionTabs.find($('.section-tabs__head')).toggleClass('section-tabs__head_closed');
@@ -531,6 +531,11 @@ function tabsLine(){
 		то при клике надо будет реинициализировать карусельку
 		*/
 	});
+
+  $('.js-label').click(function(){
+    var sectionTabs = $(this).parents('.section-tabs');
+    sectionTabs.find($('.section-tabs__content')).slideToggle();
+  })
 
 	$('.owl-carousel.sections').owlCarousel({
 		loop:false,

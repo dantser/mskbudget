@@ -14,6 +14,35 @@
   padding-bottom: 16px;
 }
 
+.budgetScales-supportingWeight {
+  opacity: 0;
+  visibility: visible !important;
+  pointer-events: none;
+  transition: opacity 2.5s ease-in-out;
+
+  &._active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &._bounce {
+    animation: easeOutBounce 2.5s 0s forwards;
+  }
+}
+
+@keyframes easeOutBounce {
+    0% {bottom: 150px; -webkit-animation-timing-function: ease-in;}
+    33% {bottom: 0px; -webkit-animation-timing-function: ease-out;}
+    50% {bottom: 25px; -webkit-animation-timing-function: ease-in;}
+    66% {bottom: 0px; -webkit-animation-timing-function: ease-out;}
+    82% {bottom: 10px; -webkit-animation-timing-function: ease-in;}
+    92% {bottom: 0px; -webkit-animation-timing-function: ease-out;}
+    97% {bottom: 3px; -webkit-animation-timing-function: ease-in;}
+    100% { bottom: 0px;}
+}
+
+
+
 .whatIsBudget{
     /*min-width:980px;*/
     min-width:100%;
@@ -475,7 +504,7 @@
         display: none!important;
     }
     .whatIsBudget-financingOfDeficit:nth-child(7) .whatIsBudget-publicDebt__close {
-        top: 20px;
+        top: 10px;
     }
 }
 
@@ -824,7 +853,7 @@
     }
     .whatIsBudget-characteristic__wrapper {
         max-width: 980px;
-        margin: 40px auto 0
+        margin: 48px auto 0
     }
     .whatIsBudget-characteristic {
         width: 32.9%
@@ -834,6 +863,9 @@
 @media screen and (max-width:1000px) {
     .budgetScales-legend__wrapper{
         max-width:98%;
+    }
+    .whatIsBudget-characteristic__wrapper {
+        margin: 40px auto 0
     }
     .budgetScales-platform{
         max-width:98%;
