@@ -21,9 +21,8 @@ export default function range() {
       });
     });
   }
-  function sliderForWidgets(id, start, min, max) {
+  function sliderForWidgets(id, valueid, start, min, max) {
     const sliderForWidgets = document.getElementById(id);
-
     if(sliderForWidgets) {
       noUiSlider.create(sliderForWidgets, {
         start: start,
@@ -34,13 +33,19 @@ export default function range() {
           'max': max
         }
       });
+
+      var rangeSliderValueElement = document.getElementById(valueid);
+
+    sliderForWidgets.noUiSlider.on('update', function( values, handle ) {
+    	rangeSliderValueElement.innerHTML = values[handle];
+    });
     }
   }
 
-  sliderForWidgets('widget_card_calc1', 200.4, 0, 400.8);
-  sliderForWidgets('widget_card_calc2', 195.4, 20, 500);
-  sliderForWidgets('widget_card_calc3', 150, 300, 600);
-  sliderForWidgets('widget_card_calc4', 100, 2, 200);
+  sliderForWidgets('widget_card_calc1', 'opt1Value', 200.4, 0, 400.8);
+  sliderForWidgets('widget_card_calc2', 'opt2Value', 195.4, 20, 500);
+  sliderForWidgets('widget_card_calc3', 'opt3Value', 150, 300, 600);
+  sliderForWidgets('widget_card_calc4', 'opt4Value', 100, 2, 200);
   // для страницы Сервисы - сводная
 
 }
