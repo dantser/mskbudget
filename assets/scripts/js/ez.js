@@ -487,6 +487,9 @@ function tabsLine(){
   })
 
   function arrowActive(el) {
+    if (!el) {
+      return
+    }
     var sL = el.scrollLeft(),
         leftArr = el.parents('.section-tabs').find('.owl-prev'),
         rightArr = el.parents('.section-tabs').find('.owl-next');
@@ -500,13 +503,15 @@ function tabsLine(){
       rightArr.removeClass('disabled');
     }
   }
+  if ($('.dd-holder').length) {
+    arrowActive($('.dd-holder'));
+    $('.dd-holder').each(function () {
+      $(this).scroll(function(){
+        arrowActive($(this));
+      });
+    })
+  }
 
-  arrowActive($('.dd-holder'));
-  $('.dd-holder').each(function () {
-    $(this).scroll(function(){
-      arrowActive($(this));
-    });
-  })
 
 	$('.js-label-button').click(function(){
       var sectionTabs = $(this).parents('.section-tabs');
