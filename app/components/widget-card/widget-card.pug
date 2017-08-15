@@ -6,7 +6,7 @@ mixin widget-card()
 	+b.widget-card&attributes(attributes)
 		block
 
-mixin widget-card-head(title, subtitle, datepicker)
+mixin widget-card-head(title, subtitle, datepicker, alt)
 	+e.head&attributes(attributes)
 		+e.H3.title= title
 			+icon('angle-arrow').arrow-open
@@ -20,6 +20,12 @@ mixin widget-card-head(title, subtitle, datepicker)
 				+e.datepicker
 					INPUT(value='01.10.2016', tabindex="0").datepicker__show.jq-spec-datepicker
 				| , млрд. руб 
+		if alt
+			+e.P.state
+				| по состоянию на
+				+e.datepicker
+					INPUT(value='01.10.2016', tabindex="0").datepicker__show.jq-spec-datepicker-alt
+				| , млрд. руб
 		block
 
 mixin widget-card-content()

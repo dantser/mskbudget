@@ -73,7 +73,7 @@ export default () => {
 
     function DisableSpecificDates(date) {
 
-      var disableddates = ["6-6-2017", "6-9-2017", "6-15-2017", "6-23-2017"];
+      var disableddates = ["6-6-2017", "6-9-2017", "6-15-2017", "6-23-2017", "10-26-2017", "10-4-2017", "10-12-2017", "1-28-2017"];
       var m = date.getMonth();
       var d = date.getDate();
       var y = date.getFullYear();
