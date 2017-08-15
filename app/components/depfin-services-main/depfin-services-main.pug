@@ -26,6 +26,26 @@ mixin widget-card-edu()
 				+e.bottom-link-wrap
 					+widget-card-bottom-link('edu-hat', 'Пройти курс')._gradiented
 
+mixin widget-card-edu-pers()
+	.tile__item.ui-state-default
+		.tile__inner
+			+widget-card().widget-card-edu-pers
+				+widget-card-head('Обучающий сервис')
+				+widget-card-content()
+					+e.lessons
+						+passed-stages().widget-card__passed-stages
+							+e.round
+								canvas(width='78', height='78', default-fill='#efefef', stroke-width='7', sector-count='9', fill-sectors='0,2,3,5,8').sectored_round
+								+e.P.innertext Пройдено
+									span 5 из 9
+									| уроков
+					+e.lessons-list
+						+e.lessons-text Урок 4: Что такое бюджет и из чего он состоит?
+						+e.lessons-text._active Урок 5: Что такое доходы и откуда они поступают?
+						+e.lessons-text Урок 6: Как формируется бюджет?
+				+widget-card-bottom-link()
+
+
 mixin widget-card-regions()
 	.tile__item.ui-state-default
 		.tile__inner
@@ -99,6 +119,34 @@ mixin widget-card-calc()
 				+e.bottom-link-wrap
 					+widget-card-bottom-link('calc', 'Предложите свой вариант бюджета!')._gradiented
 
+mixin widget-card-calc-pers()
+	.tile__item.ui-state-default
+		.tile__inner
+			+widget-card().widget-card-calc
+				+widget-card-head('Бюджетный калькулятор', 'Предложенные Вами варианты бюджета')
+				+widget-card-content()
+					+e.select
+						+selectbox-cities('select', getData('widget-card-selectbox'))
+					+e.budget-stats
+						+e.budget-stat
+							+e.P.budget-stat-title доходы
+							+e.P.budget-stat-count._pos 1 579,0
+							+e.P._budget-stat-text млрд руб.
+						+e.budget-stat
+							+e.P.budget-stat-title расходы
+							+e.P.budget-stat-count._neg 1 588,0
+							+e.p.budget-stat-text млрд руб.
+					+e.budget-total
+						+e.SPAN.budget-total-title дефицит бюджета
+						+e.SPAN.budget-total-count._blue 9,0
+						+e.SPAN.budget-total-text млрд руб.
+					+e.budget-total
+						+e.SPAN.budget-total-title изменение государственного долга
+						+e.SPAN.budget-total-count 0,0
+						+e.SPAN.budget-total-text млн руб.
+				+widget-card-bottom-link()
+
+
 mixin widget-card-gov-programs()
 	.tile__item.ui-state-default
 		.tile__inner.service
@@ -140,32 +188,32 @@ mixin widget-card-invest-program()
 						.segment-diagram__value
 							span Всего
 							p.segment-diagram__value-num 347,2
-						p.segment-diagram__floating.segment-diagram__floating_green#floating_diagram-6-0 Строительство
+						p.segment-diagram__floating.segment-diagram__floating_green#floating_diagram-6-0 Медицина
 							span 150,7
 						p.segment-diagram__floating.segment-diagram__floating_violet#floating_diagram-6-1 Образование
 							span 60,8
-						p.segment-diagram__floating.segment-diagram__floating_blue#floating_diagram-6-2 Медицина
+						p.segment-diagram__floating.segment-diagram__floating_blue#floating_diagram-6-2 Строительство
 							span 35,2
 						p.segment-diagram__floating.segment-diagram__floating_gray#floating_diagram-6-3 Прочее
 							span 100,5
 					ul.diagram-tabs.service__diagram-tabs
 						li.diagram-tabs__item.diagram-tabs__item_green
-							a(href="#").diagram-tabs__btn.diagram-tabs__btn_house#button_diagram-6-0 150,7
+							a(href="#").diagram-tabs__btn.diagram-tabs__btn_house#button_diagram-6-0 157,4
 								span.diagram-tabs__span-hov
 								span.diagram-tabs__span-js
-							p.diagram-tabs__caption Строительство
+							p.diagram-tabs__caption Медицина
 						li.diagram-tabs__item.diagram-tabs__item_violet
-							a(href="#").diagram-tabs__btn.diagram-tabs__btn_edu#button_diagram-6-1 60,8
+							a(href="#").diagram-tabs__btn.diagram-tabs__btn_edu#button_diagram-6-1 149,9
 								span.diagram-tabs__span-hov
 								span.diagram-tabs__span-js
 							p.diagram-tabs__caption Образование
 						li.diagram-tabs__item.diagram-tabs__item_blue
-							a(href="#").diagram-tabs__btn.diagram-tabs__btn_med#button_diagram-6-2 35,2
+							a(href="#").diagram-tabs__btn.diagram-tabs__btn_med#button_diagram-6-2 64,7
 								span.diagram-tabs__span-hov
 								span.diagram-tabs__span-js
-							p.diagram-tabs__caption Медицина
+							p.diagram-tabs__caption Строительство
 						li.diagram-tabs__item.diagram-tabs__item_gray
-							a(href="#").diagram-tabs__btn.diagram-tabs__btn_other#button_diagram-6-3 100,5
+							a(href="#").diagram-tabs__btn.diagram-tabs__btn_other#button_diagram-6-3 112,1
 								span.diagram-tabs__span-hov
 								span.diagram-tabs__span-js
 							p.diagram-tabs__caption Прочее
@@ -322,6 +370,31 @@ mixin widget-card-polls()
 							+widget-card-bottom-link(false, 'Пройти опрос')._gradiented
 				+widget-card-bottom-link()
 
+mixin widget-card-polls-pers()
+	.tile__item.ui-state-default
+		.tile__inner
+			+widget-card().widget-card-polls-pers
+				+widget-card-head('Опрос общественного мнения')
+				+widget-card-content()
+					+e.info-block._active
+						+e.info._opt1._active
+							+e.info-block-subtitle Вы можете пройти следующие опросы:
+							+e.info-block-title Как сделать портал еще удобнее?
+							+e.info-block-date до 30.01.2017
+					+e.nav-buttons
+						+arrow-button()._prev.widget-card__arrow-button
+						+arrow-button()._next.widget-card__arrow-button
+				+widget-card-content()
+					+e.info-block._active
+						+e.info._opt1._active
+							+e.info-block-subtitle Вы приняли участие в опросах:
+							+e.info-block-title Как сделать портал еще интереснее?
+					+e.nav-buttons
+						+arrow-button()._prev.widget-card__arrow-button
+						+arrow-button()._next.widget-card__arrow-button
+				+widget-card-bottom-link()
+
+
 mixin widget-card-quiz()
 	.tile__item.ui-state-default
 		.tile__inner
@@ -344,8 +417,32 @@ mixin widget-card-quiz()
 							+e.info-block-title История бюджета города Москвы в третьей(?) половине XX – начале ХХI века
 							+e.info-block-date Создана 30.01.2017
 							+widget-card-bottom-link(false, 'Пройти викторину')._gradiented
-				
 				+widget-card-bottom-link()
+
+mixin widget-card-quiz-pers()
+	.tile__item.ui-state-default
+		.tile__inner
+			+widget-card().widget-card-quiz-pers
+				+widget-card-head('Викторины')
+				+widget-card-content()
+					+e.info-block._active
+						+e.info._opt1._active
+							+e.info-block-subtitle Вы можете пройти следующие викторины:
+							+e.info-block-title История бюджета города Москвы во второй половине ХХ...
+							+e.info-block-date до 30.01.2017
+					+e.nav-buttons
+						+arrow-button()._prev.widget-card__arrow-button
+						+arrow-button()._next.widget-card__arrow-button
+				+widget-card-content()
+					+e.info-block._active
+						+e.info._opt1._active
+							+e.info-block-subtitle Вы приняли участие в викторинах:
+							+e.info-block-title История бюджета города Москвы в первой половине ХХ...
+					+e.nav-buttons
+						+arrow-button()._prev.widget-card__arrow-button
+						+arrow-button()._next.widget-card__arrow-button
+				+widget-card-bottom-link()
+
 
 mixin widget-card-municipalities
 	.tile__item.ui-state-default
@@ -399,6 +496,21 @@ mixin widget-card-budget-web
 						+e.results-total 17 больниц
 				+widget-card-bottom-link()
 
+mixin widget-card-projects
+	.tile__item.ui-state-default
+		.tile__inner
+			+widget-card().widget-card-projects
+				+widget-card-head('Общественно значимые проекты')
+				+widget-card-content()
+					+e.nav-buttons
+						+arrow-button()._prev.widget-card__arrow-button
+						+arrow-button()._next.widget-card__arrow-button
+					+e.info._opt1._active
+						+e.info-block-title Перинатально-кардиологоческий корпус Городской клинической больницы № 67
+						+e.info-block-subtitle Результаты ввода
+						+e.info-block-desc Оказание современной амбулаторной помощи 17 тыс. женщинам ежегодно
+				+widget-card-bottom-link()
+
 mixin depfin-services-main()
 	+b.SECTION.depfin-services-main&attributes(attributes)
 		.wrapper
@@ -414,11 +526,16 @@ mixin depfin-services-main()
 					+widget-card-cities()
 					+widget-card-gov-programs-result()
 					+widget-card-polls()
+					+widget-card-polls-pers()
 					+widget-card-municipalities()
 					+widget-card-social-support()
 					+widget-card-calc()
+					+widget-card-calc-pers()
 					+widget-card-quiz()
+					+widget-card-quiz-pers()
 					+widget-card-edu()
+					+widget-card-edu-pers()
 					+widget-card-regions()
 					+widget-card-budget-web()
+					+widget-card-projects()
 				
