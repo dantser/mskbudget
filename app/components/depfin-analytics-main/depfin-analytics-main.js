@@ -11,8 +11,6 @@ export default() => {
 	const frameStage = FRAME.children('.analityc-control-group').first().clone();
 	const addStage = FRAME.children('.analityc-add-group');
 
-	console.log(addStage);
-
 	SWITCHER.on('click', 'a', function(e) {
 		e.preventDefault();
 
