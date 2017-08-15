@@ -16,6 +16,10 @@
       margin-top: 40px;
     }
 
+    @media (max-width: 900px) {
+      margin-top: 10px;
+    }    
+
   }
 
   &__switcher-text {
@@ -40,8 +44,6 @@
       display: block;
     }
 
-
-    
     &_link {
       border: 1px solid $color-yellow;
       text-decoration: none;
@@ -52,6 +54,11 @@
         padding: 8px 27px 6px;
       }
 
+      @media (max-width: 580px) {
+        padding: 8px 22px 6px;
+        font-size: 12px;
+      }
+        
       &:hover {
         background-color: $color-yellow;
         color: #000;
@@ -63,7 +70,15 @@
           border-left: 1px solid #fee300;
         }  
       }
+
+      br {
+        @media (max-width: 580px) {
+          display: none;
+        }        
+
+      }
     }
+
     &:first-child {
       margin-right: 92px;
 
@@ -99,6 +114,11 @@
       margin-bottom: 100px;
     }        
 
+    @media (max-width: 580px) {
+      margin-top: 50px;
+      margin-bottom: 90px;
+    }
+    
 
     > * {
       display: table-cell;
@@ -120,13 +140,22 @@
     display: inline-block;
 
     @media (max-width: 900px) and (min-width: 581px) {
-      display: block;
       max-width: 400px;
       margin: 40px auto 0;
       font-size: 26px;
       line-height: 30px;
-      text-align: center;
     }        
+
+    @media (max-width: 900px) {
+      display: block;
+      margin: 20px auto 0;
+      text-align: center;
+    }  
+    
+    @media (max-width: 580px) {
+      font-size: 18px;
+    }  
+
 
     br {
       @media (max-width: 900px) {
@@ -179,6 +208,11 @@
           width: 60%;
         }   
 
+        @media (max-width: 580px) {
+          width: 85%;
+        }   
+        
+
       }
     }
     &_moscow {
@@ -194,6 +228,10 @@
           width: 60%;
         }   
 
+        @media (max-width: 580px) {
+          width: 100%;
+        }           
+
       }
     }
     &_innercity {
@@ -207,6 +245,9 @@
           width: 40%;
         }   
 
+        @media (max-width: 580px) {
+          width: 65%;
+        }           
       }
     }
     &_arrow {
@@ -240,6 +281,11 @@
       margin: 0 auto;
     }   
 
+    @media (max-width: 900px) {
+      width: 125px;
+    }   
+    
+
     &:after {
       content: '';
       display: inline-block;
@@ -265,6 +311,12 @@
         border-top: 30px solid #fff;
         margin-top: 21px;
       }   
+
+      @media (max-width: 900px) {
+        border-left: 63px solid transparent;
+        border-right: 63px solid transparent;
+      }   
+
     }
   }
 
