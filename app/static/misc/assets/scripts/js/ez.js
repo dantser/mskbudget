@@ -552,6 +552,11 @@ function tabsLine(){
     responsive: {
       0: {
         touchDrag:true,
+        autoWidth: false,
+        items: 1
+      },
+      520: {
+        autoWidth: true
       },
       1025: {
         touchDrag: false
@@ -699,7 +704,7 @@ function sectionTabs(){
 			$('.' + sectionTabActive).removeClass(sectionTabActive);
 			$(this).addClass(sectionTabNavBtnActive);
       $('.section-tabs_members').addClass('active');
-      $('.owl-nav').show();
+      //$('.owl-nav').show();
       $('[data-target="'+ $(this).data('data-target-for') + '"]').addClass('participant_active');
       $('.section-tabs_members .section-tabs__head').removeClass('section-tabs__head_closed');
       $('.section-tabs_members .section-tabs__nav, .section-tabs_members .section-tabs__content').slideDown();
