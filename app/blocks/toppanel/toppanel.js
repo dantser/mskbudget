@@ -13,7 +13,7 @@ export default function toppanel() {
 
   // Скрываем топпанель ДИТ при клике за её пределами
   $('body').on('click', function(e) {
-    if (!e.target.closest('a[data-toggle-toppanel="data-toggle-toppanel"]') && !e.target.closest('.top-panel-frame-wrp')) {
+    if (!$(e.target).closest('a[data-toggle-toppanel="data-toggle-toppanel"]').length && !$(e.target).closest('.top-panel-frame-wrp').length) {
       $('.top-panel-frame-wrp').removeClass('is-active');
       $('#header').removeClass('toppanel-is-active');
     }
