@@ -78,19 +78,16 @@
     }
   }
 
-  @media screen and (max-width: 900px) {
-    .social__link {
-      width: 13px;
-      height: 20px;
-      max-height: 20px;
+  .share__panel.share {
+    max-width: 182px !important;
+    left: -5px !important;
+    z-index: 1;
+
+    @media screen and (max-width: 1140px) and (min-width: 901px) {
+      left: -40px!important;
     }
 
-    .social__item {
-      float: none;
-      width: 13px;
-    }
-
-    div.share__panel.share {
+    @media screen and (max-width: 900px) {
       left: 0!important;
       background: red!important;
       width: 21px!important;
@@ -98,8 +95,22 @@
       background: rgba(0,0,0,.6)!important;
       border-radius: 2px;
     }
-
   }
+
+  .social__link {
+    @media screen and (max-width: 900px) {
+      width: 13px;
+      height: 20px;
+      max-height: 20px;      
+    }
+  }
+  .social__item {
+    @media screen and (max-width: 900px) {
+      float: none;
+      width: 13px;      
+    }
+  }
+
   &__icon {
     fill: #d0ccd3;
     width: 24px;
@@ -127,12 +138,6 @@
     }
   }
 
-
-  .share__panel.share {
-    width: 182px !important;
-    left: -5px !important;
-  }
-
   .download:hover .download__panel {
     display: inline-block;
   }
@@ -153,12 +158,18 @@
     position: absolute;
     top: 100%;
     left: 0;
+    max-width: 175px;
+    width: 175px;
     font-size: 0;
-    text-align: center;
     line-height: 50px;
-    white-space: nowrap;
+    z-index: 1;
+
+    @media screen and (max-width: 1140px) and (min-width: 901px) {
+      left: -65px;
+    }
 
     @media screen and (max-width: 900px) {
+      width: auto;
       left: -10px !important;
       background: rgba(0,0,0,.6);
       border-radius: 2px;
@@ -168,7 +179,7 @@
 
   .download__a {
     display: inline-block;
-    margin-right: 15px;
+    margin-right: 10px;
     font-size: 18px;
     color: $color-white;
     vertical-align: middle;
