@@ -57,7 +57,7 @@
     font-family: $PFDinTextPro;
     font-size: 14px;
     font-weight: 400;
-    padding-right: 42px;
+    letter-spacing: -.7px;
   }
 
   &__state {
@@ -188,14 +188,6 @@
     font-size: 35px;
     position: relative;
 
-    @media (min-width: 821px) and (max-width: 890px) {
-      font-size: 30px;
-    }
-
-    @media (max-width: 820px) {
-      font-size: 36px;
-    }
-
     &_pos {
       background: -webkit-linear-gradient(left, #30b069, #fee300);
       -webkit-background-clip: text;
@@ -305,17 +297,16 @@
     padding: 15px 0 16px;
   }
 
-  &__info-block-desc {
-    opacity: .5;
-    font-family: $PFDinTextPro;
-    font-size: 12px;
-    font-weight: 400;
-  }
-
   &__info-block-title {
     font-size: 20px;
     text-transform: uppercase;
     margin-top: 4px;
+  }
+
+  &__info-block-subtitle {
+    font-size: 14px;
+    text-transform: uppercase;
+    opacity: .3;
   }
 
   &__info-block-date {
@@ -349,6 +340,12 @@
     &_active {
       display: block !important;
     }
+  }
+
+  &__info-block-desc {
+    max-width: 190px;
+    font-weight: 400;
+    line-height: 16px;
   }
 
   &__info {
@@ -595,6 +592,27 @@
     margin-top: 12px;
   }
 
+  .diagram-tabs__item_green {
+    .diagram-tabs__btn_house:before {
+      background-image: url(../images/depfin-services-main/med.png);
+      background-position: 0 50%;
+    }
+
+  }
+  .diagram-tabs__item_violet {
+    .diagram-tabs__btn_edu:before {
+      background-image: url(../images/depfin-services-main/auto.png);
+      background-position: 0 50%;
+    }
+  }
+
+  .diagram-tabs__item_blue {
+    .diagram-tabs__btn_med:before {
+      background-image: url(../images/depfin-services-main/construct.png);
+      background-position: 0 50%;
+    }
+  }
+
   @media (max-width: 900px) {
     .segment-diagram, .segment-diagram .svg {
       width: 197px!important;
@@ -659,6 +677,27 @@
   }
 }
 
+.widget-card-polls-pers,
+.widget-card-quiz-pers {
+  .widget-card__content {
+    padding: 0 20px 10px;
+  }
+
+  .widget-card__info-block-title {
+    font-size: 16px;
+    letter-spacing: -.2px;
+  }
+
+  .widget-card__info-block-subtitle {
+    font-size: 12px;
+    text-transform: none;
+  }
+
+  .widget-card__info-block {
+    padding: 15px 0 0;
+  }
+}
+
 .widget-card-quiz {
   .widget-card__nav-buttons {
     margin-top: 20px;
@@ -716,4 +755,27 @@
   // .widget-card__results {
   //   margin-left: 10px;
   // }
+}
+
+.widget-card-projects {
+
+  .widget-card__nav-buttons {
+    margin-top: 20px;
+  }
+
+  .widget-card__info {
+    margin-top: 5px;
+  }
+
+  .widget-card__info-block-title {
+    text-transform: none;
+  }
+
+  .widget-card__info-block-subtitle {
+    margin-top: 34px;
+  }
+
+  .widget-card__info-block-desc {
+    margin-top: 7px;
+  }
 }
