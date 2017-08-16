@@ -24,13 +24,23 @@ export default () => {
 
   });
 
+  // тултип
+  $('.d-si__search').each(function () {
+    $(this).on('focus mouseover', function () {
+      $(this).siblings('.search__tooltip').fadeIn(321);
+    });
+    $(this).on('blur mouseout', function () {
+      $(this).siblings('.search__tooltip').fadeOut(321);
+    });
+  });
 
-      $(document).on('click', function(e) {
-        if (!$(e.target).closest('.search__filter').length && $('.range-datepicker').is(':hidden')) {
-          TABS_LINK.removeClass(ACTIVE_CLASS);
-        }
-        e.stopPropagation();
-      });
+
+  $(document).on('click', function(e) {
+    if (!$(e.target).closest('.search__filter').length && $('.range-datepicker').is(':hidden')) {
+      TABS_LINK.removeClass(ACTIVE_CLASS);
+    }
+    e.stopPropagation();
+  });
 
   $('input[name="all"]').change(function(){
     if (this.checked) {

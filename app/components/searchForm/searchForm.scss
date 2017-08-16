@@ -99,6 +99,51 @@
     }
   }
 
+  &__tooltip {
+    display: none;
+    position: absolute;
+    top: 49px;
+    right: 0;
+    max-width: 255px;
+    padding: 12px 10px 10px 38px;
+    border: 1px solid #c7c7c7;
+    border-radius: 2px;
+    background: #fff;
+    color: #000;
+    z-index: 2;
+
+    &::before, &::after {
+      content: "";
+      position: absolute;
+      left: 10px;
+      top: -20px;
+      border: 10px solid transparent;
+      border-bottom: 10px solid #c7c7c7;
+    }
+
+    &::after {
+      border-bottom: 10px solid #fff;
+      top: -19px;
+    }
+
+    i {
+      display: block;
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      width: 18px;
+      height: 18px;
+      border: 1px solid transparent;
+      border-radius: 2px;
+      background: #faab20 url(../images/exclamation-mark.png) 50% 50%/contain no-repeat;
+      background-size: 12px;
+    }
+
+    span {
+      font-weight: 400;
+    }
+  }
+
   .d-si__search, .d-si__submit {
     height: inherit;
   }
@@ -681,7 +726,7 @@
 
   .d-si__search {
     width: 100%;
-    padding-bottom: 0; 
+    padding-bottom: 0;
     font-size: 14px;
     line-height: 32px;
     color: $color-black;
