@@ -14,6 +14,16 @@
     }
   }
 
+  .arrow-button+.arrow-button {
+    margin-left: 5px;
+  }
+
+  // .widget-card__budget-stats {
+  //   @media (max-width: 480px) {
+  //     text-align: center;
+  //   }
+  // }
+
   .range-datepicker__item {
     position: inherit;
   }
@@ -34,33 +44,48 @@
 
     @media (max-width: 1180px) {
       margin-bottom: 0;
-    }
-    
-    @media (min-width: 701px) and (max-width: 1180px) {
       width: 33.333%;
+    }
+
+    @media (max-width: 900px) {
+      width: 50%;
     }
 
     @media (max-width: 700px) {
       margin-bottom: 10px !important;
+      width: 290px;
+      margin-left: auto;
+      margin-right: auto;
 
       .tile__inner {
         margin: auto;
       }
     }
-    
-    @media (min-width: 531px) and (max-width: 700px) {
-      width: 50%;
+
+    @media (max-width: 320px) {
+      width: 280px;
     }
-    
-    @media (max-width: 530px) {
-      width: 100%;
-    }
+
+    // @media (max-width: 530px) {
+    //   width: 100%;
+    // }
 
     .lh-1_2 {
       line-height: 20px!important;
 
       @media (max-width: 700px) {
         line-height: 15px!important;
+      }
+    }
+  }
+
+  .widget-card {
+    @media (max-width: 580px){
+      min-height: 400px;
+      padding-bottom: 40px;
+
+      &>:nth-child(n+2) {
+        display: block;
       }
     }
   }
@@ -73,7 +98,7 @@
     top: 0;
     margin: 5px;
   }
-  
+
   .service {
     @media screen and (max-width: 450px) {
       width: 225px;

@@ -110,7 +110,7 @@ export default () => {
     $('.widget-card__title').each(function () {
       $(this).on('click', function () {
         var $this = $(this);
-        if ($this.parents().hasClass('dropdown-block') || $this.parents().hasClass('wrapper_main')) {   //убираем сворачивание виджетов в блоке дропдаунов и на главной
+        if ($this.parents().hasClass('dropdown-block') || $this.parents().hasClass('wrapper_main') || $this.parents().hasClass('lk-services-second')) {   //убираем сворачивание виджетов в блоке дропдаунов и на главной
           return;
         }
         $this.parents('.widget-card').find('.service__diagram-tabs').hide();
