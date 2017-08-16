@@ -9,6 +9,10 @@ export default () => {
 		setTimeout(pageScale, 1);
 	});
 
+	$(".whatIsBudget-expenditures__title").click(function(){
+		$(this).siblings().removeClass('_active');
+	});
+
 	function pageScale() {
 		if ($(window).width() < '640') {
 			var maxWidth  = $('.js-resolution-320').width();
