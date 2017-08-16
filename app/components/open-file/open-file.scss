@@ -53,6 +53,10 @@
   }
 
   &__row {
+    &:nth-child(n+4) {
+      display: none;
+    }
+
     & + .open-file__row {
       margin-top: 16px;
 
@@ -113,18 +117,18 @@
 
   &__caption {
     font-family: $PFDinTextPro;
-    border-bottom: 1px solid #d5d5d5;
+    border-bottom: 3px solid #d5d5d5;
 
     H3 {
       padding: 19px 0 19px 29px;
-      font-size: 16px;
+      font-size: 14px;
       color: #9f9f9f;
       letter-spacing: .1px;
       white-space: normal;
 
       @media (max-width: 900px) and (min-width: 581px) {
         padding: 19px 0 19px 9px;
-        font-size: 22px;
+        font-size: 20px;
       }
 
       @media (max-width: 580px) {
@@ -146,7 +150,7 @@
       text-decoration: none;
     }
 
-    span {
+    &-field {
       position: relative;
       font-size: 12px;
       color: #0e45a2;
@@ -162,14 +166,27 @@
         position: absolute;
         top: 5px;
         left: -16px;
-        @include triangle(#0e45a2, down, 6px);
-        border-left: 4px solid transparent;
-        border-right: 4px solid transparent;
 
         @media (max-width: 900px) and (min-width: 581px) {
           top: 10px;
         }
+      }
 
+      &_dec {
+        &::before {
+          @include triangle(#0e45a2, down, 6px);
+          border-left: 4px solid transparent;
+          border-right: 4px solid transparent;
+        }
+
+      }
+
+      &_asc {
+        &::before {
+          @include triangle(#0e45a2, up, 6px);
+          border-left: 4px solid transparent;
+          border-right: 4px solid transparent;
+        }
       }
     }
   }
@@ -198,13 +215,17 @@
 
   &__row-title {
     display: inline-block;
-    width: 45%;
+    width: 55%;
     font-family: $PFDinTextPro;
     font-size: 16px;
     text-align: left;
     letter-spacing: .1px;
     white-space: normal;
     vertical-align: middle;
+
+    @media (max-width: 1140px) {
+      width: 45%;
+    }
 
     @media (max-width: 900px) and (min-width: 581px) {
       width: 100%;
@@ -366,9 +387,28 @@
   }
 
   &__popups {
-    display: none;
     margin-top: 48px;
     background-color: $color-white;
+  }
+
+  &__popup {
+    display: none;
+
+    &_terms {
+      .open-file__popup-text_small {
+        margin-top: 20px;
+      }
+    }
+  
+    &_about {
+      .open-file__popup-text:nth-child(2) {
+        margin-top: 25px;
+      }
+
+      .open-file__popup-text_small {
+        margin-top: 19px;
+      }
+    }
   }
 
   &__popup-head {
@@ -381,6 +421,7 @@
     font-size: 24px;
     line-height: 24px;
     text-transform: uppercase;
+    color: $color-black;
   }
 
   &__popup-close {
@@ -434,24 +475,9 @@
     }
   }
 
-  &__popup-terms {
-    .open-file__popup-text_small {
-      margin-top: 20px;
-    }
-  }
 
   &__popup-termin {
     font-weight: 900;
-  }
-
-  &__popup-about {
-    .open-file__popup-text:nth-child(2) {
-      margin-top: 25px;
-    }
-
-    .open-file__popup-text_small {
-      margin-top: 19px;
-    }
   }
 }
 

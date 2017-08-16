@@ -8,6 +8,22 @@ include ../../blocks/link/link
 include ../../blocks/button/button
 
 mixin open-file()
+
+  mixin row(title, about, date, isActive)
+    - var active = isActive ? "_active" : "";
+    +e(class='row'+active)
+      +e.col._left
+        +e.row-wrap
+          +e.row-title= title
+          +e.row-controls
+            +e.BUTTON.row-description.open-file__row-control описание
+            +selectbox('select', [{"val":"opt1", "text":"Скачать"}, {"val":"opt2", "text":"Другое"}]).open-file__row-control
+            +selectbox('select', [{"val":"opt1", "text":"Паспорт"}, {"val":"opt2", "text":"Другое"}]).open-file__row-control
+        +e.row-about= about 
+      +e.col._right
+        +e.row-date= date
+
+
   +b.SECTION.open-file.sections__item&attributes(attributes)
     .wrapper.page-content-wrapper
       +e.head
@@ -26,61 +42,28 @@ mixin open-file()
 
             +e.rows.open-file__sort
               +e.A(href='#').col._left 
-                +e.SPAN По алфавиту А-Я
+                +e.SPAN.sort-field._dec По алфавиту А-Я
               +e.A(href='#').col._right 
-                +e.SPAN По дате
+                +e.SPAN.sort-field._dec По дате
 
             +e.rows.open-file__main
+  
+              +row("Закон о бюджете. Ведомственная структура расходов", "Информация о Законе о бюджете.", "12.06.2015")
+              +row("Закон о бюджете. Доходы", "Информация о Законе о бюджете.", "12.06.2015")
+              +row("Закон о бюджете. Доходы", "Информация о Законе о бюджете.", "12.06.2015")
 
-              +e.row
-                +e.col._left
-                  +e.row-wrap
-                    +e.row-title Закон о бюджете. Ведомственная структура
-                    +e.row-controls
-                      +e.BUTTON.row-description.open-file__row-control описание
-                      +selectbox('select', getData('widget-card-selectbox')).open-file__row-control
-                      +selectbox('select', getData('widget-card-selectbox')).open-file__row-control
-                  +e.row-about
-                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus velit optio doloremque libero, recusandae quasi illo consequatur voluptatem nobis esse reiciendis tempore illum provident, molestiae a deleniti ex magni at?
-                
-                +e.col._right
-                  +e.row-date 12.06.2015
-              
-              +e.row._active
-                +e.col._left
-                  +e.row-wrap
-                    +e.row-title Закон о бюджете. Ведомственная структура
-                    +e.row-controls
-                      +e.BUTTON.row-description.open-file__row-control описание
-                      +selectbox('select', getData('widget-card-selectbox')).open-file__row-control
-                      +selectbox('select', getData('widget-card-selectbox')).open-file__row-control
-                  +e.row-about Информация о Законе о бюджете.
-                
-                +e.col._right
-                  +e.row-date 12.06.2015
-              
-              +e.row
-                +e.col._left
-                  +e.row-wrap
-                    +e.row-title Закон о бюджете. Ведомственная структура
-                    +e.row-controls
-                      +e.BUTTON.row-description.open-file__row-control описание
-                      +selectbox('select', getData('widget-card-selectbox')).open-file__row-control
-                      +selectbox('select', getData('widget-card-selectbox')).open-file__row-control
-                  +e.row-about
-                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus velit optio doloremque libero, recusandae quasi illo consequatur voluptatem nobis esse reiciendis tempore illum provident, molestiae a deleniti ex magni at?
-                
-                +e.col._right
-                  +e.row-date 12.06.2015
+              +row("Hidden", "Информация о Законе о бюджете.", "12.06.2015")
+              +row("Hidden", "Информация о Законе о бюджете.", "12.06.2015")
+              +row("Hidden", "Информация о Законе о бюджете.", "12.06.2015")
 
         +e.A(href="#").show-more.d-si__button_show-more Показать еще
       
         +e.links
-          +link()
+          +link().open-file__link-about
             | что такое открытые данные?
             +icon('right-arrow').icon
 
-          +link()
+          +link().open-file__link-terms
             | условия использования
             +icon('right-arrow').icon
 
@@ -91,7 +74,7 @@ mixin open-file()
       // popups
       +e.popups
 
-        +e.popup-terms
+        +e.popup._terms
           +e.popup-head
             +e.H3.popup-title Условия использования
             +icon('icon-cross').popup-close
@@ -105,7 +88,7 @@ mixin open-file()
               +e.LI.popup-item пользователи, получившие набор данных, вправе копировать, публиковать, распространять и передавать набор данных третьим лицам, адаптировать, объединять набор данных с другими наборами данных, а также использовать набор данных в собственных приложениях.
             +e.P.popup-text._small Пользователь портала «Открытый бюджет города Москвы» должен предоставлять информацию об источнике набора данных в случаях, когда он публично демонстрирует эти данные. Разработчик программы или приложения, использующего набор данных, должен указывать в публично распространяемом приложении источник получения набора данных.
 
-        +e.popup-about
+        +e.popup._about
           +e.popup-head
             +e.H3.popup-title Что такое открытые данные?
             +icon('icon-cross').popup-close
