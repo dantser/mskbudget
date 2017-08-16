@@ -476,11 +476,11 @@ function tabsLine(){
     var next = $(this).find('.owl-next');
     var prev = $(this).find('.owl-prev');
     next.on('click', function (e) {
-      $(this).parents('.section-tabs').find('.dd-holder').animate( { scrollLeft: '+=280' }, 300);
+      $(this).parents('.section-tabs').find('.dd-holder').animate( { scrollLeft: '+=276' }, 300);
     });
 
     prev.on('click', function (e) {
-      $(this).parents('.section-tabs').find('.dd-holder').animate( { scrollLeft: '-=280' }, 300);
+      $(this).parents('.section-tabs').find('.dd-holder').animate( { scrollLeft: '-=276' }, 300);
     });
 
 

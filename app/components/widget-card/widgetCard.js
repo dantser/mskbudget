@@ -12,7 +12,7 @@ export default () => {
       EL.toggleClass('widget-card__favor_active');
     })
   });
-  
+
   PIN.each(function () {
     const EL = $(this);
     EL.on('click', (e) => {
@@ -50,9 +50,9 @@ export default () => {
   });
 
   // опросы и обучающий сервис
-  $('.widget-card-polls .arrow-button_next, .widget-card-quiz .arrow-button_next').on('click', function (e) {
+  $('.widget-card-polls .arrow-button_next, .widget-card-polls-pers .arrow-button_next, .widget-card-quiz .arrow-button_next, .widget-card-quiz-pers .arrow-button_next, .widget-card-projects .arrow-button_next').on('click', function (e) {
     e.preventDefault();
-    const widgetCard = $(this).parents('.widget-card').find('.widget-card__info-block_active');
+    const widgetCard = $(this).parents('.widget-card__content').find('.widget-card__info-block_active');
 
     widgetCard.find('.widget-card__info_active').removeClass('widget-card__info_active')
     .next('.widget-card__info').addClass('widget-card__info_active');
@@ -62,9 +62,9 @@ export default () => {
     }
   });
 
-  $('.widget-card-polls .arrow-button_prev, .widget-card-quiz .arrow-button_prev').on('click', function (e) {
+  $('.widget-card-polls .arrow-button_prev, .widget-card-polls-pers .arrow-button_prev, .widget-card-quiz .arrow-button_prev, .widget-card-quiz-pers .arrow-button_prev, .widget-card-projects .arrow-button_prev').on('click', function (e) {
     e.preventDefault();
-    const widgetCard = $(this).parents('.widget-card').find('.widget-card__info-block_active');
+    const widgetCard = $(this).parents('.widget-card__content').find('.widget-card__info-block_active');
 
     widgetCard.find('.widget-card__info_active').removeClass('widget-card__info_active')
     .prev('.widget-card__info').addClass('widget-card__info_active');
@@ -126,7 +126,7 @@ export default () => {
 
 
   // виджет москва и города мира
-  $('.selectbox_cities').find('li').on('click', function () {
+  $('.widget-card-cities .selectbox_cities').find('li').on('click', function () {
     const newval = $(this).data('val');
     $('.widget-card-cities').find('.widget-card__results').slideUp();
     if (newval == "Москва") {
@@ -190,15 +190,15 @@ export default () => {
 // виджет москва и регионы рф
   $('.widget-card-regions').find('li').on('click', function () {
     const newval = $(this).data('val');
-    $('.widget-card-regions').find('.widget-card__results').slideUp(321);
+    $(this).parents('.widget-card__content').find('.widget-card__results').slideUp(321);
     if (newval == "opt1") {
-      $('.widget-card-regions .widget-card__results_opt1').slideDown(321);
+      $(this).parents('.widget-card__content').find('.widget-card__results_opt1').slideDown(321);
     } else if (newval == "opt2") {
-      $('.widget-card-regions .widget-card__results_opt2').slideDown(321);
+      $(this).parents('.widget-card__content').find('.widget-card__results_opt2').slideDown(321);
     } else if (newval == "opt3") {
-      $('.widget-card-regions .widget-card__results_opt3').slideDown(321);
+      $(this).parents('.widget-card__content').find('.widget-card__results_opt3').slideDown(321);
     } else if (newval == "opt4") {
-      $('.widget-card-regions .widget-card__results_opt4').slideDown(321);
+      $(this).parents('.widget-card__content').find('.widget-card__results_opt4').slideDown(321);
     }
   });
   // виджет бюджетная сеть
@@ -219,15 +219,15 @@ export default () => {
   // виджет калькулятор
   $('.widget-card-calc').find('li').on('click', function () {
     const newval = $(this).data('val');
-    $('.widget-card-calc').find('.widget-card__output-calc').removeClass('widget-card__output-calc_active').hide(321);
+    $(this).parents('.widget-card__content').find('.widget-card__output-calc').removeClass('widget-card__output-calc_active').hide(321);
     if (newval == "opt1") {
-      $('.widget-card-calc .widget-card__output-calc_opt1').show(321);
+      $(this).parents('.widget-card__content').find('.widget-card__output-calc_opt1').show(321);
     } else if (newval == "opt2") {
-      $('.widget-card-calc .widget-card__output-calc_opt2').show(321);
+      $(this).parents('.widget-card__content').find('.widget-card__output-calc_opt2').show(321);
     } else if (newval == "opt3") {
-      $('.widget-card-calc .widget-card__output-calc_opt3').show(321);
+      $(this).parents('.widget-card__content').find('.widget-card__output-calc_opt3').show(321);
     } else if (newval == "opt4") {
-      $('.widget-card-calc .widget-card__output-calc_opt4').show(321);
+      $(this).parents('.widget-card__content').find('.widget-card__output-calc_opt4').show(321);
     }
   });
 }
