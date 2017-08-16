@@ -5,7 +5,7 @@ export default () => {
 
 	$(window).on('load resize', pageScale);
 
-	$('.whatIsBudget-component').click(function() {
+	$('.whatIsBudget-component, .whatIsBudget-expenditures__title-fake').click(function() {
 		setTimeout(pageScale, 1);
 	});
 

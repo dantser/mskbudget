@@ -3,6 +3,21 @@ var $window = $(window),
     $html = $("html"),
     $body = $("body");
 
+    function msieversion() {
+
+        var ua = window.navigator.userAgent;
+        var msie = ua.indexOf("MSIE ");
+
+        if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))  // If Internet Explorer, return version number
+        {
+          var version = parseInt(ua.substring(msie + 5, ua.indexOf(".", msie)));
+          return version;
+        }
+        else  // If another browser, return 0
+        {
+            return false;
+        }
+    }
 
 "use strict";
 window.onload = function () {
@@ -908,6 +923,9 @@ budget.extend("whatIsBudgetWeight", {
                 clearTimeout(this.timeout);
                 this.timeout = false;
 
+                var advantage = this.elements.$platform.data('advantage');
+
+
                 this.elements.$platform.attr("data-advantage", "");
                 this.elements.weight.$revenues.attr("data-status", "");
                 this.elements.weight.$expenditures.attr("data-status", "");
@@ -921,8 +939,26 @@ budget.extend("whatIsBudgetWeight", {
                 this.timeout = false;
 
                 this.elements.$platform.attr("data-advantage", "surplus");
+/*
+                if ( msieversion() ) {
+                  $('.budgetScales-platform').animate({  borderSpacing: -4 }, {
+                    step: function(now,fx) {
+                      $(this).css('transform','translateX(-50%) rotate('+now+'deg)');
+                    },
+                    duration:3000
+                  },'linear');
+                }*/
+
                 this.elements.weight.$revenues.attr("data-status", "big");
                 this.elements.weight.$expenditures.attr("data-status", "");
+
+                var timeout1 = 2000,
+                    timeout2 = 4500;
+
+                if ( msieversion() === 9 ) {
+                  timeout1 = 200;
+                  timeout2 = 400;
+                }
 
                 this.timeout = setTimeout(function () {
 
@@ -932,14 +968,14 @@ budget.extend("whatIsBudgetWeight", {
                         _this2.hideDefinition(2);
                         _this2.hideDefinition(1);
                         _this2.showDefinition(0);
-                }, 2500);
+                }, timeout1);
 
                 this.timeoutAligment = setTimeout(function () {
 
                         if (!_this2.block.weight) return false;
 
                         _this2.alignmentToTheRight();
-                }, 4500);
+                }, timeout2);
         },
         rollToTheRight: function rollToTheRight() {
                 var _this3 = this;
@@ -950,6 +986,24 @@ budget.extend("whatIsBudgetWeight", {
                 this.timeout = false;
 
                 this.elements.$platform.attr("data-advantage", "deficit");
+/*
+                if ( msieversion() ) {
+                  $('.budgetScales-platform').animate({  borderSpacing: 4 }, {
+                    step: function(now,fx) {
+                      $(this).css('transform','translateX(-50%) rotate('+now+'deg)');
+                    },
+                    duration:3000
+                  },'linear');
+                }*/
+
+                var timeout1 = 2000,
+                    timeout2 = 4500;
+
+                if ( msieversion() === 9 ) {
+                  timeout1 = 200;
+                  timeout2 = 400;
+                }
+
                 this.elements.weight.$expenditures.attr("data-status", "big");
                 this.elements.weight.$revenues.attr("data-status", "");
 
@@ -961,19 +1015,23 @@ budget.extend("whatIsBudgetWeight", {
                         _this3.hideDefinition(0);
                         _this3.hideDefinition(1);
                         _this3.showDefinition(2);
-                }, 2500);
+                }, timeout1);
 
                 this.timeoutAligment = setTimeout(function () {
 
                         if (!_this3.block.weight) return false;
 
                         _this3.alignmentToTheLeft();
-                }, 4500);
+                }, timeout2);
         },
         alignmentToTheRight: function alignmentToTheRight() {
                 var _this4 = this;
 
-                _this4.elements.weight.$useOfSurplus.addClass('_active _bounce');
+                if ( msieversion() === 9 ) {
+                  _this4.elements.weight.$useOfSurplus.animate({opacity: "1"}, 'slow', 'linear');
+                } else {
+                  _this4.elements.weight.$useOfSurplus.addClass('_active _bounce');
+                }
                 $('.budgetScales').attr("style", "pointer-events: none");
 
                 setTimeout(function () {
@@ -981,10 +1039,17 @@ budget.extend("whatIsBudgetWeight", {
                         _this4.elements.$platform.attr("data-advantage", "");
                 }, 1000);
 
+
                 setTimeout(function () {
 
                         _this4.elements.weight.$revenues.attr("data-status", "");
-                        _this4.elements.weight.$useOfSurplus.removeClass('_active');
+
+                        if ( msieversion() === 9 ) {
+                          _this4.elements.weight.$useOfSurplus.animate({opacity: "0"}, 'slow', 'linear');
+                        } else {
+                          _this4.elements.weight.$useOfSurplus.removeClass('_active');
+                        }
+
                         _this4.block.weight = false;
                         _this4.elements.$activeZoneWrapper.removeClass("_noactive");
                         clearTimeout(_this4.timeout);
@@ -1002,7 +1067,12 @@ budget.extend("whatIsBudgetWeight", {
                 //TweenMax.fromTo(this.elements.weight.$financingOfDeficit, 1.5, { autoAlpha: 0 }, { autoAlpha: 1 });
                 //TweenMax.fromTo(this.elements.weight.$financingOfDeficit, 1.5, { y: -150 }, { y: 0, ease: Bounce.easeOut });
 
-                _this5.elements.weight.$financingOfDeficit.addClass('_active _bounce');
+
+                if ( msieversion() === 9 ) {
+                  _this5.elements.weight.$financingOfDeficit.animate({opacity: "1"}, 'slow', 'linear');
+                } else {
+                  _this5.elements.weight.$financingOfDeficit.addClass('_active _bounce');
+                }
                 $('.budgetScales').attr("style", "pointer-events: none");
 
                 setTimeout(function () {
@@ -1012,8 +1082,13 @@ budget.extend("whatIsBudgetWeight", {
 
                 setTimeout(function () {
 
-                        _this5.elements.weight.$expenditures.attr("data-status", "");
-                        _this5.elements.weight.$financingOfDeficit.removeClass('_active');
+
+                        if ( msieversion() === 9 ) {
+                          _this5.elements.weight.$financingOfDeficit.animate({opacity: "0"}, 'slow', 'linear');
+                        } else {
+                          _this5.elements.weight.$financingOfDeficit.removeClass('_active');
+                        }
+
                         _this5.block.weight = false;
                         _this5.elements.$activeZoneWrapper.removeClass("_noactive");
                         clearTimeout(_this5.timeout);
@@ -1120,8 +1195,6 @@ $window.on("orientationchange", function () {
 
 //
 $(document).ready(function(){
-
-
 
 //
 $('.budgetScales-activeZone._balance').hover(function(){

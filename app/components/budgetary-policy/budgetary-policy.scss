@@ -415,17 +415,75 @@
   text-transform: uppercase;
 }
 
+.d-slide__body-wrapper {
+  margin-top: 40px;
+  // Custom Scrollbar
+  > .scroll-element,
+  > .scroll-element div {
+    border: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    z-index: 10;
+  }
+
+  > .scroll-element div {
+    display: block;
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  > .scroll-element.scroll-x {
+    bottom: 2px;
+    height: 8px;
+    left: 0;
+    width: 100%;
+  }
+
+  > .scroll-element.scroll-y {
+    height: 100%;
+    right: 15px;
+    top: 0;
+    width: 2px;
+  }
+
+  > .scroll-element .scroll-element_outer {
+    overflow: hidden;
+  }
+
+  > .scroll-element .scroll-element_outer,
+  > .scroll-element .scroll-element_track,
+  > .scroll-element .scroll-bar {
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+  }
+
+  > .scroll-element .scroll-element_track { background-color: #d6d6d6; }
+  > .scroll-element .scroll-bar { background-color: #0d46a1; }
+  > .scroll-element:hover .scroll-bar { background-color: #0d46a1; }
+  > .scroll-element.scroll-draggable .scroll-bar { background-color: #0d46a1; }
+
+  > .scroll-element.scroll-x.scroll-scrolly_visible .scroll-element_track { left: -12px; }
+  > .scroll-element.scroll-y.scroll-scrollx_visible .scroll-element_track { top: -12px; }
+
+
+  > .scroll-element.scroll-x.scroll-scrolly_visible .scroll-element_size { left: -12px; }
+  > .scroll-element.scroll-y.scroll-scrollx_visible .scroll-element_size { top: -12px; }
+}
+
 .d-slide__body_list {
   width: 660px;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  margin-top: 40px;
+  margin-top: 0;
   padding: 0 35px;
-  height: 100%;
   display: block;
   overflow: hidden;
   list-style-type: none;
-  text-align: left;
+  text-align: left;   
 
   &.width595 {
     width: 100%;
@@ -434,16 +492,16 @@
   }
 }
 
-.d-slide__tax .d-slide__body_list {
+.d-slide__tax .d-slide__body-wrapper {
   max-height: 220px;
 }
 
-.d-slide__politics .d-slide__body_list {
+.d-slide__politics .d-slide__body-wrapper {
   max-height: 250px;
 }
 
-.d-slide__principles .d-slide__body_list {
-  max-height: 420px;
+.d-slide__principles .d-slide__body-wrapper {
+  max-height: 400px;
 }
 
 .d-slide__body_list li {
@@ -587,10 +645,6 @@
   .d-slide__body_list {
     max-width: 660px;
     width: 100%;
-  }
-
-  .d-slide__body_list {
-    margin-top: 37px;
   }
 }
 
@@ -785,6 +839,9 @@
     margin-top: 16px;
     padding-right: 20px;
     padding-bottom: 6px;
+  }
+  
+  .d-slide__body-wrapper {
     &.active {
       max-height: none;
     }
@@ -832,7 +889,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .d-slide__more {
     display: inline-block;
     padding: 14px 19px;
@@ -843,8 +900,7 @@
     color: #fee300;
     background-color: #293a4a;
     transition: all ease 0.5s;
-    position: absolute;
-    bottom: 5px;
+    position: relative;
     width: 100%;
     &:before {
       content: '';
@@ -867,6 +923,14 @@
     &.active {
       display: none;
     }
+  }
+  
+  .d-slide__body_list {
+    overflow: visible !important;
+  }
+  
+  .d-slide__body-wrapper {
+    overflow: hidden;
   }
 }
 
