@@ -10,8 +10,8 @@ const gulpIf = require('gulp-if');
 const getData = require('jade-get-data')('app/data');
 
 gulp.task('templates', () => (
-  //gulp.src('app/**/*.pug')
-  gulp.src('app/pages/depfin_about_budget/depfin_about_budget.pug')
+  gulp.src('app/**/*.pug')
+  // gulp.src('app/pages/depfin_about_budget/depfin_about_budget.pug')
     .pipe(plumber({ errorHandler: errorHandler('Error in templates task') }))
     .pipe(gulpIf(global.isWatching, pugInheritance({ basedir: 'app' })))
     .pipe(filter(file => /app[\\\/]pages/.test(file.path))) // eslint-disable-line no-useless-escape
