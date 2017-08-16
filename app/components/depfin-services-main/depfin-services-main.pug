@@ -55,7 +55,7 @@ mixin widget-card-regions()
 					+e.map
 						img(src='assets/images/map_mini.png')
 					+e.search
-						+searchFormWidget('самарская область')
+						+searchFormWidget('самарская область', 'Введите название ВМО')
 					+e.select
 						+selectbox('select', getData('widget-card-selectbox'))
 					+e.results._opt1
@@ -127,23 +127,78 @@ mixin widget-card-calc-pers()
 				+widget-card-content()
 					+e.select
 						+selectbox-cities('select', getData('widget-card-selectbox'))
-					+e.budget-stats
-						+e.budget-stat
-							+e.P.budget-stat-title доходы
-							+e.P.budget-stat-count._pos 1 579,0
-							+e.P._budget-stat-text млрд руб.
-						+e.budget-stat
-							+e.P.budget-stat-title расходы
-							+e.P.budget-stat-count._neg 1 588,0
-							+e.p.budget-stat-text млрд руб.
-					+e.budget-total
-						+e.SPAN.budget-total-title дефицит бюджета
-						+e.SPAN.budget-total-count._blue 9,0
-						+e.SPAN.budget-total-text млрд руб.
-					+e.budget-total
-						+e.SPAN.budget-total-title изменение государственного долга
-						+e.SPAN.budget-total-count 0,0
-						+e.SPAN.budget-total-text млн руб.
+					+e.output-calc._opt1._active
+						+e.budget-stats
+							+e.budget-stat
+								+e.P.budget-stat-title доходы
+								+e.P.budget-stat-count._pos 1 579,0
+								+e.P._budget-stat-text млрд руб.
+							+e.budget-stat
+								+e.P.budget-stat-title расходы
+								+e.P.budget-stat-count._neg 1 588,0
+								+e.p.budget-stat-text млрд руб.
+						+e.budget-total
+							+e.SPAN.budget-total-title дефицит бюджета
+							+e.SPAN.budget-total-count._blue 9,0
+							+e.SPAN.budget-total-text млрд руб.
+						+e.budget-total
+							+e.SPAN.budget-total-title изменение государственного долга
+							+e.SPAN.budget-total-count 0,0
+							+e.SPAN.budget-total-text млн руб.
+					+e.output-calc._opt2
+						+e.budget-stats
+							+e.budget-stat
+								+e.P.budget-stat-title доходы
+								+e.P.budget-stat-count._pos 1 570
+								+e.P._budget-stat-text млрд руб.
+							+e.budget-stat
+								+e.P.budget-stat-title расходы
+								+e.P.budget-stat-count._neg 188,0
+								+e.p.budget-stat-text млрд руб.
+						+e.budget-total
+							+e.SPAN.budget-total-title дефицит бюджета
+							+e.SPAN.budget-total-count._blue 7,0
+							+e.SPAN.budget-total-text млрд руб.
+						+e.budget-total
+							+e.SPAN.budget-total-title изменение государственного долга
+							+e.SPAN.budget-total-count 0,0
+							+e.SPAN.budget-total-text млн руб.
+					+e.output-calc._opt3
+						+e.budget-stats
+							+e.budget-stat
+								+e.P.budget-stat-title доходы
+								+e.P.budget-stat-count._pos 1 479,0
+								+e.P._budget-stat-text млрд руб.
+							+e.budget-stat
+								+e.P.budget-stat-title расходы
+								+e.P.budget-stat-count._neg 1 488,0
+								+e.p.budget-stat-text млрд руб.
+						+e.budget-total
+							+e.SPAN.budget-total-title дефицит бюджета
+							+e.SPAN.budget-total-count._blue 8,0
+							+e.SPAN.budget-total-text млрд руб.
+						+e.budget-total
+							+e.SPAN.budget-total-title изменение государственного долга
+							+e.SPAN.budget-total-count 1,0
+							+e.SPAN.budget-total-text млн руб.
+					+e.output-calc._opt4
+						+e.budget-stats
+							+e.budget-stat
+								+e.P.budget-stat-title доходы
+								+e.P.budget-stat-count._pos 1 279,0
+								+e.P._budget-stat-text млрд руб.
+							+e.budget-stat
+								+e.P.budget-stat-title расходы
+								+e.P.budget-stat-count._neg 1 288,0
+								+e.p.budget-stat-text млрд руб.
+						+e.budget-total
+							+e.SPAN.budget-total-title дефицит бюджета
+							+e.SPAN.budget-total-count._blue 2,0
+							+e.SPAN.budget-total-text млрд руб.
+						+e.budget-total
+							+e.SPAN.budget-total-title изменение государственного долга
+							+e.SPAN.budget-total-count 1,0
+							+e.SPAN.budget-total-text млн руб.
 				+widget-card-bottom-link()
 
 
@@ -262,7 +317,7 @@ mixin widget-card-cities()
 					+e.logo
 						img(src='assets/images/logo.png')
 					+e.select
-						+selectbox-cities('select', getData('widget-card-selectbox-cities'))
+						+selectbox-cities('select', getData('widget-card-selectbox-cities')).selectbox-cities
 					+e.select
 						+selectbox('select', getData('widget-card-selectbox-cities2'))
 					+e.results._moscow._active
@@ -379,7 +434,15 @@ mixin widget-card-polls-pers()
 					+e.info-block._active
 						+e.info._opt1._active
 							+e.info-block-subtitle Вы можете пройти следующие опросы:
+							+e.info-block-title Как сделать портал еще интереснее?
+							+e.info-block-date до 30.01.2017
+						+e.info._opt2
+							+e.info-block-subtitle Вы можете пройти следующие опросы:
 							+e.info-block-title Как сделать портал еще удобнее?
+							+e.info-block-date до 30.01.2017
+						+e.info._opt3
+							+e.info-block-subtitle Вы можете пройти следующие опросы:
+							+e.info-block-title Как сделать портал еще смешнее?
 							+e.info-block-date до 30.01.2017
 					+e.nav-buttons
 						+arrow-button()._prev.widget-card__arrow-button
@@ -389,6 +452,12 @@ mixin widget-card-polls-pers()
 						+e.info._opt1._active
 							+e.info-block-subtitle Вы приняли участие в опросах:
 							+e.info-block-title Как сделать портал еще интереснее?
+						+e.info._opt2
+							+e.info-block-subtitle Вы приняли участие в опросах:
+							+e.info-block-title Как сделать портал еще удобнее?
+						+e.info._opt3
+							+e.info-block-subtitle Вы приняли участие в опросах:
+							+e.info-block-title Как сделать портал еще смешнее?
 					+e.nav-buttons
 						+arrow-button()._prev.widget-card__arrow-button
 						+arrow-button()._next.widget-card__arrow-button
@@ -428,7 +497,15 @@ mixin widget-card-quiz-pers()
 					+e.info-block._active
 						+e.info._opt1._active
 							+e.info-block-subtitle Вы можете пройти следующие викторины:
+							+e.info-block-title История бюджета города Москвы в первой половине ХХ...
+							+e.info-block-date до 30.01.2017
+						+e.info._opt2
+							+e.info-block-subtitle Вы можете пройти следующие викторины:
 							+e.info-block-title История бюджета города Москвы во второй половине ХХ...
+							+e.info-block-date до 30.01.2017
+						+e.info._opt3
+							+e.info-block-subtitle Вы можете пройти следующие викторины:
+							+e.info-block-title История бюджета города Москвы в третьей(?) половине...
 							+e.info-block-date до 30.01.2017
 					+e.nav-buttons
 						+arrow-button()._prev.widget-card__arrow-button
@@ -438,6 +515,12 @@ mixin widget-card-quiz-pers()
 						+e.info._opt1._active
 							+e.info-block-subtitle Вы приняли участие в викторинах:
 							+e.info-block-title История бюджета города Москвы в первой половине ХХ...
+						+e.info._opt2
+							+e.info-block-subtitle Вы приняли участие в викторинах:
+							+e.info-block-title История бюджета города Москвы во второй половине ХХ...
+						+e.info._opt3
+							+e.info-block-subtitle Вы приняли участие в викторинах:
+							+e.info-block-title История бюджета города Москвы в третьей(?) половине...
 					+e.nav-buttons
 						+arrow-button()._prev.widget-card__arrow-button
 						+arrow-button()._next.widget-card__arrow-button
@@ -453,7 +536,7 @@ mixin widget-card-municipalities
 					+e.map
 						img(src='assets/images/map_mini2.png')
 					+e.search
-						+searchFormWidget('замоскворечье')
+						+searchFormWidget('замоскворечье', 'Введите название субъекта РФ')
 					+e.select
 						+selectbox('select', getData('widget-card-selectbox-vmo'))
 					+e.results
@@ -472,7 +555,7 @@ mixin widget-card-budget-web
 					+e.map
 						img(src='assets/images/map_mini2.png')
 					+e.search
-						+searchFormWidget('замоскворечье')
+						+searchFormWidget('замоскворечье', 'Введите название района Москвы')
 					+e.select
 						+selectbox('select', getData('widget-card-selectbox-with-icon2')).selectbox-for-widgets
 					+e.nav-buttons
@@ -505,10 +588,19 @@ mixin widget-card-projects
 					+e.nav-buttons
 						+arrow-button()._prev.widget-card__arrow-button
 						+arrow-button()._next.widget-card__arrow-button
-					+e.info._opt1._active
-						+e.info-block-title Перинатально-кардиологоческий корпус Городской клинической больницы № 67
-						+e.info-block-subtitle Результаты ввода
-						+e.info-block-desc Оказание современной амбулаторной помощи 17 тыс. женщинам ежегодно
+					+e.info-block._active
+						+e.info._opt1._active
+							+e.info-block-title Перинатально-кардиологоческий корпус Городской клинической больницы № 67
+							+e.info-block-subtitle Результаты ввода
+							+e.info-block-desc Оказание современной амбулаторной помощи 17 тыс. женщинам ежегодно
+						+e.info._opt2
+							+e.info-block-title Перинатально-кардиологоческий корпус Городской клинической больницы № 68
+							+e.info-block-subtitle Результаты ввода
+							+e.info-block-desc Оказание современной амбулаторной помощи 18 тыс. женщинам ежегодно
+						+e.info._opt3
+							+e.info-block-title Перинатально-кардиологоческий корпус Городской клинической больницы № 69
+							+e.info-block-subtitle Результаты ввода
+							+e.info-block-desc Оказание современной амбулаторной помощи 19 тыс. женщинам ежегодно
 				+widget-card-bottom-link()
 
 mixin depfin-services-main()
