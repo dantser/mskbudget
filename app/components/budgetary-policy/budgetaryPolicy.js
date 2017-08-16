@@ -1,18 +1,36 @@
 import $ from 'jquery';
+import 'jquery.scrollbar';
 
 export default () => {
 
   $(document).ready(function(){
-
-    checkListHeight();
-
-    $('.mobile-carousel .d-slide__more').each(function(){
-      $(this).on('click', function(){
-        $(this).prev().addClass('active');
-        $(this).addClass('active');
-      });
+    
+    if ($('.d-slide__body-wrapper').length) {
+      checkListHeight();
+    }
+    
+    $('.d-slide__more').on('click', function(e){
+      e.preventDefault();
+      $(this).prev().addClass('active');
+      $(this).addClass('active');
     });
+    
+    // Custom scrollbar
+    if ($(window).width > 640) {
+      $('.d-slide__body-wrapper').scrollbar();
+    }
+    
   });
+  
+  function checkListHeight() {
+    $('.d-slide__body-wrapper').each(function(){
+      var wrapperHeight = $(this).outerHeight();
+      var listHeight = $(this).children().outerHeight();
+      if (listHeight <= wrapperHeight) {
+        $(this).next().addClass('active');
+      }
+    });
+  }
 
   // Добавляем стрелочки для IE
   var ua = window.navigator.userAgent;
@@ -43,17 +61,4 @@ export default () => {
     });
   }
 
-  function checkListHeight() {
-    $('.mobile-carousel .d-slide__body_list').each(function(){
-      var listHeight = 0;
-      var heightRule = $(this).outerHeight();
-      $(this).children().each(function(){
-        var elHeight = $(this).outerHeight();
-        listHeight += elHeight;
-      });
-      if (listHeight < heightRule) {
-        $(this).next().addClass('active');
-      }
-    });
-  }
 }
