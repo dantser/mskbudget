@@ -17,12 +17,12 @@ mixin page-header(title, breadcrumbs, isDownloadable)
       +favor().icons-item.load-anim-fade(data-delay="900")
       .d-si__icons_item.load-anim-fade(data-delay="1100")
         +icon('icon-rss').share
-        .share__panel.share
+        +e.panel.share__panel
           +social('facebook-box', 'vk', 'tw', 'odnokl').__social
       if (isDownloadable)
         .d-si__icons_item.download.load-anim-fade(title="Загрузить", data-delay="1300")
           +icon('download').download-icon
-          .download__panel
+          +e.panel.download__panel
             a(href="#" title="").download__a *.png
             a(href="#" title="").download__a *.csv
             a(href="#" title="").download__a *.xls
