@@ -1628,6 +1628,7 @@ $(document).ready(function(){
   $(".analityc-widget_expenses .analityc-control-group._stage select.analityc-select").on("change", function () {
     var $this = $(this);
     var $classify = $(".analityc-widget_expenses .analityc-control-group._classify select.analityc-select");
+    var $level = $(".analityc-widget_expenses .analityc-control-group._level select.analityc-select");
     var expenses = $(".analityc-widget_expenses"),
         expensesGraphics = expenses.find($('.analityc-graphics')),
         expensesGraphicsChanges = expenses.find($('.analityc-graphics_changes')),
@@ -1674,27 +1675,38 @@ $(document).ready(function(){
     } else if($this.val() ===  "Исполнение на дату") {
       expensesGraphicsDateOne.addClass('active');
       expensesHead(3);
+      if($level.val() === "Консолидированный бюджет") {
+        expensesHead(4);
+        expensesGraphicsDateOne.addClass('active');
+      }
     }
-
   });
 
   function expensesHead(type) {
     var expensesSwitcherLarge = $('.analityc-widget_expenses .analityc-control-switcher_large'),
         expensesSwitcherBig = $('.analityc-widget_expenses .analityc-control-switcher_big'),
-        expensesDatepicker = $('.analityc-widget_expenses .analityc-control-group._dp');
-
+        expensesDatepicker = $('.analityc-widget_expenses .analityc-control-group._dp'),
+        expensesDatepickerAlt = $('.analityc-widget_expenses .analityc-control-group._dp-alt');
     if (type === 1) {
       expensesSwitcherLarge.addClass('active');
       expensesSwitcherBig.removeClass('active');
       expensesDatepicker.removeClass('active');
+      expensesDatepickerAlt.removeClass('active');
     } else if (type === 2) {
       expensesSwitcherLarge.removeClass('active');
       expensesSwitcherBig.addClass('active');
       expensesDatepicker.removeClass('active');
+      expensesDatepickerAlt.removeClass('active');
     } else if (type === 3) {
       expensesSwitcherLarge.removeClass('active');
       expensesSwitcherBig.removeClass('active');
       expensesDatepicker.addClass('active');
+      expensesDatepickerAlt.removeClass('active');
+    } else if (type === 4) {
+      expensesSwitcherLarge.removeClass('active');
+      expensesSwitcherBig.removeClass('active');
+      expensesDatepicker.removeClass('active');
+      expensesDatepickerAlt.addClass('active');
     }
   }
 
@@ -1738,6 +1750,18 @@ $(document).ready(function(){
       expensesGraphics.removeClass('active');
       expensesGraphicsDateTwo.addClass('active');
     }
+  });
+
+  $(".analityc-widget_expenses .analityc-control-group._level select.analityc-select").on("change", function () {
+    var $this = $(this);
+    if ($('.analityc-widget_expenses .analityc-control-group._stage select.analityc-select').val() === "Исполнение на дату") {
+      if ($this.val() ===  "Консолидированный бюджет") {
+         expensesHead(4);
+       } else {
+         expensesHead(3);
+       }
+    }
+
   });
 
   $(".analityc-widget_expenses .analityc-control-group._classify select.analityc-select").on("change", function () {

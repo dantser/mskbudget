@@ -28,7 +28,7 @@ export default () => {
 
   });
 
-  if ($(window).width() < 641) {
+  if ($(window).width() < 769) {
     var SliderSettings = {
       nextButton: '.analityc-graphics_round-next',
       prevButton: '.analityc-graphics_round-prev',
