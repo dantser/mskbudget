@@ -6,7 +6,7 @@ export default () => {
 	$(window).on('load resize', pageScale);
 
 	$('.whatIsBudget-component').click(function() {
-		pageScale();
+		setTimeout(pageScale, 1);
 	});
 
 	function pageScale() {
@@ -26,9 +26,9 @@ export default () => {
 	        $('.js-resolution-wrap').css({ width: '', height: '' });
 	        return;
 	    }
-	    
+
 	    scale = width/maxWidth;
-	    
+
 	    // $('.js-resolution-320').css({'-webkit-transform': 'scale(' + scale + ')', '-moz-transform': 'scale(' + scale + ')', '-ms-transform': 'scale(' + scale + ')', '-o-transform': 'scale(' + scale + ')', 'transform': 'scale(' + scale + ')'});
       $('.js-resolution-320').attr('style', '-webkit-transform: scale(' + scale + '); -moz-transform: scale(' + scale + '); -ms-transform: scale(' + scale + '); -o-transform:(' + scale + '); transform: scale(' + scale + ');');
 	    $('.js-resolution-wrap').css({ width: maxWidth * scale, height: maxHeight * scale });
