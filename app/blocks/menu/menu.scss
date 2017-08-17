@@ -153,9 +153,10 @@
       position: relative;
       margin-top: 7px;
       opacity: 0;
-      @include transform(translateY(-50px));
+      list-style: none;
+      transform: translateY(-50px);
       @include transited;
-      @include vendor(transition-delay, 50ms);
+      transition-delay: 50ms;
 
       @media (max-width: $navBreakpointTablet) {
         margin-top: 0;

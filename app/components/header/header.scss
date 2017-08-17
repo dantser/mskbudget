@@ -273,12 +273,13 @@ body.mobile-menu-is-open {
     }
 
     @media (max-width: $navBreakpointTablet) {
+      display: flex;
       position: absolute;
       top: 50px;
       right: 0;
       bottom: 100px;
       left: 0;
-      overflow-y: scroll;
+      overflow-y: auto;
       -webkit-overflow-scrolling: touch;
 
       .menu__link {
@@ -291,11 +292,12 @@ body.mobile-menu-is-open {
       }
 
       .menu__list {
-        position: absolute;
-        top: 50%;
-        right: 0;
-        left: 0;
-        transform: translateY(-50%);
+        margin: auto;
+        // position: absolute;
+        // top: 50%;
+        // right: 0;
+        // left: 0;
+        // transform: translateY(-50%);
       }
     }
 
