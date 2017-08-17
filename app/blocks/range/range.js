@@ -1,43 +1,10 @@
 import noUiSlider from 'nouislider';
 
-export default function range() {
-  const sliders = Array.from(document.querySelectorAll('.js-range-slider'));
-  const slidersReset = Array.from(document.querySelectorAll('.js-range-slider-reset'));
-
-  if (sliders) {
-    sliders.forEach(function(slider) {
-      noUiSlider.create(document.getElementById(slider.getAttribute('id')), {
-        start: [ 33 ],
-        range: {
-          'min': 0,
-          'max': 100
-        },
-        // connect: [true, true],
-        // tooltips: [true],
-        // pips: {
-        //   mode: 'values',
-        //   values: [20, 80],
-        //   density: 4
-        // }
-      });
-    });
-
-    if (slidersReset) {
-      slidersReset.forEach(sliderReset => {
-        sliderReset.onclick = event => {
-          event.preventDefault();
-          sliders.forEach(function(slider) {
-            slider.noUiSlider.reset();
-          });
-        }
-      });
-    }
-  }
-
+export default () => {
   function sliderForWidgets(id, valueid, start, min, max) {
     const sliderForWidgets = document.getElementById(id);
 
-    if(sliderForWidgets) {
+    if (sliderForWidgets) {
       noUiSlider.create(sliderForWidgets, {
         start: start,
         tooltips: true,
@@ -50,9 +17,9 @@ export default function range() {
 
       var rangeSliderValueElement = document.getElementById(valueid);
 
-    sliderForWidgets.noUiSlider.on('update', function( values, handle ) {
-    	rangeSliderValueElement.innerHTML = values[handle];
-    });
+      sliderForWidgets.noUiSlider.on('update', function(values, handle) {
+        rangeSliderValueElement.innerHTML = values[handle];
+      });
     }
   }
 
@@ -61,5 +28,4 @@ export default function range() {
   sliderForWidgets('widget_card_calc3', 'opt3Value', 150, 300, 600);
   sliderForWidgets('widget_card_calc4', 'opt4Value', 100, 2, 200);
   // для страницы Сервисы - сводная
-
 }

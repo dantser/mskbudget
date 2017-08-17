@@ -1,0 +1,82 @@
+@import "../../node_modules/jquery-ui/themes/base/slider.css";
+
+.range-ui {
+  position: relative;
+  height: 30px;
+  padding-top: 7px;
+  padding-right: 38px;
+
+  &_pos { .range-ui__line { background: green; } }
+  &_neg { .range-ui__line { background: red; } }
+
+  &__slider {
+    height: 3px;
+    border: none !important;
+    border-radius: 2px;
+    background: #d7d4d1 !important;
+    box-shadow: none;
+  }
+
+  &__line {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    border-radius: inherit;
+  }
+
+  .ui-slider-handle {
+    top: -7px;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    border: 2px solid #0d46a1;
+    background-color: white;
+    box-shadow: none;
+    cursor: pointer;
+  }
+
+  &__refresh {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+  }
+
+  &__icon {
+    width: 16px;
+    height: 16px;
+    fill: #0d46a1;
+  }
+
+  &__output {
+    overflow: hidden;
+    margin-top: 13px;
+    font-family: $PFDinTextPro;
+    font-size: 10px;
+    line-height: 1;
+    font-weight: 400;
+    color: black;
+  }
+
+  &__min-value {
+    float: left;
+  }
+
+  &__max-value {
+    float: right;
+  }
+
+  &__input {
+    width: 50px;
+    height: 25px;
+    font-size: 11px;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #aaaaaa;
+    background: #fff;
+    display: block;
+  }
+}
