@@ -737,43 +737,49 @@ function sectionTabs(){
 }
 
 function stepsDetails(){
-  $('.graphic-table__title-wrap, .step .link-more, .step__head').click(function(e){
-    e.preventDefault();
-    if ($(this).hasClass('graphic-table__title-wrap')) {
-      var stepNumber = $(this).attr('data-step');
-    }
-    if ($(this).hasClass('link-more') || $(this).hasClass('step__head')) {
-      var stepNumber = $(this).parents('.step').attr('data-step');
-    }
+  $('.graphic-table__title-wrap, .step .link-more, .step__head').each(function () {
+    $(this).click(function(e){
+      e.preventDefault();
+      if ($(this).hasClass('graphic-table__title-wrap')) {
+        var stepNumber = $(this).attr('data-step');
+      }
+      if ($(this).hasClass('link-more') || $(this).hasClass('step__head')) {
+        var stepNumber = $(this).parents('.step').attr('data-step');
+      }
+      $('.steps').each(function () {
+        var steps = $('.steps:visible'),
+            graphicRow = $('.graphic-table__title-wrap[data-step="'+stepNumber+'"]').parents('.graphic-table__table-tr:visible'),
+            currentStep = $('.step[data-step="'+stepNumber+'"]:visible'),
+            currentStepHead = currentStep.find($('.step__head')),
+            currentStepDescr = currentStep.find($('.step__descr')),
+            stepsDetails = steps.find('.steps-details'),
+            currentStepDetails = $('.steps-details__content[data-step="'+stepNumber+'"]'),
+            stepsOffset = steps.offset().top,
+            stepDescrOffset = currentStepDescr.offset().top,
+            offsetDiff = stepDescrOffset - stepsOffset;
 
-    var steps = $('.steps'),
-        graphicRow = $('.graphic-table__title-wrap[data-step="'+stepNumber+'"]').parents('.graphic-table__table-tr'),
-        currentStep = $('.step[data-step="'+stepNumber+'"]'),
-        currentStepHead = currentStep.find($('.step__head')),
-        currentStepDescr = currentStep.find($('.step__descr')),
-        stepsDetails = $('.steps-details'),
-        currentStepDetails = $('.steps-details__content[data-step="'+stepNumber+'"]'),
-        stepsOffset = steps.offset().top,
-        stepDescrOffset = currentStepDescr.offset().top,
-        offsetDiff = stepDescrOffset - stepsOffset;
+        $('.graphic-table__table-tr').removeClass('active');
+        graphicRow.addClass('active');
+        $('.step__head').removeClass('active');
+        currentStepHead.addClass('active');
+        $('.steps-details__content').hide();
+        currentStepDetails.show();
+        if ($(window).width() > 800) {
+          stepsDetails.show();
+          stepsDetails.css('top', offsetDiff+'px').addClass('active');
+          steps.css('height', offsetDiff+stepsDetails.outerHeight()+'px');
+        } else {
+          stepsDetails.show();
+          stepsDetails.addClass('active');
+          window.scroll = $(window).scrollTop();
+          $("body").css('top', -scroll + 'px').toggleClass('noscroll');
+        }
+      })
 
-    $('.graphic-table__table-tr').removeClass('active');
-    graphicRow.addClass('active');
-    $('.step__head').removeClass('active');
-    currentStepHead.addClass('active');
-    $('.steps-details__content').hide();
-    currentStepDetails.show();
-    if ($(window).width() > 800) {
-      stepsDetails.show();
-      stepsDetails.css('top', offsetDiff+'px').addClass('active');
-      steps.css('height', offsetDiff+stepsDetails.outerHeight()+'px');
-    } else {
-      stepsDetails.show();
-      stepsDetails.addClass('active');
-      window.scroll = $(window).scrollTop();
-      $("body").css('top', -scroll + 'px').toggleClass('noscroll');
-    }
-  });
+
+    });
+  })
+
 
   $('.js-steps-detail-close').click(function(){
     $('.graphic-table__table-tr').removeClass('active');

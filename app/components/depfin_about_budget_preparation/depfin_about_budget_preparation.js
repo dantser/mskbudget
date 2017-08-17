@@ -8,10 +8,12 @@ export default function aboutBudgetPreparation() {
       tableHolderWidth = tableHolder.outerWidth(),
       tableWidth = table.outerWidth();
 
-  if ( tableHolder.length > 0 ) {
-    tableHolder.scrollLeft( (tableWidth - tableHolderWidth) / 2 );
-  }
 
+  function loadTableToMiddle() {
+    if ( tableHolder.length > 0 ) {
+      tableHolder.scrollLeft( (tableWidth - tableHolderWidth) / 2 );
+    }
+  };
   //
   // Скрыть скроллбар для таблицы
   //
@@ -20,28 +22,42 @@ export default function aboutBudgetPreparation() {
     tableFrame.height(tHeight);
   }
 
-  $(document).ready(function(){
-    prepationTableResize();
-  });
-
   $(window).resize(function(){
     prepationTableResize();
   });
 
   // выделение текущего месяца
-  $(document).ready(function(){
+  function markCurrentMonth() {
     if ($('.graphic-table').length) {
-      var budgetDate = new Date();
-      var budgetYear = budgetDate.getFullYear();
-      var budgetMonth = budgetDate.getMonth();
-      var tableHeight = $('.graphic-table__table tbody').outerHeight();
-      var currentMonth = $('.graphic-table__table-th[data-year="'+budgetYear+'"]').find('.graphic-table__month').eq(budgetMonth);
-      currentMonth.addClass('current');
-      currentMonth.append('<span class="month-line"></span>');
-      currentMonth.find('.month-line').height(tableHeight);
+        var budgetDate = new Date();
+        var budgetYear = budgetDate.getFullYear();
+        var budgetMonth = budgetDate.getMonth();
+        var tableHeight = $('.graphic-table__table:visible tbody').outerHeight();
+        var currentMonth = $('.graphic-table__table-th[data-year="'+budgetYear+'"]:visible').find('.graphic-table__month').eq(budgetMonth);
+        currentMonth.addClass('current');
+        currentMonth.append('<span class="month-line"></span>');
+        currentMonth.find('.month-line').height(tableHeight);
     }
-  });
+  };
 
+  $(document).ready(function(){
+    prepationTableResize();
+    loadTableToMiddle();
+    markCurrentMonth();
+  });
+  // закрытие дропдаунов внизу
+
+  function closeDropdowns() {
+    var sectionTabs = $('.section-tabs');
+    sectionTabs.find(".whitescreen1").fadeIn(100);
+    sectionTabs.find($('.section-tabs__nav')).slideUp();
+    sectionTabs.find($('.owl-nav')).hide();
+
+    $('.js-label-button').addClass('js-label-button-closed');
+    sectionTabs.removeClass('active');
+    sectionTabs.find($('.section-tabs__head')).addClass('section-tabs__head_closed');
+    return false
+  }
   // переключение таба бюджет мск/федеральный
   const TABLINK = $('.button-light');
 
@@ -50,9 +66,14 @@ export default function aboutBudgetPreparation() {
     const ACTIVE_CLASS = 'button-light--fill';
     EL.on('click', (e) => {
       e.preventDefault();
+      $('.js-steps-detail-close').click();
+      setTimeout(function () {
+        loadTableToMiddle();
+        markCurrentMonth();
+      },1);
+      closeDropdowns();
       TABLINK.removeClass(ACTIVE_CLASS);
       EL.addClass(ACTIVE_CLASS);
-      $('.js-steps-detail-close').click();
     })
   })
 
