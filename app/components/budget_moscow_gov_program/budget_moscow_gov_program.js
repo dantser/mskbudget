@@ -36,4 +36,95 @@ export default () => {
 			GRAPHICSTRUCTURE.addClass('_active');
 		}
 	});
+
+  // Формирование графика Закон о бюджете утв. - гп
+  const GRAPHIC_DONE = $('.analityc-widget-moscow-gov-program_done');
+  const LINE_DONE = GRAPHIC_DONE.find('.analityc-multiline__line');
+  var full = 0;
+	var cnt = 0;
+
+
+  LINE_DONE.each(function() {
+  	const PARTS = $(this).find('.analityc-multiline__line-total');
+  	var sum = 0.0;
+  	var numsArr = [0.0, 0.0, 0.0];
+  	var persArr = [0.0, 0.0, 0.0];
+  	var linePers = 0.0;
+
+  	PARTS.each(function() {
+  		numsArr[$(this).index()] = parseFloat(($(this).find('.analityc-multiline__line-value').text()).replace(',', '.'));
+  		sum += numsArr[$(this).index()];
+  	})
+
+  	if (cnt == 0) {
+  		full = sum; // максимум за 100%
+  	}
+
+		if (cnt == 0)
+  		linePers = 100.0;
+  	else
+  		linePers = sum * 100.0 / full; // процент от макс. числа
+
+  	PARTS.each(function() {
+  		persArr[$(this).index()] = numsArr[$(this).index()] * 100 / sum;
+  		$(this).css('width', persArr[$(this).index()] + '%');
+  	});
+
+
+  	$(this).find('.analityc-multiline__line-bar').css('width', linePers + '%');
+
+  	cnt++;
+  })
+
+  // Формирование графика Закон о бюджете утв. - структура
+
+  const GRAPHIC_STR = $('.analityc-widget-moscow-gov-program_structure');
+  const GRAPHIC_STR_TAB = GRAPHIC_STR.find('.tabs__tab');
+  
+  GRAPHIC_STR_TAB.each(function() {
+    const LINE_STR = $(this).find('.analityc-mix__line');
+
+    LINE_STR.each(function() {
+      var linePers = parseFloat(($(this).find('.analityc-mix__js-grmix-val').text()).replace(',', '.'));
+      $(this).find('.analityc-mix__line-bar').css('width', linePers + '%');
+    })
+
+  })
+
+  // Формирование графика Закон о внесении изменений
+
+  const GRAPHIC_CHANGES = $('.analityc-widget-moscow-gov-program_changes');
+  const GRAPHIC_CHANGES_TAB = GRAPHIC_CHANGES.find('.tabs__tab');
+
+  GRAPHIC_CHANGES_TAB.each(function() {
+    const LINE_STR = $(this).find('.analityc-line__line');
+    var full = 0;
+    var cnt = 0;
+
+    LINE_STR.each(function() {
+      var linePers = 0.0;
+      var fillPers = 0.0;
+      var num = parseFloat(($(this).find('.analityc-line__line-value').text()).replace(',', '.'));
+      var barNum = parseFloat(($(this).find('.analityc-line__line-bar-value').text()).replace(',', '.'));
+
+      var sum = num + barNum;
+
+      if (cnt == 0) {
+        full = sum;
+      }
+
+      if (cnt == 0)
+        linePers = 100.0;
+      else
+        linePers = sum * 100.0 / full; // процент от макс. числа
+
+      $(this).find('.analityc-line__line-bar').css('width', linePers + '%');
+
+      fillPers = num * 100.0 / sum; // процент заливки
+
+      $(this).find('.analityc-line__line-fill').css('width', fillPers + '%');
+
+      cnt++;
+    })
+  })
 }

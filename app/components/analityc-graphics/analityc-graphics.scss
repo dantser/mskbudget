@@ -1679,10 +1679,10 @@
     font-weight: 400;
     text-decoration: underline !important;
     color: $color-link;
-    width: 25.5%;
+    width: 27.5%;
     display: inline-block;
     vertical-align: middle;
-    margin-right: 20px;
+    padding-right: 20px;
     padding-left: 32px;
 
     @media (max-width: 1140px) {
@@ -1690,13 +1690,9 @@
     }
 
     @media (max-width: 900px) {
-      width: 8%;
+      width: 10%;
       font-size: 0;
-    }
-
-    @media (max-width: 450px) {
-      width: 4%;
-      padding-left: 0;
+      padding: 0;
     }
 
     &-icon {
@@ -1721,6 +1717,7 @@
 
   &__line {
     margin-bottom: 8px;
+    font-size: 0;
 
     @media (max-width: 900px) {
       margin-bottom: 15px;
@@ -1730,34 +1727,49 @@
       margin-bottom: 4px;
     }
 
-
-    &-bar {
+    &-wrap {
       display: inline-block;
       vertical-align: middle;
-      position: relative;
-      width: 68%;
+      width: 67.5%;
+      height: 30px;
 
       @media (max-width: 1140px) {
         width: 65%;
       }
 
       @media (max-width: 900px) {
-        width: 75%;
+        width: 77%;
+        height: 53px;
       }
 
+      @media (max-width: 450px) {
+        height: 27px;
+      }
+    }
+
+    &-bar {
+      position: relative;
+      width: 0;
+      height: 100%;
+
       &-value {
+        position: absolute;
+        top: 0;
+        right: -45px;
         font-size: 14px;
-        display: inline-block;
-        vertical-align: middle;
-        margin-left: 5px;
+        display: block;
         line-height: 30px;
 
         @media (max-width: 900px) {
+          right: -75px;
           font-size: 24px;
+          line-height: 53px;
         }
 
         @media (max-width: 450px) {
+          right: -40px;
           font-size: 12px;
+          line-height: 27px;
         }
 
       }
@@ -1808,18 +1820,10 @@
     }
 
     &-total {
-      height: 30px;
-      width: 33%;
+      height: 100%;
+      width: calc(100% / 3);
       display: inline-block;
       vertical-align: middle;
-
-      @media (max-width: 900px) {
-        height: 53px;
-      }
-
-      @media (max-width: 450px) {
-        height: 27px;
-      }
 
       &_green {
         background-image: linear-gradient(to right, #fee300 0%, #30b069 100%);
@@ -1861,164 +1865,6 @@
         display: block;
       }
     }
-
-
-
-    &_social {
-      .analityc-multiline__line-bar {
-        width: 60%;
-        @media (max-width: 1140px) {
-          width: 57%;
-        }
-        @media (max-width: 900px) {
-          width: 67%;
-        }
-      }
-    }
-
-    &_edu {
-      .analityc-multiline__line-bar {
-        width: 44%;
-        @media (max-width: 1140px) {
-          width: 41%;
-        }
-        @media (max-width: 900px) {
-          width: 51%;
-        }
-      }
-    }
-
-    &_healthcare {
-      .analityc-multiline__line-bar {
-        width: 37%;
-        @media (max-width: 1140px) {
-          width: 34%;
-        }
-        @media (max-width: 900px) {
-          width: 44%;
-        }
-      }
-    }
-
-    &_home {
-      .analityc-multiline__line-bar {
-        width: 16%;
-        @media (max-width: 1140px) {
-          width: 13%;
-        }
-        @media (max-width: 900px) {
-          width: 23%;
-        }
-      }
-    }
-
-    &_environment {
-      .analityc-multiline__line-bar {
-        width: 11%;
-        @media (max-width: 1140px) {
-          width: 8%;
-        }
-        @media (max-width: 900px) {
-          width: 18%;
-        }
-      }
-    }
-
-    &_utilities {
-      .analityc-multiline__line-bar {
-        width: 10%;
-        @media (max-width: 1140px) {
-          width: 7%;
-        }
-        @media (max-width: 900px) {
-          width: 17%;
-        }
-      }
-    }
-
-    &_info {
-      .analityc-multiline__line-bar {
-        width: 8%;
-        @media (max-width: 1140px) {
-          width: 5%;
-        }
-        @media (max-width: 900px) {
-          width: 15%;
-        }
-      }
-    }
-
-    &_culture {
-      .analityc-multiline__line-bar {
-        width: 6%;
-        @media (max-width: 1140px) {
-          width: 3%;
-        }
-        @media (max-width: 900px) {
-          width: 13%;
-        }
-      }
-    }
-
-    &_sport {
-      .analityc-multiline__line-bar {
-        width: 6%;
-        @media (max-width: 1140px) {
-          width: 3%;
-        }
-        @media (max-width: 900px) {
-          width: 13%;
-        }
-      }
-    }
-
-    &_economics {
-      .analityc-multiline__line-bar {
-        width: 5%;
-        @media (max-width: 1140px) {
-          width: 2.5%;
-        }
-        @media (max-width: 900px) {
-          width: 13%;
-        }
-      }
-    }
-
-    &_safety {
-      .analityc-multiline__line-bar {
-        width: 4%;
-        @media (max-width: 1140px) {
-          width: 2%;
-        }
-        @media (max-width: 900px) {
-          width: 12%;
-        }
-      }
-    }
-
-    &_urban {
-      .analityc-multiline__line-bar {
-        width: 2.5%;
-        @media (max-width: 1140px) {
-          width: 1.5%;
-        }
-        @media (max-width: 900px) {
-          width: 11%;
-        }
-      }
-    }
-
-    &_openness {
-      .analityc-multiline__line-bar {
-        width: 2%;
-        @media (max-width: 1140px) {
-          width: 1.5%;
-        }
-        @media (max-width: 900px) {
-          width: 11%;
-        }
-      }
-    }
   }
 }
 
@@ -2039,22 +1885,23 @@
     font-weight: 400;
     text-decoration: underline !important;
     color: $color-link;
-    width: 25.5%;
+    width: 27.5%;
     /*width: 22%;*/
     display: inline-block;
     vertical-align: middle;
-    margin-right: 20px;
     padding-left: 32px;
+    padding-right: 20px;
 
     @media (max-width: 1140px) {
-      width: 28%;
+      width: 30%;
     }
 
     @media (max-width: 900px) {
-      width: 7.5%;
+      width: 11%;
     }
 
     @media (max-width: 580px) {
+      padding-right: 0;
       margin-right: 0;
     }
 
@@ -2086,23 +1933,32 @@
       margin-bottom: 15px;
     }
 
-    &-fill {
-      opacity: 1;
-      width: 82%;
+    &-wrap {
+      display: inline-block;
+      position: relative;
+      vertical-align: middle;
+      width: 67.5%;
       height: 30px;
-      position: absolute;
-      left: 0;
-      top: 0;
-      background-image: linear-gradient(to right, #ff0036 0%, #021398 100%);
 
       @media (max-width: 900px) and (min-width: 581px) {
+        width: 78.5%;
         height: 54px;
       }
 
       @media (max-width: 580px) {
+        width: 78.5%;
         height: 26px;
       }
+    }
 
+    &-fill {
+      opacity: 1;
+      width: 82%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-image: linear-gradient(to right, #ff0036 0%, #021398 100%);
     }
 
     &-bar {
@@ -2110,6 +1966,7 @@
       vertical-align: middle;
       position: relative;
       width: 72%;
+      height: 100%;
 
       @media (max-width: 1140px) {
         width: 69%;
@@ -2124,6 +1981,7 @@
         line-height: 30px;
 
         @media (max-width: 900px) and (min-width: 581px) {
+          font-size: 24px;
           line-height: 54px;
         }
       }
@@ -2138,278 +1996,23 @@
       line-height: 30px;
 
       @media (max-width: 900px) and (min-width: 581px) {
+        font-size: 24px;
         line-height: 54px;
       }
     }
 
     &-total {
-      height: 30px;
+      height: 100%;
       display: inline-block;
       vertical-align: middle;
       position: relative;
 
-      @media (max-width: 900px) and (min-width: 581px) {
-        height: 54px;
-      }
-
-      @media (max-width: 580px) {
-        height: 26px;
-      }
-
-
       &_altred {
         background-image: linear-gradient(to right, #ff0036 0%, #021398 100%);
-        width: 93%;
+        width: 100%;
         opacity: .7;
       }
     }
-
-
-
-    &_social {
-      .analityc-line__line-bar {
-        width: 65%;
-      }
-    }
-
-    &_edu {
-      .analityc-line__line-bar {
-        width: 46%;
-      }
-    }
-
-    &_healthcare {
-      .analityc-line__line-bar {
-        width: 39%;
-      }
-    }
-
-    &_home {
-      .analityc-line__line-bar {
-        width: 17%;
-      }
-    }
-
-    &_environment {
-      .analityc-line__line-bar {
-        width: 14.5%;
-      }
-    }
-
-    &_utilities {
-      .analityc-line__line-bar {
-        width: 11.5%;
-      }
-    }
-
-    &_info {
-      .analityc-line__line-bar {
-        width: 9%;
-      }
-    }
-
-    &_culture {
-      .analityc-line__line-bar {
-        width: 8%;
-      }
-    }
-
-    &_sport {
-      .analityc-line__line-bar {
-        width: 7.5%;
-      }
-    }
-
-    &_economics {
-      .analityc-line__line-bar {
-        width: 6.5%;
-      }
-    }
-
-    &_safety {
-      .analityc-line__line-bar {
-        width: 4.2%;
-      }
-    }
-
-    &_urban {
-      .analityc-line__line-bar {
-        width: 2.7%;
-      }
-    }
-
-    &_openness {
-      .analityc-line__line-bar {
-        width: 2.5%;
-      }
-    }
-  }
-
-  &_date-two {
-
-    .analityc-line__line {
-      &_social {
-        .analityc-line__line-bar {
-          width: 50%;
-        }
-      }
-
-      &_edu {
-        .analityc-line__line-bar {
-          width: 48%;
-        }
-      }
-
-      &_healthcare {
-        .analityc-line__line-bar {
-          width: 45%;
-        }
-      }
-
-      &_home {
-        .analityc-line__line-bar {
-          width: 44%;
-        }
-      }
-
-      &_environment {
-        .analityc-line__line-bar {
-          width: 40%;
-        }
-      }
-
-      &_utilities {
-        .analityc-line__line-bar {
-          width: 20%;
-        }
-      }
-
-      &_info {
-        .analityc-line__line-bar {
-          width: 19%;
-        }
-      }
-
-      &_culture {
-        .analityc-line__line-bar {
-          width: 10%;
-        }
-      }
-
-      &_sport {
-        .analityc-line__line-bar {
-          width: 17%;
-        }
-      }
-
-      &_economics {
-        .analityc-line__line-bar {
-          width: 15%;
-        }
-      }
-
-      &_safety {
-        .analityc-line__line-bar {
-          width: 13%;
-        }
-      }
-
-      &_urban {
-        .analityc-line__line-bar {
-          width: 11%;
-        }
-      }
-
-      &_openness {
-        .analityc-line__line-bar {
-          width: 9%;
-        }
-      }
-    }
-
-  }
-  &_date-three {
-
-    .analityc-line__line {
-      &_social {
-        .analityc-line__line-bar {
-          width: 60%;
-        }
-      }
-
-      &_edu {
-        .analityc-line__line-bar {
-          width: 40%;
-        }
-      }
-
-      &_healthcare {
-        .analityc-line__line-bar {
-          width: 55%;
-        }
-      }
-
-      &_home {
-        .analityc-line__line-bar {
-          width: 22%;
-        }
-      }
-
-      &_environment {
-        .analityc-line__line-bar {
-          width: 33%;
-        }
-      }
-
-      &_utilities {
-        .analityc-line__line-bar {
-          width: 12%;
-        }
-      }
-
-      &_info {
-        .analityc-line__line-bar {
-          width: 50%;
-        }
-      }
-
-      &_culture {
-        .analityc-line__line-bar {
-          width: 40%;
-        }
-      }
-
-      &_sport {
-        .analityc-line__line-bar {
-          width: 60%;
-        }
-      }
-
-      &_economics {
-        .analityc-line__line-bar {
-          width: 50%;
-        }
-      }
-
-      &_safety {
-        .analityc-line__line-bar {
-          width: 30%;
-        }
-      }
-
-      &_urban {
-        .analityc-line__line-bar {
-          width: 8%;
-        }
-      }
-
-      &_openness {
-        .analityc-line__line-bar {
-          width: 15%;
-        }
-      }
-    }
-
   }
 }
 
@@ -2555,15 +2158,13 @@
       }
     }
 
-    &-bar {
-      display: inline-block;
-      vertical-align: middle;
-      background-image: linear-gradient(to right, #021398 0%, #ff0036 100%);
+    &-wrap {
       width: 72%;
       height: 30px;
-      position: relative;
+      display: inline-block;
+      vertical-align: middle;
 
-      @media (max-width: 1140px) {
+      @media (max-width: 1140px) and (min-width: 901px) {
         width: 67%;
       }
 
@@ -2577,6 +2178,15 @@
         margin-top: 9px;
       }
 
+    }
+
+    &-bar {
+      display: inline-block;
+      vertical-align: middle;
+      background-image: linear-gradient(to right, #021398 0%, #ff0036 100%);
+      width: 0%;
+      height: 100%;
+      position: relative;
 
       &_overwidth {
 
@@ -2607,63 +2217,6 @@
       @media (max-width: 900px) and (min-width: 581px) {
         font-size: 26px;
         line-height: 54px;
-      }
-    }
-
-
-    &:nth-child(2) {
-      .analityc-mix__line-bar {
-        width: 26.5%;
-        @media (max-width: 1140px) {
-          width: 21.5%;
-        }
-        @media (max-width: 900px) {
-          width: 39.5%;
-        }
-      }
-    }
-    &:nth-child(3) {
-      .analityc-mix__line-bar {
-        width: 18.5%;
-        @media (max-width: 1140px) {
-          width: 13.5%;
-        }
-        @media (max-width: 900px) {
-          width: 27.9%;
-        }
-      }
-    }
-    &:nth-child(4) {
-      .analityc-mix__line-bar {
-        width: 16.5%;
-        @media (max-width: 1140px) {
-          width: 11.5%;
-        }
-        @media (max-width: 900px) {
-          width: 23.5%;
-        }
-      }
-    }
-    &:nth-child(5) {
-      .analityc-mix__line-bar {
-        width: 3%;
-        @media (max-width: 1140px) {
-          width: 2.5%;
-        }
-        @media (max-width: 900px) {
-          width: 4.6%;
-        }
-      }
-    }
-    &:nth-child(6) {
-      .analityc-mix__line-bar {
-        width: 2.8%;
-        @media (max-width: 1140px) {
-          width: 2%;
-        }
-        @media (max-width: 900px) {
-          width: 4.6%;
-        }
       }
     }
   }
