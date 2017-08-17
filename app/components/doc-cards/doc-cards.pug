@@ -164,7 +164,7 @@ mixin doc-cards-dropdown-bp(data)
             .tile__item
               .tile__inner
                 if item.dir
-                  +e.card._dir
+                  +e.card._dir(data-directory=''+item.dirName+'')
                     +e.title-wrapper
                       +e.SPAN.title-underline
                         +e.A(href='#').title= item.title
@@ -173,23 +173,42 @@ mixin doc-cards-dropdown-bp(data)
                     +e.bg-tt
                     +e.corner
                 else
-                  +e.card
-                    +e.SPAN.date= item.date
-                    +e.title-wrapper
-                      +e.SPAN.title-underline
-                        +e.A(href='#').title= item.title
-                    +e.P.text= item.text
-                    +e.bottom-wrapper
-                      +e.A(href='#').download= 'Скачать (' + item.doc + 'Кб)'
-                      +e.is-added
-                        +e.favor
-                          if (item.isAdded)
-                            +favor()._added
-                          else
-                            +favor()._stroke-color-blue
-                    +e.bg-t
-                    +e.bg-r
-                    +e.corner
+                  if item.inDir
+                    +e.card(data-directory=''+item.inDir+'')
+                      +e.SPAN.date= item.date
+                      +e.title-wrapper
+                        +e.SPAN.title-underline
+                          +e.A(href='#').title= item.title
+                      +e.P.text= item.text
+                      +e.bottom-wrapper
+                        +e.A(href='#').download= 'Скачать (' + item.doc + 'Кб)'
+                        +e.is-added
+                          +e.favor
+                            if (item.isAdded)
+                              +favor()._added
+                            else
+                              +favor()._stroke-color-blue
+                      +e.bg-t
+                      +e.bg-r
+                      +e.corner
+                  else
+                    +e.card
+                      +e.SPAN.date= item.date
+                      +e.title-wrapper
+                        +e.SPAN.title-underline
+                          +e.A(href='#').title= item.title
+                      +e.P.text= item.text
+                      +e.bottom-wrapper
+                        +e.A(href='#').download= 'Скачать (' + item.doc + 'Кб)'
+                        +e.is-added
+                          +e.favor
+                            if (item.isAdded)
+                              +favor()._added
+                            else
+                              +favor()._stroke-color-blue
+                      +e.bg-t
+                      +e.bg-r
+                      +e.corner
     .owl-nav
       .owl-prev.disabled
       .owl-next
