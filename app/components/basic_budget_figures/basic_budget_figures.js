@@ -34,9 +34,7 @@ export default () => {
   });
 
 
-
-
-  $(".analityc-control-group._stage select").on('change', function () {
+  $(".analityc-widget_figures .analityc-control-group._stage select").on('change', function () {
     if ($(this).parents('.analityc-widget_figures')) {
       var $this = $(this),
           dp = $(".analityc-control-group._dp"),
@@ -70,7 +68,7 @@ export default () => {
     }
   });
 
-$(".analityc-control-group._level .analityc-select").on("change", function () {
+$(".analityc-widget_figures .analityc-control-group._level .analityc-select").on("change", function () {
   if ($(this).parents('.analityc-widget_figures')) {
     var $this = $(this),
         dp = $(".analityc-control-group._dp"),
@@ -92,7 +90,7 @@ $(".analityc-control-group._level .analityc-select").on("change", function () {
   }
 });
 
-$(".analityc-control-button").on("click", function(e) {
+$(".analityc-widget_figures .analityc-control-button").on("click", function(e) {
   if (!$(this).parents('.analityc-widget__income') && !$(this).parents('.analityc-widget__expenses') && !$(this).parents('.analityc-widget_sources') && !$(this).parents('.analityc-widget_moscow-gov-program')) {
   e.preventDefault();
   var table = $(".analityc-control-button_table");
@@ -110,7 +108,7 @@ $(".analityc-control-button").on("click", function(e) {
   }
 })
 
-$(".analityc-control-group._stage .analityc-select").on("change", function () {
+$(".analityc-widget_figures .analityc-control-group._stage .analityc-select").on("change", function () {
   if (!$(this).parents('.analityc-widget__income') && !$(this).parents('.analityc-widget__expenses')) {
     var $this = $(this);
     $(".analityc-widget-sources").removeClass("_active");

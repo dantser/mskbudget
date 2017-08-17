@@ -7,24 +7,25 @@ include ../../blocks/dropdown-block/dropdown-block
 
 mixin budget_income()
   section.main._basic.basic-budget.sections__item
-      .wrapper
-        +page-header('Доходы бюджета', ['Аналитика'], true)
+    .wrapper
+      +page-header('Доходы бюджета', ['Аналитика'], true)
 
-        // Tab 1
-        .analityc-widget.analityc-widget_income.load-anim-fade(data-delay="1500")
-          +analityc-widgethead-income()
-          +analityc-graphics-round('income1')._approved.active
-          +analityc-table()._approved
-            +table-income(getData('income'))
-          +analityc-graphics-column('income1')._changes
-          +analityc-table()._changes
-            +table-income(getData('income1'))
-          +analityc-graphics-singleround('income2')._done
-          +analityc-table()._done
-            +table-income(getData('income2'))
-          +analityc-graphics-line('Исполнение доходов бюджета на 22.04.2017', getData('graphic-lines-income1'))._date-one
-          +analityc-table('Исполнение доходов бюджета на 22.04.2017')._date
-            +table-income(getData('income3'))
-          +analityc-graphics-line('Исполнение доходов бюджета на 1 февраля 2017', getData('graphic-lines-income2'))._date-two
-          a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
-      +dropdown().load-anim-fade(data-delay="1700")
+      // Tab 1
+    .wrapper.wrapper_widget
+      .analityc-widget.analityc-widget_income.load-anim-fade(data-delay="1500")
+        +analityc-widgethead-income()
+        +analityc-graphics-round('income1')._approved.active
+        +analityc-table()._approved
+          +table-income(getData('income'))
+        +analityc-graphics-column('income1')._changes
+        +analityc-table()._changes
+          +table-income(getData('income1'))
+        +analityc-graphics-singleround('income2')._done
+        +analityc-table()._done
+          +table-income(getData('income2'))
+        +analityc-graphics-line('Исполнение доходов бюджета на 22.04.2017', getData('graphic-lines-income1'))._date-one
+        +analityc-table('Исполнение доходов бюджета на 22.04.2017')._date
+          +table-income(getData('income3'))
+        +analityc-graphics-line('Исполнение доходов бюджета на 1 февраля 2017', getData('graphic-lines-income2'))._date-two
+        a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
+    +dropdown().load-anim-fade(data-delay="1700")

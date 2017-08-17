@@ -737,43 +737,49 @@ function sectionTabs(){
 }
 
 function stepsDetails(){
-  $('.graphic-table__title-wrap, .step .link-more, .step__head').click(function(e){
-    e.preventDefault();
-    if ($(this).hasClass('graphic-table__title-wrap')) {
-      var stepNumber = $(this).attr('data-step');
-    }
-    if ($(this).hasClass('link-more') || $(this).hasClass('step__head')) {
-      var stepNumber = $(this).parents('.step').attr('data-step');
-    }
+  $('.graphic-table__title-wrap, .step .link-more, .step__head').each(function () {
+    $(this).click(function(e){
+      e.preventDefault();
+      if ($(this).hasClass('graphic-table__title-wrap')) {
+        var stepNumber = $(this).attr('data-step');
+      }
+      if ($(this).hasClass('link-more') || $(this).hasClass('step__head')) {
+        var stepNumber = $(this).parents('.step').attr('data-step');
+      }
+      $('.steps').each(function () {
+        var steps = $('.steps:visible'),
+            graphicRow = $('.graphic-table__title-wrap[data-step="'+stepNumber+'"]').parents('.graphic-table__table-tr:visible'),
+            currentStep = $('.step[data-step="'+stepNumber+'"]:visible'),
+            currentStepHead = currentStep.find($('.step__head')),
+            currentStepDescr = currentStep.find($('.step__descr')),
+            stepsDetails = steps.find('.steps-details'),
+            currentStepDetails = $('.steps-details__content[data-step="'+stepNumber+'"]'),
+            stepsOffset = steps.offset().top,
+            stepDescrOffset = currentStepDescr.offset().top,
+            offsetDiff = stepDescrOffset - stepsOffset;
 
-    var steps = $('.steps'),
-        graphicRow = $('.graphic-table__title-wrap[data-step="'+stepNumber+'"]').parents('.graphic-table__table-tr'),
-        currentStep = $('.step[data-step="'+stepNumber+'"]'),
-        currentStepHead = currentStep.find($('.step__head')),
-        currentStepDescr = currentStep.find($('.step__descr')),
-        stepsDetails = $('.steps-details'),
-        currentStepDetails = $('.steps-details__content[data-step="'+stepNumber+'"]'),
-        stepsOffset = steps.offset().top,
-        stepDescrOffset = currentStepDescr.offset().top,
-        offsetDiff = stepDescrOffset - stepsOffset;
+        $('.graphic-table__table-tr').removeClass('active');
+        graphicRow.addClass('active');
+        $('.step__head').removeClass('active');
+        currentStepHead.addClass('active');
+        $('.steps-details__content').hide();
+        currentStepDetails.show();
+        if ($(window).width() > 800) {
+          stepsDetails.show();
+          stepsDetails.css('top', offsetDiff+'px').addClass('active');
+          steps.css('height', offsetDiff+stepsDetails.outerHeight()+'px');
+        } else {
+          stepsDetails.show();
+          stepsDetails.addClass('active');
+          window.scroll = $(window).scrollTop();
+          $("body").css('top', -scroll + 'px').toggleClass('noscroll');
+        }
+      })
 
-    $('.graphic-table__table-tr').removeClass('active');
-    graphicRow.addClass('active');
-    $('.step__head').removeClass('active');
-    currentStepHead.addClass('active');
-    $('.steps-details__content').hide();
-    currentStepDetails.show();
-    if ($(window).width() > 800) {
-      stepsDetails.show();
-      stepsDetails.css('top', offsetDiff+'px').addClass('active');
-      steps.css('height', offsetDiff+stepsDetails.outerHeight()+'px');
-    } else {
-      stepsDetails.show();
-      stepsDetails.addClass('active');
-      window.scroll = $(window).scrollTop();
-      $("body").css('top', -scroll + 'px').toggleClass('noscroll');
-    }
-  });
+
+    });
+  })
+
 
   $('.js-steps-detail-close').click(function(){
     $('.graphic-table__table-tr').removeClass('active');
@@ -1628,6 +1634,7 @@ $(document).ready(function(){
   $(".analityc-widget_expenses .analityc-control-group._stage select.analityc-select").on("change", function () {
     var $this = $(this);
     var $classify = $(".analityc-widget_expenses .analityc-control-group._classify select.analityc-select");
+    var $level = $(".analityc-widget_expenses .analityc-control-group._level select.analityc-select");
     var expenses = $(".analityc-widget_expenses"),
         expensesGraphics = expenses.find($('.analityc-graphics')),
         expensesGraphicsChanges = expenses.find($('.analityc-graphics_changes')),
@@ -1674,27 +1681,38 @@ $(document).ready(function(){
     } else if($this.val() ===  "Исполнение на дату") {
       expensesGraphicsDateOne.addClass('active');
       expensesHead(3);
+      if($level.val() === "Консолидированный бюджет") {
+        expensesHead(4);
+        expensesGraphicsDateOne.addClass('active');
+      }
     }
-
   });
 
   function expensesHead(type) {
     var expensesSwitcherLarge = $('.analityc-widget_expenses .analityc-control-switcher_large'),
         expensesSwitcherBig = $('.analityc-widget_expenses .analityc-control-switcher_big'),
-        expensesDatepicker = $('.analityc-widget_expenses .analityc-control-group._dp');
-
+        expensesDatepicker = $('.analityc-widget_expenses .analityc-control-group._dp'),
+        expensesDatepickerAlt = $('.analityc-widget_expenses .analityc-control-group._dp-alt');
     if (type === 1) {
       expensesSwitcherLarge.addClass('active');
       expensesSwitcherBig.removeClass('active');
       expensesDatepicker.removeClass('active');
+      expensesDatepickerAlt.removeClass('active');
     } else if (type === 2) {
       expensesSwitcherLarge.removeClass('active');
       expensesSwitcherBig.addClass('active');
       expensesDatepicker.removeClass('active');
+      expensesDatepickerAlt.removeClass('active');
     } else if (type === 3) {
       expensesSwitcherLarge.removeClass('active');
       expensesSwitcherBig.removeClass('active');
       expensesDatepicker.addClass('active');
+      expensesDatepickerAlt.removeClass('active');
+    } else if (type === 4) {
+      expensesSwitcherLarge.removeClass('active');
+      expensesSwitcherBig.removeClass('active');
+      expensesDatepicker.removeClass('active');
+      expensesDatepickerAlt.addClass('active');
     }
   }
 
@@ -1738,6 +1756,18 @@ $(document).ready(function(){
       expensesGraphics.removeClass('active');
       expensesGraphicsDateTwo.addClass('active');
     }
+  });
+
+  $(".analityc-widget_expenses .analityc-control-group._level select.analityc-select").on("change", function () {
+    var $this = $(this);
+    if ($('.analityc-widget_expenses .analityc-control-group._stage select.analityc-select').val() === "Исполнение на дату") {
+      if ($this.val() ===  "Консолидированный бюджет") {
+         expensesHead(4);
+       } else {
+         expensesHead(3);
+       }
+    }
+
   });
 
   $(".analityc-widget_expenses .analityc-control-group._classify select.analityc-select").on("change", function () {

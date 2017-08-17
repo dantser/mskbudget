@@ -4,7 +4,7 @@ import $ from 'jquery';
 export default () => {
   function slider(item) {
     const parent = $(item);
-    const slideCnt = parent.find('.tile__item').length;
+    const slideCnt = parent.find('.tile__item').length - parent.find('.tile__item.hidden').length;
     const slideWidth = parent.find('.tile__item').outerWidth(true);
     const wrapperWidth = slideCnt * slideWidth;
 

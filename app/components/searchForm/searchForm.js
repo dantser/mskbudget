@@ -25,11 +25,12 @@ export default () => {
   });
 
   // тултип
-  $('.d-si__search').each(function () {
-    $(this).on('focus mouseover', function () {
+  $('.search_widget .d-si__search').each(function () {
+    $(this).on('focus', function () {
       $(this).siblings('.search__tooltip').fadeIn(321);
+      $(this).removeAttr("value");
     });
-    $(this).on('blur mouseout', function () {
+    $(this).on('blur', function () {
       $(this).siblings('.search__tooltip').fadeOut(321);
     });
   });

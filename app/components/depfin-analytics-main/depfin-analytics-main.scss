@@ -78,7 +78,7 @@
 			position: relative;
 			width: 100%;
 			padding-right: 27px;
-	    margin-bottom: 8px;
+	        margin-bottom: 8px;
 			margin-left: 0;
 
 			&:last-child {
@@ -104,15 +104,23 @@
 
 			@media (max-width: 1010px) {
 				padding-left: 12px;
-		    background-position: right 9px top 12px!important;
-		    background-size: 10px!important;
+		        background-size: 10px!important;
 			}
+          
+            @media (min-width: 769px) and (max-width: 1010px) {
+		        background-position: right 9px top 12px!important;
+			}
+          
+            @media (min-width: 581px) and (max-width: 768px) {
+                background-position: right 9px top 22px!important;
+            }
 
 			@media (max-width: 580px) {
 				height: 23px;
+                line-height: 25px;
 				font-size: 11px;
 				background-position: right 10px top 9px!important;
-		    background-size: 7px!important;
+		        background-size: 7px!important;
 			}	
 
 			option {
@@ -148,8 +156,9 @@
 				}
 
 				@media (max-width: 580px) {
-					width: 146px !important;
-			    padding-right: 20px;
+					//width: 146px !important;
+			        padding-right: 20px;
+                    width: calc(100% - 115px);
 				}					
 			}
 		}
@@ -161,7 +170,8 @@
 			right: 0;
 
 			@media (max-width: 580px) {
-				right: -15px;
+				right: -10px;
+                top: 4px;
 			}		
 
 			& svg {
@@ -238,23 +248,31 @@
 
 				@media (max-width: 1140px) {
 					float: none;
+                    width: 251px;
 				}
 
 				@media (max-width: 1010px) {
 					margin-bottom: 26px;
-				}	
+				}
+              
+                @media (max-width: 768px) {
+					width: 100%;
+				}
 
 				@media (max-width: 580px) {
 					margin-bottom: 21px;
 				}
 
 				.analityc-select {
+                    box-sizing: border-box;
 					@media (max-width: 1010px) {
-						width: 222px;
-					}		
+						//width: 222px;
+					}
 
 					@media (max-width: 580px) {
-						width: 182px;
+						//width: 182px;
+                        height: 25px;
+                        line-height: 25px;
 					}
 				}
 			}
@@ -270,14 +288,21 @@
 				@media (max-width: 1010px) {
 					margin-bottom: 0;
 				}
+              
+                @media (max-width: 768px) {
+					width: 100%;
+				}
 
 				.analityc-select {
+                    box-sizing: border-box;
 					@media (max-width: 1010px) {
-						width: 253px;
-					}		
+						//width: 253px;
+					}
 
 					@media (max-width: 580px) {
-						width: 207px;
+						//width: 207px;
+                        height: 25px;
+                        line-height: 25px;
 					}
 				}
 			}
@@ -305,9 +330,16 @@
 
 			@media (max-width: 1010px) {
 				padding-left: 12px;
-		    background-position: right 9px top 12px!important;
 		    background-size: 10px!important;
 			}
+          
+            @media (min-width: 769px) and (max-width: 1010px) {
+		        background-position: right 9px top 12px!important;
+			}
+          
+            @media (min-width: 581px) and (max-width: 768px) {
+                background-position: right 9px top 22px!important;
+            }
 
 			@media (max-width: 580px) {
 				font-size: 11px;

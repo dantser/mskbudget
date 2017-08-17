@@ -12,7 +12,14 @@ export default function docCards() {
     EL.on('click', (e) => {
       e.preventDefault();
       // EL.parent().siblings().removeClass(ACTIVE_CLASS);
-      EL.hide();
+      const DIRNAME = $(this).find('.section-tabs__card').data('directory');
+      $('.tile__item').addClass('hidden');
+      $('.section-tabs__card[data-directory="'+DIRNAME+'"]').each(function(){
+        if (!$(this).hasClass('section-tabs__card_dir')) {
+          $(this).parents('.tile__item').removeClass('hidden');
+          slider('.section-tabs_documents');
+        }
+      });
       NAV.show();
     })
   })
@@ -20,7 +27,13 @@ export default function docCards() {
   TOP_BUTTON.on('click', function(e) {
     e.preventDefault();
     NAV.hide();
-    DIR.show();
+    $('.tile__item').removeClass('hidden');
+    $('.section-tabs__card[data-directory]').each(function(){
+      if (!$(this).hasClass('section-tabs__card_dir')) {
+        $(this).parents('.tile__item').addClass('hidden');
+        slider('.section-tabs_documents');
+      }
+    });
   })
 
   FAVOR.each( function() {
@@ -35,4 +48,21 @@ export default function docCards() {
     e.preventDefault();
     $(this).toggleClass('document__star_cur');
   });
+  
+  function slider(item) {
+    const parent = $(item);
+    const slideCnt = parent.find('.tile__item').length - parent.find('.tile__item.hidden').length;
+    const slideWidth = parent.find('.tile__item').outerWidth(true);
+    const wrapperWidth = slideCnt * slideWidth;
+
+    parent.find('.section-tabs__content').css('width', wrapperWidth+'px')
+  }
+  
+  $('.section-tabs__card[data-directory]').each(function(){
+    if (!$(this).hasClass('section-tabs__card_dir')) {
+      $(this).parents('.tile__item').addClass('hidden');
+      slider('.section-tabs_documents');
+    }
+  });
+  
 }
