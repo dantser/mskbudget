@@ -2,6 +2,7 @@ import noUiSlider from 'nouislider';
 
 export default function range() {
   const sliders = Array.from(document.querySelectorAll('.js-range-slider'));
+  const slidersReset = Array.from(document.querySelectorAll('.js-range-slider-reset'));
 
   if (sliders) {
     sliders.forEach(function(slider) {
@@ -11,7 +12,7 @@ export default function range() {
           'min': 0,
           'max': 100
         },
-        // connect: [false, true],
+        // connect: [true, true],
         // tooltips: [true],
         // pips: {
         //   mode: 'values',
@@ -20,9 +21,22 @@ export default function range() {
         // }
       });
     });
+
+    if (slidersReset) {
+      slidersReset.forEach(sliderReset => {
+        sliderReset.onclick = event => {
+          event.preventDefault();
+          sliders.forEach(function(slider) {
+            slider.noUiSlider.reset();
+          });
+        }
+      });
+    }
   }
+
   function sliderForWidgets(id, valueid, start, min, max) {
     const sliderForWidgets = document.getElementById(id);
+
     if(sliderForWidgets) {
       noUiSlider.create(sliderForWidgets, {
         start: start,
