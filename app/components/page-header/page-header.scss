@@ -2,10 +2,15 @@
   display: block;
   margin-left: -3px;
 
-  &__social { display: block; }
+  &__social { 
+    display: block; 
+    width: 175px;
+    text-align: left;
+    font-size: 0;
 
-  .social__item {
-    margin-left: -1px;
+    @media (max-width: 900px) {
+      width: auto;
+    }
   }
 
   &::after {
@@ -40,9 +45,12 @@
     }
 
   }
+  .d-si__icons_item {
+    position: relative;
 
-  .d-si__icons_item:nth-child(2) {
-    background: none !important;
+    &:nth-child(2) {
+      background: none !important;
+    }
   }
 
   .favor__icon {
@@ -78,10 +86,21 @@
     }
   }
 
-  .share__panel.share {
+  &__panel {
+    display: none;
+
+    &_active {
+      display: block;
+    }
+  }
+
+  .share__panel {
+    height: 50px;
+    line-height: 50px;
     max-width: 182px !important;
     left: -5px !important;
     z-index: 1;
+    background: none;
 
     @media screen and (max-width: 1140px) and (min-width: 901px) {
       left: -40px!important;
@@ -90,7 +109,7 @@
     @media screen and (max-width: 900px) {
       left: 0!important;
       background: red!important;
-      width: 21px!important;
+      width: 22px!important;
       height: auto!important;
       background: rgba(0,0,0,.6)!important;
       border-radius: 2px;
@@ -105,8 +124,11 @@
     }
   }
   .social__item {
+    display: inline-block;
+    float: none;
+
     @media screen and (max-width: 900px) {
-      float: none;
+      display: block;
       width: 13px;      
     }
   }
@@ -138,10 +160,6 @@
     }
   }
 
-  .download:hover .download__panel {
-    display: inline-block;
-  }
-
   &__download-icon {
     width: 18px;
     height: 18px;
@@ -154,7 +172,6 @@
   }
 
   .download__panel {
-    display: none;
     position: absolute;
     top: 100%;
     left: 0;
