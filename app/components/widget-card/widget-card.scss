@@ -148,6 +148,11 @@
 
   &__search {
     margin-top: 5px;
+
+    .d-si__search {
+      height: 32px;
+      letter-spacing: -.8px;
+    }
   }
 
   &__select {
@@ -157,6 +162,19 @@
   &__selectbox {
     margin-top: 20px;
   }
+
+/*Предотвращение выползания дефолтного селекта*/
+  .selectbox__select {
+    width: 105%;
+    height: 95%
+  }
+  .selectbox__arrow {
+    right: 0px;
+  }
+  .selectbox-for-widgets .selectbox__arrow {
+    width: 40px;
+  }
+/**/
 
   &__range {
     margin-top: 19px;
@@ -509,10 +527,13 @@
     letter-spacing: -3px;
     margin-top: -5px;
     /*градиентный цвет текста - chrome*/
-    background: linear-gradient(90deg, #021398 0%, #ff0036 40%);
+    background: -webkit-linear-gradient(90deg, #021398 0%, #ff0036 40%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    color: #021398;
+
+    @media screen\0 {
+      color: #021398;
+    }
   }
 
   &__value-units {
