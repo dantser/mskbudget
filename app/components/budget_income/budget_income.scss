@@ -1,28 +1,28 @@
 .analityc-widget_income {
   padding-top: 22px;
   padding-bottom: 35px;
-  
+
   .analityc-control-group._dp {
     display: inline-block;
     margin-top: 30px;
     margin-left: 2.9%;
   }
-  
+
   .analityc-graphics_column {
-    
+
     .analityc-graphics__cols {
       padding-left: 33px;
       padding-right: 21px;
     }
   }
-  
+
   .analityc-graphics, .analityc-table {
     display: none;
     &.active {
       display: block;
     }
   }
-  
+
   .analityc-control-switcher_default,
   .analityc-control-buttons,
   .analityc-control-switcher_big,
@@ -31,7 +31,15 @@
     &.active {
       display: inline-block;
     }
-  }  
+  }
+
+  .analityc-graphics_done {
+    .analityc-graphics__col {
+      @media (max-width: 550px) {
+        width: 100%;
+      }
+    }
+  }
 }
 
 
@@ -64,13 +72,39 @@
 }
 
 @media screen and (min-width: 551px) and (max-width: 760px) {
+  .analityc-widget_income .analityc-graphics_round {
+    padding-top: 35px;
+  }
+  .analityc-widget_income .analityc-graphics_column {
+    padding-top: 42px;
+  }
   .analityc-widget_income input.datepicker {
     height: 58px;
     line-height: 58;
     font-size: 23px;
+    background-position: 97% 39%;
   }
   .analityc-widget_income .analityc-control-group._dp:before {
     top: 21px;
+  }
+  .basic-budget .analityc-widget_income {
+    padding: 30px 40px 40px;
+  }
+  .analityc-widget_income .analityc-graphics__legend {
+    margin-top: 56px;
+    height: inherit;
+  }
+  .analityc-widget_income .analityc-more {
+    margin-top: 25px;
+    font-size: 29px;
+    &:before {
+      right: -33px;
+      top: 9px;
+    }
+  }
+  .analityc-widget_income .analityc-control-group._dp input.datepicker {
+    height: 52px;
+    line-height: 50px;
   }
 }
 
@@ -81,6 +115,49 @@
     font-size: 13px;
   }
   .analityc-widget_income .analityc-control-group._dp:before {
-    top: 11px;
+    top: 5px;
+  }
+  .analityc-control-buttons + .analityc-control-switcher_large {
+    width: 100%;
+  }
+  .analityc-widget_income .analityc-more {
+    margin-top: 0;
+    font-size: 18px;
+    &:before {
+      right: -22px;
+      top: 2px;
+    }
+  }
+  .analityc-widget_income .analityc-graphics_column {
+    padding-top: 17px;
+  }
+  .analityc-widget_income .analityc-graphics_singleround {
+    padding-top: 17px;
+  }
+  .basic-budget .analityc-widget_income {
+    padding: 22px 15px 20px !important;
+  }
+  .analityc-widget_income .analityc-graphics_round {
+    padding-top: 17px;
+  }
+  .analityc-widget_income .analityc-graphics__legend {
+    margin-top: 23px;
+  }
+  .analityc-widget_income .analityc-control-group._dp input.datepicker {
+    height: 26px;
+    line-height: 24px;
+    padding: 0 5px;
+  }
+
+  .analityc-widget_income .analityc-control-group._stage .analityc-select {
+    padding: 0 0 0 12px;
+  }
+
+  .analityc-widget_income .analityc-widgethead .analityc-control-buttons {
+    margin-top: 17px;
+  }
+
+  .analityc-widget_income .analityc-control-group._level .analityc-select {
+    padding: 0 0 0 12px;
   }
 }
