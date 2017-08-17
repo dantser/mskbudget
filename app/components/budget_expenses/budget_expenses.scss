@@ -44,6 +44,10 @@
     }
   }
 
+  .analityc-select_disabled {
+    background-color: #e5e5e5!important;
+  }
+
   .analityc-table {
     display: none;
 
@@ -86,10 +90,21 @@
      margin-left: 2.9%;
    }
 
+  div.analityc-control-group._dp-alt {
+    @media (width: 1024px) {
+      width: calc(43.1% - 93px);
+    }
+  }
   .analityc-control-group._dp {
     display: inline-block;
     margin-top: 46px;
     margin-left: 2.9%;
+  }
+
+  div.analityc-control-group._dp {
+    @media (width: 1024px) {
+      width: calc(43.1% - 93px);
+    }
   }
 
   .analityc-graphics__legend {
@@ -172,7 +187,11 @@
     width: 63.5%;
   }
 }
-
+@media (max-width: 1140px) and (min-width: 901px) {
+  .analityc-select {
+    font-size: 15px;
+  }
+}
 @media screen and (max-width: 1140px) {
   .basic-budget .wrapper_widget {
     padding-left: 0 !important;
@@ -240,7 +259,7 @@
    .analityc-widget_expenses .analityc-control-group._dp-alt select.analityc-select_year {
      width: 17%;
    }
-   .analityc-widget_expenses .analityc-select_month {
+   .analityc-widget_expenses .analityc-control-group._dp-alt .analityc-select_month {
      width: 28%;
    }
   .analityc-widget_expenses .analityc-control-group._dp, .analityc-widget_expenses .analityc-control-group._dp-alt  {
