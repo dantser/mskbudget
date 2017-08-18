@@ -66,7 +66,7 @@ export default () => {
         $maxCell.text(max.toLocaleString('ru-RU') + ' ' + type);
 
         // @DEBUG
-        $handle.draggable();
+        // $handle.draggable();
       },
       slide: function(event, ui) {
         setValue(event, ui);
