@@ -35,8 +35,8 @@ export default () => {
 
       if (isOptimal) {
         $this
-          .addClass('.range-ui__slider_pos')
-          .removeClass('.range-ui__slider_neg');
+          .addClass('range-ui_pos')
+          .removeClass('range-ui_neg');
 
         $line.css({
           'right': 'auto',
@@ -45,8 +45,8 @@ export default () => {
         });
       } else {
         $this
-          .addClass('.range-ui__slider_neg')
-          .removeClass('.range-ui__slider_pos');
+          .addClass('range-ui_neg')
+          .removeClass('range-ui_pos');
 
         $line.css({
           'left': 'auto',
@@ -74,73 +74,3 @@ export default () => {
     });
   });
 }
-
-
-// $(this).slider({
-//   create: function(event, ui) {
-//     const $e = $(this);
-//     const $refresh = $e.closest('.range-ui').find('.range-ui__refresh');
-//     const $input = $e.closest('.range-ui').find('.range-ui__input');
-//     const value = parseFloat($input.val());
-//     const $line = $e.find('.range-ui__line');
-//     const $handle = $e.find('.ui-slider-handle');
-//     const $was = $e.closest('.range-ui').find('.range-ui__before-value-input');
-//     const $was_old_value = $input.val();
-
-//     $e.slider('value', value);
-
-//     $was.hide();
-
-//     $input.attr('data-old-value', $was_old_value);
-
-//     $refresh.click(event => {
-//       event.preventDefault();
-//       $e.slider('value', 0);
-//     });
-
-//     $input.keyup(function() {
-//       const value = parseFloat($input.val());
-
-//       if (value <= $e.slider('option', 'max') && value >= $e.slider('option', 'min')) {
-//         $e.slider('value', value);
-//       }
-//     });
-//   },
-//   change: function(event, ui) {
-//     const $e = $(this)
-//     const $line = $e.find('.range-ui__line')
-//     const $handle = $e.find('.ui-slider-handle')
-//     const positionLeft = $handle.position().left
-//     const $input = $e.closest('.range-ui').find('range-ui__input')
-//     const $was = $e.closest('.range-ui').find('.range-ui__before-value-input')
-//     const $was_value = $was.find('.bvi_text');
-
-//     if (positionLeft >= $e.innerWidth() / 2 + $handle.outerWidth() / 2) {
-//       $line.addClass('good').removeClass('bad').css({
-//         'width': positionLeft - $e.innerWidth() / 2
-//       });
-//     } else {
-//       $line.removeClass('good').addClass('bad').css({
-//         'width': $e.innerWidth() / 2 - positionLeft
-//       });
-//     }
-
-//     $was.fadeIn();
-//     $was_value.text($input.attr('data-old-value'));
-
-//     $input.val(ui.value)
-//   },
-//   slide: function(event, ui) {
-//     const $e = $(this);
-//     const $line = $e.find('.range-ui__line');
-//     const $handle = $e.find('.ui-slider-handle');
-//     const positionLeft = $handle.position().left;
-
-//     $(this).closest('.range-ui').find('range-ui__input').val(ui.value);
-//     if (positionLeft >= $e.innerWidth() / 2 + $handle.outerWidth() / 2) {
-//       $line.addClass('good').removeClass('bad').css({ 'width': positionLeft - $e.innerWidth() / 2 });
-//     } else {
-//       $line.removeClass('good').addClass('bad').css({ 'width': $e.innerWidth() / 2 - positionLeft });
-//     }
-//   }
-// });

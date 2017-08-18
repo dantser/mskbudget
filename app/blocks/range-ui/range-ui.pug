@@ -1,6 +1,6 @@
-mixin range-ui()
+mixin range-ui(data)
   +b.range-ui&attributes(attributes)
-    +e.slider(data-slider='{"min":"13.5", "max":"18", "optimal": "18", "type": "%", "step": "0.1"}')
+    +e.slider(data-slider=data)
       +e.line
     //- +e.INPUT.input(type="text" value="13")
     +e.before-value-input
