@@ -43,7 +43,28 @@ mixin analityc-widgethead-income(type)
       a(href="#") млн руб.
     .analityc-control-group._dp
       input(placeholder="Выберите дату исполнения", value="Выберите дату исполнения", readonly="readonly").datepicker
-
+    .analityc-control-group._dp-alt.expenses__dp
+      select(disabled).analityc-select.analityc-select_date.analityc-select_disabled
+        option 01
+      select.analityc-select.analityc-select_month
+        option(selected=selected) января
+        option февраля
+        option марта
+        option апреля
+        option мая
+        option июня
+        option июля
+        option августа
+        option сентября
+        option октября
+        option ноября
+        option декабря
+      select.analityc-select.analityc-select_year
+        option 2014
+        option(selected=selected) 2015
+        option 2016
+        option 2017
+        option 2018
 
 //- type - тип шапки расходов бюджета (один из трех)
 mixin analityc-widgethead-expenses(type)
