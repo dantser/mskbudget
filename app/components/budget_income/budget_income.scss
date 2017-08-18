@@ -6,15 +6,32 @@
     display: inline-block;
     margin-top: 30px;
     margin-left: 2.9%;
-  }
+    width: 33.6%;
 
-  .analityc-graphics_column {
+    input.datepicker {
+      padding: 0 16px;
+    }
 
-    .analityc-graphics__cols {
-      padding-left: 33px;
-      padding-right: 21px;
+    &-alt.active {
+      display: inline-block;
+    }
+
+    @media (max-width: 768px) {
+      margin-top: 13px;
     }
   }
+
+  .analityc-select_disabled {
+    background-color: #e5e5e5 !important;
+  }
+
+  // .analityc-graphics_column {
+  //
+  //   .analityc-graphics__cols {
+  //
+  //     padding-right: 21px;
+  //   }
+  // }
 
   .analityc-graphics, .analityc-table {
     display: none;
@@ -22,6 +39,38 @@
       display: block;
     }
   }
+
+  .analityc-control-group._dp-alt {
+    margin-top: 25px;
+    margin-left: 2.9%;
+  }
+
+ div.analityc-control-group._dp-alt {
+   @media (max-width: 1140px) {
+     margin-left: 1.9%;
+     .analityc-select {
+       &_month {
+         width: 28%;
+       }
+       &_year {
+         width: 17%;
+       }
+     }
+   }
+   @media (width: 1024px) {
+     width: calc(43.1% - 93px);
+     margin-top: 0;
+
+     .analityc-select {
+       margin-top: 0;
+     }
+   }
+
+   @media (max-width: 768px) {
+     width: 100%;
+     margin-top: 13px;
+   }
+ }
 
   .analityc-control-switcher_default,
   .analityc-control-buttons,
@@ -62,6 +111,37 @@
 @media screen and (min-width: 761px) and (max-width: 1100px) {
   .analityc-widget_income .analityc-control-group._dp {
     width: calc(45.2% - 70px);
+  }
+}
+
+@media screen and (max-width: 1140px) {
+.analityc-widget_income .analityc-control-group._dp input.datepicker {
+    height: 31px;
+    line-height: 31px;
+  }
+}
+
+@media (width: 1024px) {
+  .analityc-widget_income .analityc-control-group._dp {
+    margin-left: 1.9%;
+    width: 335.6px;
+    width: calc(45.2% - 93px);
+    margin-top: 0;
+  }
+
+  .analityc-control-buttons, .analityc-control-switcher {
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 551px) {
+  .analityc-widget_income .analityc-control-group._dp {
+    width: 100%;
+    input.datepicker {
+      height: 52px;
+      line-height: 52px;
+      font-size: 20px;
+    }
   }
 }
 
@@ -146,7 +226,7 @@
   .analityc-widget_income .analityc-control-group._dp input.datepicker {
     height: 26px;
     line-height: 24px;
-    padding: 0 5px;
+    padding: 0 13px;
   }
 
   .analityc-widget_income .analityc-control-group._stage .analityc-select {
