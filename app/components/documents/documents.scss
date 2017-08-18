@@ -47,7 +47,7 @@
     .sm-float-r { float: right; }
     .sm-float-n { float: none !important; }
     /* !important из за неправильного переопределения медиа запросов*/
-    .sm-display-b { display: block !important;}
+    .sm-display-b { display: block;}
     .sm-display-n { display: none; } }
 
   /*Extra Small*/
@@ -421,7 +421,12 @@
     .tile__item { width: 33.333%; margin-bottom: 28px; }
     .tile__inner { margin: 0 14px; }
     .tile_sh { margin: 0 -14px; } }
-
+  @media (max-width: 1152px) {
+    .tile__item:nth-child(n+4) { display: none;}
+  }
+  @media (max-width: 640px) {
+    .tile__item:nth-child(n+3) { display: none;}
+  }
   @media (max-width: 900px) { .tile { height: 100%; }
     /*important из за неправильного переопределения медиа запрсов*/
     .tile__item { width: 50% !important; height: 100%; }
@@ -458,8 +463,6 @@
     @media (max-width: 580px) {
       margin: 0;
     }
-
-
 
     .tile_sh {
       margin: 0 !important;

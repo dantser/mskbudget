@@ -18,7 +18,7 @@ import budgetCalcPage from '../pages/depfin_services_budget_calc/depfin_services
 import legend from '../blocks/legend/legend';
 import budgetCalcApp from '../components/budget-calc-app/budget-calc-app';
 import newsFilter from '../components/news/newsFilter';
-import range from '../blocks/range/range'; // range-slider input для калькулятора бюджета
+import range from '../blocks/range/range';
 import dragscroll from '../blocks/drag-scroll/drag-scroll'; // функция, позволяющая сделать любой блок скроллящимся через перетаскивание (добавить класс .js-drag-scroll-element)
 import openCon from '../components/open-con/openCon';
 import contest from '../components/contest/contest';
@@ -49,7 +49,7 @@ import openReit from '../components/depfin-budget-moscow-open-reit/openReit';
 import depfinServices from '../components/depfin-services-main/depfin-services-main';
 import dropdown from '../blocks/dropdown-block/dropdown';
 import openFile from '../components/open-file/open-file'
-
+import rangeUi from '../blocks/range-ui/range-ui';
 
 $(() => {
 
@@ -112,4 +112,5 @@ $(() => {
   tooltips();
   aboutBudget();
   openFile();
+  rangeUi();
 });
