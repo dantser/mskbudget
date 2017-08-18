@@ -2,26 +2,10 @@ mixin range-ui(data)
   +b.range-ui&attributes(attributes)
     +e.slider(data-slider=data)
       +e.line
-    //- +e.INPUT.input(type="text" value="13")
-    +e.before-value-input
+    +e.tooltip
+      +e.INPUT.input(type="text")
     +e.A.refresh(href="#")
       +icon('refresh').icon
     +e.output
       +e.min-value
-        //- span.output-num 0
-        //- span.output-text млн. руб.
       +e.max-value
-        //- span.output-num 742 543,8
-        //- span.output-text млн. руб.
-
-
-    //- <div class="calc-slider income calc-slider_neg" id="child_28" data-slider="{&quot;min&quot;:&quot;13.5&quot;, &quot;max&quot;:&quot;18&quot;, &quot;optimal&quot;: &quot;18&quot;, &quot;type&quot;: &quot;%&quot;, &quot;step&quot;: &quot;0.1&quot;}">
-    //- <div class="calc-slider__body ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false">
-    //- <div class="calc-slider__line" style="right: 0%; left: auto; width: 62.2222%;"></div>
-    //- <span class="ui-slider-handle ui-state-default ui-corner-all" style="left: 37.7778%;" tabindex="0"><input class="calc-slider__mark" style="margin-left: -25px;"></span>
-    //- </div>
-    //- <div class="calc-slider__mark calc-slider__default">
-    //- <img src="img/reload.png" title="Восстановление исходных данных"></div>
-    //- <div class="calc-slider__min calc-slider__mark">13,5 %</div>
-    //- <div class="calc-slider__max calc-slider__mark">18 %</div>
-    //- </div>

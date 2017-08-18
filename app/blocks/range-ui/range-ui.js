@@ -7,6 +7,7 @@ export default () => {
     const $slider = $this.find('.range-ui__slider');
     const $line = $this.find('.range-ui__line');
     const $input = $this.find('.range-ui__input');
+    const $tooltip = $this.find('.range-ui__tooltip');
     const data = $.parseJSON($slider.attr('data-slider'));
     const optimal = parseFloat(data.optimal);
     const min = parseFloat(data.min);
@@ -18,10 +19,6 @@ export default () => {
     const $maxCell = $this.find('.range-ui__max-value');
     const $refresh = $this.find('.range-ui__refresh');
     const value = parseFloat($input.val());
-    const $handle = $this.find('.ui-slider-handle');
-    const $was = $this.find('.range-ui__before-value-input');
-    const $was_old_value = $input.val();
-    const $innerMark = $('<input class="range-ui__input"></input>').appendTo($handle);
 
     function setValue(event, ui) {
       let value = 0;
@@ -34,9 +31,7 @@ export default () => {
       const isOptimal = ui.value >= optimal;
 
       if (isOptimal) {
-        $this
-          .addClass('positive')
-          .removeClass('negative');
+        $this.addClass('positive').removeClass('negative');
 
         $line.css({
           'right': 'auto',
@@ -44,9 +39,7 @@ export default () => {
           'width': (value - optimal) * factor + '%'
         });
       } else {
-        $this
-          .addClass('negative')
-          .removeClass('positive');
+        $this.addClass('negative').removeClass('positive');
 
         $line.css({
           'left': 'auto',
@@ -55,8 +48,7 @@ export default () => {
         });
       };
 
-      $innerMark.val(value.toLocaleString('ru-RU', { maximumFractionDigits: 4, minimumFractionDigits: 1 }) /*+ ' ' + type*/ );
-      $innerMark.css('margin-left', -$innerMark.width() / 2);
+      $input.val(value.toLocaleString('ru-RU', { maximumFractionDigits: 4, minimumFractionDigits: 1 }));
     };
 
     $slider.slider({
@@ -65,21 +57,37 @@ export default () => {
       step: step || 0.1,
       value: optimal || 0,
       create: function(event, ui) {
+        const $handle = $this.find('.ui-slider-handle');
+        $tooltip.appendTo($handle);
+        $input.val(optimal);
+
         $minCell.text(min.toLocaleString('ru-RU') + ' ' + type);
         $maxCell.text(max.toLocaleString('ru-RU') + ' ' + type);
       },
       slide: function(event, ui) {
         setValue(event, ui);
       },
-      // change: function(event, ui) {
-      //   setValue(event, ui);
-      // },
+      change: function(event, ui) {
+        setValue(event, ui);
+      },
     });
 
     $refresh.on('click', e => {
       e.preventDefault();
       $slider.slider('value', optimal);
       $this.removeClass('positive', 'negative');
+    });
+
+    $input.on('change', () => {
+      const newValue = $input.val();
+
+      if (max <= newValue >= min) {
+        $slider.slider('value', newValue);
+      } else if (newValue < min) {
+        $slider.slider('value', min);
+      } else if (newValue > max) {
+        $slider.slider('value', max);
+      }
     });
   });
 }
