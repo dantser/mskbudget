@@ -2,6 +2,8 @@ import $ from 'jquery';
 import matchHeight from 'jquery-match-height';
 
 export default () => {
+  const $calcApp = $('#budget-calc-app');
+  const $header = $('#header');
 
   // @DANGER дев-скрипт для показа страниц заказчику
   const $registeredContent = $('.js-budget-calc__toggle-if-register');
@@ -30,7 +32,6 @@ export default () => {
   }
 
   // Табы для калькулятора бюджета
-  const $calcApp = $('#budget-calc-app');
   const $tabsWrapper = $('#budget-calc-app__main-content');
   const $tabs = $('.js-budget-calc-app__tab');
   const $tabControls = $('.js-budget-calc-app__tab-control');
@@ -52,9 +53,11 @@ export default () => {
           $tabControls.removeClass('is-active');
           $targetTabIndicator.addClass('is-active');
 
-          // скроллим наверх
+          const scrollPosition = $calcApp.offset().top - $header.outerHeight() - 15;
           setTimeout(function() {
-            $("html, body").animate({ scrollTop: 0 }, 350);
+            $("body").animate({
+              scrollTop: scrollPosition
+            }, 350);
           }, 25);
         }
       }
