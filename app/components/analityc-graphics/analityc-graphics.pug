@@ -930,45 +930,48 @@ mixin analityc-graphics-govdebt-changes()
   +b.analityc-graphics&attributes(attributes)._changes
     +e.P.periodtext
       span Плановый период
-    +e.cols
-      +e.col
-        +e.P.year 2017
-        +e.changes._neg
-          +e.abs +14,0
-          +e.percent +22,8%
-        +e.graphic._double-column
-          +e.graphic-column
-            +e.graphic-column-val 61,5
-          +e.graphic-column
-            +e.graphic-column-val 75,5
-        +e.bottom
-          p Бюджет утвержденный
-          p Бюджет с учетом изменений
-      +e.col
-        +e.SPAN.period-left
-        +e.P.year 2018
-        +e.changes._rev
-          +e.abs -10,0
-          +e.percent -3,8%
-        +e.graphic._double-column
-          +e.graphic-column
-            +e.graphic-column-val 61,5
-          +e.graphic-column
-            +e.graphic-column-val 47,1
-        +e.bottom
-          p Бюджет утвержденный
-          p Бюджет с учетом изменений
-      +e.col
-        +e.SPAN.period-right
-        +e.P.year 2019
-        +e.graphic._double-column
-          +e.graphic-column
-            +e.graphic-column-val 57,1
-          +e.graphic-column
-            +e.graphic-column-val 57,1
-        +e.bottom
-          p Бюджет утвержденный
-          p Бюджет с учетом изменений
+    .swiper-container.round-graphics_slider
+      +e.cols.swiper-wrapper
+        +e.col.swiper-slide
+          +e.P.year 2017
+          +e.changes._neg
+            +e.abs +14,0
+            +e.percent +22,8%
+          +e.graphic._double-column
+            +e.graphic-column
+              +e.graphic-column-val 61,5
+            +e.graphic-column
+              +e.graphic-column-val 75,5
+          +e.bottom
+            p Бюджет утвержденный
+            p Бюджет с учетом изменений
+        +e.col.swiper-slide
+          +e.SPAN.period-left
+          +e.P.year 2018
+          +e.changes._rev
+            +e.abs -10,0
+            +e.percent -3,8%
+          +e.graphic._double-column
+            +e.graphic-column
+              +e.graphic-column-val 61,5
+            +e.graphic-column
+              +e.graphic-column-val 47,1
+          +e.bottom
+            p Бюджет утвержденный
+            p Бюджет с учетом изменений
+        +e.col.swiper-slide
+          +e.SPAN.period-right
+          +e.P.year 2019
+          +e.graphic._double-column
+            +e.graphic-column
+              +e.graphic-column-val 57,1
+            +e.graphic-column
+              +e.graphic-column-val 57,1
+          +e.bottom
+            p Бюджет утвержденный
+            p Бюджет с учетом изменений
+    span.analityc-graphics_round-next
+    span.analityc-graphics_round-prev
     +b.legend.__legend
       +e.P.item._altgreen Верхний предел государственного долга, млрд руб.
           

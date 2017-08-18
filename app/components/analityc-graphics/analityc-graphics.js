@@ -42,7 +42,7 @@ export default () => {
     var analitycGraphicsRound = new Swiper('.round-graphics_slider', SliderSettings);
 
     var analitycGraphicsColumn = new Swiper('.column-graphics_slider', SliderSettings);
-
+    // var analitycGraphicsGD = new Swiper('.')
     // $('.analityc-select').on('change', function () {
     //   if (analitycGraphicsColumn.is(':visible')){
     //     analitycGraphicsColumn.update();

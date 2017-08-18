@@ -923,7 +923,27 @@ mixin analityc-widgethead-govdebt()
         option Закон о внесении изменений
         option Исполнение на дату
     .analityc-control-group._dp
-      input(placeholder="Выберите дату исполнения", value="Выберите дату исполнения", readonly="readonly").gov-debt__datepicker
+      select(disabled).analityc-select.analityc-select_date.analityc-select_disabled
+        option 01
+      select.analityc-select.analityc-select_month
+        option(selected=selected) января
+        option февраля
+        option марта
+        option апреля
+        option мая
+        option июня
+        option июля
+        option августа
+        option сентября
+        option октября
+        option ноября
+        option декабря
+      select.analityc-select.analityc-select_year
+        option 2014
+        option(selected=selected) 2015
+        option 2016
+        option 2017
+        option 2018
     .analityc-control-switcher
         a(href="#").active доля от общей суммы, %
         a(href="#") млрд. руб.
