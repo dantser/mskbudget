@@ -1,13 +1,25 @@
 @import "../../node_modules/jquery-ui/themes/base/slider.css";
 
+$rangeColorPositive: #30b78d;
+$rangeColorNegative: #9d0826;
+
 .range-ui {
   position: relative;
   height: 30px;
   padding-top: 7px;
   padding-right: 38px;
 
-  &_pos { .range-ui__line { background: green; } }
-  &_neg { .range-ui__line { background: red; } }
+  &_pos {
+    .range-ui__line { background: $rangeColorPositive; }
+    .ui-slider-handle { border-color: $rangeColorPositive !important; }
+  }
+
+
+  &_neg {
+    .range-ui__line { background: $rangeColorNegative; }
+    .ui-slider-handle { border-color: $rangeColorNegative !important; }
+  }
+
 
   &__slider {
     height: 3px;
@@ -30,7 +42,7 @@
     height: 19px;
     border-radius: 50%;
     border: 2px solid #0d46a1;
-    background-color: white;
+    background-color: white !important;
     box-shadow: none;
     cursor: pointer;
   }
