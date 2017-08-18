@@ -1,5 +1,7 @@
 import $ from 'jquery';
 import 'jquery-ui-bundle';
+// @DEBUG
+// import 'jquery-ui-touch-punch';
 
 export default () => {
   $('.range-ui').each(function() {
@@ -60,9 +62,11 @@ export default () => {
         const $handle = $this.find('.ui-slider-handle');
         $tooltip.appendTo($handle);
         $input.val(optimal);
-
         $minCell.text(min.toLocaleString('ru-RU') + ' ' + type);
         $maxCell.text(max.toLocaleString('ru-RU') + ' ' + type);
+
+        // @DEBUG
+        $handle.draggable();
       },
       slide: function(event, ui) {
         setValue(event, ui);
