@@ -35,8 +35,8 @@ export default () => {
 
       if (isOptimal) {
         $this
-          .addClass('range-ui_pos')
-          .removeClass('range-ui_neg');
+          .addClass('positive')
+          .removeClass('negative');
 
         $line.css({
           'right': 'auto',
@@ -45,8 +45,8 @@ export default () => {
         });
       } else {
         $this
-          .addClass('range-ui_neg')
-          .removeClass('range-ui_pos');
+          .addClass('negative')
+          .removeClass('positive');
 
         $line.css({
           'left': 'auto',
@@ -68,9 +68,18 @@ export default () => {
         $minCell.text(min.toLocaleString('ru-RU') + ' ' + type);
         $maxCell.text(max.toLocaleString('ru-RU') + ' ' + type);
       },
-      change: function(event, ui) {
+      slide: function(event, ui) {
         setValue(event, ui);
-      }
+      },
+      // change: function(event, ui) {
+      //   setValue(event, ui);
+      // },
+    });
+
+    $refresh.on('click', e => {
+      e.preventDefault();
+      $slider.slider('value', optimal);
+      $this.removeClass('positive', 'negative');
     });
   });
 }
