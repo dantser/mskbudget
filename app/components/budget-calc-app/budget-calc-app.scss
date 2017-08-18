@@ -3,6 +3,9 @@
   display: none !important;
 }
 
+.mt30 { margin-top: 30px; }
+.mt40 { margin-top: 40px; }
+
 // стрелка для кнопок и прочего декора
 @mixin budget-calc-triangle {
   content: '';
@@ -21,6 +24,14 @@
   width: 100%;
   border-top: 1px solid #e5e5e5;
   @include transited('100ms');
+
+  .range-ui {
+    margin-top: 25px;
+
+    @media (max-width: 768px) {
+      margin-top: 35px;
+    }
+  }
 
   &:first-child {
     border-top: none;

@@ -108,6 +108,15 @@ mixin analityc-widgethead-expenses(type)
       a(href="#") млн руб.
     .analityc-control-group._dp
       input(value="Выберите дату исполнения", readonly="readonly").datepicker
+
+    .analityc-control-group._classify
+      span Классификация доходов
+      select.analityc-select
+        option Целевые статьи (программный и непрограммный тип)
+        option Разделы и подразделы
+        option Ведомства
+        option(selected) Виды
+
     .analityc-control-group._dp-alt.expenses__dp
       select(disabled).analityc-select.analityc-select_date.analityc-select_disabled
         option 01
@@ -130,13 +139,6 @@ mixin analityc-widgethead-expenses(type)
         option 2016
         option 2017
         option 2018
-    .analityc-control-group._classify
-      span Классификация доходов
-      select.analityc-select
-        option Целевые статьи (программный и непрограммный тип)
-        option Разделы и подразделы
-        option Ведомства
-        option(selected) Виды
 
 //- Основные параметры
 mixin analityc-widgethead-main()
