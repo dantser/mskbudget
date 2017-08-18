@@ -14,7 +14,7 @@ export default function () {
   // Показать еще
   $('.more__a').on('click', function (e) {
     e.preventDefault();
-    $('.tile__item:nth-child(n+5)').slideDown();
+    $('.tile__item:hidden').slideDown();
   });
 
   // Фокус в поле ввода при клике на лейбл
