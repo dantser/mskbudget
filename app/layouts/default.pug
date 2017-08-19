@@ -17,7 +17,7 @@ html(lang='ru')
     script(src='assets/scripts/app.min.js')
     script.
       $(document).ready(function() {
-        if ($('#diagram-01').length) {
+        if ($('.analityc-graphics').length) {
           /*Init Diagrams -- set id to diagram viewbox -- */
           diagram('#diagram-01', {
             stroke: 30,
@@ -217,6 +217,30 @@ html(lang='ru')
             kind: 'segment2',
             data: [ 20.8, 14.3, 12.2, 21.9, 7.7, 23.2 ],
             gradient: [ ['#fee300', '#30b069'], ['#612292', '#bd84e9'], ['#004ccf', '#00ffff'], ['#838a9a', '#d5d8de'], ['#11a360', '#32d197'], ['#9d308a', '#ff695b'] ],
+            maxValue: 100,
+          })
+          diagram('#diagram-23', {
+            viewBox: 270,
+            stroke: 45,
+            kind: 'segment3',
+            data: [ 68.8, 10.0, 12.5, 0.7],
+            gradient: [ ['#9d308a', '#ff695b'], ['#004ccf', '#00ffff'], ['#fee300', '#30b069'], ['#ffd958', '#fca500' ] ],
+            maxValue: 92,
+          })
+          diagram('#diagram-24', {
+            viewBox: 270,
+            stroke: 45,
+            kind: 'segment3',
+            data: [ 68.8, 10.0, 12.5, 0.7],
+            gradient: [ ['#9d308a', '#ff695b'], ['#004ccf', '#00ffff'], ['#fee300', '#30b069'], ['#ffd958', '#fca500' ] ],
+            maxValue: 92,
+          })
+          diagram('#diagram-25', {
+            viewBox: 270,
+            stroke: 45,
+            kind: 'segment3',
+            data: [ 50.0, 50.0 ],
+            gradient: [ ['#9d308a', '#ff695b'], ['#fee300', '#30b069'] ],
             maxValue: 100,
           })
           }

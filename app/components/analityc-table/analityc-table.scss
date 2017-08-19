@@ -1,6 +1,41 @@
 .analityc-table {
   display: block;
   position: relative;
+
+  &_slider {
+    .section__ar {
+      position: absolute;
+      top: 50%;
+      z-index: 2001;
+      width: 21px;
+      height: 26px;
+      padding: 5px;
+      transition: all .5s ease-in-out;
+      &_disabled {
+        opacity: 0;
+      }
+      @media (max-width: 1088px) {
+        display: inline !important;
+      }
+      &_left {
+        right: 99%;
+        transform: rotate(180deg);
+      }
+      &_right {
+        left: 99%;
+      }
+    }
+    &__wrapper {
+      overflow-x: auto;
+      // overflow-y: hidden;
+    }
+
+    .table {
+      @media (max-width: 1100px) {
+        min-width: 980px;
+      }
+    }
+  }
   &__heading {
     font-size: 30px;
     font-weight: 500;

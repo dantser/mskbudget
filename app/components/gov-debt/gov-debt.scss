@@ -18,6 +18,18 @@
     display: none;
   }
 
+  .graphic-text {
+    font-size: 11px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+
+  // .analityc-graphics__graphic-angle_right-bottom .graphic-text {
+  //   margin-bottom: 0;
+  //   margin-top: 10px;
+  // }
+
   &__analityc-widget {
     padding-top: 22px;
     margin-top: 48px;
@@ -199,6 +211,34 @@
     }
   }
   .analityc-graphics {
+    &_round-next {
+      @media (width: 640px) {
+        right: -30px;
+      }
+      @media (width: 600px) {
+        right: -30px;
+      }
+      @media (width: 480px) {
+        right: -20px;
+      }
+      @media (width: 320px) {
+        right: -20px;
+      }
+    }
+    &_round-prev {
+      @media (width: 640px) {
+        left: -30px;
+      }
+      @media (width: 600px) {
+        left: -30px;
+      }
+      @media (width: 480px) {
+        left: -20px;
+      }
+      @media (width: 320px) {
+        left: -20px;
+      }
+    }
     @media (max-width: 768px) {
 
       .swiper-container {
@@ -226,7 +266,7 @@
     // approved
     &.analityc-graphics_approved {
       margin-top: 110px;
-      margin-bottom: 44px;
+      margin-bottom: 80px;
       .analityc-graphics__legend {
         margin-top: 40px;
         padding: 0 28px;
@@ -388,12 +428,19 @@
         padding-left: 30px;
         margin-top: 35px;
         border-bottom: 0;
+
+        @media (max-width: 480px) {
+          padding-left: 0;
+        }
       }
       .analityc-graphics__col {
         width: 32%;
         vertical-align: middle;
         @media (max-width: 900px) {
           display: block;
+        }
+        @media (max-width: 700px) and  (min-width: 481px) {
+          margin-bottom: 144px;
         }
         &_wide {
           width: 62%;
@@ -423,7 +470,43 @@
     }
   }
 
+  .analityc-table {
+    .section__ar {
+      position: absolute;
+      top: 40%;
+      z-index: 2001;
+      width: 21px;
+      height: 26px;
+      padding: 5px;
+      transition: all .5s ease-in-out;
+      &_disabled {
+        opacity: 0;
+      }
+      @media (max-width: 1088px) {
+        display: inline !important;
+      }
+      &_left {
+        right: 99%;
+        transform: rotate(180deg);
+      }
+      &_right {
+        left: 99%;
+      }
+    }
+    &__wrapper {
+      overflow-x: auto;
+      // overflow-y: hidden;
+    }
+
+    .table {
+      @media (max-width: 1100px) {
+        min-width: 980px;
+      }
+    }
+  }
+
   &__analityc-table {
+
     .analityc-control-switcher {
       margin-bottom: 14px;
     }
@@ -498,10 +581,49 @@
     .analityc-control-switcher {
       margin-top: 31px;
     }
+    .analityc-graphics__graphic {
+      @media screen and (max-width: 760px) and (min-width: 551px) {
+        width: 100%;
+      }
+      @media screen and (max-width: 550px) {
+        width: 100%;
+      }
+
+      @media (max-width: 320px) {
+        padding: 0 20px;
+        &-column-val {
+          font-size: 11px;
+        }
+
+        &-years {
+          padding: 0 20px;
+        }
+
+        &-year {
+          font-size: 12px;
+        }
+      }
+    }
   }
 
   &__analityc-tab_govbonds {
     padding-bottom: 43px;
+
+    @media (max-width: 480px) {
+      .gov-debt__paragraph_main {
+        font-size: 20px;
+        line-height: 25px;
+      }
+    }
+
+    @media (max-width: 320px) {
+      .gov-debt__rating-table-value, .gov-debt__rating-table-item {
+        font-size: 12px;
+      }
+      .gov-debt__rating-table-heading {
+        font-size: 13px;
+      }
+    }
   }
 
   &__block-heading {
@@ -520,6 +642,10 @@
     font-family: $PFDinTextPro;
     font-size: 18px;
     line-height: 26px;
+    @media (max-width: 480px) {
+      font-size: 16px;
+      line-height: 23px;
+    }
     &_main {
       font-size: 24px;
       line-height: 32px;
@@ -537,6 +663,9 @@
 
       @media (max-width: 900px) {
         font-size: 24px;
+      }
+      @media (max-width: 480px) {
+        font-size: 22px;
       }
     }
     &_last {
@@ -686,5 +815,14 @@
     width: 50%;
     vertical-align: top;
     padding-right: 40px;
+    @media (max-width: 480px) {
+      width: 100%;
+      padding-right: 0;
+      display: block;
+
+      &:first-child {
+        margin-bottom: 20px;
+      }
+    }
   }
 }

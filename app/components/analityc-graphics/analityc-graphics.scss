@@ -20,9 +20,9 @@
   // }
 
   @media screen and (max-width: 768px) {
-    .swiper-container {
-      overflow: visible;
-    }
+    // .swiper-container {
+    //   overflow: visible;
+    // }
     .analityc-graphics_round-next, .analityc-graphics_round-prev {
       position: absolute;
       top: 0;
@@ -988,6 +988,10 @@
       max-height: 100%;
       left: 0;
       top: 0;
+
+      @media (max-width: 480px) {
+        display: none;
+      }
     }
   }
 
@@ -995,22 +999,139 @@
     position: absolute;
     width: 150px;
     height: 150px;
-    background-color: #ccc;
+    @media (max-width: 480px) {
+      position: relative;
+      left: auto;
+      right: auto;
+      top: auto;
+    }
+    .segment-diagram {
+      width: auto;
+      height: auto;
+      bottom: 0;
+      .svg {
+        width: 100%;
+        height: 100%;
+      }
+      &__val {
+        position: absolute;
+        color: $color-white;
+        &_overval {
+          color: $color-black;
+        }
+      }
+      &__value-num {
+        font-size: 36px;
+      }
+    }
     &_big {
       width: 275px;
       height: 275px;
       left: 60px;
       top: 0;
       bottom: 0;
-      margin: auto
+      margin: auto;
+
+      @media (max-width: 600px) {
+        left: 32px;
+      }
+      @media (max-width: 480px) {
+        left: auto;
+        right: auto;
+        top: auto;
+        bottom: auto;
+      }
+      .segment-diagram {
+        &__val1 {
+          top: -56px;
+          right: 35px;
+        }
+        &__val2 {
+          bottom: -65px;
+          left: 36px;
+        }
+        &__val3 {
+          left: 7px;
+          top: 12px;
+        }
+        &__val4 {
+          top: -58px;
+          left: -16px;
+        }
+      }
     }
     &_right-top {
       right: 60px;
       top: 70px;
+      @media (max-width: 480px) {
+        left: auto;
+        right: auto;
+        top: auto;
+        bottom: auto;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 10px;
+      }
+      @media (max-width: 320px) {
+        margin-right: 0;
+      }
+      .segment-diagram {
+        &__value-num {
+          font-size: 26px;
+          padding-top: 6px;
+        }
+        &__val {
+          font-size: 10px;
+        }
+        &__val1 {
+          top: -25px;
+          right: 15px;
+        }
+        &__val2 {
+          bottom: -35px;
+          left: 16px;
+        }
+        &__val3 {
+          left: 1px;
+          top: 12px;
+        }
+        &__val4 {
+          top: -29px;
+          left: -13px;
+        }
+      }
     }
     &_right-bottom {
       right: 60px;
       bottom: 70px;
+      @media (max-width: 600px) {
+        bottom: 80px;
+      }
+      @media (max-width: 480px) {
+        left: auto;
+        right: auto;
+        top: auto;
+        bottom: auto;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .segment-diagram {
+        &__value-num {
+          padding-top: 6px;
+          font-size: 26px;
+        }
+        &__val {
+          font-size: 10px;
+        }
+        &__val1 {
+          top: -25px;
+          right: 15px;
+        }
+        &__val2 {
+          bottom: -49px;
+          left: 36px;
+        }
+      }
     }
   }
 

@@ -912,18 +912,21 @@ mixin analityc-graphics-govdebt-approved()
   +b.analityc-graphics&attributes(attributes)._approved
     +e.P.periodtext
       span Плановый период
-    +e.cols
-      +e.col._altcolumn
-        +e.P.year 2017
-        +e.graphic._altcolumn
-      +e.col._altcolumn
-        +e.SPAN.period-left
-        +e.P.year 2018
-        +e.graphic._altcolumn
-      +e.col._altcolumn
-        +e.SPAN.period-right
-        +e.P.year 2019
-        +e.graphic._altcolumn
+    .swiper-container.round-graphics_slider
+      +e.cols.swiper-wrapper
+        +e.col._altcolumn.swiper-slide
+          +e.P.year 2017
+          +e.graphic._altcolumn
+        +e.col._altcolumn.swiper-slide
+          +e.SPAN.period-left
+          +e.P.year 2018
+          +e.graphic._altcolumn
+        +e.col._altcolumn.swiper-slide
+          +e.SPAN.period-right
+          +e.P.year 2019
+          +e.graphic._altcolumn
+    span.analityc-graphics_round-next
+    span.analityc-graphics_round-prev
     +legend(getData('legend-govdebt1')).__legend
 
 mixin analityc-graphics-govdebt-changes()
@@ -983,8 +986,29 @@ mixin analityc-graphics-govdebt-date()
         +e.graphic-triangle
           img(src="assets/images/graphics-border.svg")
           +e.graphic-angle._big
+            .segment-diagram#diagram-23
+              .segment-diagram__value
+                p.segment-diagram__value-num 71,5
+                span.segment-diagram__val.segment-diagram__val1 68,8%
+                span.segment-diagram__val.segment-diagram__val2  10,0%
+                span.segment-diagram__val.segment-diagram__val3  12,5%
+                span.segment-diagram__val.segment-diagram__val4.segment-diagram__val_overval 0,7%
           +e.graphic-angle._right-top
+            p.graphic-text Внутренний долг
+            .segment-diagram#diagram-24
+              .segment-diagram__value
+                p.segment-diagram__value-num 61,5
+                span.segment-diagram__val.segment-diagram__val1 68,8%
+                span.segment-diagram__val.segment-diagram__val2  10,0%
+                span.segment-diagram__val.segment-diagram__val3  12,5%
+                span.segment-diagram__val.segment-diagram__val4.segment-diagram__val_overval 0,7%
           +e.graphic-angle._right-bottom
+            p.graphic-text Внешний долг
+            .segment-diagram#diagram-25
+              .segment-diagram__value
+                p.segment-diagram__value-num 10,0
+                span.segment-diagram__val.segment-diagram__val1 50,0%
+                span.segment-diagram__val.segment-diagram__val2  50,0%
       +e.col
         +b.legend.__legend._vert
           +e.P.item._pink
