@@ -875,7 +875,7 @@
     <script src="assets/scripts/app.min.js"></script>
     <script>
         $(document).ready(function() {
-            if ($('.analityc-graphics').length) {
+            if ($('.analityc-graphics').length || $('.widget-card').length) {
                 /*Init Diagrams -- set id to diagram viewbox -- */
                 diagram('#diagram-01', {
                     stroke: 30,
@@ -965,6 +965,20 @@
                     ],
                     maxValue: 21.4 + 28.8 + 48.4,
                     padding: 15
+                });
+                diagram('#diagram-71', {
+                    viewBox: 197,
+                    stroke: 19,
+                    kind: 'segment',
+                    data: [150.7, 60.8, 35.2, 100.5],
+                    gradient: [
+                        ['#60bc50', '#fee300'],
+                        ['#e00242', '#400f80'],
+                        ['#008cde', '#00afea'],
+                        ['#9da2af', '#cfd3d9']
+                    ],
+                    maxValue: 150.7 + 60.8 + 35.2 + 100.5,
+                    padding: 15,
                 });
                 diagram('#diagram-8', {
                     viewBox: 180,

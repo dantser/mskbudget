@@ -1548,11 +1548,12 @@
                             <div class="tile__inner">
                                 <div class="widget-card widget-card-polls lk-services__widget-card">
                                     <div class="widget-card__head">
-                                        <h3 class="widget-card__title">Опрос общественного мнения
+                                        <div class="widget-card__title">
+                                            <h3>Опрос общественного мнения</h3>
                                             <svg class="widget-card__arrow-open"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
                                             <svg class="widget-card__pin"><use xlink:href="assets/images/icon.svg#icon_pin"></use></svg>
                                             <button class="widget-card__favor"></button>
-                                        </h3>
+                                        </div>
                                         <p class="widget-card__subtitle">Примите участие в опросах</p>
                                     </div>
                                     <div class="widget-card__content">
@@ -1598,11 +1599,12 @@
                             <div class="tile__inner">
                                 <div class="widget-card widget-card-polls lk-services__widget-card">
                                     <div class="widget-card__head">
-                                        <h3 class="widget-card__title">Опрос общественного мнения
+                                        <div class="widget-card__title">
+                                            <h3>Опрос общественного мнения</h3>
                                             <svg class="widget-card__arrow-open"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
                                             <svg class="widget-card__pin"><use xlink:href="assets/images/icon.svg#icon_pin"></use></svg>
                                             <button class="widget-card__favor"></button>
-                                        </h3>
+                                        </div>
                                         <p class="widget-card__subtitle">Примите участие в опросах</p>
                                     </div>
                                     <div class="widget-card__content">
@@ -1648,11 +1650,12 @@
                             <div class="tile__inner">
                                 <div class="widget-card widget-card-quiz lk-services__widget-card">
                                     <div class="widget-card__head">
-                                        <h3 class="widget-card__title">Викторины
+                                        <div class="widget-card__title">
+                                            <h3>Викторины</h3>
                                             <svg class="widget-card__arrow-open"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
                                             <svg class="widget-card__pin"><use xlink:href="assets/images/icon.svg#icon_pin"></use></svg>
                                             <button class="widget-card__favor"></button>
-                                        </h3>
+                                        </div>
                                         <p class="widget-card__subtitle">Проверь свои знания в викторине</p>
                                     </div>
                                     <div class="widget-card__content">
@@ -1698,11 +1701,12 @@
                             <div class="tile__inner">
                                 <div class="widget-card widget-card-quiz lk-services__widget-card">
                                     <div class="widget-card__head">
-                                        <h3 class="widget-card__title">Викторины
+                                        <div class="widget-card__title">
+                                            <h3>Викторины</h3>
                                             <svg class="widget-card__arrow-open"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
                                             <svg class="widget-card__pin"><use xlink:href="assets/images/icon.svg#icon_pin"></use></svg>
                                             <button class="widget-card__favor"></button>
-                                        </h3>
+                                        </div>
                                         <p class="widget-card__subtitle">Проверь свои знания в викторине</p>
                                     </div>
                                     <div class="widget-card__content">
@@ -1748,11 +1752,12 @@
                             <div class="tile__inner">
                                 <div class="widget-card widget-card-quiz lk-services__widget-card">
                                     <div class="widget-card__head">
-                                        <h3 class="widget-card__title">Викторины
+                                        <div class="widget-card__title">
+                                            <h3>Викторины</h3>
                                             <svg class="widget-card__arrow-open"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
                                             <svg class="widget-card__pin"><use xlink:href="assets/images/icon.svg#icon_pin"></use></svg>
                                             <button class="widget-card__favor"></button>
-                                        </h3>
+                                        </div>
                                         <p class="widget-card__subtitle">Проверь свои знания в викторине</p>
                                     </div>
                                     <div class="widget-card__content">
@@ -2219,7 +2224,7 @@
     <script src="assets/scripts/app.min.js"></script>
     <script>
         $(document).ready(function() {
-            if ($('.analityc-graphics').length) {
+            if ($('.analityc-graphics').length || $('.widget-card').length) {
                 /*Init Diagrams -- set id to diagram viewbox -- */
                 diagram('#diagram-01', {
                     stroke: 30,
@@ -2309,6 +2314,20 @@
                     ],
                     maxValue: 21.4 + 28.8 + 48.4,
                     padding: 15
+                });
+                diagram('#diagram-71', {
+                    viewBox: 197,
+                    stroke: 19,
+                    kind: 'segment',
+                    data: [150.7, 60.8, 35.2, 100.5],
+                    gradient: [
+                        ['#60bc50', '#fee300'],
+                        ['#e00242', '#400f80'],
+                        ['#008cde', '#00afea'],
+                        ['#9da2af', '#cfd3d9']
+                    ],
+                    maxValue: 150.7 + 60.8 + 35.2 + 100.5,
+                    padding: 15,
                 });
                 diagram('#diagram-8', {
                     viewBox: 180,
