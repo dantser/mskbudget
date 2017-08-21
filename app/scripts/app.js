@@ -48,7 +48,7 @@ import aboutBudget from '../components/depfin-about-budget/aboutBudget';
 import openReit from '../components/depfin-budget-moscow-open-reit/openReit';
 import depfinServices from '../components/depfin-services-main/depfin-services-main';
 import dropdown from '../blocks/dropdown-block/dropdown';
-import openFile from '../components/open-file/open-file'
+import openFile from '../components/open-file/open-file';
 import rangeUi from '../blocks/range-ui/range-ui';
 
 $(() => {
