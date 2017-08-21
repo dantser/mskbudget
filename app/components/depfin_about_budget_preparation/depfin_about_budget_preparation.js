@@ -87,7 +87,7 @@ export default function aboutBudgetPreparation() {
     $('.steps-details__participants-list a').removeClass('participant_active')
     $(this).addClass('participant_active');
     $('.section-tabs_members .js-label-button-closed').click();
-    switch (target) {
+    /*switch (target) {
       case 'budgetCom':
         $('[data-target-for = budgetCom]').click();
         $('.owl-carousel.sections').trigger('to.owl.carousel', 9);
@@ -124,6 +124,10 @@ export default function aboutBudgetPreparation() {
         $('[data-target-for="coordGP"]').click();
         $('.owl-carousel.sections').trigger('to.owl.carousel', 10);
         break;
-    }
+    }*/
+    var targetMember = $('[data-target-for = '+target+']');
+    var targetMemberIndex = targetMember.parents('.owl-item').index();
+    targetMember.click();
+    $('.owl-carousel.sections').trigger('to.owl.carousel', targetMemberIndex);
   });
 }
