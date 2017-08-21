@@ -948,313 +948,353 @@
     <script src="assets/scripts/app.min.js"></script>
     <script>
         $(document).ready(function() {
-            /*Init Diagrams -- set id to diagram viewbox -- */
-            diagram('#diagram-01', {
-                stroke: 30,
-                kind: 'triple2',
-                data: [1446.2, 1598.9],
-                animate: true,
-                maxValue: 2050
-            });
-            diagram('#diagram-02', {
-                stroke: 30,
-                kind: 'triple2',
-                data: [1446.2, 1598.9],
-                animate: true,
-                maxValue: 2050
-            });
-            diagram('#diagram-03', {
-                stroke: 30,
-                kind: 'triple2',
-                data: [1446.2, 1598.9],
-                animate: true,
-                maxValue: 2050
-            });
-            diagram('#diagram-1', {
-                stroke: 30,
-                kind: 'triple',
-                data: [1446.2, 1597.2],
-                animate: true,
-                maxValue: 2070,
-            });
-            diagram('#diagram-2', {
-                stroke: 30,
-                kind: 'triple',
-                data: [1446.2, 1598.9],
-                animate: true,
-                maxValue: 2050,
-            });
-            diagram('#diagram-3', {
-                stroke: 30,
-                kind: 'triple',
-                data: [1446.2, 1598.9],
-                animate: true,
-                maxValue: 2050,
-            });
-            diagram('#diagram-4', {
-                viewBox: 390,
-                stroke: 60,
-                kind: 'ifinite',
-                data: [1921.7],
-                gradient: ['#008ADF', '#00E6F9'],
-                valClass: ['large-diagram__value-lightblue', 'large-diagram__value-blue'],
-                maxValue: 1665.5,
-                animate: true,
-            });
-            diagram('#diagram-5', {
-                viewBox: 390,
-                stroke: 60,
-                kind: 'ifinite',
-                data: [1364.5],
-                gradient: ['#9D308A', '#ED5F64'],
-                valClass: ['large-diagram__value-pink', 'large-diagram__value-violet'],
-                maxValue: 1865.5,
-                animate: true,
-            });
-            diagram('#diagram-6', {
-                viewBox: 197,
-                stroke: 19,
-                kind: 'segment',
-                data: [150.7, 60.8, 35.2, 100.5],
-                gradient: [
-                    ['#60bc50', '#fee300'],
-                    ['#e00242', '#400f80'],
-                    ['#008cde', '#00afea'],
-                    ['#9da2af', '#cfd3d9']
-                ],
-                maxValue: 150.7 + 60.8 + 35.2 + 100.5,
-                padding: 15,
-            });
-            diagram('#diagram-7', {
-                viewBox: 197,
-                stroke: 19,
-                kind: 'segment',
-                data: [21.4, 28.8, 48.4],
-                gradient: [
-                    ['#60bc50', '#fee300'],
-                    ['#008cde', '#00afea'],
-                    ['#e00242', '#400f80']
-                ],
-                maxValue: 21.4 + 28.8 + 48.4,
-                padding: 15
-            });
-            diagram('#diagram-8', {
-                viewBox: 180,
-                stroke: 19,
-                kind: 'dashed',
-                data: [1637.3, 1167.7],
-                gradient: [
-                    ['#e6edf3', '#e6edf3'],
-                    ['#60bc50', '#fee300']
-                ],
-                maxValue: 1637.3,
-            });
-            diagram('#diagram-9', {
-                viewBox: 180,
-                stroke: 19,
-                kind: 'dashed',
-                data: [113.4, 46.5],
-                gradient: [
-                    ['#e6edf3', '#e6edf3'],
-                    ['#fc0037', '#091395']
-                ],
-                maxValue: 113.4,
-            });
-            diagram('#diagram-10', {
-                viewBox: 270,
-                stroke: 45,
-                kind: 'segment2',
-                data: [20.8, 14.3, 12.2, 21.9, 7.7, 23.2],
-                gradient: [
-                    ['#fee300', '#30b069'],
-                    ['#612292', '#bd84e9'],
-                    ['#004ccf', '#00ffff'],
-                    ['#838a9a', '#d5d8de'],
-                    ['#11a360', '#32d197'],
-                    ['#9d308a', '#ff695b']
-                ],
-                maxValue: 100,
-            })
-            diagram('#diagram-11', {
-                viewBox: 270,
-                stroke: 45,
-                kind: 'segment2',
-                data: [20.8, 14.3, 12.2, 21.9, 7.7, 23.2],
-                gradient: [
-                    ['#fee300', '#30b069'],
-                    ['#612292', '#bd84e9'],
-                    ['#004ccf', '#00ffff'],
-                    ['#838a9a', '#d5d8de'],
-                    ['#11a360', '#32d197'],
-                    ['#9d308a', '#ff695b']
-                ],
-                maxValue: 100,
-            })
-            diagram('#diagram-12', {
-                viewBox: 270,
-                stroke: 45,
-                kind: 'segment2',
-                data: [20.8, 14.3, 12.2, 21.9, 7.7, 23.2],
-                gradient: [
-                    ['#fee300', '#30b069'],
-                    ['#612292', '#bd84e9'],
-                    ['#004ccf', '#00ffff'],
-                    ['#838a9a', '#d5d8de'],
-                    ['#11a360', '#32d197'],
-                    ['#9d308a', '#ff695b']
-                ],
-                maxValue: 100,
-            })
-            diagram('#diagram-13', {
-                viewBox: 270,
-                stroke: 45,
-                kind: 'segment2',
-                data: [20, 15.1, 12.2, 21.9, 7.7, 23.2],
-                gradient: [
-                    ['#fee300', '#30b069'],
-                    ['#612292', '#bd84e9'],
-                    ['#004ccf', '#00ffff'],
-                    ['#838a9a', '#d5d8de'],
-                    ['#11a360', '#32d197'],
-                    ['#9d308a', '#ff695b']
-                ],
-                maxValue: 100,
-            })
-            diagram('#diagram-14', {
-                viewBox: 270,
-                stroke: 45,
-                kind: 'segment2',
-                data: [20.8, 14.3, 12.2, 21.9, 7.7, 23.2],
-                gradient: [
-                    ['#fee300', '#30b069'],
-                    ['#612292', '#bd84e9'],
-                    ['#004ccf', '#00ffff'],
-                    ['#838a9a', '#d5d8de'],
-                    ['#11a360', '#32d197'],
-                    ['#9d308a', '#ff695b']
-                ],
-                maxValue: 100,
-            })
-            diagram('#diagram-15', {
-                viewBox: 270,
-                stroke: 45,
-                kind: 'segment2',
-                data: [20, 15.1, 12.2, 21.9, 7.7, 23.2],
-                gradient: [
-                    ['#fee300', '#30b069'],
-                    ['#612292', '#bd84e9'],
-                    ['#004ccf', '#00ffff'],
-                    ['#838a9a', '#d5d8de'],
-                    ['#11a360', '#32d197'],
-                    ['#9d308a', '#ff695b']
-                ],
-                maxValue: 100,
-            })
-            diagram('#diagram-16', {
-                viewBox: 270,
-                stroke: 45,
-                kind: 'segment2',
-                data: [20.8, 14.3, 12.2, 21.9, 7.7, 23.2],
-                gradient: [
-                    ['#fee300', '#30b069'],
-                    ['#612292', '#bd84e9'],
-                    ['#004ccf', '#00ffff'],
-                    ['#838a9a', '#d5d8de'],
-                    ['#11a360', '#32d197'],
-                    ['#9d308a', '#ff695b']
-                ],
-                maxValue: 100,
-            })
-            diagram('#diagram-17', {
-                viewBox: 270,
-                stroke: 45,
-                kind: 'segment2',
-                data: [20, 15.1, 12.2, 21.9, 7.7, 23.2],
-                gradient: [
-                    ['#fee300', '#30b069'],
-                    ['#612292', '#bd84e9'],
-                    ['#004ccf', '#00ffff'],
-                    ['#838a9a', '#d5d8de'],
-                    ['#11a360', '#32d197'],
-                    ['#9d308a', '#ff695b']
-                ],
-                maxValue: 100,
-            })
-            diagram('#diagram-18', {
-                viewBox: 270,
-                stroke: 45,
-                kind: 'segment2',
-                data: [20.8, 14.3, 12.2, 21.9, 7.7, 23.2],
-                gradient: [
-                    ['#fee300', '#30b069'],
-                    ['#612292', '#bd84e9'],
-                    ['#004ccf', '#00ffff'],
-                    ['#838a9a', '#d5d8de'],
-                    ['#11a360', '#32d197'],
-                    ['#9d308a', '#ff695b']
-                ],
-                maxValue: 100,
-            })
-            diagram('#diagram-19', {
-                viewBox: 270,
-                stroke: 45,
-                kind: 'segment2',
-                data: [20, 15.1, 12.2, 21.9, 7.7, 23.2],
-                gradient: [
-                    ['#fee300', '#30b069'],
-                    ['#612292', '#bd84e9'],
-                    ['#004ccf', '#00ffff'],
-                    ['#838a9a', '#d5d8de'],
-                    ['#11a360', '#32d197'],
-                    ['#9d308a', '#ff695b']
-                ],
-                maxValue: 100,
-            })
-            diagram('#diagram-20', {
-                viewBox: 270,
-                stroke: 45,
-                kind: 'segment2',
-                data: [20.8, 14.3, 12.2, 21.9, 7.7, 23.2],
-                gradient: [
-                    ['#fee300', '#30b069'],
-                    ['#612292', '#bd84e9'],
-                    ['#004ccf', '#00ffff'],
-                    ['#838a9a', '#d5d8de'],
-                    ['#11a360', '#32d197'],
-                    ['#9d308a', '#ff695b']
-                ],
-                maxValue: 100,
-            })
-            diagram('#diagram-21', {
-                viewBox: 270,
-                stroke: 45,
-                kind: 'segment2',
-                data: [20, 15.1, 12.2, 21.9, 7.7, 23.2],
-                gradient: [
-                    ['#fee300', '#30b069'],
-                    ['#612292', '#bd84e9'],
-                    ['#004ccf', '#00ffff'],
-                    ['#838a9a', '#d5d8de'],
-                    ['#11a360', '#32d197'],
-                    ['#9d308a', '#ff695b']
-                ],
-                maxValue: 100,
-            })
-            diagram('#diagram-22', {
-                viewBox: 270,
-                stroke: 45,
-                kind: 'segment2',
-                data: [20.8, 14.3, 12.2, 21.9, 7.7, 23.2],
-                gradient: [
-                    ['#fee300', '#30b069'],
-                    ['#612292', '#bd84e9'],
-                    ['#004ccf', '#00ffff'],
-                    ['#838a9a', '#d5d8de'],
-                    ['#11a360', '#32d197'],
-                    ['#9d308a', '#ff695b']
-                ],
-                maxValue: 100,
-            })
+            if ($('.analityc-graphics').length) {
+                /*Init Diagrams -- set id to diagram viewbox -- */
+                diagram('#diagram-01', {
+                    stroke: 30,
+                    kind: 'triple2',
+                    data: [1446.2, 1598.9],
+                    animate: true,
+                    maxValue: 2050
+                });
+                diagram('#diagram-02', {
+                    stroke: 30,
+                    kind: 'triple2',
+                    data: [1446.2, 1598.9],
+                    animate: true,
+                    maxValue: 2050
+                });
+                diagram('#diagram-03', {
+                    stroke: 30,
+                    kind: 'triple2',
+                    data: [1446.2, 1598.9],
+                    animate: true,
+                    maxValue: 2050
+                });
+                diagram('#diagram-1', {
+                    stroke: 30,
+                    kind: 'triple',
+                    data: [1446.2, 1597.2],
+                    animate: true,
+                    maxValue: 2070,
+                });
+                diagram('#diagram-2', {
+                    stroke: 30,
+                    kind: 'triple',
+                    data: [1446.2, 1598.9],
+                    animate: true,
+                    maxValue: 2050,
+                });
+                diagram('#diagram-3', {
+                    stroke: 30,
+                    kind: 'triple',
+                    data: [1446.2, 1598.9],
+                    animate: true,
+                    maxValue: 2050,
+                });
+                diagram('#diagram-4', {
+                    viewBox: 390,
+                    stroke: 60,
+                    kind: 'ifinite',
+                    data: [1921.7],
+                    gradient: ['#008ADF', '#00E6F9'],
+                    valClass: ['large-diagram__value-lightblue', 'large-diagram__value-blue'],
+                    maxValue: 1665.5,
+                    animate: true,
+                });
+                diagram('#diagram-5', {
+                    viewBox: 390,
+                    stroke: 60,
+                    kind: 'ifinite',
+                    data: [1364.5],
+                    gradient: ['#9D308A', '#ED5F64'],
+                    valClass: ['large-diagram__value-pink', 'large-diagram__value-violet'],
+                    maxValue: 1865.5,
+                    animate: true,
+                });
+                diagram('#diagram-6', {
+                    viewBox: 197,
+                    stroke: 19,
+                    kind: 'segment',
+                    data: [150.7, 60.8, 35.2, 100.5],
+                    gradient: [
+                        ['#60bc50', '#fee300'],
+                        ['#e00242', '#400f80'],
+                        ['#008cde', '#00afea'],
+                        ['#9da2af', '#cfd3d9']
+                    ],
+                    maxValue: 150.7 + 60.8 + 35.2 + 100.5,
+                    padding: 15,
+                });
+                diagram('#diagram-7', {
+                    viewBox: 197,
+                    stroke: 19,
+                    kind: 'segment',
+                    data: [21.4, 28.8, 48.4],
+                    gradient: [
+                        ['#60bc50', '#fee300'],
+                        ['#008cde', '#00afea'],
+                        ['#e00242', '#400f80']
+                    ],
+                    maxValue: 21.4 + 28.8 + 48.4,
+                    padding: 15
+                });
+                diagram('#diagram-8', {
+                    viewBox: 180,
+                    stroke: 19,
+                    kind: 'dashed',
+                    data: [1637.3, 1167.7],
+                    gradient: [
+                        ['#e6edf3', '#e6edf3'],
+                        ['#60bc50', '#fee300']
+                    ],
+                    maxValue: 1637.3,
+                });
+                diagram('#diagram-9', {
+                    viewBox: 180,
+                    stroke: 19,
+                    kind: 'dashed',
+                    data: [113.4, 46.5],
+                    gradient: [
+                        ['#e6edf3', '#e6edf3'],
+                        ['#fc0037', '#091395']
+                    ],
+                    maxValue: 113.4,
+                });
+                diagram('#diagram-10', {
+                    viewBox: 270,
+                    stroke: 45,
+                    kind: 'segment2',
+                    data: [20.8, 14.3, 12.2, 21.9, 7.7, 23.2],
+                    gradient: [
+                        ['#fee300', '#30b069'],
+                        ['#612292', '#bd84e9'],
+                        ['#004ccf', '#00ffff'],
+                        ['#838a9a', '#d5d8de'],
+                        ['#11a360', '#32d197'],
+                        ['#9d308a', '#ff695b']
+                    ],
+                    maxValue: 100,
+                })
+                diagram('#diagram-11', {
+                    viewBox: 270,
+                    stroke: 45,
+                    kind: 'segment2',
+                    data: [20.8, 14.3, 12.2, 21.9, 7.7, 23.2],
+                    gradient: [
+                        ['#fee300', '#30b069'],
+                        ['#612292', '#bd84e9'],
+                        ['#004ccf', '#00ffff'],
+                        ['#838a9a', '#d5d8de'],
+                        ['#11a360', '#32d197'],
+                        ['#9d308a', '#ff695b']
+                    ],
+                    maxValue: 100,
+                })
+                diagram('#diagram-12', {
+                    viewBox: 270,
+                    stroke: 45,
+                    kind: 'segment2',
+                    data: [20.8, 14.3, 12.2, 21.9, 7.7, 23.2],
+                    gradient: [
+                        ['#fee300', '#30b069'],
+                        ['#612292', '#bd84e9'],
+                        ['#004ccf', '#00ffff'],
+                        ['#838a9a', '#d5d8de'],
+                        ['#11a360', '#32d197'],
+                        ['#9d308a', '#ff695b']
+                    ],
+                    maxValue: 100,
+                })
+                diagram('#diagram-13', {
+                    viewBox: 270,
+                    stroke: 45,
+                    kind: 'segment2',
+                    data: [20, 15.1, 12.2, 21.9, 7.7, 23.2],
+                    gradient: [
+                        ['#fee300', '#30b069'],
+                        ['#612292', '#bd84e9'],
+                        ['#004ccf', '#00ffff'],
+                        ['#838a9a', '#d5d8de'],
+                        ['#11a360', '#32d197'],
+                        ['#9d308a', '#ff695b']
+                    ],
+                    maxValue: 100,
+                })
+                diagram('#diagram-14', {
+                    viewBox: 270,
+                    stroke: 45,
+                    kind: 'segment2',
+                    data: [20.8, 14.3, 12.2, 21.9, 7.7, 23.2],
+                    gradient: [
+                        ['#fee300', '#30b069'],
+                        ['#612292', '#bd84e9'],
+                        ['#004ccf', '#00ffff'],
+                        ['#838a9a', '#d5d8de'],
+                        ['#11a360', '#32d197'],
+                        ['#9d308a', '#ff695b']
+                    ],
+                    maxValue: 100,
+                })
+                diagram('#diagram-15', {
+                    viewBox: 270,
+                    stroke: 45,
+                    kind: 'segment2',
+                    data: [20, 15.1, 12.2, 21.9, 7.7, 23.2],
+                    gradient: [
+                        ['#fee300', '#30b069'],
+                        ['#612292', '#bd84e9'],
+                        ['#004ccf', '#00ffff'],
+                        ['#838a9a', '#d5d8de'],
+                        ['#11a360', '#32d197'],
+                        ['#9d308a', '#ff695b']
+                    ],
+                    maxValue: 100,
+                })
+                diagram('#diagram-16', {
+                    viewBox: 270,
+                    stroke: 45,
+                    kind: 'segment2',
+                    data: [20.8, 14.3, 12.2, 21.9, 7.7, 23.2],
+                    gradient: [
+                        ['#fee300', '#30b069'],
+                        ['#612292', '#bd84e9'],
+                        ['#004ccf', '#00ffff'],
+                        ['#838a9a', '#d5d8de'],
+                        ['#11a360', '#32d197'],
+                        ['#9d308a', '#ff695b']
+                    ],
+                    maxValue: 100,
+                })
+                diagram('#diagram-17', {
+                    viewBox: 270,
+                    stroke: 45,
+                    kind: 'segment2',
+                    data: [20, 15.1, 12.2, 21.9, 7.7, 23.2],
+                    gradient: [
+                        ['#fee300', '#30b069'],
+                        ['#612292', '#bd84e9'],
+                        ['#004ccf', '#00ffff'],
+                        ['#838a9a', '#d5d8de'],
+                        ['#11a360', '#32d197'],
+                        ['#9d308a', '#ff695b']
+                    ],
+                    maxValue: 100,
+                })
+                diagram('#diagram-18', {
+                    viewBox: 270,
+                    stroke: 45,
+                    kind: 'segment2',
+                    data: [20.8, 14.3, 12.2, 21.9, 7.7, 23.2],
+                    gradient: [
+                        ['#fee300', '#30b069'],
+                        ['#612292', '#bd84e9'],
+                        ['#004ccf', '#00ffff'],
+                        ['#838a9a', '#d5d8de'],
+                        ['#11a360', '#32d197'],
+                        ['#9d308a', '#ff695b']
+                    ],
+                    maxValue: 100,
+                })
+                diagram('#diagram-19', {
+                    viewBox: 270,
+                    stroke: 45,
+                    kind: 'segment2',
+                    data: [20, 15.1, 12.2, 21.9, 7.7, 23.2],
+                    gradient: [
+                        ['#fee300', '#30b069'],
+                        ['#612292', '#bd84e9'],
+                        ['#004ccf', '#00ffff'],
+                        ['#838a9a', '#d5d8de'],
+                        ['#11a360', '#32d197'],
+                        ['#9d308a', '#ff695b']
+                    ],
+                    maxValue: 100,
+                })
+                diagram('#diagram-20', {
+                    viewBox: 270,
+                    stroke: 45,
+                    kind: 'segment2',
+                    data: [20.8, 14.3, 12.2, 21.9, 7.7, 23.2],
+                    gradient: [
+                        ['#fee300', '#30b069'],
+                        ['#612292', '#bd84e9'],
+                        ['#004ccf', '#00ffff'],
+                        ['#838a9a', '#d5d8de'],
+                        ['#11a360', '#32d197'],
+                        ['#9d308a', '#ff695b']
+                    ],
+                    maxValue: 100,
+                })
+                diagram('#diagram-21', {
+                    viewBox: 270,
+                    stroke: 45,
+                    kind: 'segment2',
+                    data: [20, 15.1, 12.2, 21.9, 7.7, 23.2],
+                    gradient: [
+                        ['#fee300', '#30b069'],
+                        ['#612292', '#bd84e9'],
+                        ['#004ccf', '#00ffff'],
+                        ['#838a9a', '#d5d8de'],
+                        ['#11a360', '#32d197'],
+                        ['#9d308a', '#ff695b']
+                    ],
+                    maxValue: 100,
+                })
+                diagram('#diagram-22', {
+                    viewBox: 270,
+                    stroke: 45,
+                    kind: 'segment2',
+                    data: [20.8, 14.3, 12.2, 21.9, 7.7, 23.2],
+                    gradient: [
+                        ['#fee300', '#30b069'],
+                        ['#612292', '#bd84e9'],
+                        ['#004ccf', '#00ffff'],
+                        ['#838a9a', '#d5d8de'],
+                        ['#11a360', '#32d197'],
+                        ['#9d308a', '#ff695b']
+                    ],
+                    maxValue: 100,
+                })
+                diagram('#diagram-23', {
+                    viewBox: 270,
+                    stroke: 45,
+                    kind: 'segment3',
+                    data: [68.8, 10.0, 12.5, 0.7],
+                    gradient: [
+                        ['#9d308a', '#ff695b'],
+                        ['#004ccf', '#00ffff'],
+                        ['#fee300', '#30b069'],
+                        ['#ffd958', '#fca500']
+                    ],
+                    maxValue: 92,
+                })
+                diagram('#diagram-24', {
+                    viewBox: 270,
+                    stroke: 45,
+                    kind: 'segment3',
+                    data: [68.8, 10.0, 12.5, 0.7],
+                    gradient: [
+                        ['#9d308a', '#ff695b'],
+                        ['#004ccf', '#00ffff'],
+                        ['#fee300', '#30b069'],
+                        ['#ffd958', '#fca500']
+                    ],
+                    maxValue: 92,
+                })
+                diagram('#diagram-25', {
+                    viewBox: 270,
+                    stroke: 45,
+                    kind: 'segment3',
+                    data: [50.0, 50.0],
+                    gradient: [
+                        ['#9d308a', '#ff695b'],
+                        ['#fee300', '#30b069']
+                    ],
+                    maxValue: 100,
+                })
+            }
+
         });
     </script>
     <script src="assets/scripts/svg4everybody.min.js"></script>
