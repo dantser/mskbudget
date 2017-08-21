@@ -6,15 +6,15 @@ include ../../blocks/table/table
 include ../../blocks/dropdown-block/dropdown-block
 
 mixin budget_aip()
-  section.main._basic.basic-budget.sections__item
+  section.main._basic.basic-budget.sections__item.budget_aip
     .wrapper
       +page-header('адресная инвестиционная программа', false, true).budget_aip__page-header
 
     //- Tab 1
     .wrapper.wrapper_widget
       .analityc-widget.analityc-widget_aip.load-anim-fade(data-delay="1500")
-        +analityc-widgethead-income()
-        +analityc-graphics-round('income1')._approved.active
+        +analityc-widgethead-aip().analityc-widgethead-aip
+        +analityc-graphics-aip('income1')._approved.active
         +analityc-table()._approved
           +table-income(getData('income'))
         +analityc-graphics-column('income1')._changes

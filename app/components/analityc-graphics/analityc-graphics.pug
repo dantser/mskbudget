@@ -63,9 +63,9 @@ mixin analityc-graphics-round(legendtype)
         +legend(getData('legend-expenses4')).analityc-graphics__legend
       if legendtype == 'expenses5'
         +legend(getData('legend-expenses5')).analityc-graphics__legend
-     
-     
-     
+
+
+
 mixin analityc-graphics-round2(legendtype)
   +b.analityc-graphics&attributes(attributes)._round
     +e.P.periodtext
@@ -126,8 +126,8 @@ mixin analityc-graphics-round2(legendtype)
         +legend(getData('legend-expenses4')).analityc-graphics__legend
       if legendtype == 'expenses5'
         +legend(getData('legend-expenses5')).analityc-graphics__legend
-             
-             
+
+
 mixin analityc-graphics-round3(legendtype)
   +b.analityc-graphics&attributes(attributes)._round
     +e.P.periodtext
@@ -248,7 +248,7 @@ mixin analityc-graphics-round4(legendtype)
         +legend(getData('legend-expenses4')).analityc-graphics__legend
       if legendtype == 'expenses5'
         +legend(getData('legend-expenses5')).analityc-graphics__legend
-          
+
 //- legendtype - тип легенды(json файл)
 mixin analityc-graphics-column(legendtype, expenses)
   +b.analityc-graphics&attributes(attributes)._column
@@ -260,7 +260,7 @@ mixin analityc-graphics-column(legendtype, expenses)
         +e.col.swiper-slide
           +e.P.year 2017
           +e.graphic._column
-            .column1 
+            .column1
               .column__value 1976,5
               .column-area.column-area1
                 .column-value 495,4
@@ -317,7 +317,7 @@ mixin analityc-graphics-column(legendtype, expenses)
           +e.SPAN.period-left
           +e.P.year 2018
           +e.graphic._column
-            .column1 
+            .column1
               .column__value 1976,5
               .column-area.column-area1
                 .column-value 495,4
@@ -374,7 +374,7 @@ mixin analityc-graphics-column(legendtype, expenses)
           +e.SPAN.period-right
           +e.P.year 2019
           +e.graphic._column
-            .column1 
+            .column1
               .column__value 1976,5
               .column-area.column-area1
                 .column-value 495,4
@@ -516,11 +516,11 @@ mixin analityc-graphics-line(title, data)
       each obj in data
         +e.DIV(class="__line_"+obj.color+"")
           if obj.strong
-            +e.P.line-title 
+            +e.P.line-title
               strong= obj.title
           else
             +e.P.line-title= obj.title
-          +e.line-values 
+          +e.line-values
             = obj.value1
             span /
             = obj.value2
@@ -575,7 +575,7 @@ mixin analityc-graphics-line-alt(data)
             +e.line-bar._overwidth
               +e.line-total._altred
               +e.line-fill
-                +e.line-value= obj.value  
+                +e.line-value= obj.value
             +e.SPAN.line-bar-value= obj.barvalue
 
 mixin analityc-graphics-mix(data)
@@ -587,7 +587,7 @@ mixin analityc-graphics-mix(data)
       each item in data.item
         +e.line
           if item.strong
-            +e.P.title 
+            +e.P.title
               strong= item.title
           else
             +e.P.title= item.title
@@ -595,14 +595,14 @@ mixin analityc-graphics-mix(data)
           +e.line-wrap
             if item.overwidth
               +e.line-bar._overwidth
-                +e.line-values 
+                +e.line-values
                   = item.value1
                   span /
                   +e.SPAN.js-grmix-val= item.value2
                 +e.line-fill
             else
               +e.line-bar
-                +e.line-values 
+                +e.line-values
                   = item.value1
                   span /
                   +e.SPAN.js-grmix-val= item.value2
@@ -624,10 +624,10 @@ mixin analityc-graphics-js-line(data)
             +e.line-bar
               +e.line-total._altred
               +e.line-fill
-                +e.line-values 
+                +e.line-values
                   = item.value1
                   span /
-                  = item.value2 
+                  = item.value2
               +e.SPAN.line-bar-value= item.barvalue
           +e.right-block
             each items in item.items
@@ -636,10 +636,10 @@ mixin analityc-graphics-js-line(data)
                 +e.line-bar
                   +e.line-total._altred
                   +e.line-fill
-                    +e.line-values 
+                    +e.line-values
                       = items.value1
                       span /
-                      = items.value2 
+                      = items.value2
                   +e.SPAN.line-bar-value= items.barvalue
       else
         +e.line
@@ -648,10 +648,10 @@ mixin analityc-graphics-js-line(data)
             +e.line-bar
               +e.line-total._altred
               +e.line-fill
-                +e.line-values 
+                +e.line-values
                   = item.value1
                   span /
-                  = item.value2 
+                  = item.value2
               +e.SPAN.line-bar-value= item.barvalue
           +e.right-block
             each items in item.items
@@ -660,12 +660,12 @@ mixin analityc-graphics-js-line(data)
                 +e.line-bar
                   +e.line-total._altred
                   +e.line-fill
-                    +e.line-values 
+                    +e.line-values
                       = items.value1
                       span /
-                      = items.value2 
+                      = items.value2
                   +e.SPAN.line-bar-value= items.barvalue
-            
+
             //- data - json файл с данными для графиков
 mixin analityc-graphics-line-vertical(data, isWide)
   +b.analityc-graphics-line-vertical&attributes(attributes)
@@ -791,7 +791,7 @@ mixin analityc-graphics-line-vertical-alt(data)
         +e.caption
           +e.STRONG.caption-year= item.year
           +e.SPAN.caption-text= item.text
-          
+
 mixin analityc-graphics-bars(data)
   +b.analityc-graphics-bars&attributes(attributes)
 
@@ -844,7 +844,7 @@ mixin analityc-graphics-bars-year(data)
         +e.caption
           +e.STRONG.caption-year= item.year
           +e.SPAN.caption-text= item.text
-          
+
 mixin analityc-graphics-bars-alt(data)
   +b.analityc-graphics-bars&attributes(attributes)
 
@@ -889,7 +889,7 @@ mixin analityc-graphics-bars2(data)
                 +e.percent= item.changes[1]
             else
               +e.line-fill._transparentred
-              
+
         +e.caption
           +e.STRONG.caption-year= item.year
           +e.SPAN.caption-text= item.text
@@ -977,7 +977,7 @@ mixin analityc-graphics-govdebt-changes()
     span.analityc-graphics_round-prev
     +b.legend.__legend
       +e.P.item._altgreen Верхний предел государственного долга, млрд руб.
-          
+
 mixin analityc-graphics-govdebt-date()
   +b.analityc-graphics&attributes(attributes)._date
     +e.P.graphic-heading Объем государственного долга на 01.02.2017
@@ -1056,3 +1056,79 @@ mixin analityc-graphics-govdebt-repayment()
       +e.P.graphic-year 2021
       +e.P.graphic-year 2022
       +e.P.graphic-year 2025-2034
+
+
+//- @qluqua
+//- Используется на странице depfin_budget_moscow_aip
+mixin analityc-graphics-aip(legendtype)
+  +b.analityc-graphics&attributes(attributes)._aip
+    +e.P.periodtext
+      span Плановый период
+    .swiper-container.round-graphics_slider
+      +e.cols.swiper-wrapper
+        +e.col.swiper-slide
+          +e.P.year 2016
+          +e.graphic._round
+            .segment-diagram
+              .segment-diagram__value
+                p.segment-diagram__value-num 1885,7
+                span.segment-diagram__val.segment-diagram__val1 20,8%
+                span.segment-diagram__val.segment-diagram__val2  14,3%
+                span.segment-diagram__val.segment-diagram__val3  12,2%
+                span.segment-diagram__val.segment-diagram__val4  21,9%
+                span.segment-diagram__val.segment-diagram__val5  7,7%
+                span.segment-diagram__val.segment-diagram__val6  23,2%
+        +e.col.swiper-slide
+          +e.P.year 2017
+          +e.graphic._round
+            .segment-diagram#diagram-10
+              .segment-diagram__value
+                p.segment-diagram__value-num 1885,7
+                span.segment-diagram__val.segment-diagram__val1 20,8%
+                span.segment-diagram__val.segment-diagram__val2  14,3%
+                span.segment-diagram__val.segment-diagram__val3  12,2%
+                span.segment-diagram__val.segment-diagram__val4  21,9%
+                span.segment-diagram__val.segment-diagram__val5  7,7%
+                span.segment-diagram__val.segment-diagram__val6  23,2%
+        +e.col.swiper-slide
+          +e.SPAN.period-left
+          +e.P.year 2018
+          +e.graphic._round
+            .segment-diagram#diagram-11
+              .segment-diagram__value
+                p.segment-diagram__value-num 1885,7
+                span.segment-diagram__val.segment-diagram__val1 20,8%
+                span.segment-diagram__val.segment-diagram__val2  14,3%
+                span.segment-diagram__val.segment-diagram__val3  12,2%
+                span.segment-diagram__val.segment-diagram__val4  21,9%
+                span.segment-diagram__val.segment-diagram__val5  7,7%
+                span.segment-diagram__val.segment-diagram__val6  23,2%
+        +e.col.swiper-slide
+          +e.SPAN.period-right
+          +e.P.year 2019
+          +e.graphic._round
+            .segment-diagram#diagram-12
+              .segment-diagram__value
+                p.segment-diagram__value-num 1885,7
+                span.segment-diagram__val.segment-diagram__val1 20,8%
+                span.segment-diagram__val.segment-diagram__val2  14,3%
+                span.segment-diagram__val.segment-diagram__val3  12,2%
+                span.segment-diagram__val.segment-diagram__val4  21,9%
+                span.segment-diagram__val.segment-diagram__val5  7,7%
+                span.segment-diagram__val.segment-diagram__val6  23,2%
+      span.analityc-graphics_round-next
+      span.analityc-graphics_round-prev
+      if legendtype == 'income1'
+        +legend(getData('legend-income1')).analityc-graphics__legend
+      if legendtype == 'income2'
+        +legend(getData('legend-income2')).analityc-graphics__legend
+      if legendtype == 'expenses1'
+        +legend(getData('legend-expenses1')).analityc-graphics__legend
+      if legendtype == 'expenses2'
+        +legend(getData('legend-expenses2')).analityc-graphics__legend
+      if legendtype == 'expenses3'
+        +legend(getData('legend-expenses3')).analityc-graphics__legend
+      if legendtype == 'expenses4'
+        +legend(getData('legend-expenses4')).analityc-graphics__legend
+      if legendtype == 'expenses5'
+        +legend(getData('legend-expenses5')).analityc-graphics__legend
