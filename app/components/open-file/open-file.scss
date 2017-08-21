@@ -53,7 +53,7 @@
   }
 
   &__row {
-    &:nth-child(n+4) {
+    &:nth-child(n+12) {
       display: none;
     }
 
@@ -359,6 +359,7 @@
     }
   }
 
+  &__popup-submit,
   &__get {
     width: 290px;
     height: 38px;
@@ -475,9 +476,107 @@
     }
   }
 
-
   &__popup-termin {
     font-weight: 900;
   }
+
+  &__field {
+    
+    & + .open-file__field {
+      margin-top: 20px;
+    }
+  }
+
+  &__popup_request {
+    .open-file__popup-text {
+      font-size: 16px;
+      line-height: 20px;
+      letter-spacing: .1px;
+    }
+  }
+
+  /*popup form*/
+  .d-sii__form {
+    .d-sii__form_question {
+      margin: 0;
+
+      & + .d-sii__form_question {
+        margin-top: 56px;
+      }
+    }
+
+    legend {
+      font-family: $PFDinCondensedPro;
+      letter-spacing: 0px;
+    }
+
+    label {
+      display: inline-block;
+      width: 162px;
+      font-family: $PFDinCondensedPro;
+      font-size: 14px;
+      font-weight: 500;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    input {
+      display: inline-block;
+      padding: 0 10px;
+      width: 388px;
+      height: 35px;
+      border: 1px solid #d7d7d7;
+      border-radius: 1px;
+    }
+
+    .selectbox {
+      display: inline-block;
+      width: 388px;
+      font-size: 16px;
+      text-transform: none;
+      font-weight: 400;
+    }
+
+    .selectbox__select {
+      font-size: 16px;
+      text-transform: none;
+      font-weight: 400;
+    }
+
+    .jq-radio {
+      float: none;
+      top: auto;
+      margin-top: 0;
+      margin-bottom: 0;
+      margin-right: 7px;
+
+      & + label {
+        width: auto;
+        font-family: $PFDinTextPro;
+        font-size: 16px;
+        text-transform: none;
+        font-weight: 400;
+      }
+    }
+
+    .d-sii__chbox {
+      margin-right: 11px;
+
+      & + label {
+        width: auto;
+        font-family: $PFDinTextPro;
+        font-size: 16px;
+        text-transform: none;
+        font-weight: 400;
+      }
+    }
+
+    .open-file__popup-submit {
+      width: 202px;
+      padding-left: 0;
+    }
+
+  }
+
 }
 

@@ -21,21 +21,28 @@ export default () => {
 
 		const LINK_ABOUT = $('.open-file__link-about');
 		const LINK_TERMS = $('.open-file__link-terms');
+		const GET = $('.open-file__get');
 		const POPUP_CLOSE = $('.open-file__popup-close');
 
 		LINK_ABOUT.click(function(e) {
 			e.preventDefault();
-			$('.open-file__content').hide();
+			$('.open-file__content, .open-file__search-form').hide();
 			$('.open-file__popup_about').show();
 		})
 		LINK_TERMS.click(function(e) {
 			e.preventDefault();
-			$('.open-file__content').hide();
+			$('.open-file__content, .open-file__search-form').hide();
 			$('.open-file__popup_terms').show();
 		})
+		GET.click(function(e) {
+			e.preventDefault();
+			$('.open-file__content, .open-file__search-form').hide();
+			$('.open-file__popup_request').show();
+		})
+
 		POPUP_CLOSE.click(function() {
 			$('.open-file__popup').hide();
-			$('.open-file__content').show();
+			$('.open-file__content, .open-file__search-form').show();
 		})
 
 		const SORT = $('.open-file__sort-field');
