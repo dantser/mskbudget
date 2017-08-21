@@ -274,6 +274,7 @@ mixin widget-card-invest-program()
 							p.diagram-tabs__caption Прочее
 				+widget-card-bottom-link()
 
+//- вариант виджета с 3 пиктограммами
 mixin widget-card-gov-debt()
 	.tile__item.ui-state-default
 		.tile__inner
@@ -307,6 +308,49 @@ mixin widget-card-gov-debt()
 								span.diagram-tabs__span-js
 							p.diagram-tabs__caption Внешний долг
 				+widget-card-bottom-link()
+
+//- вариант виджета с 4 пиктограммами
+mixin widget-card-gov-debt-alt()
+	.tile__item.ui-state-default
+		.tile__inner
+			+widget-card().widget-card-gov-debt-alt
+				+widget-card-head('Государственный долг', false, false, true)
+				+widget-card-content()
+					.segment-diagram#diagram-7
+						.segment-diagram__value
+							span Всего
+							p.segment-diagram__value-num 77,2
+						p.segment-diagram__floating.segment-diagram__floating_green#floating_diagram-7-0 Бюджетные&nbsp;кредиты
+							span 21,4
+						p.segment-diagram__floating.segment-diagram__floating_blue#floating_diagram-7-1 Внутренний&nbsp;долг
+							span 28,8
+						p.segment-diagram__floating.segment-diagram__floating_violet#floating_diagram-7-2 Внешний&nbsp;долг
+							span 48,4
+						p.segment-diagram__floating.segment-diagram__floating_violet#floating_diagram-7-3 Прочее
+							span 48,4
+					ul.diagram-tabs.service__diagram-tabs
+						li.diagram-tabs__item.diagram-tabs__item_green
+							a(href="#").diagram-tabs__btn.diagram-tabs__btn_bank#button_diagram-7-0 21,4
+								span.diagram-tabs__span-hov
+								span.diagram-tabs__span-js
+							p.diagram-tabs__caption Бюджетные кредиты
+						li.diagram-tabs__item.diagram-tabs__item_blue
+							a(href="#").diagram-tabs__btn.diagram-tabs__btn_bag#button_diagram-7-1 28,8
+								span.diagram-tabs__span-hov
+								span.diagram-tabs__span-js
+							p.diagram-tabs__caption Внутренний долг
+						li.diagram-tabs__item.diagram-tabs__item_violet
+							a(href="#").diagram-tabs__btn.diagram-tabs__btn_build#button_diagram-7-2 48,4
+								span.diagram-tabs__span-hov
+								span.diagram-tabs__span-js
+							p.diagram-tabs__caption Внешний долг
+						li.diagram-tabs__item.diagram-tabs__item_gray
+							a(href="#").diagram-tabs__btn.diagram-tabs__btn_other#button_diagram-7-3 0,01
+								span.diagram-tabs__span-hov
+								span.diagram-tabs__span-js
+							p.diagram-tabs__caption Прочее
+				+widget-card-bottom-link()
+
 
 mixin widget-card-cities()
 	.tile__item.ui-state-default
@@ -615,6 +659,7 @@ mixin depfin-services-main()
 					+widget-card-gov-programs()
 					+widget-card-invest-program()
 					+widget-card-gov-debt()
+					+widget-card-gov-debt-alt()
 					+widget-card-cities()
 					+widget-card-gov-programs-result()
 					+widget-card-polls()
