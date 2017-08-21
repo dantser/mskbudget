@@ -5,18 +5,18 @@ mixin press()
     .wrapper.page-content-wrapper
       +page-header('Пресс-служба', ['Медиацентр'], true).__header
       +e.H2.heading.load-anim-fade(data-delay="1500") запрос информации для сми
-      +e.FORM(action='', method='POST', data-delay="1700").form.form.load-anim-fade
+      +e.FORM(action='', method='POST', data-delay="1700").form.form.load-anim-fade.js-form-validate
         .form__left-side
           .form__field.form__field_d1
             LABEL(for='i-author').form__label автор запроса
-            INPUT(id='i-author', type='text', name='author', value='', placeholder='ФИО').form__text
+            INPUT(id='i-author', type='text', name='fio', value='', placeholder='ФИО', required).form__text
           .form__field.form__field_d1
             LABEL(for='i-smi').form__label СМИ
             INPUT(id='i-smi', type='text', name='smi', value='').form__text
         .form__right-side
           .form__field.form__field_d2
             LABEL(for='i-email').form__label электронная почта
-            INPUT(id='i-email', type='email', name='email', value='', placeholder='e-mail').form__text
+            INPUT(id='i-email', type='email', name='email', value='', placeholder='e-mail', required).form__text
           .form__field.form__field_d2
             LABEL(for='i-tel').form__label контактный телефон
             INPUT(id='i-tel', type='tel', name='tel', value='').form__text

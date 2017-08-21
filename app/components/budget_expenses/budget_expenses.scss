@@ -6,6 +6,10 @@
       background-image: none !important;
     }
   }
+
+  .swiper-container {
+    overflow: visible;
+  }
   ._dp-alt.expenses__dp.active {
     display: inline-block;
   }
@@ -230,7 +234,7 @@
     margin-top: 26px;
   }
   .analityc-widget_expenses .analityc-control-group._classify {
-    margin-left: 1.1%;
+    margin-left: 1.9%;
     width: 46%;
     margin-top: 3px;
   }
@@ -252,7 +256,7 @@
     }
   }
   .analityc-widget_expenses .analityc-control-group._dp-alt {
-    margin-top: 13px;
+    margin-top: 20px;
   }
    .analityc-widget_expenses .analityc-control-group._dp-alt select.analityc-select_year {
      width: 17%;
@@ -297,6 +301,12 @@
   .analityc-widget_expenses .analityc-control-group._level .analityc-select {
     width: 100%;
     box-sizing: border-box;
+  }
+}
+
+@media screen and (max-width: 760px) and (min-width: 551px) {
+  .analityc-widget_expenses div.analityc-graphics__graphic_column {
+    width: 100%;
   }
 }
 
@@ -361,6 +371,9 @@
   .analityc-widget_expenses .analityc-graphics_column {
     padding-top: 17px;
   }
+  .analityc-widget_expenses .analityc-graphics__graphic_column {
+    margin: 0 auto;
+  }
   .analityc-widget_expenses .analityc-graphics_singleround {
     padding-top: 17px;
   }
@@ -374,9 +387,13 @@
     margin-top: 23px;
   }
   .analityc-widget_expenses .analityc-control-group._dp input.datepicker {
-    height: 26px;
+    height: 40px;
     line-height: 24px;
     padding: 0 5px;
+  }
+
+  .analityc-widget_expenses .analityc-select {
+    background-position: right 13px top 17px !important;
   }
 
   .analityc-widget_expenses .analityc-control-group._stage .analityc-select {
@@ -389,5 +406,16 @@
 
   .analityc-widget_expenses .analityc-control-group._level .analityc-select {
     padding: 0 0 0 12px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .analityc-widget_expenses .analityc-control-group._dp input.datepicker {
+    height: 26px;
+    line-height: 24px;
+    padding: 0 5px;
+  }
+  .analityc-widget_expenses .analityc-select {
+    background-position: right 7px top 11px!important;
   }
 }

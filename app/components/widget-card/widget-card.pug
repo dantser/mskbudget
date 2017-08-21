@@ -8,7 +8,8 @@ mixin widget-card()
 
 mixin widget-card-head(title, subtitle, datepicker, alt)
 	+e.head&attributes(attributes)
-		+e.H3.title= title
+		+e.title
+			h3= title
 			+icon('angle-arrow').arrow-open
 			+icon('pin').pin
 			+e.BUTTON.favor
