@@ -107,7 +107,7 @@ export default () => {
 
 // сворачивание-разворачивание карточек в мобильной версии
   if ($(window).width() < 581) {
-    $('.widget-card__title').each(function () {
+    $('.widget-card__title h3').each(function () {
       $(this).on('click', function () {
         var $this = $(this);
         if ($this.parents().hasClass('dropdown-block') || $this.parents().hasClass('wrapper_main') || $this.parents().hasClass('lk-services-second')) {   //убираем сворачивание виджетов в блоке дропдаунов и на главной
