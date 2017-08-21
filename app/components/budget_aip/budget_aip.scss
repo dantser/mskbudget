@@ -1,0 +1,320 @@
+.budget_aip {
+  &__page-header {
+    .page-head__title {
+      letter-spacing: 0;
+    }
+  }
+}
+
+// Стили взяты отсюда: https://dev.mskbudget.hungryboys.ru/budget_income.html
+.analityc-widget_aip {
+  padding-top: 22px;
+  padding-bottom: 35px;
+
+  .analityc-control-group._dp {
+    display: inline-block;
+    margin-top: 30px;
+    margin-left: 2.9%;
+    width: 33.6%;
+
+    input.datepicker {
+      padding: 0 16px;
+    }
+
+    &-alt.active {
+      display: inline-block;
+    }
+
+    @media (max-width: 768px) {
+      margin-top: 13px;
+    }
+  }
+  .swiper-container {
+    overflow: visible;
+  }
+
+  .analityc-select_disabled {
+    background-color: #e5e5e5 !important;
+  }
+
+  // .analityc-graphics_column {
+  //
+  //   .analityc-graphics__cols {
+  //
+  //     padding-right: 21px;
+  //   }
+  // }
+
+  .analityc-graphics, .analityc-table {
+    display: none;
+    &.active {
+      display: block;
+    }
+  }
+
+  .section__ar {
+    display: none;
+    position: absolute;
+    top: 50%;
+    z-index: 3000;
+    width: 21px;
+    height: 26px;
+    padding: 5px;
+
+    &_left {
+      right: 101%;
+      transform: rotate(180deg);
+
+      @media screen and (max-width: 480px) {
+        right: 98%;
+      }
+    }
+
+    &_right {
+      left: 101%;
+
+      @media screen and (max-width: 480px) {
+        left: 98%;
+      }
+    }
+
+    &_disabled {
+      opacity: 0;
+    }
+
+    @media (max-width: 1088px) {
+      display: inline !important;
+    }
+  }
+
+  .analityc-table {
+    @media screen and (max-width: 1100px) {
+      &_changes .table {
+        min-width: 980px;
+      }
+    }
+
+    &__wrapper {
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+  }
+
+  .analityc-control-group._dp-alt {
+    margin-top: 25px;
+    margin-left: 2.9%;
+  }
+
+ div.analityc-control-group._dp-alt {
+   @media (max-width: 1140px) {
+     margin-left: 1.9%;
+     .analityc-select {
+       &_month {
+         width: 28%;
+       }
+       &_year {
+         width: 17%;
+       }
+     }
+   }
+   @media (width: 1024px) {
+     width: calc(43.1% - 93px);
+     margin-top: 0;
+
+     .analityc-select {
+       margin-top: 0;
+     }
+   }
+
+   @media (max-width: 768px) {
+     width: 100%;
+     margin-top: 13px;
+   }
+ }
+
+  .analityc-control-switcher_default,
+  .analityc-control-buttons,
+  .analityc-control-switcher_big,
+  .analityc-control-group._dp {
+    display: none;
+    &.active {
+      display: inline-block;
+    }
+  }
+
+  .analityc-graphics_done {
+    .analityc-graphics__col {
+      @media (max-width: 550px) {
+        width: 100%;
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 1140px) {
+  .analityc-widget_aip .analityc-graphics_column .analityc-graphics__cols {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .basic-budget .analityc-widget_aip {
+    padding-bottom: 35px;
+  }
+}
+
+@media screen and (min-width: 1101px) and (max-width: 1140px) {
+  .analityc-widget_aip .analityc-control-group._dp {
+    width: 37.4%;
+  }
+}
+
+@media screen and (min-width: 761px) and (max-width: 1100px) {
+  .analityc-widget_aip .analityc-control-group._dp {
+    width: calc(45.2% - 70px);
+  }
+}
+
+@media screen and (max-width: 1140px) {
+.analityc-widget_aip .analityc-control-group._dp input.datepicker {
+    height: 31px;
+    line-height: 31px;
+  }
+}
+
+@media (width: 1024px) {
+  .analityc-widget_aip .analityc-control-group._dp {
+    margin-left: 1.9%;
+    width: 335.6px;
+    width: calc(45.2% - 93px);
+    margin-top: 0;
+  }
+
+  .analityc-control-buttons, .analityc-control-switcher {
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 551px) {
+  .analityc-widget_aip .analityc-control-group._dp {
+    width: 100%;
+    input.datepicker {
+      height: 52px;
+      line-height: 52px;
+      font-size: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .analityc-widget_aip .analityc-control-group._dp {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 551px) and (max-width: 760px) {
+  .analityc-widget_aip .analityc-graphics_round {
+    padding-top: 35px;
+  }
+  .analityc-widget_aip .analityc-graphics_column {
+    padding-top: 42px;
+  }
+  .analityc-widget_aip input.datepicker {
+    height: 58px;
+    line-height: 58;
+    font-size: 23px;
+    background-position: 97% 39%;
+  }
+  .analityc-widget_aip .analityc-control-group._dp:before {
+    top: 21px;
+  }
+  .basic-budget .analityc-widget_aip {
+    padding: 30px 40px 40px;
+  }
+  .analityc-widget_aip .analityc-graphics__legend {
+    margin-top: 56px;
+    height: inherit;
+  }
+  .analityc-widget_aip .analityc-more {
+    margin-top: 25px;
+    font-size: 29px;
+    &:before {
+      right: -33px;
+      top: 9px;
+    }
+  }
+  .analityc-widget_aip .analityc-control-group._dp input.datepicker {
+    height: 52px;
+    line-height: 50px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .analityc-widget_aip input.datepicker {
+    height: 42px;
+    line-height: 42px;
+    font-size: 13px;
+  }
+  .analityc-widget_aip .analityc-control-group._dp:before {
+    top: 5px;
+  }
+  .analityc-control-buttons + .analityc-control-switcher_large {
+    width: 100%;
+  }
+  .analityc-widget_aip .analityc-more {
+    margin-top: 0;
+    font-size: 18px;
+    &:before {
+      right: -22px;
+      top: 2px;
+    }
+  }
+  .analityc-widget_aip .analityc-graphics_column {
+    padding-top: 17px;
+  }
+  .analityc-widget_aip .analityc-graphics_singleround {
+    padding-top: 17px;
+  }
+  .basic-budget .analityc-widget_aip {
+    padding: 22px 15px 20px !important;
+  }
+  .analityc-widget_aip .analityc-graphics_round {
+    padding-top: 17px;
+  }
+  .analityc-widget_aip .analityc-graphics__legend {
+    margin-top: 23px;
+  }
+  .analityc-widget_aip .analityc-control-group._dp input.datepicker {
+    height: 40px;
+    line-height: 24px;
+    padding: 0 13px;
+  }
+  .analityc-widget_aip .analityc-graphics__graphic_column {
+    margin: 0 auto;
+  }
+
+  .analityc-widget_aip .analityc-control-group._stage .analityc-select {
+    padding: 0 0 0 12px;
+  }
+
+  .analityc-widget_aip .analityc-widgethead .analityc-control-buttons {
+    margin-top: 17px;
+  }
+
+  .analityc-widget_aip .analityc-control-group._level .analityc-select {
+    padding: 0 0 0 12px;
+  }
+  .analityc-widget_aip  .analityc-select {
+    background-position: right 13px top 17px !important;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .analityc-widget_aip .analityc-control-group._dp input.datepicker {
+    height: 26px;
+    line-height: 24px;
+    padding: 0 5px;
+  }
+  .analityc-widget_aip .analityc-select {
+    background-position: right 7px top 11px!important;
+  }
+}
