@@ -703,7 +703,7 @@ budget.extend("whatIsBudgetWeight", {
                         _this.cssDefinition();
                 });
 
-                if (!Modernizr.mobile) {
+                //if (!Modernizr.mobile) {
 
                         //ховер в левой части
                         this.elements.$zoneSurplus.on("mouseenter hover", function (event) {
@@ -788,17 +788,18 @@ budget.extend("whatIsBudgetWeight", {
                                         }, 1000);
                                 }
                         });
-                }
+                //}
 
                 //if (Modernizr.mobile) {
 
-                        this.elements.$zoneSurplus.on("click", function (event) {
-                                _this.rollToTheLeft();
-                                //if ($(window).width() < 800) {
-                                  $('.whatIsBudget-component:first-child .whatIsBudget-component__termin').click();
+                        $('.budgetScales-pattern._surplus, .budgetScales-activeZone._surplus').on("click", function (event) {
+                                $('.whatIsBudget-component:first-child .whatIsBudget-component__termin').click();
+
+                                /*if ($(window).width() < 1000) {
+                                  _this.rollToTheLeft();
                                   $('.budgetScales-supportingWeight._useOfSurplus').show();
                                   $('.budgetScales-supportingWeight._financingOfDeficit').hide();
-                                //}
+                                }*/
                         });
 
                         this.elements.$zoneBalance.on("click", function (event) {
@@ -806,13 +807,14 @@ budget.extend("whatIsBudgetWeight", {
                                 _this.alignmentToTheCenter();
                         });
 
-                        this.elements.$zoneDeficit.on("click", function (event) {
-                                _this.rollToTheRight();
-                                //if ($(window).width() < 800) {
-                                  $('.whatIsBudget-component:last-child .whatIsBudget-component__termin').click();
+                        $('.budgetScales-pattern._deficit, .budgetScales-activeZone._deficit').on("click", function (event) {
+                                $('.whatIsBudget-component:last-child .whatIsBudget-component__termin').click();
+
+                                /*if ($(window).width() < 1000) {
+                                  _this.rollToTheRight();
                                   $('.budgetScales-supportingWeight._financingOfDeficit').show();
                                   $('.budgetScales-supportingWeight._useOfSurplus').hide();
-                                //}
+                                }*/
                         });
                 //}
 
@@ -892,11 +894,11 @@ budget.extend("whatIsBudgetWeight", {
                         this.elements.$expenditures.css("display", "block");
                 }
 
-                var scrollTop = this.elements.$component.offset().top + this.elements.$component.outerHeight() + 100 - $window.height();
-
-                if (scrollTop > $window.scrollTop()) {
-                        TweenMax.to($("body, html"), 0.4, { scrollTop: scrollTop, ease: Quad.easeOut });
-                }
+                //var scrollTop = this.elements.$component.offset().top + this.elements.$component.outerHeight() + 100 - $window.height();
+//
+                //if (scrollTop > $window.scrollTop()) {
+                //        TweenMax.to($("body, html"), 0.4, { scrollTop: scrollTop, ease: Quad.easeOut });
+                //}
         },
         cssDefinition: function cssDefinition() {
 
@@ -952,12 +954,12 @@ budget.extend("whatIsBudgetWeight", {
                 this.elements.weight.$revenues.attr("data-status", "big");
                 this.elements.weight.$expenditures.attr("data-status", "");
 
-                var timeout1 = 2000,
-                    timeout2 = 4500;
+                var timeout1 = 0,
+                    timeout2 = 2500;
 
                 if ( msieversion() === 9 ) {
-                  timeout1 = 200;
-                  timeout2 = 400;
+                  timeout1 = 0;
+                  timeout2 = 200;
                 }
 
                 this.timeout = setTimeout(function () {
@@ -996,12 +998,12 @@ budget.extend("whatIsBudgetWeight", {
                   },'linear');
                 }*/
 
-                var timeout1 = 2000,
-                    timeout2 = 4500;
+                var timeout1 = 0,
+                    timeout2 = 2500;
 
                 if ( msieversion() === 9 ) {
-                  timeout1 = 200;
-                  timeout2 = 400;
+                  timeout1 = 0;
+                  timeout2 = 200;
                 }
 
                 this.elements.weight.$expenditures.attr("data-status", "big");
@@ -1043,6 +1045,7 @@ budget.extend("whatIsBudgetWeight", {
                 setTimeout(function () {
 
                         _this4.elements.weight.$revenues.attr("data-status", "");
+                        _this4.elements.weight.$expenditures.attr("data-status", "");
 
                         if ( msieversion() === 9 ) {
                           _this4.elements.weight.$useOfSurplus.animate({opacity: "0"}, 'slow', 'linear');
@@ -1082,6 +1085,8 @@ budget.extend("whatIsBudgetWeight", {
 
                 setTimeout(function () {
 
+                  _this5.elements.weight.$revenues.attr("data-status", "");
+                  _this5.elements.weight.$expenditures.attr("data-status", "");
 
                         if ( msieversion() === 9 ) {
                           _this5.elements.weight.$financingOfDeficit.animate({opacity: "0"}, 'slow', 'linear');
