@@ -50,6 +50,7 @@ import depfinServices from '../components/depfin-services-main/depfin-services-m
 import dropdown from '../blocks/dropdown-block/dropdown';
 import openFile from '../components/open-file/open-file';
 import rangeUi from '../blocks/range-ui/range-ui';
+import contestPopup from '../components/contest-popup/contestPopup';
 
 $(() => {
 
@@ -113,4 +114,5 @@ $(() => {
   aboutBudget();
   openFile();
   rangeUi();
+  contestPopup();
 });
