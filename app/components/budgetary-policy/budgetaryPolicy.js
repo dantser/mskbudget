@@ -13,7 +13,7 @@ export default () => {
     if ($(window).width() > 640) {
       setTimeout(function(){
         $('.d-slide__body-wrapper').scrollbar();
-      }, 1000);
+      }, 1500);
     }
 
   });
