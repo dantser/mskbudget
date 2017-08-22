@@ -24,6 +24,7 @@ export default () => {
 
     function setValue(event, ui) {
       let value = 0;
+
       if (!$.isNumeric(ui.value)) {
         value = optimal;
       } else {
@@ -83,13 +84,14 @@ export default () => {
     });
 
     $input.on('change', () => {
-      const newValue = $input.val();
+      const valueWithCorrectFloat = $input.val().replace(',','.');
+      const newValue = parseFloat(valueWithCorrectFloat);
 
-      if (max <= newValue >= min) {
+      if (newValue > min && newValue < max) {
         $slider.slider('value', newValue);
-      } else if (newValue < min) {
+      } else if (newValue <= min) {
         $slider.slider('value', min);
-      } else if (newValue > max) {
+      } else if (newValue >= max) {
         $slider.slider('value', max);
       }
     });
