@@ -59,7 +59,7 @@ export default function aboutBudgetPreparation() {
     return false
   }
   // переключение таба бюджет мск/федеральный
-  const TABLINK = $('.button-light');
+  const TABLINK = $('.d-abs__foot-content .button-light');
 
   TABLINK.each( function () {
     const EL = $(this);

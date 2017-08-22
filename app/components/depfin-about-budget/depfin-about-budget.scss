@@ -129,7 +129,7 @@
     border-bottom: 5px solid #fff;
     max-width: 1100px;
     position: absolute;
-    z-index: 1;
+    z-index: 0;
     width: 100%;
     left: 50%;
     bottom: 0;
@@ -164,8 +164,13 @@
     background: center center/100% 100% no-repeat;
     -webkit-transition: all 3s ease;
     transition: all 3s ease;
-    pointer-events: none
+    pointer-events: all !important;
 }
+
+@media (max-width: 800px) {
+  .budgetScales-pattern {pointer-events: none !important}
+}
+
 .budgetScales-pattern._surplus {
     left: 3px;
     background-image: url(../images/what-is-budget/pattern-surplus.png)

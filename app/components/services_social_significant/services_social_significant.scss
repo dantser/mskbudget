@@ -9,9 +9,258 @@
 
   &__content {
   	background-color: $color-white;
+  	margin-top: 32px;
+  }
+
+  &__search {
+    padding: 32px 40px 37px;
+    width: 613px;
+
+    .d-si__search {
+      height: 32px;
+      letter-spacing: -.8px;
+      text-transform: none;
+    }
+
+    .search__tooltip {
+      display: none!important;
+    }
   }
 }
 
+/*Таб Список*/
 .significant-list {
-	
+	padding: 0 40px 63px;
+
+	&__total {
+		font-family: $PFDinTextPro;
+		font-size: 14px;
+		color: #d5d5d5;
+	}
+
+  &__table-wrap {
+    width: 100%;
+    margin-top: 24px;
+
+    @media (max-width: 580px) {
+      overflow-x: scroll;
+      overflow-y: hidden;
+    }
+  }
+
+  &__table {
+    min-width: 560px;
+    font-size: 0;
+  }
+
+  &__rows {
+    
+  }
+
+	&__row {
+		padding: 18px 0 14px;
+    border-bottom: 1px solid #d5d5d5;
+
+    & + .open-file__row {
+      margin-top: 16px;
+    }
+	}
+
+	&__col {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 14px;
+
+    &_left {
+    	width: 52.5%;
+      white-space: nowrap;
+    }
+
+    &_center {
+    	width: 32%;
+    }
+
+    &_right {
+    	width: 15.5%;
+    }
+	}
+
+	&__caption {
+		padding-bottom: 12px;
+    font-family: $PFDinTextPro;
+    border-bottom: 3px solid #d5d5d5;
+
+    H3 {
+      padding: 0;
+      font-family: $PFDinCondensedPro;
+      font-size: 17px;
+      line-height: 21px;
+      color: #9f9f9f;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+	}
+
+	&__row-num,
+	&__row-title,
+	&__row-st,
+	&__row-date {
+		font-family: PFDinTextPro;
+		font-size: 16px;
+    font-weight: 500;
+	}
+
+	&__row-num {
+		display: inline-block;
+    vertical-align: top;
+		color: #d5d5d5;
+		margin-right: 15px;
+	}
+
+	&__row-title {
+		display: inline-block;
+    vertical-align: top;
+		color: $color-link;
+    text-decoration: none;
+    letter-spacing: -.4px;
+    white-space: normal;
+	}
+
+/*Таб Карта*/
+  &__map {
+    float: left;
+    width: 61%;
+    height: 100%;
+    background: #d5d5d5;
+  }
+
+  &_map {
+    @include clearfix;
+    padding: 0 14px 0 0;
+    height: 600px;
+
+    .significant-list {
+
+      &__table-wrap {
+        float: right;
+        width: 36.6%;
+        height: 100%;
+        margin-top: 0;
+      }
+
+      &__table {
+        min-width: auto;
+        height: 100%;
+      }
+      
+      &__caption {
+        margin-right: 40px;
+      }
+
+      &__main {
+        padding-right: 25px;
+        height: calc(100% - 48px); /*-caption*/
+        overflow-x: hidden;
+        overflow-y: scroll;
+      }
+
+      &__col {
+        &_left {
+          width: 100%;
+        }
+
+        &_center,
+        &_right {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+/*Таб отдельного проекта*/
+.significant-about {
+  padding: 26px 41px 26px;
+
+  &__back {
+    font-family: $PFDinCondensedPro;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: $color-link;
+    font-weight: 500;
+  }
+
+  &__wrap {
+    margin-top: 12px;
+  }
+
+  &__title {
+    font-family: $PFDinCondensedPro;
+    font-size: 25px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: -.6px;
+  }
+
+  &__subtitle {
+    display: block;
+    font-family: $PFDinCondensedPro;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-top: 5px;
+  }
+
+  &__text {
+    font-family: $PFDinTextPro;
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: .9px;
+    margin-top: 20px;
+  }
+
+  &__release {
+    display: block;
+    font-family: $PFDinTextPro;
+    font-size: 16px;
+    letter-spacing: 0px;
+    margin-top: 35px;
+  }
+
+  &__results {
+    font-family: $PFDinTextPro;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-top: 31px;
+
+    li {
+      list-style: none;
+      font-size: 14px;
+      text-transform: none;
+      font-weight: 400;
+      margin-top: 8px;
+
+      &:first-child {
+        margin-top: 14px;
+      }
+    }
+
+    i {
+      font-weight: 500;
+      color: #d5d5d5;
+      margin-right: 2px;
+    }
+  }
+
+  &__link {
+    display: block;
+    font-family: $PFDinTextPro;
+    font-size: 14px;
+    font-weight: 500;
+    color: $color-link;
+    letter-spacing: -.3px;
+    margin-top: 25px;
+  }
 }
