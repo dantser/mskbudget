@@ -4,6 +4,24 @@
       letter-spacing: 0;
     }
   }
+
+  // отступ по макету
+  // .analityc-widget_aip {
+  //   margin-bottom: 70px !important;
+  // }
+
+  // круглые графики
+  .analityc-graphics_aip {
+    margin-top: 60px;
+
+    .analityc-graphics__col {
+      width: 24.5%;
+    }
+
+    svg {
+      max-width: 100%;
+    }
+  }
 }
 
 // Стили взяты отсюда: https://dev.mskbudget.hungryboys.ru/budget_income.html
@@ -35,17 +53,15 @@
 
   .analityc-select_disabled {
     background-color: #e5e5e5 !important;
-  }
-
-  // .analityc-graphics_column {
+  } // .analityc-graphics_column {
   //
   //   .analityc-graphics__cols {
   //
   //     padding-right: 21px;
   //   }
   // }
-
-  .analityc-graphics, .analityc-table {
+  .analityc-graphics,
+  .analityc-table {
     display: none;
     &.active {
       display: block;
@@ -105,32 +121,32 @@
     margin-left: 2.9%;
   }
 
- div.analityc-control-group._dp-alt {
-   @media (max-width: 1140px) {
-     margin-left: 1.9%;
-     .analityc-select {
-       &_month {
-         width: 28%;
-       }
-       &_year {
-         width: 17%;
-       }
-     }
-   }
-   @media (width: 1024px) {
-     width: calc(43.1% - 93px);
-     margin-top: 0;
+  div.analityc-control-group._dp-alt {
+    @media (max-width: 1140px) {
+      margin-left: 1.9%;
+      .analityc-select {
+        &_month {
+          width: 28%;
+        }
+        &_year {
+          width: 17%;
+        }
+      }
+    }
+    @media (width: 1024px) {
+      width: calc(43.1% - 93px);
+      margin-top: 0;
 
-     .analityc-select {
-       margin-top: 0;
-     }
-   }
+      .analityc-select {
+        margin-top: 0;
+      }
+    }
 
-   @media (max-width: 768px) {
-     width: 100%;
-     margin-top: 13px;
-   }
- }
+    @media (max-width: 768px) {
+      width: 100%;
+      margin-top: 13px;
+    }
+  }
 
   .analityc-control-switcher_default,
   .analityc-control-buttons,
@@ -175,7 +191,7 @@
 }
 
 @media screen and (max-width: 1140px) {
-.analityc-widget_aip .analityc-control-group._dp input.datepicker {
+  .analityc-widget_aip .analityc-control-group._dp input.datepicker {
     height: 31px;
     line-height: 31px;
   }
@@ -189,7 +205,8 @@
     margin-top: 0;
   }
 
-  .analityc-control-buttons, .analityc-control-switcher {
+  .analityc-control-buttons,
+  .analityc-control-switcher {
     margin-top: 0;
   }
 }
@@ -257,7 +274,7 @@
   .analityc-widget_aip .analityc-control-group._dp:before {
     top: 5px;
   }
-  .analityc-control-buttons + .analityc-control-switcher_large {
+  .analityc-control-buttons+.analityc-control-switcher_large {
     width: 100%;
   }
   .analityc-widget_aip .analityc-more {
@@ -303,7 +320,7 @@
   .analityc-widget_aip .analityc-control-group._level .analityc-select {
     padding: 0 0 0 12px;
   }
-  .analityc-widget_aip  .analityc-select {
+  .analityc-widget_aip .analityc-select {
     background-position: right 13px top 17px !important;
   }
 }

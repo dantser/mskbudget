@@ -1,15 +1,15 @@
 include ../../blocks/icon/icons
 include ../../blocks/button/button
 
-mixin contest_popup()
+mixin contest-popup()
 
 	mixin participant(number)
 		+e.participant
 			+icon('close').hide
 
-			+e.participant-number 
+			+e.P.participant-number 
 				| Участник №
-				+e.js-participant-number 
+				+e.SPAN.js-participant-number 
 
 			+participant-field('ФИО', 'fio')
 			+participant-field('Дата рождения', 'birth')
@@ -32,7 +32,7 @@ mixin contest_popup()
 			if (isOther)
 				+e.INPUT(type='text' name=type+'-'+'other')
 
-	+b.contest_popup&attributes(attributes)
+	+b.contest-popup&attributes(attributes)
 		+e.head
 			+e.H3.title Заявка
 			+icon('close').close

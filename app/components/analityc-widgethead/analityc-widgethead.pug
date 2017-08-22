@@ -2,6 +2,38 @@ include ../../blocks/legend/legend
 include ../../blocks/icon/icons
 include ../../blocks/checkbox/checkbox
 include ../../blocks/link/link
+
+//- type - тип шапки доходов бюджета (один из четырех)
+//- используется на странице depfin_budget_moscow_aip
+mixin analityc-widgethead-aip(type)
+  +b.analityc-widgethead._aip&attributes(attributes)
+    +e.row
+      .analityc-control-switcher.analityc-control-switcher_default.active
+        a(href="#").active Финансовые показатели
+        a(href="#") ожидаемые конечные результаты
+      .analityc-control-group.analityc-control-group_period
+        span Период
+        select.analityc-select
+          option(selected) 2016—2019
+          option 2015—2016
+          option 2014—2015
+      .analityc-control-group.analityc-control-group_classify
+        span Классификация расходов
+        select.analityc-select
+          option(selected) Целевые статьи (программный и непрограммный тип)
+          option Разделы и подразделы
+          option Ведомства
+          option Виды
+    +e.row
+      .analityc-control-buttons.active
+        a(href="#").analityc-control-button.analityc-control-button_graphics.active
+          +icon('graphic', true)
+        a(href="#").analityc-control-button.analityc-control-button_table
+          +icon('table', true)
+      .analityc-control-switcher.analityc-control-switcher_default.active
+        a(href="#").active доля от общей суммы, %
+        a(href="#") млрд. руб.
+
 //- type - тип шапки доходов бюджета (один из четырех)
 mixin analityc-widgethead-income(type)
   +b.analityc-widgethead&attributes(attributes)
@@ -209,7 +241,7 @@ mixin analityc-widgethead-main()
           select.analityc-select
             option(selected) Без межбюджетных трансфертов
             option с трансфертами
-      
+
       .analityc-control-group.analityc-control-group_buttons
         .analityc-control-switcher.analityc-control-switcher_large.active
           a(href="#" data-type='line').active млрд. руб.
@@ -373,7 +405,7 @@ mixin analityc-widgethead-analityc-income()
           select.analityc-select
             option(selected) Виды
             option с трансфертами
-            
+
       .analityc-control-group.analityc-control-group_comparison
         span Режим сравнения
         select.analityc-select
@@ -438,7 +470,7 @@ mixin analityc-widgethead-analityc-income()
                     label(for='bc') Общегосударственные вопросы
       .analityc-control-group.analityc-control-group_buttons
         .analityc-control-switcher.analityc-control-switcher_xl.active
-          
+
           a(href="#" data-type='pace').active темп роста к предыдущему периоду, %
           a(href="#" data-type='share') доля в общей сумме, %
           a(href="#" data-type='done') % исполнения
@@ -553,7 +585,7 @@ mixin analityc-widgethead-gp()
         select.analityc-select.analityc-select_stage
           option(selected) Фактическое исполнение
           option Закон о бюджете (утвержденный)
-          
+
       .analityc-control-group
         a(href='#').analityc-remove-group
           +icon('delete', true)
@@ -589,7 +621,7 @@ mixin analityc-widgethead-gp()
         select.analityc-select.analityc-select_transfer
           option(selected) Без межбюджетных трансфертов
           option с трансфертами
-        
+
         span.analityc-control-frame-title Режим сравнения
 
         select.analityc-select.analityc-select_compare
@@ -788,7 +820,7 @@ mixin analityc-widgethead-analytics-expenses()
         select.analityc-select.analityc-select_stage
           option(selected) Фактическое исполнение
           option Закон о бюджете (утвержденный)
-          
+
       .analityc-control-group
         a(href='#').analityc-remove-group
           +icon('delete', true)
@@ -833,7 +865,7 @@ mixin analityc-widgethead-analytics-expenses()
           select.analityc-select
             option(selected) Без межбюджетных трансфертов
             option с трансфертами
-    
+
       .analityc-control-group.analityc-control-group_classify
         span Классификация расходов
         select.analityc-select
