@@ -1,9 +1,11 @@
 include ../../components/page-header/page-header
+include ../../components/searchForm/searchForm
 include ../../blocks/icon/icons
 include ../../blocks/button/button
 include ../../blocks/link/link
 include ../../blocks/buttons-set/buttons-set
 include ../../blocks/tabs/tabs
+include ../../blocks/search-form/search-form
 
 mixin services_social_significant()
 	+b.SECTION.significant.section__item&attributes(attributes)
@@ -14,6 +16,36 @@ mixin services_social_significant()
 
 			+tabs.significant__content
 				+tabs-tab(data-tab-group="significantTabs", data-tab="significantOne").active.significant-list__
-					+e.P.text 1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam facilis asperiores reiciendis magni ratione. Ipsam, excepturi sequi repudiandae voluptates omnis veniam, numquam nam consequatur quo ullam animi illo! Assumenda, minima!
+
+					+searchFormWidget('Поиск').significant-list__search
+					+e.total Всего учреждений 1 226
+					+e.table-wrap
+						+e.table
+
+							+e.rows.significant-list__caption
+								+e.H3.col._left Наименование проекта
+								+e.H3.col._center Адрес реализации проекта
+								+e.H3.col._right Предполагаемый срок реализации
+
+							+e.rows.significant-list__main
+
+								+e.row
+									+e.col._left
+										+e.row-num 1
+										+e.A(href='#').row-title ГБУ ГП №180 ДЗМ
+									+e.col._center
+										+e.row-st Улица Пушкина дом 1
+									+e.col._right
+										+e.row-date 2019 год
+
+								+e.row
+									+e.col._left
+										+e.row-num 1
+										+e.A(href='#').row-title ГБУ ГП №180 ДЗМ
+									+e.col._center
+										+e.row-st Улица Пушкина дом 1
+									+e.col._right
+										+e.row-date 2019 год
+
 				+tabs-tab(data-tab-group="significantTabs", data-tab="significantTwo").significant-map__
 					+e.P.text 2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam facilis asperiores reiciendis magni ratione. Ipsam, excepturi sequi repudiandae voluptates omnis veniam, numquam nam consequatur quo ullam animi illo! Assumenda, minima!

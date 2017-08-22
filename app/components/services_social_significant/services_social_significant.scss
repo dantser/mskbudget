@@ -9,9 +9,74 @@
 
   &__content {
   	background-color: $color-white;
+  	margin-top: 32px;
   }
 }
 
 .significant-list {
-	
+	padding: 32px 40px;
+
+	&__search {
+		width: 613px;
+
+    .d-si__search {
+      height: 32px;
+      letter-spacing: -.8px;
+      text-transform: none;
+    }
+
+    .search__tooltip {
+    	display: none!important;
+    }
+	}
+
+  &__table-wrap {
+    width: 100%;
+
+    @media (max-width: 580px) {
+      overflow-x: scroll;
+      overflow-y: hidden;
+    }
+  }
+
+  &__table {
+    min-width: 560px;
+  }
+
+  &__rows {
+    
+  }
+
+	&__row {
+		font-size: 0;
+
+    & + .open-file__row {
+      margin-top: 16px;
+    }
+	}
+
+	&__col {
+    display: inline-block;
+    font-size: 14px;
+
+    &_left {
+    	width: 50%;
+    }
+
+    &_center {
+    	width: 25%;
+    }
+
+    &_right {
+    	width: 25%;
+    }
+	}
+
+	&__row-num {
+		display: inline-block;
+	}
+
+	&__row-title {
+		display: inline-block;
+	}
 }
