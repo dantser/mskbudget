@@ -151,14 +151,14 @@ export default () => {
         }
       });
 
-      $('.js-hide-col').on('click', function(e){
+      $(document).on('click', '.js-hide-col', function(e){
         e.preventDefault();
         $(this).parents('._regions .d-smr__chart-col').removeClass('active');
         regionSlider.update(true);
         checkSlidesAmount(regionSlider);
       });
 
-      $('.d-smr__add-char-item input').change(function(){
+      $(document).on('change', '.d-smr__add-char-item input', function(){
         if (this.checked) {
           $(this).next().next().find('input').prop('checked', true);
         } else {

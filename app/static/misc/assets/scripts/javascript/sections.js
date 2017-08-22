@@ -2,152 +2,152 @@
 
 	$(document).ready(function() {
 
-		var winW = $(w).width(),
-		winH = $(w).height();
+// 		var winW = $(w).width(),
+// 		winH = $(w).height();
 
-		if($('.sections_fs').length > 0){
+// 		if($('.sections_fs').length > 0){
 
-			$('.sections_fs').slick({
-				infinite: false,
-				slidesToShow: 1,
-				slidesToScroll: 1,
-				arrows: false,
-				dots: true,
-				draggable: false,
-				vertical: true,
-				swipe: false,
-				sliderId: 'sections',
-			});
+// 			$('.sections_fs').slick({
+// 				infinite: false,
+// 				slidesToShow: 1,
+// 				slidesToScroll: 1,
+// 				arrows: false,
+// 				dots: true,
+// 				draggable: false,
+// 				vertical: true,
+// 				swipe: false,
+// 				sliderId: 'sections',
+// 			});
 
-			var elem = $('.wrapper')[0];
+// 			var elem = $('.wrapper')[0];
 
-			if(elem != null){
-				if (elem.addEventListener) {
-					if ('onwheel' in document) {
-						elem.addEventListener("wheel", onWheel, {passive: true});
-					}
-					else if ('onmousewheel' in document) {
-						elem.addEventListener("mousewheel", onWheel, {passive: true});
-					}
-					else {
-						elem.addEventListener("MozMousePixelScroll", onWheel, {passive: true});
-					}
-				}
-				else {
-					elem.attachEvent("onmousewheel", onWheel);
-				}
-			}
+// 			if(elem != null){
+// 				if (elem.addEventListener) {
+// 					if ('onwheel' in document) {
+// 						elem.addEventListener("wheel", onWheel, {passive: true});
+// 					}
+// 					else if ('onmousewheel' in document) {
+// 						elem.addEventListener("mousewheel", onWheel, {passive: true});
+// 					}
+// 					else {
+// 						elem.addEventListener("MozMousePixelScroll", onWheel, {passive: true});
+// 					}
+// 				}
+// 				else {
+// 					elem.attachEvent("onmousewheel", onWheel);
+// 				}
+// 			}
 
-			var anim = false;
+// 			var anim = false;
 
-			var browser = {};
-			browser.ie11 = /rv:11\.0/.test(navigator.userAgent.toLowerCase());
-			browser.safari = /safari/.test(navigator.userAgent.toLowerCase()) && !/chrome/.test(navigator.userAgent.toLowerCase());
-
-
-			function anFin() {
-				anim = false;
-			}
-
-			function onWheel(e) {
-				e = e || window.event;
-				var delta = e.deltaY || e.detail || e.wheelDelta;
-
-				if(browser.ie11 || browser.safari){
-					delta = delta * -1;
-				}
+// 			var browser = {};
+// 			browser.ie11 = /rv:11\.0/.test(navigator.userAgent.toLowerCase());
+// 			browser.safari = /safari/.test(navigator.userAgent.toLowerCase()) && !/chrome/.test(navigator.userAgent.toLowerCase());
 
 
-				if(delta > 0 && anim == false){
+// 			function anFin() {
+// 				anim = false;
+// 			}
 
-					anim = true;
+// 			function onWheel(e) {
+// 				e = e || window.event;
+// 				var delta = e.deltaY || e.detail || e.wheelDelta;
 
-					$('.sections_fs').slick('slickNext');
-
-					$('.sections_fs').on('afterChange', function(){
-
-						setTimeout(function() { anFin(); }, 500);
-
-					});
-
-				}else if(delta < 0 && anim == false){
-
-					anim = true;
-
-					$('.sections_fs').slick('slickPrev');
-
-					$('.sections_fs').on('afterChange', function(){
-
-						setTimeout(function() { anFin(); }, 500);
-
-					});
-
-				}
-			}
+// 				if(browser.ie11 || browser.safari){
+// 					delta = delta * -1;
+// 				}
 
 
-	// $('.sections_fs').on('beforeChange', function(event, slick, currentSlide, nextSlide){
-	// 	//console.log();
+// 				if(delta > 0 && anim == false){
 
-	// 	if( winW > 700 && slick.options.sliderId == 'sections'){
+// 					anim = true;
 
-	// 		if( nextSlide > 0 ){
-	// 			$('.header').addClass('header_short');
-	// 			$('.guide').addClass('guide_short');
-	// 		}else{
-	// 			$('.header').removeClass('header_short');
-	// 			$('.guide').removeClass('guide_short');
-	// 		}
-	// 	}
+// 					$('.sections_fs').slick('slickNext');
 
-	// });
+// 					$('.sections_fs').on('afterChange', function(){
 
-	$('.sections_fs').swipe({
-		swipe: function(event, direction) {
+// 						setTimeout(function() { anFin(); }, 500);
 
-			if (direction == "up") {
+// 					});
 
-				this.slick('slickNext');
+// 				}else if(delta < 0 && anim == false){
 
-			} else if (direction == "down") {
+// 					anim = true;
 
-				this.slick('slickPrev');
+// 					$('.sections_fs').slick('slickPrev');
 
-			}
+// 					$('.sections_fs').on('afterChange', function(){
 
-		},
-		excludedElements: '',
-		threshold: 121,
-	});
+// 						setTimeout(function() { anFin(); }, 500);
+
+// 					});
+
+// 				}
+// 			}
 
 
+// 	// $('.sections_fs').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+// 	// 	//console.log();
 
-    $(document).keydown(function(e) {
-    	   if(!e.target.tagName.match('TEXTAREA|INPUT|SELECT')) {
+// 	// 	if( winW > 700 && slick.options.sliderId == 'sections'){
+
+// 	// 		if( nextSlide > 0 ){
+// 	// 			$('.header').addClass('header_short');
+// 	// 			$('.guide').addClass('guide_short');
+// 	// 		}else{
+// 	// 			$('.header').removeClass('header_short');
+// 	// 			$('.guide').removeClass('guide_short');
+// 	// 		}
+// 	// 	}
+
+// 	// });
+
+// 	$('.sections_fs').swipe({
+// 		swipe: function(event, direction) {
+
+// 			if (direction == "up") {
+
+// 				this.slick('slickNext');
+
+// 			} else if (direction == "down") {
+
+// 				this.slick('slickPrev');
+
+// 			}
+
+// 		},
+// 		excludedElements: '',
+// 		threshold: 121,
+// 	});
 
 
-    	   	if (e.keyCode === 37) {
 
-    	   		$('.slick-current .slider').slick('slickPrev');
+//     $(document).keydown(function(e) {
+//     	   if(!e.target.tagName.match('TEXTAREA|INPUT|SELECT')) {
 
-    	   	} else if (e.keyCode === 38) {
 
-    	   		$('.sections_fs').slick('slickPrev');
+//     	   	if (e.keyCode === 37) {
 
-    	   	}  else if (e.keyCode === 39) {
+//     	   		$('.slick-current .slider').slick('slickPrev');
 
-    	   		$('.slick-current .slider').slick('slickNext');
+//     	   	} else if (e.keyCode === 38) {
 
-    	   	} else if (e.keyCode === 40) {
+//     	   		$('.sections_fs').slick('slickPrev');
 
-    	   		$('.sections_fs').slick('slickNext');
+//     	   	}  else if (e.keyCode === 39) {
 
-    	   	}
+//     	   		$('.slick-current .slider').slick('slickNext');
 
-        }
-    });
+//     	   	} else if (e.keyCode === 40) {
 
-}
+//     	   		$('.sections_fs').slick('slickNext');
+
+//     	   	}
+
+//         }
+//     });
+
+// }
 
 
 
