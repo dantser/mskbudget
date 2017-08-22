@@ -51,6 +51,7 @@ import dropdown from '../blocks/dropdown-block/dropdown';
 import openFile from '../components/open-file/open-file';
 import rangeUi from '../blocks/range-ui/range-ui';
 import contestPopup from '../components/contest-popup/contestPopup';
+import classifyNew from '../components/classify-new/classifyNew';
 
 $(() => {
 
@@ -115,4 +116,5 @@ $(() => {
   openFile();
   rangeUi();
   contestPopup();
+  classifyNew();
 });
