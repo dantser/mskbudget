@@ -2,7 +2,7 @@ include ../page-header/page-header
 include ../../blocks/button/button
 include ../../blocks/link/link
 include ../contest/contest
-include ../contest_popup/contest_popup
+include ../contest-popup/contest-popup
 include ../../blocks/icon/icons
 include ../../blocks/buttons-set/buttons-set
 include ../doc-cards/doc-cards
@@ -36,9 +36,9 @@ mixin open-con()
           .analityc-widget.analityc-widget_con.load-anim-fade(data-delay="1700")
             +tabs
               +tabs-tab(data-tab-group="contestPopupTabs", data-tab="individual").active
-                +contest_popup(getData('contest_popup')[0])
+                +contest-popup(getData('contest_popup')[0])
               +tabs-tab(data-tab-group="contestPopupTabs", data-tab="juridical")
-                +contest_popup(getData('contest_popup')[1])
+                +contest-popup(getData('contest_popup')[1])
 
 
       +dropdown().load-anim-fade(data-delay="1900")

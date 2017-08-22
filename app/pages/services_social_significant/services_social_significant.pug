@@ -1,11 +1,11 @@
 extends ../../layouts/default
-include ../../components/tax-policy/tax-policy
+include ../../components/services_social_significant/services_social_significant
+include ../../components/header/header
 
 block head
-  - var pageTitle = 'Налоговая политика Москвы'
+  - var pageTitle = 'Общественно значимые проекты'
 
 block page
-  #whitescreen
   block header
     +header()._budget
 
@@ -13,7 +13,7 @@ block page
     +sections()
 
       block content
-        +tax-policy()
+        +services_social_significant()
         +footer()
         +button-top()
         
