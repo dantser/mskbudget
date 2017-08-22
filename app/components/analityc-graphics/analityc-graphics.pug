@@ -1069,7 +1069,7 @@ mixin analityc-graphics-aip(legendtype)
         +e.col.swiper-slide
           +e.P.year 2016
           +e.graphic._round
-            .segment-diagram
+            .segment-diagram#diagram-13
               .segment-diagram__value
                 p.segment-diagram__value-num 1885,7
                 span.segment-diagram__val.segment-diagram__val1 20,8%
@@ -1118,17 +1118,4 @@ mixin analityc-graphics-aip(legendtype)
                 span.segment-diagram__val.segment-diagram__val6  23,2%
       span.analityc-graphics_round-next
       span.analityc-graphics_round-prev
-      if legendtype == 'income1'
-        +legend(getData('legend-income1')).analityc-graphics__legend
-      if legendtype == 'income2'
-        +legend(getData('legend-income2')).analityc-graphics__legend
-      if legendtype == 'expenses1'
-        +legend(getData('legend-expenses1')).analityc-graphics__legend
-      if legendtype == 'expenses2'
-        +legend(getData('legend-expenses2')).analityc-graphics__legend
-      if legendtype == 'expenses3'
-        +legend(getData('legend-expenses3')).analityc-graphics__legend
-      if legendtype == 'expenses4'
-        +legend(getData('legend-expenses4')).analityc-graphics__legend
-      if legendtype == 'expenses5'
-        +legend(getData('legend-expenses5')).analityc-graphics__legend
+      +legend-icon-woch()
