@@ -4607,9 +4607,10 @@ var _gsScope = "undefined" != typeof module && module.exports && "undefined" != 
         var i = n(3);
         "string" == typeof i && (i = [
             [t.id, i, ""]
-        ]), i.locals && (t.exports = i.locals), n(5)("738a493f", i, !0)
+        ]), i.locals && (t.exports = i.locals);
+        n(5)("e749a8c4", i, !0)
     }, function(t, e, n) {
-        e = t.exports = n(4)(), e.push([t.id, ".carousel-3d-container[data-v-c06c963c]{width:100%;position:relative;z-index:0;overflow:hidden;margin:20px auto;box-sizing:border-box}.carousel-3d-slider[data-v-c06c963c]{position:relative;margin:0 auto;transform-style:preserve-3d;-webkit-perspective:1000px;-moz-perspective:1000px;perspective:1000px}", ""])
+        e = t.exports = n(4)(), e.push([t.id, ".carousel-3d-container[data-v-c06c963c]{min-height:1px;width:100%;position:relative;z-index:0;overflow:hidden;margin:20px auto;box-sizing:border-box}.carousel-3d-slider[data-v-c06c963c]{position:relative;margin:0 auto;transform-style:preserve-3d;-webkit-perspective:1000px;-moz-perspective:1000px;perspective:1000px}", ""])
     }, function(t, e) {
         t.exports = function() {
             var t = [];
@@ -4637,59 +4638,41 @@ var _gsScope = "undefined" != typeof module && module.exports && "undefined" != 
         function i(t) {
             for (var e = 0; e < t.length; e++) {
                 var n = t[e]
-                    , i = l[n.id];
+                    , i = c[n.id];
                 if (i) {
                     i.refs++;
                     for (var r = 0; r < i.parts.length; r++) i.parts[r](n.parts[r]);
-                    for (; r < n.parts.length; r++) i.parts.push(s(n.parts[r]));
+                    for (; r < n.parts.length; r++) i.parts.push(o(n.parts[r]));
                     i.parts.length > n.parts.length && (i.parts.length = n.parts.length)
                 } else {
-                    for (var o = [], r = 0; r < n.parts.length; r++) o.push(s(n.parts[r]));
-                    l[n.id] = {
+                    for (var s = [], r = 0; r < n.parts.length; r++) s.push(o(n.parts[r]));
+                    c[n.id] = {
                         id: n.id
                         , refs: 1
-                        , parts: o
+                        , parts: s
                     }
                 }
             }
         }
 
-        function r(t, e) {
-            for (var n = [], i = {}, r = 0; r < e.length; r++) {
-                var o = e[r]
-                    , s = o[0]
-                    , a = o[1]
-                    , u = o[2]
-                    , c = o[3]
-                    , l = {
-                        css: a
-                        , media: u
-                        , sourceMap: c
-                    };
-                i[s] ? (l.id = t + ":" + i[s].parts.length, i[s].parts.push(l)) : (l.id = t + ":0", n.push(i[s] = {
-                    id: s
-                    , parts: [l]
-                }))
-            }
-            return n
-        }
-
-        function o() {
+        function r() {
             var t = document.createElement("style");
             return t.type = "text/css", d.appendChild(t), t
         }
 
-        function s(t) {
-            var e, n, i = document.querySelector('style[data-vue-ssr-id~="' + t.id + '"]')
-                , r = null != i;
-            if (r && p) return v;
+        function o(t) {
+            var e, n, i = document.querySelector('style[data-vue-ssr-id~="' + t.id + '"]');
+            if (i) {
+                if (f) return v;
+                i.parentNode.removeChild(i)
+            }
             if (x) {
-                var s = h++;
-                i = f || (f = o()), e = a.bind(null, i, s, !1), n = a.bind(null, i, s, !0)
-            } else i = i || o(), e = u.bind(null, i), n = function() {
+                var o = p++;
+                i = h || (h = r()), e = s.bind(null, i, o, !1), n = s.bind(null, i, o, !0)
+            } else i = r(), e = a.bind(null, i), n = function() {
                 i.parentNode.removeChild(i)
             };
-            return r || e(t)
+            return e(t)
                 , function(i) {
                     if (i) {
                         if (i.css === t.css && i.media === t.media && i.sourceMap === t.sourceMap) return;
@@ -4698,7 +4681,7 @@ var _gsScope = "undefined" != typeof module && module.exports && "undefined" != 
                 }
         }
 
-        function a(t, e, n, i) {
+        function s(t, e, n, i) {
             var r = n ? "" : i.css;
             if (t.styleSheet) t.styleSheet.cssText = m(e, r);
             else {
@@ -4708,7 +4691,7 @@ var _gsScope = "undefined" != typeof module && module.exports && "undefined" != 
             }
         }
 
-        function u(t, e) {
+        function a(t, e) {
             var n = e.css
                 , i = e.media
                 , r = e.sourceMap;
@@ -4718,31 +4701,31 @@ var _gsScope = "undefined" != typeof module && module.exports && "undefined" != 
                 t.appendChild(document.createTextNode(n))
             }
         }
-        var c = "undefined" != typeof document
-            , r = n(6)
-            , l = {}
-            , d = c && (document.head || document.getElementsByTagName("head")[0])
-            , f = null
-            , h = 0
-            , p = !1
+        var u = "undefined" != typeof document
+            , l = n(6)
+            , c = {}
+            , d = u && (document.head || document.getElementsByTagName("head")[0])
+            , h = null
+            , p = 0
+            , f = !1
             , v = function() {}
             , x = "undefined" != typeof navigator && /msie [6-9]\b/.test(navigator.userAgent.toLowerCase());
         t.exports = function(t, e, n) {
-            p = n;
-            var o = r(t, e);
-            return i(o)
+            f = n;
+            var r = l(t, e);
+            return i(r)
                 , function(e) {
-                    for (var n = [], s = 0; s < o.length; s++) {
-                        var a = o[s]
-                            , u = l[a.id];
-                        u.refs--, n.push(u)
+                    for (var n = [], o = 0; o < r.length; o++) {
+                        var s = r[o]
+                            , a = c[s.id];
+                        a.refs--, n.push(a)
                     }
-                    e ? (o = r(t, e), i(o)) : o = [];
-                    for (var s = 0; s < n.length; s++) {
-                        var u = n[s];
-                        if (0 === u.refs) {
-                            for (var c = 0; c < u.parts.length; c++) u.parts[c]();
-                            delete l[u.id]
+                    e ? (r = l(t, e), i(r)) : r = [];
+                    for (var o = 0; o < n.length; o++) {
+                        var a = n[o];
+                        if (0 === a.refs) {
+                            for (var u = 0; u < a.parts.length; u++) a.parts[u]();
+                            delete c[a.id]
                         }
                     }
                 }
@@ -4760,16 +4743,16 @@ var _gsScope = "undefined" != typeof module && module.exports && "undefined" != 
                     , s = o[0]
                     , a = o[1]
                     , u = o[2]
-                    , c = o[3]
-                    , l = {
+                    , l = o[3]
+                    , c = {
                         id: t + ":" + r
                         , css: a
                         , media: u
-                        , sourceMap: c
+                        , sourceMap: l
                     };
-                i[s] ? i[s].parts.push(l) : n.push(i[s] = {
+                i[s] ? i[s].parts.push(c) : n.push(i[s] = {
                     id: s
-                    , parts: [l]
+                    , parts: [c]
                 })
             }
             return n
@@ -4811,25 +4794,25 @@ var _gsScope = "undefined" != typeof module && module.exports && "undefined" != 
             , s = n(10)
             , a = i(s)
             , u = n(15)
-            , c = i(u)
-            , l = function() {};
+            , l = i(u)
+            , c = function() {};
         e.default = {
             name: "carousel3d"
             , components: {
                 Controls: a.default
-                , Slide: c.default
+                , Slide: l.default
             }
             , props: {
-                controlsVisible: {
-                    type: Boolean
-                    , default: !1
+                count: {
+                    type: [Number, String]
+                    , default: 0
                 }
                 , perspective: {
-                    type: Number
+                    type: [Number, String]
                     , default: 35
                 }
                 , display: {
-                    type: Number
+                    type: [Number, String]
                     , default: 5
                 }
                 , loop: {
@@ -4837,7 +4820,7 @@ var _gsScope = "undefined" != typeof module && module.exports && "undefined" != 
                     , default: !0
                 }
                 , animationSpeed: {
-                    type: Number
+                    type: [Number, String]
                     , default: 500
                 }
                 , dir: {
@@ -4845,15 +4828,15 @@ var _gsScope = "undefined" != typeof module && module.exports && "undefined" != 
                     , default: "rtl"
                 }
                 , width: {
-                    type: Number
+                    type: [Number, String]
                     , default: 360
                 }
                 , height: {
-                    type: Number
+                    type: [Number, String]
                     , default: 270
                 }
                 , border: {
-                    type: Number
+                    type: [Number, String]
                     , default: 1
                 }
                 , space: {
@@ -4861,28 +4844,52 @@ var _gsScope = "undefined" != typeof module && module.exports && "undefined" != 
                     , default: "auto"
                 }
                 , startIndex: {
-                    type: Number
+                    type: [Number, String]
                     , default: 0
                 }
                 , clickable: {
                     type: Boolean
                     , default: !0
                 }
+                , disable3d: {
+                    type: Boolean
+                    , default: !1
+                }
                 , minSwipeDistance: {
                     type: Number
                     , default: 10
                 }
                 , inverseScaling: {
-                    type: Number
+                    type: [Number, String]
                     , default: 300
+                }
+                , controlsVisible: {
+                    type: Boolean
+                    , default: !1
+                }
+                , controlsPrevHtml: {
+                    type: String
+                    , default: "&lsaquo;"
+                }
+                , controlsNextHtml: {
+                    type: String
+                    , default: "&rsaquo;"
+                }
+                , controlsWidth: {
+                    type: [String, Number]
+                    , default: 50
+                }
+                , controlsHeight: {
+                    type: [String, Number]
+                    , default: 50
                 }
                 , onLastSlide: {
                     type: Function
-                    , default: l
+                    , default: c
                 }
                 , onSlideChange: {
                     type: Function
-                    , default: l
+                    , default: c
                 }
             }
             , data: function() {
@@ -4894,9 +4901,15 @@ var _gsScope = "undefined" != typeof module && module.exports && "undefined" != 
                     , dragOffset: 0
                     , dragStartX: 0
                     , mousedown: !1
+                    , zIndex: 998
                 }
             }
             , mixins: [o.default]
+            , watch: {
+                count: function() {
+                    this.computeData()
+                }
+            }
             , computed: {
                 isLastSlide: function() {
                     return this.currentIndex === this.total - 1
@@ -4912,12 +4925,12 @@ var _gsScope = "undefined" != typeof module && module.exports && "undefined" != 
                 }
                 , slideWidth: function() {
                     var t = this.viewport
-                        , e = parseInt(this.width + 2 * this.border, 10);
+                        , e = parseInt(this.width) + 2 * parseInt(this.border, 10);
                     return t < e ? t : e
                 }
                 , slideHeight: function() {
-                    var t = parseInt(this.width + 2 * this.border, 10)
-                        , e = parseInt(this.height + 2 * this.border, 10)
+                    var t = parseInt(this.width, 10) + 2 * parseInt(this.border, 10)
+                        , e = parseInt(parseInt(this.height) + 2 * this.border, 10)
                         , n = this.calculateAspectRatio(t, e);
                     return this.slideWidth / n
                 }
@@ -4954,7 +4967,7 @@ var _gsScope = "undefined" != typeof module && module.exports && "undefined" != 
                 }
                 , goSlide: function(t) {
                     var e = this;
-                    this.currentIndex = t < 0 || t > this.total - 1 ? 0 : t, this.lock = !0, this.isLastSlide && this.onLastSlide(this.currentIndex), setTimeout(function() {
+                    this.currentIndex = t < 0 || t > this.total - 1 ? 0 : t, this.lock = !0, this.isLastSlide && (this.onLastSlide !== c && console.warn("onLastSlide deprecated, please use @last-slide"), this.onLastSlide(this.currentIndex), this.$emit("last-slide", this.currentIndex)), this.$emit("before-slide-change", this.currentIndex), setTimeout(function() {
                         return e.animationEnd()
                     }, this.animationSpeed)
                 }
@@ -4971,7 +4984,7 @@ var _gsScope = "undefined" != typeof module && module.exports && "undefined" != 
                     }
                 }
                 , animationEnd: function() {
-                    this.lock = !1, this.onSlideChange(this.currentIndex)
+                    this.lock = !1, this.onSlideChange !== c && console.warn("onSlideChange deprecated, please use @after-slide-change"), this.onSlideChange(this.currentIndex), this.$emit("after-slide-change", this.currentIndex)
                 }
                 , handleMouseup: function() {
                     /*this.mousedown = !1, this.dragOffset = 0*/
@@ -4992,7 +5005,8 @@ var _gsScope = "undefined" != typeof module && module.exports && "undefined" != 
                     if (e) {
                         var n = {
                             attributes: !0
-                            , data: !0
+                            , childList: !0
+                            , characterData: !0
                         };
                         this.mutationObserver = new e(function() {
                             t.$nextTick(function() {
@@ -5013,17 +5027,17 @@ var _gsScope = "undefined" != typeof module && module.exports && "undefined" != 
                     return Math.min(t / e)
                 }
                 , computeData: function() {
-                    this.total = this.getSlideCount(), this.currentIndex = this.startIndex > this.total - 1 ? this.total - 1 : this.startIndex, this.viewport = this.$el.clientWidth
+                    this.total = this.getSlideCount(), this.currentIndex = parseInt(this.startIndex) > this.total - 1 ? this.total - 1 : parseInt(this.startIndex), this.viewport = this.$el.clientWidth
                 }
                 , setSize: function() {
-                    this.$el.style.cssText += "height:" + this.slideHeight, this.$el.childNodes[0].style.cssText += "width:" + this.slideWidth + "px; height:" + this.slideHeight + "px"
-                }
-                , beforeDestroy: function() {
-                    this.$isServer || (this.detachMutationObserver(), "ontouchstart" in window ? this.$el.removeEventListener("touchmove", this.handleMousemove) : this.$el.removeEventListener("mousemove", this.handleMousemove), window.removeEventListener("resize", this.setSize))
+                    this.$el.style.cssText += "height:" + this.slideHeight + "px;", this.$el.childNodes[0].style.cssText += "width:" + this.slideWidth + "px; height:" + this.slideHeight + "px;"
                 }
             }
             , mounted: function() {
-                this.computeData(), this.attachMutationObserver(), this.setSize(), this.$isServer || (window.addEventListener("resize", this.setSize), "ontouchstart" in window ? (this.$el.addEventListener("touchstart", this.handleMousedown), this.$el.addEventListener("touchend", this.handleMouseup), this.$el.addEventListener("touchmove", this.handleMousemove)) : (this.$el.addEventListener("mousedown", this.handleMousedown), this.$el.addEventListener("mouseup", this.handleMouseup), this.$el.addEventListener("mousemove", this.handleMousemove)))
+                this.computeData(), this.attachMutationObserver(), this.$isServer || (window.addEventListener("resize", this.setSize), "ontouchstart" in window ? (this.$el.addEventListener("touchstart", this.handleMousedown), this.$el.addEventListener("touchend", this.handleMouseup), this.$el.addEventListener("touchmove", this.handleMousemove)) : (this.$el.addEventListener("mousedown", this.handleMousedown), this.$el.addEventListener("mouseup", this.handleMouseup), this.$el.addEventListener("mousemove", this.handleMousemove)))
+            }
+            , beforeDestroy: function() {
+                this.$isServer || (this.detachMutationObserver(), "ontouchstart" in window ? this.$el.removeEventListener("touchmove", this.handleMousemove) : this.$el.removeEventListener("mousemove", this.handleMousemove), window.removeEventListener("resize", this.setSize))
             }
         }
     }, function(t, e) {
@@ -5052,7 +5066,7 @@ var _gsScope = "undefined" != typeof module && module.exports && "undefined" != 
                 }
             }
             , destroyed: function() {
-                this.$isServer || (this.$el.removeEventListener("mouseenter", this.pauseAutoplay), this.$el.removeEventListener("mouseleave", this.startAutoplay))
+                this.pauseAutoplay(), this.$isServer || (this.$el.removeEventListener("mouseenter", this.pauseAutoplay), this.$el.removeEventListener("mouseleave", this.startAutoplay))
             }
             , methods: {
                 pauseAutoplay: function() {
@@ -5078,15 +5092,34 @@ var _gsScope = "undefined" != typeof module && module.exports && "undefined" != 
         var i = n(12);
         "string" == typeof i && (i = [
             [t.id, i, ""]
-        ]), i.locals && (t.exports = i.locals), n(5)("21e99dee", i, !0)
+        ]), i.locals && (t.exports = i.locals);
+        n(5)("06c66230", i, !0)
     }, function(t, e, n) {
-        e = t.exports = n(4)(), e.push([t.id, ".carousel-3d-controls[data-v-43e93932]{position:absolute;top:50%;height:60px;margin-top:-30px;left:0;width:100%;z-index:9099}.next[data-v-43e93932],.prev[data-v-43e93932]{width:60px;position:absolute;z-index:9999;font-size:60px;height:60px;line-height:60px;color:#333;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;text-decoration:none;top:0}.next[data-v-43e93932]:hover,.prev[data-v-43e93932]:hover{cursor:pointer;opacity:.7}.prev[data-v-43e93932]{left:10px;text-align:left}.next[data-v-43e93932]{right:10px;text-align:right}.disabled[data-v-43e93932],.disabled[data-v-43e93932]:hover{opacity:.2;cursor:default}", ""])
+        e = t.exports = n(4)(), e.push([t.id, ".carousel-3d-controls[data-v-43e93932]{position:absolute;top:50%;height:0;margin-top:-30px;left:0;width:100%;z-index:9099}.next[data-v-43e93932],.prev[data-v-43e93932]{width:60px;position:absolute;z-index:9999;font-size:60px;height:60px;line-height:60px;color:#333;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;text-decoration:none;top:0}.next[data-v-43e93932]:hover,.prev[data-v-43e93932]:hover{cursor:pointer;opacity:.7}.prev[data-v-43e93932]{left:10px;text-align:left}.next[data-v-43e93932]{right:10px;text-align:right}.disabled[data-v-43e93932],.disabled[data-v-43e93932]:hover{opacity:.2;cursor:default}", ""])
     }, function(t, e) {
         "use strict";
         Object.defineProperty(e, "__esModule", {
             value: !0
         }), e.default = {
             name: "controls"
+            , props: {
+                width: {
+                    type: [String, Number]
+                    , default: 50
+                }
+                , height: {
+                    type: [String, Number]
+                    , default: 60
+                }
+                , prevHtml: {
+                    type: String
+                    , default: "&lsaquo;"
+                }
+                , nextHtml: {
+                    type: String
+                    , default: "&rsaquo;"
+                }
+            }
             , data: function() {
                 return {
                     parent: this.$parent
@@ -5106,6 +5139,7 @@ var _gsScope = "undefined" != typeof module && module.exports && "undefined" != 
                     , class: {
                         disabled: !t.parent.isPrevPossible
                     }
+                    , style: "width: " + t.width + "px; height: " + t.height + "px; line-height: " + t.height + "px;"
                     , attrs: {
                         href: "#"
                     }
@@ -5114,11 +5148,16 @@ var _gsScope = "undefined" != typeof module && module.exports && "undefined" != 
                             e.preventDefault(), t.parent.goPrev()
                         }
                     }
-                }, [n("span", [t._v("‹")])]), t._v(" "), n("a", {
+                }, [n("span", {
+                    domProps: {
+                        innerHTML: t._s(t.prevHtml)
+                    }
+                })]), t._v(" "), n("a", {
                     staticClass: "next"
                     , class: {
                         disabled: !t.parent.isNextPossible
                     }
+                    , style: "width: " + t.width + "px; height: " + t.height + "px; line-height: " + t.height + "px;"
                     , attrs: {
                         href: "#"
                     }
@@ -5127,7 +5166,11 @@ var _gsScope = "undefined" != typeof module && module.exports && "undefined" != 
                             e.preventDefault(), t.parent.goNext()
                         }
                     }
-                }, [n("span", [t._v("›")])])])
+                }, [n("span", {
+                    domProps: {
+                        innerHTML: t._s(t.nextHtml)
+                    }
+                })])])
             }
             , staticRenderFns: []
         }
@@ -5139,20 +5182,23 @@ var _gsScope = "undefined" != typeof module && module.exports && "undefined" != 
         var i = n(17);
         "string" == typeof i && (i = [
             [t.id, i, ""]
-        ]), i.locals && (t.exports = i.locals), n(5)("af2f578c", i, !0)
+        ]), i.locals && (t.exports = i.locals);
+        n(5)("1dbacf8a", i, !0)
     }, function(t, e, n) {
-        e = t.exports = n(4)(), e.push([t.id, ".carousel-3d-slide{position:absolute;opacity:0;visibility:hidden;overflow:hidden;top:0;border-radius:1px;border-color:#000;border-color:rgba(0,0,0,.4);border-style:solid;background-size:cover;background-color:#ccc;display:block;margin:0;box-sizing:border-box}.carousel-3d-slide img{width:100%}.carousel-3d-slide.current{opacity:1!important;visibility:visible!important;transform:none!important;z-index:99}", ""])
+        e = t.exports = n(4)(), e.push([t.id, ".carousel-3d-slide{position:absolute;opacity:0;visibility:hidden;overflow:hidden;top:0;border-radius:1px;border-color:#000;border-color:rgba(0,0,0,.4);border-style:solid;background-size:cover;background-color:#ccc;display:block;margin:0;box-sizing:border-box;text-align:left}.carousel-3d-slide img{width:100%}.carousel-3d-slide.current{opacity:1!important;visibility:visible!important;transform:none!important;z-index:999}", ""])
     }, function(t, e, n) {
         "use strict";
+
+        function i(t) {
+            return t && t.__esModule ? t : {
+                default: t
+            }
+        }
         Object.defineProperty(e, "__esModule", {
             value: !0
         });
-        var i = n(19)
-            , r = function(t) {
-                return t && t.__esModule ? t : {
-                    default: t
-                }
-            }(i);
+        var r = n(19)
+            , o = i(r);
         e.default = {
             name: "slide"
             , props: {
@@ -5164,6 +5210,7 @@ var _gsScope = "undefined" != typeof module && module.exports && "undefined" != 
                 return {
                     parent: this.$parent
                     , styles: {}
+                    , zIndex: 999
                 }
             }
             , computed: {
@@ -5175,9 +5222,9 @@ var _gsScope = "undefined" != typeof module && module.exports && "undefined" != 
                     if (!this.isCurrent) {
                         var e = this.getSideIndex(this.parent.rightIndices)
                             , n = this.getSideIndex(this.parent.leftIndices);
-                        (e >= 0 || n >= 0) && (t = e >= 0 ? this.calculatePosition(e, !0) : this.calculatePosition(n), t.opacity = 1, t.visibility = "visible"), this.parent.hasHiddenSlides && (this.matchIndex(this.parent.leftOutIndex) ? t = this.calculatePosition(this.parent.leftIndices.length - 1) : this.matchIndex(this.parent.rightOutIndex) && (t = this.calculatePosition(this.parent.rightIndices.length - 1, !0)))
+                        (e >= 0 || n >= 0) && (t = e >= 0 ? this.calculatePosition(e, !0, this.zIndex) : this.calculatePosition(n, !1, this.zIndex), t.opacity = 1, t.visibility = "visible"), this.parent.hasHiddenSlides && (this.matchIndex(this.parent.leftOutIndex) ? t = this.calculatePosition(this.parent.leftIndices.length - 1, !1, this.zIndex) : this.matchIndex(this.parent.rightOutIndex) && (t = this.calculatePosition(this.parent.rightIndices.length - 1, !0, this.zIndex)))
                     }
-                    return (0, r.default)(t, {
+                    return (0, o.default)(t, {
                         "border-width": this.parent.border + "px"
                         , width: this.parent.slideWidth + "px"
                         , height: this.parent.slideHeight + "px"
@@ -5196,11 +5243,16 @@ var _gsScope = "undefined" != typeof module && module.exports && "undefined" != 
                 , matchIndex: function(t) {
                     return t >= 0 ? this.index === t : this.parent.total + t === this.index
                 }
-                , calculatePosition: function(t, e) {
-                    var n = "auto" === this.parent.space ? parseInt((t + 1) * (this.parent.width / 1.5), 10) : parseInt((t + 1) * this.parent.space, 10);
+                , calculatePosition: function(t, e, n) {
+                    var i = this.parent.disable3d ? 0 : parseInt(this.parent.inverseScaling) + 100 * (t + 1)
+                        , r = this.parent.disable3d ? 0 : parseInt(this.parent.perspective)
+                        , o = "auto" === this.parent.space ? parseInt((t + 1) * (this.parent.width / 1.5), 10) : parseInt((t + 1) * this.parent.space, 10)
+                        , s = e ? "translateX(" + o + "px) translateZ(-" + i + "px) rotateY(-" + r + "deg)" : "translateX(-" + o + "px) translateZ(-" + i + "px) rotateY(" + r + "deg)"
+                        , a = "auto" === this.parent.space ? 0 : parseInt((t + 1) * this.parent.space);
                     return {
-                        transform: e ? "translateX(" + n + "px) translateZ(-" + (this.parent.inverseScaling + 100 * (t + 1)) + "px) rotateY(-" + this.parent.perspective + "deg)" : "translateX(-" + n + "px) translateZ(-" + (this.parent.inverseScaling + 100 * (t + 1)) + "px) rotateY(" + this.parent.perspective + "deg)"
-                        , top: "auto" === this.parent.space ? 0 : parseInt((t + 1) * this.parent.space)
+                        transform: s
+                        , top: a
+                        , zIndex: n - (Math.abs(t) + 1)
                     }
                 }
                 , goTo: function() {
@@ -5227,17 +5279,17 @@ var _gsScope = "undefined" != typeof module && module.exports && "undefined" != 
             , s = n(27)
             , a = "prototype"
             , u = function(t, e, n) {
-                var c, l, d, f = t & u.F
-                    , h = t & u.G
-                    , p = t & u.S
+                var l, c, d, h = t & u.F
+                    , p = t & u.G
+                    , f = t & u.S
                     , v = t & u.P
                     , x = t & u.B
                     , m = t & u.W
-                    , y = h ? r : r[e] || (r[e] = {})
-                    , g = y[a]
-                    , b = h ? i : p ? i[e] : (i[e] || {})[a];
-                h && (n = e);
-                for (c in n)(l = !f && b && void 0 !== b[c]) && c in y || (d = l ? b[c] : n[c], y[c] = h && "function" != typeof b[c] ? n[c] : x && l ? o(d, i) : m && b[c] == d ? function(t) {
+                    , g = p ? r : r[e] || (r[e] = {})
+                    , y = g[a]
+                    , b = p ? i : f ? i[e] : (i[e] || {})[a];
+                p && (n = e);
+                for (l in n) c = !h && b && void 0 !== b[l], c && l in g || (d = c ? b[l] : n[l], g[l] = p && "function" != typeof b[l] ? n[l] : x && c ? o(d, i) : m && b[l] == d ? function(t) {
                     var e = function(e, n, i) {
                         if (this instanceof t) {
                             switch (arguments.length) {
@@ -5253,7 +5305,7 @@ var _gsScope = "undefined" != typeof module && module.exports && "undefined" != 
                         return t.apply(this, arguments)
                     };
                     return e[a] = t[a], e
-                }(d) : v && "function" == typeof d ? o(Function.call, d) : d, v && ((y.virtual || (y.virtual = {}))[c] = d, t & u.R && g && !g[c] && s(g, c, d)))
+                }(d) : v && "function" == typeof d ? o(Function.call, d) : d, v && ((g.virtual || (g.virtual = {}))[l] = d, t & u.R && y && !y[l] && s(y, l, d)))
             };
         u.F = 1, u.G = 2, u.S = 4, u.P = 8, u.B = 16, u.W = 32, u.U = 64, u.R = 128, t.exports = u
     }, function(t, e) {
@@ -5388,8 +5440,8 @@ var _gsScope = "undefined" != typeof module && module.exports && "undefined" != 
                 e[t] = t
             }), 7 != u({}, t)[n] || Object.keys(u({}, e)).join("") != i
         }) ? function(t, e) {
-            for (var n = s(t), u = arguments.length, c = 1, l = r.f, d = o.f; u > c;)
-                for (var f, h = a(arguments[c++]), p = l ? i(h).concat(l(h)) : i(h), v = p.length, x = 0; v > x;) d.call(h, f = p[x++]) && (n[f] = h[f]);
+            for (var n = s(t), u = arguments.length, l = 1, c = r.f, d = o.f; u > l;)
+                for (var h, p = a(arguments[l++]), f = c ? i(p).concat(c(p)) : i(p), v = f.length, x = 0; v > x;) d.call(p, h = f[x++]) && (n[h] = p[h]);
             return n
         } : u
     }, function(t, e, n) {
@@ -5406,10 +5458,10 @@ var _gsScope = "undefined" != typeof module && module.exports && "undefined" != 
         t.exports = function(t, e) {
             var n, a = r(t)
                 , u = 0
-                , c = [];
-            for (n in a) n != s && i(a, n) && c.push(n);
-            for (; e.length > u;) i(a, n = e[u++]) && (~o(c, n) || c.push(n));
-            return c
+                , l = [];
+            for (n in a) n != s && i(a, n) && l.push(n);
+            for (; e.length > u;) i(a, n = e[u++]) && (~o(l, n) || l.push(n));
+            return l
         }
     }, function(t, e) {
         var n = {}.hasOwnProperty;
@@ -5444,14 +5496,14 @@ var _gsScope = "undefined" != typeof module && module.exports && "undefined" != 
         t.exports = function(t) {
             return function(e, n, s) {
                 var a, u = i(e)
-                    , c = r(u.length)
-                    , l = o(s, c);
+                    , l = r(u.length)
+                    , c = o(s, l);
                 if (t && n != n) {
-                    for (; c > l;)
-                        if ((a = u[l++]) != a) return !0
+                    for (; l > c;)
+                        if (a = u[c++], a != a) return !0
                 } else
-                    for (; c > l; l++)
-                        if ((t || l in u) && u[l] === n) return t || l || 0;
+                    for (; l > c; c++)
+                        if ((t || c in u) && u[c] === n) return t || c || 0;
                 return !t && -1
             }
         }
@@ -5508,8 +5560,9 @@ var _gsScope = "undefined" != typeof module && module.exports && "undefined" != 
         t.exports = {
             render: function() {
                 var t = this
-                    , e = t.$createElement;
-                return (t._self._c || e)("div", {
+                    , e = t.$createElement
+                    , n = t._self._c || e;
+                return n("div", {
                     staticClass: "carousel-3d-slide"
                     , class: {
                         current: t.isCurrent
@@ -5532,9 +5585,23 @@ var _gsScope = "undefined" != typeof module && module.exports && "undefined" != 
                     , n = t._self._c || e;
                 return n("div", {
                     staticClass: "carousel-3d-container"
+                    , style: {
+                        height: this.slideHeight + "px"
+                    }
                 }, [n("div", {
                     staticClass: "carousel-3d-slider"
-                }, [t._t("default")], 2), t._v(" "), t.controlsVisible ? n("controls") : t._e()], 1)
+                    , style: {
+                        width: this.slideWidth + "px"
+                        , height: this.slideHeight + "px"
+                    }
+                }, [t._t("default")], 2), t._v(" "), t.controlsVisible ? n("controls", {
+                    attrs: {
+                        "next-html": t.controlsNextHtml
+                        , "prev-html": t.controlsPrevHtml
+                        , width: t.controlsWidth
+                        , height: t.controlsHeight
+                    }
+                }) : t._e()], 1)
             }
             , staticRenderFns: []
         }
