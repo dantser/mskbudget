@@ -1,0 +1,19 @@
+include ../../components/page-header/page-header
+include ../../blocks/icon/icons
+include ../../blocks/button/button
+include ../../blocks/link/link
+include ../../blocks/buttons-set/buttons-set
+include ../../blocks/tabs/tabs
+
+mixin services_social_significant()
+	+b.SECTION.significant.section__item&attributes(attributes)
+		.wrapper
+			+e.head
+				+page-header('Общественно значимые проекты', ['Сервисы'])
+				+buttons-set-alt(getData('buttons-set-significant')).significant__buttons-set
+
+			+tabs.significant__content
+				+tabs-tab(data-tab-group="significantTabs", data-tab="significantOne").active.significant-list__
+					+e.P.text 1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam facilis asperiores reiciendis magni ratione. Ipsam, excepturi sequi repudiandae voluptates omnis veniam, numquam nam consequatur quo ullam animi illo! Assumenda, minima!
+				+tabs-tab(data-tab-group="significantTabs", data-tab="significantTwo").significant-map__
+					+e.P.text 2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam facilis asperiores reiciendis magni ratione. Ipsam, excepturi sequi repudiandae voluptates omnis veniam, numquam nam consequatur quo ullam animi illo! Assumenda, minima!
