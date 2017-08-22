@@ -7,16 +7,15 @@ include ../../blocks/dropdown-block/dropdown-block
 include ../../blocks/tabs/tabs
 
 //- Программы для второго таба
-mixin GpAIP()
+mixin GpAIP(data)
   +b.govProgram&attributes(attributes)
+  
     +e.heading
-      +e.arrows
-        +e.arr._prev
-        +e.arr._next
-      +icon('car').icon
+      +e.icon
+        img(src= data.icon)
       +e.title
-        +e.SPAN.years 2016-2019
-        +e.H3.header Развитие транспортной системы
+        +e.SPAN.years= data.years
+        +e.H3.header= data.header
     +e.content
       +e.row
         +e.data-item
@@ -56,14 +55,19 @@ mixin budget_aip()
       .analityc-widget.analityc-widget_aip.load-anim-fade(data-delay="1500")
         +analityc-widgethead-aip().analityc-widgethead-aip
         +tabs
-          +tabs-tab(data-tab-group="AIP" data-tab="AIPfinData")
+          +tabs-tab(data-tab-group="AIP" data-tab="AIPfinData").active
             +analityc-graphics-aip('income1')._finData
             +analityc-table()._finData
               +table-income(getData('income'))
-          +tabs-tab(data-tab-group="AIP" data-tab="AIPresults").active
-            +GpAIP()
-                
-        //- 
+          +tabs-tab(data-tab-group="AIP" data-tab="AIPresults")
+            .govProgram__arrows
+              a.govProgram__arr.govProgram__arr_prev
+              a.govProgram__arr.govProgram__arr_next
+            .govPrograms
+              +GpAIP(getData('AIPgovprogram')[0]).active
+              +GpAIP(getData('AIPgovprogram')[1])
+              +GpAIP(getData('AIPgovprogram')[2])
+              +GpAIP(getData('AIPgovprogram')[3])
         //- +analityc-table()._changes
         //-   +icon('angle-arrow').section__ar.section__ar_left
         //-   +icon('angle-arrow').section__ar.section__ar_right

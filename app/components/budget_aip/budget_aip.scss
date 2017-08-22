@@ -1,14 +1,24 @@
 
 // Программы для второго таба
+.tabs__tab {
+  position: relative;
+}
 .govProgram {
+  display: none;
+  transition: all .25s ease-in-out;
+  &.active {
+    display: block;
+  }
+
   &__heading {
     border-bottom: 1px solid $color-light-gray;
     padding-bottom: 20px;
+    margin-bottom: 30px;
   }
   &__arrows {
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 34px;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
   &__arr {
     width: 45px;
@@ -47,11 +57,11 @@
     }
   }
   &__icon {
+    margin-left: 126px;
     display: inline-block;
     vertical-align: middle;
     width: 55px;
     height: 43px;
-    fill: #af3b81;
   }
   &__title {
     display: inline-block;
@@ -73,9 +83,13 @@
 
   }
 
+  &__row {
+    margin-bottom: 42px;
+  }
+
   &__data-item {
     display: inline-block;
-    vertical-align: middle;
+    vertical-align: top;
     width: 25%;
     font-weight: 500;
   }
@@ -87,6 +101,7 @@
 
   &__index-text {
     font-size: 20px;
+    max-width: 80%;
   }
 }
 
@@ -97,6 +112,10 @@
     .page-head__title {
       letter-spacing: 0;
     }
+  }
+
+  .analityc-table_finData {
+    display: none;
   }
 
   .tabs {
@@ -128,6 +147,14 @@
       &__val1 {
         top: -89px;
         left: 113px;
+        @media (max-width: 1024px) {
+          top: -83px;
+          left: 104px;
+        }
+        @media (max-width: 768px) {
+          top: -96px;
+          left: 122px;
+        }
       }
       &__val2 {
         right: 14px;
@@ -139,14 +166,37 @@
       &__val4 {
         top: 117px;
         right: 102px;
+        @media (max-width: 1024px) {
+          top: 110px;
+          right: 91px;
+        }
+        @media (max-width: 768px) {
+          top: 125px;
+          right: 107px;
+        }
       }
       &__val5 {
         bottom: -62px;
         left: 36px;
+        @media (max-width: 1024px) {
+          bottom: -57px;
+          left: 30px;
+        }
+        @media (max-width: 768px) {
+          bottom: -77px;
+          left: 40px;
+        }
       }
       &__val6 {
         top: -8px;
         left: 8px;
+        @media (max-width: 1024px) {
+          left: 6px;
+        }
+        @media (max-width: 768px) {
+          top: -5px;
+          left: 9px;
+        }
       }
     }
   }
@@ -165,7 +215,7 @@
     margin-left: 18px;
     display: none;
     .analityc-select {
-      width: 270px;
+      width: 290px;
     }
   }
 
@@ -243,6 +293,185 @@
       }
     }
   }
+
+
+  @media (max-width: 1024px) {
+    .analityc-select {
+      font-size: 12px;
+      line-height: 15px;
+    }
+
+
+    .analityc-widgethead_aip .analityc-control-group_classify .analityc-select {
+      width: 295px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    div.analityc-control-group {
+      width: 100%;
+      box-sizing: border-box;
+
+      &_period {
+        width: 175px;
+      }
+
+      select.analityc-select {
+        width: 100%;
+        max-width: none;
+        font-size: 20px;
+      }
+    }
+
+    .analityc-widgethead_aip .analityc-control-group_classify .analityc-select {
+      width: 100%;
+    }
+
+    .analityc-widgethead {
+      padding-bottom: 0;
+    }
+
+    .analityc-widgethead .analityc-control-switcher {
+      position: relative;
+      margin-left: 0;
+
+      &_main {
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+    }
+    .swiper-container {
+      overflow: visible;
+    }
+    .legend-icon__label {
+      font-size: 16px;
+    }
+
+    .legend-icon__item {
+      width: 50%;
+      display: inline-block;
+    }
+
+    .analityc-control-switcher {
+      margin: 0;
+      width: 100%;
+
+      a {
+        font-size: 15px;
+        padding: 0 30px;
+        &:first-child {
+          width: 64%;
+        }
+        &:last-child {
+          width: 36%;
+        }
+      }
+
+      &_main {
+        width: 85%;
+        a {
+          padding: 0 20px;
+          &:first-child {
+            width: 36%;
+          }
+          &:last-child {
+            width: 64%;
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: 600px) {
+    div.analityc-control-group {
+      select.analityc-select {
+        font-size: 16px;
+      }
+    }
+    .analityc-control-switcher_main {
+      a {
+        &:first-child {
+          width: 100%;
+        }
+        &:last-child {
+          width: 100%;
+        }
+      }
+    }
+
+    div.govProgram {
+      &__title {
+        display: block;
+        margin-top: 15px;
+        margin-left: 0;
+      }
+      &__index {
+        font-size: 28px;
+      }
+      &__index-text {
+        font-size: 16px;
+      }
+    }
+
+    .govProgram {
+
+      &__index {
+        font-size: 36px;
+      }
+
+      &__index-text {
+        font-size: 18px;
+      }
+    }
+    .legend-icon__item {
+      display: block;
+      width: auto;
+    }
+    .analityc-graphics__graphic_round {
+      height: 140px;
+    }
+    .analityc-control-switcher_main {
+      width: 80%;
+    }
+  }
+  @media (max-width: 480px) {
+    .analityc-control-group {
+      margin-left: 0!important;
+      .analityc-select {
+        box-sizing: border-box;
+      }
+    }
+    .analityc-widgethead .analityc-control-group {
+      margin-bottom: 15px;
+    }
+    div.govProgram__index {
+      font-size: 26px;
+    }
+  }
+  @media (max-width: 320px) {
+    div.analityc-control-group select.analityc-select {
+      font-size: 10px;
+    }
+    .analityc-control-switcher_main {
+      width: 70%;
+    }
+    .analityc-control-switcher a {
+      font-size: 10px;
+      padding: 0 5px;
+    }
+
+    .govProgram {
+      &__header {
+        font-size: 22px;
+      }
+      &__row {
+        margin-bottom: 0;
+      }
+      &__data-item {
+        margin-bottom: 15px;
+        width: 50%;
+      }
+    }
+  }
 }
 
 
@@ -275,13 +504,9 @@
   }
 }
 
+
+
 @media (width: 1024px) {
-  .analityc-widget_aip .analityc-control-group._dp {
-    margin-left: 1.9%;
-    width: 335.6px;
-    width: calc(45.2% - 93px);
-    margin-top: 0;
-  }
 
   .analityc-control-buttons,
   .analityc-control-switcher {
