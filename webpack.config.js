@@ -34,6 +34,7 @@ module.exports = (watch = false) => ({
       },
     }),
     new webpack.NoErrorsPlugin(),
-    new webpack.optimize.UglifyJsPlugin(),
+    // обфусцируем js только на продакшн
+    !isDebug ? new webpack.optimize.UglifyJsPlugin() : f => f,
   ],
 });
