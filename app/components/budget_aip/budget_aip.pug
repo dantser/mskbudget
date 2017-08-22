@@ -4,7 +4,48 @@ include ../analityc-graphics/analityc-graphics
 include ../analityc-table/analityc-table
 include ../../blocks/table/table
 include ../../blocks/dropdown-block/dropdown-block
+include ../../blocks/tabs/tabs
 
+//- Программы для второго таба
+mixin GpAIP()
+  +b.govProgram&attributes(attributes)
+    +e.heading
+      +e.arrows
+        +e.arr._prev
+        +e.arr._next
+      +icon('car').icon
+      +e.title
+        +e.SPAN.years 2016-2019
+        +e.H3.header Развитие транспортной системы
+    +e.content
+      +e.row
+        +e.data-item
+          +e.index 116,66 км
+          +e.index-text линий метрополитена
+        +e.data-item
+          +e.index 478,05 км
+          +e.index-text автомобильных дорог
+        +e.data-item
+          +e.index 22
+          +e.index-text конечных станций транспорта
+        +e.data-item
+          +e.index 52
+          +e.index-text станции метрополитена
+      +e.row
+        +e.data-item
+          +e.index 103
+          +e.index-text искусственных сооружения
+        +e.data-item
+          +e.index 60
+          +e.index-text трехсекционных низкопольных трамвая
+        +e.data-item
+          +e.index 7
+          +e.index-text электродепо
+        +e.data-item
+          +e.index 59
+          +e.index-text пешеходных перехода
+
+//-сама страница
 mixin budget_aip()
   section.main._basic.basic-budget.sections__item.budget_aip
     .wrapper
@@ -14,23 +55,27 @@ mixin budget_aip()
     .wrapper.wrapper_widget
       .analityc-widget.analityc-widget_aip.load-anim-fade(data-delay="1500")
         +analityc-widgethead-aip().analityc-widgethead-aip
-        +analityc-graphics-aip('income1')._approved.active
-        +analityc-table()._approved
-          +table-income(getData('income'))
-        +analityc-graphics-column('income1')._changes
-
-        +analityc-table()._changes
-          +icon('angle-arrow').section__ar.section__ar_left
-          +icon('angle-arrow').section__ar.section__ar_right
-          .analityc-table__wrapper
-            +table-income(getData('income1'))
-
-        +analityc-graphics-singleround('income2')._done
-        +analityc-table()._done
-          +table-income(getData('income2'))
-        +analityc-graphics-line('Исполнение доходов бюджета на 22.04.2017', getData('graphic-lines-income1'))._date-one
-        +analityc-table('Исполнение доходов бюджета на 22.04.2017')._date
-          +table-income(getData('income3'))
-        +analityc-graphics-line('Исполнение доходов бюджета на 1 февраля 2017', getData('graphic-lines-income2'))._date-two
+        +tabs
+          +tabs-tab(data-tab-group="AIP" data-tab="AIPfinData")
+            +analityc-graphics-aip('income1')._finData
+            +analityc-table()._finData
+              +table-income(getData('income'))
+          +tabs-tab(data-tab-group="AIP" data-tab="AIPresults").active
+            +GpAIP()
+                
+        //- 
+        //- +analityc-table()._changes
+        //-   +icon('angle-arrow').section__ar.section__ar_left
+        //-   +icon('angle-arrow').section__ar.section__ar_right
+        //-   .analityc-table__wrapper
+        //-     +table-income(getData('income1'))
+        //- 
+        //- +analityc-graphics-singleround('income2')._done
+        //- +analityc-table()._done
+        //-   +table-income(getData('income2'))
+        //- +analityc-graphics-line('Исполнение доходов бюджета на 22.04.2017', getData('graphic-lines-income1'))._date-one
+        //- +analityc-table('Исполнение доходов бюджета на 22.04.2017')._date
+        //-   +table-income(getData('income3'))
+        //- +analityc-graphics-line('Исполнение доходов бюджета на 1 февраля 2017', getData('graphic-lines-income2'))._date-two
         a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
     +dropdown().load-anim-fade(data-delay="1700")

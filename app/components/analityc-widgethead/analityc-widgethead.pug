@@ -9,8 +9,8 @@ mixin analityc-widgethead-aip(type)
   +b.analityc-widgethead._aip&attributes(attributes)
     +e.row
       .analityc-control-switcher.analityc-control-switcher_default.active
-        a(href="#").active Финансовые показатели
-        a(href="#") ожидаемые конечные результаты
+        a(href="#" data-tab-target="AIPfinData").active Финансовые показатели
+        a(href="#" data-tab-target="AIPresults") ожидаемые конечные результаты
       .analityc-control-group.analityc-control-group_period
         span Период
         select.analityc-select
@@ -24,7 +24,14 @@ mixin analityc-widgethead-aip(type)
           option Разделы и подразделы
           option Ведомства
           option Виды
-    +e.row
+      .analityc-control-group.analityc-control-group_gp
+        span Государственная программа
+        select.analityc-select
+          option(selected) Развитие транспортной системы
+          option Разделы и подразделы
+          option Ведомства
+          option Виды
+    +e.row._extra
       .analityc-control-buttons.active
         a(href="#").analityc-control-button.analityc-control-button_graphics.active
           +icon('graphic', true)

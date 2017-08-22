@@ -14,6 +14,17 @@ export default function tabs() {
 			$(document).find('.profile_edit input[type=password]').val('');
 			$(document).find('.profile_edit .profile__field').addClass('disabled');
 		}
+    if (targetTab == 'AIPfinData') {
+			$(document).find('.analityc-control-group_classify').show();
+			$(document).find('.analityc-control-group_gp').hide();
+      $(document).find('.analityc-widgethead__row_extra .analityc-control-switcher').show();
+		}
+    if (targetTab == 'AIPresults') {
+			$(document).find('.analityc-control-group_classify').hide();
+			$(document).find('.analityc-control-group_gp').css('display', 'inline-block');
+      $(document).find('.analityc-widgethead__row_extra .analityc-control-switcher').hide();
+
+		}
 
 
     $(document).find("[data-tab-group='" + tabGroup + "']").hide();

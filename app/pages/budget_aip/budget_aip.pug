@@ -1,25 +1,25 @@
 extends ../../layouts/default
-include ../../components/services_social_significant/services_social_significant
-include ../../components/header/header
+include ../../components/budget_aip/budget_aip
 
 block head
-  - var pageTitle = 'Общественно значимые проекты'
+  - var pageTitle = 'Адресная инвестиционная программа'
 
 block page
   block header
     +header()._budget
 
   block sections
-    +sections()
+    +sections().budget_aip
 
       block content
-        +services_social_significant(getData('sagnificant'))
+        +budget_aip()
         +footer()
         +button-top()
         
   +popup-wrapper()
 
   script(src="assets/scripts/js/jquery-3.1.1.min.js")
+  script(src="assets/scripts/js/header/diagram.min.js")
   script(src="assets/scripts/js/library.js")
   script(src="assets/scripts/js/header/easing.min.js")
   script(src="assets/scripts/js/header/swipe.min.js")
@@ -36,7 +36,7 @@ block page
   script(src="assets/scripts/js/header/form.min.js")
   script(src="assets/scripts/js/header/letter.min.js")
   script(src="assets/scripts/js/header/common.min.js")
-  script(src="assets/scripts/js/header/diagram.min.js")
   script(src="assets/scripts/js/owl.carousel.min.js")
   script(src="assets/scripts/js/script.js")
   script(src="assets/scripts/js/ez.js")
+  script(src="assets/scripts/js/main-page.js")
