@@ -1,8 +1,106 @@
+
+// Программы для второго таба
+.govProgram {
+  &__heading {
+    border-bottom: 1px solid $color-light-gray;
+    padding-bottom: 20px;
+  }
+  &__arrows {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 34px;
+  }
+  &__arr {
+    width: 45px;
+    height: 45px;
+    display: inline-block;
+    vertical-align: middle;
+    background-color: $color-yellow;
+    position: relative;
+    cursor: pointer;
+    &::after {
+      @include pseudo;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      z-index: 2;
+      width: 14px;
+      height: 14px;
+      border-bottom: 2px solid currentColor;
+    }
+    &_prev {
+      margin-right: 2px;
+      &::after {
+        left: 8px;
+        border-left: 2px solid currentColor;
+        transform: rotate(45deg);
+      }
+    }
+    &_next {
+      &::after {
+        right: 8px;
+        border-right: 2px solid currentColor;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+  &__icon {
+    display: inline-block;
+    vertical-align: middle;
+    width: 55px;
+    height: 43px;
+    fill: #af3b81;
+  }
+  &__title {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 18px;
+    font-weight: 500;
+    font-family: $PFDinTextPro;
+  }
+  &__years {
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+  &__header {
+    line-height: 30px;
+    font-size: 24px;
+  }
+
+  &__content {
+
+  }
+
+  &__data-item {
+    display: inline-block;
+    vertical-align: middle;
+    width: 25%;
+    font-weight: 500;
+  }
+
+  &__index {
+    font-size: 48px;
+    color: #af3b81;
+  }
+
+  &__index-text {
+    font-size: 20px;
+  }
+}
+
+
+
 .budget_aip {
   &__page-header {
     .page-head__title {
       letter-spacing: 0;
     }
+  }
+
+  .tabs {
+    margin-top: 60px;
   }
 
   // отступ по макету
@@ -12,15 +110,49 @@
 
   // круглые графики
   .analityc-graphics_aip {
-    margin-top: 60px;
+
 
     .analityc-graphics__col {
       width: 24.5%;
+    }
+    .analityc-graphics__periodtext {
+      z-index: 2;
+      width: 50%;
     }
 
     svg {
       max-width: 100%;
     }
+
+    .segment-diagram {
+      &__val1 {
+        top: -89px;
+        left: 113px;
+      }
+      &__val2 {
+        right: 14px;
+      }
+      &__val3 {
+        top: 55px;
+        right: 12px;
+      }
+      &__val4 {
+        top: 117px;
+        right: 102px;
+      }
+      &__val5 {
+        bottom: -62px;
+        left: 36px;
+      }
+      &__val6 {
+        top: -8px;
+        left: 8px;
+      }
+    }
+  }
+
+  .legend-icon__circle, .legend-icon__icon {
+    margin-right: 9px;
   }
 }
 
@@ -29,44 +161,21 @@
   padding-top: 22px;
   padding-bottom: 35px;
 
-  .analityc-control-group._dp {
-    display: inline-block;
-    margin-top: 30px;
-    margin-left: 2.9%;
-    width: 33.6%;
-
-    input.datepicker {
-      padding: 0 16px;
-    }
-
-    &-alt.active {
-      display: inline-block;
-    }
-
-    @media (max-width: 768px) {
-      margin-top: 13px;
+  .analityc-control-group_gp {
+    margin-left: 18px;
+    display: none;
+    .analityc-select {
+      width: 270px;
     }
   }
-  .swiper-container {
-    overflow: visible;
-  }
 
-  .analityc-select_disabled {
-    background-color: #e5e5e5 !important;
-  } // .analityc-graphics_column {
-  //
-  //   .analityc-graphics__cols {
-  //
-  //     padding-right: 21px;
+  // .analityc-graphics,
+  // .analityc-table {
+  //   display: none;
+  //   &.active {
+  //     display: block;
   //   }
   // }
-  .analityc-graphics,
-  .analityc-table {
-    display: none;
-    &.active {
-      display: block;
-    }
-  }
 
   .section__ar {
     display: none;
@@ -116,37 +225,6 @@
     }
   }
 
-  .analityc-control-group._dp-alt {
-    margin-top: 25px;
-    margin-left: 2.9%;
-  }
-
-  div.analityc-control-group._dp-alt {
-    @media (max-width: 1140px) {
-      margin-left: 1.9%;
-      .analityc-select {
-        &_month {
-          width: 28%;
-        }
-        &_year {
-          width: 17%;
-        }
-      }
-    }
-    @media (width: 1024px) {
-      width: calc(43.1% - 93px);
-      margin-top: 0;
-
-      .analityc-select {
-        margin-top: 0;
-      }
-    }
-
-    @media (max-width: 768px) {
-      width: 100%;
-      margin-top: 13px;
-    }
-  }
 
   .analityc-control-switcher_default,
   .analityc-control-buttons,
