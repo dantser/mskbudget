@@ -90,7 +90,7 @@
   &__data-item {
     display: inline-block;
     vertical-align: top;
-    width: 25%;
+    width: 24%;
     font-weight: 500;
   }
 
@@ -118,6 +118,10 @@
     display: none;
   }
 
+  .analityc-table {
+    padding-top: 43px;
+  }
+
   .tabs {
     margin-top: 60px;
   }
@@ -141,6 +145,7 @@
 
     svg {
       max-width: 100%;
+      width: 100%;
     }
 
     .segment-diagram {
@@ -210,6 +215,9 @@
 .analityc-widget_aip {
   padding-top: 22px;
   padding-bottom: 35px;
+  .swiper-container {
+    overflow: visible;
+  }
 
   .analityc-control-group_gp {
     margin-left: 18px;
@@ -219,13 +227,14 @@
     }
   }
 
-  // .analityc-graphics,
-  // .analityc-table {
-  //   display: none;
-  //   &.active {
-  //     display: block;
-  //   }
-  // }
+  .analityc-graphics,
+  .analityc-table,
+  .govPrograms {
+    display: none;
+    &.active {
+      display: block;
+    }
+  }
 
   .section__ar {
     display: none;
@@ -303,7 +312,7 @@
 
 
     .analityc-widgethead_aip .analityc-control-group_classify .analityc-select {
-      width: 295px;
+      width: 325px;
     }
   }
 
@@ -381,7 +390,10 @@
       }
     }
   }
-  @media (max-width: 600px) {
+  @media (max-width: 640px) {
+    .tabs {
+      margin-top: 40px;
+    }
     div.analityc-control-group {
       select.analityc-select {
         font-size: 16px;
