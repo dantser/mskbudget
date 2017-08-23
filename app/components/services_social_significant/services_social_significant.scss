@@ -3,6 +3,10 @@
   background-size: 100%;
   color: #000;
 
+  &__wrapper {
+    margin-bottom: 80px;
+  }
+
 	&__buttons-set {
 		margin-top: 24px;
 	}
@@ -14,10 +18,11 @@
 
   &__search {
     padding: 32px 40px 37px;
-    width: 613px;
+    width: 700px;
 
     .d-si__search {
       height: 32px;
+      color: #d5d5d5;
       letter-spacing: -.8px;
       text-transform: none;
     }
@@ -181,7 +186,7 @@
 
 /*Таб отдельного проекта*/
 .significant-about {
-  padding: 26px 41px 26px;
+  padding: 26px 41px 42px;
 
   &__back {
     font-family: $PFDinCondensedPro;
@@ -189,10 +194,22 @@
     text-transform: uppercase;
     color: $color-link;
     font-weight: 500;
+    cursor: pointer;
   }
 
   &__wrap {
+    @include clearfix;
     margin-top: 12px;
+  }
+
+  &__info {
+    float: left;
+    max-width: 540px;
+  }
+
+  &__additional {
+    float: right;
+    width: 400px;
   }
 
   &__title {
@@ -263,4 +280,53 @@
     letter-spacing: -.3px;
     margin-top: 25px;
   }
+
+  &__img {
+    width: 100%;
+    height: 300px;
+    background-color: #d5d5d5;
+  }
+
+  &__address {
+    @include block-justify;
+    font-size: 0;
+    margin-top: 19px;
+  }
+
+  &__map {
+    display: inline-block;
+    width: 227px;
+    height: 121px;
+    background-color: #d5d5d5;
+    vertical-align: bottom;
+  }
+
+  &__addr {
+    display: inline-block;
+    max-width: 153px;
+    font-size: 14px;
+    text-align: left;
+    vertical-align: bottom;
+    
+    p {
+      line-height: 16px;
+      letter-spacing: .8px;
+    }
+  }
+
+  &__map-open {
+    margin-top: 11px;
+    font-size: 14px;
+  }
+
+  .analityc-table_gp {
+    padding-bottom: 0;
+    margin-top: 44px;
+
+    .table-switcher {
+      display: none;
+    }
+  }
+
+
 }
