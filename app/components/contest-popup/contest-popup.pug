@@ -5,29 +5,31 @@ mixin contest-popup()
 
 	mixin participant(number)
 		+e.participant
-			+icon('close').hide
+			+e.P.hide
+				+icon('close').hide-icon
+				| скрыть
 
 			+e.P.participant-number 
 				| Участник №
 				+e.SPAN.js-participant-number 
 
-			+participant-field('ФИО', 'fio')
-			+participant-field('Дата рождения', 'birth')
-			+participant-field('Должность', 'position')
-			+participant-field('Контактный телефон', 'phone')
-			+participant-field('Электронная почта', 'email')
-			+participant-field('Адрес', 'address')
+			+participant-field('text', 'ФИО', 'fio')
+			+participant-field('text', 'Дата рождения', 'birth')
+			+participant-field('text', 'Должность', 'position')
+			+participant-field('tel', 'Контактный телефон', 'phone')
+			+participant-field('email', 'Электронная почта', 'email')
+			+participant-field('text', 'Адрес', 'address')
 
-	mixin participant-field(label, name)
+	mixin participant-field(type, label, name)
 		+e.participant-field
 			+e.LABEL(for='').label= label
-			+e.INPUT(type='text' name='p-'+name id='p-'+name).fio
+			+e.INPUT(type=''+type+'' name='p-'+name id='p-'+name).fio
 
 	mixin option(type, label, name, isOther)
 		+e.option-field
-			+e.INPUT(type='checkbox' name=type+'-'+name id=type+'-'+name)
-			+e.chbox
-			+e.LABEL(for=type+'-'+name).label= label
+			+e.LABEL(for=type+'-'+name).option-label= label
+				+e.INPUT(type='checkbox' name=type+'-'+name id=type+'-'+name)
+				+e.chbox
 
 			if (isOther)
 				+e.INPUT(type='text' name=type+'-'+'other')
@@ -43,46 +45,50 @@ mixin contest-popup()
 				+participant()
 				+participant()
 
-				+button()._kind_yellow.js-button-addparticipant
+				+button()._kind_yellow.js-button-addparticipant Добавить участника
 
 			+e.options
 				+e.option
 					
 					+e.option-title Номинация конкурса:
 
-					+option('n', '&laquo;Бюджет города Москвы: сколько я плачу и что получаю?&raquo', 'f1')
-					+option('n', '&laquo;Интерактивный бюджет города Москвы для граждан&raquo', 'f2')
-					+option('n', '&laquo;Разработка рейтинга понятности бюджета города Москвы для граждан&raquo', 'f3')
-					+option('n', '&laquo;Популярный словарь бюджетных терминов&raquo', 'f4')
-					+option('n', '&laquo;Проекты инициативного бюджетирования в городе Москве&raquo', 'f5')
-					+option('n', '&laquo;Бюджет города Москвы: просто о сложном&raquo', 'f6')
+					+option('n', '«Бюджет города Москвы: сколько я плачу и что получаю?»', 'f1')
+					+option('n', '«Интерактивный бюджет города Москвы для граждан»', 'f2')
+					+option('n', '«Разработка рейтинга понятности бюджета города Москвы для граждан»', 'f3')
+					+option('n', '«Популярный словарь бюджетных терминов»', 'f4')
+					+option('n', '«Проекты инициативного бюджетирования в городе Москве»', 'f5')
+					+option('n', '«Бюджет города Москвы: просто о сложном»', 'f6')
 				
 				+e.option
 					+e.option-title Приложением к заявке является проект, представленный в формате:
 
-					+option('f', '&laquo;Презентация&raquo', 'f1')
-					+option('f', '&laquo;Видео&raquo', 'f2')
-					+option('f', '&laquo;Интернет-брошюра&raquo', 'f3')
-					+option('f', '&laquo;Мультипликационный ролик&raquo', 'f4')
-					+option('f', '&laquo;Фото-коллаж&raquo', 'f5')
-					+option('f', '&laquo;Иное (указать)&raquo', 'f6', true)
+					+option('f', 'Презентация', 'f1')
+					+option('f', 'Видео', 'f2')
+					+option('f', 'Интернет-брошюра', 'f3')
+					+option('f', 'Мультипликационный ролик', 'f4')
+					+option('f', 'Фото-коллаж', 'f5')
+					+option('f', 'Иное (указать)', 'f6', true)
 						
 				+e.option
 					+e.option-title Приложением представлено на:
 
-					+option('t', '&laquo;Бумажном носителе информации на __ листах&raquo', 'f1')
-					+option('t', '&laquo;Электронном носителе информации&raquo', 'f2')
-					+option('t', '&laquo;Иное (указать)&raquo', 'f3', true)
+					+option('t', 'Бумажном носителе информации на __ листах', 'f1')
+					+option('t', 'Электронном носителе информации', 'f2')
+					+option('t', 'Иное (указать)', 'f3', true)
 
 				+e.extra
-					+button()._kind_yellow.js-button-attachment
+					+button()._kind_yellow.js-button-attachment Прикрепить файл
 					+e.UL.attachments
 						+e.LI.attachment
+							+icon('close').delete-icon
 							+e.SPAN.document Document 1
-							+icon()
 						+e.LI.attachment
+							+icon('close').delete-icon
 							+e.SPAN.document Document 2
-							+icon()
 
-				+button(true)
-
+				+button(true)._kind_yellow.__submit Отправить
+				
+		+e.footer
+			+e.P.footer-text По всем возникающим вопросам Вы можете обращаться<br> по телефону +7&nbsp;(495)&nbsp;620-20-00 (доб.64327) или<br> по электронной почте
+				a(href="mailto:YUAPetrushova@fin.dep.mos.ru") YUAPetrushova@fin.dep.mos.ru 
+				| (Петрушова Юлия).
