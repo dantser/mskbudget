@@ -1,13 +1,12 @@
 include ../../components/page-header/page-header
 include ../../components/searchForm/searchForm
-include ../../blocks/icon/icons
-include ../../blocks/button/button
 include ../../blocks/link/link
 include ../../blocks/buttons-set/buttons-set
 include ../../blocks/tabs/tabs
 include ../../blocks/search-form/search-form
 include ../analityc-table/analityc-table
 include ../../blocks/table/table
+include ../../blocks/dropdown-block/dropdown-block
 
 //- data - данные для таблицы
 mixin services_social_significant(data)
@@ -30,14 +29,14 @@ mixin services_social_significant(data)
 		+e.row
 			+e.col._left
 				+e.row-num= num
-				+e.A(href='#').row-title= title
+				+e.A(href='#' data-tab-target='significantThree').row-title= title
 			+e.col._center
 				+e.row-st= street
 			+e.col._right
 				+e.row-date= date
 
 	+b.SECTION.significant.section__item&attributes(attributes)
-		.wrapper
+		.wrapper.significant__wrapper
 			+e.head
 				+page-header('Общественно значимые проекты', ['Сервисы'])
 				+buttons-set-alt(getData('buttons-set-significant')).significant__buttons-set
@@ -91,7 +90,9 @@ mixin services_social_significant(data)
 										| Место реализации:
 										br
 										| Улица Дыбенко, вблизи строений 34-38
-									+e.A(href='#').map-open Развернуть карту
+									+link()._dashed.significant-about__map-open Развернуть карту
 
 					+analityc-table()._gp
 						+table-gp(getData('analytics-expenses'))
+
+		+dropdown().load-anim-fade(data-delay="1700")
