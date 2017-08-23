@@ -610,7 +610,8 @@
                                         <form class="contest-popup__application" method="POST" action="#">
                                             <div class="contest-popup__participants">
                                                 <div class="contest-popup__participant">
-                                                    <svg class="contest-popup__hide"><use xlink:href="assets/images/icon.svg#icon_close"></use></svg>
+                                                    <p class="contest-popup__hide">
+                                                        <svg class="contest-popup__hide-icon"><use xlink:href="assets/images/icon.svg#icon_close"></use></svg>скрыть</p>
                                                     <p class="contest-popup__participant-number"> Участник №
                                                         <span class="contest-popup__js-participant-number"> </span>
                                                     </p>
@@ -628,11 +629,11 @@
                                                     </div>
                                                     <div class="contest-popup__participant-field">
                                                         <label class="contest-popup__label" for="">Контактный телефон</label>
-                                                        <input class="contest-popup__fio" type="text" name="p-phone" id="p-phone" />
+                                                        <input class="contest-popup__fio" type="tel" name="p-phone" id="p-phone" />
                                                     </div>
                                                     <div class="contest-popup__participant-field">
                                                         <label class="contest-popup__label" for="">Электронная почта</label>
-                                                        <input class="contest-popup__fio" type="text" name="p-email" id="p-email" />
+                                                        <input class="contest-popup__fio" type="email" name="p-email" id="p-email" />
                                                     </div>
                                                     <div class="contest-popup__participant-field">
                                                         <label class="contest-popup__label" for="">Адрес</label>
@@ -640,7 +641,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="contest-popup__participant">
-                                                    <svg class="contest-popup__hide"><use xlink:href="assets/images/icon.svg#icon_close"></use></svg>
+                                                    <p class="contest-popup__hide">
+                                                        <svg class="contest-popup__hide-icon"><use xlink:href="assets/images/icon.svg#icon_close"></use></svg>скрыть</p>
                                                     <p class="contest-popup__participant-number"> Участник №
                                                         <span class="contest-popup__js-participant-number"> </span>
                                                     </p>
@@ -658,122 +660,143 @@
                                                     </div>
                                                     <div class="contest-popup__participant-field">
                                                         <label class="contest-popup__label" for="">Контактный телефон</label>
-                                                        <input class="contest-popup__fio" type="text" name="p-phone" id="p-phone" />
+                                                        <input class="contest-popup__fio" type="tel" name="p-phone" id="p-phone" />
                                                     </div>
                                                     <div class="contest-popup__participant-field">
                                                         <label class="contest-popup__label" for="">Электронная почта</label>
-                                                        <input class="contest-popup__fio" type="text" name="p-email" id="p-email" />
+                                                        <input class="contest-popup__fio" type="email" name="p-email" id="p-email" />
                                                     </div>
                                                     <div class="contest-popup__participant-field">
                                                         <label class="contest-popup__label" for="">Адрес</label>
                                                         <input class="contest-popup__fio" type="text" name="p-address" id="p-address" />
                                                     </div>
                                                 </div>
-                                                <button class="button button_kind_yellow js-button-addparticipant"></button>
+                                                <button class="button button_kind_yellow js-button-addparticipant">Добавить участника</button>
                                             </div>
                                             <div class="contest-popup__options">
                                                 <div class="contest-popup__option">
                                                     <div class="contest-popup__option-title">Номинация конкурса:</div>
                                                     <div class="contest-popup__option-field">
-                                                        <input type="checkbox" name="n-f1" id="n-f1" />
-                                                        <div class="contest-popup__chbox"></div>
-                                                        <label class="contest-popup__label" for="n-f1">&amp;laquo;Бюджет города Москвы: сколько я плачу и что получаю?&amp;raquo</label>
+                                                        <label class="contest-popup__option-label" for="n-f1">«Бюджет города Москвы: сколько я плачу и что получаю?»
+                                                            <input type="checkbox" name="n-f1" id="n-f1" />
+                                                            <span class="contest-popup__chbox"></span>
+                                                        </label>
                                                     </div>
                                                     <div class="contest-popup__option-field">
-                                                        <input type="checkbox" name="n-f2" id="n-f2" />
-                                                        <div class="contest-popup__chbox"></div>
-                                                        <label class="contest-popup__label" for="n-f2">&amp;laquo;Интерактивный бюджет города Москвы для граждан&amp;raquo</label>
+                                                        <label class="contest-popup__option-label" for="n-f2">«Интерактивный бюджет города Москвы для граждан»
+                                                            <input type="checkbox" name="n-f2" id="n-f2" />
+                                                            <span class="contest-popup__chbox"></span>
+                                                        </label>
                                                     </div>
                                                     <div class="contest-popup__option-field">
-                                                        <input type="checkbox" name="n-f3" id="n-f3" />
-                                                        <div class="contest-popup__chbox"></div>
-                                                        <label class="contest-popup__label" for="n-f3">&amp;laquo;Разработка рейтинга понятности бюджета города Москвы для граждан&amp;raquo</label>
+                                                        <label class="contest-popup__option-label" for="n-f3">«Разработка рейтинга понятности бюджета города Москвы для граждан»
+                                                            <input type="checkbox" name="n-f3" id="n-f3" />
+                                                            <span class="contest-popup__chbox"></span>
+                                                        </label>
                                                     </div>
                                                     <div class="contest-popup__option-field">
-                                                        <input type="checkbox" name="n-f4" id="n-f4" />
-                                                        <div class="contest-popup__chbox"></div>
-                                                        <label class="contest-popup__label" for="n-f4">&amp;laquo;Популярный словарь бюджетных терминов&amp;raquo</label>
+                                                        <label class="contest-popup__option-label" for="n-f4">«Популярный словарь бюджетных терминов»
+                                                            <input type="checkbox" name="n-f4" id="n-f4" />
+                                                            <span class="contest-popup__chbox"></span>
+                                                        </label>
                                                     </div>
                                                     <div class="contest-popup__option-field">
-                                                        <input type="checkbox" name="n-f5" id="n-f5" />
-                                                        <div class="contest-popup__chbox"></div>
-                                                        <label class="contest-popup__label" for="n-f5">&amp;laquo;Проекты инициативного бюджетирования в городе Москве&amp;raquo</label>
+                                                        <label class="contest-popup__option-label" for="n-f5">«Проекты инициативного бюджетирования в городе Москве»
+                                                            <input type="checkbox" name="n-f5" id="n-f5" />
+                                                            <span class="contest-popup__chbox"></span>
+                                                        </label>
                                                     </div>
                                                     <div class="contest-popup__option-field">
-                                                        <input type="checkbox" name="n-f6" id="n-f6" />
-                                                        <div class="contest-popup__chbox"></div>
-                                                        <label class="contest-popup__label" for="n-f6">&amp;laquo;Бюджет города Москвы: просто о сложном&amp;raquo</label>
+                                                        <label class="contest-popup__option-label" for="n-f6">«Бюджет города Москвы: просто о сложном»
+                                                            <input type="checkbox" name="n-f6" id="n-f6" />
+                                                            <span class="contest-popup__chbox"></span>
+                                                        </label>
                                                     </div>
                                                 </div>
                                                 <div class="contest-popup__option">
                                                     <div class="contest-popup__option-title">Приложением к заявке является проект, представленный в формате:</div>
                                                     <div class="contest-popup__option-field">
-                                                        <input type="checkbox" name="f-f1" id="f-f1" />
-                                                        <div class="contest-popup__chbox"></div>
-                                                        <label class="contest-popup__label" for="f-f1">&amp;laquo;Презентация&amp;raquo</label>
+                                                        <label class="contest-popup__option-label" for="f-f1">Презентация
+                                                            <input type="checkbox" name="f-f1" id="f-f1" />
+                                                            <span class="contest-popup__chbox"></span>
+                                                        </label>
                                                     </div>
                                                     <div class="contest-popup__option-field">
-                                                        <input type="checkbox" name="f-f2" id="f-f2" />
-                                                        <div class="contest-popup__chbox"></div>
-                                                        <label class="contest-popup__label" for="f-f2">&amp;laquo;Видео&amp;raquo</label>
+                                                        <label class="contest-popup__option-label" for="f-f2">Видео
+                                                            <input type="checkbox" name="f-f2" id="f-f2" />
+                                                            <span class="contest-popup__chbox"></span>
+                                                        </label>
                                                     </div>
                                                     <div class="contest-popup__option-field">
-                                                        <input type="checkbox" name="f-f3" id="f-f3" />
-                                                        <div class="contest-popup__chbox"></div>
-                                                        <label class="contest-popup__label" for="f-f3">&amp;laquo;Интернет-брошюра&amp;raquo</label>
+                                                        <label class="contest-popup__option-label" for="f-f3">Интернет-брошюра
+                                                            <input type="checkbox" name="f-f3" id="f-f3" />
+                                                            <span class="contest-popup__chbox"></span>
+                                                        </label>
                                                     </div>
                                                     <div class="contest-popup__option-field">
-                                                        <input type="checkbox" name="f-f4" id="f-f4" />
-                                                        <div class="contest-popup__chbox"></div>
-                                                        <label class="contest-popup__label" for="f-f4">&amp;laquo;Мультипликационный ролик&amp;raquo</label>
+                                                        <label class="contest-popup__option-label" for="f-f4">Мультипликационный ролик
+                                                            <input type="checkbox" name="f-f4" id="f-f4" />
+                                                            <span class="contest-popup__chbox"></span>
+                                                        </label>
                                                     </div>
                                                     <div class="contest-popup__option-field">
-                                                        <input type="checkbox" name="f-f5" id="f-f5" />
-                                                        <div class="contest-popup__chbox"></div>
-                                                        <label class="contest-popup__label" for="f-f5">&amp;laquo;Фото-коллаж&amp;raquo</label>
+                                                        <label class="contest-popup__option-label" for="f-f5">Фото-коллаж
+                                                            <input type="checkbox" name="f-f5" id="f-f5" />
+                                                            <span class="contest-popup__chbox"></span>
+                                                        </label>
                                                     </div>
                                                     <div class="contest-popup__option-field">
-                                                        <input type="checkbox" name="f-f6" id="f-f6" />
-                                                        <div class="contest-popup__chbox"></div>
-                                                        <label class="contest-popup__label" for="f-f6">&amp;laquo;Иное (указать)&amp;raquo</label>
+                                                        <label class="contest-popup__option-label" for="f-f6">Иное (указать)
+                                                            <input type="checkbox" name="f-f6" id="f-f6" />
+                                                            <span class="contest-popup__chbox"></span>
+                                                        </label>
                                                         <input type="text" name="f-other" />
                                                     </div>
                                                 </div>
                                                 <div class="contest-popup__option">
                                                     <div class="contest-popup__option-title">Приложением представлено на:</div>
                                                     <div class="contest-popup__option-field">
-                                                        <input type="checkbox" name="t-f1" id="t-f1" />
-                                                        <div class="contest-popup__chbox"></div>
-                                                        <label class="contest-popup__label" for="t-f1">&amp;laquo;Бумажном носителе информации на __ листах&amp;raquo</label>
+                                                        <label class="contest-popup__option-label" for="t-f1">Бумажном носителе информации на __ листах
+                                                            <input type="checkbox" name="t-f1" id="t-f1" />
+                                                            <span class="contest-popup__chbox"></span>
+                                                        </label>
                                                     </div>
                                                     <div class="contest-popup__option-field">
-                                                        <input type="checkbox" name="t-f2" id="t-f2" />
-                                                        <div class="contest-popup__chbox"></div>
-                                                        <label class="contest-popup__label" for="t-f2">&amp;laquo;Электронном носителе информации&amp;raquo</label>
+                                                        <label class="contest-popup__option-label" for="t-f2">Электронном носителе информации
+                                                            <input type="checkbox" name="t-f2" id="t-f2" />
+                                                            <span class="contest-popup__chbox"></span>
+                                                        </label>
                                                     </div>
                                                     <div class="contest-popup__option-field">
-                                                        <input type="checkbox" name="t-f3" id="t-f3" />
-                                                        <div class="contest-popup__chbox"></div>
-                                                        <label class="contest-popup__label" for="t-f3">&amp;laquo;Иное (указать)&amp;raquo</label>
+                                                        <label class="contest-popup__option-label" for="t-f3">Иное (указать)
+                                                            <input type="checkbox" name="t-f3" id="t-f3" />
+                                                            <span class="contest-popup__chbox"></span>
+                                                        </label>
                                                         <input type="text" name="t-other" />
                                                     </div>
                                                 </div>
                                                 <div class="contest-popup__extra">
-                                                    <button class="button button_kind_yellow js-button-attachment"></button>
+                                                    <button class="button button_kind_yellow js-button-attachment">Прикрепить файл</button>
                                                     <ul class="contest-popup__attachments">
                                                         <li class="contest-popup__attachment">
+                                                            <svg class="contest-popup__delete-icon"><use xlink:href="assets/images/icon.svg#icon_close"></use></svg>
                                                             <span class="contest-popup__document">Document 1</span>
-                                                            <svg><use xlink:href="assets/images/icon.svg#icon_undefined"></use></svg>
                                                         </li>
                                                         <li class="contest-popup__attachment">
+                                                            <svg class="contest-popup__delete-icon"><use xlink:href="assets/images/icon.svg#icon_close"></use></svg>
                                                             <span class="contest-popup__document">Document 2</span>
-                                                            <svg><use xlink:href="assets/images/icon.svg#icon_undefined"></use></svg>
                                                         </li>
                                                     </ul>
                                                 </div>
-                                                <button class="button" type="submit"></button>
+                                                <button class="button button_kind_yellow contest-popup__submit" type="submit">Отправить</button>
                                             </div>
                                         </form>
+                                        <div class="contest-popup__footer">
+                                            <p class="contest-popup__footer-text">По всем возникающим вопросам Вы можете обращаться
+                                                <br> по телефону +7&nbsp;(495)&nbsp;620-20-00 (доб.64327) или
+                                                <br> по электронной почте
+                                                <a href="mailto:YUAPetrushova@fin.dep.mos.ru">YUAPetrushova@fin.dep.mos.ru </a>(Петрушова Юлия).</p>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="tabs__tab" data-tab-group="contestPopupTabs" data-tab="juridical">
@@ -785,7 +808,8 @@
                                         <form class="contest-popup__application" method="POST" action="#">
                                             <div class="contest-popup__participants">
                                                 <div class="contest-popup__participant">
-                                                    <svg class="contest-popup__hide"><use xlink:href="assets/images/icon.svg#icon_close"></use></svg>
+                                                    <p class="contest-popup__hide">
+                                                        <svg class="contest-popup__hide-icon"><use xlink:href="assets/images/icon.svg#icon_close"></use></svg>скрыть</p>
                                                     <p class="contest-popup__participant-number"> Участник №
                                                         <span class="contest-popup__js-participant-number"> </span>
                                                     </p>
@@ -803,11 +827,11 @@
                                                     </div>
                                                     <div class="contest-popup__participant-field">
                                                         <label class="contest-popup__label" for="">Контактный телефон</label>
-                                                        <input class="contest-popup__fio" type="text" name="p-phone" id="p-phone" />
+                                                        <input class="contest-popup__fio" type="tel" name="p-phone" id="p-phone" />
                                                     </div>
                                                     <div class="contest-popup__participant-field">
                                                         <label class="contest-popup__label" for="">Электронная почта</label>
-                                                        <input class="contest-popup__fio" type="text" name="p-email" id="p-email" />
+                                                        <input class="contest-popup__fio" type="email" name="p-email" id="p-email" />
                                                     </div>
                                                     <div class="contest-popup__participant-field">
                                                         <label class="contest-popup__label" for="">Адрес</label>
@@ -815,7 +839,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="contest-popup__participant">
-                                                    <svg class="contest-popup__hide"><use xlink:href="assets/images/icon.svg#icon_close"></use></svg>
+                                                    <p class="contest-popup__hide">
+                                                        <svg class="contest-popup__hide-icon"><use xlink:href="assets/images/icon.svg#icon_close"></use></svg>скрыть</p>
                                                     <p class="contest-popup__participant-number"> Участник №
                                                         <span class="contest-popup__js-participant-number"> </span>
                                                     </p>
@@ -833,122 +858,143 @@
                                                     </div>
                                                     <div class="contest-popup__participant-field">
                                                         <label class="contest-popup__label" for="">Контактный телефон</label>
-                                                        <input class="contest-popup__fio" type="text" name="p-phone" id="p-phone" />
+                                                        <input class="contest-popup__fio" type="tel" name="p-phone" id="p-phone" />
                                                     </div>
                                                     <div class="contest-popup__participant-field">
                                                         <label class="contest-popup__label" for="">Электронная почта</label>
-                                                        <input class="contest-popup__fio" type="text" name="p-email" id="p-email" />
+                                                        <input class="contest-popup__fio" type="email" name="p-email" id="p-email" />
                                                     </div>
                                                     <div class="contest-popup__participant-field">
                                                         <label class="contest-popup__label" for="">Адрес</label>
                                                         <input class="contest-popup__fio" type="text" name="p-address" id="p-address" />
                                                     </div>
                                                 </div>
-                                                <button class="button button_kind_yellow js-button-addparticipant"></button>
+                                                <button class="button button_kind_yellow js-button-addparticipant">Добавить участника</button>
                                             </div>
                                             <div class="contest-popup__options">
                                                 <div class="contest-popup__option">
                                                     <div class="contest-popup__option-title">Номинация конкурса:</div>
                                                     <div class="contest-popup__option-field">
-                                                        <input type="checkbox" name="n-f1" id="n-f1" />
-                                                        <div class="contest-popup__chbox"></div>
-                                                        <label class="contest-popup__label" for="n-f1">&amp;laquo;Бюджет города Москвы: сколько я плачу и что получаю?&amp;raquo</label>
+                                                        <label class="contest-popup__option-label" for="n-f1">«Бюджет города Москвы: сколько я плачу и что получаю?»
+                                                            <input type="checkbox" name="n-f1" id="n-f1" />
+                                                            <span class="contest-popup__chbox"></span>
+                                                        </label>
                                                     </div>
                                                     <div class="contest-popup__option-field">
-                                                        <input type="checkbox" name="n-f2" id="n-f2" />
-                                                        <div class="contest-popup__chbox"></div>
-                                                        <label class="contest-popup__label" for="n-f2">&amp;laquo;Интерактивный бюджет города Москвы для граждан&amp;raquo</label>
+                                                        <label class="contest-popup__option-label" for="n-f2">«Интерактивный бюджет города Москвы для граждан»
+                                                            <input type="checkbox" name="n-f2" id="n-f2" />
+                                                            <span class="contest-popup__chbox"></span>
+                                                        </label>
                                                     </div>
                                                     <div class="contest-popup__option-field">
-                                                        <input type="checkbox" name="n-f3" id="n-f3" />
-                                                        <div class="contest-popup__chbox"></div>
-                                                        <label class="contest-popup__label" for="n-f3">&amp;laquo;Разработка рейтинга понятности бюджета города Москвы для граждан&amp;raquo</label>
+                                                        <label class="contest-popup__option-label" for="n-f3">«Разработка рейтинга понятности бюджета города Москвы для граждан»
+                                                            <input type="checkbox" name="n-f3" id="n-f3" />
+                                                            <span class="contest-popup__chbox"></span>
+                                                        </label>
                                                     </div>
                                                     <div class="contest-popup__option-field">
-                                                        <input type="checkbox" name="n-f4" id="n-f4" />
-                                                        <div class="contest-popup__chbox"></div>
-                                                        <label class="contest-popup__label" for="n-f4">&amp;laquo;Популярный словарь бюджетных терминов&amp;raquo</label>
+                                                        <label class="contest-popup__option-label" for="n-f4">«Популярный словарь бюджетных терминов»
+                                                            <input type="checkbox" name="n-f4" id="n-f4" />
+                                                            <span class="contest-popup__chbox"></span>
+                                                        </label>
                                                     </div>
                                                     <div class="contest-popup__option-field">
-                                                        <input type="checkbox" name="n-f5" id="n-f5" />
-                                                        <div class="contest-popup__chbox"></div>
-                                                        <label class="contest-popup__label" for="n-f5">&amp;laquo;Проекты инициативного бюджетирования в городе Москве&amp;raquo</label>
+                                                        <label class="contest-popup__option-label" for="n-f5">«Проекты инициативного бюджетирования в городе Москве»
+                                                            <input type="checkbox" name="n-f5" id="n-f5" />
+                                                            <span class="contest-popup__chbox"></span>
+                                                        </label>
                                                     </div>
                                                     <div class="contest-popup__option-field">
-                                                        <input type="checkbox" name="n-f6" id="n-f6" />
-                                                        <div class="contest-popup__chbox"></div>
-                                                        <label class="contest-popup__label" for="n-f6">&amp;laquo;Бюджет города Москвы: просто о сложном&amp;raquo</label>
+                                                        <label class="contest-popup__option-label" for="n-f6">«Бюджет города Москвы: просто о сложном»
+                                                            <input type="checkbox" name="n-f6" id="n-f6" />
+                                                            <span class="contest-popup__chbox"></span>
+                                                        </label>
                                                     </div>
                                                 </div>
                                                 <div class="contest-popup__option">
                                                     <div class="contest-popup__option-title">Приложением к заявке является проект, представленный в формате:</div>
                                                     <div class="contest-popup__option-field">
-                                                        <input type="checkbox" name="f-f1" id="f-f1" />
-                                                        <div class="contest-popup__chbox"></div>
-                                                        <label class="contest-popup__label" for="f-f1">&amp;laquo;Презентация&amp;raquo</label>
+                                                        <label class="contest-popup__option-label" for="f-f1">Презентация
+                                                            <input type="checkbox" name="f-f1" id="f-f1" />
+                                                            <span class="contest-popup__chbox"></span>
+                                                        </label>
                                                     </div>
                                                     <div class="contest-popup__option-field">
-                                                        <input type="checkbox" name="f-f2" id="f-f2" />
-                                                        <div class="contest-popup__chbox"></div>
-                                                        <label class="contest-popup__label" for="f-f2">&amp;laquo;Видео&amp;raquo</label>
+                                                        <label class="contest-popup__option-label" for="f-f2">Видео
+                                                            <input type="checkbox" name="f-f2" id="f-f2" />
+                                                            <span class="contest-popup__chbox"></span>
+                                                        </label>
                                                     </div>
                                                     <div class="contest-popup__option-field">
-                                                        <input type="checkbox" name="f-f3" id="f-f3" />
-                                                        <div class="contest-popup__chbox"></div>
-                                                        <label class="contest-popup__label" for="f-f3">&amp;laquo;Интернет-брошюра&amp;raquo</label>
+                                                        <label class="contest-popup__option-label" for="f-f3">Интернет-брошюра
+                                                            <input type="checkbox" name="f-f3" id="f-f3" />
+                                                            <span class="contest-popup__chbox"></span>
+                                                        </label>
                                                     </div>
                                                     <div class="contest-popup__option-field">
-                                                        <input type="checkbox" name="f-f4" id="f-f4" />
-                                                        <div class="contest-popup__chbox"></div>
-                                                        <label class="contest-popup__label" for="f-f4">&amp;laquo;Мультипликационный ролик&amp;raquo</label>
+                                                        <label class="contest-popup__option-label" for="f-f4">Мультипликационный ролик
+                                                            <input type="checkbox" name="f-f4" id="f-f4" />
+                                                            <span class="contest-popup__chbox"></span>
+                                                        </label>
                                                     </div>
                                                     <div class="contest-popup__option-field">
-                                                        <input type="checkbox" name="f-f5" id="f-f5" />
-                                                        <div class="contest-popup__chbox"></div>
-                                                        <label class="contest-popup__label" for="f-f5">&amp;laquo;Фото-коллаж&amp;raquo</label>
+                                                        <label class="contest-popup__option-label" for="f-f5">Фото-коллаж
+                                                            <input type="checkbox" name="f-f5" id="f-f5" />
+                                                            <span class="contest-popup__chbox"></span>
+                                                        </label>
                                                     </div>
                                                     <div class="contest-popup__option-field">
-                                                        <input type="checkbox" name="f-f6" id="f-f6" />
-                                                        <div class="contest-popup__chbox"></div>
-                                                        <label class="contest-popup__label" for="f-f6">&amp;laquo;Иное (указать)&amp;raquo</label>
+                                                        <label class="contest-popup__option-label" for="f-f6">Иное (указать)
+                                                            <input type="checkbox" name="f-f6" id="f-f6" />
+                                                            <span class="contest-popup__chbox"></span>
+                                                        </label>
                                                         <input type="text" name="f-other" />
                                                     </div>
                                                 </div>
                                                 <div class="contest-popup__option">
                                                     <div class="contest-popup__option-title">Приложением представлено на:</div>
                                                     <div class="contest-popup__option-field">
-                                                        <input type="checkbox" name="t-f1" id="t-f1" />
-                                                        <div class="contest-popup__chbox"></div>
-                                                        <label class="contest-popup__label" for="t-f1">&amp;laquo;Бумажном носителе информации на __ листах&amp;raquo</label>
+                                                        <label class="contest-popup__option-label" for="t-f1">Бумажном носителе информации на __ листах
+                                                            <input type="checkbox" name="t-f1" id="t-f1" />
+                                                            <span class="contest-popup__chbox"></span>
+                                                        </label>
                                                     </div>
                                                     <div class="contest-popup__option-field">
-                                                        <input type="checkbox" name="t-f2" id="t-f2" />
-                                                        <div class="contest-popup__chbox"></div>
-                                                        <label class="contest-popup__label" for="t-f2">&amp;laquo;Электронном носителе информации&amp;raquo</label>
+                                                        <label class="contest-popup__option-label" for="t-f2">Электронном носителе информации
+                                                            <input type="checkbox" name="t-f2" id="t-f2" />
+                                                            <span class="contest-popup__chbox"></span>
+                                                        </label>
                                                     </div>
                                                     <div class="contest-popup__option-field">
-                                                        <input type="checkbox" name="t-f3" id="t-f3" />
-                                                        <div class="contest-popup__chbox"></div>
-                                                        <label class="contest-popup__label" for="t-f3">&amp;laquo;Иное (указать)&amp;raquo</label>
+                                                        <label class="contest-popup__option-label" for="t-f3">Иное (указать)
+                                                            <input type="checkbox" name="t-f3" id="t-f3" />
+                                                            <span class="contest-popup__chbox"></span>
+                                                        </label>
                                                         <input type="text" name="t-other" />
                                                     </div>
                                                 </div>
                                                 <div class="contest-popup__extra">
-                                                    <button class="button button_kind_yellow js-button-attachment"></button>
+                                                    <button class="button button_kind_yellow js-button-attachment">Прикрепить файл</button>
                                                     <ul class="contest-popup__attachments">
                                                         <li class="contest-popup__attachment">
+                                                            <svg class="contest-popup__delete-icon"><use xlink:href="assets/images/icon.svg#icon_close"></use></svg>
                                                             <span class="contest-popup__document">Document 1</span>
-                                                            <svg><use xlink:href="assets/images/icon.svg#icon_undefined"></use></svg>
                                                         </li>
                                                         <li class="contest-popup__attachment">
+                                                            <svg class="contest-popup__delete-icon"><use xlink:href="assets/images/icon.svg#icon_close"></use></svg>
                                                             <span class="contest-popup__document">Document 2</span>
-                                                            <svg><use xlink:href="assets/images/icon.svg#icon_undefined"></use></svg>
                                                         </li>
                                                     </ul>
                                                 </div>
-                                                <button class="button" type="submit"></button>
+                                                <button class="button button_kind_yellow contest-popup__submit" type="submit">Отправить</button>
                                             </div>
                                         </form>
+                                        <div class="contest-popup__footer">
+                                            <p class="contest-popup__footer-text">По всем возникающим вопросам Вы можете обращаться
+                                                <br> по телефону +7&nbsp;(495)&nbsp;620-20-00 (доб.64327) или
+                                                <br> по электронной почте
+                                                <a href="mailto:YUAPetrushova@fin.dep.mos.ru">YUAPetrushova@fin.dep.mos.ru </a>(Петрушова Юлия).</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
