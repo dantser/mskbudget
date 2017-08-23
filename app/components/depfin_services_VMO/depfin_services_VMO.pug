@@ -1,0 +1,120 @@
+include ../page-header/page-header
+include ../../blocks/dropdown-block/dropdown-block
+include ../../blocks/tabs/tabs
+include ../../blocks/dropdown-block/dropdown-block
+include ../../blocks/alternative-link/alternative-link
+
+mixin depfin_services_VMO()
+  +b.SECTION.services-VMO.main._basic.basic-budget.sections__item
+    .wrapper
+      +page-header('внутригородские муниципальные образования', ['Сервисы'], false).services_VMO__page-header
+
+    //- Tab 1
+    .wrapper.wrapper_widget.load-anim-fade(data-delay="1500")
+      +e.tabs-control
+        a(href="#", class="active", data-tab-target="vmoAll") Все ВМО
+        a(href="#", data-tab-target="vmoMunicipalDistricts") Муниципальные округи
+        a(href="#", data-tab-target="vmoCityDistricts") Городские округи
+        a(href="#", data-tab-target="vmoSettlements") Поселения
+        a(href="#", data-tab-target="vmoPassports") Паспорта ВМО
+      .analityc-widget.analityc-widget_VMO
+        +tabs
+          +tabs-tab(data-tab-group="VMO" data-tab="vmoAll").active
+            +vmoAll()
+          +tabs-tab(data-tab-group="VMO" data-tab="vmoMunicipalDistricts")
+          +tabs-tab(data-tab-group="VMO" data-tab="vmoCityDistricts")
+          +tabs-tab(data-tab-group="VMO" data-tab="vmoSettlements")
+          +tabs-tab(data-tab-group="VMO" data-tab="vmoPassports")
+            +vmoPassports()
+    +dropdown().load-anim-fade(data-delay="1700")
+
+
+//- таб "Все ВМО"
+mixin vmoAll()
+  .services-VMO__content.services-VMO__content_card
+    .services-VMO__map-wrapper
+      img(src="assets/images/VMO/allVMO-map.png")
+    p.services-VMO__text
+      | В соответствии с Законом города Москвы от 06.11.2002 №56 «Об организации местного
+      | самоуправления в городе Москве» местное самоуправление осуществляется во внутригородских
+      | муниципальных образованиях 3 типов: муниципальные округа, городские округа, поселения.
+    .services-VMO__figure
+      span.services-VMO__digit.services-VMO__digit_blue 125
+      span.services-VMO__descr муниципальных округов
+    .services-VMO__figure
+      span.services-VMO__digit.services-VMO__digit_orange 2
+      span.services-VMO__descr городских округа
+    .services-VMO__figure
+      span.services-VMO__digit.services-VMO__digit_green 19
+      span.services-VMO__descr поселений
+  .services-VMO__content.services-VMO__content_bottom
+    +alternative-link('Перечень муниципальных образований города Москвы')
+      +e.title Мониторинг и оценка качества управления муниципальными финансами
+    p.services-VMO__text
+      | В соответствии со статьей 15 Бюджетного кодекса Российской Федерации каждое
+      | внутригородское муниципальное образование имеет собственный бюджет. Бюджет
+      | внутригородского муниципального образования предназначен для исполнения расходных
+      | обязательств данного внутригородского муниципального образования.
+
+
+//- таб "Паспорт ВМО"
+mixin vmoPassports()
+  H3.services-VMO__title Мониторинг и оценка качества управления муниципальными финансами
+  .analityc-control-group._year
+    span Год
+    select.analityc-select
+      option(selected) 2017
+      option 2016
+      option 2015
+  .services-VMO__content
+    h4.services-VMO__subtitle Информация о результатах проведения мониторинга и оценки качества управления муниципальными финансами
+    p.services-VMO__text
+      | Департаментом финансов города Москва в соответствии с приказом от 31.12.2014 № 244 
+      | были проведены мониторинг соблюдения требований бюджетного законодательства, мониторинг
+      | и оценка качества организации и осуществления бюджетного процесса во внутригородских
+      | муниципальных образованиях в городе Москва (далее – ВМО) за 2015 год (далее – мониторинг).
+    p.services-VMO__text
+      | Мониторинг проводился на основании данных бюджетной (бухгалтерской) отчетности,
+      | решений представительных органов местного самоуправления о бюджетах ВМО, об утверждении
+      | годовых отчетов об исполнении бюджетов ВМО, а также сведений, размещенных на официальный сайтах ВМО.
+  .services-VMO__content.services-VMO__content_rate
+    .services-VMO__cols
+      .services-VMO__col
+        h4.services-VMO__subtitle По результатам мониторинга составлен рейтинг ВМО и присвоены следующие степени качества управления муниципальными финансами: 
+      .services-VMO__col
+        | I степень качества, высокое качество управления финансами – 
+        a(href="#") 6 ВМО (4,1 % от общего количества ВМО)
+      .services-VMO__col
+        | II степень качества, удовлетворительный уровень организации бюджетного процесса – 
+        a(href="#") 100 ВМО (68,5 %)
+      .services-VMO__col
+        | III степень качества, ненадлежащее качество управления финансами – 
+        a(href="#") 40 ВМО (27,4 %)
+  .services-VMO__table
+    .services-VMO__table-head
+      span.services-VMO__table-head_place Место
+      span.services-VMO__table-head_mun Муниципальный округ
+      span.services-VMO__table-head_quality Уровень качества
+    .services-VMO__table__wrapper
+      .vmoPassport-table.scroll-pane
+        -for (var i=0; i<6; i++)
+          .table__row.table__row_green
+            .table__col.table__col_one= i+1
+            .table__col.table__col_two
+              img(src="assets/images/VMO/gerb_ivan.jpg")
+              span Муниципальный округ Ивановское
+            .table__col.table__col_three Высокое качество
+        -for (var i=0; i<100; i++)
+          .table__row.table__row_yellow
+            .table__col.table__col_one= i+7
+            .table__col.table__col_two
+              img(src="assets/images/VMO/gerb_ivan.jpg")
+              span Муниципальный округ Ивановское
+            .table__col.table__col_three Удовлетворительный уровень
+        -for (var i=0; i<40; i++)
+          .table__row.table__row_red
+            .table__col.table__col_one= i+107
+            .table__col.table__col_two
+              img(src="assets/images/VMO/gerb_ivan.jpg")
+              span Муниципальный округ Ивановское
+            .table__col.table__col_three Ненадлежащее качество
