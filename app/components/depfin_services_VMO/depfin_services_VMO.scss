@@ -1,0 +1,356 @@
+.services-VMO {
+  display: block;
+  background-image: url('../images/bg-news.jpg');
+  background-size: cover;
+  background-position: center 0;
+
+  &__page-header {
+    .page-head__title {
+      letter-spacing: 0;
+    }
+  }
+
+  &__tabs-control {
+    font-size: 0;
+    width: 100%;
+    margin-top: 41px;
+
+    a {
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 16px;
+      font-weight: 500;
+      text-transform: uppercase;
+      padding: 20px 8px 16px 8px;
+      color: $color-white;
+      text-align: center;
+      width: 20%;
+      transition: all .25s ease-in-out;
+
+      &[data-tab-target="vmoAll"] {
+        background-color: #e9e9e9;
+        color: $color-black;
+      }
+      &[data-tab-target="vmoMunicipalDistricts"] {
+        background-color: #26aecb;
+      }
+      &[data-tab-target="vmoCityDistricts"] {
+        background-color: #f5b326;
+      }
+      &[data-tab-target="vmoSettlements"] {
+        background-color: #82b345;
+      }
+      &[data-tab-target="vmoPassports"] {
+        background-color: #848484;
+      }
+      &:hover {
+        opacity: .8;
+      }
+      &.active {
+        color: $color-black;
+        background-color: $color-white;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+
+  }
+
+  .analityc-widget {
+    margin-top: 0;
+  }
+
+  &__title {
+    font-size: 28px;
+    text-transform: uppercase;
+    margin-top: 18px;
+
+    h3 {
+      display: inline;
+    }
+    span {
+      color: $color-link;
+    }
+  }
+
+  .analityc-control-group._year {
+    width: auto;
+    vertical-align: middle;
+    margin-top: 25px;
+    .analityc-select {
+      display: inline-block;
+      vertical-align: middle;
+      width: 72px;
+    }
+    span {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+  }
+
+  &__content {
+    margin-top: 33px;
+    width: 85%;
+
+    &_rate {
+      width: 100%;
+      .services-VMO__subtitle {
+        font-size: 20px;
+        font-family: $PFDinTextPro;
+        text-transform: none;
+      }
+    }
+  }
+
+  &__subtitle {
+    font-size: 18px;
+    line-height: 24px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+
+  &__text {
+    font-size: 16px;
+    line-height: 20px;
+    font-family: $PFDinTextPro;
+    font-weight: 400;
+    margin-bottom: 12px;
+  }
+
+  &__cols {
+    margin-top: 15px;
+  }
+
+  &__col {
+    width: 19%;
+    font-size: 16px;
+    line-height: 19px;
+    font-weight: 400;
+    display: inline-block;
+    vertical-align: top;
+    font-family: $PFDinTextPro;
+    margin-right: 31px;
+
+    &:first-child {
+      width: 33%;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    a {
+      color: $color-link;
+    }
+  }
+
+  // таблица
+  &__table {
+    margin-top: 40px;
+
+    &-head {
+      margin-top: 15px;
+      margin-bottom: 25px;
+      span {
+        font-size: 16px;
+        font-weight: 500;
+        text-transform: uppercase;
+        color: #898783;
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      &_place {
+        width: 15%;
+      }
+      &_mun {
+        width: 60%;
+      }
+      &_quality {
+        width: 25%;
+      }
+    }
+
+    &__wrapper {
+      overflow-y: scroll;
+      border-bottom: 1px solid #e6e6e6;
+      border-top: 2px solid #e6e6e6;
+
+      // Custom Scrollbar
+      > .scroll-element,
+      > .scroll-element div {
+        border: none;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        z-index: 10;
+      }
+
+      > .scroll-element div {
+        display: block;
+        height: 100%;
+        left: 0;
+        top: 0;
+        width: 100%;
+      }
+
+      > .scroll-element.scroll-x {
+        bottom: 2px;
+        height: 8px;
+        left: 0;
+        width: 100%;
+      }
+
+      > .scroll-element.scroll-y {
+        height: 100%;
+        right: 0;
+        top: 0;
+        width: 13px;
+        border: 1px solid #e6e6e6;
+      }
+
+      > .scroll-element .scroll-element_outer {
+        overflow: hidden;
+
+      }
+
+      > .scroll-element .scroll-element_outer,
+      > .scroll-element .scroll-element_track{
+
+      }
+      > .scroll-element .scroll-bar {
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        border-radius: 8px;
+        width: 10px;
+        right: 0;
+        margin: 0 auto;
+        cursor: pointer;
+      }
+
+      > .scroll-element .scroll-element_track { background-color: #fbfafb; }
+      > .scroll-element .scroll-bar { background-color: #c2c2c2; }
+      > .scroll-element:hover .scroll-bar { background-color: #c2c2c2; }
+      > .scroll-element.scroll-draggable .scroll-bar { background-color: #c2c2c2; }
+
+      > .scroll-element.scroll-x.scroll-scrolly_visible .scroll-element_track { left: -12px; }
+      > .scroll-element.scroll-y.scroll-scrollx_visible .scroll-element_track { top: -12px; }
+
+
+      > .scroll-element.scroll-x.scroll-scrolly_visible .scroll-element_size { left: -12px; }
+      > .scroll-element.scroll-y.scroll-scrollx_visible .scroll-element_size { top: -12px; }
+
+    }
+
+    .vmoPassport-table {
+      width: 100%;
+      height: 446px;
+      font-family: $PFDinTextPro;
+      .table__row {
+        &_green {
+          background-color: rgba(121, 204, 18, .2);
+        }
+        &_yellow {
+          background-color: rgba(254, 155, 0, .2);
+        }
+        &_red {
+          background-color: rgba(254, 36, 0, .2);
+        }
+      }
+      .table__col {
+        padding: 15px 0;
+        font-weight: 400;
+        &_one {
+          width: 15%;
+          font-size: 16px;
+          padding-left: 10px;
+        }
+        &_two {
+          width: 60%;
+          font-size: 16px;
+          img {
+            width: 25px;
+            height: 31px;
+            vertical-align: middle;
+            margin-right: 10px;
+          }
+          span {
+            display: inline-block;
+            vertical-align: middle;
+          }
+        }
+        &_three {
+          width: 25%;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  // для таба "Все ВМО"
+  &__map {
+    &-wrapper {
+      width: 45%;
+      display: inline-block;
+      vertical-align: top;
+      float: left;
+    }
+  }
+  &__content_card {
+    width: 100%;
+    position: relative;
+
+    @include clearfix;
+
+    .services-VMO__text {
+      width: 54%;
+      float: right;
+      display: inline-block;
+      vertical-align: top;
+      margin-bottom: 75px;
+    }
+  }
+
+  &__figure {
+    margin-bottom: 95px;
+    .services-VMO__descr {
+      display: inline-block;
+      vertical-align: top;
+      font-size: 16px;
+    }
+  }
+
+  &__digit {
+    font-size: 48px;
+    font-weight: 500;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 10px;
+    position: relative;
+    &::before {
+      @include pseudo;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      color: #dcdcdc;
+      width: 227px;
+      height: 1px;
+      z-index: 1;
+    }
+
+    &_blue {
+      color: #26aecb;
+    }
+    &_orange {
+      color: #f5b326;
+    }
+    &_green {
+      color: #82b345;
+    }
+  }
+
+  &__descr {
+    font-size: 16px;
+  }
+}
