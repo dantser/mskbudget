@@ -138,6 +138,73 @@
     width: 61%;
     height: 100%;
     background: #d5d5d5;
+
+    /*Маркер на карте*/
+    .placemark-layout-container {
+      position: relative;
+      font-family: $PFDinTextPro;
+      text-align: center;
+
+      .circle-layout,
+      .locate-layout {
+        @include center-block;
+        background-color: $color-blue;
+        width: 42px;
+        height: 42px;
+        border: 2px solid #fff;
+        font-size: 18px;
+        line-height: 40px;
+        color: $color-white;
+        border-radius: 50px;
+      }
+
+      .locate-layout {
+        border-radius: 0;
+      }
+
+      .balloon-layout {
+        display: none;
+        position: absolute;
+        top: 21px;
+        left: 50%;
+        padding: 15px;
+        transform: translateX(-50%);
+        width: 245px;
+        background: $color-white;
+        text-align: left;
+        box-shadow: 0px 10px 25px -5px rgba(0, 0, 0, 0.41);
+
+        &::before {
+          @include triangle($color-white, up, 10px);
+          top: -10px;
+          left: 50%;
+          transform: translateX(-50%);
+          border-bottom: 12px solid #fff;
+        }
+
+        &__title {
+          font-family: $PFDinCondensedPro;;
+          text-transform: uppercase;
+          font-weight: 500;
+          font-size: 16px;
+        }
+
+        &__text {
+          font-family: $PFDinTextPro;
+          font-size: 14px;
+          letter-spacing: -.5px;
+          margin-top: 10px;
+        }
+
+        &__link {
+          display: block;
+          font-family: $PFDinTextPro;
+          font-size: 14px;
+          color: $color-link;
+          margin-top: 11px;
+        }
+      }
+    }
   }
 
   &_map {
@@ -149,7 +216,7 @@
 
       &__table-wrap {
         float: right;
-        width: 36.6%;
+        width: 39%;
         height: 100%;
         margin-top: 0;
       }
@@ -161,6 +228,7 @@
       
       &__caption {
         margin-right: 40px;
+        padding-left: 27px;
       }
 
       &__main {
@@ -168,6 +236,27 @@
         height: calc(100% - 48px); /*-caption*/
         overflow-x: hidden;
         overflow-y: scroll;
+      }
+
+      &__row {
+        padding: 18px 0 14px 27px;
+
+        &:hover {
+          background-color: $color-blue;
+        }
+
+        &:hover .significant-list__row-num,
+        &:hover .significant-list__row-title {
+          color: $color-white;
+        }
+
+        &_active {
+          background-color: $color-blue;
+          .significant-list__row-num,
+          .significant-list__row-title {
+            color: $color-white;
+          }
+        }
       }
 
       &__col {

@@ -23,13 +23,13 @@ mixin services_social_significant(data)
 
 				+e.rows.significant-list__main
 					- for (var i=0; i<data.length; i++)
-						+row(i+1, data[i].title, data[i].street, data[i].date)
+						+row(data[i].id, data[i].title, data[i].street, data[i].date, data[i].coordinates)
 
-	mixin row(num, title, street, date)
+	mixin row(num, title, street, date, coordinates)
 		+e.row
 			+e.col._left
 				+e.row-num= num
-				+e.A(href='#' data-tab-target='significantThree').row-title= title
+				+e.A(href='#' data-tab-target='significantThree' value=coordinates data-target=num).row-title= title
 			+e.col._center
 				+e.row-st= street
 			+e.col._right
@@ -45,12 +45,12 @@ mixin services_social_significant(data)
 
 				+searchFormWidget('Поиск').significant__search
 
-				+tabs-tab(data-tab-group="significantTabs", data-tab="significantOne").active.significant-list__
+				+tabs-tab(data-tab-group="significantTabs", data-tab="significantOne").significant-list_list.significant-list__
 					+e.total Всего учреждений 1 226
 					+table(data)
 
-				+tabs-tab(data-tab-group="significantTabs", data-tab="significantTwo").significant-list_map.significant-list__
-					+e.map
+				+tabs-tab(data-tab-group="significantTabs", data-tab="significantTwo").active.significant-list_map.significant-list__
+					+e.map(id='significant-map')
 					+table(data)
 
 				+tabs-tab(data-tab-group="significantTabs", data-tab="significantThree").significant-about__
