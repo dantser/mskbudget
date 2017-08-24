@@ -1026,3 +1026,19 @@ mixin analityc-widgethead-moscow-gp()
       a(href="#", data-type='structure') Структура
     .analityc-control-group._dp
       input(placeholder="Выберите дату исполнения", value="Выберите дату исполнения", readonly="readonly").datepicker
+      
+mixin analityc-widgethead-forecast()
+  +b.analityc-widgethead&attributes(attributes)
+    .analityc-control-group._year
+      span Год
+      select.analityc-select
+        option(selected) 2017
+        option 2016
+        option 2015
+    .analityc-control-group._stage
+      span Этап
+      select.analityc-select
+        option(selected) Проект закона о бюджете
+        option Закон о внесении изменений
+        option Закон об исполнении
+        option Исполнение на дату
