@@ -1,0 +1,68 @@
+include ../../components/page-header/page-header
+include ../../blocks/buttons-set/buttons-set
+include ../../blocks/tabs/tabs
+
+mixin services_net()
+	+b.SECTION.services-net.section__item&attributes(attributes)
+		.wrapper.services-net__wrapper
+			+e.head
+				+page-header('Бюджетная сеть', ['Сервисы'])
+				+e.P.head-about Сводная информация о сети государственных (муниципальных) учреждений города Москвы
+				+e.buttons-set
+					+e.SPAN Выберите признак для сортировки
+					+buttons-set-alt(getData('buttons-set-net'))
+
+			+tabs.services-net__content
+
+				+tabs-tab(data-tab-group="netTabs", data-tab="netOne").active
+					+b.services-net-domain
+						+e.main
+							+e.UL.list
+								+e.LI.list-item._health
+									+e.A(href='#').list-link
+										+e.SPAN.list-title Здравоохранение
+										+e.SPAN.list-value 293
+										+e.SPAN.list-label учреждения
+								+e.LI.list-item._social
+									+e.A(href='#').list-link
+										+e.SPAN.list-title Cоциальные услуги
+										+e.SPAN.list-value 190
+										+e.SPAN.list-label учреждения
+								+e.LI.list-item._edu
+									+e.A(href='#').list-link
+										+e.SPAN.list-title Образование
+										+e.SPAN.list-value 746
+										+e.SPAN.list-label учреждения
+								+e.LI.list-item._others
+									+e.A(href='#').list-link
+										+e.SPAN.list-title Иные сферы
+										+e.SPAN.list-value 669
+										+e.SPAN.list-label учреждения
+								+e.LI.list-item._culture
+									+e.A(href='#').list-link
+										+e.SPAN.list-title Культура
+										+e.SPAN.list-value 439
+										+e.SPAN.list-label учреждения
+								+e.LI.list-item._sport
+									+e.A(href='#').list-link
+										+e.SPAN.list-title Спорт
+										+e.SPAN.list-value 108
+										+e.SPAN.list-label учреждения
+							+e.UL.images
+								+e.LI.image._health
+									+e.IMG(src='assets/images/services_net/health.png')
+								+e.LI.image._social
+									+e.IMG(src='assets/images/services_net/social.png')
+								+e.LI.image._edu
+									+e.IMG(src='assets/images/services_net/edu.png')
+								+e.LI.image._others
+									+e.IMG(src='assets/images/services_net/others.png')
+								+e.LI.image._culture
+									+e.IMG(src='assets/images/services_net/culture.png')
+								+e.LI.image._sport
+									+e.IMG(src='assets/images/services_net/sport.png')
+						+e.foot
+							a(href="/").analityc-more Посмотреть весь список
+
+				+tabs-tab(data-tab-group="netTabs", data-tab="netTwo")
+					+b.services-net-municipality
