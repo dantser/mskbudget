@@ -15,30 +15,12 @@ html.height100percent(lang='ru')
       block sections
         block content
     script(src='assets/scripts/app.min.js')
+    script(src="assets/scripts/svg4everybody.min.js")
+    script.
+      svg4everybody();
+
     script.
       $(document).ready(function() {
-        /*Init Diagrams -- set id to diagram viewbox -- */
-        diagram('#diagram-01', {
-          stroke: 30,
-          kind: 'triple2',
-          data: [ 1446.2, 1598.9],
-          animate: true,
-          maxValue: 2050
-        });
-        diagram( '#diagram-02', {
-          stroke: 30,
-          kind: 'triple2',
-          data: [ 1446.2, 1598.9],
-          animate: true,
-          maxValue: 2050
-        });
-        diagram('#diagram-03', {
-          stroke: 30,
-          kind: 'triple2',
-          data: [ 1446.2, 1598.9],
-          animate: true,
-          maxValue: 2050
-        });
         diagram( '#diagram-1', {
           stroke: 30,
           kind: 'triple',
@@ -80,53 +62,7 @@ html.height100percent(lang='ru')
           maxValue: 1865.5,
           animate: true,
         });
-        diagram('#diagram-6', {
-          viewBox: 197,
-          stroke: 19,
-          kind: 'segment',
-          data: [ 150.7, 60.8, 35.2, 100.5 ],
-          gradient: [ ['#60bc50', '#fee300'], ['#e00242', '#400f80'], ['#008cde', '#00afea'], ['#9da2af', '#cfd3d9'] ],
-          maxValue: 150.7+60.8+35.2+100.5,
-          padding: 15,
-        });
-        diagram('#diagram-7', {
-          viewBox: 197,
-          stroke: 19,
-          kind: 'segment',
-          data: [ 21.4, 28.8, 48.4 ],
-          gradient: [ ['#60bc50', '#fee300'], ['#008cde', '#00afea'], ['#e00242', '#400f80'] ],
-          maxValue: 21.4+28.8+48.4,
-          padding: 15
-        });
-        diagram('#diagram-8', {
-          viewBox: 180,
-          stroke: 19,
-          kind: 'dashed',
-          data: [ 1637.3, 1167.7 ],
-          gradient: [  ['#e6edf3', '#e6edf3'], ['#60bc50', '#fee300'] ],
-          maxValue: 1637.3,
-        });
-        diagram('#diagram-9', {
-          viewBox: 180,
-          stroke: 19,
-          kind: 'dashed',
-          data: [ 113.4, 46.5 ],
-          gradient: [  ['#e6edf3', '#e6edf3'], ['#fc0037', '#091395'] ],
-          maxValue: 113.4,
-        });
-        diagram('#diagram-10', {
-          viewBox: 180,
-          stroke: 19,
-          kind: 'dashed',
-          data: [ 113.4, 46.5 ],
-          gradient: [  ['#e6edf3', '#e6edf3'], ['#fc0037', '#091395'] ],
-          maxValue: 113.4,
-        });
       });
-
-    script(src="assets/scripts/svg4everybody.min.js")
-    script.
-      svg4everybody();
 
     //- Код общего хедера и футера сайтов Москвы
     <script>(function (d, w, c) { var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }, protocol = "https:"; current_domain = window.location.hostname; s.type = "text/javascript"; s.charset = "utf-8"; s.async = true; s.src = protocol + "//evp.mos.ru/frame/v2/all.php?cur_domain=" + current_domain + "&async=1&set_lang=ru&langs=ru&site_id=2136"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "evp_header_callbacks");</script>
