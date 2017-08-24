@@ -1526,3 +1526,34 @@
     }
   }
 }
+
+
+// @qluqua переписываю каскадом стили слайдера "СЕРВИСЫ" на главной страницы
+#services-slider {
+  // обертка карточки
+  .tile__item {
+    position: relative;
+
+    @media (max-width: 700px) {
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    // сама карточка
+    .tile__inner {
+      position: absolute;
+      top: 50%;
+      left: 7px;
+      right: 7px;
+      min-height: auto;
+      margin: auto;
+      padding: 0;
+      transform: translateY(-50%);
+
+      .widget-card {
+        height: auto;
+        min-height: 400px;
+      }
+    }
+  }
+}

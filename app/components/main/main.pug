@@ -50,7 +50,7 @@ mixin main()
       button.arrow.cube__arrow.arrow_right.cube__arrow_prev
       button.arrow.cube__arrow.arrow_left.cube__arrow_next
   // /SECTIONS_ITEM(Banner)
-  
+
   // DIAGRAMS_SECTION/
   .sections__item.sections__item_bg1
     .cube-brick(data-brick-900="1")
@@ -61,7 +61,7 @@ mixin main()
           .legend.sections__legend.anim-fade-top
             .legend__item.legend__item_blue доходы
             .legend__item.legend__item_pink расходы
-            .legend__item.legend__item_green дефицит/профицит 
+            .legend__item.legend__item_green дефицит/профицит
               span.ml-20 млрд. рублей
       // /AHEAD
     .cube-brick(data-brick-900="2")
@@ -76,7 +76,7 @@ mixin main()
               input(value='01.06.2017', tabindex="0").datepicker__show.jq-spec-datepicker
           // /CALENDAR
       // /AHEAD
-      
+
     // DIAGRAMS_SLIDER/
     .slider.slider_diagrams(data-sides-900="2")
       .cube-brick(data-brick-900="1")
@@ -123,7 +123,7 @@ mixin main()
         // /DIAGRAM_CELL
     // /DIAGRAMS_SLIDER
   // DIAGRAMS_SECTION/
-  
+
   // SERVICES_SECTION/
   .sections__item.sections__item_bg2
     // SERVICES_AHEAD/
@@ -132,303 +132,48 @@ mixin main()
         h2.sections__title.anim-fade-top Сервисы
         a(href="#").sections__all.anim-fade-top Все сервисы
     // /SERVICES_AHEAD
-    
+
     // SERVICES_SLIDER/
-    .slider(id="services-slider", data-sides-700="4", data-sides-900="3", data-sides-1100="2")
+    .slider(id="services-slider", data-sides-700="10", data-sides-900="7", data-sides-1100="5")
       .cube-brick(data-brick-700="1", data-brick-900="1", data-brick-1100="1")
-        // SERVICE_ITEM/
-        .tile__item.anim-left(data-delay="100")
-          .tile__inner.service
-            .service__ahead
-              h3.service__title Государственные программы
-                button
-                +icon('pin').service__icon
-              .service__sub-title
-                span по состоянию на
-                .service__datepicker
-                  input(value='01.06.2017', tabindex="0").datepicker__show.jq-spec-datepicker
-                | , млрд. руб 
-            .service-dot-cont.service-dot-cont_act#serv-d-2
-              .dashed-diagram.service__dashed-diagram
-                .dashed-diagram__diagram#diagram-8
-                  .dashed-diagram__value.dashed-diagram__value_top
-                    span план
-                    p.dashed-diagram__value-p 1 637,3
-                  .dashed-diagram__value.dashed-diagram__value_bottom
-                    p.dashed-diagram__value-p 1 167,7
-                    | факт
-              p.service__capt Программные расходы
-            .service-dot-cont#serv-d-1
-              .dashed-diagram.service__dashed-diagram
-                .dashed-diagram__diagram#diagram-9
-                  .dashed-diagram__value.dashed-diagram__value_top
-                    span план
-                    p.dashed-diagram__value-p 113,4
-                  .dashed-diagram__value.dashed-diagram__value_bottom
-                    p.dashed-diagram__value-p 46,5
-                    | факт
-              p.service__capt Непрограммные направления деятельности
-            .service-dots
-              button(data-cont="serv-d-1").service-dots__btn
-              button(data-cont="serv-d-2").service-dots__btn.active
-            a(href="#").service__more Подробнее
-        // /SERVICE_ITEM
-        
+        +widget-card-gov-programs(class="anim-left" data-delay="100")
       .cube-brick(data-brick-700="1", data-brick-900="1", data-brick-1100="1")
-        // SERVICE_ITEM/
-        .tile__item.anim-left(data-delay="300")
-          .tile__inner.service
-            .service__ahead
-              h3.service__title Адресная инвестиционная программа
-                button
-                +icon('pin').service__icon
-              p.service__sub-title на 2016 год, млрд. руб.
-            .segment-diagram#diagram-6
-              .segment-diagram__value
-                span Всего
-                p.segment-diagram__value-num 347,2
-              p.segment-diagram__floating.segment-diagram__floating_green#floating_diagram-6-0 Строительство
-                span 150,7
-              p.segment-diagram__floating.segment-diagram__floating_violet#floating_diagram-6-1 Образование
-                span 60,8
-              p.segment-diagram__floating.segment-diagram__floating_blue#floating_diagram-6-2 Медицина
-                span 35,2
-              p.segment-diagram__floating.segment-diagram__floating_gray#floating_diagram-6-3 Прочее
-                span 100,5
-            ul.diagram-tabs.service__diagram-tabs
-              li.diagram-tabs__item.diagram-tabs__item_green
-                a(href="#").diagram-tabs__btn.diagram-tabs__btn_house#button_diagram-6-0 150,7
-                  span.diagram-tabs__span-hov
-                  span.diagram-tabs__span-js
-                p.diagram-tabs__caption Строительство
-              li.diagram-tabs__item.diagram-tabs__item_violet
-                a(href="#").diagram-tabs__btn.diagram-tabs__btn_edu#button_diagram-6-1 60,8
-                  span.diagram-tabs__span-hov
-                  span.diagram-tabs__span-js
-                p.diagram-tabs__caption Образование
-              li.diagram-tabs__item.diagram-tabs__item_blue
-                a(href="#").diagram-tabs__btn.diagram-tabs__btn_med#button_diagram-6-2 35,2
-                  span.diagram-tabs__span-hov
-                  span.diagram-tabs__span-js
-                p.diagram-tabs__caption Медицина
-              li.diagram-tabs__item.diagram-tabs__item_gray
-                a(href="#").diagram-tabs__btn.diagram-tabs__btn_other#button_diagram-6-3 100,5
-                  span.diagram-tabs__span-hov
-                  span.diagram-tabs__span-js
-                p.diagram-tabs__caption Прочее
-            a(href="#").service__more Подробнее
-        // /SERVICE_ITEM
-        
+        +widget-card-invest-program(class="anim-left" data-delay="300")
       .cube-brick(data-brick-700="2", data-brick-900="1", data-brick-1100="1")
-        // SERVICE_ITEM/
-        .tile__item.anim-left(data-delay="600")
-          .tile__inner.service
-            .service__ahead
-              h3.service__title Государственный долг
-                button
-                +icon('pin').service__icon
-              .service__sub-title
-                span по состоянию на
-                .service__datepicker
-                  input(value='01.06.2017', tabindex="0").datepicker__show.jq-spec-datepicker-alt
-                | , млрд. руб           
-            .segment-diagram#diagram-7
-              .segment-diagram__value
-                span Всего
-                p.segment-diagram__value-num 77,2
-              p.segment-diagram__floating.segment-diagram__floating_green#floating_diagram-7-0 Бюджетные&nbsp;кредиты
-                span 21,4
-              p.segment-diagram__floating.segment-diagram__floating_blue#floating_diagram-7-1 Внутренний&nbsp;долг
-                span 28,8
-              p.segment-diagram__floating.segment-diagram__floating_violet#floating_diagram-7-2 Внешний&nbsp;долг
-                span 48,4
-            ul.diagram-tabs.service__diagram-tabs
-              li.diagram-tabs__item.diagram-tabs__item_green
-                a(href="#").diagram-tabs__btn.diagram-tabs__btn_bank#button_diagram-7-0 21,4
-                  span.diagram-tabs__span-hov
-                  span.diagram-tabs__span-js
-                p.diagram-tabs__caption Бюджетные кредиты
-              li.diagram-tabs__item.diagram-tabs__item_blue
-                a(href="#").diagram-tabs__btn.diagram-tabs__btn_bag#button_diagram-7-1 28,8
-                  span.diagram-tabs__span-hov
-                  span.diagram-tabs__span-js
-                p.diagram-tabs__caption Внутренний долг
-              li.diagram-tabs__item.diagram-tabs__item_violet
-                a(href="#").diagram-tabs__btn.diagram-tabs__btn_build#button_diagram-7-2 48,4
-                  span.diagram-tabs__span-hov
-                  span.diagram-tabs__span-js
-                p.diagram-tabs__caption Внешний долг
-            a(href="#").service__more Подробнее
-        // /SERVICE_ITEM
-        
+        +widget-card-gov-debt(class="anim-left" data-delay="500")
       .cube-brick(data-brick-700="2", data-brick-900="2", data-brick-1100="1")
-        // SERVICE_ITEM/
-        .tile__item.anim-left(data-delay="900")
-          .tile__inner.service.service__cities
-            +widget-card().widget-card-cities
-              +widget-card-head('Москва и города мира')
-              +widget-card-content()
-                +e.logo
-                  img(src='assets/images/logo.png')
-                +e.select
-                  +selectbox-cities('select', getData('widget-card-selectbox-cities'))
-                +e.select
-                  +selectbox('select', getData('widget-card-selectbox-cities2'))
-                +e.results._moscow
-                  +e.results-total 12 500 тысяч человек
-                  +e.results-rating
-                    +e.results-pos 8 место
-                    +e.results-in из 8 крупнейших городов мира
-                +e.results._london
-                  +e.results-total 12 500 тысяч человек
-                  +e.results-rating
-                    +e.results-pos 8 место
-                    +e.results-in из 8 крупнейших городов мира
-                +e.results._paris
-                  +e.results-total 12 500 тысяч человек
-                  +e.results-rating
-                    +e.results-pos 8 место
-                    +e.results-in из 8 крупнейших городов мира
-                +e.results._berlin
-                  +e.results-total 12 500 тысяч человек
-                  +e.results-rating
-                    +e.results-pos 8 место
-                    +e.results-in из 8 крупнейших городов мира
-              a(href="#").service__more Подробнее
-        // /SERVICE_ITEM
-        
+        +widget-card-gov-debt-alt(class="anim-left" data-delay="700")
       .cube-brick(data-brick-700="3", data-brick-900="2", data-brick-1100="2")
-        // SERVICE_ITEM/
-        .tile__item
-          .tile__inner.service.service_calc
-            +widget-card().widget-card-calc
-              +widget-card-head('Бюджетный калькулятор')
-              +widget-card-content()
-                +e.select
-                  +selectbox('select', getData('widget-card-selectbox'))
-                +e.output-calc._opt1._active
-                  +e.range
-                    +range-for-widgets('widget_card_calc1', "0", "400.8")
-                  +e.value
-                    +e.value-title Дефицит
-                    +e.value-value#opt1Value -47,5
-                    +e.value-units млрд руб.
-                +e.output-calc._opt2
-                  +e.range
-                    +range-for-widgets('widget_card_calc2', "20", "500")
-                  +e.value
-                    +e.value-title Профицит
-                    +e.value-value#opt2Value 5
-                    +e.value-units млрд руб.
-                +e.output-calc._opt3
-                  +e.range
-                    +range-for-widgets('widget_card_calc3', "300", "600")
-                  +e.value
-                    +e.value-title Дефицит
-                    +e.value-value#opt3Value -10,3
-                    +e.value-units млрд руб.
-                +e.output-calc._opt4
-                  +e.range
-                    +range-for-widgets('widget_card_calc4', "2", "200")
-                  +e.value
-                    +e.value-title Профицит
-                    +e.value-value#opt4Value 500
-                    +e.value-units млрд руб.
-              +e.bottom-link-wrap
-                +widget-card-bottom-link('calc', 'Предложите свой вариант бюджета!')._gradiented
-        // /SERVICE_ITEM
-        
+        +widget-card-cities()
       .cube-brick(data-brick-700="3", data-brick-900="2", data-brick-1100="2")
-        // SERVICE_ITEM/
-        .tile__item
-          .tile__inner.service.service_widget
-            +widget-card().widget-card-polls
-              +widget-card-head('Опрос общественного мнения', 'Примите участие в опросах')
-              +widget-card-content()
-                +e.nav-buttons
-                  +arrow-button()._prev.widget-card__arrow-button
-                  +arrow-button()._next.widget-card__arrow-button
-                +e.info-block._active
-                  +e.info._opt1._active
-                    +e.info-block-title Как сделать портал еще интереснее? Как?
-                    +e.info-block-date до 30.01.2017
-                    +widget-card-bottom-link(false, 'Пройти опрос')._gradiented
-                  +e.info._opt2
-                    +e.info-block-title Как сделать портал еще удобнее? Как?
-                    +e.info-block-date до 30.01.2017
-                    +widget-card-bottom-link(false, 'Пройти опрос')._gradiented
-                  +e.info._opt3
-                    +e.info-block-title Как сделать портал еще смешнее? Как? 
-                    +e.info-block-date до 30.01.2017
-                    +widget-card-bottom-link(false, 'Пройти опрос')._gradiented
-              a(href="#").service__more Подробнее
-        // /SERVICE_ITEM
-        
+        +widget-card-gov-programs-result()
       .cube-brick(data-brick-700="4", data-brick-900="3", data-brick-1100="2")
-        // SERVICE_ITEM/
-        .tile__item
-          .tile__inner.service.service_widget
-            +widget-card().widget-card-quiz
-              +widget-card-head('Викторины', 'Проверь свои знания в викторине')
-              +widget-card-content()
-                +e.nav-buttons
-                  +arrow-button()._prev.widget-card__arrow-button
-                  +arrow-button()._next.widget-card__arrow-button
-                +e.info-block._active
-                  +e.info._opt1._active
-                    +e.info-block-title История бюджета города Москвы во второй половине XX – начале ХХI века
-                    +e.info-block-date Создана 30.01.2017
-                    +widget-card-bottom-link(false, 'Пройти викторину')._gradiented
-                  +e.info._opt2
-                    +e.info-block-title История бюджета города Москвы во первой половине XX – начале ХХI века
-                    +e.info-block-date Создана 30.01.2017
-                    +widget-card-bottom-link(false, 'Пройти викторину')._gradiented
-                  +e.info._opt3
-                    +e.info-block-title История бюджета города Москвы в третьей(?) половине XX – начале ХХI века
-                    +e.info-block-date Создана 30.01.2017
-                    +widget-card-bottom-link(false, 'Пройти викторину')._gradiented
-      				
-              a(href="#").service__more Подробнее
-        // /SERVICE_ITEM
-        
+        +widget-card-polls()
       .cube-brick(data-brick-700="4", data-brick-900="3", data-brick-1100="2")
-        // SERVICE_ITEM/
-        .tile__item
-          .tile__inner.service.service__cities
-            +widget-card().widget-card-cities
-              +widget-card-head('Москва и города мира')
-              +widget-card-content()
-                +e.logo
-                  img(src='assets/images/logo.png')
-                +e.select
-                  +selectbox-cities('select', getData('widget-card-selectbox-cities'))
-                +e.select
-                  +selectbox('select', getData('widget-card-selectbox-cities2'))
-                +e.results._moscow
-                  +e.results-total 12 500 тысяч человек
-                  +e.results-rating
-                    +e.results-pos 8 место
-                    +e.results-in из 8 крупнейших городов мира
-                +e.results._london
-                  +e.results-total 12 500 тысяч человек
-                  +e.results-rating
-                    +e.results-pos 8 место
-                    +e.results-in из 8 крупнейших городов мира
-                +e.results._paris
-                  +e.results-total 12 500 тысяч человек
-                  +e.results-rating
-                    +e.results-pos 8 место
-                    +e.results-in из 8 крупнейших городов мира
-                +e.results._berlin
-                  +e.results-total 12 500 тысяч человек
-                  +e.results-rating
-                    +e.results-pos 8 место
-                    +e.results-in из 8 крупнейших городов мира
-              a(href="#").service__more Подробнее
-        // /SERVICE_ITEM            
-    // /SERVICES_SLIDER
-  // /SERVICES_SECTION
-  
+        +widget-card-polls-pers()
+      .cube-brick(data-brick-700="5", data-brick-900="3", data-brick-1100="3")
+        +widget-card-municipalities()
+      .cube-brick(data-brick-700="5", data-brick-900="4", data-brick-1100="3")
+        +widget-card-social-support()
+      .cube-brick(data-brick-700="6", data-brick-900="4", data-brick-1100="3")
+        +widget-card-calc()
+      .cube-brick(data-brick-700="6", data-brick-900="4", data-brick-1100="3")
+        +widget-card-calc-pers()
+      .cube-brick(data-brick-700="7", data-brick-900="5", data-brick-1100="4")
+        +widget-card-quiz()
+      .cube-brick(data-brick-700="7", data-brick-900="5", data-brick-1100="4")
+        +widget-card-quiz-pers()
+      .cube-brick(data-brick-700="8", data-brick-900="5", data-brick-1100="4")
+        +widget-card-edu()
+      .cube-brick(data-brick-700="8", data-brick-900="6", data-brick-1100="4")
+        +widget-card-edu-pers()
+      .cube-brick(data-brick-700="9", data-brick-900="6", data-brick-1100="5")
+        +widget-card-regions()
+      .cube-brick(data-brick-700="9", data-brick-900="6", data-brick-1100="5")
+        +widget-card-budget-web()
+      .cube-brick(data-brick-700="10", data-brick-900="7", data-brick-1100="5")
+        +widget-card-projects()
+
   // NEWS_SECTION/
   .sections__item.sections__item_bg3
     // NEWS_AHEAD/
@@ -455,39 +200,39 @@ mixin main()
     .slider(data-sides-700="4", data-sides-900="3", data-sides-1100="2")
       .cube-brick(data-brick-700="1", data-brick-900="1", data-brick-1100="1")
         // NEWS_ITEM/
-        .tile__item.anim-left(data-delay="100")  
+        .tile__item.anim-left(data-delay="100")
           +news-card(1, 'Новости бюджета', 'Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»', '8 августа 2016')._blue.tile__inner
-        
+
       .cube-brick(data-brick-700="1", data-brick-900="1", data-brick-1100="1")
         // NEWS_ITEM/
-        .tile__item.anim-left(data-delay="300")  
+        .tile__item.anim-left(data-delay="300")
           +news-card(1, 'Новости Москвы', 'Подведены итоги предварительной апробации', '8 августа 2016')._red.tile__inner
-        
+
       .cube-brick(data-brick-700="2", data-brick-900="1", data-brick-1100="1")
         // NEWS_ITEM/
-        .tile__item.anim-left(data-delay="600")  
+        .tile__item.anim-left(data-delay="600")
           +news-card(1, 'Федеральные новости', '«Бюджетная грамотность для старшеклассников»', '8 августа 2016')._green.tile__inner
-        
+
       .cube-brick(data-brick-700="2", data-brick-900="2", data-brick-1100="1")
         // NEWS_ITEM/
-        .tile__item.anim-left(data-delay="900")  
+        .tile__item.anim-left(data-delay="900")
           +news-card(1, 'Новости бюджета', 'Подведены итоги предварительной апробации федеральной учебной программы', '8 августа 2016')._blue.tile__inner
-        
+
       .cube-brick(data-brick-700="3", data-brick-900="2", data-brick-1100="2")
         // NEWS_ITEM/
         .tile__item
           +news-card(1, 'Новости бюджета', 'Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»', '8 августа 2016')._blue.tile__inner
-        
+
       .cube-brick(data-brick-700="3", data-brick-900="2", data-brick-1100="2")
         // NEWS_ITEM/
         .tile__item
           +news-card(1, 'Новости Москвы', 'Подведены итоги предварительной апробации', '8 августа 2016')._red.tile__inner
-        
+
       .cube-brick(data-brick-700="4", data-brick-900="3", data-brick-1100="2")
         // NEWS_ITEM/
         .tile__item
           +news-card(1, 'Федеральные новости', '«Бюджетная грамотность для старшеклассников»', '8 августа 2016')._green.tile__inner
-        
+
       .cube-brick(data-brick-700="4", data-brick-900="3", data-brick-1100="2")
         // NEWS_ITEM/
         .tile__item
