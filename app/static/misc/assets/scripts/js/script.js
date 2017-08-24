@@ -792,14 +792,8 @@ budget.extend("whatIsBudgetWeight", {
 
                 //if (Modernizr.mobile) {
 
-                        $('.budgetScales-pattern._surplus, .budgetScales-activeZone._surplus').on("click", function (event) {
-                                $('.whatIsBudget-component:first-child .whatIsBudget-component__termin').click();
-
-                                /*if ($(window).width() < 1000) {
-                                  _this.rollToTheLeft();
-                                  $('.budgetScales-supportingWeight._useOfSurplus').show();
-                                  $('.budgetScales-supportingWeight._financingOfDeficit').hide();
-                                }*/
+                        $('.budgetScales-mainWeight._revenues, .budgetScales-supportingWeight._financingOfDeficit').on("click", function (event) {
+                          $('.whatIsBudget-component:first-child .whatIsBudget-component__termin').click();
                         });
 
                         this.elements.$zoneBalance.on("click", function (event) {
@@ -807,14 +801,8 @@ budget.extend("whatIsBudgetWeight", {
                                 _this.alignmentToTheCenter();
                         });
 
-                        $('.budgetScales-pattern._deficit, .budgetScales-activeZone._deficit').on("click", function (event) {
-                                $('.whatIsBudget-component:last-child .whatIsBudget-component__termin').click();
-
-                                /*if ($(window).width() < 1000) {
-                                  _this.rollToTheRight();
-                                  $('.budgetScales-supportingWeight._financingOfDeficit').show();
-                                  $('.budgetScales-supportingWeight._useOfSurplus').hide();
-                                }*/
+                        $('.budgetScales-mainWeight._expenditures, .budgetScales-supportingWeight._useOfSurplus').on("click", function (event) {
+                          $('.whatIsBudget-component:last-child .whatIsBudget-component__termin').click();
                         });
                 //}
 
