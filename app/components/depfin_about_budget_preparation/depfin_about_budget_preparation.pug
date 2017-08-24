@@ -18,9 +18,9 @@ mixin depfin_about_budget_preparation()
         .d-abs__foot-content
           +b.buttons-set
             +e.item
-              a(href="#", data-tab-target="mskbudget").button-light.button-light--fill Бюджет Москвы
+              a(href="#").button-light.button-light--fill Бюджет Москвы
             +e.item
-              a(href="#", data-tab-target="fedbud").button-light Федеральный бюджет
+              a(href="#").button-light Федеральный бюджет
   // d-abs-content
   
   
@@ -937,10 +937,14 @@ mixin depfin_about_budget_preparation()
                 +b.SPAN.label.js-label-button.js-label-button-closed.js-label
                   | Участники процесса подготовки бюджета
                   +e.U.button.btn-close.js-section-tabs-hide
+        
+        .owl-nav
+          .owl-prev.disabled
+          .owl-next
         +e.nav
           .whitescreen1
           +e.nav-list
-            .owl-carousel.owl-loaded.sections
+            .dd-holder.js-drag-scroll-element4
               +e.nav-item
                 +e.A(href="#", data-section-tab-for="section-tab_01", data-target-for="").nav-btn 
                   | Мэр Москвы

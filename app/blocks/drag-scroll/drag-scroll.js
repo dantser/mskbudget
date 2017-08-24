@@ -36,4 +36,6 @@ export default function dragscroll() {
   clickAndDragScroll(elementToScroll2);
   var elementToScroll3 = $(".js-drag-scroll-element3");
   clickAndDragScroll(elementToScroll3);
+  var elementToScroll4 = $(".js-drag-scroll-element4");
+  clickAndDragScroll(elementToScroll4);
 }

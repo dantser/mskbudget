@@ -59,6 +59,7 @@ export default function aboutBudgetPreparation() {
     return false
   }
   // переключение таба бюджет мск/федеральный
+  /*
   const TABLINK = $('.d-abs__foot-content .button-light');
 
   TABLINK.each( function () {
@@ -76,6 +77,7 @@ export default function aboutBudgetPreparation() {
       EL.addClass(ACTIVE_CLASS);
     })
   })
+  */
 
 
   // раскрытие из "синего списка" и переход по якорю
