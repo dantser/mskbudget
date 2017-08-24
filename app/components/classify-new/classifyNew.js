@@ -15,6 +15,12 @@ export default () => {
       $(this).parents('.dropdown__content').find('.code-block[data-filter="'+filter+'"]').addClass('active');
     });
     
+    $('.code-desc__returnbutton').on('click', function(e){
+      e.preventDefault();
+      var blockDistance = $(this).parents('.code-block').offset().top - $('.header').outerHeight() - 20;
+      $('html,body').animate({scrollTop:blockDistance}, 1200);
+    });
+    
   }
   
 }
