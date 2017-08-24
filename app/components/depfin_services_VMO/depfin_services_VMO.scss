@@ -56,9 +56,14 @@
     }
 
   }
-
+  .tabs__tab {
+    &[data-tab="vmoAll"] {
+      padding-bottom: 100px;
+    }
+  }
   .analityc-widget {
     margin-top: 0;
+    padding-bottom: 40px;
   }
 
   &__title {
@@ -295,6 +300,7 @@
       display: inline-block;
       vertical-align: top;
       float: left;
+      z-index: 1;
     }
   }
   &__content_card {
@@ -308,12 +314,42 @@
       float: right;
       display: inline-block;
       vertical-align: top;
-      margin-bottom: 75px;
+      margin-bottom: 102px;
     }
+  }
+  &__content_bottom {
+    margin-top: 0;
   }
 
   &__figure {
     margin-bottom: 95px;
+    position: relative;
+    float: left;
+    width: 25%;
+    z-index: 0;
+    &::before {
+      @include pseudo;
+      top: 50%;
+      bottom: 0;
+      width: 38px;
+      left: -40px;
+      color: #dcdcdc;
+      height: 1px;
+      z-index: 1;
+      border-top: 1px solid;
+    }
+    &_orange {
+      width: 50%;
+      &::before {
+        width: 173px;
+        left: -182px;
+      }
+    }
+
+    &_green::before {
+      width: 243px;
+      left: -250px;
+    }
     .services-VMO__descr {
       display: inline-block;
       vertical-align: top;
@@ -327,17 +363,6 @@
     display: inline-block;
     vertical-align: top;
     margin-right: 10px;
-    position: relative;
-    &::before {
-      @include pseudo;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      color: #dcdcdc;
-      width: 227px;
-      height: 1px;
-      z-index: 1;
-    }
 
     &_blue {
       color: #26aecb;
@@ -352,5 +377,154 @@
 
   &__descr {
     font-size: 16px;
+  }
+  .alternative-link {
+    float: right;
+    width: 287px;
+  }
+
+  // график-таблица
+  &__content_graphics {
+    padding-bottom: 30px;
+    width: 100%;
+    position: relative;
+
+    .services-VMO__table, .services-VMO__graphics {
+      display: none;
+      &.active {
+        display: block;
+      }
+    }
+
+
+    .services-VMO__row {
+      font-weight: 400;
+      font-family: $PFDinTextPro;
+      margin-bottom: 30px;
+      @include clearfix;
+    }
+
+    .analityc-control-buttons {
+      margin-top: 0;
+      margin-right: 110px;
+      float: left;
+    }
+    .legend {
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 30px;
+      @include clearfix;
+
+      &__item {
+        display: inline-block;
+        vertical-align: middle;
+        margin-bottom: 0;
+        height: auto;
+        font-size: 14px;
+        color: $color-black;
+        &+.legend__item {
+          margin-left: 30px;
+        }
+      }
+    }
+
+    .analityc-widget-label {
+      position: relative;
+    }
+
+    .services-VMO__label {
+      float: right;
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 14px;
+      line-height: 30px;
+
+      &_table {
+        display: none;
+        vertical-align: middle;
+        float: left;
+        text-transform: uppercase;
+        margin-left: -72px;
+        font-family: $PFDinCondensedPro;
+        font-weight: 500;
+      }
+    }
+
+    .comp-diagram {
+      width: 134px;
+      height: 134px;
+
+      &__year {
+        top: 100%;
+        left: 0;
+        right: 0;
+        margin-left: 0;
+        color: $color-black;
+        font-size: 24px;
+        margin-top: 10px;
+      }
+      &__num {
+        // bottom: inherit !important;
+        left: inherit;
+        margin-left: 0;
+        margin-bottom: 0 !important;
+        font-size: 14px;
+
+        &_yellow {
+          color: #30b068;
+        }
+
+        &_blue {
+          margin-left: 4px;
+        }
+
+        &_pink {
+          margin-left: 17px;
+        }
+      }
+
+      .svg-wrap {
+        width: 100%;
+        height: 100%;
+        .svg {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+    .analityc-widget-item {
+      width: 16.5%;
+      margin-left: 0;
+      position: relative;
+    }
+
+    .analityc-graphics__period-left, .analityc-graphics__period-right {
+      top: 100%;
+      bottom: inherit;
+      border-bottom: 1px solid #d7d7d7;
+      border-top: none;
+      margin-top: 15px;
+      margin-bottom: 0;
+      z-index: 2;
+      width: 200%;
+    }
+
+    .analityc-graphics__period-right {
+      left: auto;
+    }
+    .analityc-graphics__periodtext {
+      width: 84%;
+      bottom: 0;
+      left: 0;
+      right: inherit;
+      margin-top: 0;
+      margin-bottom: -40px;
+
+      &_alt {
+        width: 18.5%;
+        right: 0;
+        left: inherit;
+      }
+    }
   }
 }
