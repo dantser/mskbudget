@@ -229,6 +229,13 @@
       &__caption {
         margin-right: 40px;
         padding-left: 27px;
+        padding-bottom: 0;
+        border-bottom: none;
+
+        .significant-list__col {
+          padding: 0 0 14px;
+          border-bottom: 3px solid #d5d5d5;
+        }
       }
 
       &__main {
@@ -239,7 +246,8 @@
       }
 
       &__row {
-        padding: 18px 0 14px 27px;
+        padding: 0 0 0 27px;
+        border: none;
 
         &:hover {
           background-color: $color-blue;
@@ -260,6 +268,9 @@
       }
 
       &__col {
+        padding: 18px 0 14px;
+        border-bottom: 1px solid #d5d5d5;
+
         &_left {
           width: 100%;
         }
@@ -378,16 +389,43 @@
 
   &__address {
     @include block-justify;
+    min-height: 121px;
     font-size: 0;
     margin-top: 19px;
   }
 
   &__map {
     display: inline-block;
+    position: relative;
     width: 227px;
     height: 121px;
     background-color: #d5d5d5;
     vertical-align: bottom;
+
+    &-map {
+      width: 100%;
+      height: 100%;
+    }
+
+    &-close {
+      display: none;
+      position: absolute;
+      top: 0;
+      right: -25px;
+      width: 20px;
+      height: 20px;
+      fill: $color-yellow;
+      cursor: pointer;
+    }
+
+    /*карта раскрыта*/
+    &_active {
+      @include center-block;
+      position: fixed;
+      width: 1100px;
+      height: 500px;
+      z-index: 1;
+    }
   }
 
   &__addr {
