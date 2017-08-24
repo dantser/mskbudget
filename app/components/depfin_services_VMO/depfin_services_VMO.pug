@@ -3,6 +3,8 @@ include ../../blocks/dropdown-block/dropdown-block
 include ../../blocks/tabs/tabs
 include ../../blocks/dropdown-block/dropdown-block
 include ../../blocks/alternative-link/alternative-link
+include ../../blocks/table/table
+include ../analityc-table/analityc-table
 
 mixin depfin_services_VMO()
   +b.SECTION.services-VMO.main._basic.basic-budget.sections__item
@@ -100,6 +102,11 @@ mixin vmoAll()
           a(href="#" title="Диаграмма 2017 год")
           p.comp-diagram__year 2017
     .services-VMO__table
+      +analityc-table_slider()._vmo
+        +icon('angle-arrow').section__ar.section__ar_left
+        +icon('angle-arrow').section__ar.section__ar_right
+        .analityc-table__wrapper
+          +table-vmo_slider(getData('vmo1'))
 
 //- таб "Паспорт ВМО"
 mixin vmoPassports()
