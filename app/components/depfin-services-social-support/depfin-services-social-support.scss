@@ -11,8 +11,16 @@
     padding: 100px 0 20px;
   }
 
+  &_main {
+    min-height: 100vh;
+  }
+
   &__head {
-    margin-bottom: 90px;
+    margin-bottom: 35px;
+
+    @media (max-width: 570px) {
+      margin-bottom: 30px;
+    }
   }
 
   &__wrapper {
@@ -27,13 +35,31 @@
     list-style: none;
     font-size: 0;;
     text-align: justify;
-    padding-bottom: 150px;
 
-    &:after {
-      width: 100%;
-      height: 0;
-      content: '';
-      display: inline-block;
+    &_simple-container {
+      .depfin-services-social-support__item {
+          width: (1/6)*100%;
+          margin-bottom: 12px;
+
+          @media (max-width: 1180px) {
+            width: (1/4)*100%;
+          }
+
+          @media (max-width: 768px) {
+            width: (1/3)*100%;
+          }
+
+          @media (max-width: 570px) {
+            width: (1/2)*100%;
+          }
+      }
+
+      &:after {
+        width: 100%;
+        height: 0;
+        content: '';
+        display: inline-block;
+      }
     }
   }
 
@@ -41,39 +67,24 @@
     display: inline-block;
     position: relative;
     vertical-align: top;
-    width: (1/6)*100%;
     padding: 21px 15px 15px;
-    margin-bottom: 12px;
-    transition: all .25s ease-in-out;
-
-    @include respond-to('laptop') {
-    }
-
-    @include respond-to('tablet') {
-    }
-
-    @include respond-to('mobile') {
-      width: (1/4)*100%;
-    }
+    transition: all .3s ease;
 
     @media (max-width: 570px) {
-      width: (1/2)*100%;
+      padding-top: 17px;
+      padding-bottom: 8px;
     }
 
-    @media (max-width: 480px) {
-      width: 100%;
-    }
-
-    &:hover {
+    &:hover, &.active {
       background: #fee300;
 
       .depfin-services-social-support__item-icon svg { fill: black; }
 
-      & .depfin-services-social-support__item-text {
+      .depfin-services-social-support__item-text {
         color: $color-black;
       }
 
-      & .depfin-services-social-support__sublist {
+      .depfin-services-social-support__sublist {
         opacity: 1;
         pointer-events: all;
       }
@@ -86,13 +97,19 @@
       height: 49px;
       margin-bottom: 19px;
 
+      @media (max-width: 570px) {
+        height: 35px;
+        margin-bottom: 14px;
+      }
+
       svg {
         width: 100%;
+        max-width: 50px;
         height: 100%;
         display: block;
         margin: 0 auto;
         fill: $color-yellow;
-        transition: fill .25s ease-in-out;
+        transition: fill .3s ease;
       }
     }
 
@@ -101,7 +118,11 @@
       text-align: center;
       font-family: $PFDinCondensedPro;
       font-weight: 600;
-      transition: all .25s ease-in-out;
+      transition: all .3s ease;
+
+      @media (max-width: 570px) {
+        font-weight: 500;
+      }
     }
 
     &-link {
@@ -112,11 +133,16 @@
       color: $color-yellow;
       text-transform: uppercase;
       display: block;
+
+      @media (max-width: 480px) {
+        font-size: 12px;
+        line-height: 12px;
+      }
     }
   }
 
   &__sublist {
-    transition: all .25s ease-in-out;
+    transition: all .3s ease;
     opacity: 0;
     pointer-events: none;
     position: absolute;
@@ -127,6 +153,11 @@
     list-style: none;
     background: $color-white;
     z-index: 1;
+
+    @media (max-width: 570px) {
+      padding-top: 11px;
+      padding-bottom: 0px;
+    }
   }
 
   &__subitem {
@@ -147,7 +178,13 @@
       text-align: center;
       color: $color-link;
       text-transform: uppercase;
-      transition: all .25s ease-in-out;
+      transition: all .3s ease;
+
+      @media (max-width: 570px) {
+        line-height: 14px;
+        font-weight: 500;
+        margin-bottom: 12px;
+      }
 
       &:hover { opacity: .7; }
     }
@@ -160,14 +197,22 @@
 
   &__title {
     font-family: $PFDinCondensedPro;
-    font-size: 28px;
-    line-height: 30px;
+    font-size: 30px;
+    line-height: 32px;
     text-transform: uppercase;
-    margin-bottom: 22px;
+    margin-bottom: 24px;
+    font-weight: 500;
 
-    @include respond-to('mobile') {
+    @media (max-width: 1000px) {
+      font-size: 24px;
+      line-height: 26px;
+      margin-bottom: 32px;
+    }
+
+    @media (max-width: 570px) {
       font-size: 12px;
-      line-height: 18px;
+      line-height: 14px;
+      margin-bottom: 11px;
     }
   }
 
@@ -175,6 +220,9 @@
     font-size: 0;
     list-style: none;
     margin: -5px;
+    display: block;
+    display: flex;
+    flex-wrap: wrap;
 
     @media (max-width: 480px) {
       margin: -5px 0;
@@ -193,21 +241,15 @@
       width: calc((1/3) * 100% - 10px);
       border: 1px solid rgba(254, 227, 0, .7);
       margin: 5px;
+      transition: background-color .3s ease;
 
-      @include respond-to('tablet') {
-        width: calc(50% - 10px);
-      }
-
-      @include respond-to('mobile') {
+      @media (max-width: 1180px) {
         width: calc(50% - 10px);
       }
 
       @media (max-width: 570px) {
         width: 100%;
-      }
-
-      @media (max-width: 480px) {
-        margin: 5px 0;
+        margin: 3px 0;
       }
 
       &:hover {
@@ -221,18 +263,21 @@
 
     &-link {
       display: block;
-      /*min-height: 160px;*/
-      height: 160px;
+      min-height: 158px;
       text-decoration: none;
       font-size: 18px;
-      line-height: 26px;
+      line-height: 24px;
       font-weight: 500;
-      padding: 20px 22px;
+      padding: 21px 22px;
       text-transform: uppercase;
+      font-family: $PFDinCondensedPro;
+      transition: color .3s ease;
 
-      @media (max-width: 1200px) {
-        font-size: 14px;
-        line-height: 20px;
+      @media (max-width: 570px) {
+        font-size: 12px;
+        line-height: 16px;
+        min-height: 109px;
+        padding: 15px 14px;
       }
     }
   }
@@ -244,25 +289,114 @@
     background-color: $color-white;
   }
 
-  &__burger {
-    display: table-cell;
-    padding: 25px;
-    border-right: 1px solid rgba(0, 0, 0, 0.1);
+  &__burger-button {
+    width: 22px;
+    height: 18px;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    z-index: 5;
 
-    @media (max-width: 480px) {
-      padding: 9px;
+    @media (max-width: 1000px) {
+      width: 18px;
+      height: 14px;
     }
 
-    &_active {
+    @media (max-width: 570px) {
+      width: 10px;
+      height: 7px;
+    }
 
-      & .depfin-services-social-support__burger-icon {
-        display: none;
+    span {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      left: 0;
+      right: 0;
+      height: 2px;
+      width: 100%;
+      display: block;
+
+      @media (max-width: 570px) {
+        height: 1px;
       }
 
-      & .depfin-services-social-support__burger-close,
-      & .depfin-services-social-support__burger-menu, {
-        display: block;
+    }
+
+    span, &::before, &::after {
+      background-color: black;
+      transition: opacity .3s ease, transform .3s ease;
+    }
+
+    &::before, &::after {
+      content: "";
+      display: block;
+      height: 2px;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      transform: translateY(0) rotate(0deg);
+
+      @media (max-width: 570px) {
+        height: 1px;
       }
+    }
+
+    &::before {
+      top: 0;
+    }
+
+    &::after {
+      bottom: 0;
+    }
+  }
+
+  &__burger {
+    display: table-cell;
+    text-align: center;
+    width: 73px;
+    position: relative;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+
+    @media (max-width: 1000px) {
+      width: 58px;
+    }
+
+    @media (max-width: 570px) {
+      width: 27px;
+    }
+
+    &.active {
+
+      .depfin-services-social-support__burger-button {
+        span { opacity: 0; }
+
+        &::before {
+          transform: translateY(8px) rotate(45deg);
+
+          @media (max-width: 1000px) {
+            transform: translateY(6px) rotate(45deg);
+          }
+
+          @media (max-width: 570px) {
+            transform: translateY(3px) rotate(45deg);
+          }
+        }
+
+        &::after {
+          transform: translateY(-8px) rotate(-45deg);
+
+          @media (max-width: 1000px) {
+            transform: translateY(-6px) rotate(-45deg);
+          }
+
+          @media (max-width: 570px) {
+            transform: translateY(-3px) rotate(-45deg);
+          }
+        }
+      }
+
     }
   }
 
@@ -280,11 +414,6 @@
     width: 16px;
     height: 16px;
     fill: $color-black;
-
-    @media (max-width: 480px) {
-      top: 9px;
-      left: 8px;
-    }
   }
 
   &__burger-menu {
@@ -293,43 +422,72 @@
     top: 0;
     left: 0;
     width: 100%;
-    padding: 25px 30px 25px 90px;
+    padding: 25px 30px 16px 89px;
     background-color: $color-white;
     z-index: 1;
+    box-shadow: 0 16px 18px 0 rgba(black, .38);
 
-    @media (max-width: 480px) {
-      padding: 11px 32px;
+    @media (max-width: 1000px) {
+      padding: 21px 20px 20px 71px;
+    }
+
+    @media (max-width: 570px) {
+      padding: 5px 15px 15px 32px;
     }
   }
 
   &__burger-item {
-    margin-bottom: 10px;
+    margin-bottom: 14px;
+
+    @media (max-width: 1000px) {
+      margin-bottom: 11px;
+    }
+
+    @media (max-width: 570px) {
+      margin-bottom: 7px;
+    }
 
     &:first-child {
+      margin-bottom: 11px;
+
+      @media (max-width: 1000px) {
+        margin-bottom: 7px;
+      }
+
+      @media (max-width: 570px) {
+        margin-bottom: 10px;
+      }
 
       & .depfin-services-social-support__burger-link {
         color: #ccc;
+
+        &:hover { color: #ccc; }
       }
     }
   }
 
   &__burger-link {
     font-size: 18px;
-    line-height: 26px;
+    line-height: 24px;
     font-weight: 500;
     text-decoration: none;
     text-transform: uppercase;
     color: $color-link;
+    font-family: $PFDinCondensedPro;
+    transition: color .3s ease;
 
-    @include respond-to('mobile') {
+    @media (max-width: 1000px) {
       font-size: 14px;
       line-height: 20px;
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 570px) {
       font-size: 10px;
-      line-height: 16px;
+      line-height: 14px;
+      display: inline-block;
     }
+
+    &:hover { color: #4a76bb; }
   }
 
   &__content {
@@ -338,26 +496,56 @@
   }
 
   &__content-title {
-    padding: 25px 46px 21px;
+    padding-top: 22px;
+    padding-bottom: 20px;
     font-size: 24px;
-    line-height: 24px;
+    line-height: 1.2em;
     font-weight: 500;
     text-transform: uppercase;
     background-color: $color-yellow;
+    font-family: $PFDinCondensedPro;
 
-    @media (max-width: 480px) {
-      padding: 9px 16px 9px;
+    @media (max-width: 1000px) {
+      font-size: 19px;
+      padding-top: 18px;
+      padding-bottom: 16px;
+    }
+
+    @media (max-width: 570px) {
       font-size: 9px;
-      line-height: 15px;
+      padding-top: 10px;
+      padding-bottom: 5px;
+    }
+  }
+
+  &__content-title, &__info {
+    padding-left: 44px;
+    padding-right: 44px;
+
+    @media (max-width: 1000px) {
+      padding-left: 34px;
+      padding-right: 34px;
+    }
+
+    @media (max-width: 570px) {
+      padding-left: 15px;
+      padding-right: 15px;
     }
   }
 
   &__info {
-    padding: 36px 48px;
+    padding-top: 36px;
+    padding-bottom: 36px;
     @include clearfix;
 
-    @media (max-width: 480px) {
-      padding: 15px 16px;
+    @media (max-width: 1000px) {
+      padding-top: 29px;
+      padding-bottom: 46px;
+    }
+
+    @media (max-width: 570px) {
+      padding-top: 14px;
+      padding-bottom: 11px;
     }
   }
 
@@ -365,30 +553,44 @@
     float: left;
     width: 41%;
 
-    @include respond-to('mobile'){
-      float: none;
+    @media (max-width: 1000px) {
       width: 100%;
-      margin-bottom: 29px;
     }
   }
 
   &__definition {
-    font-size: 24px;
-    line-height: 34px;
 
-    @media (max-width: 480px) {
-      font-size: 12px;
-      line-height: 22px;
+    p {
+      font-size: 24px;
+      line-height: 34px;
+
+      @media (max-width: 1000px) {
+        font-size: 19px;
+        line-height: 27px;
+      }
+
+      @media (max-width: 570px) {
+        font-size: 12px;
+        line-height: 13px;
+      }
+
+      b { font-weight: 500; }
     }
+
   }
 
   &__right {
     float: right;
-    width: 55.5%;
+    width: 54.7%;
 
-    @include respond-to('mobile'){
-      float: none;
+    @media (max-width: 1000px) {
       width: 100%;
+      float: left;
+      margin-top: 26px;
+    }
+
+    @media (max-width: 570px) {
+      margin-top: 8px;
     }
   }
 
@@ -396,222 +598,257 @@
     list-style: none;
   }
 
+  &__type + &__type { margin-top: 6px; }
+
   &__type {
-    margin-bottom: 4px;
 
     &_active {
-      margin-bottom: 21px;
 
       & .depfin-services-social-support__type-label {
-        margin-bottom: 10px;
         background-color: $color-yellow;
 
-        & .link {
-          color: $color-black;
-          padding-right: 24px;
+        &-close {
+          opacity: 1;
+          pointer-events: all;
+        }
 
-          &__icon {
-            display: block;
-          }
+        .link {
+          color: $color-black;
+          cursor: text;
+
+          &:hover { color: $color-black; }
 
           &_dashed {
-            border-bottom: none;
+            border-color: transparent;
           }
         }
       }
+    }
 
-      & .depfin-services-social-support__type-description {
-        display: block;
+    &_only {
+
+      .depfin-services-social-support__type-text {
+        padding-top: 0;
+        margin-top: -4px;
+
+        @media (max-width: 570px) {
+          margin-top: 0;
+        }
+      }
+
+      .depfin-services-social-support__type-description { display: block; }
+
+      .depfin-services-social-support__type-link { padding-bottom: 0; }
+
+      & .depfin-services-social-support__type-label {
+
+        &-close { display: none; }
+
+        .link {
+          color: $color-black;
+          cursor: text;
+
+          &:hover { color: $color-black; }
+
+          &_dashed {
+            border-color: transparent;
+          }
+        }
       }
     }
 
     &-label {
       display: inline-block;
-      padding: 7px 8px;
+      padding: 6px 36px 3px 8px;
+      margin-left: -8px;
+      position: relative;
+      background-color: transparent;
+      transition: background-color .3s ease;
 
-      & .link {
-        font-size: 18px;
-        text-transform: uppercase;
+      @media (max-width: 1000px) {
+        padding: 3px 35px 3px 7px;
+        margin-left: -7px;
+      }
+
+      @media (max-width: 570px) {
+        padding: 0px 2px;
+        margin-left: -2px;
+      }
+
+      .link {
+        position: relative;
         font-weight: 500;
+        font-size: 18px;
+        line-height: 1.2em;
+        text-transform: uppercase;
+        transition: color .3s ease, border-color .3s ease;
+        cursor: pointer;
 
-        @media (max-width: 480px) {
-          font-size: 12px;
+        &:hover { color: #4a76bb; }
+
+        @media (max-width: 1000px) {
+          font-size: 14px;
         }
 
-        &__icon {
+        @media (max-width: 570px) {
+          font-size: 11px;
+          font-family: $PFDinCondensedPro;
+        }
+      }
+
+      &-close {
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        right: 13px;
+        width: 8px;
+        height: 8px;
+        fill: $color-black;
+        transition: opacity .3s ease, fill .3s ease;
+        cursor: pointer;
+
+        &:hover { fill: lighten($color-black, 50%); }
+
+        @media (max-width: 570px) {
           display: none;
-          top: 3px;
-          right: 0;
-          width: 8px;
-          height: 8px;
-          fill: $color-black;
         }
       }
     }
 
     &-description {
       display: none;
-      padding-left: 8px;
-      margin-bottom: 10px;
     }
 
     &-text {
-      font-size: 18px;
-      line-height: 26px;
+      font-size: 16px;
+      line-height: 24px;
       font-weight: 500;
-      margin-bottom: 10px;
+      padding-top: 7px;
 
-      @media (max-width: 480px) {
-        font-size: 11px;
-        line-height: 17px;
+      @media (max-width: 1000px) {
+        font-size: 13px;
+        line-height: 19px;
+      }
+
+      @media (max-width: 570px) {
+        font-size: 10px;
+        line-height: 13px;
+        padding-top: 4px;
+      }
+    }
+
+    &-text + &-link {
+      margin-top: 11px;
+
+      @media (max-width: 1000px) {
+        margin-top: 8px;
+      }
+
+      @media (max-width: 570px) {
+        margin-top: 4px;
       }
     }
 
     &-link {
-      font-size: 14px;
-      line-height: 20px;
-      font-weight: 500;
+      font-size: 13px;
+      line-height: 17px;
+      font-weight: 400;
       color: $color-link;
+      display: block;
+      padding-bottom: 21px;
+      transition: color .3s ease;
 
-      @media (max-width: 480px) {
-        font-size: 9px;
-        line-height: 15px;
+      @media (max-width: 1000px) {
+        font-size: 10px;
+        line-height: 13px;
+        padding-bottom: 13px;
       }
+
+      @media (max-width: 570px) {
+        font-size: 9px;
+        line-height: 9px;
+        padding-bottom: 12px;
+      }
+
+      &:hover { color: #4a76bb; }
     }
   }
 }
 
-.depfin-services-social-support_slider {
+.depfin-services-social-support__cards-slider {
+  white-space: nowrap;
+  overflow-y: hidden;
+  overflow-x: auto;
+  margin-bottom: 58px;
+  cursor: move;
 
-  .depfin-services-social-support__main {
-    -webkit-mask-image: -webkit-linear-gradient(left, transparent 0.5%, black 7%, black 93%, transparent 99.5%);
+  @media (max-width: 1000px) {
+    margin-bottom: 42px;
   }
 
-  .depfin-services-social-support__list {
-    padding-bottom: 63px;
-  }
-
-  .depfin-services-social-support__sublist {
-    display: none;
+  @media (max-width: 570px) {
+    margin-bottom: 22px;
   }
 
   .depfin-services-social-support__item {
-    min-height: 200px;
-  }
+    white-space: normal;
+    max-width: 175px;
+    cursor: pointer;
 
-  /*Letter Slider*/
-  .letter__line {         
-    margin-bottom: 0; 
-  }
-
-  .letter__line:after {  
-  } 
-
-  .letter__line-item {    
-    display: block;
-    height: auto; 
-    transition: 0.5s; 
-  }
-
-  .letter__line-item_first .letter__btn { 
-    padding-left: 0; 
-  }
-
-  .letter__line-item_last .letter__btn { 
-    padding-right: 0; 
-  }
-
-  .letter__line-item_active { 
-  }
-
-  .letter__line-item_current button { 
-    color: #000 !important; 
-    background: #fee300;
-
-    & .depfin-services-social-support__item-icon svg { 
-      fill: black; 
-    }
-
-    & .depfin-services-social-support__item-text {
-      color: $color-black;
-    }
-
-    & .depfin-services-social-support__sublist {
-      opacity: 1;
-      pointer-events: all;
+    @media (max-width: 570px) {
+      max-width: 90px;
+      padding-top: 5px;
+      padding-bottom: 3px;
+      padding-left: 5px;
+      padding-right: 5px;
+      word-break: break-word;
     }
   }
 
-  .letter__btn { 
-    height: auto; 
-    font-size: 14px; 
-    font-family: $PFDinCondensedPro; 
-    font-weight: 700; 
-    color: #fee300; 
-    padding: 0; 
-    padding-bottom: 40px;  
-  }
+  .scroll-content { -webkit-overflow-scrolling: touch; -ms-overflow-style: none;
+    padding-bottom: 17px;
 
-  .letter__btn:hover { 
-    color: #000; 
-  }
-
-  .letter__slider { 
-    min-height: 0;
-    padding: 0;
-    -webkit-mask-image: none;
-  }
-
-  .letter__track { 
-    background: tomato;
-  }
-
-  .letter__track:after {
-  }
-
-  .letter__item {       // __tab
-    width: 275px; 
-    padding-right: 0; 
-  }
-
-  @media (max-width: 1180px) { 
-    .letter__btn { 
-      font-size: 14px; 
-      color: $color-yellow !important; 
-    }
-
-    .letter__line-item { 
-      margin-bottom: 15px; 
+    @media (max-width: 570px) {
+      padding-bottom: 7px;
     }
   }
-
-  @media (max-width: 700px) { 
-    .letter__btn { 
-      font-size: 14px; 
-      height: auto; 
-      padding: 0; 
-    }
-
-    .letter__line { 
-      margin-left: 0; 
-      margin-right: 0; 
-    }
-
-    .letter__line-item { 
-      height: auto; 
-      margin-bottom: 5px; 
-    }
-
-    .letter__item { 
-      width: 125px; 
-      padding-right: 0; 
-    }
-
-    .letter__slider { 
-      min-height: 0; 
-      -webkit-mask-image: none; 
-    } 
+  .scroll-bar { position: absolute; height: 2px; background-color: white; top: 0; }
+  .scroll-x {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
   }
-
+  .scroll-x .scroll-element_track { height: 2px; background-color: white; opacity: .2; cursor: pointer; }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ie fixes
+// IE9 CSS
+:root .depfin-services-social-support__sublist {display: none \0/IE9}
+:root .depfin-services-social-support__item:hover .depfin-services-social-support__sublist {display: block \0/IE9}
+
+
+// IE10 fixes
+_:-ms-lang(x), .depfin-services-social-support__sublist {display: none; transition: none;}
+_:-ms-lang(x), .depfin-services-social-support__item:hover .depfin-services-social-support__sublist {display: block}
+_:-ms-lang(x), .depfin-services-social-support__item-link, .depfin-services-social-support__item, .depfin-services-social-support__item-icon svg, .depfin-services-social-support__item-text {transition: none}
