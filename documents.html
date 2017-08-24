@@ -328,25 +328,9 @@
                                 <svg class="header__menu2-icon js-icon-navSearchClose is-active is-hidden"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
                             </a>
                         </li>
-                        <li class="header__menu2-item hidden">
+                        <li class="header__menu2-item">
                             <a class="header__menu2-link btn open-popup" href="#login">
                                 <svg class="header__menu2-icon"><use xlink:href="assets/images/icon.svg#icon_user"></use></svg>
-                            </a>
-                        </li>
-                        <li class="header__menu2-item user-menu2-item">
-                            <a class="header__user" href="#">
-                                <div class="header__user-avatar">
-                                    <IMG src="assets/images/profile/person.jpg"></IMG>
-                                </div>
-                                <div class="header__user-favorites">
-                                    <svg class="header__user-favorites-icon"><use xlink:href="assets/images/icon.svg#icon_favor"></use></svg>
-                                    <span class="header__user-favorites-text">15</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="header__menu2-item header__menu2-item_logout">
-                            <a class="header__menu2-link" href="#">
-                                <svg class="header__menu2-icon"><use xlink:href="assets/images/icon.svg#icon_logout"></use></svg>
                             </a>
                         </li>
                     </ul>
@@ -906,26 +890,6 @@
             </div>
             <div class="footer__common"></div>
         </footer>
-        <script>
-            (function(d, w, c) {
-                var n = d.getElementsByTagName("script")[0],
-                    s = d.createElement("script"),
-                    f = function() {
-                        n.parentNode.insertBefore(s, n);
-                    },
-                    protocol = "https:";
-                current_domain = window.location.hostname;
-                s.type = "text/javascript";
-                s.charset = "utf-8";
-                s.async = true;
-                s.src = protocol + "//evp.mos.ru/frame/v2/all.php?cur_domain=" + current_domain + "&async=1&set_lang=ru&langs=ru&site_id=2136";
-                if (w.opera == "[object Opera]") {
-                    d.addEventListener("DOMContentLoaded", f, false);
-                } else {
-                    f();
-                }
-            })(document, window, "evp_header_callbacks");
-        </script>
         <div class="button-top"></div>
     </div>
     <div id="popup-wrapper">
@@ -1002,7 +966,9 @@
                     <!-- /TAB-->
                 </div>
             </div>
-            <a class="close-popup" href="#"></a>
+            <a class="close-popup" href="#">
+                <svg class="close-popup-icon"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
+            </a>
         </div>
         <!-- POPUP(Restore)-->
         <div class="popup-restore popup-window" id="restore">
@@ -1089,7 +1055,7 @@
     <script src="assets/scripts/app.min.js"></script>
     <script>
         $(document).ready(function() {
-            if ($('.analityc-graphics').length || $('.widget-card').length) {
+            if ($('.analityc-graphics').length || $('.widget-card').length || $('.services-VMO__graphics').length) {
                 /*Init Diagrams -- set id to diagram viewbox -- */
                 diagram('#diagram-01', {
                     stroke: 30,
@@ -1131,6 +1097,27 @@
                     kind: 'triple',
                     data: [1446.2, 1598.9],
                     animate: true,
+                    maxValue: 2050,
+                });
+                diagram('#diagram-001', {
+                    stroke: 30,
+                    kind: 'triple',
+                    data: [1446.2, 1597.2],
+                    /*animate: true,*/
+                    maxValue: 2070,
+                });
+                diagram('#diagram-002', {
+                    stroke: 30,
+                    kind: 'triple',
+                    data: [1446.2, 1598.9],
+                    /*animate: true,*/
+                    maxValue: 2050,
+                });
+                diagram('#diagram-003', {
+                    stroke: 30,
+                    kind: 'triple',
+                    data: [1446.2, 1598.9],
+                    /*animate: true,*/
                     maxValue: 2050,
                 });
                 diagram('#diagram-4', {
@@ -1455,6 +1442,26 @@
     <script src="assets/scripts/svg4everybody.min.js"></script>
     <script>
         svg4everybody();
+    </script>
+    <script>
+        (function(d, w, c) {
+            var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function() {
+                    n.parentNode.insertBefore(s, n);
+                },
+                protocol = "https:";
+            current_domain = window.location.hostname;
+            s.type = "text/javascript";
+            s.charset = "utf-8";
+            s.async = true;
+            s.src = protocol + "//evp.mos.ru/frame/v2/all.php?cur_domain=" + current_domain + "&async=1&set_lang=ru&langs=ru&site_id=2136";
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else {
+                f();
+            }
+        })(document, window, "evp_header_callbacks");
     </script>
 </body>
 
