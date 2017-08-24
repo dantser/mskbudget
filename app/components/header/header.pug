@@ -25,8 +25,6 @@ mixin header(blind)
               +icon('glasses').icon.link-for-blind__icon
               .link-for-blind__text Полная версия
           +currency().header__currency
-          //- +e.A.toppanel-link(href="#").js-show-toppanel
-          //-   +icon('mos').icon
           +social('mos', 'facebook-box', 'vk', 'tw', 'insta', 'odnokl', 'youtube-play', 'telegram').__social
         +e.drop-row
           +e.A(href="#").link-for-blind.link-for-blind.hidden-xxl
@@ -41,19 +39,19 @@ mixin header(blind)
               +e.A(href="#").menu2-link#search-navbar-link
                 +icon('search').menu2-icon.js-icon-navSearchLupa
                 +icon('cross').menu2-icon.js-icon-navSearchClose.is-active.is-hidden
-            +e.LI.menu2-item.hidden
+            +e.LI.menu2-item
               +e.A(href="#login").menu2-link.btn.open-popup
                 +icon('user').menu2-icon
-            +e.LI.menu2-item.user-menu2-item
-              +e.A.user(href="#")
-                +e.DIV.user-avatar
-                  IMG(src="assets/images/profile/person.jpg")
-                +e.DIV.user-favorites
-                  +icon('favor').user-favorites-icon
-                  +e.SPAN.user-favorites-text 15
-            +e.LI.menu2-item._logout
-              +e.A(href="#").menu2-link
-                +icon('logout').menu2-icon
+            //- +e.LI.menu2-item.user-menu2-item
+            //-   +e.A.user(href="#")
+            //-     +e.DIV.user-avatar
+            //-       IMG(src="assets/images/profile/person.jpg")
+            //-     +e.DIV.user-favorites
+            //-       +icon('favor').user-favorites-icon
+            //-       +e.SPAN.user-favorites-text 15
+            //- +e.LI.menu2-item._logout
+            //-   +e.A(href="#").menu2-link
+            //-     +icon('logout').menu2-icon
       +search-navbar().search-navbar
     +e.BUTTON#burger.open-menu.hamburger.hamburger--spin(type="button")
       SPAN.hamburger-box
