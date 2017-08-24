@@ -1,5 +1,6 @@
 include ../page-header/page-header
 include ../../blocks/buttons-set/buttons-set
+include ../../blocks/icon/icons
 
 mixin classify-new()
   section.sections__item.sections__item_first.sections-budget.budget-classify
@@ -47,12 +48,12 @@ mixin classify-new()
                 // CODE/
                 .code.xs-mb-25
                   .code__l
-                    .code__tit.on-hover_active
+                    //.code__tit.on-hover_active
                       span Код главного администратора доходов бюджета
                     .code__box.on-hover_active
                       a(href="#", data-hover-index="1", data-hover-parent="1").code__elem.on-hover.on-hover_active 000
                   .code__c
-                    .code__tit
+                    //.code__tit
                       span Код вида доходов бюджета
                     .code__box
                       a(href="#", data-hover-index="2", data-hover-parent="1").code__elem.code__elem_bg.on-hover 0
@@ -61,113 +62,92 @@ mixin classify-new()
                       a(href="#", data-hover-index="5", data-hover-parent="1").code__elem.on-hover 000
                       a(href="#", data-hover-index="6", data-hover-parent="1").code__elem.on-hover 00
                     span.clearfix
-                    p.code__caption.ml-20.xs-ml-5.on-hover-sibling-2 Группа<br> доходов
-                    p.code__caption.code__caption_2.on-hover-sibling-3 ПодГруппа<br> доходов
-                    p.code__caption.code__caption_2.on-hover-sibling-4 Статья<br> доходов
-                    p.code__caption.code__caption_3.on-hover-sibling-5 подСтатья<br> доходов
-                    p.code__caption.code__caption_2.on-hover-sibling-6 элемент<br> доходов
+                    //p.code__caption.ml-20.xs-ml-5.on-hover-sibling-2 Группа<br> доходов
+                    //p.code__caption.code__caption_2.on-hover-sibling-3 ПодГруппа<br> доходов
+                    //p.code__caption.code__caption_2.on-hover-sibling-4 Статья<br> доходов
+                    //p.code__caption.code__caption_3.on-hover-sibling-5 подСтатья<br> доходов
+                    //p.code__caption.code__caption_2.on-hover-sibling-6 элемент<br> доходов
                   .code__r
-                    .code__tit
+                    //.code__tit
                       span Код подвида доходов бюджета
                     .code__box
                       a(href="#", data-hover-index="7", data-hover-parent="1").code__elem.code__elem_dg.on-hover 0000
                       a(href="#", data-hover-index="8", data-hover-parent="1").code__elem.code__elem_g.on-hover 000
                     span.clearfix
-                    p.code__caption.code__caption_4.on-hover-sibling-7.ml-20 Группа подвида<br> доходов бюджетов
-                    p.code__caption.code__caption_3.on-hover-sibling-8 аналитическая<br> Группа подвида<br> доходов бюджетов
+                    //p.code__caption.code__caption_4.on-hover-sibling-7.ml-20 Группа подвида<br> доходов бюджетов
+                    //p.code__caption.code__caption_3.on-hover-sibling-8 аналитическая<br> Группа подвида<br> доходов бюджетов
                 // /CODE
                 // CODE-DESCRIPTION/
                 .code-desc.on-hover-content.on-hover-content-1.display-b
-                  p.code-desc__title КОД ГЛАВНОГО АДМИНИСТРАТОРА ДОХОДОВ БЮДЖЕТА
+                  p.code-desc__title Код главного администратора доходов бюджета
                   .code-desc__content
                     p Третий знак кода классификации доходов.
                     p Для налоговых доходов код элемента доходов соответствует бюджету бюджетной системы Российской Федерации в зависимости от полномочий по установлению ставок налога федеральными органами власти, органами власти субъектов Российской Федерации, органами власти муниципальных образований в соответствии с законодательством Российской Федерации о налогах и сборах. Для неналоговых доходов код элемента доходов определяется в зависимости от полномочий по установлению размеров платежей федеральными органами власти, органами власти субъектов Российской Федерации, органами власти муниципальных образований, органами управления государственных внебюджетных фондов.
                     p Для безвозмездных поступлений код элемента доходов определяется исходя из принадлежности трансферта его получателю.
                 .code-desc.on-hover-content.on-hover-content-2
-                  p.code-desc__title Группа доходов
+                  p.code-desc__title Код вида доходов бюджета
+                    span.code-desc__subtitle Группа доходов
                   .code-desc__content
                     p Третий знак кода классификации доходов.
                     p Для налоговых доходов код элемента доходов соответствует бюджету бюджетной системы Российской Федерации в зависимости от полномочий по установлению ставок налога федеральными органами власти, органами власти субъектов Российской Федерации, органами власти муниципальных образований в соответствии с законодательством Российской Федерации о налогах и сборах. Для неналоговых доходов код элемента доходов определяется в зависимости от полномочий по установлению размеров платежей федеральными органами власти, органами власти субъектов Российской Федерации, органами власти муниципальных образований, органами управления государственных внебюджетных фондов.
                     p Для безвозмездных поступлений код элемента доходов определяется исходя из принадлежности трансферта его получателю.
                 .code-desc.on-hover-content.on-hover-content-3
-                  p.code-desc__title подгруппа доходов
+                  p.code-desc__title Код вида доходов бюджета
+                    span.code-desc__subtitle Подгруппа доходов
                   .code-desc__content
                     p Третий знак кода классификации доходов.
                     p Для налоговых доходов код элемента доходов соответствует бюджету бюджетной системы Российской Федерации в зависимости от полномочий по установлению ставок налога федеральными органами власти, органами власти субъектов Российской Федерации, органами власти муниципальных образований в соответствии с законодательством Российской Федерации о налогах и сборах. Для неналоговых доходов код элемента доходов определяется в зависимости от полномочий по установлению размеров платежей федеральными органами власти, органами власти субъектов Российской Федерации, органами власти муниципальных образований, органами управления государственных внебюджетных фондов.
                     p Для безвозмездных поступлений код элемента доходов определяется исходя из принадлежности трансферта его получателю.
                 .code-desc.on-hover-content.on-hover-content-4
-                  p.code-desc__title Статья доходов
+                  p.code-desc__title Код вида доходов бюджета
+                    span.code-desc__subtitle Статья доходов
                   .code-desc__content
                     p Третий знак кода классификации доходов.
                     p Для налоговых доходов код элемента доходов соответствует бюджету бюджетной системы Российской Федерации в зависимости от полномочий по установлению ставок налога федеральными органами власти, органами власти субъектов Российской Федерации, органами власти муниципальных образований в соответствии с законодательством Российской Федерации о налогах и сборах. Для неналоговых доходов код элемента доходов определяется в зависимости от полномочий по установлению размеров платежей федеральными органами власти, органами власти субъектов Российской Федерации, органами власти муниципальных образований, органами управления государственных внебюджетных фондов.
                     p Для безвозмездных поступлений код элемента доходов определяется исходя из принадлежности трансферта его получателю.
                 .code-desc.on-hover-content.on-hover-content-5
-                  p.code-desc__title подстатья доходов
+                  p.code-desc__title Код вида доходов бюджета
+                    span.code-desc__subtitle Подстатья доходов
                   .code-desc__content
                     p Третий знак кода классификации доходов.
                     p Для налоговых доходов код элемента доходов соответствует бюджету бюджетной системы Российской Федерации в зависимости от полномочий по установлению ставок налога федеральными органами власти, органами власти субъектов Российской Федерации, органами власти муниципальных образований в соответствии с законодательством Российской Федерации о налогах и сборах. Для неналоговых доходов код элемента доходов определяется в зависимости от полномочий по установлению размеров платежей федеральными органами власти, органами власти субъектов Российской Федерации, органами власти муниципальных образований, органами управления государственных внебюджетных фондов.
                     p Для безвозмездных поступлений код элемента доходов определяется исходя из принадлежности трансферта его получателю.
                 .code-desc.on-hover-content.on-hover-content-6
-                  p.code-desc__title Элемент доходов
+                  p.code-desc__title Код вида доходов бюджета
+                    span.code-desc__subtitle Элемент доходов
                   .code-desc__content
                     p Третий знак кода классификации доходов.
                     p Для налоговых доходов код элемента доходов соответствует бюджету бюджетной системы Российской Федерации в зависимости от полномочий по установлению ставок налога федеральными органами власти, органами власти субъектов Российской Федерации, органами власти муниципальных образований в соответствии с законодательством Российской Федерации о налогах и сборах. Для неналоговых доходов код элемента доходов определяется в зависимости от полномочий по установлению размеров платежей федеральными органами власти, органами власти субъектов Российской Федерации, органами власти муниципальных образований, органами управления государственных внебюджетных фондов.
                     p Для безвозмездных поступлений код элемента доходов определяется исходя из принадлежности трансферта его получателю.
                 .code-desc.on-hover-content.on-hover-content-7
-                  p.code-desc__title ГРУППА ПОДВИДА ДОХОДОВ БЮДЖЕТОВ
+                  p.code-desc__title Код подвида доходов бюджета
+                    span.code-desc__subtitle Группа подвида доходов бюджетов
                   .code-desc__content
                     p Третий знак кода классификации доходов.
                     p Для налоговых доходов код элемента доходов соответствует бюджету бюджетной системы Российской Федерации в зависимости от полномочий по установлению ставок налога федеральными органами власти, органами власти субъектов Российской Федерации, органами власти муниципальных образований в соответствии с законодательством Российской Федерации о налогах и сборах. Для неналоговых доходов код элемента доходов определяется в зависимости от полномочий по установлению размеров платежей федеральными органами власти, органами власти субъектов Российской Федерации, органами власти муниципальных образований, органами управления государственных внебюджетных фондов.
                     p Для безвозмездных поступлений код элемента доходов определяется исходя из принадлежности трансферта его получателю.
                 .code-desc.on-hover-content.on-hover-content-8
-                  p.code-desc__title АНАЛИТИЧЕСКАЯ ГРУППА ПОДВИДА ДОХОДОВ БЮДЖЕТОВ
+                  p.code-desc__title Код подвида доходов бюджета
+                    span.code-desc__subtitle Аналитическая группа подвида доходов бюджетов
                   .code-desc__content
                     p Третий знак кода классификации доходов.
                     p Для налоговых доходов код элемента доходов соответствует бюджету бюджетной системы Российской Федерации в зависимости от полномочий по установлению ставок налога федеральными органами власти, органами власти субъектов Российской Федерации, органами власти муниципальных образований в соответствии с законодательством Российской Федерации о налогах и сборах. Для неналоговых доходов код элемента доходов определяется в зависимости от полномочий по установлению размеров платежей федеральными органами власти, органами власти субъектов Российской Федерации, органами власти муниципальных образований, органами управления государственных внебюджетных фондов.
                     p Для безвозмездных поступлений код элемента доходов определяется исходя из принадлежности трансферта его получателю.
-                .code-desc.on-hover-content.on-hover-content-9
-                  p.code-desc__title КОД ГЛАВНОГО АДМИНИСТРАТОРА ДОХОДОВ БЮДЖЕТА
-                  .code-desc__content
-                    p 182 - Федеральная налоговая служба
-                .code-desc.on-hover-content.on-hover-content-10
-                  p.code-desc__title группа доходов
-                  .code-desc__content
-                    p 1 - Налоговые и неналоговые доходы
-                .code-desc.on-hover-content.on-hover-content-11
-                  p.code-desc__title подгруппа доходов
-                  .code-desc__content
-                    p 06 - Налоги на имущество
-                .code-desc.on-hover-content.on-hover-content-12
-                  p.code-desc__title статья доходов
-                  .code-desc__content
-                    p 04 - Транспортный налог
-                .code-desc.on-hover-content.on-hover-content-13
-                  p.code-desc__title подстатья доходов
-                  .code-desc__content
-                    p 012 - транспортный налог с физических лиц
-                .code-desc.on-hover-content.on-hover-content-14
-                  p.code-desc__title элемент доходов
-                  .code-desc__content
-                    p 02 - бюджет субъекта Российской Федерации
-                .code-desc.on-hover-content.on-hover-content-15
-                  p.code-desc__title группа подвида доходов бюджетов
-                  .code-desc__content
-                    p 2100 - пени  по соответствующему платежу (по транспортному налогу с физических лиц)
-                .code-desc.on-hover-content.on-hover-content-16
-                  p.code-desc__title аналитическая группа подвида доходов бюджетов
-                  .code-desc__content
-                    p 110 - налоговые доходы
                 // /CODE-DESCRIPTION
+                a(href="#").code-desc__returnbutton Обратно
+                    span
+                      +icon('angle-arrow')
               .code-block(data-filter="example")
                 // CODE/
                 .code.xs-mb-25
+                  p.code-transcript Транспортный налог с физических лиц
                   .code__l
-                    .code__tit.on-hover_active
+                    //.code__tit.on-hover_active
                       span Код главного администратора доходов бюджета
                     .code__box.on-hover_active
                       a(href="#", data-hover-index="1", data-hover-parent="1").code__elem.on-hover.on-hover_active 182
                   .code__c
-                    .code__tit
+                    //.code__tit
                       span Код вида доходов бюджета
                     .code__box
                       a(href="#", data-hover-index="2", data-hover-parent="1").code__elem.code__elem_bg.on-hover 1
@@ -176,86 +156,61 @@ mixin classify-new()
                       a(href="#", data-hover-index="5", data-hover-parent="1").code__elem.on-hover 012
                       a(href="#", data-hover-index="6", data-hover-parent="1").code__elem.on-hover 02
                     span.clearfix
-                    p.code__caption.ml-20.xs-ml-5.on-hover-sibling-2 Группа<br> доходов
-                    p.code__caption.code__caption_2.on-hover-sibling-3 ПодГруппа<br> доходов
-                    p.code__caption.code__caption_2.on-hover-sibling-4 Статья<br> доходов
-                    p.code__caption.code__caption_3.on-hover-sibling-5 подСтатья<br> доходов
-                    p.code__caption.code__caption_2.on-hover-sibling-6 элемент<br> доходов
+                    //p.code__caption.ml-20.xs-ml-5.on-hover-sibling-2 Группа<br> доходов
+                    //p.code__caption.code__caption_2.on-hover-sibling-3 ПодГруппа<br> доходов
+                    //p.code__caption.code__caption_2.on-hover-sibling-4 Статья<br> доходов
+                    //p.code__caption.code__caption_3.on-hover-sibling-5 подСтатья<br> доходов
+                    //p.code__caption.code__caption_2.on-hover-sibling-6 элемент<br> доходов
                   .code__r
-                    .code__tit
+                    //.code__tit
                       span Код подвида доходов бюджета
                     .code__box
                       a(href="#", data-hover-index="7", data-hover-parent="1").code__elem.code__elem_dg.on-hover 2100
                       a(href="#", data-hover-index="8", data-hover-parent="1").code__elem.code__elem_g.on-hover 110
                     span.clearfix
-                    p.code__caption.code__caption_4.on-hover-sibling-7.ml-20 Группа подвида<br> доходов бюджетов
-                    p.code__caption.code__caption_3.on-hover-sibling-8 аналитическая<br> Группа подвида<br> доходов бюджетов
+                    //p.code__caption.code__caption_4.on-hover-sibling-7.ml-20 Группа подвида<br> доходов бюджетов
+                    //p.code__caption.code__caption_3.on-hover-sibling-8 аналитическая<br> Группа подвида<br> доходов бюджетов
                 // /CODE
                 // CODE-DESCRIPTION/
                 .code-desc.on-hover-content.on-hover-content-1.display-b
-                  p.code-desc__title КОД ГЛАВНОГО АДМИНИСТРАТОРА ДОХОДОВ БЮДЖЕТА
+                  p.code-desc__title Код главного администратора доходов бюджета
                   .code-desc__content
                     p 182 - Федеральная налоговая служба
                 .code-desc.on-hover-content.on-hover-content-2
-                  p.code-desc__title Группа доходов
+                  p.code-desc__title Код вида доходов бюджета
+                    span.code-desc__subtitle Группа доходов
                   .code-desc__content
                     p 182 - Федеральная налоговая служба
                 .code-desc.on-hover-content.on-hover-content-3
-                  p.code-desc__title подгруппа доходов
+                  p.code-desc__title Код вида доходов бюджета
+                    span.code-desc__subtitle Подгруппа доходов
                   .code-desc__content
                     p 182 - Федеральная налоговая служба
                 .code-desc.on-hover-content.on-hover-content-4
-                  p.code-desc__title Статья доходов
+                  p.code-desc__title Код вида доходов бюджета
+                    span.code-desc__subtitle Статья доходов
                   .code-desc__content
                     p 182 - Федеральная налоговая служба
                 .code-desc.on-hover-content.on-hover-content-5
-                  p.code-desc__title подстатья доходов
+                  p.code-desc__title Код вида доходов бюджета
+                    span.code-desc__subtitle Подстатья доходов
                   .code-desc__content
                     p 182 - Федеральная налоговая служба
                 .code-desc.on-hover-content.on-hover-content-6
-                  p.code-desc__title Элемент доходов
+                  p.code-desc__title Код вида доходов бюджета
+                    span.code-desc__subtitle Элемент доходов
                   .code-desc__content
                     p 182 - Федеральная налоговая служба
                 .code-desc.on-hover-content.on-hover-content-7
-                  p.code-desc__title ГРУППА ПОДВИДА ДОХОДОВ БЮДЖЕТОВ
+                  p.code-desc__title Код подвида доходов бюджета
+                    span.code-desc__subtitle Группа подвида доходов бюджетов
                   .code-desc__content
                     p 182 - Федеральная налоговая служба
                 .code-desc.on-hover-content.on-hover-content-8
-                  p.code-desc__title АНАЛИТИЧЕСКАЯ ГРУППА ПОДВИДА ДОХОДОВ БЮДЖЕТОВ
+                  p.code-desc__title Код подвида доходов бюджета
+                    span.code-desc__subtitle Аналитическая группа подвида доходов бюджетов
                   .code-desc__content
                     p 182 - Федеральная налоговая служба
-                .code-desc.on-hover-content.on-hover-content-9
-                  p.code-desc__title КОД ГЛАВНОГО АДМИНИСТРАТОРА ДОХОДОВ БЮДЖЕТА
-                  .code-desc__content
-                    p 182 - Федеральная налоговая служба
-                .code-desc.on-hover-content.on-hover-content-10
-                  p.code-desc__title группа доходов
-                  .code-desc__content
-                    p 1 - Налоговые и неналоговые доходы
-                .code-desc.on-hover-content.on-hover-content-11
-                  p.code-desc__title подгруппа доходов
-                  .code-desc__content
-                    p 06 - Налоги на имущество
-                .code-desc.on-hover-content.on-hover-content-12
-                  p.code-desc__title статья доходов
-                  .code-desc__content
-                    p 04 - Транспортный налог
-                .code-desc.on-hover-content.on-hover-content-13
-                  p.code-desc__title подстатья доходов
-                  .code-desc__content
-                    p 012 - транспортный налог с физических лиц
-                .code-desc.on-hover-content.on-hover-content-14
-                  p.code-desc__title элемент доходов
-                  .code-desc__content
-                    p 02 - бюджет субъекта Российской Федерации
-                .code-desc.on-hover-content.on-hover-content-15
-                  p.code-desc__title группа подвида доходов бюджетов
-                  .code-desc__content
-                    p 2100 - пени  по соответствующему платежу (по транспортному налогу с физических лиц)
-                .code-desc.on-hover-content.on-hover-content-16
-                  p.code-desc__title аналитическая группа подвида доходов бюджетов
-                  .code-desc__content
-                    p 110 - налоговые доходы
                 // /CODE-DESCRIPTION
       // /CLASSIFY-ITEM
 
@@ -284,40 +239,40 @@ mixin classify-new()
                 // CODE/
                 .code.code_a.xs-mb-25
                   .code__l
-                    .code__tit.on-hover_active
+                    //.code__tit.on-hover_active
                       span Код главного распорядителя<br> бюджетных средств
                     .code__box.on-hover_active
                       a(href="#", data-hover-index="1", data-hover-parent="2").code__elem.on-hover.on-hover_active 000
                   .code__c
-                    .code__tit
+                    //.code__tit
                       span Код<br> раздела
                     .code__box
                       a(href="#", data-hover-index="4", data-hover-parent="2").code__elem.on-hover 00
                   .code__c
-                    .code__tit
+                    //.code__tit
                       span Код<br> подраздела
                     .code__box
                       a(href="#", data-hover-index="5", data-hover-parent="2").code__elem.on-hover 00
                   .code__c
-                    .code__tit
+                    //.code__tit
                       span Код целевой<br> статьи расхода
                     .code__box
                       a(href="#", data-hover-index="6", data-hover-parent="2").code__elem.on-hover 00000
                       a(href="#", data-hover-index="7", data-hover-parent="2").code__elem.code__elem_g.code__elem_dg.on-hover 00000
                     span.clearfix
-                    p.code__caption.code__caption_5.ml-25.xs-ml-5.on-hover-sibling-6 Программная статья<br> расходов
-                    p.code__caption.code__caption_5.on-hover-sibling-7 Направление<br> расходов
+                    //p.code__caption.code__caption_5.ml-25.xs-ml-5.on-hover-sibling-6 Программная статья<br> расходов
+                    //p.code__caption.code__caption_5.on-hover-sibling-7 Направление<br> расходов
                   .code__r.md-ml-0
-                    .code__tit
+                    //.code__tit
                       span Код вида<br> расходов бюджета
                     .code__box
                       a(href="#", data-hover-index="8", data-hover-parent="2").code__elem.code__elem_g.on-hover 0
                       a(href="#", data-hover-index="9", data-hover-parent="2").code__elem.code__elem_dg.on-hover 0
                       a(href="#", data-hover-index="10", data-hover-parent="2").code__elem.code__elem_bg.on-hover 0
                     span.clearfix
-                    p.code__caption.code__caption_1.on-hover-sibling-8.ml-20 Группа
-                    p.code__caption.code__caption_1.on-hover-sibling-9 Под-<br>группа
-                    p.code__caption.code__caption_1.on-hover-sibling-10 Элемент
+                    //p.code__caption.code__caption_1.on-hover-sibling-8.ml-20 Группа
+                    //p.code__caption.code__caption_1.on-hover-sibling-9 Под-<br>группа
+                    //p.code__caption.code__caption_1.on-hover-sibling-10 Элемент
                 // /CODE
                 // CODE-DESCRIPTION/
                 .code-desc.on-hover-content.on-hover-content-1.display-b
@@ -339,74 +294,83 @@ mixin classify-new()
                     p Для налоговых доходов код элемента доходов соответствует бюджету бюджетной системы Российской Федерации в зависимости от полномочий по установлению ставок налога федеральными органами власти, органами власти субъектов Российской Федерации, органами власти муниципальных образований в соответствии с законодательством Российской Федерации о налогах и сборах. Для неналоговых доходов код элемента доходов определяется в зависимости от полномочий по установлению размеров платежей федеральными органами власти, органами власти субъектов Российской Федерации, органами власти муниципальных образований, органами управления государственных внебюджетных фондов.
                     p Для безвозмездных поступлений код элемента доходов определяется исходя из принадлежности трансферта его получателю.
                 .code-desc.on-hover-content.on-hover-content-6
-                  p.code-desc__title Программная статья расходов
+                  p.code-desc__title Код целевой статьи расхода
+                    span.code-desc__subtitle Программная статья расходов
                   .code-desc__content
                     p Третий знак кода классификации доходов.
                     p Для налоговых доходов код элемента доходов соответствует бюджету бюджетной системы Российской Федерации в зависимости от полномочий по установлению ставок налога федеральными органами власти, органами власти субъектов Российской Федерации, органами власти муниципальных образований в соответствии с законодательством Российской Федерации о налогах и сборах. Для неналоговых доходов код элемента доходов определяется в зависимости от полномочий по установлению размеров платежей федеральными органами власти, органами власти субъектов Российской Федерации, органами власти муниципальных образований, органами управления государственных внебюджетных фондов.
                     p Для безвозмездных поступлений код элемента доходов определяется исходя из принадлежности трансферта его получателю.
                 .code-desc.on-hover-content.on-hover-content-7
-                  p.code-desc__title Направление расходов
+                  p.code-desc__title Код целевой статьи расхода
+                    span.code-desc__subtitle Направление расходов
                   .code-desc__content
                     p Третий знак кода классификации доходов.
                     p Для налоговых доходов код элемента доходов соответствует бюджету бюджетной системы Российской Федерации в зависимости от полномочий по установлению ставок налога федеральными органами власти, органами власти субъектов Российской Федерации, органами власти муниципальных образований в соответствии с законодательством Российской Федерации о налогах и сборах. Для неналоговых доходов код элемента доходов определяется в зависимости от полномочий по установлению размеров платежей федеральными органами власти, органами власти субъектов Российской Федерации, органами власти муниципальных образований, органами управления государственных внебюджетных фондов.
                     p Для безвозмездных поступлений код элемента доходов определяется исходя из принадлежности трансферта его получателю.
                 .code-desc.on-hover-content.on-hover-content-8
-                  p.code-desc__title Группа
+                  p.code-desc__title Код вида расходов бюджета
+                    span.code-desc__subtitle Группа
                   .code-desc__content
                     p Третий знак кода классификации доходов.
                     p Для налоговых доходов код элемента доходов соответствует бюджету бюджетной системы Российской Федерации в зависимости от полномочий по установлению ставок налога федеральными органами власти, органами власти субъектов Российской Федерации, органами власти муниципальных образований в соответствии с законодательством Российской Федерации о налогах и сборах. Для неналоговых доходов код элемента доходов определяется в зависимости от полномочий по установлению размеров платежей федеральными органами власти, органами власти субъектов Российской Федерации, органами власти муниципальных образований, органами управления государственных внебюджетных фондов.
                     p Для безвозмездных поступлений код элемента доходов определяется исходя из принадлежности трансферта его получателю.
                 .code-desc.on-hover-content.on-hover-content-9
-                  p.code-desc__title Подгруппа
+                  p.code-desc__title Код вида расходов бюджета
+                    span.code-desc__subtitle Подгруппа
                   .code-desc__content
                     p Третий знак кода классификации доходов.
                     p Для налоговых доходов код элемента доходов соответствует бюджету бюджетной системы Российской Федерации в зависимости от полномочий по установлению ставок налога федеральными органами власти, органами власти субъектов Российской Федерации, органами власти муниципальных образований в соответствии с законодательством Российской Федерации о налогах и сборах. Для неналоговых доходов код элемента доходов определяется в зависимости от полномочий по установлению размеров платежей федеральными органами власти, органами власти субъектов Российской Федерации, органами власти муниципальных образований, органами управления государственных внебюджетных фондов.
                     p Для безвозмездных поступлений код элемента доходов определяется исходя из принадлежности трансферта его получателю.
                 .code-desc.on-hover-content.on-hover-content-10
-                  p.code-desc__title Элемент
+                  p.code-desc__title Код вида расходов бюджета
+                    span.code-desc__subtitle Элемент
                   .code-desc__content
                     p Третий знак кода классификации доходов.
                     p Для налоговых доходов код элемента доходов соответствует бюджету бюджетной системы Российской Федерации в зависимости от полномочий по установлению ставок налога федеральными органами власти, органами власти субъектов Российской Федерации, органами власти муниципальных образований в соответствии с законодательством Российской Федерации о налогах и сборах. Для неналоговых доходов код элемента доходов определяется в зависимости от полномочий по установлению размеров платежей федеральными органами власти, органами власти субъектов Российской Федерации, органами власти муниципальных образований, органами управления государственных внебюджетных фондов.
                     p Для безвозмездных поступлений код элемента доходов определяется исходя из принадлежности трансферта его получателю.
                 // /CODE-DESCRIPTION
+                a(href="#").code-desc__returnbutton Обратно
+                    span
+                      +icon('angle-arrow')
               .code-block(data-filter="example")
                 // CODE/
                 .code.code_a.xs-mb-25
+                  p.code-transcript Транспортный налог с физических лиц
                   .code__l
-                    .code__tit.on-hover_active
+                    //.code__tit.on-hover_active
                       span Код главного распорядителя<br> бюджетных средств
                     .code__box.on-hover_active
                       a(href="#", data-hover-index="1", data-hover-parent="2").code__elem.on-hover.on-hover_active 122
                   .code__c
-                    .code__tit
+                    //.code__tit
                       span Код<br> раздела
                     .code__box
                       a(href="#", data-hover-index="4", data-hover-parent="2").code__elem.on-hover 31
                   .code__c
-                    .code__tit
+                    //.code__tit
                       span Код<br> подраздела
                     .code__box
                       a(href="#", data-hover-index="5", data-hover-parent="2").code__elem.on-hover 45
                   .code__c
-                    .code__tit
+                    //.code__tit
                       span Код целевой<br> статьи расхода
                     .code__box
                       a(href="#", data-hover-index="6", data-hover-parent="2").code__elem.on-hover 56755
                       a(href="#", data-hover-index="7", data-hover-parent="2").code__elem.code__elem_g.code__elem_dg.on-hover 34399
                     span.clearfix
-                    p.code__caption.code__caption_5.ml-25.xs-ml-5.on-hover-sibling-6 Программная статья<br> расходов
-                    p.code__caption.code__caption_5.on-hover-sibling-7 Направление<br> расходов
+                    //p.code__caption.code__caption_5.ml-25.xs-ml-5.on-hover-sibling-6 Программная статья<br> расходов
+                    //p.code__caption.code__caption_5.on-hover-sibling-7 Направление<br> расходов
                   .code__r.md-ml-0
-                    .code__tit
+                    //.code__tit
                       span Код вида<br> расходов бюджета
                     .code__box
                       a(href="#", data-hover-index="8", data-hover-parent="2").code__elem.code__elem_g.on-hover 6
                       a(href="#", data-hover-index="9", data-hover-parent="2").code__elem.code__elem_dg.on-hover 3
                       a(href="#", data-hover-index="10", data-hover-parent="2").code__elem.code__elem_bg.on-hover 9
                     span.clearfix
-                    p.code__caption.code__caption_1.on-hover-sibling-8.ml-20 Группа
-                    p.code__caption.code__caption_1.on-hover-sibling-9 Под-<br>группа
-                    p.code__caption.code__caption_1.on-hover-sibling-10 Элемент
+                    //p.code__caption.code__caption_1.on-hover-sibling-8.ml-20 Группа
+                    //p.code__caption.code__caption_1.on-hover-sibling-9 Под-<br>группа
+                    //p.code__caption.code__caption_1.on-hover-sibling-10 Элемент
                 // /CODE
                 // CODE-DESCRIPTION/
                 .code-desc.on-hover-content.on-hover-content-1.display-b
@@ -422,23 +386,28 @@ mixin classify-new()
                   .code-desc__content
                     p 45 - Федеральная налоговая служба
                 .code-desc.on-hover-content.on-hover-content-6
-                  p.code-desc__title Программная статья расходов
+                  p.code-desc__title Код целевой статьи расхода
+                    span.code-desc__subtitle Программная статья расходов
                   .code-desc__content
                     p 56755 - Федеральная налоговая служба
                 .code-desc.on-hover-content.on-hover-content-7
-                  p.code-desc__title Направление расходов
+                  p.code-desc__title Код целевой статьи расхода
+                    span.code-desc__subtitle Направление расходов
                   .code-desc__content
                     p 34399 - Федеральная налоговая служба
                 .code-desc.on-hover-content.on-hover-content-8
-                  p.code-desc__title Группа
+                  p.code-desc__title Код вида расходов бюджета
+                    span.code-desc__subtitle Группа
                   .code-desc__content
                     p 6 - Федеральная налоговая служба
                 .code-desc.on-hover-content.on-hover-content-9
-                  p.code-desc__title Подгруппа
+                  p.code-desc__title Код вида расходов бюджета
+                    span.code-desc__subtitle Подгруппа
                   .code-desc__content
                     p 3 - Федеральная налоговая служба
                 .code-desc.on-hover-content.on-hover-content-10
-                  p.code-desc__title Элемент
+                  p.code-desc__title Код вида расходов бюджета
+                    span.code-desc__subtitle Элемент
                   .code-desc__content
                     p 9 - Федеральная налоговая служба
                 // /CODE-DESCRIPTION
@@ -471,40 +440,40 @@ mixin classify-new()
                 // CODE/
                 .code.code_b.xs-mb-25
                   .code__l
-                    .code__tit.code__tit_large.on-hover_active
+                    //.code__tit.code__tit_large.on-hover_active
                       span Код главного администратора<br> источников финансирования<br> дефицита бюджета
                     .code__box.on-hover_active
                       a(href="#", data-hover-index="1", data-hover-parent="3").code__elem.on-hover.on-hover_active 000
                   .code__c
-                    .code__tit.code__tit_large
+                    //.code__tit.code__tit_large
                       span Код группы<br> источников<br> финансирования<br> дефицитов бюджетов
                     .code__box
                       a(href="#", data-hover-index="2", data-hover-parent="3").code__elem.on-hover 00
                   .code__c
-                    .code__tit.code__tit_large
+                    //.code__tit.code__tit_large
                       span Код подгруппы<br> источников<br> финансирования<br> дефицитов бюджетов
                     .code__box
                       a(href="#", data-hover-index="3", data-hover-parent="3").code__elem.on-hover 00
                   .code__c
-                    .code__tit.code__tit_large
+                    //.code__tit.code__tit_large
                       span Код статьи<br> источников финансирования<br> дефицитов бюджетов
                     .code__box
                       a(href="#", data-hover-index="4", data-hover-parent="3").code__elem.code__elem_bg.on-hover 00
                       a(href="#", data-hover-index="5", data-hover-parent="3").code__elem.code__elem_dg.on-hover 00
                       a(href="#", data-hover-index="6", data-hover-parent="3").code__elem.code__elem_g.on-hover 00
                     span.clearfix
-                    p.code__caption.code__caption_2.ml-25.xs-ml-5.on-hover-sibling-4 Статья<br> источников
-                    p.code__caption.code__caption_2.on-hover-sibling-5 ПодСтатья<br> источников
-                    p.code__caption.code__caption_2.on-hover-sibling-6 Элемент
+                    //p.code__caption.code__caption_2.ml-25.xs-ml-5.on-hover-sibling-4 Статья<br> источников
+                    //p.code__caption.code__caption_2.on-hover-sibling-5 ПодСтатья<br> источников
+                    //p.code__caption.code__caption_2.on-hover-sibling-6 Элемент
                   .code__r.md-ml-0
-                    .code__tit.code__tit_large
+                    //.code__tit.code__tit_large
                       span Код вида<br> источников финансирования<br> дефицитов бюджетов
                     .code__box
                       a(href="#", data-hover-index="7", data-hover-parent="3").code__elem.code__elem_dg.on-hover 0000
                       a(href="#", data-hover-index="8", data-hover-parent="3").code__elem.code__elem_g.on-hover 000
                     span.clearfix
-                    p.code__caption.code__caption_4.on-hover-sibling-7.ml-20 Подвид<br> источников
-                    p.code__caption.code__caption_3.on-hover-sibling-8 аналитическая<br> Группа<br> источников<br> финансирования
+                    //p.code__caption.code__caption_4.on-hover-sibling-7.ml-20 Подвид<br> источников
+                    //p.code__caption.code__caption_3.on-hover-sibling-8 аналитическая<br> Группа<br> источников<br> финансирования
                 // /CODE
                 // CODE-DESCRIPTION/
                 .code-desc.on-hover-content.on-hover-content-1.display-b
@@ -526,74 +495,83 @@ mixin classify-new()
                     p Для налоговых доходов код элемента доходов соответствует бюджету бюджетной системы Российской Федерации в зависимости от полномочий по установлению ставок налога федеральными органами власти, органами власти субъектов Российской Федерации, органами власти муниципальных образований в соответствии с законодательством Российской Федерации о налогах и сборах. Для неналоговых доходов код элемента доходов определяется в зависимости от полномочий по установлению размеров платежей федеральными органами власти, органами власти субъектов Российской Федерации, органами власти муниципальных образований, органами управления государственных внебюджетных фондов.
                     p Для безвозмездных поступлений код элемента доходов определяется исходя из принадлежности трансферта его получателю.
                 .code-desc.on-hover-content.on-hover-content-4
-                  p.code-desc__title Статья источников
+                  p.code-desc__title Код статьи источников финансирования дефицитов бюджетов
+                    span.code-desc__subtitle Статья источников
                   .code-desc__content
                     p Третий знак кода классификации доходов.
                     p Для налоговых доходов код элемента доходов соответствует бюджету бюджетной системы Российской Федерации в зависимости от полномочий по установлению ставок налога федеральными органами власти, органами власти субъектов Российской Федерации, органами власти муниципальных образований в соответствии с законодательством Российской Федерации о налогах и сборах. Для неналоговых доходов код элемента доходов определяется в зависимости от полномочий по установлению размеров платежей федеральными органами власти, органами власти субъектов Российской Федерации, органами власти муниципальных образований, органами управления государственных внебюджетных фондов.
                     p Для безвозмездных поступлений код элемента доходов определяется исходя из принадлежности трансферта его получателю.
                 .code-desc.on-hover-content.on-hover-content-5
-                  p.code-desc__title ПодСтатья источников
+                  p.code-desc__title Код статьи источников финансирования дефицитов бюджетов
+                    span.code-desc__subtitle Подстатья источников
                   .code-desc__content
                     p Третий знак кода классификации доходов.
                     p Для налоговых доходов код элемента доходов соответствует бюджету бюджетной системы Российской Федерации в зависимости от полномочий по установлению ставок налога федеральными органами власти, органами власти субъектов Российской Федерации, органами власти муниципальных образований в соответствии с законодательством Российской Федерации о налогах и сборах. Для неналоговых доходов код элемента доходов определяется в зависимости от полномочий по установлению размеров платежей федеральными органами власти, органами власти субъектов Российской Федерации, органами власти муниципальных образований, органами управления государственных внебюджетных фондов.
                     p Для безвозмездных поступлений код элемента доходов определяется исходя из принадлежности трансферта его получателю.
                 .code-desc.on-hover-content.on-hover-content-6
-                  p.code-desc__title Элемент
+                  p.code-desc__title Код статьи источников финансирования дефицитов бюджетов
+                    span.code-desc__subtitle Элемент
                   .code-desc__content
                     p Третий знак кода классификации доходов.
                     p Для налоговых доходов код элемента доходов соответствует бюджету бюджетной системы Российской Федерации в зависимости от полномочий по установлению ставок налога федеральными органами власти, органами власти субъектов Российской Федерации, органами власти муниципальных образований в соответствии с законодательством Российской Федерации о налогах и сборах. Для неналоговых доходов код элемента доходов определяется в зависимости от полномочий по установлению размеров платежей федеральными органами власти, органами власти субъектов Российской Федерации, органами власти муниципальных образований, органами управления государственных внебюджетных фондов.
                     p Для безвозмездных поступлений код элемента доходов определяется исходя из принадлежности трансферта его получателю.
                 .code-desc.on-hover-content.on-hover-content-7
-                  p.code-desc__title Подвид источников
+                  p.code-desc__title Код вида источников финансирования дефицитов бюджетов
+                    span.code-desc__subtitle Подвид источников
                   .code-desc__content
                     p Третий знак кода классификации доходов.
                     p Для налоговых доходов код элемента доходов соответствует бюджету бюджетной системы Российской Федерации в зависимости от полномочий по установлению ставок налога федеральными органами власти, органами власти субъектов Российской Федерации, органами власти муниципальных образований в соответствии с законодательством Российской Федерации о налогах и сборах. Для неналоговых доходов код элемента доходов определяется в зависимости от полномочий по установлению размеров платежей федеральными органами власти, органами власти субъектов Российской Федерации, органами власти муниципальных образований, органами управления государственных внебюджетных фондов.
                     p Для безвозмездных поступлений код элемента доходов определяется исходя из принадлежности трансферта его получателю.
                 .code-desc.on-hover-content.on-hover-content-8
-                  p.code-desc__title аналитическая Группа источников финансирования
+                  p.code-desc__title Код вида источников финансирования дефицитов бюджетов
+                    span.code-desc__subtitle Аналитическая группа источников финансирования
                   .code-desc__content
                     p Третий знак кода классификации доходов.
                     p Для налоговых доходов код элемента доходов соответствует бюджету бюджетной системы Российской Федерации в зависимости от полномочий по установлению ставок налога федеральными органами власти, органами власти субъектов Российской Федерации, органами власти муниципальных образований в соответствии с законодательством Российской Федерации о налогах и сборах. Для неналоговых доходов код элемента доходов определяется в зависимости от полномочий по установлению размеров платежей федеральными органами власти, органами власти субъектов Российской Федерации, органами власти муниципальных образований, органами управления государственных внебюджетных фондов.
                     p Для безвозмездных поступлений код элемента доходов определяется исходя из принадлежности трансферта его получателю.
                 // /CODE-DESCRIPTION
+                a(href="#").code-desc__returnbutton Обратно
+                    span
+                      +icon('angle-arrow')
               .code-block(data-filter="example")
                 // CODE/
                 .code.code_b.xs-mb-25
+                  p.code-transcript Транспортный налог с физических лиц
                   .code__l
-                    .code__tit.code__tit_large.on-hover_active
+                    //.code__tit.code__tit_large.on-hover_active
                       span Код главного администратора<br> источников финансирования<br> дефицита бюджета
                     .code__box.on-hover_active
                       a(href="#", data-hover-index="1", data-hover-parent="3").code__elem.on-hover.on-hover_active 224
                   .code__c
-                    .code__tit.code__tit_large
+                    //.code__tit.code__tit_large
                       span Код группы<br> источников<br> финансирования<br> дефицитов бюджетов
                     .code__box
                       a(href="#", data-hover-index="2", data-hover-parent="3").code__elem.on-hover 54
                   .code__c
-                    .code__tit.code__tit_large
+                    //.code__tit.code__tit_large
                       span Код подгруппы<br> источников<br> финансирования<br> дефицитов бюджетов
                     .code__box
                       a(href="#", data-hover-index="3", data-hover-parent="3").code__elem.on-hover 77
                   .code__c
-                    .code__tit.code__tit_large
+                    //.code__tit.code__tit_large
                       span Код статьи<br> источников финансирования<br> дефицитов бюджетов
                     .code__box
                       a(href="#", data-hover-index="4", data-hover-parent="3").code__elem.code__elem_bg.on-hover 12
                       a(href="#", data-hover-index="5", data-hover-parent="3").code__elem.code__elem_dg.on-hover 78
                       a(href="#", data-hover-index="6", data-hover-parent="3").code__elem.code__elem_g.on-hover 22
                     span.clearfix
-                    p.code__caption.code__caption_2.ml-25.xs-ml-5.on-hover-sibling-4 Статья<br> источников
-                    p.code__caption.code__caption_2.on-hover-sibling-5 ПодСтатья<br> источников
-                    p.code__caption.code__caption_2.on-hover-sibling-6 Элемент
+                    //p.code__caption.code__caption_2.ml-25.xs-ml-5.on-hover-sibling-4 Статья<br> источников
+                    //p.code__caption.code__caption_2.on-hover-sibling-5 ПодСтатья<br> источников
+                    //p.code__caption.code__caption_2.on-hover-sibling-6 Элемент
                   .code__r.md-ml-0
-                    .code__tit.code__tit_large
+                    //.code__tit.code__tit_large
                       span Код вида<br> источников финансирования<br> дефицитов бюджетов
                     .code__box
                       a(href="#", data-hover-index="7", data-hover-parent="3").code__elem.code__elem_dg.on-hover 0321
                       a(href="#", data-hover-index="8", data-hover-parent="3").code__elem.code__elem_g.on-hover 908
                     span.clearfix
-                    p.code__caption.code__caption_4.on-hover-sibling-7.ml-20 Подвид<br> источников
-                    p.code__caption.code__caption_3.on-hover-sibling-8 аналитическая<br> Группа<br> источников<br> финансирования
+                    //p.code__caption.code__caption_4.on-hover-sibling-7.ml-20 Подвид<br> источников
+                    //p.code__caption.code__caption_3.on-hover-sibling-8 аналитическая<br> Группа<br> источников<br> финансирования
                 // /CODE
                 // CODE-DESCRIPTION/
                 .code-desc.on-hover-content.on-hover-content-1.display-b
@@ -609,23 +587,28 @@ mixin classify-new()
                   .code-desc__content
                     p 77 - Федеральная налоговая служба
                 .code-desc.on-hover-content.on-hover-content-4
-                  p.code-desc__title Статья источников
+                  p.code-desc__title Код статьи источников финансирования дефицитов бюджетов
+                    span.code-desc__subtitle Статья источников
                   .code-desc__content
                     p 12 - Федеральная налоговая служба
                 .code-desc.on-hover-content.on-hover-content-5
-                  p.code-desc__title ПодСтатья источников
+                  p.code-desc__title Код статьи источников финансирования дефицитов бюджетов
+                    span.code-desc__subtitle Подстатья источников
                   .code-desc__content
                     p 78 - Федеральная налоговая служба
                 .code-desc.on-hover-content.on-hover-content-6
-                  p.code-desc__title Элемент
+                  p.code-desc__title Код статьи источников финансирования дефицитов бюджетов
+                    span.code-desc__subtitle Элемент
                   .code-desc__content
                     p 22 - Федеральная налоговая служба
                 .code-desc.on-hover-content.on-hover-content-7
-                  p.code-desc__title Подвид источников
+                  p.code-desc__title Код вида источников финансирования дефицитов бюджетов
+                    span.code-desc__subtitle Подвид источников
                   .code-desc__content
                     p 0321 - Федеральная налоговая служба
                 .code-desc.on-hover-content.on-hover-content-8
-                  p.code-desc__title аналитическая Группа источников финансирования
+                  p.code-desc__title Код вида источников финансирования дефицитов бюджетов
+                    span.code-desc__subtitle Аналитическая группа источников финансирования
                   .code-desc__content
                     p 908 - Федеральная налоговая служба
                 // /CODE-DESCRIPTION
