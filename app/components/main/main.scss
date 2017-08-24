@@ -1529,6 +1529,22 @@
 
 
 // @qluqua переписываю каскадом стили слайдера "СЕРВИСЫ" на главной страницы
+body.home {
+  .wrapper.wrapper_main {
+    // Общий отступ заголовков слайдов
+    .sections__ahead.sections__ahead_ab {
+      @media (max-width: 700px) {
+        top: 78px !important;
+      }
+
+      // Но есть нюансы у заголовковдиаграмм
+      &#diagrams-ahead-1 {
+        position: static;
+        margin-top: 78px !important;
+      }
+    }
+  }
+}
 #services-slider {
   // обертка карточки
   .tile__item {
@@ -1554,15 +1570,15 @@
         height: auto;
         min-height: 400px;
 
-        @media (max-width: 700px) {
+        @media (max-width: 700px) and (max-height: 700px) {
           transform: scale(.7);
           margin-top: 50px;
         }
 
-        @media (max-height: 700px) {
-          transform: scale(.7);
-          margin-top: 50px;
-        }
+        // @media (max-height: 700px) {
+        //   transform: scale(.7);
+        //   margin-top: 50px;
+        // }
       }
     }
   }
