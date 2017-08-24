@@ -50,7 +50,7 @@ mixin services_social_significant(data)
 					+table(data)
 
 				+tabs-tab(data-tab-group="significantTabs", data-tab="significantTwo").active.significant-list_map.significant-list__
-					+e.map(id='significant-map')
+					+e.map(id='significant-bigmap')
 					+table(data)
 
 				+tabs-tab(data-tab-group="significantTabs", data-tab="significantThree").significant-about__
@@ -84,7 +84,8 @@ mixin services_social_significant(data)
 								+e.IMG(src='assets/images/img.jpg')
 							+e.address
 								+e.map
-									+e.IMG(src='assets/images/img.jpg')
+									+e.map-map(id='significant-smallmap')
+									+icon('close').map-close
 								+e.addr
 									P
 										| Место реализации:
