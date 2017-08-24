@@ -22,10 +22,22 @@ body.home .footer-frame-wrp { display: none; }
 
   // футер на главной странице
   .sections_fs & {
-    padding-top: 60px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    padding-top: 70px;
+
+    // футер на главной, БЕЗ футера дита, в отдельном слайде
+    &.alone {
+      padding-bottom: 50px !important;
+      z-index: 1; // Safari fix
+
+      .footer__main {
+        height: 100%;
+        margin-top: 0;
+        padding-bottom: 0;
+      }
+    }
 
     &__main {
       height: auto;
@@ -37,8 +49,40 @@ body.home .footer-frame-wrp { display: none; }
     &__common {
       height: auto;
 
-      @media (max-width: 700px) {
+      // футер ДИТа на главной, в отдельном слайде
+      &.alone {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        height: 100%;
+        padding-top: 70px;
         padding-bottom: 50px;
+        background-color: #2a3a49;
+
+        .footer-frame-wrp {
+          max-height: 100%;
+        }
+
+        // iframe#footer_frame {
+        //   max-height: 100% !important; // Safari fix
+        // }
+      }
+    }
+
+    @media (max-height: 768px) {
+      &__main {
+        margin-top: 0;
+        padding-bottom: 10px;
+      }
+
+      &__column {
+        margin-top: 10px;
+      }
+
+      &__menu-link {
+        @media (max-height: 768px) {
+          padding: 3px 0;
+        }
       }
     }
 

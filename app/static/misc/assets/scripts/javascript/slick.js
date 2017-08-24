@@ -5,7 +5,7 @@
 \__ \ | | (__|   < _ | \__ \
 |___/_|_|\___|_|\_(_)/ |___/
                    |__/
- 
+
  Version: 1.6.0
   Author: Ken Wheeler
  Website: http://kenwheeler.github.io
@@ -54,7 +54,7 @@
                 customPaging: function(slider, i) {
                     return $('<button type="button" data-role="none" role="button" tabindex="0" />').text(i + 1);
                 },
-               
+
                 dots: false,
                 dotsClass: 'slick-dots',
                 draggable: true,
@@ -378,7 +378,7 @@
         } else {
             _.$slides.eq(slide).css(transition);
         }
-       
+
     };
 
     Slick.prototype.autoPlay = function() {
@@ -1410,7 +1410,7 @@
 
         $(window).on('load.slick.slick-' + _.instanceUid, _.setPosition);
         $(document).on('ready.slick.slick-' + _.instanceUid, _.setPosition);
-        
+
     };
 
     Slick.prototype.initUI = function() {
@@ -1929,7 +1929,7 @@
                 _.$slideTrack.css(positionProps);
             }
         }
-        
+
     };
 
     Slick.prototype.setDimensions = function() {
@@ -2894,7 +2894,7 @@
 
     };
 
-    
+
 
 
     $.fn.slick = function() {
@@ -2915,7 +2915,7 @@
     };
 
 
-   
+
 
 }));
 

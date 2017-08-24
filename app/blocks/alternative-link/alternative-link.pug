@@ -1,5 +1,5 @@
 //- вторая ссылка добавляется
-//- вторая ссылка --- +e.title
+//- вторая ссылка --- +e.A.title
 
 //- Использование иконки
 //- +alternative-link()
@@ -7,8 +7,8 @@
 include ../icon/icons
 
 mixin alternative-link(title, subtitle)
-  +b.A.alternative-link&attributes(attributes)
-    +e.title= title
+  +b.alternative-link&attributes(attributes)
+    +e.A(href="#").title= title
     if subtitle
       +e.subtitle= subtitle
     block

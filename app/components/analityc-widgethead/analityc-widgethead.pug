@@ -8,7 +8,7 @@ include ../../blocks/link/link
 mixin analityc-widgethead-aip(type)
   +b.analityc-widgethead._aip&attributes(attributes)
     +e.row
-      .analityc-control-switcher.analityc-control-switcher_default.active
+      .analityc-control-switcher.analityc-control-switcher_main.analityc-control-switcher_default.active
         a(href="#" data-tab-target="AIPfinData").active Финансовые показатели
         a(href="#" data-tab-target="AIPresults") ожидаемые конечные результаты
       .analityc-control-group.analityc-control-group_period
@@ -28,9 +28,9 @@ mixin analityc-widgethead-aip(type)
         span Государственная программа
         select.analityc-select
           option(selected) Развитие транспортной системы
-          option Разделы и подразделы
-          option Ведомства
-          option Виды
+          option Столичное здравоохранение
+          option Социальная поддержка жителей Москвы
+          option Столичное образование
     +e.row._extra
       .analityc-control-buttons.active
         a(href="#").analityc-control-button.analityc-control-button_graphics.active
@@ -1026,3 +1026,19 @@ mixin analityc-widgethead-moscow-gp()
       a(href="#", data-type='structure') Структура
     .analityc-control-group._dp
       input(placeholder="Выберите дату исполнения", value="Выберите дату исполнения", readonly="readonly").datepicker
+      
+mixin analityc-widgethead-forecast()
+  +b.analityc-widgethead&attributes(attributes)
+    .analityc-control-group._year
+      span Год
+      select.analityc-select
+        option(selected) 2017
+        option 2016
+        option 2015
+    .analityc-control-group._stage
+      span Этап
+      select.analityc-select
+        option(selected) Проект закона о бюджете
+        option Закон о внесении изменений
+        option Закон об исполнении
+        option Исполнение на дату

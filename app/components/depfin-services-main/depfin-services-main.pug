@@ -7,8 +7,8 @@ include ../../blocks/search-form/search-form
 include ../../blocks/range/range
 include ../../blocks/arrow-button/arrow-button
 
-mixin widget-card-edu()
-	.tile__item.ui-state-default
+mixin widget-card-edu
+	.tile__item.ui-state-default&attributes(attributes)
 		.tile__inner
 			+widget-card().widget-card-edu
 				+widget-card-head('Обучающий сервис', 'Пройдите обучающий курс бюджетной тематики')
@@ -26,8 +26,8 @@ mixin widget-card-edu()
 				+e.bottom-link-wrap
 					+widget-card-bottom-link('edu-hat', 'Пройти курс')._gradiented
 
-mixin widget-card-edu-pers()
-	.tile__item.ui-state-default
+mixin widget-card-edu-pers
+	.tile__item.ui-state-default&attributes(attributes)
 		.tile__inner
 			+widget-card().widget-card-edu-pers
 				+widget-card-head('Обучающий сервис')
@@ -46,8 +46,8 @@ mixin widget-card-edu-pers()
 				+widget-card-bottom-link()
 
 
-mixin widget-card-regions()
-	.tile__item.ui-state-default
+mixin widget-card-regions
+	.tile__item.ui-state-default&attributes(attributes)
 		.tile__inner
 			+widget-card().widget-card-regions
 				+widget-card-head('Москва и субъекты РФ')
@@ -60,28 +60,28 @@ mixin widget-card-regions()
 						+selectbox('select', getData('widget-card-selectbox'))
 					+e.results._opt1
 						+e.results-total._active 300 тыс. руб. на 1 жителя
-						+e.results-rating 
+						+e.results-rating
 							+e.results-pos 8 место
 							+e.results-in из 85 субъектов РФ
 					+e.results._opt2
 						+e.results-total._active 300 тыс. руб. на 1 жителя
-						+e.results-rating 
+						+e.results-rating
 							+e.results-pos 8 место
 							+e.results-in из 85 субъектов РФ
 					+e.results._opt3
 						+e.results-total._active 300 тыс. руб. на 1 жителя
-						+e.results-rating 
+						+e.results-rating
 							+e.results-pos 8 место
 							+e.results-in из 85 субъектов РФ
 					+e.results._opt4
 						+e.results-total._active 300 тыс. руб. на 1 жителя
-						+e.results-rating 
+						+e.results-rating
 							+e.results-pos 8 место
 							+e.results-in из 85 субъектов РФ
 				+widget-card-bottom-link()
 
-mixin widget-card-calc()
-	.tile__item.ui-state-default
+mixin widget-card-calc
+	.tile__item.ui-state-default&attributes(attributes)
 		.tile__inner
 			+widget-card().widget-card-calc
 				+widget-card-head('Бюджетный калькулятор')
@@ -119,8 +119,8 @@ mixin widget-card-calc()
 				+e.bottom-link-wrap
 					+widget-card-bottom-link('calc', 'Предложите свой вариант бюджета!')._gradiented
 
-mixin widget-card-calc-pers()
-	.tile__item.ui-state-default
+mixin widget-card-calc-pers
+	.tile__item.ui-state-default&attributes(attributes)
 		.tile__inner
 			+widget-card().widget-card-calc
 				+widget-card-head('Бюджетный калькулятор', 'Предложенные Вами варианты бюджета')
@@ -202,8 +202,8 @@ mixin widget-card-calc-pers()
 				+widget-card-bottom-link()
 
 
-mixin widget-card-gov-programs()
-	.tile__item.ui-state-default
+mixin widget-card-gov-programs
+	.tile__item.ui-state-default&attributes(attributes)
 		.tile__inner.service
 			+widget-card().widget-card-gov-programs
 				+widget-card-head('Государственные программы', false, true)
@@ -233,8 +233,8 @@ mixin widget-card-gov-programs()
 						button(data-cont="serv-d-2").service-dots__btn.active
 				+widget-card-bottom-link()
 
-mixin widget-card-invest-program()
-	.tile__item.ui-state-default
+mixin widget-card-invest-program
+	.tile__item.ui-state-default&attributes(attributes)
 		.tile__inner
 			+widget-card().widget-card-invest-program
 				+widget-card-head('Адресная инвестиционная программа', 'на 2016 год, млрд. руб.')
@@ -275,8 +275,8 @@ mixin widget-card-invest-program()
 				+widget-card-bottom-link()
 
 //- вариант виджета с 3 пиктограммами
-mixin widget-card-gov-debt()
-	.tile__item.ui-state-default
+mixin widget-card-gov-debt
+	.tile__item.ui-state-default&attributes(attributes)
 		.tile__inner
 			+widget-card().widget-card-gov-debt
 				+widget-card-head('Государственный долг', false, false, true)
@@ -310,8 +310,8 @@ mixin widget-card-gov-debt()
 				+widget-card-bottom-link()
 
 //- вариант виджета с 4 пиктограммами
-mixin widget-card-gov-debt-alt()
-	.tile__item.ui-state-default
+mixin widget-card-gov-debt-alt
+	.tile__item.ui-state-default&attributes(attributes)
 		.tile__inner
 			+widget-card().widget-card-gov-debt-alt.widget-card-gov-debt
 				+widget-card-head('Государственный долг', false, false, true)
@@ -352,8 +352,8 @@ mixin widget-card-gov-debt-alt()
 				+widget-card-bottom-link()
 
 
-mixin widget-card-cities()
-	.tile__item.ui-state-default
+mixin widget-card-cities
+	.tile__item.ui-state-default&attributes(attributes)
 		.tile__inner
 			+widget-card().widget-card-cities
 				+widget-card-head('Москва и города мира')
@@ -386,8 +386,8 @@ mixin widget-card-cities()
 							+e.results-in из 8 крупнейших городов мира
 				+widget-card-bottom-link()
 
-mixin widget-card-gov-programs-result()
-	.tile__item.ui-state-default
+mixin widget-card-gov-programs-result
+	.tile__item.ui-state-default&attributes(attributes)
 		.tile__inner
 			+widget-card().widget-card-gov-programs-result
 				+widget-card-head('Результаты реализации государственных программ')
@@ -416,8 +416,8 @@ mixin widget-card-gov-programs-result()
 						+e.info-block-item Будет построено 21 новых стадионов
 				+widget-card-bottom-link()
 
-mixin widget-card-social-support()
-	.tile__item.ui-state-default
+mixin widget-card-social-support
+	.tile__item.ui-state-default&attributes(attributes)
 		.tile__inner
 			+widget-card().widget-card-social-support
 				+widget-card-head('Социальная поддержка населения')
@@ -445,8 +445,8 @@ mixin widget-card-social-support()
 						+e.info-block-item третий блок
 				+widget-card-bottom-link()
 
-mixin widget-card-polls()
-	.tile__item.ui-state-default
+mixin widget-card-polls
+	.tile__item.ui-state-default&attributes(attributes)
 		.tile__inner
 			+widget-card().widget-card-polls
 				+widget-card-head('Опрос общественного мнения', 'Примите участие в опросах')
@@ -469,8 +469,8 @@ mixin widget-card-polls()
 							+widget-card-bottom-link(false, 'Пройти опрос')._gradiented
 				+widget-card-bottom-link()
 
-mixin widget-card-polls-pers()
-	.tile__item.ui-state-default
+mixin widget-card-polls-pers
+	.tile__item.ui-state-default&attributes(attributes)
 		.tile__inner
 			+widget-card().widget-card-polls-pers
 				+widget-card-head('Опрос общественного мнения')
@@ -508,8 +508,8 @@ mixin widget-card-polls-pers()
 				+widget-card-bottom-link()
 
 
-mixin widget-card-quiz()
-	.tile__item.ui-state-default
+mixin widget-card-quiz
+	.tile__item.ui-state-default&attributes(attributes)
 		.tile__inner
 			+widget-card().widget-card-quiz
 				+widget-card-head('Викторины', 'Проверь свои знания в викторине')
@@ -532,8 +532,8 @@ mixin widget-card-quiz()
 							+widget-card-bottom-link(false, 'Пройти викторину')._gradiented
 				+widget-card-bottom-link()
 
-mixin widget-card-quiz-pers()
-	.tile__item.ui-state-default
+mixin widget-card-quiz-pers
+	.tile__item.ui-state-default&attributes(attributes)
 		.tile__inner
 			+widget-card().widget-card-quiz-pers
 				+widget-card-head('Викторины')
@@ -572,7 +572,7 @@ mixin widget-card-quiz-pers()
 
 
 mixin widget-card-municipalities
-	.tile__item.ui-state-default
+	.tile__item.ui-state-default&attributes(attributes)
 		.tile__inner
 			+widget-card().widget-card-municipalities
 				+widget-card-head('Внутригородские муниципальные образования')
@@ -591,7 +591,7 @@ mixin widget-card-municipalities
 				+widget-card-bottom-link()
 
 mixin widget-card-budget-web
-	.tile__item.ui-state-default
+	.tile__item.ui-state-default&attributes(attributes)
 		.tile__inner
 			+widget-card().widget-card-budget-web
 				+widget-card-head('Бюджетная сеть', 'Сводная информация о сети государственных учреждений г. Москвы')
@@ -624,7 +624,7 @@ mixin widget-card-budget-web
 				+widget-card-bottom-link()
 
 mixin widget-card-projects
-	.tile__item.ui-state-default
+	.tile__item.ui-state-default&attributes(attributes)
 		.tile__inner
 			+widget-card().widget-card-projects
 				+widget-card-head('Общественно значимые проекты')
@@ -648,8 +648,8 @@ mixin widget-card-projects
 				+widget-card-bottom-link()
 
 mixin depfin-services-main()
-	+b.SECTION.depfin-services-main&attributes(attributes)
-		.wrapper
+	+b.SECTION.depfin-services-main
+		.wrapper&attributes(attributes)
 			+page-header('Сервисы')
 			+e.P.description
 				+e.B Сервисы
@@ -675,4 +675,4 @@ mixin depfin-services-main()
 					+widget-card-regions()
 					+widget-card-budget-web()
 					+widget-card-projects()
-				
+

@@ -1,4 +1,5 @@
 .contest-popup {
+  background: #fff;
   &__head {
     background-color: $color-yellow;
     padding: 20px 40px;
@@ -19,6 +20,9 @@
     height: 20px;
     cursor: pointer;
   }
+  &__participants {
+    padding-bottom: 29px;
+  }
   &__participant {
     position: relative;
     padding: 30px 205px 0;
@@ -27,22 +31,46 @@
         display: none;
       }
     }
+    & + & {
+      margin-top: 31px;
+      border-top: 1px solid #ebebeb;
+    }
+  }
+  &__participant-field {
+    & + & {
+      margin-top: 21px;
+    }
   }
   &__participant-number {
     font-size: 18px;
     font-weight: 500;
     text-transform: uppercase;
+    margin-bottom: 21px;
   }
   &__js-participant-number {
     margin-left: -4px;
   }
   &__hide {
     position: absolute;
-    right: 20px;
+    right: 43px;
     top: 20px;
-    width: 20px;
-    height: 20px;
     cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #3d3d3d;
+    transition: all .25s ease-in-out;
+    &:hover {
+      opacity: .7;
+    }
+  }
+  &__hide-icon {
+    width: 11px;
+    height: 11px;
+    vertical-align: middle;
+    margin-right: 8px;
+    position: relative;
+    top: -2px;
   }
   &__label {
     display: inline-block;
@@ -60,11 +88,461 @@
     border: 1px solid #d7d7d7;
     border-radius: 2px;
     width: calc(100% - 300px);
-    line-height: 40px;
-    padding: 0 15px !important;
+    line-height: 33px;
+    height: 35px;
+    padding: 0 12px !important;
     color: #aeaeae;
     font-size: 16px;
     font-family: $PFDinTextPro;
     font-weight: 400;
+  }
+  .button {
+    width: auto;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-family: $PFDinCondensedPro;
+  }
+  .js-button-addparticipant {
+    margin-left: 370px;
+    margin-top: 20px;
+    padding: 10px 42px;
+    font-size: 16px;
+  }
+  &__options {
+    background-color: #f6f6f5;
+    padding: 36px 205px 28px;
+  }
+  &__option {
+    & + & {
+      margin-top: 45px;
+    }
+  }
+  &__option-title {
+    font-size: 18px;
+    font-weight: 500;
+    font-family: $PFDinTextPro;
+    text-transform: uppercase;
+    margin-bottom: 21px;
+  }
+  &__option-field {
+    position: relative;
+    margin-top: 16px;
+    input[type="checkbox"]:not(old) {
+      width: 0;
+      margin: 0;
+      padding: 0;
+      opacity: 0;
+      height: 0;
+      display: inline-block;
+      vertical-align: middle;
+      position:absolute;
+      top:0;
+      left:0;
+      margin:auto;
+      &:checked + .contest-popup__chbox {
+        background-image: url(../images/depfin-study/icon-ok-ch.svg);
+        background-position: 2px 2px;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+  &__chbox {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 14px;
+    width: 14px;
+    border: 1px solid #d7d7d7;
+    border-radius: 1px;
+    background-color: #fff;
+  }
+  &__option-label {
+    padding-left: 20px;
+    font-size: 16px;
+    font-family: $PFDinTextPro;
+    display: inline-block;
+    margin: 0;
+    position: relative;
+    & + input[type="text"] {
+      display: inline-block;
+      border: 1px solid #d7d7d7;
+      border-radius: 2px;
+      width: 190px;
+      line-height: 26px;
+      height: 28px;
+      padding: 0 12px !important;
+      color: #aeaeae;
+      font-size: 16px;
+      font-family: $PFDinTextPro;
+      font-weight: 400;
+      background-color: #fff;
+      margin: -5px 0;
+      margin-left: 5px;
+    }
+  }
+  &__extra {
+    margin-top: 28px;
+  }
+  .contest-popup__extra .button, .contest-popup__submit {
+    font-size: 18px;
+    min-width: 200px;
+    padding: 10px;
+  }
+  &__delete-icon {
+    width: 11px;
+    height: 11px;
+    vertical-align: middle;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  &__document {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-family: $PFDinTextPro;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  &__attachments {
+    margin-top: 15px;
+  }
+  &__attachment {
+    & + & {
+      margin-top: 12px;
+    }
+  }
+  &__submit {
+    margin-top: 20px;
+  }
+  &__footer {
+    padding: 18px 205px 25px;
+  }
+  &__footer-text {
+    font-size: 16px;
+    line-height: 22px;
+    font-family: $PFDinTextPro;
+    a {
+      &:hover {
+        opacity: .7;
+      }
+    }
+  }
+  
+  @media screen and (min-width: 901px) and (max-width: 1180px) {
+    &__fio {
+      width: calc(100% - 395px);
+    }
+  }
+  
+  @media screen and (min-width: 761px) and (max-width: 1180px) {
+    &__head {
+      padding: 20px 25px;
+    }
+    &__close {
+      right: 26px;
+    }
+    &__participant {
+      padding: 30px 82px 0;
+    }
+    &__hide {
+      right: 27px;
+    }
+    .js-button-addparticipant {
+      margin-left: 247px;
+    }
+    &__options {
+      padding: 36px 82px 28px;
+    }
+    &__footer {
+      padding: 18px 82px 25px;
+    }
+  }
+  
+  @media screen and (min-width: 761px) and (max-width: 900px) {
+    &__fio {
+      width: calc(100% - 200px);
+    }
+  }
+  
+  @media screen and (max-width: 760px) {
+    &__label {
+      width: 100%;
+    }
+    &__fio {
+      width: 100%;
+    }
+    &__footer-text {
+      br {
+        display: none;
+      }
+    }
+  }
+  
+  @media screen and (min-width: 581px) and (max-width: 760px) {
+    &__head {
+      padding: 19px 36px;
+    }
+    &__title {
+      font-size: 36px;
+    }
+    &__close {
+      width: 40px;
+      height: 40px;
+      right: 23px;
+    }
+    &__participant {
+      padding: 32px 32px 0;
+      & + & {
+        margin-top: 60px;
+        border-top-width: 2px;
+      }
+    }
+    &__participant-number {
+      font-size: 36px;
+      margin-bottom: 53px;
+    }
+    &__label {
+      font-size: 32px;
+    }
+    &__fio {
+      border-width: 2px;
+      margin-top: 3px;
+      line-height: 66px;
+      height: 70px;
+      font-size: 32px;
+      padding: 0 20px !important;
+    }
+    &__participant-field {
+      & + & {
+        margin-top: 25px;
+      }
+    }
+    &__hide {
+      font-size: 28px;
+      top: 39px;
+      right: 32px;
+    }
+    &__hide-icon {
+      width: 20px;
+      height: 20px;
+      margin-right: 18px;
+      top: -4px;
+    }
+    .js-button-addparticipant {
+      font-size: 36px;
+      margin-left: 32px;
+      margin-top: 60px;
+      padding: 21px 39px;
+    }
+    &__participants {
+      padding-bottom: 108px;
+    }
+    &__option-title {
+      font-size: 36px;
+      margin-bottom: 32px;
+      line-height: 48px;
+    }
+    &__options {
+      padding: 66px 32px 60px;
+    }
+    &__chbox {
+      width: 28px;
+      height: 28px;
+      border-radius: 4px;
+      border-width: 2px;
+      top: 4px;
+    }
+    &__option-label {
+      font-size: 32px;
+      padding-left: 50px;
+      line-height: 40px;
+    }
+    &__option-field {
+      margin-top: 24px;
+    }
+    &__option-field input[type=checkbox]:not(old):checked+.contest-popup__chbox {
+      background-size: 20px 20px;
+    }
+    &__option {
+      & + & {
+        margin-top: 60px;
+      }
+    }
+    &__option-label+input[type=text] {
+      margin-left: 50px;
+      width: calc(100% - 50px);
+      border-width: 2px;
+      margin-top: 20px;
+      line-height: 66px;
+      height: 70px;
+      font-size: 32px;
+    }
+    &__extra {
+      margin-top: 62px;
+    }
+    .contest-popup__extra .button, .contest-popup__submit {
+      font-size: 36px;
+      min-width: 400px;
+      padding: 22px;
+    }
+    &__document {
+      font-size: 28px;
+    }
+    &__attachments {
+      margin-top: 30px;
+    }
+    &__attachment {
+      & + & {
+        margin-top: 22px;
+      }
+    }
+    &__delete-icon {
+      width: 20px;
+      height: 20px;
+      margin-right: 24px;
+    }
+    &__submit {
+      margin-top: 36px;
+    }
+    &__footer {
+      padding: 42px 32px;
+    }
+    &__footer-text {
+      font-size: 32px;
+      line-height: 44px;
+    }
+  }
+  
+  @media screen and (max-width: 580px) {
+    &__head {
+      padding: 10px 20px;
+    }
+    &__title {
+      font-size: 18px;
+    }
+    &__close {
+      width: 20px;
+      height: 20px;
+      right: 18px;
+    }
+    &__participant {
+      padding: 15px 20px 0;
+      & + & {
+        margin-top: 30px;
+        border-top-width: 1px;
+      }
+    }
+    &__participant-number {
+      font-size: 18px;
+      margin-bottom: 27px;
+    }
+    &__label {
+      font-size: 16px;
+    }
+    &__fio {
+      border-width: 1px;
+      margin-top: 1px;
+      line-height: 33px;
+      height: 35px;
+      padding: 0 10px !important;
+    }
+    &__participant-field {
+      & + & {
+        margin-top: 13px;
+      }
+    }
+    &__hide {
+      font-size: 14px;
+      top: 18px;
+      right: 20px;
+    }
+    &__hide-icon {
+      width: 10px;
+      height: 10px;
+      margin-right: 10px;
+      top: -2px;
+    }
+    .js-button-addparticipant {
+      font-size: 18px;
+      margin-left: 20px;
+      margin-top: 30px;
+      padding: 11px 18px;
+    }
+    &__participants {
+      padding-bottom: 54px;
+    }
+    &__option-title {
+      font-size: 18px;
+      margin-bottom: 16px;
+      line-height: 24px;
+    }
+    &__options {
+      padding: 33px 20px 30px;
+    }
+    &__chbox {
+      width: 14px;
+      height: 14px;
+      border-radius: 2px;
+      border-width: 1px;
+      top: 2px;
+    }
+    &__option-label {
+      font-size: 16px;
+      padding-left: 22px;
+      line-height: 20px;
+    }
+    &__option-field {
+      margin-top: 12px;
+    }
+    &__option-field input[type=checkbox]:not(old):checked+.contest-popup__chbox {
+      background-size: 10px 10px;
+    }
+    &__option {
+      & + & {
+        margin-top: 30px;
+      }
+    }
+    &__option-label+input[type=text] {
+      margin-left: 20px;
+      width: calc(100% - 20px);
+      border-width: 1px;
+      margin-top: 10px;
+      line-height: 33px;
+      height: 35px;
+      font-size: 16px;
+    }
+    &__extra {
+      margin-top: 28px;
+    }
+    .contest-popup__extra .button, .contest-popup__submit {
+      font-size: 18px;
+      min-width: 200px;
+      padding: 11px;
+    }
+    &__document {
+      font-size: 14px;
+    }
+    &__attachments {
+      margin-top: 15px;
+    }
+    &__attachment {
+      & + & {
+        margin-top: 11px;
+      }
+    }
+    &__delete-icon {
+      width: 10px;
+      height: 10px;
+      margin-right: 12px;
+    }
+    &__submit {
+      margin-top: 18px;
+    }
+    &__footer {
+      padding: 21px 20px;
+    }
+    &__footer-text {
+      font-size: 16px;
+      line-height: 22px;
+    }
   }
 }

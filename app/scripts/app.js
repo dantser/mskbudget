@@ -52,6 +52,10 @@ import openFile from '../components/open-file/open-file';
 import rangeUi from '../blocks/range-ui/range-ui';
 import contestPopup from '../components/contest-popup/contestPopup';
 import socialService from '../components/depfin-services-social-support/depfin-services-social-support.js';
+import aip from '../components/budget_aip/budget_aip';
+import classifyNew from '../components/classify-new/classifyNew';
+import servicesVMO from '../components/depfin_services_VMO/depfin_services_VMO';
+import socialSignificant from '../components/services_social_significant/socialSignificant';
 
 $(() => {
 
@@ -117,4 +121,8 @@ $(() => {
   rangeUi();
   contestPopup();
   socialService();
+  aip();
+  classifyNew();
+  servicesVMO();
+  socialSignificant();
 });

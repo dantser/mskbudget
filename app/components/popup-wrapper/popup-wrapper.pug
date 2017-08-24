@@ -1,3 +1,5 @@
+include ../../blocks/icon/icons
+
 mixin popup-wrapper()
   #popup-wrapper
     // POPUP(Login)
@@ -52,7 +54,8 @@ mixin popup-wrapper()
             p.popup-login__caption Нажимая на кнопку «Регистрация», вы подтверждаете свое согласие с условиями предоставления услуг (!{'<a href="#agreements" class="open-popup">пользовательское соглашение</a>'})
           // /TAB
       a(href="#").close-popup
-    
+        +icon('cross').close-popup-icon
+
     // POPUP(Restore)
     .popup-restore.popup-window#restore
       .popup-restore__top Запрос на сброс пароля
@@ -64,7 +67,7 @@ mixin popup-wrapper()
             input(id="i-email-32" type="email" name="email" required).login-form__text
           input(type="submit", value="Отправить").login-form__submit
       a(href="#").close-popup
-  
+
     // POPUP()
     .popup-reset.popup-window#reset
       .popup-restore__top Запрос на сброс пароля
@@ -82,7 +85,7 @@ mixin popup-wrapper()
         .bottom
           a(href="#login").open-popup вернуться к регистрации
       a(href="#login").open-popup.return-popup
-    
+
     .blackout.popup-window#blackout
       .popup
         .close-popup
@@ -94,12 +97,12 @@ mixin popup-wrapper()
 
     .popup-video.popup-window#video
       .close-popup
-      
+
     .popup-delete-accept.popup-window#delaccept
       .close-popup
       p Вы уверены, что хотите удалить<br> эту страницу из Избранного?
       .popup-btns
         A.ybtn(data-delete="yes") Да
         A.ybtn(data-delete="no") Отменить
-    
+
     #mask

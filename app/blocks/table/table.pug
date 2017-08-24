@@ -178,6 +178,83 @@ mixin table-income_slider(data)
         | Неналоговые доходы, в том числе:
 
       +dataType(data, 'nonTax')
+
+mixin table-vmo_slider(data)
+
+
+  mixin dataType(data, type)
+    case data.length
+      when 3
+        - var cells = 'three';
+      when 2
+        - var cells = 'two';
+      when 1
+        - var cells = 'one';
+
+    each item in data
+      if (typeof data[0].total === "object")
+        +e.col._one= item[type].initial
+        +e.col._one= item[type].change
+      else
+        +e(class= 'col_'+cells)= item.total
+
+
+  +b.table&attributes(attributes)
+
+    +e.row._caption
+      +e.col._four Показатели
+
+      if (data[0].year)
+        each item in data
+          +e.col._four= item.year
+      else
+        +e.col._four МЛРД РУБ.
+        +e.col._four %
+
+    if (typeof data[0].total === "object")
+      +e.row._subcaption
+        +e.col._four &nbsp;
+
+        +e.col._one план
+        +e.col._one факт
+
+        +e.col._one план
+        +e.col._one темп
+
+        +e.col._one план
+        +e.col._one факт
+
+        +e.col._one план
+        +e.col._one факт
+
+        +e.col._one факт
+        +e.col._one факт
+
+    +e.row
+      +e.col._four Доходы
+
+      +dataType(data, 'total')
+
+    +e.row
+      +e.col._four ...
+
+      +dataType(data, 'other')
+
+    +e.row
+      +e.col._four Расходы
+
+      +dataType(data, 'total')
+
+    +e.row
+      +e.col._four ...
+
+      +dataType(data, 'other')
+
+    +e.row
+      +e.col._four Дефицит/профицит
+
+      +dataType(data, 'total')
+
 //- таблица в расходах бюджета
 mixin table-expenses(data)
 
@@ -587,3 +664,6 @@ mixin table-govdebt(data)
       +e.col._four Неналоговые доходы
 
       +dataType(data, 'total')
+
+mixin table-forecast()
+  +b.table

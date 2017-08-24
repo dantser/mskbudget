@@ -1,10 +1,10 @@
 .popup-login {
 
-  @media (max-height: 560px) {
-    top: 0;
-    margin: 0;
-    transform: translateX(-50%);
-  }
+  // @media (max-height: 560px) {
+  //   top: 0;
+  //   margin: 0;
+  //   transform: translateX(-50%);
+  // }
 
   @media (max-width: 599px) {
     height: auto;
@@ -80,15 +80,15 @@
       border-bottom: none;
       border-top: 10px solid #fff;
       top: auto;
-      bottom: -9px; 
+      bottom: -9px;
     }
   }
 
   &:before,
   &:after {
-    content: ''; 
+    content: '';
     position: absolute;
-    left: 10px; 
+    left: 10px;
     top: -20px;
     border: 10px solid transparent;
     border-bottom: 10px solid #c7c7c7;
@@ -96,9 +96,9 @@
 
   &:after {
     border-bottom: 10px solid #fff;
-    top: -19px; 
+    top: -19px;
   }
-    
+
   & i {
     display: block;
     position: absolute;
@@ -139,7 +139,7 @@
       background-color: #e7ce00;
     }
   }
-  
+
   @media screen and (max-width: 700px) {
     width: 480px;
   }
@@ -189,5 +189,99 @@
     top: -29px;
     right: -25px;
     cursor: pointer;
+  }
+}
+
+
+// @qluqua правки, переписываю каскадом, мало времени
+#popup-wrapper {
+  .popup-login {
+    // позиционируем попап на больших экранах, на мелких он на полный экран
+    @media (min-width: 600px) {
+      margin-top: 0;
+      transform: translateY(-50%);
+    }
+
+    // Новыя иконка закрыть
+    .close-popup {
+      height: 87px;
+      width: 35px;
+      background: none;
+
+      .close-popup-icon {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 20px;
+        height: 20px;
+        max-width: 100%;
+        max-height: 100%;
+        fill: #fee300;
+      }
+    }
+
+    // Поведение вкладок и крестика закрыть на малых экранах
+    @media (max-width: 700px) {
+      .tab__btn {
+        width: 42%;
+      }
+
+      .close-popup {
+        top: 0;
+        right: 0;
+        width: 16%;
+        background: white !important;
+
+        .close-popup-icon {
+          top: 50%;
+          left: 50%;
+          transform: translateX(-50%) translateY(-50%);
+        }
+      }
+    }
+
+    // стили для экранов с маленькой высотой
+    @media (max-height: 600px) {
+      min-height: auto;
+
+      // шапка
+      .tab__buttons {
+        margin-bottom: 20px;
+      }
+
+      .tab__btn {
+        line-height: 70px;
+      }
+
+      .close-popup {
+        height: 70px;
+      }
+
+      // формы
+      .login-form__field label {
+        top: 10px;
+      }
+
+      .login-form__text {
+        padding-top: 6px !important;
+        padding-bottom: 6px !important;
+      }
+
+      .login-form,
+      .login-form.mb-25 {
+        margin-bottom: 15px !important;
+      }
+
+      .social-lg.popup-login__social-lg {
+        @media (max-width: 580px) {
+          height: 35px;
+        }
+
+        @media (min-width: 581px) {
+          margin-bottom: 20px;
+        }
+      }
+    }
   }
 }
