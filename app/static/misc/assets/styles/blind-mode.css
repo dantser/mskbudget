@@ -28,6 +28,7 @@
 .tab__btn_active { background: black !important; color: white !important; }
 .login-form__submit { border-color: black !important; }
 .popup-restore__top { background: black !important; color: white !important; }
+#popup-wrapper .popup-login .close-popup .close-popup-icon { fill: white !important; }
 
 /* Кнопки */
 .button, .form__submit, .d-sii__form_submit, .guide, .login-form__submit {
@@ -66,10 +67,23 @@
 }
 
 .page-header .favor__icon { stroke: black !important; opacity: 1; }
-
 .page-header_blind .page-header__share { fill: black !important; opacity: 1; }
+.page-header_blind .d-si__icons_item .share__panel { background: black!important; width: auto; padding-left: 10px; max-width: none; height: 45px; }
+.page-header_blind .d-si__head_icons { line-height: 0; }
 
-.page-header_blind .d-si__icons_item .share__panel { background: black!important; }
+@media screen and (max-width: 1024px) {
+  .menu__link.has-dropdown:before { border-top-color: #000; }
+}
+
+@media screen and (max-width: 900px) {
+  .page-header_blind .d-si__icons_item .share__panel { width: 45px !important; padding-bottom: 12px; }
+  .d-si__icons_item:nth-child(2) { margin-top: 1px; }
+}
+
+@media screen and (max-width: 400px) {
+  .footer__column_break-the-line + .footer__column, .footer__column_break-the-line + .footer__column + .footer__column { width: 100%; }
+  .footer__block-logo { max-width: 250px; }
+}
 
 /* Тексты */
 .blindmode-heading, .blindmode-heading h1, .blindmode-heading h2, .blindmode-heading h3 {
