@@ -770,7 +770,7 @@ function hoverHandler(_, hover) {
 }
 
 
-if (winW < 1100) {
+if (winW < 1000) {
 
 	$('.on-hover').click(function() {
 		hoverHandler($(this), false);
