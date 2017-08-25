@@ -13,7 +13,6 @@ export default () => {
     prevButton: page+ '__prev',
   });
 
-  console.log(page+ '_slider ' +page+ '__slider-gallery');
   const sliderGallery = new Swiper(page+ '__materials_slider ' +page+ '__slider-gallery', {
     nextButton: page+ '__slider-next',
     prevButton: page+ '__slider-prev',

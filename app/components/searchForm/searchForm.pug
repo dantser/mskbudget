@@ -3,6 +3,7 @@ include ../../blocks/tag/tag
 include ../../blocks/icon/icons
 include ../../blocks/link/link
 include ../../blocks/button/button
+include ../../blocks/selectbox/selectbox
 
 mixin searchForm(placeholder)
   +b.FORM.search.d-si__search-form(action="#")
@@ -175,4 +176,46 @@ mixin searchFormOpen(placeholder)
               +tag('Банки', 'searchTag')
           +button()._kind_blue Искать
           +e.INPUT.reset(type="reset" value="Сбросить все фильтры")
+          u.btn-close.js-close-modal
+
+//- другой фильтр
+mixin searchFormNet(placeholder, tooltip)
+  +b.FORM.search.search_net.d-si__search-form(action="#")&attributes(attributes)
+    +e.search-line
+      input.d-si__search(type="text", placeholder=placeholder, title=tooltip, value=placeholder)
+      input.d-si__submit(type="submit" value="")
+      .search__tooltip
+        i
+        span= tooltip
+      +icon('icon-glass').__submit
+    +link()._dashed._extra.filter-link Расширенный поиск
+
+    +e.filter
+      +b.extra-search.modal
+        +e.wrapper
+          +e.title Расширенный поиск
+          +e.cols
+            +e.col_one
+              +e.field
+                +e.SPAN.field-label Сфера
+                +selectbox('domain', [{"val":"opt1", "text":"Все"}, {"val":"opt2", "text":"Другое"}]).extra-search__field-input
+              +e.field
+                +e.SPAN.field-label Округ
+                +selectbox('zone', [{"val":"opt1", "text":"Все"}, {"val":"opt2", "text":"Другое"}]).extra-search__field-input
+              +e.LABEL.field
+                +e.SPAN.field-label Краткое название
+                +e.INPUT(type='text' name='short').field-input
+            +e.col_two
+              +e.LABEL.field
+                +e.SPAN.field-label ИНН
+                +e.INPUT(type='text' name='inn').field-input
+              +e.LABEL.field
+                +e.SPAN.field-label КПП
+                +e.INPUT(type='text' name='kpp').field-input
+              +e.LABEL.field
+                +e.SPAN.field-label Адрес
+                +e.INPUT(type='text' name='address').field-input
+
+          +button()._kind_blue Искать
+          +e.INPUT.reset(type="reset" value="Сбросить фильтр")
           u.btn-close.js-close-modal
