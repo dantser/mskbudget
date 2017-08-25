@@ -209,6 +209,19 @@
   .legend-icon__circle, .legend-icon__icon {
     margin-right: 9px;
   }
+
+  .analityc-widget {
+    @include clearfix;
+  }
+
+  .analityc-widget__bottom {
+    display: inline-block;
+  }
+
+  .analityc-more_results {
+    float: right;
+    margin-right: 15px;
+  }
 }
 
 // Стили взяты отсюда: https://dev.mskbudget.hungryboys.ru/budget_income.html
@@ -389,6 +402,15 @@
         }
       }
     }
+    .analityc-widget__bottom {
+      display: block;
+    }
+    .analityc-more_results {
+      float: none;
+    }
+    .analityc-more {
+      font-size: 16px;
+    }
   }
   @media (max-width: 640px) {
     .tabs {
@@ -459,7 +481,7 @@
       font-size: 26px;
     }
   }
-  @media (max-width: 320px) {
+  @media (max-width: 375px) {
     div.analityc-control-group select.analityc-select {
       font-size: 10px;
     }
@@ -568,11 +590,10 @@
   }
   .analityc-widget_aip .analityc-more {
     margin-top: 25px;
-    font-size: 29px;
-    &:before {
-      right: -33px;
-      top: 9px;
-    }
+    // &:before {
+    //   right: -33px;
+    //   top: 9px;
+    // }
   }
   .analityc-widget_aip .analityc-control-group._dp input.datepicker {
     height: 52px;
@@ -593,11 +614,14 @@
     width: 100%;
   }
   .analityc-widget_aip .analityc-more {
-    margin-top: 0;
-    font-size: 18px;
+    margin-top: 10px;
+    font-size: 11px;
     &:before {
-      right: -22px;
       top: 2px;
+      right: -11px;
+      border-top-width: 3px;
+      border-left-width: 4px;
+      border-bottom-width: 3px;
     }
   }
   .analityc-widget_aip .analityc-graphics_column {
@@ -640,7 +664,7 @@
   }
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 375px) {
   .analityc-widget_aip .analityc-control-group._dp input.datepicker {
     height: 26px;
     line-height: 24px;
