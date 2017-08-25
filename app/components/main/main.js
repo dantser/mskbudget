@@ -1,22 +1,29 @@
 import $ from 'jquery';
+import 'jquery-ui-bundle';
+import noUiSlider from 'nouislider';
+import '../../blocks/range/range';
+import '../depfin-services-main/depfin-services-main';
 
 export default () => {
-
-  if ($('.wrapper_main').length) {
-    $(window).resize(function() {
-      location.reload();
-    });
-  }
-
-  $('.service__icon').each(function() {
-    $(this).on('click', (e) => {
-      e.preventDefault();
-      $(this).toggleClass('service__icon_active');
-    })
-  })
-
-
   $(document).ready(function() {
+    if ($('.wrapper_main').length) {
+      $(window).resize(function() {
+        location.reload();
+      });
+    }
+
+    // if ($('.sectored_round').length) {
+
+    // }
+
+    if ($('.service__icon').length) {
+      $('.service__icon').each(function() {
+        $(this).on('click', (e) => {
+          e.preventDefault();
+          $(this).toggleClass('service__icon_active');
+        })
+      });
+    }
 
     if ($(".jq-spec-datepicker-alt").length > 0) {
       $('.jq-spec-datepicker-alt').datepicker({
@@ -77,7 +84,6 @@ export default () => {
     }
 
     function DisableSpecificDates(date) {
-
       var disableddates = ["6-6-2017", "6-9-2017", "6-15-2017", "6-23-2017", "10-26-2017", "10-4-2017", "10-12-2017", "1-28-2017"];
       var m = date.getMonth();
       var d = date.getDate();
@@ -100,13 +106,10 @@ export default () => {
           return [true];
         }
       }
-
     }
 
     $(document).on('click', function() {
       $('.jq-spec-datepicker').blur().removeClass('hasDatepicker');
     });
-
   });
-
 }
