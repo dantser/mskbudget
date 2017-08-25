@@ -17,6 +17,16 @@ export default function () {
     $('.tile__item:hidden').slideDown();
   });
 
+  // Показать еще (для страницы документов)
+  $('.documents-page .more__a').on('click', function (e) {
+    e.preventDefault();
+    $('.documents-page .documents-card_page').animate({
+      height: $('.documents-page .documents-card_page').find('.tile').height()
+    }, 1000, function(){
+      $('.documents-page .documents-card_page').height('auto');
+    });
+  });
+
   // Фокус в поле ввода при клике на лейбл
   $('.form__label_type, .form__label_format').on('click', function (e) {
     e.preventDefault();
