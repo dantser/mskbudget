@@ -63,7 +63,7 @@ mixin table-income(data)
 
       +dataType(data, 'total')
 
-    +e.row._opened
+    +e.row._opened._hassub
       +e.col._four
         +icon('angle-arrow').arrow
         | Налоговые доходы, в том числе:
@@ -85,7 +85,7 @@ mixin table-income(data)
 
       +dataType(data, 'other')
 
-    +e.row
+    +e.row._opened._hassub
       +e.col._four
         +icon('angle-arrow').arrow
         | Неналоговые доходы, в том числе:

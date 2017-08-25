@@ -95,7 +95,15 @@
   }
 
   //---slider
+  &_line {
+    .analityc-graphics__toptext {
+      top: inherit;
 
+      @media (max-width: 768px) {
+        top: 0;
+      }
+    }
+  }
   &__periodtext {
     font-size: 16px;
     font-weight: 500;
@@ -378,7 +386,7 @@
       }
 
       .column1 {
-        width: 101px;
+        width: 40%;
         display: inline-block;
         vertical-align: bottom;
         .column-area1 {
@@ -416,7 +424,7 @@
       }
 
       .column2 {
-        width: 101px;
+        width: 40%;
         display: inline-block;
         vertical-align: bottom;
         .column-area1 {
@@ -454,19 +462,20 @@
       }
 
       .subcolumn {
-        width: 56px;
+        width: 20%;
         display: inline-block;
         vertical-align: bottom;
         opacity: .7;
 
-        // .subcolumn-area {
-        //   opacity: .7;
-        // }
+        .subcolumn-area {
+          filter: opacity(5);
+        }
 
         .column-value {
           font-size: 11px;
           color: #0c6b32;
           opacity: 1;
+          // filter: contrast(200%);
         }
         .column-area1 {
           height: 71px;
@@ -506,7 +515,7 @@
           filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bd84e9', endColorstr='#612292',GradientType=0 );
           background-image: linear-gradient(to right, #bd84e9 0%, #612292 100%);
           transform: skewY(-6deg) translateY(17px);
-          background-blend-mode:difference;
+
 
           // &::before {
           //   z-index: 2;
@@ -548,6 +557,7 @@
         }
         .column-area4 {
           height: 55px;
+          z-index: 5;
           filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9d308a', endColorstr='#ff695b',GradientType=0 );
           background-image: linear-gradient(to top, #9d308a 0%, #ff695b 100%);
           transform: skewY(-7deg) translateY(4px);
@@ -707,7 +717,7 @@
       text-transform: uppercase;
       display: inline-block;
       line-height: 1.2;
-      text-align: left;
+
     }
   }
 
@@ -2987,6 +2997,13 @@
     font-size: 18px;
     top: -30px;
   }
+  .analityc-widget_income .analityc-graphics__graphic, .analityc-widget_expenses .analityc-graphics__graphic {
+    margin: 0 auto;
+    width: 320px;
+  }
+  .analityc-widget_income .analityc-graphics__bottom, .analityc-widget_expenses .analityc-graphics__bottom {
+    width: 320px;
+  }
   .analityc-graphics_singleround .analityc-graphics__col {
     display: block;
     margin: 0 auto;
@@ -3037,6 +3054,13 @@
     margin-top: 28px;
     width: 430px;
   }
+  // .analityc-widget_income .analityc-graphics__graphic, .analityc-widget_expenses .analityc-graphics__graphic {
+  //
+  //   width: 430px;
+  // }
+  // .analityc-widget_income .analityc-graphics__bottom, .analityc-widget_expenses .analityc-graphics__bottom {
+  //   width: 430px;
+  // }
   .analityc-graphics__graphic_round {
     height: 430px;
   }
@@ -3128,6 +3152,12 @@
   }
   .analityc-graphics__graphic {
     margin-top: 14px;
+    width: 216px;
+  }
+  .analityc-widget_income .analityc-graphics__graphic, .analityc-widget_expenses .analityc-graphics__graphic {
+    width: 216px;
+  }
+  .analityc-widget_income .analityc-graphics__bottom, .analityc-widget_expenses .analityc-graphics__bottom {
     width: 216px;
   }
   .analityc-graphics__graphic_round {
