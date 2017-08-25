@@ -415,42 +415,42 @@
                         <div class="services-net-domain">
                             <div class="services-net-domain__main">
                                 <ul class="services-net-domain__list">
-                                    <li class="services-net-domain__list-item services-net-domain__list-item_health">
+                                    <li class="services-net-domain__list-item services-net-domain__list-item_health" data-target="health">
                                         <a class="services-net-domain__list-link" href="#">
                                             <span class="services-net-domain__list-title">Здравоохранение</span>
                                             <span class="services-net-domain__list-value">293</span>
                                             <span class="services-net-domain__list-label">учреждения</span>
                                         </a>
                                     </li>
-                                    <li class="services-net-domain__list-item services-net-domain__list-item_social">
+                                    <li class="services-net-domain__list-item services-net-domain__list-item_social" data-target="social">
                                         <a class="services-net-domain__list-link" href="#">
                                             <span class="services-net-domain__list-title">Cоциальные услуги</span>
                                             <span class="services-net-domain__list-value">190</span>
                                             <span class="services-net-domain__list-label">учреждения</span>
                                         </a>
                                     </li>
-                                    <li class="services-net-domain__list-item services-net-domain__list-item_edu">
+                                    <li class="services-net-domain__list-item services-net-domain__list-item_edu" data-target="edu">
                                         <a class="services-net-domain__list-link" href="#">
                                             <span class="services-net-domain__list-title">Образование</span>
                                             <span class="services-net-domain__list-value">746</span>
                                             <span class="services-net-domain__list-label">учреждения</span>
                                         </a>
                                     </li>
-                                    <li class="services-net-domain__list-item services-net-domain__list-item_others">
+                                    <li class="services-net-domain__list-item services-net-domain__list-item_others" data-target="others">
                                         <a class="services-net-domain__list-link" href="#">
                                             <span class="services-net-domain__list-title">Иные сферы</span>
                                             <span class="services-net-domain__list-value">669</span>
                                             <span class="services-net-domain__list-label">учреждения</span>
                                         </a>
                                     </li>
-                                    <li class="services-net-domain__list-item services-net-domain__list-item_culture">
+                                    <li class="services-net-domain__list-item services-net-domain__list-item_culture" data-target="culture">
                                         <a class="services-net-domain__list-link" href="#">
                                             <span class="services-net-domain__list-title">Культура</span>
                                             <span class="services-net-domain__list-value">439</span>
                                             <span class="services-net-domain__list-label">учреждения</span>
                                         </a>
                                     </li>
-                                    <li class="services-net-domain__list-item services-net-domain__list-item_sport">
+                                    <li class="services-net-domain__list-item services-net-domain__list-item_sport" data-target="sport">
                                         <a class="services-net-domain__list-link" href="#">
                                             <span class="services-net-domain__list-title">Спорт</span>
                                             <span class="services-net-domain__list-value">108</span>
@@ -479,13 +479,627 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="services-net-domain__foot">
-                                <a class="analityc-more" href="/">Посмотреть весь список</a>
+                            <div class="services-net__foot">
+                                <a class="analityc-more" href="#">Посмотреть весь список</a>
                             </div>
+                        </div>
+                        <div class="services-net-domain-slider swiper-container" style="display: none;">
+                            <div class="services-net-domain-slider__wrapper swiper-wrapper">
+                                <div class="services-net-domain-slide services-net-domain-slide_health swiper-slide">
+                                    <div class="services-net-domain-slide__banner">
+                                        <img src="assets/images/services_net/sport.jpg" alt="" role="presentation" />
+                                        <div class="services-net-domain-slide__banner-banner">
+                                            <h3 class="services-net-domain-slide__banner-title">Здравоохранение</h3>
+                                            <span class="services-net-domain-slide__banner-value">293</span>
+                                            <span class="services-net-domain-slide__banner-label">учреждения</span>
+                                        </div>
+                                    </div>
+                                    <div class="services-net-domain-slide__info">
+                                        <form class="search search search_net d-si__search-form services-net__search" action="#">
+                                            <div class="search__search-line">
+                                                <input class="d-si__search" type="text" placeholder="Поиск" value="Поиск" />
+                                                <input class="d-si__submit" type="submit" value="" />
+                                                <div class="search__tooltip">
+                                                    <i></i>
+                                                    <span></span>
+                                                </div>
+                                                <svg class="search__submit"><use xlink:href="assets/images/icon.svg#icon_icon-glass"></use></svg>
+                                            </div>
+                                            <a class="link link_dashed link_extra filter-link" href="#">Расширенный поиск</a>
+                                            <div class="search__filter">
+                                                <div class="extra-search modal">
+                                                    <div class="extra-search__wrapper">
+                                                        <div class="extra-search__title">Расширенный поиск</div>
+                                                        <div class="extra-search__cols">
+                                                            <div class="extra-search__col extra-search__col_one">
+                                                                <div class="extra-search__field">
+                                                                    <span class="extra-search__field-label">Сфера</span>
+                                                                    <div class="selectbox extra-search__field-input">
+                                                                        <select class="selectbox__select" name="domain">
+                                                                            <option value="opt1">Все</option>
+                                                                            <option value="opt2">Другое</option>
+                                                                        </select>
+                                                                        <span class="selectbox__arrow">
+                                                                            <span></span>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="extra-search__field">
+                                                                    <span class="extra-search__field-label">Округ</span>
+                                                                    <div class="selectbox extra-search__field-input">
+                                                                        <select class="selectbox__select" name="zone">
+                                                                            <option value="opt1">Все</option>
+                                                                            <option value="opt2">Другое</option>
+                                                                        </select>
+                                                                        <span class="selectbox__arrow">
+                                                                            <span></span>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                                <label class="extra-search__field">
+                                                                    <span class="extra-search__field-label">Краткое название</span>
+                                                                    <input class="extra-search__field-input" type="text" name="short" />
+                                                                </label>
+                                                            </div>
+                                                            <div class="extra-search__col extra-search__col_two">
+                                                                <label class="extra-search__field">
+                                                                    <span class="extra-search__field-label">ИНН</span>
+                                                                    <input class="extra-search__field-input" type="text" name="inn" />
+                                                                </label>
+                                                                <label class="extra-search__field">
+                                                                    <span class="extra-search__field-label">КПП</span>
+                                                                    <input class="extra-search__field-input" type="text" name="kpp" />
+                                                                </label>
+                                                                <label class="extra-search__field">
+                                                                    <span class="extra-search__field-label">Адрес</span>
+                                                                    <input class="extra-search__field-input" type="text" name="address" />
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <button class="button button_kind_blue">Искать</button>
+                                                        <input class="extra-search__reset" type="reset" value="Сбросить фильтр" />
+                                                        <u class="btn-close js-close-modal"></u>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <div class="services-net-table__total">Всего учреждений 2 445</div>
+                                        <div class="services-net-table">
+                                            <div class="services-net-table__table">
+                                                <div class="services-net-table__rows significant-list__caption">
+                                                    <h3 class="services-net-table__col services-net-table__col_left">Краткое наименование учреждения</h3>
+                                                    <h3 class="services-net-table__col services-net-table__col_center">ИНН</h3>
+                                                    <h3 class="services-net-table__col services-net-table__col_right">КПП</h3>
+                                                </div>
+                                                <div class="services-net-table__rows significant-list__main">
+                                                    <div class="services-net-table__row">
+                                                        <div class="services-net-table__col services-net-table__col_left">
+                                                            <div class="services-net-table__row-num">1</div>
+                                                            <a class="services-net-table__row-title" href="#" data-tab-target="significantThree" data-target="1">ГБУ ГП №180 ДЗМ</a>
+                                                        </div>
+                                                        <div class="services-net-table__col services-net-table__col_center">
+                                                            <div class="services-net-table__row-inn">7733137143</div>
+                                                        </div>
+                                                        <div class="services-net-table__col services-net-table__col_right">
+                                                            <div class="services-net-table__row-kpp">773301001</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="services-net-table__row">
+                                                        <div class="services-net-table__col services-net-table__col_left">
+                                                            <div class="services-net-table__row-num">2</div>
+                                                            <a class="services-net-table__row-title" href="#" data-tab-target="significantThree" data-target="2">Московский театр &quot;Современник&quot;</a>
+                                                        </div>
+                                                        <div class="services-net-table__col services-net-table__col_center">
+                                                            <div class="services-net-table__row-inn">7733137143</div>
+                                                        </div>
+                                                        <div class="services-net-table__col services-net-table__col_right">
+                                                            <div class="services-net-table__row-kpp">773301001</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="services-net-table__row">
+                                                        <div class="services-net-table__col services-net-table__col_left">
+                                                            <div class="services-net-table__row-num">3</div>
+                                                            <a class="services-net-table__row-title" href="#" data-tab-target="significantThree" data-target="3">НИИ НДХиТ</a>
+                                                        </div>
+                                                        <div class="services-net-table__col services-net-table__col_center">
+                                                            <div class="services-net-table__row-inn">7733137143</div>
+                                                        </div>
+                                                        <div class="services-net-table__col services-net-table__col_right">
+                                                            <div class="services-net-table__row-kpp">773301001</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="services-net-table__row">
+                                                        <div class="services-net-table__col services-net-table__col_left">
+                                                            <div class="services-net-table__row-num">4</div>
+                                                            <a class="services-net-table__row-title" href="#" data-tab-target="significantThree" data-target="4">Агентство гражданской защиты ВАО Москвы</a>
+                                                        </div>
+                                                        <div class="services-net-table__col services-net-table__col_center">
+                                                            <div class="services-net-table__row-inn">7733137143</div>
+                                                        </div>
+                                                        <div class="services-net-table__col services-net-table__col_right">
+                                                            <div class="services-net-table__row-kpp">773301001</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="services-net-table__row">
+                                                        <div class="services-net-table__col services-net-table__col_left">
+                                                            <div class="services-net-table__row-num">5</div>
+                                                            <a class="services-net-table__row-title" href="#" data-tab-target="significantThree" data-target="5">Агентство гражданской защиты ЗАО Москвы</a>
+                                                        </div>
+                                                        <div class="services-net-table__col services-net-table__col_center">
+                                                            <div class="services-net-table__row-inn">7733137143</div>
+                                                        </div>
+                                                        <div class="services-net-table__col services-net-table__col_right">
+                                                            <div class="services-net-table__row-kpp">773301001</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="services-net-table__row">
+                                                        <div class="services-net-table__col services-net-table__col_left">
+                                                            <div class="services-net-table__row-num">6</div>
+                                                            <a class="services-net-table__row-title" href="#" data-tab-target="significantThree" data-target="6">Агентство гражданской защиты Зеленоградского АО Москвы</a>
+                                                        </div>
+                                                        <div class="services-net-table__col services-net-table__col_center">
+                                                            <div class="services-net-table__row-inn">7733137143</div>
+                                                        </div>
+                                                        <div class="services-net-table__col services-net-table__col_right">
+                                                            <div class="services-net-table__row-kpp">773301001</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="services-net-table__row">
+                                                        <div class="services-net-table__col services-net-table__col_left">
+                                                            <div class="services-net-table__row-num">7</div>
+                                                            <a class="services-net-table__row-title" href="#" data-tab-target="significantThree" data-target="7">Агентство гражданской защиты САО Москвы</a>
+                                                        </div>
+                                                        <div class="services-net-table__col services-net-table__col_center">
+                                                            <div class="services-net-table__row-inn">7733137143</div>
+                                                        </div>
+                                                        <div class="services-net-table__col services-net-table__col_right">
+                                                            <div class="services-net-table__row-kpp">773301001</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="services-net-table__row">
+                                                        <div class="services-net-table__col services-net-table__col_left">
+                                                            <div class="services-net-table__row-num">8</div>
+                                                            <a class="services-net-table__row-title" href="#" data-tab-target="significantThree" data-target="8">Агентство гражданской защиты СЗАО Москвы</a>
+                                                        </div>
+                                                        <div class="services-net-table__col services-net-table__col_center">
+                                                            <div class="services-net-table__row-inn">7733137143</div>
+                                                        </div>
+                                                        <div class="services-net-table__col services-net-table__col_right">
+                                                            <div class="services-net-table__row-kpp">773301001</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="services-net-table__row">
+                                                        <div class="services-net-table__col services-net-table__col_left">
+                                                            <div class="services-net-table__row-num">9</div>
+                                                            <a class="services-net-table__row-title" href="#" data-tab-target="significantThree" data-target="9">Агентство гражданской защиты ЦАО Москвы</a>
+                                                        </div>
+                                                        <div class="services-net-table__col services-net-table__col_center">
+                                                            <div class="services-net-table__row-inn">7733137143</div>
+                                                        </div>
+                                                        <div class="services-net-table__col services-net-table__col_right">
+                                                            <div class="services-net-table__row-kpp">773301001</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="services-net-domain-slide services-net-domain-slide_social swiper-slide">
+                                    <div class="services-net-domain-slide__banner">
+                                        <img src="assets/images/services_net/sport.jpg" alt="" role="presentation" />
+                                        <div class="services-net-domain-slide__banner-banner">
+                                            <h3 class="services-net-domain-slide__banner-title">Спорт</h3>
+                                            <span class="services-net-domain-slide__banner-value">108</span>
+                                            <span class="services-net-domain-slide__banner-label">учреждений</span>
+                                        </div>
+                                    </div>
+                                    <div class="services-net-domain-slide__info">
+                                        <form class="search search search_net d-si__search-form services-net__search" action="#">
+                                            <div class="search__search-line">
+                                                <input class="d-si__search" type="text" placeholder="Поиск" value="Поиск" />
+                                                <input class="d-si__submit" type="submit" value="" />
+                                                <div class="search__tooltip">
+                                                    <i></i>
+                                                    <span></span>
+                                                </div>
+                                                <svg class="search__submit"><use xlink:href="assets/images/icon.svg#icon_icon-glass"></use></svg>
+                                            </div>
+                                            <a class="link link_dashed link_extra filter-link" href="#">Расширенный поиск</a>
+                                            <div class="search__filter">
+                                                <div class="extra-search modal">
+                                                    <div class="extra-search__wrapper">
+                                                        <div class="extra-search__title">Расширенный поиск</div>
+                                                        <div class="extra-search__cols">
+                                                            <div class="extra-search__col extra-search__col_one">
+                                                                <div class="extra-search__field">
+                                                                    <span class="extra-search__field-label">Сфера</span>
+                                                                    <div class="selectbox extra-search__field-input">
+                                                                        <select class="selectbox__select" name="domain">
+                                                                            <option value="opt1">Все</option>
+                                                                            <option value="opt2">Другое</option>
+                                                                        </select>
+                                                                        <span class="selectbox__arrow">
+                                                                            <span></span>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="extra-search__field">
+                                                                    <span class="extra-search__field-label">Округ</span>
+                                                                    <div class="selectbox extra-search__field-input">
+                                                                        <select class="selectbox__select" name="zone">
+                                                                            <option value="opt1">Все</option>
+                                                                            <option value="opt2">Другое</option>
+                                                                        </select>
+                                                                        <span class="selectbox__arrow">
+                                                                            <span></span>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                                <label class="extra-search__field">
+                                                                    <span class="extra-search__field-label">Краткое название</span>
+                                                                    <input class="extra-search__field-input" type="text" name="short" />
+                                                                </label>
+                                                            </div>
+                                                            <div class="extra-search__col extra-search__col_two">
+                                                                <label class="extra-search__field">
+                                                                    <span class="extra-search__field-label">ИНН</span>
+                                                                    <input class="extra-search__field-input" type="text" name="inn" />
+                                                                </label>
+                                                                <label class="extra-search__field">
+                                                                    <span class="extra-search__field-label">КПП</span>
+                                                                    <input class="extra-search__field-input" type="text" name="kpp" />
+                                                                </label>
+                                                                <label class="extra-search__field">
+                                                                    <span class="extra-search__field-label">Адрес</span>
+                                                                    <input class="extra-search__field-input" type="text" name="address" />
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <button class="button button_kind_blue">Искать</button>
+                                                        <input class="extra-search__reset" type="reset" value="Сбросить фильтр" />
+                                                        <u class="btn-close js-close-modal"></u>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <div class="services-net-table__total">Всего учреждений 1 000000</div>
+                                        <div class="services-net-table">
+                                            <div class="services-net-table__table">
+                                                <div class="services-net-table__rows significant-list__caption">
+                                                    <h3 class="services-net-table__col services-net-table__col_left">Краткое наименование учреждения</h3>
+                                                    <h3 class="services-net-table__col services-net-table__col_center">ИНН</h3>
+                                                    <h3 class="services-net-table__col services-net-table__col_right">КПП</h3>
+                                                </div>
+                                                <div class="services-net-table__rows significant-list__main">
+                                                    <div class="services-net-table__row">
+                                                        <div class="services-net-table__col services-net-table__col_left">
+                                                            <div class="services-net-table__row-num">1</div>
+                                                            <a class="services-net-table__row-title" href="#" data-tab-target="significantThree" data-target="1">ГБУ ГП №180 ДЗМ</a>
+                                                        </div>
+                                                        <div class="services-net-table__col services-net-table__col_center">
+                                                            <div class="services-net-table__row-inn">7733137143</div>
+                                                        </div>
+                                                        <div class="services-net-table__col services-net-table__col_right">
+                                                            <div class="services-net-table__row-kpp">773301001</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="services-net-table__row">
+                                                        <div class="services-net-table__col services-net-table__col_left">
+                                                            <div class="services-net-table__row-num">2</div>
+                                                            <a class="services-net-table__row-title" href="#" data-tab-target="significantThree" data-target="2">Московский театр &quot;Современник&quot;</a>
+                                                        </div>
+                                                        <div class="services-net-table__col services-net-table__col_center">
+                                                            <div class="services-net-table__row-inn">7733137143</div>
+                                                        </div>
+                                                        <div class="services-net-table__col services-net-table__col_right">
+                                                            <div class="services-net-table__row-kpp">773301001</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="services-net-table__row">
+                                                        <div class="services-net-table__col services-net-table__col_left">
+                                                            <div class="services-net-table__row-num">3</div>
+                                                            <a class="services-net-table__row-title" href="#" data-tab-target="significantThree" data-target="3">НИИ НДХиТ</a>
+                                                        </div>
+                                                        <div class="services-net-table__col services-net-table__col_center">
+                                                            <div class="services-net-table__row-inn">7733137143</div>
+                                                        </div>
+                                                        <div class="services-net-table__col services-net-table__col_right">
+                                                            <div class="services-net-table__row-kpp">773301001</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="services-net-table__row">
+                                                        <div class="services-net-table__col services-net-table__col_left">
+                                                            <div class="services-net-table__row-num">4</div>
+                                                            <a class="services-net-table__row-title" href="#" data-tab-target="significantThree" data-target="4">Агентство гражданской защиты ВАО Москвы</a>
+                                                        </div>
+                                                        <div class="services-net-table__col services-net-table__col_center">
+                                                            <div class="services-net-table__row-inn">7733137143</div>
+                                                        </div>
+                                                        <div class="services-net-table__col services-net-table__col_right">
+                                                            <div class="services-net-table__row-kpp">773301001</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="services-net-table__row">
+                                                        <div class="services-net-table__col services-net-table__col_left">
+                                                            <div class="services-net-table__row-num">5</div>
+                                                            <a class="services-net-table__row-title" href="#" data-tab-target="significantThree" data-target="5">Агентство гражданской защиты ЗАО Москвы</a>
+                                                        </div>
+                                                        <div class="services-net-table__col services-net-table__col_center">
+                                                            <div class="services-net-table__row-inn">7733137143</div>
+                                                        </div>
+                                                        <div class="services-net-table__col services-net-table__col_right">
+                                                            <div class="services-net-table__row-kpp">773301001</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="services-net-table__row">
+                                                        <div class="services-net-table__col services-net-table__col_left">
+                                                            <div class="services-net-table__row-num">6</div>
+                                                            <a class="services-net-table__row-title" href="#" data-tab-target="significantThree" data-target="6">Агентство гражданской защиты Зеленоградского АО Москвы</a>
+                                                        </div>
+                                                        <div class="services-net-table__col services-net-table__col_center">
+                                                            <div class="services-net-table__row-inn">7733137143</div>
+                                                        </div>
+                                                        <div class="services-net-table__col services-net-table__col_right">
+                                                            <div class="services-net-table__row-kpp">773301001</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="services-net-table__row">
+                                                        <div class="services-net-table__col services-net-table__col_left">
+                                                            <div class="services-net-table__row-num">7</div>
+                                                            <a class="services-net-table__row-title" href="#" data-tab-target="significantThree" data-target="7">Агентство гражданской защиты САО Москвы</a>
+                                                        </div>
+                                                        <div class="services-net-table__col services-net-table__col_center">
+                                                            <div class="services-net-table__row-inn">7733137143</div>
+                                                        </div>
+                                                        <div class="services-net-table__col services-net-table__col_right">
+                                                            <div class="services-net-table__row-kpp">773301001</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="services-net-table__row">
+                                                        <div class="services-net-table__col services-net-table__col_left">
+                                                            <div class="services-net-table__row-num">8</div>
+                                                            <a class="services-net-table__row-title" href="#" data-tab-target="significantThree" data-target="8">Агентство гражданской защиты СЗАО Москвы</a>
+                                                        </div>
+                                                        <div class="services-net-table__col services-net-table__col_center">
+                                                            <div class="services-net-table__row-inn">7733137143</div>
+                                                        </div>
+                                                        <div class="services-net-table__col services-net-table__col_right">
+                                                            <div class="services-net-table__row-kpp">773301001</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="services-net-table__row">
+                                                        <div class="services-net-table__col services-net-table__col_left">
+                                                            <div class="services-net-table__row-num">9</div>
+                                                            <a class="services-net-table__row-title" href="#" data-tab-target="significantThree" data-target="9">Агентство гражданской защиты ЦАО Москвы</a>
+                                                        </div>
+                                                        <div class="services-net-table__col services-net-table__col_center">
+                                                            <div class="services-net-table__row-inn">7733137143</div>
+                                                        </div>
+                                                        <div class="services-net-table__col services-net-table__col_right">
+                                                            <div class="services-net-table__row-kpp">773301001</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="arrow-button arrow-button_prev services-net-domain-slider__arrow services-net-domain-slider__arrow_prev swiper-button-prev" href="#">
+                                <svg class="arrow-button__icon"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
+                            </a>
+                            <a class="arrow-button services-net-domain-slider__arrow services-net-domain-slider__arrow_next swiper-button-next" href="#">
+                                <svg class="arrow-button__icon"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
+                            </a>
                         </div>
                     </div>
                     <div class="tabs__tab" data-tab-group="netTabs" data-tab="netTwo">
-                        <div class="services-net-municipality"></div>
+                        <div class="services-net-municipality">
+                            <div class="services-net-municipality__main">
+                                <h3 class="services-net-municipality__title"> ВЫБЕРИТЕ
+                                    <br/>АДМИНИСТРАТИВНЫЙ ОКРУГ
+                                    <br/>(РАЙОН, ПОСЕЛЕНИЕ)
+                                    <br/>ГОРОДА МОСКВЫ</h3>
+                                <div class="services-net-municipality__map">
+                                    <img src="assets/images/services_net/map.png" alt="" role="presentation" />
+                                </div>
+                            </div>
+                            <div class="services-net__foot">
+                                <a class="analityc-more" href="#">Посмотреть весь список</a>
+                            </div>
+                        </div>
+                        <div class="services-net-institutes" style="display: none;">
+                            <div class="services-net-institutes__title">Перечень государственных (муниципальных) учреждений города Москвы</div>
+                            <form class="search search search_net d-si__search-form services-net__search" action="#">
+                                <div class="search__search-line">
+                                    <input class="d-si__search" type="text" placeholder="Поиск" value="Поиск" />
+                                    <input class="d-si__submit" type="submit" value="" />
+                                    <div class="search__tooltip">
+                                        <i></i>
+                                        <span></span>
+                                    </div>
+                                    <svg class="search__submit"><use xlink:href="assets/images/icon.svg#icon_icon-glass"></use></svg>
+                                </div>
+                                <a class="link link_dashed link_extra filter-link" href="#">Расширенный поиск</a>
+                                <div class="search__filter">
+                                    <div class="extra-search modal">
+                                        <div class="extra-search__wrapper">
+                                            <div class="extra-search__title">Расширенный поиск</div>
+                                            <div class="extra-search__cols">
+                                                <div class="extra-search__col extra-search__col_one">
+                                                    <div class="extra-search__field">
+                                                        <span class="extra-search__field-label">Сфера</span>
+                                                        <div class="selectbox extra-search__field-input">
+                                                            <select class="selectbox__select" name="domain">
+                                                                <option value="opt1">Все</option>
+                                                                <option value="opt2">Другое</option>
+                                                            </select>
+                                                            <span class="selectbox__arrow">
+                                                                <span></span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="extra-search__field">
+                                                        <span class="extra-search__field-label">Округ</span>
+                                                        <div class="selectbox extra-search__field-input">
+                                                            <select class="selectbox__select" name="zone">
+                                                                <option value="opt1">Все</option>
+                                                                <option value="opt2">Другое</option>
+                                                            </select>
+                                                            <span class="selectbox__arrow">
+                                                                <span></span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <label class="extra-search__field">
+                                                        <span class="extra-search__field-label">Краткое название</span>
+                                                        <input class="extra-search__field-input" type="text" name="short" />
+                                                    </label>
+                                                </div>
+                                                <div class="extra-search__col extra-search__col_two">
+                                                    <label class="extra-search__field">
+                                                        <span class="extra-search__field-label">ИНН</span>
+                                                        <input class="extra-search__field-input" type="text" name="inn" />
+                                                    </label>
+                                                    <label class="extra-search__field">
+                                                        <span class="extra-search__field-label">КПП</span>
+                                                        <input class="extra-search__field-input" type="text" name="kpp" />
+                                                    </label>
+                                                    <label class="extra-search__field">
+                                                        <span class="extra-search__field-label">Адрес</span>
+                                                        <input class="extra-search__field-input" type="text" name="address" />
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <button class="button button_kind_blue">Искать</button>
+                                            <input class="extra-search__reset" type="reset" value="Сбросить фильтр" />
+                                            <u class="btn-close js-close-modal"></u>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="services-net-table__total">Всего учреждений 1 000000</div>
+                            <div class="services-net-table">
+                                <div class="services-net-table__table">
+                                    <div class="services-net-table__rows significant-list__caption">
+                                        <h3 class="services-net-table__col services-net-table__col_left">Краткое наименование учреждения</h3>
+                                        <h3 class="services-net-table__col services-net-table__col_center">ИНН</h3>
+                                        <h3 class="services-net-table__col services-net-table__col_right">КПП</h3>
+                                    </div>
+                                    <div class="services-net-table__rows significant-list__main">
+                                        <div class="services-net-table__row">
+                                            <div class="services-net-table__col services-net-table__col_left">
+                                                <div class="services-net-table__row-num">1</div>
+                                                <a class="services-net-table__row-title" href="#" data-tab-target="significantThree" data-target="1">ГБУ ГП №180 ДЗМ</a>
+                                            </div>
+                                            <div class="services-net-table__col services-net-table__col_center">
+                                                <div class="services-net-table__row-inn">7733137143</div>
+                                            </div>
+                                            <div class="services-net-table__col services-net-table__col_right">
+                                                <div class="services-net-table__row-kpp">773301001</div>
+                                            </div>
+                                        </div>
+                                        <div class="services-net-table__row">
+                                            <div class="services-net-table__col services-net-table__col_left">
+                                                <div class="services-net-table__row-num">2</div>
+                                                <a class="services-net-table__row-title" href="#" data-tab-target="significantThree" data-target="2">Московский театр &quot;Современник&quot;</a>
+                                            </div>
+                                            <div class="services-net-table__col services-net-table__col_center">
+                                                <div class="services-net-table__row-inn">7733137143</div>
+                                            </div>
+                                            <div class="services-net-table__col services-net-table__col_right">
+                                                <div class="services-net-table__row-kpp">773301001</div>
+                                            </div>
+                                        </div>
+                                        <div class="services-net-table__row">
+                                            <div class="services-net-table__col services-net-table__col_left">
+                                                <div class="services-net-table__row-num">3</div>
+                                                <a class="services-net-table__row-title" href="#" data-tab-target="significantThree" data-target="3">НИИ НДХиТ</a>
+                                            </div>
+                                            <div class="services-net-table__col services-net-table__col_center">
+                                                <div class="services-net-table__row-inn">7733137143</div>
+                                            </div>
+                                            <div class="services-net-table__col services-net-table__col_right">
+                                                <div class="services-net-table__row-kpp">773301001</div>
+                                            </div>
+                                        </div>
+                                        <div class="services-net-table__row">
+                                            <div class="services-net-table__col services-net-table__col_left">
+                                                <div class="services-net-table__row-num">4</div>
+                                                <a class="services-net-table__row-title" href="#" data-tab-target="significantThree" data-target="4">Агентство гражданской защиты ВАО Москвы</a>
+                                            </div>
+                                            <div class="services-net-table__col services-net-table__col_center">
+                                                <div class="services-net-table__row-inn">7733137143</div>
+                                            </div>
+                                            <div class="services-net-table__col services-net-table__col_right">
+                                                <div class="services-net-table__row-kpp">773301001</div>
+                                            </div>
+                                        </div>
+                                        <div class="services-net-table__row">
+                                            <div class="services-net-table__col services-net-table__col_left">
+                                                <div class="services-net-table__row-num">5</div>
+                                                <a class="services-net-table__row-title" href="#" data-tab-target="significantThree" data-target="5">Агентство гражданской защиты ЗАО Москвы</a>
+                                            </div>
+                                            <div class="services-net-table__col services-net-table__col_center">
+                                                <div class="services-net-table__row-inn">7733137143</div>
+                                            </div>
+                                            <div class="services-net-table__col services-net-table__col_right">
+                                                <div class="services-net-table__row-kpp">773301001</div>
+                                            </div>
+                                        </div>
+                                        <div class="services-net-table__row">
+                                            <div class="services-net-table__col services-net-table__col_left">
+                                                <div class="services-net-table__row-num">6</div>
+                                                <a class="services-net-table__row-title" href="#" data-tab-target="significantThree" data-target="6">Агентство гражданской защиты Зеленоградского АО Москвы</a>
+                                            </div>
+                                            <div class="services-net-table__col services-net-table__col_center">
+                                                <div class="services-net-table__row-inn">7733137143</div>
+                                            </div>
+                                            <div class="services-net-table__col services-net-table__col_right">
+                                                <div class="services-net-table__row-kpp">773301001</div>
+                                            </div>
+                                        </div>
+                                        <div class="services-net-table__row">
+                                            <div class="services-net-table__col services-net-table__col_left">
+                                                <div class="services-net-table__row-num">7</div>
+                                                <a class="services-net-table__row-title" href="#" data-tab-target="significantThree" data-target="7">Агентство гражданской защиты САО Москвы</a>
+                                            </div>
+                                            <div class="services-net-table__col services-net-table__col_center">
+                                                <div class="services-net-table__row-inn">7733137143</div>
+                                            </div>
+                                            <div class="services-net-table__col services-net-table__col_right">
+                                                <div class="services-net-table__row-kpp">773301001</div>
+                                            </div>
+                                        </div>
+                                        <div class="services-net-table__row">
+                                            <div class="services-net-table__col services-net-table__col_left">
+                                                <div class="services-net-table__row-num">8</div>
+                                                <a class="services-net-table__row-title" href="#" data-tab-target="significantThree" data-target="8">Агентство гражданской защиты СЗАО Москвы</a>
+                                            </div>
+                                            <div class="services-net-table__col services-net-table__col_center">
+                                                <div class="services-net-table__row-inn">7733137143</div>
+                                            </div>
+                                            <div class="services-net-table__col services-net-table__col_right">
+                                                <div class="services-net-table__row-kpp">773301001</div>
+                                            </div>
+                                        </div>
+                                        <div class="services-net-table__row">
+                                            <div class="services-net-table__col services-net-table__col_left">
+                                                <div class="services-net-table__row-num">9</div>
+                                                <a class="services-net-table__row-title" href="#" data-tab-target="significantThree" data-target="9">Агентство гражданской защиты ЦАО Москвы</a>
+                                            </div>
+                                            <div class="services-net-table__col services-net-table__col_center">
+                                                <div class="services-net-table__row-inn">7733137143</div>
+                                            </div>
+                                            <div class="services-net-table__col services-net-table__col_right">
+                                                <div class="services-net-table__row-kpp">773301001</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
