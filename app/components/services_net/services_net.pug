@@ -1,8 +1,36 @@
 include ../../components/page-header/page-header
 include ../../blocks/buttons-set/buttons-set
 include ../../blocks/tabs/tabs
+include ../../components/searchForm/searchForm
+include ../../blocks/arrow-button/arrow-button
 
 mixin services_net()
+
+	mixin table(data)
+		+b.services-net-table
+			+e.table&attributes(attributes)
+
+				+e.rows.significant-list__caption
+				
+					+e.H3.col._left Краткое наименование учреждения
+					+e.H3.col._center ИНН
+					+e.H3.col._right КПП
+
+				+e.rows.significant-list__main
+					- for (var i=0; i<data.length; i++)
+						+row(data[i].id, data[i].title, data[i].inn, data[i].kpp)
+
+	mixin row(num, title, inn, kpp)
+		+e.row
+			+e.col._left
+				+e.row-num= num
+				+e.A(href='#' data-tab-target='significantThree' data-target=num).row-title= title
+			+e.col._center
+				+e.row-inn= inn
+			+e.col._right
+				+e.row-kpp= kpp
+
+
 	+b.SECTION.services-net.section__item&attributes(attributes)
 		.wrapper.services-net__wrapper
 			+e.head
@@ -15,35 +43,36 @@ mixin services_net()
 			+tabs.services-net__content
 
 				+tabs-tab(data-tab-group="netTabs", data-tab="netOne").active
+
 					+b.services-net-domain
 						+e.main
 							+e.UL.list
-								+e.LI.list-item._health
+								+e.LI.list-item._health(data-target='health')
 									+e.A(href='#').list-link
 										+e.SPAN.list-title Здравоохранение
 										+e.SPAN.list-value 293
 										+e.SPAN.list-label учреждения
-								+e.LI.list-item._social
+								+e.LI.list-item._social(data-target='social')
 									+e.A(href='#').list-link
 										+e.SPAN.list-title Cоциальные услуги
 										+e.SPAN.list-value 190
 										+e.SPAN.list-label учреждения
-								+e.LI.list-item._edu
+								+e.LI.list-item._edu(data-target='edu')
 									+e.A(href='#').list-link
 										+e.SPAN.list-title Образование
 										+e.SPAN.list-value 746
 										+e.SPAN.list-label учреждения
-								+e.LI.list-item._others
+								+e.LI.list-item._others(data-target='others')
 									+e.A(href='#').list-link
 										+e.SPAN.list-title Иные сферы
 										+e.SPAN.list-value 669
 										+e.SPAN.list-label учреждения
-								+e.LI.list-item._culture
+								+e.LI.list-item._culture(data-target='culture')
 									+e.A(href='#').list-link
 										+e.SPAN.list-title Культура
 										+e.SPAN.list-value 439
 										+e.SPAN.list-label учреждения
-								+e.LI.list-item._sport
+								+e.LI.list-item._sport(data-target='sport')
 									+e.A(href='#').list-link
 										+e.SPAN.list-title Спорт
 										+e.SPAN.list-value 108
@@ -61,8 +90,56 @@ mixin services_net()
 									+e.IMG(src='assets/images/services_net/culture.png')
 								+e.LI.image._sport
 									+e.IMG(src='assets/images/services_net/sport.png')
-						+e.foot
-							a(href="/").analityc-more Посмотреть весь список
+						.services-net__foot
+							a(href="#").analityc-more Посмотреть весь список
+
+					+b.services-net-domain-slider.swiper-container(style='display: none')
+						+e.wrapper.swiper-wrapper
+							+b.services-net-domain-slide._health.swiper-slide
+								+e.banner
+									+e.IMG(src='assets/images/services_net/sport.jpg')
+									+e.banner-banner
+										+e.H3.banner-title Здравоохранение
+										+e.SPAN.banner-value 293
+										+e.SPAN.banner-label учреждения
+								+e.info
+									+searchFormNet('Поиск').services-net__search
+									.services-net-table__total Всего учреждений 2 445
+									+table(getData('net'))
+							+b.services-net-domain-slide._social.swiper-slide
+								+e.banner
+									+e.IMG(src='assets/images/services_net/sport.jpg')
+									+e.banner-banner
+										+e.H3.banner-title Спорт
+										+e.SPAN.banner-value 108
+										+e.SPAN.banner-label учреждений
+								+e.info
+									+searchFormNet('Поиск').services-net__search
+									.services-net-table__total Всего учреждений 1 000000
+									+table(getData('net'))
+
+						+arrow-button()._prev.services-net-domain-slider__arrow._prev.swiper-button-prev
+						+arrow-button().services-net-domain-slider__arrow._next.swiper-button-next
 
 				+tabs-tab(data-tab-group="netTabs", data-tab="netTwo")
+
 					+b.services-net-municipality
+						+e.main
+							+e.H3.title 
+								| ВЫБЕРИТЕ
+								br
+								| АДМИНИСТРАТИВНЫЙ ОКРУГ 
+								br
+								| (РАЙОН, ПОСЕЛЕНИЕ) 
+								br
+								| ГОРОДА МОСКВЫ
+							+e.map
+								+e.IMG(src='assets/images/services_net/map.png')
+						.services-net__foot
+							a(href="#").analityc-more Посмотреть весь список
+
+					+b.services-net-institutes(style='display: none')
+						+e.title Перечень государственных (муниципальных) учреждений города Москвы
+						+searchFormNet('Поиск').services-net__search
+						.services-net-table__total Всего учреждений 1 000000
+						+table(getData('net'))

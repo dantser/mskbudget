@@ -1,5 +1,12 @@
 export default function aboutBudgetPreparation() {
 
+  // Обновляем высоту блока при переключении дат
+  $(".steps-details__date-list li").click(function(){
+    if ($(window).width() > 800) {
+      $('.steps').outerHeight( $(document).find('.steps-details.active').height() + $('.steps-details').position().top );
+    }
+  });
+
   //Загружаем таблицу на середине (на 2017)
 
   var tableHolder = $(".graphic-table__holder"),

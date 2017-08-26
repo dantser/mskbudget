@@ -56,6 +56,7 @@ import aip from '../components/budget_aip/budget_aip';
 import classifyNew from '../components/classify-new/classifyNew';
 import servicesVMO from '../components/depfin_services_VMO/depfin_services_VMO';
 import socialSignificant from '../components/services_social_significant/socialSignificant';
+import servicesNet from '../components/services_net/servicesNet';
 
 $(() => {
 
@@ -125,4 +126,5 @@ $(() => {
   classifyNew();
   servicesVMO();
   socialSignificant();
+  servicesNet();
 });

@@ -35,7 +35,7 @@ $(document).ready(function() {
 
 	// Клик по активной букве
 	function selectLetter() {
-		activeLetters = $(document).find('.letter__line-item_active').length;
+		activeLetters = visibleLettersCountGlobal; //$(document).find('.letter__line-item_active').length;
 
 		$('.letter__btn').each(function(){
 			if ( $(this).text().toLowerCase() === activeLetter ) {

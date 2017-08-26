@@ -52,6 +52,7 @@ export default function selectbox() {
     });
     $(this).find('select').on('mousedown click', function (e) {
       e.preventDefault();
+      $(document).find('.selectbox').removeClass('active');
       e.stopPropagation();
       this.blur();
       window.focus();
@@ -66,6 +67,7 @@ export default function selectbox() {
     $('.selectbox__arrow').on('mousedown click', function (e) {
       e.preventDefault();
       e.stopPropagation();
+      $(document).find('.selectbox').removeClass('active');
       $(this).parents('.selectbox').addClass('active');
     });
     selBox.find('ul').click(function () {

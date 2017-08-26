@@ -709,11 +709,9 @@ budget.extend("whatIsBudgetWeight", {
                         this.elements.$zoneSurplus.on("mouseenter hover", function (event) {
                                 clearTimeout(_this.timeoutGameLeft);
                                 _this.rollToTheLeft();
-                                $('.budgetScales-supportingWeight._useOfSurplus').show();
-                                $('.budgetScales-supportingWeight._financingOfDeficit').hide();
                         });
 
-                        this.elements.weight.$revenues.on("mouseenter hover", function (event) {
+                        this.elements.weight.$revenues.on("mouseenter hover mouseover", function (event) {
                                 clearTimeout(_this.timeoutGameLeft);
                                 _this.rollToTheLeft();
                         });
@@ -754,8 +752,6 @@ budget.extend("whatIsBudgetWeight", {
                         this.elements.$zoneDeficit.on("mouseenter hover", function (event) {
                                 clearTimeout(_this.timeoutGameRight);
                                 _this.rollToTheRight();
-                                $('.budgetScales-supportingWeight._financingOfDeficit').show();
-                                $('.budgetScales-supportingWeight._useOfSurplus').hide();
                         });
 
                         this.elements.weight.$expenditures.on("mouseenter hover", function (event) {
@@ -1017,6 +1013,9 @@ budget.extend("whatIsBudgetWeight", {
         alignmentToTheRight: function alignmentToTheRight() {
                 var _this4 = this;
 
+                $('.budgetScales-supportingWeight._useOfSurplus').show();
+                $('.budgetScales-supportingWeight._financingOfDeficit').hide();
+
                 if ( msieversion() === 9 ) {
                   _this4.elements.weight.$useOfSurplus.animate({opacity: "1"}, 'slow', 'linear');
                 } else {
@@ -1057,7 +1056,8 @@ budget.extend("whatIsBudgetWeight", {
 
                 //TweenMax.fromTo(this.elements.weight.$financingOfDeficit, 1.5, { autoAlpha: 0 }, { autoAlpha: 1 });
                 //TweenMax.fromTo(this.elements.weight.$financingOfDeficit, 1.5, { y: -150 }, { y: 0, ease: Bounce.easeOut });
-
+                $('.budgetScales-supportingWeight._useOfSurplus').hide();
+                $('.budgetScales-supportingWeight._financingOfDeficit').show();
 
                 if ( msieversion() === 9 ) {
                   _this5.elements.weight.$financingOfDeficit.animate({opacity: "1"}, 'slow', 'linear');

@@ -408,7 +408,7 @@
   .tile:after { display: block; width: 100%; content: ""; clear: both; }
 
   .tile__item { position: relative; float: left; display: -webkit-box; display: -webkit-flex; display: -moz-box; display: -ms-flexbox; display: flex; height: auto; width: 25%; margin-bottom: 14px; height: 100%; }
-  .tile__item:nth-child(n+5) { display: none;}
+
   .tile__inner { -webkit-box-flex: 1; -webkit-flex: 1; -moz-box-flex: 1; -ms-flex: 1; flex: 1; margin: 0 7px; }
 
   .tile_pt { padding-top: 11.25rem; }
@@ -421,12 +421,7 @@
     .tile__item { width: 33.333%; margin-bottom: 28px; }
     .tile__inner { margin: 0 14px; }
     .tile_sh { margin: 0 -14px; } }
-  @media (max-width: 1152px) {
-    .tile__item:nth-child(n+4) { display: none;}
-  }
-  @media (max-width: 640px) {
-    .tile__item:nth-child(n+3) { display: none;}
-  }
+
   @media (max-width: 900px) { .tile { height: 100%; }
     /*important из за неправильного переопределения медиа запрсов*/
     .tile__item { width: 50% !important; height: 100%; }
@@ -455,6 +450,10 @@
   /*Documents*/
   .documents-card_page {
     margin: 0 -7px;
+    height: 380px;
+    overflow: hidden;
+
+    .tile { height: auto !important; }
 
     @media (max-width: 1180px) {
       margin: 0 -14px;
