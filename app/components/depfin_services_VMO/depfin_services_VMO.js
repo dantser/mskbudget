@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import 'jquery.scrollbar';
+import 'jquery-ui-bundle';
 
 export default () => {
   const VMO = $('.services-VMO');
@@ -17,6 +18,25 @@ export default () => {
       $this.addClass(ACTIVE_CLASS);
     })
   });
+  // кастомный селект для "Муниципальных округов"
+  $('.analityc-select_vmo').each(function () {
+    $(this).selectmenu().selectmenu( "menuWidget" ).addClass( "ui-vmo" );
+  });
+  // VMO.find('.ui-year').each(function () {
+  //   $(this).on('click', function () {
+  //     $('.ui-widget').toggleClass('ui-selectmenu-button-open');
+  //     $('.ui-widget').toggleClass('ui-selectmenu-button-closed');
+  //   });
+  // });
+
+  $(document).on('click', function () {
+    if ($('.ui-selectmenu-button').hasClass('ui-selectmenu-button-open')) {
+      VMO.find('.ui-year svg').addClass('active');
+    } else {
+      VMO.find('.ui-year svg').removeClass('active');
+    }
+  });
+
 
 // Custom scroll for "паспорта ВМО"
   VMO.find('.services-VMO__table__wrapper').scrollbar();

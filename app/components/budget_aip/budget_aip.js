@@ -40,6 +40,7 @@ export default () => {
     }
   });
 
+
   // изменение селекта "гос программа"
   selectGP.on('change', function () {
     const $this = $(this);

@@ -5,6 +5,8 @@ include ../../blocks/dropdown-block/dropdown-block
 include ../../blocks/alternative-link/alternative-link
 include ../../blocks/table/table
 include ../analityc-table/analityc-table
+include ../../blocks/search-form/search-form
+include ../analityc-graphics/analityc-graphics
 
 mixin depfin_services_VMO()
   +b.SECTION.services-VMO.main._basic.basic-budget.sections__item
@@ -21,9 +23,10 @@ mixin depfin_services_VMO()
         a(href="#", data-tab-target="vmoPassports") Паспорта ВМО
       .analityc-widget.analityc-widget_VMO
         +tabs
-          +tabs-tab(data-tab-group="VMO" data-tab="vmoAll").active
+          +tabs-tab(data-tab-group="VMO" data-tab="vmoAll")
             +vmoAll()
-          +tabs-tab(data-tab-group="VMO" data-tab="vmoMunicipalDistricts")
+          +tabs-tab(data-tab-group="VMO" data-tab="vmoMunicipalDistricts").active
+            +vmoMunicipalDistricts()
           +tabs-tab(data-tab-group="VMO" data-tab="vmoCityDistricts")
           +tabs-tab(data-tab-group="VMO" data-tab="vmoSettlements")
           +tabs-tab(data-tab-group="VMO" data-tab="vmoPassports")
@@ -107,6 +110,69 @@ mixin vmoAll()
         +icon('angle-arrow').section__ar.section__ar_right
         .analityc-table__wrapper
           +table-vmo_slider(getData('vmo1'))
+
+//-таб "Муниципальные округи"
+mixin vmoMunicipalDistricts()
+  H3.services-VMO__title Муниципальные округи — сводная информация
+  .services-VMO__content.services-VMO__content_municipal
+    .services-VMO__figure-wrapper
+      .services-VMO__figure.services-VMO__figure_blue
+        span.services-VMO__descr площадь
+        span.services-VMO__digit.services-VMO__digit_blue 1500 
+          span га
+        span.services-VMO__subdescr 12,3% территории москвы
+      .services-VMO__figure.services-VMO__figure_blue
+        span.services-VMO__descr население
+        span.services-VMO__digit.services-VMO__digit_blue 1 200 000 
+          span человек
+        span.services-VMO__subdescr 12,3% территории москвы
+      .services-VMO__figure.services-VMO__figure_blue
+        span.services-VMO__descr плотность населения
+        span.services-VMO__digit.services-VMO__digit_blue 5 
+          span чел на га
+        span.services-VMO__subdescr 12,3% территории москвы
+    .services-VMO__map-wrapper
+      img(src="assets/images/VMO/mapMunicipales.png")
+    .analityc-control-group._search
+      span Муниципальные округи
+      +searchFormWidget('замоскворечье', 'Введите название района Москвы')
+  .services-VMO__content.services-VMO__content_municipal-graphics
+    .analityc-control-switcher.analityc-control-switcher_main.analityc-control-switcher_default.active
+      a(href="#" data-tab-target="VMOsocialEc") Социально-экономические показатели
+      a(href="#" data-tab-target="VMOincome") доходы
+      a(href="#" data-tab-target="VMOexpenses").active расходы
+    +tabs
+      +tabs-tab(data-tab-group="VMOmunicipalDistricts" data-tab="VMOsocialEc")
+        H3.services-VMO__title Социально-экономические показатели муниципальных округов за 
+          .select-wrapper
+            select.analityc-select.analityc-select_year.analityc-select_vmo
+              option(selected) 2015
+              option 2016
+              option 2017 
+            span.ui-year  год
+              +icon('caret')
+      +tabs-tab(data-tab-group="VMOmunicipalDistricts" data-tab="VMOincome")
+        H3.services-VMO__title Доходы муниципальных округов за
+          .select-wrapper
+            select.analityc-select.analityc-select_year.analityc-select_vmo
+              option(selected) 2015
+              option 2016
+              option 2017 
+            span.ui-year  год
+              +icon('caret')
+      +tabs-tab(data-tab-group="VMOmunicipalDistricts" data-tab="VMOexpenses").active
+        H3.services-VMO__title расходы муниципальных округов за 
+          .select-wrapper
+            select.analityc-select.analityc-select_year.analityc-select_vmo
+              option(selected) 2015
+              option 2016
+              option 2017 
+            span.ui-year  год
+              +icon('caret')
+        .services-VMO__figure-big 2 750,2 
+          span млн руб. 
+        +analityc-graphics-line('Структура фактических расходов муниципальных округов за 2016 год', getData('graphic-lines-vmo'))._date-one
+        h4.services-VMO__subtitle Динамика расходов муниципальных округов
 
 //- таб "Паспорт ВМО"
 mixin vmoPassports()
