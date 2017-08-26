@@ -1,21 +1,20 @@
-
-var budget = {modules : []};
-budget.extend = function(moduleName, moduleData){
-    if(!moduleName){
-        return;
-    }
-    if(!moduleData){
-        var moduleData = {elements: {}, init: function(){console.log("Empty init for module")}};
-    }
-    this[moduleName] = moduleData;
-    this.modules.push( moduleData );
-    return moduleData;
+var budget = { modules: [] };
+budget.extend = function(moduleName, moduleData) {
+  if (!moduleName) {
+    return;
+  }
+  if (!moduleData) {
+    var moduleData = { elements: {}, init: function() { console.log("Empty init for module") } };
+  }
+  this[moduleName] = moduleData;
+  this.modules.push(moduleData);
+  return moduleData;
 }
-budget.init = function(){
-    var totalModules = budget.modules.length;
-    for(var k = 0; k < totalModules; k++){
-        budget.modules[k].init();
-    }
+budget.init = function() {
+  var totalModules = budget.modules.length;
+  for (var k = 0; k < totalModules; k++) {
+    budget.modules[k].init();
+  }
 }
 
 
@@ -26,104 +25,104 @@ budget.init = function(){
 //*******************************************
 budget.extend("common", {
 
-    init: function () {
+  init: function() {
 
-		var self = this;
+    var self = this;
 
-		$('.blackout').on('click', function() {
-            $('#popup-wrapper').fadeOut();
-			$(this).fadeOut();
-		})
-		$('.popup').on('click', function(e) {
-			e.stopPropagation()
-		})
-		$('.popup').find('.close-popup').on('click', function() {
-            $('#popup-wrapper').fadeOut();
-			$('.blackout').fadeOut();
-		})
-        $('#blackout [data-answer]').on('click', function(){
-            var answer = $(this).data('answer');
-            if (answer === 'yes') {
-                $('.d-study__lessons_item').removeClass('d-lesson__done');
-            }
-            $('#popup-wrapper').fadeOut();
-			$('.blackout').fadeOut();
-        })
+    $('.blackout').on('click', function() {
+      $('#popup-wrapper').fadeOut();
+      $(this).fadeOut();
+    })
+    $('.popup').on('click', function(e) {
+      e.stopPropagation()
+    })
+    $('.popup').find('.close-popup').on('click', function() {
+      $('#popup-wrapper').fadeOut();
+      $('.blackout').fadeOut();
+    })
+    $('#blackout [data-answer]').on('click', function() {
+      var answer = $(this).data('answer');
+      if (answer === 'yes') {
+        $('.d-study__lessons_item').removeClass('d-lesson__done');
+      }
+      $('#popup-wrapper').fadeOut();
+      $('.blackout').fadeOut();
+    })
 
-		$('.d-study__clear-res').on('click', function(e) {
-            e.preventDefault();
-            $('#popup-wrapper').fadeIn();
-			$('.blackout').fadeIn();
-		})
+    $('.d-study__clear-res').on('click', function(e) {
+      e.preventDefault();
+      $('#popup-wrapper').fadeIn();
+      $('.blackout').fadeIn();
+    })
 
-		$('.edu-lesson-link').on('click', function() {
-            window.location.href = $(this).attr('href');
-			$('.edu-content').removeClass('_active');
+    $('.edu-lesson-link').on('click', function() {
+      window.location.href = $(this).attr('href');
+      $('.edu-content').removeClass('_active');
 
-			var id = $(this).attr('id');
+      var id = $(this).attr('id');
 
-			$('.edu-content[id="'+id+'"]').addClass('_active');
+      $('.edu-content[id="' + id + '"]').addClass('_active');
 
-			$('.edu-lesson-link').removeClass('disable');
+      $('.edu-lesson-link').removeClass('disable');
 
-			$(this).addClass('disable');
+      $(this).addClass('disable');
 
-			$('.close-lessons-burger').trigger('click');
-		})
+      $('.close-lessons-burger').trigger('click');
+    })
 
-		$('.d-sq__head_next').on('click', function() {
-			var $active = $('.edu-lesson-link.disable');
+    $('.d-sq__head_next').on('click', function() {
+      var $active = $('.edu-lesson-link.disable');
 
-			if ($active.next('.edu-lesson-link').length) {
-				$active.next('.edu-lesson-link').trigger('click');
-			} else {
-				$('.edu-lesson-link:first').trigger('click');
-			}
-		})
-		$('.d-sq__head_prev').on('click', function() {
-			var $active = $('.edu-lesson-link.disable');
+      if ($active.next('.edu-lesson-link').length) {
+        $active.next('.edu-lesson-link').trigger('click');
+      } else {
+        $('.edu-lesson-link:first').trigger('click');
+      }
+    })
+    $('.d-sq__head_prev').on('click', function() {
+      var $active = $('.edu-lesson-link.disable');
 
-			if ($active.prev('.edu-lesson-link').length) {
-				$active.prev('.edu-lesson-link').trigger('click');
-			} else {
-				$('.edu-lesson-link:last').trigger('click');
-			}
-		})
+      if ($active.prev('.edu-lesson-link').length) {
+        $active.prev('.edu-lesson-link').trigger('click');
+      } else {
+        $('.edu-lesson-link:last').trigger('click');
+      }
+    })
 
-		setTimeout(function() {
+    setTimeout(function() {
 
-            self.current_slide = 1;
-            self.slide_count = $('.carousel-3d-slide').length;
+      self.current_slide = 1;
+      self.slide_count = $('.carousel-3d-slide').length;
 
 
-			$('#carousel').find('.ar-right').on('click', function() {
-				var $current = $('.carousel-3d-slide.current');
+      $('#carousel').find('.ar-right').on('click', function() {
+        var $current = $('.carousel-3d-slide.current');
 
-				if ($current.next('.carousel-3d-slide').length) {
-					$current.next('.carousel-3d-slide').click();
-				} else {
-					$('.carousel-3d-slide:first').click();
-				}
-			})
-			$('#carousel').find('.ar-left').on('click', function() {
-				var $current = $('.carousel-3d-slide.current');
-				if ($current.prev('.carousel-3d-slide').length) {
-					$current.prev('.carousel-3d-slide').click();
-				} else {
-					$('.carousel-3d-slide:last').click();
-				}
-			})
-            //
-            // $('.carousel-3d-slide').on('click', function() {
-            //
-            //     // self.current_slide = $(this).index('.carousel-3d-slide') + 1;
-            //
-            //     //$('.carousel-count').html(self.current_slide+'&nbsp;из&nbsp;'+self.slide_count);
-            // })
+        if ($current.next('.carousel-3d-slide').length) {
+          $current.next('.carousel-3d-slide').click();
+        } else {
+          $('.carousel-3d-slide:first').click();
+        }
+      })
+      $('#carousel').find('.ar-left').on('click', function() {
+        var $current = $('.carousel-3d-slide.current');
+        if ($current.prev('.carousel-3d-slide').length) {
+          $current.prev('.carousel-3d-slide').click();
+        } else {
+          $('.carousel-3d-slide:last').click();
+        }
+      })
+      //
+      // $('.carousel-3d-slide').on('click', function() {
+      //
+      //     // self.current_slide = $(this).index('.carousel-3d-slide') + 1;
+      //
+      //     //$('.carousel-count').html(self.current_slide+'&nbsp;из&nbsp;'+self.slide_count);
+      // })
 
-             //$('.carousel-count').html('1&nbsp;из&nbsp;'+self.slide_count);
+      //$('.carousel-count').html('1&nbsp;из&nbsp;'+self.slide_count);
 
-		},0)
+    }, 0);
 
     // function appendList(inst, className) {
     //     var $selectElement = inst.dpDiv.find('.' + className);
@@ -158,33 +157,35 @@ budget.extend("common", {
     //     }, 0);
     // };
 
-		if ($( ".datepicker" ).length) {
-			$( ".datepicker" ).datepicker();
-			$.datepicker.regional['ru'] = {
-      changeMonth: true,
-      changeYear: true,
-			closeText: 'Закрыть',
-			prevText: '&#x3c;Пред',
-			nextText: 'След&#x3e;',
-			currentText: 'Сегодня',
-			monthNames: ['Январь','Февраль','Март','Апрель','Май','Июнь',
-			'Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
-			monthNamesShort: ['Январь','Февраль','Март','Апрель','Май','Июнь',
-			'Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
-			dayNames: ['воскресенье','понедельник','вторник','среда','четверг','пятница','суббота'],
-			dayNamesShort: ['вск','пнд','втр','срд','чтв','птн','сбт'],
-			dayNamesMin: ['Вс','Пн','Вт','Ср','Чт','Пт','Сб'],
-			dateFormat: 'dd.mm.yy',
-			firstDay: 1,
-			isRTL: false,
-      beforeShowDay: DisableSpecificDates
-      // beforeShow: function(input, inst) {
-      //   convertToLists(inst);
-      // },
-      // onChangeMonthYear: function (year, month, inst) {
-      //   convertToLists(inst);
-      // }
-			};
+    if ($(".datepicker").length) {
+      $(".datepicker").datepicker();
+      $.datepicker.regional['ru'] = {
+        changeMonth: true,
+        changeYear: true,
+        closeText: 'Закрыть',
+        prevText: '&#x3c;Пред',
+        nextText: 'След&#x3e;',
+        currentText: 'Сегодня',
+        monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
+          'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'
+        ],
+        monthNamesShort: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
+          'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'
+        ],
+        dayNames: ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'],
+        dayNamesShort: ['вск', 'пнд', 'втр', 'срд', 'чтв', 'птн', 'сбт'],
+        dayNamesMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+        dateFormat: 'dd.mm.yy',
+        firstDay: 1,
+        isRTL: false,
+        beforeShowDay: DisableSpecificDates
+        // beforeShow: function(input, inst) {
+        //   convertToLists(inst);
+        // },
+        // onChangeMonthYear: function (year, month, inst) {
+        //   convertToLists(inst);
+        // }
+      };
 
       function DisableSpecificDates(date) {
 
@@ -196,239 +197,240 @@ budget.extend("common", {
 
         // First convert the date in to the mm-dd-yyyy format
         // Take note that we will increment the month count by 1
-        var currentdate = (m + 1) + '-' + d + '-' + y ;
+        var currentdate = (m + 1) + '-' + d + '-' + y;
 
-         // We will now check if the date belongs to disableddates array
+        // We will now check if the date belongs to disableddates array
         for (var i = 0; i < disableddates.length; i++) {
 
           // Now check if the current date is in disabled dates array.
-          if ($.inArray(currentdate, disableddates) != -1 ) {
+          if ($.inArray(currentdate, disableddates) != -1) {
             return [false];
           } else if (day == 1 || day == 0) {
-            return [false] ;
+            return [false];
           } else {
             return [true];
           }
         }
 
       }
-			$.datepicker.setDefaults($.datepicker.regional['ru']);
-		}
+      $.datepicker.setDefaults($.datepicker.regional['ru']);
+    }
 
 
-        $('.quiz-hint-trigger').on('click', function() {
-            $(this).next('.quiz-hint').show();
-            $(this).hide();
-        })
-        $('.quiz-hint-close').on('click', function() {
-            var $parent = $(this).parents('.quiz-hint');
+    $('.quiz-hint-trigger').on('click', function() {
+      $(this).next('.quiz-hint').show();
+      $(this).hide();
+    })
+    $('.quiz-hint-close').on('click', function() {
+      var $parent = $(this).parents('.quiz-hint');
 
-            $parent.prev().show();
-            $parent.hide();
+      $parent.prev().show();
+      $parent.hide();
 
-        })
+    })
 
-        $('.d-sr__progress-descr_other').on('click', function() {
+    $('.d-sr__progress-descr_other').on('click', function() {
 
-            if ($(this).hasClass('_active')) {
-                //$(this).parents('.d-sr__stat-container').next('.other-info').hide();
-                $(this).parents('.d-sr__progress_item').next('.other-info').slideUp();
-                $(this).removeClass('_active')
-            } else {
-              //$(this).parents('.d-sr__stat-container').next('.other-info').show();
-              $(this).parents('.d-sr__progress_item').next('.other-info').slideDown();
-                $(this).addClass('_active');
-            }
-        })
+      if ($(this).hasClass('_active')) {
+        //$(this).parents('.d-sr__stat-container').next('.other-info').hide();
+        $(this).parents('.d-sr__progress_item').next('.other-info').slideUp();
+        $(this).removeClass('_active')
+      } else {
+        //$(this).parents('.d-sr__stat-container').next('.other-info').show();
+        $(this).parents('.d-sr__progress_item').next('.other-info').slideDown();
+        $(this).addClass('_active');
+      }
+    })
 
-        $('.d-question__head_menu').on('click', function() {
-            $(this).parents('.d-study__question').find('.burger-lessons-menu').show();
-        })
+    $('.d-question__head_menu').on('click', function() {
+      $(this).parents('.d-study__question').find('.burger-lessons-menu').show();
+    })
 
-        $('.close-lessons-burger').on('click', function() {
-            $(this).parents('.burger-lessons-menu').hide();
-        })
-
-
-        self.setRounds();
-
-        $(window).on('resize', function() {
-            self.setRounds();
-            if ($('.sectored_round').length) {
-                self.correctSectoredRounds();
-            }
-        })
+    $('.close-lessons-burger').on('click', function() {
+      $(this).parents('.burger-lessons-menu').hide();
+    })
 
 
-        if ($('.sectored_round').length) {
-            self.correctSectoredRounds();
+    self.setRounds();
+
+    $(window).on('resize', function() {
+      self.setRounds();
+      if ($('.sectored_round').length) {
+        self.correctSectoredRounds();
+      }
+    })
+
+
+    if ($('.sectored_round').length) {
+      self.correctSectoredRounds();
+    }
+
+  },
+
+  correctSectoredRounds: function() {
+
+    var self = this;
+
+    $('.sectored_round').each(function() {
+
+      var count = parseInt($(this).attr('sector-count'));
+
+      var datalist = [];
+
+      for (var i = 0; i < count; i++) {
+        datalist[i] = 1;
+      }
+
+      var fill_sectors = $(this).attr('fill-sectors');
+
+      var fill = [];
+      if (fill_sectors.length) {
+        fill = fill_sectors.split(',');
+      }
+
+      $(this).attr('width', parseInt($(this).css('width')));
+      $(this).attr('height', parseInt($(this).css('height')));
+
+      var canvas = $(this).get(0);
+      var ctx = canvas.getContext('2d');
+
+      var stroke_width = parseInt($(this).attr('stroke-width'));
+
+      self.setSectoredCircle(ctx, canvas.width, canvas.height, datalist, fill, stroke_width);
+
+    })
+  },
+
+  setRounds: function() {
+    var self = this;
+    $('.circle').each(function() {
+
+      var timeout = 400;
+
+      $(this).find('.progress').each(function() {
+
+
+        var proc = $(this).attr('data-val');
+
+        var $progress = $(this);
+
+        setTimeout(function() {
+          self.setCircle($progress, proc);
+        }, timeout)
+
+        timeout += 400;
+      })
+
+    })
+  },
+
+  setSectoredCircle: function(ctx, w, h, datalist, fill_sectors, stroke_width) {
+
+    var default_fill = $(ctx.canvas).attr('default-fill') || '#e4e4e4';
+
+    var radius = h / 2 - stroke_width / 2;
+    var centerx = w / 2;
+    var centery = h / 2;
+    var total = 0;
+
+    for (x = 0; x < datalist.length; x++) { total += datalist[x]; };
+
+    var between = stroke_width / 400;
+
+    if (between < 0.05) between = 0.07;
+
+
+    var lastend = between / 2;
+    var offset = Math.PI / 2;
+
+    for (x = 0; x < datalist.length; x++) {
+
+      var thispart = datalist[x];
+      ctx.beginPath();
+
+      var grd = ctx.createLinearGradient(0, 0, 0, 250);
+      grd.addColorStop(0, "#80c440");
+      grd.addColorStop(1, "#c2d41f");
+
+      var arcsector = Math.PI * (2 * thispart / total) - between;
+      ctx.arc(centerx, centery, radius, lastend - offset, lastend + arcsector - offset, false);
+      ctx.lineWidth = stroke_width;
+
+      var fill = false;
+
+      for (var j = 0; j < fill_sectors.length; j++) {
+        if (fill_sectors[j] == x) {
+
+          fill = true;
+          break;
+
         }
+      }
 
-    },
-
-    correctSectoredRounds: function() {
-
-        var self = this;
-
-        $('.sectored_round').each(function() {
-
-            var count = parseInt($(this).attr('sector-count'));
-
-            var datalist = [];
-
-            for (var i = 0; i < count; i++) {
-                datalist[i] = 1;
-            }
-
-            var fill_sectors = $(this).attr('fill-sectors');
-
-            var fill = [];
-            if (fill_sectors.length) {
-                fill = fill_sectors.split(',');
-            }
-
-            $(this).attr('width', parseInt($(this).css('width')));
-            $(this).attr('height', parseInt($(this).css('height')));
-
-            var canvas = $(this).get(0);
-            var ctx = canvas.getContext('2d');
-
-            var stroke_width = parseInt($(this).attr('stroke-width'));
-
-            self.setSectoredCircle(ctx, canvas.width, canvas.height, datalist, fill, stroke_width);
-
-        })
-    },
-
-    setRounds: function() {
-        var self = this;
-        $('.circle').each(function() {
-
-			var timeout = 400;
-
-			$(this).find('.progress').each(function() {
+      if (fill) {
+        ctx.strokeStyle = grd;
+      } else {
+        ctx.strokeStyle = default_fill;
+      }
 
 
-				var proc = $(this).attr('data-val');
-
-				var $progress = $(this);
-
-				setTimeout(function() {
-					self.setCircle($progress, proc);
-				}, timeout)
-
-				timeout += 400;
-			})
-
-		})
-    },
-
-    setSectoredCircle: function(ctx, w, h, datalist, fill_sectors, stroke_width) {
-
-        var default_fill = $(ctx.canvas).attr('default-fill') || '#e4e4e4';
-
-        var radius = h / 2 - stroke_width/2;
-        var centerx = w / 2;
-        var centery = h / 2;
-        var total = 0;
-
-        for(x=0; x < datalist.length; x++) { total += datalist[x]; };
-
-        var between = stroke_width / 400;
-
-        if (between < 0.05) between = 0.07;
+      ctx.stroke();
+      ctx.closePath();
+      lastend += arcsector + between;
+    }
+  },
 
 
-        var lastend = between / 2;
-        var offset = Math.PI / 2;
+  setCircle: function($circle, value) {
+    var self = this;
 
-        for (x=0; x < datalist.length; x++) {
+    var $svg = $circle.parents('svg');
 
-            var thispart = datalist[x];
-            ctx.beginPath();
+    var total = 100;
 
-            var grd=ctx.createLinearGradient(0,0,0,250);
-            grd.addColorStop(0,"#80c440");
-            grd.addColorStop(1,"#c2d41f");
-
-            var arcsector = Math.PI * (2 * thispart / total) - between;
-            ctx.arc(centerx, centery, radius, lastend - offset, lastend + arcsector - offset, false);
-            ctx.lineWidth = stroke_width;
-
-            var fill = false;
-
-            for (var j = 0; j < fill_sectors.length; j++) {
-                if (fill_sectors[j] == x) {
-
-                    fill = true;
-                    break;
-
-                }
-            }
-
-            if (fill) {
-                ctx.strokeStyle = grd;
-            } else {
-                ctx.strokeStyle = default_fill;
-            }
+    var val = ((value / total) * 100);
 
 
-            ctx.stroke();
-            ctx.closePath();
-            lastend += arcsector + between;
-        }
-    },
+    var r = parseInt($circle.css('r')) || parseInt($circle.attr('r'));
 
+    var c = Math.PI * (r * 2);
 
-	setCircle: function($circle, value) {
-		var self = this;
+    var over = false;
 
-		var $svg = $circle.parents('svg');
+    if (val < 0) { val = 0; }
+    if (val > 100) {
+      val = 100;
+    }
 
-		var total = 100;
+    var pct = ((100 - val) / 100) * c;
 
-		var val = ((value/total)*100);
+    $circle.css({ strokeDashoffset: pct });
 
+  },
 
-		var r = parseInt($circle.css('r')) || parseInt($circle.attr('r'));
+  createCircle: function($svg, type, val) {
 
-		var c = Math.PI*(r*2);
+    var elem = '<circle stroke="url(#linearColors' + type + '-2)" data-val="' + val + '" class="progress" r="165" cx="200" cy="200" stroke-linecap="round" fill="transparent" stroke-dasharray="1037" stroke-dashoffset="1037" style="stroke-dashoffset: 1037px;" stroke-width="60"></circle>';
 
-		var over = false;
+    $svg.append(elem)
 
-		if (val < 0) { val = 0;}
-		if (val > 100) {
-			val = 100;
-		}
-
-		var pct = ((100-val)/100)*c;
-
-		$circle.css({strokeDashoffset: pct});
-
-	},
-
-	createCircle: function($svg, type, val) {
-
-		var elem = '<circle stroke="url(#linearColors'+type+'-2)" data-val="'+val+'" class="progress" r="165" cx="200" cy="200" stroke-linecap="round" fill="transparent" stroke-dasharray="1037" stroke-dashoffset="1037" style="stroke-dashoffset: 1037px;" stroke-width="60"></circle>';
-
-		$svg.append(elem)
-
-		this.setCircle($svg.find('.progress:last'), val);
-	}
+    this.setCircle($svg.find('.progress:last'), val);
+  }
 })
 
 $(budget.init);
+console.log(budget.init);
 
 
 
 
 //
-$(document).ready(function(){
+$(document).ready(function() {
 
-//
-$('.js-abs-btn').click(function(){
-	$('.abs-box--active').removeClass('abs-box--active');
-	$(this).parents('.abs-box').addClass('abs-box--active');
+  //
+  $('.js-abs-btn').click(function() {
+    $('.abs-box--active').removeClass('abs-box--active');
+    $(this).parents('.abs-box').addClass('abs-box--active');
     $(".d-abs__nav").addClass("_active");
     //if ($(window).width() < 970) {
     //    $("html, body").animate({scrollTop: $(".abs-box--active .puzzle-inner").offset().top - 100}, 600);
@@ -439,9 +441,9 @@ $('.js-abs-btn').click(function(){
     //    $("html, body").animate({scrollTop: $(".abs-box--active .puzzle-inner").offset().top - 100}, 600);
     //}})
     return false;
-});
-$('.js-abs-close').click(function(){
-	$('.abs-box--active').removeClass('abs-box--active');
+  });
+  $('.js-abs-close').click(function() {
+    $('.abs-box--active').removeClass('abs-box--active');
     $(".d-abs__nav").removeClass("_active");
     //if ($(window).width() < 970) {
     //    $("html, body").animate({scrollTop: $(".d-abs__nav").offset().top - 80}, 600);
@@ -451,52 +453,54 @@ $('.js-abs-close').click(function(){
     //  if ($(window).width() < 970) {
     //    $("html, body").animate({scrollTop: $(".abs-box--active .puzzle-inner").offset().top - 100}, 600);
     //}})
-});
-$(document).on('keyup', function(e){
-	if(e.keyCode == 27){
-		$('.js-abs-close').click();
-	}
-});
-//
+  });
+  $(document).on('keyup', function(e) {
+    if (e.keyCode == 27) {
+      $('.js-abs-close').click();
+    }
+  });
+  //
 
 
-//init func
-basicBudgetFiguresDiagrams();
-tabsLine();
-sectionTabs();
-stepsDetails();
-stageSlider();
-dateSlider();
+  //init func
+  basicBudgetFiguresDiagrams();
+  tabsLine();
+  sectionTabs();
+  stepsDetails();
+  stageSlider();
+  dateSlider();
 });
 //$(document).ready * end
 
 //
-function tabsLine(){
-  $('.owl-nav').each(function () {
-    var next = $(this).find('.owl-next');
-    var prev = $(this).find('.owl-prev');
-    next.on('click', function (e) {
-      $(this).parents('.section-tabs').find('.dd-holder').animate( { scrollLeft: '+=276' }, 300);
+function tabsLine() {
+  if ($('.owl-nav').length) {
+    $('.owl-nav').each(function() {
+      var next = $(this).find('.owl-next');
+      var prev = $(this).find('.owl-prev');
+      next.on('click', function(e) {
+        $(this).parents('.section-tabs').find('.dd-holder').animate({ scrollLeft: '+=276' }, 300);
+      });
+
+      prev.on('click', function(e) {
+        $(this).parents('.section-tabs').find('.dd-holder').animate({ scrollLeft: '-=276' }, 300);
+      });
+
+
     });
-
-    prev.on('click', function (e) {
-      $(this).parents('.section-tabs').find('.dd-holder').animate( { scrollLeft: '-=276' }, 300);
-    });
-
-
-  })
+  }
 
   function arrowActive(el) {
     if (!el) {
       return
     }
     var sL = el.scrollLeft(),
-        leftArr = el.parents('.section-tabs').find('.owl-prev'),
-        rightArr = el.parents('.section-tabs').find('.owl-next');
+      leftArr = el.parents('.section-tabs').find('.owl-prev'),
+      rightArr = el.parents('.section-tabs').find('.owl-next');
 
     if (sL === 0) {
       leftArr.addClass('disabled');
-    } else if (sL === ( el.prop('scrollWidth') - el.width().toFixed(0) ) ) {
+    } else if (sL === (el.prop('scrollWidth') - el.width().toFixed(0))) {
       rightArr.addClass('disabled');
     } else {
       leftArr.removeClass('disabled');
@@ -505,75 +509,77 @@ function tabsLine(){
   }
   if ($('.dd-holder').length) {
     arrowActive($('.dd-holder'));
-    $('.dd-holder').each(function () {
-      $(this).scroll(function(){
+    $('.dd-holder').each(function() {
+      $(this).scroll(function() {
         arrowActive($(this));
       });
     })
   }
 
 
-	$('.js-label-button').click(function(){
-      var sectionTabs = $(this).parents('.section-tabs');
-      setTimeout( function() {
-        sectionTabs.find(".whitescreen1").fadeToggle(100);
-      }, 500)
+  $('.js-label-button').click(function() {
+    var sectionTabs = $(this).parents('.section-tabs');
+    setTimeout(function() {
+      sectionTabs.find(".whitescreen1").fadeToggle(100);
+    }, 500)
 
-      sectionTabs.find($('.section-tabs__nav')).slideToggle();
-      sectionTabs.find($('.owl-nav')).toggle();
+    sectionTabs.find($('.section-tabs__nav')).slideToggle();
+    sectionTabs.find($('.owl-nav')).toggle();
 
-      $(this).toggleClass('js-label-button-closed');
-      sectionTabs.toggleClass('active');
-      sectionTabs.find($('.section-tabs__head')).toggleClass('section-tabs__head_closed');
-      return false
-		/*
-		если понадобиться скрывать пункты в навигации табов,
-		то при клике надо будет реинициализировать карусельку
-		*/
-	});
+    $(this).toggleClass('js-label-button-closed');
+    sectionTabs.toggleClass('active');
+    sectionTabs.find($('.section-tabs__head')).toggleClass('section-tabs__head_closed');
+    return false
+    /*
+    если понадобиться скрывать пункты в навигации табов,
+    то при клике надо будет реинициализировать карусельку
+    */
+  });
 
-  $('.js-label').click(function(){
+  $('.js-label').click(function() {
     var sectionTabs = $(this).parents('.section-tabs');
     sectionTabs.find($('.section-tabs__content')).slideToggle();
   })
 
-	$('.owl-carousel.sections').owlCarousel({
-		loop:false,
-		margin:0,
-		nav:true,
-		responsiveClass:true,
-		center:false,
-		autoWidth:true,//разная ширина слайдов, ширину задавать на вложенный блок у слайда! + не указывать явно items:1,
-		dots:false,
-		mouseDrag:false,
-		touchDrag:false,
-		autoplay:false,
-		smartSpeed:400,
-    responsive: {
-      0: {
-        touchDrag:true,
-        autoWidth: false,
-        items: 1
-      },
-      520: {
-        autoWidth: true
-      },
-      1025: {
-        touchDrag: false
+  if ($('.owl-carousel.sections').length) {
+    $('.owl-carousel.sections').owlCarousel({
+      loop: false,
+      margin: 0,
+      nav: true,
+      responsiveClass: true,
+      center: false,
+      autoWidth: true, //разная ширина слайдов, ширину задавать на вложенный блок у слайда! + не указывать явно items:1,
+      dots: false,
+      mouseDrag: false,
+      touchDrag: false,
+      autoplay: false,
+      smartSpeed: 400,
+      responsive: {
+        0: {
+          touchDrag: true,
+          autoWidth: false,
+          items: 1
+        },
+        520: {
+          autoWidth: true
+        },
+        1025: {
+          touchDrag: false
+        }
       }
-    }
-	});
+    });
+  }
 
   //   $('.owl-carousel.documents').owlCarousel({
-	// 	loop:false,
-	// 	margin:0,
-	// 	nav:true,
-	// 	responsiveClass:true,
-	// 	center:false,
+  //  loop:false,
+  //  margin:0,
+  //  nav:true,
+  //  responsiveClass:true,
+  //  center:false,
   //   mouseDrag: true,
   //   touchDrag:true,
   //
-	// 	// autoWidth:true,//разная ширина слайдов, ширину задавать на вложенный блок у слайда! + не указывать явно items:1,
+  //  // autoWidth:true,//разная ширина слайдов, ширину задавать на вложенный блок у слайда! + не указывать явно items:1,
   //   startPosition:0,
   //   items: 'auto',
   //   responsive: {
@@ -598,147 +604,147 @@ function tabsLine(){
   //       items: 4
   //     }
   //   },
-	// 	dots:false,
-	// 	autoplay:false,
-	// 	smartSpeed:500
-	// });
+  //  dots:false,
+  //  autoplay:false,
+  //  smartSpeed:500
+  // });
 
-//   $('.owl-carousel.owl-carousel_news').owlCarousel({
-//     loop:false,
-//     margin:0,
-//     nav:true,
-//     responsiveClass:true,
-//     center:false,
-//     // autoWidth:true,//разная ширина слайдов, ширину задавать на вложенный блок у слайда! + не указывать явно items:1,
-//     startPosition:0,
-//     items: 4,
-//     responsive: {
-//       0: {
-//         touchDrag:true,
-//         items: 1
-//       },
-//       650: {
-//         touchDrag: true,
-//         items: 2
-//       },
-//       970: {
-//         touchDrag: true,
-//         items: 3
-//       },
-//       1024: {
-//         touchDrag: true,
-//         items: 3
-//       },
-//       1280: {
-//         touchDrag: false,
-//         items: 4
-//       }
-//     },
-//     dots:false,
-//     mouseDrag:false,
-//     touchDrag:false,
-//     autoplay:false,
-//     smartSpeed:500
-//   });
-//
-// $('.owl-carousel.owl-carousel_services').owlCarousel({
-//   loop:false,
-//   margin:0,
-//   nav:true,
-//   responsiveClass:true,
-//   center:false,
-//   // autoWidth:true,//разная ширина слайдов, ширину задавать на вложенный блок у слайда! + не указывать явно items:1,
-//   startPosition:0,
-//   items: 4,
-//   responsive: {
-//     0: {
-//       touchDrag:true,
-//       items: 1
-//     },
-//     650: {
-//       touchDrag: true,
-//       items: 2
-//     },
-//     970: {
-//       touchDrag: true,
-//       items: 3
-//     },
-//     1024: {
-//       touchDrag: true,
-//       items: 3
-//     },
-//     1280: {
-//       touchDrag: false,
-//       items: 4
-//     }
-//   },
-//   dots:false,
-//   mouseDrag:false,
-//   touchDrag:false,
-//   autoplay:false,
-//   smartSpeed:500
-// });
-
-	// var owl = $('.owl-carousel');
+  //   $('.owl-carousel.owl-carousel_news').owlCarousel({
+  //     loop:false,
+  //     margin:0,
+  //     nav:true,
+  //     responsiveClass:true,
+  //     center:false,
+  //     // autoWidth:true,//разная ширина слайдов, ширину задавать на вложенный блок у слайда! + не указывать явно items:1,
+  //     startPosition:0,
+  //     items: 4,
+  //     responsive: {
+  //       0: {
+  //         touchDrag:true,
+  //         items: 1
+  //       },
+  //       650: {
+  //         touchDrag: true,
+  //         items: 2
+  //       },
+  //       970: {
+  //         touchDrag: true,
+  //         items: 3
+  //       },
+  //       1024: {
+  //         touchDrag: true,
+  //         items: 3
+  //       },
+  //       1280: {
+  //         touchDrag: false,
+  //         items: 4
+  //       }
+  //     },
+  //     dots:false,
+  //     mouseDrag:false,
+  //     touchDrag:false,
+  //     autoplay:false,
+  //     smartSpeed:500
+  //   });
   //
-	// $(document).on('click', '.btn-arrow--prev', function(e){
-	// 	$(this).parents('.section-tabs__nav').find('.owl-prev').click();
-	// 	// owl.trigger('refresh.owl.carousel');
-	// 	return false
-	// });
-	// $(document).on('click', '.btn-arrow--next', function(e){
-	// 	$(this).parents('.section-tabs__nav').find('.owl-next').click();
+  // $('.owl-carousel.owl-carousel_services').owlCarousel({
+  //   loop:false,
+  //   margin:0,
+  //   nav:true,
+  //   responsiveClass:true,
+  //   center:false,
+  //   // autoWidth:true,//разная ширина слайдов, ширину задавать на вложенный блок у слайда! + не указывать явно items:1,
+  //   startPosition:0,
+  //   items: 4,
+  //   responsive: {
+  //     0: {
+  //       touchDrag:true,
+  //       items: 1
+  //     },
+  //     650: {
+  //       touchDrag: true,
+  //       items: 2
+  //     },
+  //     970: {
+  //       touchDrag: true,
+  //       items: 3
+  //     },
+  //     1024: {
+  //       touchDrag: true,
+  //       items: 3
+  //     },
+  //     1280: {
+  //       touchDrag: false,
+  //       items: 4
+  //     }
+  //   },
+  //   dots:false,
+  //   mouseDrag:false,
+  //   touchDrag:false,
+  //   autoplay:false,
+  //   smartSpeed:500
+  // });
+
+  // var owl = $('.owl-carousel');
+  //
+  // $(document).on('click', '.btn-arrow--prev', function(e){
+  //  $(this).parents('.section-tabs__nav').find('.owl-prev').click();
+  //  // owl.trigger('refresh.owl.carousel');
+  //  return false
+  // });
+  // $(document).on('click', '.btn-arrow--next', function(e){
+  //  $(this).parents('.section-tabs__nav').find('.owl-next').click();
   //   return false
-	// });
+  // });
 }
 
 //
-function sectionTabs(){
+function sectionTabs() {
 
-	var sectionTabNavBtnActive = 'section-tabs__nav-btn--active';
-	var sectionTabActive = 'section-tabs__tab--active';
+  var sectionTabNavBtnActive = 'section-tabs__nav-btn--active';
+  var sectionTabActive = 'section-tabs__tab--active';
 
-	$(document).on('click', '.section-tabs__nav-btn', function(){
-		if(!$(this).hasClass(sectionTabNavBtnActive)){
-			$('.' + sectionTabNavBtnActive).removeClass(sectionTabNavBtnActive);
-			$('.' + sectionTabActive).removeClass(sectionTabActive);
-			$(this).addClass(sectionTabNavBtnActive);
+  $(document).on('click', '.section-tabs__nav-btn', function() {
+    if (!$(this).hasClass(sectionTabNavBtnActive)) {
+      $('.' + sectionTabNavBtnActive).removeClass(sectionTabNavBtnActive);
+      $('.' + sectionTabActive).removeClass(sectionTabActive);
+      $(this).addClass(sectionTabNavBtnActive);
       $('.section-tabs_members').addClass('active');
       //$('.owl-nav').show();
-      $('[data-target="'+ $(this).data('data-target-for') + '"]').addClass('participant_active');
+      $('[data-target="' + $(this).data('data-target-for') + '"]').addClass('participant_active');
       $('.section-tabs_members .section-tabs__head').removeClass('section-tabs__head_closed');
       $('.section-tabs_members .section-tabs__nav, .section-tabs_members .section-tabs__content').slideDown();
-      $('[data-section-tab-for="'+ $(this).data('section-tab-for') + '"]').addClass(sectionTabNavBtnActive);
-			$('[data-section-tab="'+ $(this).data('section-tab-for') + '"]').addClass(sectionTabActive);
-            if ($(window).width() < 800) {
-              window.scroll = $(window).scrollTop();
-              $("body").css('top', -scroll + 'px').toggleClass('noscroll');
-            }
-		}
-		return false
-	});
+      $('[data-section-tab-for="' + $(this).data('section-tab-for') + '"]').addClass(sectionTabNavBtnActive);
+      $('[data-section-tab="' + $(this).data('section-tab-for') + '"]').addClass(sectionTabActive);
+      if ($(window).width() < 800) {
+        window.scroll = $(window).scrollTop();
+        $("body").css('top', -scroll + 'px').toggleClass('noscroll');
+      }
+    }
+    return false
+  });
 
-	$('.js-tab-close').click(function(){
-		$('.section-tabs__tab--active').removeClass('section-tabs__tab--active');
-		$('.section-tabs__nav-btn--active').removeClass('section-tabs__nav-btn--active');
-        if ($(window).width() < 800) {
-          $("body").css('top', "0").removeClass('noscroll');
-          $(window).scrollTop(scroll);
-        }
-	});
+  $('.js-tab-close').click(function() {
+    $('.section-tabs__tab--active').removeClass('section-tabs__tab--active');
+    $('.section-tabs__nav-btn--active').removeClass('section-tabs__nav-btn--active');
+    if ($(window).width() < 800) {
+      $("body").css('top', "0").removeClass('noscroll');
+      $(window).scrollTop(scroll);
+    }
+  });
 
-    $('.section-tabs__participants-list a').click(function(e){
-      e.preventDefault();
-      var sectionTab = $(this).attr('data-section-tab-for');
-      $('.section-tabs__tab--active').removeClass('section-tabs__tab--active');
-      $('[data-section-tab="'+ sectionTab + '"]').addClass('section-tabs__tab--active');
-      $('.section-tabs__tab--active').scrollTop(0);
-    });
+  $('.section-tabs__participants-list a').click(function(e) {
+    e.preventDefault();
+    var sectionTab = $(this).attr('data-section-tab-for');
+    $('.section-tabs__tab--active').removeClass('section-tabs__tab--active');
+    $('[data-section-tab="' + sectionTab + '"]').addClass('section-tabs__tab--active');
+    $('.section-tabs__tab--active').scrollTop(0);
+  });
 }
 
-function stepsDetails(){
-  $('.graphic-table__title-wrap, .step .link-more, .step__head').each(function () {
-    $(this).click(function(e){
+function stepsDetails() {
+  $('.graphic-table__title-wrap, .step .link-more, .step__head').each(function() {
+    $(this).click(function(e) {
       e.preventDefault();
       if ($(this).hasClass('graphic-table__title-wrap')) {
         var stepNumber = $(this).attr('data-step');
@@ -746,17 +752,17 @@ function stepsDetails(){
       if ($(this).hasClass('link-more') || $(this).hasClass('step__head')) {
         var stepNumber = $(this).parents('.step').attr('data-step');
       }
-      $('.steps').each(function () {
+      $('.steps').each(function() {
         var steps = $('.steps:visible'),
-            graphicRow = $('.graphic-table__title-wrap[data-step="'+stepNumber+'"]').parents('.graphic-table__table-tr:visible'),
-            currentStep = $('.step[data-step="'+stepNumber+'"]:visible'),
-            currentStepHead = currentStep.find($('.step__head')),
-            currentStepDescr = currentStep.find($('.step__descr')),
-            stepsDetails = steps.find('.steps-details'),
-            currentStepDetails = $('.steps-details__content[data-step="'+stepNumber+'"]'),
-            stepsOffset = steps.offset().top,
-            stepDescrOffset = currentStepDescr.offset().top,
-            offsetDiff = stepDescrOffset - stepsOffset;
+          graphicRow = $('.graphic-table__title-wrap[data-step="' + stepNumber + '"]').parents('.graphic-table__table-tr:visible'),
+          currentStep = $('.step[data-step="' + stepNumber + '"]:visible'),
+          currentStepHead = currentStep.find($('.step__head')),
+          currentStepDescr = currentStep.find($('.step__descr')),
+          stepsDetails = steps.find('.steps-details'),
+          currentStepDetails = $('.steps-details__content[data-step="' + stepNumber + '"]'),
+          stepsOffset = steps.offset().top,
+          stepDescrOffset = currentStepDescr.offset().top,
+          offsetDiff = stepDescrOffset - stepsOffset;
 
         $('.graphic-table__table-tr').removeClass('active');
         graphicRow.addClass('active');
@@ -766,8 +772,8 @@ function stepsDetails(){
         currentStepDetails.show();
         if ($(window).width() > 800) {
           stepsDetails.show();
-          stepsDetails.css('top', offsetDiff+'px').addClass('active');
-          steps.css('height', offsetDiff+stepsDetails.outerHeight()+'px');
+          stepsDetails.css('top', offsetDiff + 'px').addClass('active');
+          steps.css('height', offsetDiff + stepsDetails.outerHeight() + 'px');
         } else {
           stepsDetails.show();
           stepsDetails.addClass('active');
@@ -781,11 +787,11 @@ function stepsDetails(){
   })
 
 
-  $('.js-steps-detail-close').click(function(){
+  $('.js-steps-detail-close').click(function() {
     $('.graphic-table__table-tr').removeClass('active');
     $('.step__head').removeClass('active');
     $('.steps-details').removeClass('active');
-    setTimeout(function(){
+    setTimeout(function() {
       $('.steps-details').hide();
     }, 250);
     if ($(window).width() > 800) {
@@ -799,19 +805,19 @@ function stepsDetails(){
 
 
 function stageSlider() {
-  $('.steps__mob-slider').each(function(){
+  $('.steps__mob-slider').each(function() {
     var currentSlide = 0,
-        slideAmount = $(this).find('.steps__mob-slider-item').length;
+      slideAmount = $(this).find('.steps__mob-slider-item').length;
 
-    $('.steps__mob-slider-arrow').click(function(){
+    $('.steps__mob-slider-arrow').click(function() {
       $('.steps__mob-slider-arrow').removeClass('steps__mob-slider-arrow-blocked');
-      if($(this).hasClass('steps__mob-slider-arrow_next')) {
+      if ($(this).hasClass('steps__mob-slider-arrow_next')) {
         currentSlide++;
-        if (currentSlide > slideAmount-1) {
-          currentSlide = slideAmount-1;
+        if (currentSlide > slideAmount - 1) {
+          currentSlide = slideAmount - 1;
           $(this).addClass('steps__mob-slider-arrow-blocked');
-        } else if (currentSlide > slideAmount-2) {
-            $(this).addClass('steps__mob-slider-arrow-blocked');
+        } else if (currentSlide > slideAmount - 2) {
+          $(this).addClass('steps__mob-slider-arrow-blocked');
         }
       } else {
         currentSlide--;
@@ -822,8 +828,8 @@ function stageSlider() {
           $(this).addClass('steps__mob-slider-arrow-blocked');
         }
       }
-      $('.steps__mob-wrapper').css('left', '-'+currentSlide*100+'%');
-      $('.steps__holder').css('left', '-'+currentSlide*100+'%');
+      $('.steps__mob-wrapper').css('left', '-' + currentSlide * 100 + '%');
+      $('.steps__holder').css('left', '-' + currentSlide * 100 + '%');
     });
 
   });
@@ -831,29 +837,29 @@ function stageSlider() {
 
 function dateSlider() {
 
-  $('.steps-details__date-list a').click(function(e){
+  $('.steps-details__date-list a').click(function(e) {
     e.preventDefault();
     if ($(window).width() > 800) {
       var activity = $(this).attr('data-activity');
       $(this).parent().siblings().removeClass('active');
       $(this).parent().addClass('active');
       $('.steps-details__activity').removeClass('active');
-      $('.steps-details__activity[data-activity="'+activity+'"]').addClass('active');
+      $('.steps-details__activity[data-activity="' + activity + '"]').addClass('active');
     }
   });
 
-  $('.steps-details__date-list-wrapper').each(function(){
+  $('.steps-details__date-list-wrapper').each(function() {
     var currentSlide = 0,
-        slideAmount = $(this).find('.steps-details__date-list li').length;
+      slideAmount = $(this).find('.steps-details__date-list li').length;
 
-    $('.steps-details__date-list-arrow').click(function(){
+    $('.steps-details__date-list-arrow').click(function() {
       $('.steps-details__date-list-arrow').removeClass('disabled');
-      if($(this).hasClass('steps-details__date-list-arrow_next')) {
+      if ($(this).hasClass('steps-details__date-list-arrow_next')) {
         currentSlide++;
-        if (currentSlide > slideAmount-1) {
-          currentSlide = slideAmount-1;
+        if (currentSlide > slideAmount - 1) {
+          currentSlide = slideAmount - 1;
         }
-        if (currentSlide === slideAmount-1) {
+        if (currentSlide === slideAmount - 1) {
           $(this).addClass('disabled');
         }
       } else {
@@ -865,15 +871,15 @@ function dateSlider() {
           $(this).addClass('disabled');
         }
       }
-      $('.steps-details__date-list').css('left', '-'+currentSlide*100+'%');
+      $('.steps-details__date-list').css('left', '-' + currentSlide * 100 + '%');
       var activity = $('.steps-details__date-list li').eq(currentSlide).find('a').attr('data-activity');
       $('.steps-details__activity').removeClass('active');
-      $('.steps-details__activity[data-activity="'+activity+'"]').addClass('active');
+      $('.steps-details__activity[data-activity="' + activity + '"]').addClass('active');
     });
 
   });
 
-  $(window).resize(function(){
+  $(window).resize(function() {
     $('.steps-details__date-list li').removeClass('active');
     $('.steps-details__date-list li:first-child').addClass('active');
     $('.steps-details__activity').removeClass('active');
@@ -882,239 +888,241 @@ function dateSlider() {
 }
 
 
-function basicBudgetFiguresDiagrams () {
-  diagram( '#diagram-01', {
-      stroke: 30,
-      kind: 'triple2',
-      data: [ 1446.2, 1598.9],
-      animate: true,
-      maxValue: 2050
-  });//.animate();
+function basicBudgetFiguresDiagrams() {
+  diagram('#diagram-01', {
+    stroke: 30,
+    kind: 'triple2',
+    data: [1446.2, 1598.9],
+    animate: true,
+    maxValue: 2050
+  }); //.animate();
 
-  diagram( '#diagram-02', {
-      stroke: 30,
-      kind: 'triple2',
-      data: [ 1446.2, 1598.9],
-      animate: true,
-      maxValue: 2050
-  });//.animate();
+  diagram('#diagram-02', {
+    stroke: 30,
+    kind: 'triple2',
+    data: [1446.2, 1598.9],
+    animate: true,
+    maxValue: 2050
+  }); //.animate();
 
   diagram('#diagram-03', {
-      stroke: 30,
-      kind: 'triple2',
-      data: [ 1446.2, 1598.9],
-      animate: true,
-      maxValue: 2050
-  });//.animate();
+    stroke: 30,
+    kind: 'triple2',
+    data: [1446.2, 1598.9],
+    animate: true,
+    maxValue: 2050
+  }); //.animate();
 
-    diagram( '#diagram-1', {
-        stroke: 30,
-        kind: 'triple',
-        data: [ 1446.2, 1598.9],
-        animate: true,
-        maxValue: 2050
-    });//.animate();
+  diagram('#diagram-1', {
+    stroke: 30,
+    kind: 'triple',
+    data: [1446.2, 1598.9],
+    animate: true,
+    maxValue: 2050
+  }); //.animate();
 
-    diagram( '#diagram-2', {
-        stroke: 30,
-        kind: 'triple',
-        data: [ 1446.2, 1598.9],
-        animate: true,
-        maxValue: 2050
-    });//.animate();
+  diagram('#diagram-2', {
+    stroke: 30,
+    kind: 'triple',
+    data: [1446.2, 1598.9],
+    animate: true,
+    maxValue: 2050
+  }); //.animate();
 
-    diagram('#diagram-3', {
-        stroke: 30,
-        kind: 'triple',
-        data: [ 1446.2, 1598.9],
-        animate: true,
-        maxValue: 2050
-    });//.animate();
+  diagram('#diagram-3', {
+    stroke: 30,
+    kind: 'triple',
+    data: [1446.2, 1598.9],
+    animate: true,
+    maxValue: 2050
+  }); //.animate();
 
-    var diagram_4 = diagram('#diagram-4', {
-        viewBox: 390,
-        stroke: 60,
-        kind: 'ifinite',
-        data: [ 1921.7 ],
-        gradient: ['#008ADF', '#00E6F9'],
-        valClass: ['large-diagram__value-lightblue', 'large-diagram__value-blue'],
-        maxValue: 1665.5,
-        animate: true
-    });
+  var diagram_4 = diagram('#diagram-4', {
+    viewBox: 390,
+    stroke: 60,
+    kind: 'ifinite',
+    data: [1921.7],
+    gradient: ['#008ADF', '#00E6F9'],
+    valClass: ['large-diagram__value-lightblue', 'large-diagram__value-blue'],
+    maxValue: 1665.5,
+    animate: true
+  });
 
-    var diagram_5 = diagram('#diagram-5', {
-        viewBox: 390,
-        stroke: 60,
-        kind: 'ifinite',
-        data: [ 1364.5 ],
-        gradient: [ '#9D308A', '#ED5F64' ],
-        valClass: ['large-diagram__value-pink', 'large-diagram__value-violet'],
-        maxValue: 1865.5,
-        animate: true
-    });
+  var diagram_5 = diagram('#diagram-5', {
+    viewBox: 390,
+    stroke: 60,
+    kind: 'ifinite',
+    data: [1364.5],
+    gradient: ['#9D308A', '#ED5F64'],
+    valClass: ['large-diagram__value-pink', 'large-diagram__value-violet'],
+    maxValue: 1865.5,
+    animate: true
+  });
 
-    // function appendList(inst, className) {
-    //     var $selectElement = inst.dpDiv.find('.' + className);
-    //     var selected = $selectElement.find("option[selected]");
-    //     var $listElement = $('<dl class="{0} dropdown"></dl>'.replace('{0}', className + '-list')).appendTo($selectElement.parent());
-    //     $listElement.append('<dt><a href="#">' + selected.text() + '<span class="value">' + selected.val() + '</span></a></dt>');
-    //     $listElement.append('<dd><ul class="dateListItem" ></ul></dd>');
-    //     $selectElement.children('option').each(function () {
-    //         var $listItem = $listElement.find(".dateListItem").append('<li><a href="#">' + $(this).text() + '<span class="value">' + $(this).val() + '</span></a></li>');
-    //         $listItem.hide();
-    //         $listItem.find('a').click(function (e) {
-    //             e.preventDefault();
-    //             $selectElement.val($(this).find('span').text());
-    //             $selectElement.change();
-    //         });
-    //     });
-    //     $listElement.find('dt a').click(function (e) {
-    //         e.preventDefault();
-    //         $(this).closest('dt')
-    //           .siblings('dd')
-    //           .find('.dateListItem')
-    //           .toggle();
-    //     });
-    // }
-    //
-    // function convertToLists(inst) {
-    //     var self = this;
-    //     setTimeout(function () {
-    //       inst.dpDiv.addClass('datePickerWithLists');
-    //       appendList(inst, 'ui-datepicker-month');
-    //       appendList(inst, 'ui-datepicker-year');
-    //     }, 0);
-    // };
+  // function appendList(inst, className) {
+  //     var $selectElement = inst.dpDiv.find('.' + className);
+  //     var selected = $selectElement.find("option[selected]");
+  //     var $listElement = $('<dl class="{0} dropdown"></dl>'.replace('{0}', className + '-list')).appendTo($selectElement.parent());
+  //     $listElement.append('<dt><a href="#">' + selected.text() + '<span class="value">' + selected.val() + '</span></a></dt>');
+  //     $listElement.append('<dd><ul class="dateListItem" ></ul></dd>');
+  //     $selectElement.children('option').each(function () {
+  //         var $listItem = $listElement.find(".dateListItem").append('<li><a href="#">' + $(this).text() + '<span class="value">' + $(this).val() + '</span></a></li>');
+  //         $listItem.hide();
+  //         $listItem.find('a').click(function (e) {
+  //             e.preventDefault();
+  //             $selectElement.val($(this).find('span').text());
+  //             $selectElement.change();
+  //         });
+  //     });
+  //     $listElement.find('dt a').click(function (e) {
+  //         e.preventDefault();
+  //         $(this).closest('dt')
+  //           .siblings('dd')
+  //           .find('.dateListItem')
+  //           .toggle();
+  //     });
+  // }
+  //
+  // function convertToLists(inst) {
+  //     var self = this;
+  //     setTimeout(function () {
+  //       inst.dpDiv.addClass('datePickerWithLists');
+  //       appendList(inst, 'ui-datepicker-month');
+  //       appendList(inst, 'ui-datepicker-year');
+  //     }, 0);
+  // };
 
-    //   if($( ".jq-spec-datepicker-alt" ).length > 0){
-    // 	$('.jq-spec-datepicker-alt').datepicker({
-    // 		dateFormat:'на dd M',
-    // 		changeMonth: true,
-    // 		changeYear: true,
-    // 		showOtherMonths: true,
-    // 		selectOtherMonths: false,
-    // 		firstDay: 1,
-    // 		monthNames: ['январь','февраль','март','апрель','май','июнь',
-    // 		'июль','август','сентябрь','октябрь','ноябрь','декабрь'],
-    // 		monthNamesShort: ['января','февраля','марта','апреля','мая','июня',
-    // 		'июля','августа','сентября','октября','ноября','декабря'],
-    // 		dayNamesMin: ['вс', 'пн','вт','ср','чт','пт','сб'],
-    // 		beforeShow: function(input, inst) {
-    //
-    // 			$('#ui-datepicker-div').removeClass(function() {
-    // 				return $('input').get(0).id;
-    // 			});
-    // 			$('#ui-datepicker-div').removeClass('datepicker__show');
-    // 			$('#ui-datepicker-div').addClass($(this).attr('class'));
-    // 		},
-    //     onChangeMonthYear: function (year, month, inst) {
-    //       convertToLists(inst);
-    //     }
-    // 	});
-    // }
+  //   if($( ".jq-spec-datepicker-alt" ).length > 0){
+  //  $('.jq-spec-datepicker-alt').datepicker({
+  //    dateFormat:'на dd M',
+  //    changeMonth: true,
+  //    changeYear: true,
+  //    showOtherMonths: true,
+  //    selectOtherMonths: false,
+  //    firstDay: 1,
+  //    monthNames: ['январь','февраль','март','апрель','май','июнь',
+  //    'июль','август','сентябрь','октябрь','ноябрь','декабрь'],
+  //    monthNamesShort: ['января','февраля','марта','апреля','мая','июня',
+  //    'июля','августа','сентября','октября','ноября','декабря'],
+  //    dayNamesMin: ['вс', 'пн','вт','ср','чт','пт','сб'],
+  //    beforeShow: function(input, inst) {
+  //
+  //      $('#ui-datepicker-div').removeClass(function() {
+  //        return $('input').get(0).id;
+  //      });
+  //      $('#ui-datepicker-div').removeClass('datepicker__show');
+  //      $('#ui-datepicker-div').addClass($(this).attr('class'));
+  //    },
+  //     onChangeMonthYear: function (year, month, inst) {
+  //       convertToLists(inst);
+  //     }
+  //  });
+  // }
 
-    if($( ".jq-spec-datepicker-one" ).length > 0){
+  if ($(".jq-spec-datepicker-one").length > 0) {
     $('.jq-spec-datepicker-one').datepicker({
-    dateFormat:'dd M yy',
-    changeMonth: true,
-    changeYear: true,
-    showOtherMonths: true,
-    selectOtherMonths: false,
-    firstDay: 1,
-    monthNames: ['январь','февраль','март','апрель','май','июнь',
-    'июль','август','сентябрь','октябрь','ноябрь','декабрь'],
-    monthNamesShort: ['январь','февраль','март','апрель','май','июнь',
-    'июль','август','сентябрь','октябрь','ноябрь','декабрь'],
-    dayNamesMin: ['вс', 'пн','вт','ср','чт','пт','сб'],
-    beforeShowDay: DisableSpecificDates
-    // beforeShow: function(input, inst) {
-    //   convertToLists(inst);
-    // },
-    // onChangeMonthYear: function (year, month, inst) {
-    //   convertToLists(inst);
-    // }
+      dateFormat: 'dd M yy',
+      changeMonth: true,
+      changeYear: true,
+      showOtherMonths: true,
+      selectOtherMonths: false,
+      firstDay: 1,
+      monthNames: ['январь', 'февраль', 'март', 'апрель', 'май', 'июнь',
+        'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь'
+      ],
+      monthNamesShort: ['январь', 'февраль', 'март', 'апрель', 'май', 'июнь',
+        'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь'
+      ],
+      dayNamesMin: ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'],
+      beforeShowDay: DisableSpecificDates
+      // beforeShow: function(input, inst) {
+      //   convertToLists(inst);
+      // },
+      // onChangeMonthYear: function (year, month, inst) {
+      //   convertToLists(inst);
+      // }
     });
-    }
+  }
 
-    function DisableSpecificDates(date) {
+  function DisableSpecificDates(date) {
 
-      var disableddates = ["8-6-2017", "8-9-2017", "8-15-2017", "8-23-2017"];
-      var m = date.getMonth();
-      var d = date.getDate();
-      var y = date.getFullYear();
-      var day = date.getDay();
+    var disableddates = ["8-6-2017", "8-9-2017", "8-15-2017", "8-23-2017"];
+    var m = date.getMonth();
+    var d = date.getDate();
+    var y = date.getFullYear();
+    var day = date.getDay();
 
-      // First convert the date in to the mm-dd-yyyy format
-      // Take note that we will increment the month count by 1
-      var currentdate = (m + 1) + '-' + d + '-' + y ;
+    // First convert the date in to the mm-dd-yyyy format
+    // Take note that we will increment the month count by 1
+    var currentdate = (m + 1) + '-' + d + '-' + y;
 
-       // We will now check if the date belongs to disableddates array
-      for (var i = 0; i < disableddates.length; i++) {
+    // We will now check if the date belongs to disableddates array
+    for (var i = 0; i < disableddates.length; i++) {
 
-        // Now check if the current date is in disabled dates array.
-        if ($.inArray(currentdate, disableddates) != -1 ) {
-          return [false];
-        } else if (day == 1 || day == 0) {
-          return [false] ;
-        } else {
-          return [true];
-        }
+      // Now check if the current date is in disabled dates array.
+      if ($.inArray(currentdate, disableddates) != -1) {
+        return [false];
+      } else if (day == 1 || day == 0) {
+        return [false];
+      } else {
+        return [true];
       }
-
     }
+
+  }
 
 
 }
-$(document).ready(function(){
- $(".gov-program .analityc-control-button").on("click", function (e) {
-  e.preventDefault();
-  var $this = $(this);
-  var program = $(".dropdown"),
+$(document).ready(function() {
+  $(".gov-program .analityc-control-button").on("click", function(e) {
+    e.preventDefault();
+    var $this = $(this);
+    var program = $(".dropdown"),
       programGraphics = program.find($('.analityc-graphics')),
       programTable = program.find($('.analityc-table')),
       programGraphicsActive = program.find($('.analityc-graphics.active')),
       programTableActive = program.find($('.analityc-table.active'));
 
-  if ($this.hasClass('analityc-control-button_graphics') && !$this.hasClass('active')) {
-    $this.siblings().removeClass('active');
-    $this.addClass('active');
-    if (programTableActive.hasClass('analityc-table')) {
-      programTable.removeClass('active');
-      programGraphics.addClass('active');
+    if ($this.hasClass('analityc-control-button_graphics') && !$this.hasClass('active')) {
+      $this.siblings().removeClass('active');
+      $this.addClass('active');
+      if (programTableActive.hasClass('analityc-table')) {
+        programTable.removeClass('active');
+        programGraphics.addClass('active');
+      }
+    } else if ($this.hasClass('analityc-control-button_table') && !$this.hasClass('active')) {
+      $this.siblings().removeClass('active');
+      $this.addClass('active');
+      if (programGraphicsActive.hasClass('analityc-graphics')) {
+        programGraphics.removeClass('active');
+        programTable.addClass('active');
+      }
     }
-  } else if ($this.hasClass('analityc-control-button_table') && !$this.hasClass('active')) {
-    $this.siblings().removeClass('active');
-    $this.addClass('active');
-    if (programGraphicsActive.hasClass('analityc-graphics')) {
-      programGraphics.removeClass('active');
-      programTable.addClass('active');
-    }
-  }
-});
+  });
 });
 // переключение вкладок в (depfin_analytics_income)
-$(document).ready(function(){
+$(document).ready(function() {
   // $('.analityc-widget_sources .analityc-control-group._dp').addClass('active');
   // $('.ar').hide();
-  $(".analityc-widget_params-income .analityc-control-group_comparison .analityc-select").on("change", function () {
+  $(".analityc-widget_params-income .analityc-control-group_comparison .analityc-select").on("change", function() {
     var $this = $(this);
     var income = $('.analityc-widget_params-income'),
-        // arrow = $('.ar'),
-        // tablearr = $('section__ar');
-        incomeGraphics = income.find($('.analityc-widget-sources')),
-        incomeGraphicsPace = income.find($('.analityc-widget-income_pace')),
-        incomeGraphicsShare = income.find($('.analityc-widget-income_share')),
-        incomeGraphicsDone = income.find($('.analityc-widget-income_done')),
-        incomeGraphicsYear = income.find($('.analityc-widget-income_year')),
-        incomeGraphicsBarFull = income.find($('.analityc-widget-income_bars-full')),
-        incomeGraphicsBar = income.find($('.analityc-widget-income_bars')),
-        incomeGraphicsButton = income.find($('.d-smr__add-char'));
+      // arrow = $('.ar'),
+      // tablearr = $('section__ar');
+      incomeGraphics = income.find($('.analityc-widget-sources')),
+      incomeGraphicsPace = income.find($('.analityc-widget-income_pace')),
+      incomeGraphicsShare = income.find($('.analityc-widget-income_share')),
+      incomeGraphicsDone = income.find($('.analityc-widget-income_done')),
+      incomeGraphicsYear = income.find($('.analityc-widget-income_year')),
+      incomeGraphicsBarFull = income.find($('.analityc-widget-income_bars-full')),
+      incomeGraphicsBar = income.find($('.analityc-widget-income_bars')),
+      incomeGraphicsButton = income.find($('.d-smr__add-char'));
 
     incomeGraphics.removeClass('_active');
     incomeGraphicsButton.removeClass('_active');
     // tablearr.hide();
 
-    if ($this.val() ===  "Общий анализ основных видов доходов") {
+    if ($this.val() === "Общий анализ основных видов доходов") {
       incomeGraphicsPace.addClass('_active');
     } else {
       incomeGraphicsBarFull.addClass('_active');
@@ -1141,16 +1149,16 @@ $(document).ready(function(){
   //   }
   // }
 
-// переключение вкладок в budget_moscow_gov_program
-$(document).ready(function(){
-  $('.analityc-widget_moscow-gov-program .analityc-control-switcher_large').addClass('active');
-  $('.ar').hide();
-  $(".analityc-widget_moscow-gov-program .analityc-control-group._stage .analityc-select").on("change", function () {
-    var $this = $(this);
-    var sources = $('.analityc-widget_moscow-gov-program'),
+  // переключение вкладок в budget_moscow_gov_program
+  $(document).ready(function() {
+    $('.analityc-widget_moscow-gov-program .analityc-control-switcher_large').addClass('active');
+    $('.ar').hide();
+    $(".analityc-widget_moscow-gov-program .analityc-control-group._stage .analityc-select").on("change", function() {
+      var $this = $(this);
+      var sources = $('.analityc-widget_moscow-gov-program'),
         arrow = $('.ar'),
         tablearr = $('section__ar');
-        gpGraphics = sources.find($('.analityc-widget-sources')),
+      gpGraphics = sources.find($('.analityc-widget-sources')),
         gpGraphicsDate = sources.find($('.analityc-widget-moscow-gov-program_date')),
         gpGraphicsStructure = sources.find($('.analityc-widget-moscow-gov-program_structure')),
         gpGraphicsChanges = sources.find($('.analityc-widget-moscow-gov-program_changes')),
@@ -1159,52 +1167,52 @@ $(document).ready(function(){
         gpTable = sources.find($('.analityc-table')),
         gpTableButton = sources.find($('.analityc-control-button_table'));
 
-    gpGraphics.removeClass('_active');
-    gpTable.removeClass('_active');
-    gpGraphicsButton.addClass('_active');
-    gpTableButton.removeClass('_active');
-    tablearr.hide();
+      gpGraphics.removeClass('_active');
+      gpTable.removeClass('_active');
+      gpGraphicsButton.addClass('_active');
+      gpTableButton.removeClass('_active');
+      tablearr.hide();
 
-    if ($this.val() ===  "Закон о бюджете утвержденный") {
-      gpGraphicsDone.addClass('_active');
-      gpHead(1);
-      arrow.show();
-    } else if($this.val() ===  "Закон о внесении изменений") {
-      gpGraphicsChanges.addClass('_active');
-      gpHead(2);
-      arrow.show();
-    } else if($this.val() ===  "Исполнение на дату") {
-      gpGraphicsDate.addClass('_active');
-      gpHead(3);
-      arrow.hide();
-    }
+      if ($this.val() === "Закон о бюджете утвержденный") {
+        gpGraphicsDone.addClass('_active');
+        gpHead(1);
+        arrow.show();
+      } else if ($this.val() === "Закон о внесении изменений") {
+        gpGraphicsChanges.addClass('_active');
+        gpHead(2);
+        arrow.show();
+      } else if ($this.val() === "Исполнение на дату") {
+        gpGraphicsDate.addClass('_active');
+        gpHead(3);
+        arrow.hide();
+      }
 
-  });
+    });
 
-  function gpHead(type) {
-    var gpButtons = $('.analityc-widget_moscow-gov-program .analityc-control-buttons'),
+    function gpHead(type) {
+      var gpButtons = $('.analityc-widget_moscow-gov-program .analityc-control-buttons'),
         gpSwitcherBig = $('.analityc-widget_moscow-gov-program .analityc-control-switcher_large'),
         gpDatepicker = $('.analityc-widget_moscow-gov-program .analityc-control-group._dp');
 
-    if (type === 1) {
-      gpButtons.addClass('active');
-      gpSwitcherBig.addClass('active');
-      gpDatepicker.removeClass('active');
-    } else if (type === 2) {
-      gpButtons.addClass('active');
-      gpSwitcherBig.removeClass('active');
-      gpDatepicker.removeClass('active');
-    } else if (type === 3) {
-      gpButtons.addClass('active');
-      gpSwitcherBig.removeClass('active');
-      gpDatepicker.addClass('active');
+      if (type === 1) {
+        gpButtons.addClass('active');
+        gpSwitcherBig.addClass('active');
+        gpDatepicker.removeClass('active');
+      } else if (type === 2) {
+        gpButtons.addClass('active');
+        gpSwitcherBig.removeClass('active');
+        gpDatepicker.removeClass('active');
+      } else if (type === 3) {
+        gpButtons.addClass('active');
+        gpSwitcherBig.removeClass('active');
+        gpDatepicker.addClass('active');
+      }
     }
-  }
 
-  $(".analityc-widget_moscow-gov-program .analityc-control-button").on("click", function (e) {
-    e.preventDefault();
-    var $this = $(this);
-    var sources = $(".analityc-widget_moscow-gov-program"),
+    $(".analityc-widget_moscow-gov-program .analityc-control-button").on("click", function(e) {
+      e.preventDefault();
+      var $this = $(this);
+      var sources = $(".analityc-widget_moscow-gov-program"),
         arrow = $('.ar'),
         tablearr = $('.section__ar'),
         gpGraphics = sources.find($('.analityc-widget-sources')),
@@ -1220,84 +1228,84 @@ $(document).ready(function(){
         gpTableDone = sources.find($('.analityc-widget-moscow-gov-program-table_done')),
         gpTableDate = sources.find($('.analityc-widget-moscow-gov-program-table_date'));
 
-    if ($this.hasClass('analityc-control-button_graphics') && !$this.hasClass('active')) {
-      $this.siblings().removeClass('active');
-      $this.addClass('active');
-      if (gpTableActive.hasClass('analityc-widget-moscow-gov-program-table_structure')) {
-        gpTable.removeClass('_active');
-        gpGraphicsStructure.addClass('_active');
-        gpHead(1);
-        arrow.show();
-        tablearr.hide();
-      } else if (gpTableActive.hasClass('analityc-widget-moscow-gov-program-table_changes')) {
-        gpTable.removeClass('_active');
-        gpGraphicsChanges.addClass('_active');
-        gpHead(2);
-        arrow.show();
-        tablearr.hide();
-      } else if (gpTableActive.hasClass('analityc-widget-moscow-gov-program-table_done')) {
-        gpTable.removeClass('_active');
-        gpGraphicsDone.addClass('_active');
-        gpHead(1);
-        arrow.hide();
-        tablearr.hide();
-      } else if (gpTableActive.hasClass('analityc-widget-moscow-gov-program-table_date')) {
-        gpTable.removeClass('_active');
-        gpGraphicsDate.addClass('_active');
-        gpHead(3);
-        arrow.hide();
-        tablearr.hide();
+      if ($this.hasClass('analityc-control-button_graphics') && !$this.hasClass('active')) {
+        $this.siblings().removeClass('active');
+        $this.addClass('active');
+        if (gpTableActive.hasClass('analityc-widget-moscow-gov-program-table_structure')) {
+          gpTable.removeClass('_active');
+          gpGraphicsStructure.addClass('_active');
+          gpHead(1);
+          arrow.show();
+          tablearr.hide();
+        } else if (gpTableActive.hasClass('analityc-widget-moscow-gov-program-table_changes')) {
+          gpTable.removeClass('_active');
+          gpGraphicsChanges.addClass('_active');
+          gpHead(2);
+          arrow.show();
+          tablearr.hide();
+        } else if (gpTableActive.hasClass('analityc-widget-moscow-gov-program-table_done')) {
+          gpTable.removeClass('_active');
+          gpGraphicsDone.addClass('_active');
+          gpHead(1);
+          arrow.hide();
+          tablearr.hide();
+        } else if (gpTableActive.hasClass('analityc-widget-moscow-gov-program-table_date')) {
+          gpTable.removeClass('_active');
+          gpGraphicsDate.addClass('_active');
+          gpHead(3);
+          arrow.hide();
+          tablearr.hide();
+        }
+      } else if ($this.hasClass('analityc-control-button_table') && !$this.hasClass('active')) {
+        $this.siblings().removeClass('active');
+        $this.addClass('active');
+        if (gpGraphicsActive.hasClass('analityc-widget-moscow-gov-program_structure')) {
+          gpGraphics.removeClass('_active');
+          gpTableStructure.addClass('_active');
+          gpHead(1);
+          arrow.hide();
+          if ($(window).width() < 900)
+            tablearr.show();
+        } else if (gpGraphicsActive.hasClass('analityc-widget-moscow-gov-program_changes')) {
+          gpGraphics.removeClass('_active');
+          gpTableChanges.addClass('_active');
+          gpHead(2);
+          arrow.hide();
+          if ($(window).width() < 900)
+            tablearr.show();
+        } else if (gpGraphicsActive.hasClass('analityc-widget-moscow-gov-program_done')) {
+          gpGraphics.removeClass('_active');
+          gpTableDone.addClass('_active');
+          gpHead(2);
+          arrow.hide();
+          if ($(window).width() < 900)
+            tablearr.show();
+        } else if (gpGraphicsActive.hasClass('analityc-widget-moscow-gov-program_date')) {
+          gpGraphics.removeClass('_active');
+          gpTableDate.addClass('_active');
+          gpHead(3);
+          arrow.hide();
+          if ($(window).width() < 900)
+            tablearr.show();
+        }
       }
-    } else if ($this.hasClass('analityc-control-button_table') && !$this.hasClass('active')) {
-      $this.siblings().removeClass('active');
-      $this.addClass('active');
-      if (gpGraphicsActive.hasClass('analityc-widget-moscow-gov-program_structure')) {
-        gpGraphics.removeClass('_active');
-        gpTableStructure.addClass('_active');
-        gpHead(1);
-        arrow.hide();
-        if ($(window).width() < 900)
-          tablearr.show();
-      } else if (gpGraphicsActive.hasClass('analityc-widget-moscow-gov-program_changes')) {
-        gpGraphics.removeClass('_active');
-        gpTableChanges.addClass('_active');
-        gpHead(2);
-        arrow.hide();
-        if ($(window).width() < 900)
-          tablearr.show();
-      } else if (gpGraphicsActive.hasClass('analityc-widget-moscow-gov-program_done')) {
-        gpGraphics.removeClass('_active');
-        gpTableDone.addClass('_active');
-        gpHead(2);
-        arrow.hide();
-        if ($(window).width() < 900)
-          tablearr.show();
-      } else if (gpGraphicsActive.hasClass('analityc-widget-moscow-gov-program_date')) {
-        gpGraphics.removeClass('_active');
-        gpTableDate.addClass('_active');
-        gpHead(3);
-        arrow.hide();
-        if ($(window).width() < 900)
-          tablearr.show();
-      }
-    }
+    });
   });
-});
 
 
-  $(".analityc-widget_params-income .analityc-control-switcher").on("click", function (e) {
+  $(".analityc-widget_params-income .analityc-control-switcher").on("click", function(e) {
     e.preventDefault();
     var $this = $(this);
     var income = $('.analityc-widget_params-income'),
-        // arrow = $('.ar'),
-        // tablearr = $('.section__ar'),
-        incomeGraphics = income.find($('.analityc-widget-sources')),
-        incomeGraphicsPace = income.find($('.analityc-widget-income_pace')),
-        incomeGraphicsShare = income.find($('.analityc-widget-income_share')),
-        incomeGraphicsDone = income.find($('.analityc-widget-income_done')),
-        incomeGraphicsYear = income.find($('.analityc-widget-income_year')),
-        incomeGraphicsBarFull = income.find($('.analityc-widget-income_bars-full')),
-        incomeGraphicsBar = income.find($('.analityc-widget-income_bars'));
+      // arrow = $('.ar'),
+      // tablearr = $('.section__ar'),
+      incomeGraphics = income.find($('.analityc-widget-sources')),
+      incomeGraphicsPace = income.find($('.analityc-widget-income_pace')),
+      incomeGraphicsShare = income.find($('.analityc-widget-income_share')),
+      incomeGraphicsDone = income.find($('.analityc-widget-income_done')),
+      incomeGraphicsYear = income.find($('.analityc-widget-income_year')),
+      incomeGraphicsBarFull = income.find($('.analityc-widget-income_bars-full')),
+      incomeGraphicsBar = income.find($('.analityc-widget-income_bars'));
 
     if ($this.hasClass('analityc-control-button_graphics') && !$this.hasClass('active')) {
       $this.siblings().removeClass('active');
@@ -1360,40 +1368,40 @@ $(document).ready(function(){
 });
 
 // переключение вкладок в (budget_moscow_sources)
-$(document).ready(function(){
+$(document).ready(function() {
   $('.analityc-widget_sources .analityc-control-group._dp').addClass('active');
   $('.ar').hide();
-  $(".analityc-widget_sources .analityc-control-group._stage .analityc-select").on("change", function () {
+  $(".analityc-widget_sources .analityc-control-group._stage .analityc-select").on("change", function() {
     var $this = $(this);
     var sources = $('.analityc-widget_sources'),
-        arrow = $('.ar'),
-        sourcesGraphics = sources.find($('.analityc-widget-sources')),
-        sourcesGraphicsApproved = sources.find($('.analityc-widget-sources_approved')),
-        sourcesGraphicsChanges = sources.find($('.analityc-widget-sources_changes')),
-        sourcesGraphicsDone = sources.find($('.analityc-widget-sources_done')),
-        sourcesGraphicsDate = sources.find($('.analityc-widget-sources_date')),
-        sourcesGraphicsButton = sources.find($('.analityc-control-button_graphics')),
-        sourcesTable = sources.find($('.analityc-table')),
-        sourcesTableButton = sources.find($('.analityc-control-button_table'));
+      arrow = $('.ar'),
+      sourcesGraphics = sources.find($('.analityc-widget-sources')),
+      sourcesGraphicsApproved = sources.find($('.analityc-widget-sources_approved')),
+      sourcesGraphicsChanges = sources.find($('.analityc-widget-sources_changes')),
+      sourcesGraphicsDone = sources.find($('.analityc-widget-sources_done')),
+      sourcesGraphicsDate = sources.find($('.analityc-widget-sources_date')),
+      sourcesGraphicsButton = sources.find($('.analityc-control-button_graphics')),
+      sourcesTable = sources.find($('.analityc-table')),
+      sourcesTableButton = sources.find($('.analityc-control-button_table'));
 
     sourcesGraphics.removeClass('_active');
     sourcesTable.removeClass('_active');
     sourcesGraphicsButton.addClass('_active');
     sourcesTableButton.removeClass('_active');
 
-    if ($this.val() ===  "Закон о бюджете утвержденный") {
+    if ($this.val() === "Закон о бюджете утвержденный") {
       sourcesGraphicsApproved.addClass('_active');
       sourcesHead(1);
       arrow.show();
-    } else if($this.val() ===  "Закон о внесении изменений") {
+    } else if ($this.val() === "Закон о внесении изменений") {
       sourcesGraphicsChanges.addClass('_active');
       sourcesHead(1);
       arrow.show();
-    } else if($this.val() ===  "Закон об исполнении") {
+    } else if ($this.val() === "Закон об исполнении") {
       sourcesGraphicsDone.addClass('_active');
       sourcesHead(1);
       arrow.hide();
-    } else if($this.val() ===  "Исполнение на дату") {
+    } else if ($this.val() === "Исполнение на дату") {
       sourcesGraphicsDate.addClass('_active');
       sourcesHead(3);
       arrow.hide();
@@ -1403,8 +1411,8 @@ $(document).ready(function(){
 
   function sourcesHead(type) {
     var sourcesButtons = $('.analityc-widget_sources .analityc-control-buttons'),
-        sourcesSwitcherBig = $('.analityc-widget_sources .analityc-control-switcher_big'),
-        sourcesDatepicker = $('.analityc-widget_sources .analityc-control-group._dp');
+      sourcesSwitcherBig = $('.analityc-widget_sources .analityc-control-switcher_big'),
+      sourcesDatepicker = $('.analityc-widget_sources .analityc-control-group._dp');
 
     if (type === 1) {
       sourcesButtons.addClass('active');
@@ -1421,23 +1429,23 @@ $(document).ready(function(){
     }
   }
 
-  $(".analityc-widget_sources .analityc-control-button").on("click", function (e) {
+  $(".analityc-widget_sources .analityc-control-button").on("click", function(e) {
     e.preventDefault();
     var $this = $(this);
     var sources = $(".analityc-widget_sources"),
-        arrow = $('.ar'),
-        sourcesGraphics = sources.find($('.analityc-widget-sources')),
-        sourcesGraphicsActive = sources.find($('.analityc-widget-sources._active')),
-        sourcesGraphicsApproved = sources.find($('.analityc-widget-sources_approved')),
-        sourcesGraphicsChanges = sources.find($('.analityc-widget-sources_changes')),
-        sourcesGraphicsDone = sources.find($('.analityc-widget-sources_done')),
-        sourcesGraphicsDate = sources.find($('.analityc-widget-sources_date')),
-        sourcesTable = sources.find($('.analityc-table')),
-        sourcesTableActive = sources.find($('.analityc-table._active')),
-        sourcesTableApproved = sources.find($('.analityc-widget-sources-table_approved')),
-        sourcesTableChanges = sources.find($('.analityc-widget-sources-table_changes')),
-        sourcesTableDone = sources.find($('.analityc-widget-sources-table_done')),
-        sourcesTableDate = sources.find($('.analityc-widget-sources-table_date'));
+      arrow = $('.ar'),
+      sourcesGraphics = sources.find($('.analityc-widget-sources')),
+      sourcesGraphicsActive = sources.find($('.analityc-widget-sources._active')),
+      sourcesGraphicsApproved = sources.find($('.analityc-widget-sources_approved')),
+      sourcesGraphicsChanges = sources.find($('.analityc-widget-sources_changes')),
+      sourcesGraphicsDone = sources.find($('.analityc-widget-sources_done')),
+      sourcesGraphicsDate = sources.find($('.analityc-widget-sources_date')),
+      sourcesTable = sources.find($('.analityc-table')),
+      sourcesTableActive = sources.find($('.analityc-table._active')),
+      sourcesTableApproved = sources.find($('.analityc-widget-sources-table_approved')),
+      sourcesTableChanges = sources.find($('.analityc-widget-sources-table_changes')),
+      sourcesTableDone = sources.find($('.analityc-widget-sources-table_done')),
+      sourcesTableDate = sources.find($('.analityc-widget-sources-table_date'));
 
     if ($this.hasClass('analityc-control-button_graphics') && !$this.hasClass('active')) {
       $this.siblings().removeClass('active');
@@ -1492,38 +1500,38 @@ $(document).ready(function(){
 });
 
 // переключение вкладок в Доходах бюджета (budget_income)
-$(document).ready(function(){
-  $(".analityc-widget_income .analityc-control-group._stage select.analityc-select").on("change", function () {
+$(document).ready(function() {
+  $(".analityc-widget_income .analityc-control-group._stage select.analityc-select").on("change", function() {
     var $this = $(this);
     var $level = $(".analityc-widget_income .analityc-control-group._level select.analityc-select");
     var income = $(".analityc-widget_income"),
-        incomeGraphics = income.find($('.analityc-graphics')),
-        incomeGraphicsApproved = income.find($('.analityc-graphics_approved')),
-        incomeGraphicsChanges = income.find($('.analityc-graphics_changes')),
-        incomeGraphicsDone = income.find($('.analityc-graphics_done')),
-        incomeGraphicsDateOne = income.find($('.analityc-graphics_date-one')),
-        incomeGraphicsButton = income.find($('.analityc-control-button_graphics')),
-        incomeTable = income.find($('.analityc-table')),
-        incomeTableButton = income.find($('.analityc-control-button_table'));
+      incomeGraphics = income.find($('.analityc-graphics')),
+      incomeGraphicsApproved = income.find($('.analityc-graphics_approved')),
+      incomeGraphicsChanges = income.find($('.analityc-graphics_changes')),
+      incomeGraphicsDone = income.find($('.analityc-graphics_done')),
+      incomeGraphicsDateOne = income.find($('.analityc-graphics_date-one')),
+      incomeGraphicsButton = income.find($('.analityc-control-button_graphics')),
+      incomeTable = income.find($('.analityc-table')),
+      incomeTableButton = income.find($('.analityc-control-button_table'));
 
     incomeGraphics.removeClass('active');
     incomeTable.removeClass('active');
     incomeGraphicsButton.addClass('active');
     incomeTableButton.removeClass('active');
 
-    if ($this.val() ===  "Закон о бюджете утвержденный") {
+    if ($this.val() === "Закон о бюджете утвержденный") {
       incomeGraphicsApproved.addClass('active');
       incomeHead(1);
-    } else if($this.val() ===  "Закон о внесении изменений") {
+    } else if ($this.val() === "Закон о внесении изменений") {
       incomeGraphicsChanges.addClass('active');
       incomeHead(2);
-    } else if($this.val() ===  "Закон об исполнении") {
+    } else if ($this.val() === "Закон об исполнении") {
       incomeGraphicsDone.addClass('active');
       incomeHead(1);
-    } else if($this.val() ===  "Исполнение на дату") {
+    } else if ($this.val() === "Исполнение на дату") {
       incomeGraphicsDateOne.addClass('active');
       incomeHead(4);
-      if($level.val() === "Консолидированный бюджет") {
+      if ($level.val() === "Консолидированный бюджет") {
         incomeHead(5);
         incomeGraphicsDateOne.addClass('active');
       }
@@ -1533,10 +1541,10 @@ $(document).ready(function(){
 
   function incomeHead(type) {
     var incomeSwitcherDef = $('.analityc-widget_income .analityc-control-switcher_default'),
-        incomeButtons = $('.analityc-widget_income .analityc-control-buttons'),
-        incomeSwitcherBig = $('.analityc-widget_income .analityc-control-switcher_big'),
-        incomeDatepicker = $('.analityc-widget_income .analityc-control-group._dp'),
-        incomeDatepickerAlt = $('.analityc-widget_income .analityc-control-group._dp-alt');
+      incomeButtons = $('.analityc-widget_income .analityc-control-buttons'),
+      incomeSwitcherBig = $('.analityc-widget_income .analityc-control-switcher_big'),
+      incomeDatepicker = $('.analityc-widget_income .analityc-control-group._dp'),
+      incomeDatepickerAlt = $('.analityc-widget_income .analityc-control-group._dp-alt');
     if (type === 1) {
       incomeSwitcherDef.addClass('active');
       incomeButtons.addClass('active');
@@ -1569,22 +1577,22 @@ $(document).ready(function(){
     }
   }
 
-  $(".analityc-widget_income .analityc-control-button").on("click", function (e) {
+  $(".analityc-widget_income .analityc-control-button").on("click", function(e) {
     e.preventDefault();
     var $this = $(this);
     var income = $(".analityc-widget_income"),
-        incomeGraphics = income.find($('.analityc-graphics')),
-        incomeGraphicsActive = income.find($('.analityc-graphics.active')),
-        incomeGraphicsApproved = income.find($('.analityc-graphics_approved')),
-        incomeGraphicsChanges = income.find($('.analityc-graphics_changes')),
-        incomeGraphicsDone = income.find($('.analityc-graphics_done')),
-        incomeGraphicsDateOne = income.find($('.analityc-graphics_date-one')),
-        incomeTable = income.find($('.analityc-table')),
-        incomeTableActive = income.find($('.analityc-table.active')),
-        incomeTableApproved = income.find($('.analityc-table_approved')),
-        incomeTableChanges = income.find($('.analityc-table_changes')),
-        incomeTableDone = income.find($('.analityc-table_done')),
-        incomeTableDate = income.find($('.analityc-table_date'));
+      incomeGraphics = income.find($('.analityc-graphics')),
+      incomeGraphicsActive = income.find($('.analityc-graphics.active')),
+      incomeGraphicsApproved = income.find($('.analityc-graphics_approved')),
+      incomeGraphicsChanges = income.find($('.analityc-graphics_changes')),
+      incomeGraphicsDone = income.find($('.analityc-graphics_done')),
+      incomeGraphicsDateOne = income.find($('.analityc-graphics_date-one')),
+      incomeTable = income.find($('.analityc-table')),
+      incomeTableActive = income.find($('.analityc-table.active')),
+      incomeTableApproved = income.find($('.analityc-table_approved')),
+      incomeTableChanges = income.find($('.analityc-table_changes')),
+      incomeTableDone = income.find($('.analityc-table_done')),
+      incomeTableDate = income.find($('.analityc-table_date'));
 
     if ($this.hasClass('analityc-control-button_graphics') && !$this.hasClass('active')) {
       $this.siblings().removeClass('active');
@@ -1629,11 +1637,11 @@ $(document).ready(function(){
     }
   });
 
-  $(".analityc-widget_income .analityc-control-group._dp input").on("change", function () {
+  $(".analityc-widget_income .analityc-control-group._dp input").on("change", function() {
     var income = $(".analityc-widget_income"),
-        incomeGraphics = income.find($('.analityc-graphics')),
-        incomeGraphicsActive = income.find($('.analityc-graphics.active')),
-        incomeGraphicsDateTwo = income.find($('.analityc-graphics_date-two'));
+      incomeGraphics = income.find($('.analityc-graphics')),
+      incomeGraphicsActive = income.find($('.analityc-graphics.active')),
+      incomeGraphicsDateTwo = income.find($('.analityc-graphics_date-two'));
 
     if (incomeGraphicsActive.hasClass('analityc-graphics_date-one')) {
       incomeGraphics.removeClass('active');
@@ -1641,14 +1649,14 @@ $(document).ready(function(){
     }
   });
 
-  $(".analityc-widget_income .analityc-control-group._level select.analityc-select").on("change", function () {
+  $(".analityc-widget_income .analityc-control-group._level select.analityc-select").on("change", function() {
     var $this = $(this);
     if ($('.analityc-widget_income .analityc-control-group._stage select.analityc-select').val() === "Исполнение на дату") {
-      if ($this.val() ===  "Консолидированный бюджет") {
-         incomeHead(5);
-       } else {
-         incomeHead(4);
-       }
+      if ($this.val() === "Консолидированный бюджет") {
+        incomeHead(5);
+      } else {
+        incomeHead(4);
+      }
     }
 
   });
@@ -1656,24 +1664,24 @@ $(document).ready(function(){
 
 
 // переключение вкладок в Расходах бюджета (budget_expenses)
-$(document).ready(function(){
-  $(".analityc-widget_expenses .analityc-control-group._stage select.analityc-select").on("change", function () {
+$(document).ready(function() {
+  $(".analityc-widget_expenses .analityc-control-group._stage select.analityc-select").on("change", function() {
     var $this = $(this);
     var $classify = $(".analityc-widget_expenses .analityc-control-group._classify select.analityc-select");
     var $level = $(".analityc-widget_expenses .analityc-control-group._level select.analityc-select");
     var expenses = $(".analityc-widget_expenses"),
-        expensesGraphics = expenses.find($('.analityc-graphics')),
-        expensesGraphicsChanges = expenses.find($('.analityc-graphics_changes')),
-        expensesGraphicsDone = expenses.find($('.analityc-graphics_done')),
-        expensesGraphicsDateOne = expenses.find($('.analityc-graphics_date-one')),
-        expensesGraphicsTargeted = expenses.find($('.analityc-graphics_targeted')),
-        expensesGraphicsSections = expenses.find($('.analityc-graphics_sections')),
-        expensesGraphicsDepartments = expenses.find($('.analityc-graphics_departments')),
-        expensesGraphicsKinds = expenses.find($('.analityc-graphics_kinds')),
-        expensesGraphicsButton = expenses.find($('.analityc-control-button_graphics')),
-        expensesTable = expenses.find($('.analityc-table')),
-        expensesTableButton = expenses.find($('.analityc-control-button_table')),
-        expensesBottomTip = expenses.find($('.analityc-bottomtip'));
+      expensesGraphics = expenses.find($('.analityc-graphics')),
+      expensesGraphicsChanges = expenses.find($('.analityc-graphics_changes')),
+      expensesGraphicsDone = expenses.find($('.analityc-graphics_done')),
+      expensesGraphicsDateOne = expenses.find($('.analityc-graphics_date-one')),
+      expensesGraphicsTargeted = expenses.find($('.analityc-graphics_targeted')),
+      expensesGraphicsSections = expenses.find($('.analityc-graphics_sections')),
+      expensesGraphicsDepartments = expenses.find($('.analityc-graphics_departments')),
+      expensesGraphicsKinds = expenses.find($('.analityc-graphics_kinds')),
+      expensesGraphicsButton = expenses.find($('.analityc-control-button_graphics')),
+      expensesTable = expenses.find($('.analityc-table')),
+      expensesTableButton = expenses.find($('.analityc-control-button_table')),
+      expensesBottomTip = expenses.find($('.analityc-bottomtip'));
 
     expensesGraphics.removeClass('active');
     expensesTable.removeClass('active');
@@ -1681,33 +1689,33 @@ $(document).ready(function(){
     expensesTableButton.removeClass('active');
     expensesBottomTip.removeClass('active');
 
-    if ($this.val() ===  "Закон о бюджете утвержденный" && $classify.val() === "Целевые статьи (программный и непрограммный тип)") {
+    if ($this.val() === "Закон о бюджете утвержденный" && $classify.val() === "Целевые статьи (программный и непрограммный тип)") {
       expensesGraphicsTargeted.addClass('active');
       expensesBottomTip.addClass('active');
       expensesHead(1);
-    } else if ($this.val() ===  "Закон о бюджете утвержденный" && $classify.val() === "Разделы и подразделы") {
+    } else if ($this.val() === "Закон о бюджете утвержденный" && $classify.val() === "Разделы и подразделы") {
       expensesGraphicsSections.addClass('active');
       expensesBottomTip.addClass('active');
       expensesHead(1);
-    } else if ($this.val() ===  "Закон о бюджете утвержденный" && $classify.val() === "Ведомства") {
+    } else if ($this.val() === "Закон о бюджете утвержденный" && $classify.val() === "Ведомства") {
       expensesGraphicsDepartments.addClass('active');
       expensesBottomTip.addClass('active');
       expensesHead(1);
-    } else if ($this.val() ===  "Закон о бюджете утвержденный" && $classify.val() === "Виды") {
+    } else if ($this.val() === "Закон о бюджете утвержденный" && $classify.val() === "Виды") {
       expensesGraphicsKinds.addClass('active');
       expensesBottomTip.addClass('active');
       expensesHead(1);
-    } else if($this.val() ===  "Закон о внесении изменений") {
+    } else if ($this.val() === "Закон о внесении изменений") {
       expensesGraphicsChanges.addClass('active');
       expensesBottomTip.addClass('active');
       expensesHead(1);
-    } else if($this.val() ===  "Закон об исполнении") {
+    } else if ($this.val() === "Закон об исполнении") {
       expensesGraphicsDone.addClass('active');
       expensesHead(1);
-    } else if($this.val() ===  "Исполнение на дату") {
+    } else if ($this.val() === "Исполнение на дату") {
       expensesGraphicsDateOne.addClass('active');
       expensesHead(3);
-      if($level.val() === "Консолидированный бюджет") {
+      if ($level.val() === "Консолидированный бюджет") {
         expensesHead(4);
         expensesGraphicsDateOne.addClass('active');
       }
@@ -1716,9 +1724,9 @@ $(document).ready(function(){
 
   function expensesHead(type) {
     var expensesSwitcherLarge = $('.analityc-widget_expenses .analityc-control-switcher_large'),
-        expensesSwitcherBig = $('.analityc-widget_expenses .analityc-control-switcher_big'),
-        expensesDatepicker = $('.analityc-widget_expenses .analityc-control-group._dp'),
-        expensesDatepickerAlt = $('.analityc-widget_expenses .analityc-control-group._dp-alt');
+      expensesSwitcherBig = $('.analityc-widget_expenses .analityc-control-switcher_big'),
+      expensesDatepicker = $('.analityc-widget_expenses .analityc-control-group._dp'),
+      expensesDatepickerAlt = $('.analityc-widget_expenses .analityc-control-group._dp-alt');
     if (type === 1) {
       expensesSwitcherLarge.addClass('active');
       expensesSwitcherBig.removeClass('active');
@@ -1742,16 +1750,16 @@ $(document).ready(function(){
     }
   }
 
-  $(".analityc-widget_expenses .analityc-control-button").on("click", function (e) {
+  $(".analityc-widget_expenses .analityc-control-button").on("click", function(e) {
     e.preventDefault();
     var $this = $(this);
     var expenses = $(".analityc-widget_expenses"),
-        expensesGraphics = expenses.find($('.analityc-graphics')),
-        expensesGraphicsActive = expenses.find($('.analityc-graphics.active')),
-        expensesGraphicsChanges = expenses.find($('.analityc-graphics_changes')),
-        expensesTable = expenses.find($('.analityc-table')),
-        expensesTableActive = expenses.find($('.analityc-table.active')),
-        expensesTableChanges = expenses.find($('.analityc-table_changes'));
+      expensesGraphics = expenses.find($('.analityc-graphics')),
+      expensesGraphicsActive = expenses.find($('.analityc-graphics.active')),
+      expensesGraphicsChanges = expenses.find($('.analityc-graphics_changes')),
+      expensesTable = expenses.find($('.analityc-table')),
+      expensesTableActive = expenses.find($('.analityc-table.active')),
+      expensesTableChanges = expenses.find($('.analityc-table_changes'));
 
     if ($this.hasClass('analityc-control-button_graphics') && !$this.hasClass('active')) {
       $this.siblings().removeClass('active');
@@ -1772,11 +1780,11 @@ $(document).ready(function(){
     }
   });
 
-  $(".analityc-widget_expenses .analityc-control-group._dp input").on("change", function () {
+  $(".analityc-widget_expenses .analityc-control-group._dp input").on("change", function() {
     var expenses = $(".analityc-widget_expenses"),
-        expensesGraphics = expenses.find($('.analityc-graphics')),
-        expensesGraphicsActive = expenses.find($('.analityc-graphics.active')),
-        expensesGraphicsDateTwo = expenses.find($('.analityc-graphics_date-two'));
+      expensesGraphics = expenses.find($('.analityc-graphics')),
+      expensesGraphicsActive = expenses.find($('.analityc-graphics.active')),
+      expensesGraphicsDateTwo = expenses.find($('.analityc-graphics_date-two'));
 
     if (expensesGraphicsActive.hasClass('analityc-graphics_date-one')) {
       expensesGraphics.removeClass('active');
@@ -1784,29 +1792,29 @@ $(document).ready(function(){
     }
   });
 
-  $(".analityc-widget_expenses .analityc-control-group._level select.analityc-select").on("change", function () {
+  $(".analityc-widget_expenses .analityc-control-group._level select.analityc-select").on("change", function() {
     var $this = $(this);
     if ($('.analityc-widget_expenses .analityc-control-group._stage select.analityc-select').val() === "Исполнение на дату") {
-      if ($this.val() ===  "Консолидированный бюджет") {
-         expensesHead(4);
-       } else {
-         expensesHead(3);
-       }
+      if ($this.val() === "Консолидированный бюджет") {
+        expensesHead(4);
+      } else {
+        expensesHead(3);
+      }
     }
 
   });
 
-  $(".analityc-widget_expenses .analityc-control-group._classify select.analityc-select").on("change", function () {
+  $(".analityc-widget_expenses .analityc-control-group._classify select.analityc-select").on("change", function() {
     var $this = $(this);
     var expenses = $(".analityc-widget_expenses"),
-        expensesGraphics = expenses.find($('.analityc-graphics')),
-        expensesGraphicsTargeted = expenses.find($('.analityc-graphics_targeted')),
-        expensesGraphicsSections = expenses.find($('.analityc-graphics_sections')),
-        expensesGraphicsDepartments = expenses.find($('.analityc-graphics_departments')),
-        expensesGraphicsKinds = expenses.find($('.analityc-graphics_kinds')),
-        expensesGraphicsButton = expenses.find($('.analityc-control-button_graphics')),
-        expensesTable = expenses.find($('.analityc-table')),
-        expensesTableButton = expenses.find($('.analityc-control-button_table'));
+      expensesGraphics = expenses.find($('.analityc-graphics')),
+      expensesGraphicsTargeted = expenses.find($('.analityc-graphics_targeted')),
+      expensesGraphicsSections = expenses.find($('.analityc-graphics_sections')),
+      expensesGraphicsDepartments = expenses.find($('.analityc-graphics_departments')),
+      expensesGraphicsKinds = expenses.find($('.analityc-graphics_kinds')),
+      expensesGraphicsButton = expenses.find($('.analityc-control-button_graphics')),
+      expensesTable = expenses.find($('.analityc-table')),
+      expensesTableButton = expenses.find($('.analityc-control-button_table'));
 
     if ($(".analityc-widget_expenses .analityc-control-group._stage select.analityc-select").val() === "Закон о бюджете утвержденный") {
 
@@ -1815,16 +1823,16 @@ $(document).ready(function(){
       expensesGraphicsButton.addClass('active');
       expensesTableButton.removeClass('active');
 
-     if ($this.val() ===  "Целевые статьи (программный и непрограммный тип)") {
+      if ($this.val() === "Целевые статьи (программный и непрограммный тип)") {
         expensesGraphicsTargeted.addClass('active');
         expensesHead(1);
-      } else if($this.val() ===  "Разделы и подразделы") {
+      } else if ($this.val() === "Разделы и подразделы") {
         expensesGraphicsSections.addClass('active');
         expensesHead(1);
-      } else if($this.val() ===  "Ведомства") {
+      } else if ($this.val() === "Ведомства") {
         expensesGraphicsDepartments.addClass('active');
         expensesHead(1);
-      } else if($this.val() ===  "Виды") {
+      } else if ($this.val() === "Виды") {
         expensesGraphicsKinds.addClass('active');
         expensesHead(1);
       }
@@ -1834,8 +1842,8 @@ $(document).ready(function(){
 });
 
 // Подсказка на элементе селекта в Расходах бюджета
-$(document).ready(function(){
-  $(".analityc-widget_expenses .analityc-control-group._transfer .analityc-popup").each(function(){
+$(document).ready(function() {
+  $(".analityc-widget_expenses .analityc-control-group._transfer .analityc-popup").each(function() {
     if ($(this).length > 0) {
       var popup = $(this);
       var dropdown = popup.prev().find($('.jq-selectbox__dropdown'));
@@ -1843,9 +1851,9 @@ $(document).ready(function(){
     }
   });
 
-  $(".analityc-widget_expenses .analityc-control-group._transfer .jq-selectbox li.disabled").hover(function(){
+  $(".analityc-widget_expenses .analityc-control-group._transfer .jq-selectbox li.disabled").hover(function() {
     $(".analityc-widget_expenses .analityc-control-group._transfer .analityc-popup").addClass('active');
-  }, function(){
+  }, function() {
     $(".analityc-widget_expenses .analityc-control-group._transfer .analityc-popup").removeClass('active');
   });
 });
