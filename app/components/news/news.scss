@@ -6,6 +6,28 @@
   padding-top: 207px;
   padding-bottom: 130px;
 
+  .tile { margin: 0 -10px !important; height: auto !important; }
+
+  &__card-wrapper {
+    height: 1040px;
+    overflow: hidden;
+
+    @media (max-width: 1180px) {
+      height: 1025px;
+      margin: 0 !important;
+    }
+
+    @media (max-width: 900px) {
+      height: 1560px;
+      margin: 0;
+    }
+
+    @media (max-width: 540px) {
+      height: 2090px;
+      margin: 0;
+    }
+  }
+
   &__header {
     position: relative;
 
@@ -42,6 +64,7 @@
   &__card-wrapper {
     margin-top: 34px;
     font-size: 0;
+
     &:after {
       content: '';
       display: inline-block;
@@ -51,9 +74,9 @@
   }
 
   .tile__item {
-    margin-bottom: 44px;
-    width: 32%;
-    margin-right: 2%;
+    margin-bottom: 20px;
+    width: 33.3333%;
+    //margin-right: 2%;
     text-align: left;
     float: none;
     display: inline-block;
@@ -66,10 +89,6 @@
       opacity: 1;
       pointer-events: all;
     }
-
-    &:nth-child(n+7) {
-      display: none;
-    }
   }
 
   .news {
@@ -79,7 +98,9 @@
     margin: 0;
     min-height: 485px;
     max-width: 100%;
-    
+    margin: 10px;
+    width: auto !important;
+
     @media screen and (max-width: 540px) {
       margin-left: auto;
       margin-right: auto;
@@ -138,7 +159,7 @@
     }
 
     .tile__item {
-      width: 32%; margin-bottom: 28px;
+      margin-bottom: 8px;
     }
 
     &__show-more {
@@ -165,17 +186,15 @@
       margin-top: 47px;
     }
     .tile__item {
-      &:nth-child(n+7) {
-        display: none;
-      }
+
     }
   }
 
   @media screen and (max-width: 900px) {
     padding-bottom: 90px;
     .tile__item {
-      width: 49%;
-      margin-bottom: 36px;
+      width: 50%;
+      margin-bottom: 16px;
     }
     &__show-more {
       margin: 13px auto 0;
@@ -264,9 +283,7 @@
   @media screen and (max-width: 540px) {
     .tile__item {
       width: 100%;
-      &:nth-child(n+5) {
-        display: none;
-      }
+
     }
   }
 

@@ -76,10 +76,21 @@ export default () => {
 
       newsMargins();
 
-    })
+    });
+
+    // Показать еще (для страницы новостей)
+    $('.news-page__show-more').on('click', function (e) {
+      e.preventDefault();
+      $('.news-page .news-page__card-wrapper').animate({
+        height: $('.news-page .news-page__card-wrapper').find('.tile').height()
+      }, 1000, function(){
+        $('.news-page .news-page__card-wrapper').height('auto');
+      });
+    });
   });
 
   var newsMargins = function() {
+    /*
     var news = $('.news-page .tile__item:visible').map(function() {
       return $(this).css('margin-right', '2%');
     })
@@ -95,6 +106,6 @@ export default () => {
           news[i-1].css('margin-right', '0');
         }
       }
-    }
+    }*/
   }
 }
