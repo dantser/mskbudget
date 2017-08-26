@@ -760,6 +760,43 @@ mixin analityc-graphics-line-vertical_slider(data, isWide)
     +icon('angle-arrow').next.swiper-button-next
     +icon('angle-arrow').prev.swiper-button-prev
 
+mixin analityc-graphics-line-vertical_vmo(data)
+  +b.analityc-graphics-line-vertical._vmo&attributes(attributes)
+
+    each item in data
+      +e.graphic
+        +e.lines
+          +e.line._transparentpink
+            +e.line-bar-value= item.values[0]
+            +e.line-fill
+          +e.line._pink2
+            +e.line-bar-value= item.values[1]
+            +e.line-bar-value._percent= item.percent
+            +e.line-fill
+        +e.caption
+          +e.STRONG.caption-year= item.year
+
+mixin analityc-graphics-line-vertical-vmo_slider(data, isWide)
+  +b.analityc-graphics-line-vertical._slider._vmo.swiper-container&attributes(attributes)
+
+    +e.wrapper.swiper-wrapper
+      each item in data
+        +e.graphic.swiper-slide
+          +e.lines
+            +e.line._transparentpink
+              +e.line-bar-value= item.values[0]
+              +e.line-fill
+            +e.line._pink2
+              +e.line-bar-value= item.values[1]
+              +e.line-bar-value._percent= item.percent
+              +e.line-fill
+          +e.caption
+            +e.STRONG.caption-year= item.year
+
+    +icon('angle-arrow').next.swiper-button-next
+    +icon('angle-arrow').prev.swiper-button-prev
+
+
 mixin analityc-graphics-line-vertical-alt(data)
   +b.analityc-graphics-line-vertical._alt&attributes(attributes)
 
