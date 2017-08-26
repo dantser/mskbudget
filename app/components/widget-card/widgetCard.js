@@ -22,6 +22,11 @@ export default () => {
     })
   });
 
+  // добавляем title всем заголовкам
+  $('.widget-card__results-total, .widget-card__info-block-title, .widget-card__lessons-text').each(function(){
+    $(this).attr('title', $(this).text() );
+  });
+
   // стрелочки в виджетах
   $('.widget-card-gov-programs-result .arrow-button_next, .widget-card-social-support .arrow-button_next').on('click', function (e) {
     e.preventDefault();

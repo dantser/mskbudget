@@ -1,11 +1,11 @@
 // Весь этот код можно найти в конце файла script.js
 
 function freezePage() {
-  const { $ } = window;
-  const h = $('html');
+  var window = $(window);
+  var h = $('html');
 
   if (h.css('position') !== 'fixed') {
-    const top = h.scrollTop() ? h.scrollTop() : $('body').scrollTop();
+    var top = h.scrollTop() ? h.scrollTop() : $('body').scrollTop();
 
     if (window.innerWidth > h.width()) {
       h.css('overflow-y', 'scroll');
@@ -17,8 +17,8 @@ function freezePage() {
 
 // Отключаем фиксацию страницы
 function unfreezePage() {
-  const { $ } = window;
-  const h = $('html');
+  var window = $(window);
+  var h = $('html');
 
   if (h.css('position') === 'fixed') {
     h.css('position', 'static');

@@ -52,7 +52,8 @@
     h3 {
       display: inline-block;
       vertical-align: middle;
-
+      max-height: 38px;
+      overflow: hidden;
     }
   }
 
@@ -310,11 +311,14 @@
     font-size: 13px;
     text-transform: uppercase;
     margin-top: 17px;
+    height: 30px;
+    overflow: hidden;
 
     &_active {
       opacity: 1;
       color: #0d46a1;
       font-size: 18px;
+      height: 42px;
     }
   }
 
@@ -328,6 +332,8 @@
     font-size: 20px;
     text-transform: uppercase;
     margin-top: 4px;
+    max-height: 96px;
+    overflow: hidden;
   }
 
   &__info-block-subtitle {
@@ -460,6 +466,7 @@
 
   &__results {
     margin-top: 11px;
+    width: 100%;
 
     &_paris, &_london, &_berlin {
       display: none;
@@ -475,6 +482,10 @@
 
     &-total {
       display: none;
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
 
       &_active {
         display: inline-block;
@@ -509,12 +520,20 @@
   &__results-pos {
     font-size: 30px;
     line-height: 30px;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__results-in {
     font-size: 14px;
     line-height: 14px;
     opacity: .5;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
 
@@ -727,11 +746,17 @@
   .widget-card__info-block-title {
     font-size: 16px;
     letter-spacing: -.2px;
+    height: 38px;
+    overflow: hidden;
   }
 
   .widget-card__info-block-subtitle {
     font-size: 12px;
     text-transform: none;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 
   .widget-card__info-block {
@@ -780,6 +805,10 @@
   }
 
   .widget-card__results {
+    width: 150px;
+  }
+
+  .widget-card__results {
     &_opt1, &_opt2, &_opt3, &_opt4 {
       display: none;
     }
@@ -822,5 +851,6 @@
 
   .widget-card__info-block-desc {
     margin-top: 7px;
+    height: 48px;
   }
 }
