@@ -22,12 +22,12 @@ export default () => {
   $('.analityc-select_vmo').each(function () {
     $(this).selectmenu().selectmenu( "menuWidget" ).addClass( "ui-vmo" );
   });
-  // VMO.find('.ui-year').each(function () {
-  //   $(this).on('click', function () {
-  //     $('.ui-widget').toggleClass('ui-selectmenu-button-open');
-  //     $('.ui-widget').toggleClass('ui-selectmenu-button-closed');
-  //   });
-  // });
+
+  VMO.find('.ui-year').each(function () {
+    $(this).on('click', function () {
+      $('.analityc-select_vmo').selectmenu( "open" );
+    });
+  });
 
   $(document).on('click', function () {
     if ($('.ui-selectmenu-button').hasClass('ui-selectmenu-button-open')) {
@@ -37,6 +37,18 @@ export default () => {
     }
   });
 
+// для таба муниципальные округи - "показать все полномочия"
+  VMO.find('.js-rules .button').each(function () {
+    $(this).on('click', function (e) {
+      e.preventDefault();
+      const LIST = $(this).siblings('.services-VMO__list');
+      LIST.animate({
+        height: LIST.find('.services-VMO__list-wrapper').height()
+      }, 1000, function(){
+        LIST.height('auto');
+      });
+    })
+  });
 
 // Custom scroll for "паспорта ВМО"
   VMO.find('.services-VMO__table__wrapper').scrollbar();
