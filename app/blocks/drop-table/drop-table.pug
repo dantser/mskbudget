@@ -1,0 +1,113 @@
+include ../../components/analityc-graphics/analityc-graphics
+
+mixin drop-table()
+  +b.drop-table&attributes(attributes)
+    +e.row._head
+      +e.column._main._head
+        +e.P.head-text Показатель
+      +e.columns
+        +e.column._unit
+          +e.P.head-text Единица измерения
+        +e.column
+          +e.P.head-text
+            span 2015
+            | Факт
+        +e.column
+          +e.P.head-text
+            span 2016
+            | Оценка
+        +e.column
+          +e.P.head-text
+            span 2017
+            | План
+        +e.column
+          +e.P.head-text
+            span 2018
+            | План
+        +e.column
+          +e.P.head-text
+            span 2019
+            | План
+    +e.row
+      +e.column._main
+        +e.A(href="#").drop-text Численность населения (среднегодовая)
+      +e.columns
+        +e.column._unit
+          +e.P.text тыс. чел.
+        +e.column
+          +e.P.value 12 263,9
+        +e.column
+          +e.P.value 12 263,9
+        +e.column
+          +e.P.value 12 263,9
+        +e.column
+          +e.P.value 12 604,7
+        +e.column
+          +e.P.value 12 691,1
+      +e.drop-content
+        +analityc-graphics-forecast-population()
+    +e.row
+      +e.column._main
+        +e.A(href="#").drop-text Валовой региональный продукт
+      +e.columns
+        +e.row
+          +e.column._unit
+            +e.P.text млрд. рублей
+          +e.column
+            +e.P.value 12 263,9
+          +e.column
+            +e.P.value 12 263,9
+          +e.column
+            +e.P.value 12 263,9
+          +e.column
+            +e.P.value 12 604,7
+          +e.column
+            +e.P.value 12 691,1
+        +e.row
+          +e.column._unit
+            +e.P.text в % к предыдущему году в сопоставимых основных ценах
+          +e.column
+            +e.P.value 12 263,9
+          +e.column
+            +e.P.value 12 263,9
+          +e.column
+            +e.P.value 12 263,9
+          +e.column
+            +e.P.value 12 604,7
+          +e.column
+            +e.P.value 12 691,1
+    +e.row
+      +e.column._main
+        +e.A(href="#").drop-text Индекс промышленного производства
+      +e.columns
+        +e.column._unit
+          +e.P.text в % к предыдущему году в сопоставимых основных ценах
+        +e.column
+          +e.P.value 12 263,9
+        +e.column
+          +e.P.value 12 263,9
+        +e.column
+          +e.P.value 12 263,9
+        +e.column
+          +e.P.value 12 604,7
+        +e.column
+          +e.P.value 12 691,1
+      +e.drop-content
+        +analityc-graphics-forecast-industry()
+    +e.row
+      +e.column._main
+        +e.A(href="#").drop-text декабрь текущего года к декабрю предыдущего года
+      +e.columns
+        +e.column._unit
+          +e.P.text %
+        +e.column
+          +e.P.value 114,2
+        +e.column
+          +e.P.value 114,2
+        +e.column
+          +e.P.value 114,2
+        +e.column
+          +e.P.value 114,2
+        +e.column
+          +e.P.value 114,2
+      

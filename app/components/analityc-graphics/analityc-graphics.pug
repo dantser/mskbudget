@@ -1157,3 +1157,94 @@ mixin analityc-graphics-aip(legendtype)
       span.analityc-graphics_round-next
       span.analityc-graphics_round-prev
       +legend-icon-woch()
+
+//- Прогноз социально-экономического развития города Москвы (численность населения)
+mixin analityc-graphics-forecast-population()
+  +b.analityc-graphics-rate-columns&attributes(attributes)
+    +e.growth-rate
+      +e.col
+        +e.P.rate-level(data-rate-level="100.0") 100,0%
+          +e.rate-line
+      +e.col
+        +e.P.rate-level(data-rate-level="101.1") 101,1%
+          +e.rate-line
+      +e.col
+        +e.P.rate-level(data-rate-level="100.9") 100,9%
+          +e.rate-line
+      +e.col
+        +e.P.rate-level(data-rate-level="100.7") 100,7%
+          +e.rate-line
+      +e.col
+        +e.P.rate-level(data-rate-level="100.7") 100,7%
+    +e.population
+      +e.col
+        +e.graphic-column(data-height="87%")
+          +e.P.population-value 12 263,9
+      +e.col
+        +e.graphic-column(data-height="91%")
+          +e.P.population-value 12 263,9
+      +e.col
+        +e.graphic-column(data-height="100%")
+          +e.P.population-value 12 263,9
+      +e.col
+        +e.graphic-column(data-height="100%")
+          +e.P.population-value 12 263,9
+      +e.col
+        +e.graphic-column(data-height="100%")
+          +e.P.population-value 12 263,9
+    +e.captions
+      +e.col
+        +e.P.caption 2015
+          span Факт
+      +e.col
+        +e.P.caption 2016
+          span Оценка
+      +e.col
+        +e.P.caption 2017
+          span План
+      +e.col
+        +e.P.caption 2018
+          span План
+      +e.col
+        +e.P.caption 2019
+          span План
+    +b.legend.__legend
+      +e.P.item._blue Тыс. чел.
+      +e.P.item._redline Темп роста к предыдущему периоду, %
+  
+//- Прогноз социально-экономического развития города Москвы (индекс промышленного производства)
+mixin analityc-graphics-forecast-industry()
+  +b.analityc-graphics-broken-line&attributes(attributes)
+    +e.growth-rate
+      +e.col
+        +e.P.rate-value(data-rate-level="94.9") 94,9%
+          +e.rate-line
+      +e.col
+        +e.P.rate-value(data-rate-level="98.6") 98,6%
+          +e.rate-line
+      +e.col
+        +e.P.rate-value(data-rate-level="98.8") 98,8%
+          +e.rate-line
+      +e.col
+        +e.P.rate-value(data-rate-level="102.6") 102,6%
+          +e.rate-line
+      +e.col
+        +e.P.rate-value(data-rate-level="101.1") 101,1%
+    +e.captions
+      +e.col
+        +e.P.caption 2015
+          span Факт
+      +e.col
+        +e.P.caption 2016
+          span Оценка
+      +e.col
+        +e.P.caption 2017
+          span План
+      +e.col
+        +e.P.caption 2018
+          span План
+      +e.col
+        +e.P.caption 2019
+          span План
+    +b.legend.__legend
+      +e.P.item._orangeline в % к предыдущему году в сопоставимых основных ценах

@@ -1,0 +1,78 @@
+.drop-table {
+  display: block;
+  
+  &__row {
+    border-bottom: 1px solid #e5e5e5;
+    padding: 16px 0 14px;
+    transition: all .25s ease-in-out;
+    &_head {
+      border-bottom-width: 3px;
+      padding: 0 0 16px;
+    }
+    .drop-table__row {
+      &:first-child {
+        padding-top: 0;
+      }
+      &:last-child {
+        border-bottom: 0;
+        padding-bottom: 0;
+      }
+    }
+    &.inactive {
+      opacity: .4;
+    }
+  }
+  &__column, &__columns {
+    display: inline-block;
+    vertical-align: top;
+  }
+  &__column {
+    width: 14.4%;
+    padding-right: 20px;
+    &_main {
+      width: 34.7%;
+      padding-right: 25px;
+    }
+    &_unit {
+      width: 28%;
+    }
+  }
+  &__columns {
+    width: 65.3%;
+  }
+  
+  &__head-text {
+    font-size: 14px;
+    font-weight: 500;
+    color: #898783;
+    text-transform: uppercase;
+    span {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 3px;
+    }
+  }
+  &__drop-text {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+    font-family: $PFDinTextPro;
+    color: $color-link;
+    text-decoration: none;
+    border-bottom: 1px dashed $color-link;
+    transition: all .25s ease-in-out;
+    &:hover {
+      opacity: .7;
+    }
+  }
+  &__text {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+    font-family: $PFDinTextPro;
+  }
+  &__value {
+    font-size: 18px;
+    font-weight: 500;
+  }
+}

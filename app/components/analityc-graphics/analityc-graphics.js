@@ -73,5 +73,62 @@ export default () => {
       $(this).find('.analityc-multiline__line-value').text('');
     }
   })
+  
+  
+  
+  // Прогноз социально-экономического развития города Москвы (численность населения)
+  if ($('.analityc-graphics-rate-columns').length) {
+    
+    rateLine('.analityc-graphics-rate-columns__growth-rate', 10, true);
+    
+    // Тыс.чел
+    $('.analityc-graphics-rate-columns__population').each(function(){
+      $(this).find('.analityc-graphics-rate-columns__graphic-column').each(function(){
+        var columnHeight = $(this).data('height');
+        $(this).css('height', columnHeight);
+      });
+    });
+  }
+  
+  // Прогноз социально-экономического развития города Москвы (индекс промышленного производства)
+  if ($('.analityc-graphics-broken-line').length) {
+    
+    rateLine('.analityc-graphics-broken-line__growth-rate', 5);
+  }
+  
+  // Темп роста
+  function rateLine(el, coef, columns) {
+    $(el).each(function(){
+      
+      var negRateDifference = 0;
+      $(this).find('[data-rate-level]').each(function(){
+        var rateLevel = parseFloat($(this).data('rate-level'));
+        var rateDiffernece = 100 - rateLevel;
+        if (rateDiffernece < negRateDifference) {
+          negRateDifference = rateDiffernece;
+        }
+        $(this).css('top', rateDiffernece*coef+'px');
+      });
+      negRateDifference = Math.abs(negRateDifference);
+      $(this).css('margin-top', negRateDifference*coef+'px');
+      
+      $(this).find('[data-rate-level]').children().each(function(){
+        var rateCol = $(this).parent().parent();
+        var startPoint = $(this).parent().css('top');
+        var endPoint = rateCol.next().children().css('top');
+        startPoint = parseInt(startPoint);
+        endPoint = parseInt(endPoint);
+        var pointDiff = endPoint - startPoint;
+        var lineWidth = rateCol.next().offset().left - rateCol.offset().left;
+        if (columns) {
+          lineWidth -= rateCol.outerWidth();
+        }
+        var angle = Math.atan(pointDiff/lineWidth);
+        angle = angle*180/Math.PI;
+        $(this).css('transform', 'skewY('+angle+'deg)');
+        $(this).css('width', lineWidth+'px');
+      });
+    });
+  }
 
 }
