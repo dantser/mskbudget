@@ -4,7 +4,7 @@
   color: #000;
 
   &__wrapper {
-
+		padding-bottom: 80px;
   }
 
 	&__head-about {
@@ -52,6 +52,13 @@
 	}
 }
 
+.services-net-inner {
+	display: none;
+
+	&_active {
+		display: block;
+	}
+}
 
 .services-net-table {
   width: 100%;
@@ -120,9 +127,9 @@
 	}
 
 	&__row-num,
-	&__row-title,
-	&__row-inn,
-	&__row-kpp {
+	&__row-one,
+	&__row-two,
+	&__row-three {
 		font-family: PFDinTextPro;
 		font-size: 16px;
     font-weight: 500;
@@ -135,13 +142,59 @@
 		margin-right: 15px;
 	}
 
-	&__row-title {
+	&__row-one {
 		display: inline-block;
     vertical-align: top;
 		color: $color-link;
     text-decoration: none;
     letter-spacing: -.4px;
     white-space: normal;
+	}
+}
+
+.services-net-table_institute-table {
+	margin-top: 36px;
+
+	.services-net-table {
+		&__caption {
+			padding-bottom: 26px;
+		}
+
+		&__col {
+	    padding-right: 40px;
+
+			&_left {
+				width: 44.5%;
+			}
+
+			&_center {
+				width: 36%;
+			}
+
+			&_right {
+				width: 19.5%;
+			}
+		}
+
+		&__row {
+	    padding: 17px 0 14px;
+		}
+
+		&__row-num {
+			display: none;
+		}
+
+		&__row-one,
+		&__row-two,
+		&__row-three {
+	    line-height: 20px;
+			font-weight: 400;
+			letter-spacing: 0px;
+		}
+
+		&__row-one {
+			color: $color-black;
+		}
 	}
 }
 
@@ -261,33 +314,6 @@
 
 .services-net-domain-slider {
 
-	&__arrow {
-		position: absolute;
-    top: 200px;
-		width: 45px;
-    height: 45px;
-
-		&_prev,
-		&_next {
-			background-image: none;
-		}
-
-		&_prev {
-			left: 0;
-		}
-
-		&_next {
-			right: 0;
-		}
-
-    .arrow-button__icon {
-    	width: 20px;
-   	 	height: 20px;
-    }
-	}
-}
-
-.services-net-domain-slide {
 	&__banner {
 		position: relative;
 		width: 100%;
@@ -325,6 +351,31 @@
 
 	&__info {
     padding: 35px 40px 58px;
+	}
+
+	&__arrow {
+		position: absolute;
+    top: 200px;
+		width: 45px;
+    height: 45px;
+
+		&_prev,
+		&_next {
+			background-image: none;
+		}
+
+		&_prev {
+			left: 0;
+		}
+
+		&_next {
+			right: 0;
+		}
+
+    .arrow-button__icon {
+    	width: 20px;
+   	 	height: 20px;
+    }
 	}
 }
 
@@ -372,5 +423,148 @@
 		font-weight: 500;
 		text-transform: uppercase;
 		margin-bottom: 20px;
+	}
+}
+
+.services-net-institute {
+	padding: 27px 40px 52px;
+
+	&__back {
+		font-family: PFDinCondensedPro,sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #0d46a1;
+    font-weight: 500;
+    cursor: pointer;
+	}
+
+	&__title {
+    font-size: 25px;
+    line-height: 30px;
+    letter-spacing: -.6px;
+		text-transform: uppercase;
+    font-weight: 500;
+    margin-top: 10px;
+	}	
+
+	&__requisites {
+		@include clearfix;
+		position: relative;
+		margin-top: 23px;
+	}
+
+	&__data {
+		width: 60%;
+		float: left;
+		font-family: $PFDinTextPro;
+		font-weight: 500;
+		letter-spacing: -.3px;
+	}
+
+	&__data-row {
+		font-size: 0;
+
+		& + .services-net-institute__data-row {
+			margin-top: 16px;
+		}
+	}
+
+	&__data-title,
+	&__data-text {
+		display: inline-block;
+		vertical-align: top;
+		font-size: 14px;
+	}
+
+	&__data-title {
+		width: 39%;
+		color: #999999;
+	}
+
+	&__data-text {
+		width: 61%;
+	}
+
+	&__address {
+		width: 40%;
+		float: right;
+		z-index: 1;
+
+		&_active {
+			position: absolute;
+			width: 100%;
+
+			.services-net-institute {
+				min-height: 900px;
+			}
+
+			.services-net-institute__address-map {
+				height: 645px;
+			}
+
+			.services-net-institute__address-map-open {
+				display: none;
+			}
+
+			.services-net-institute__map-close {
+				display: block;
+			}
+		}
+	}
+
+	&__address-map {
+		width: 100%;
+		height: 210px;
+		background-color: #999999;
+	}
+
+	&__address-map-open {
+		margin-top: 8px;
+    font-size: 14px;
+	}
+
+	&__map-close {
+		display: none;
+		position: absolute;
+		top: 0;
+		right: -25px;
+		width: 20px;
+		height: 20px;
+		fill: $color-yellow;
+		cursor: pointer;
+	}
+
+	.analityc-control-switcher_net {
+		font-size: 0;
+		margin-top: 20px;
+
+		& > a {
+	    font-weight: 700;
+			text-decoration: none;
+		}
+
+		& > a + a {
+  		border-left: 1px solid #0d46a1;
+		}
+	}
+
+	&__year {
+		margin-top: 20px;
+	}
+
+	&__year-label {
+		font-size: 18px;
+		font-weight: 500;
+    text-transform: uppercase;
+    margin-right: 13px;
+	}
+
+	&__year-select {
+		display: inline-block;
+    width: 70px;
+
+    .selectbox__select {
+    	padding: 0 10px;
+    }
 	}
 }

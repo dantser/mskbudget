@@ -675,7 +675,176 @@
       margin-right: 0;
       margin-left: 8px;
     }
+
+    .services-VMO__content_line-bar {
+      width: 100%;
+      margin-bottom: 50px;
+      .services-VMO__row {
+        @include clearfix();
+        margin-bottom: 50px;
+      }
+      .services-VMO__subtitle {
+        display: inline-block;
+        vertical-align: middle;
+        margin-bottom: 0;
+        float: left;
+      }
+      .legend {
+        float: right;
+
+        &__item_transparentpink::before {
+          background: #9f3189;
+          background: linear-gradient(0deg,rgba(157,48,138,.4),rgba(255,105,91,.4));
+          filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=rgba(255,105,91,.4),endColorstr=rgba(157,48,138,.4));
+        }
+      }
+    }
+    .analityc-graphics-line-vertical_vmo {
+      margin-top: 30px;
+    }
+    .services-VMO__content_bottom {
+      @include clearfix();
+      width: 100%;
+      .services-VMO__subtitle {
+        float: left;
+        display: inline-block;
+        vertical-align: middle;
+        width: 19%;
+      }
+      .services-VMO__right-block {
+        float: right;
+        display: inline-block;
+        vertical-align: middle;
+        width: 80%;
+      }
+      .services-VMO__cursive {
+        font-family: $PFDinTextPro;
+        font-size: 14px;
+        font-style: italic;
+        line-height: 18px;
+        color: rgba(0,0,0,.6);
+        margin-bottom: 20px;
+      }
+      .services-VMO__list {
+        overflow: hidden;
+        height: 73px;
+
+        &-wrapper {
+          counter-reset: myCounter1;
+          height: auto;
+          margin: 0;
+        }
+        &-item {
+          padding-left: 33px;
+          position: relative;
+          font-size: 14px;
+          line-height: 20px;
+          font-family: $PFDinTextPro;
+          list-style: none;
+          margin-bottom: 7px;
+          &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            counter-increment: myCounter1;
+            content:counter(myCounter1);
+            background-color: #4db9d2;
+            color: $color-white;
+            width: 21px;
+            height: 20px;
+            border-radius: 50%;
+            text-align: center;
+          }
+        }
+
+        &_income {
+          height: 140px;
+        }
+      }
+
+      .button {
+        max-width: 90%;
+        margin-top: 27px;
+      }
+    }
   }
+  .tabs__tab[data-tab="VMOsocialEc"] {
+    .services-VMO__title {
+      margin-bottom: 32px;
+    }
+    .services-VMO__subtitle {
+      border-bottom: 1px solid #cccccc;
+      padding-bottom: 7px;
+    }
+    .services-VMO__content {
+      width: 100%;
+    }
+    .services-VMO__digit {
+      font-size: 36px;
+      margin-right: 30px;
+      span {
+        font-size: 18px;
+        text-transform: uppercase;
+      }
+      span.services-VMO__subdescr {
+        display: block;
+        font-size: 12px;
+        text-transform: uppercase;
+        color: rgba(0, 0, 0, .7);
+      }
+    }
+    .services-VMO__content_small {
+      width: 16.7%;
+      display: inline-block;
+      vertical-align: top;
+      margin-right: 40px;
+      margin-top: 0;
+
+      .services-VMO__digit_columns {
+        margin-top: 20px;
+        span.services-VMO__digit_column {
+          width: 15%;
+          display: inline-block;
+          vertical-align: top;
+        }
+        span.services-VMO__subdescr {
+          display: inline-block !important;
+          width: 80%;
+        }
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+      .services-VMO__subtitle {
+        height: 80px;
+        display: table-cell;
+        vertical-align: bottom;
+
+      }
+      .services-VMO__digit {
+        font-size: 20px;
+        margin-right: 0;
+
+        &:nth-child(2) {
+          margin-top: 25px;
+        }
+        span {
+          font-size: 20px;
+          margin-bottom: 15px;
+          line-height: 18px;
+        }
+        span.services-VMO__subdescr {
+          display: block;
+          font-size: 12px;
+          text-transform: uppercase;
+          color: rgba(0, 0, 0, .7);
+        }
+      }
+    }
+  }
+
+
 
   .analityc-select_vmo option {
     font-size: 28px;
@@ -686,6 +855,29 @@
   }
   .ui-button {
     background: none !important;
+  }
+  .analityc-graphics-line-vertical:before {
+    height: 2px;
+  }
+
+  .legend {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 30px;
+    @include clearfix;
+
+    &__item {
+      display: inline-block;
+      vertical-align: middle;
+      margin-bottom: 0;
+      height: auto;
+      font-size: 14px;
+      color: $color-black;
+      font-family: $PFDinTextPro;
+      &+.legend__item {
+        margin-left: 30px;
+      }
+    }
   }
 }
 

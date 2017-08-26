@@ -3,32 +3,36 @@ include ../../blocks/buttons-set/buttons-set
 include ../../blocks/tabs/tabs
 include ../../components/searchForm/searchForm
 include ../../blocks/arrow-button/arrow-button
+include ../../blocks/link/link
+include ../../blocks/selectbox/selectbox
+include ../../blocks/dropdown-block/dropdown-block
 
 mixin services_net()
 
-	mixin table(data)
-		+b.services-net-table
-			+e.table&attributes(attributes)
+	mixin table(data, leftCaption, centerCaption, rightCaption)
 
-				+e.rows.significant-list__caption
+		+b.services-net-table&attributes(attributes)
+			+e.table
+
+				+e.rows.services-net-table__caption
 				
-					+e.H3.col._left Краткое наименование учреждения
-					+e.H3.col._center ИНН
-					+e.H3.col._right КПП
+					+e.H3.col._left= leftCaption
+					+e.H3.col._center= centerCaption
+					+e.H3.col._right= rightCaption
 
-				+e.rows.significant-list__main
+				+e.rows.services-net-table__main
 					- for (var i=0; i<data.length; i++)
-						+row(data[i].id, data[i].title, data[i].inn, data[i].kpp)
+						+row(data[i].id, data[i].colOne, data[i].colTwo, data[i].colThree)
 
-	mixin row(num, title, inn, kpp)
+	mixin row(num, colOne, colTwo, colThree)
 		+e.row
 			+e.col._left
 				+e.row-num= num
-				+e.A(href='#' data-tab-target='significantThree' data-target=num).row-title= title
+				+e.A(href='#' data-tab-target='significantThree' data-target=num).row-one= colOne
 			+e.col._center
-				+e.row-inn= inn
+				+e.row-two= colTwo
 			+e.col._right
-				+e.row-kpp= kpp
+				+e.row-three= colThree
 
 
 	+b.SECTION.services-net.section__item&attributes(attributes)
@@ -44,7 +48,7 @@ mixin services_net()
 
 				+tabs-tab(data-tab-group="netTabs", data-tab="netOne").active
 
-					+b.services-net-domain
+					+b.services-net-domain.services-net-inner._active
 						+e.main
 							+e.UL.list
 								+e.LI.list-item._health(data-target='health')
@@ -93,37 +97,58 @@ mixin services_net()
 						.services-net__foot
 							a(href="#").analityc-more Посмотреть весь список
 
-					+b.services-net-domain-slider.swiper-container(style='display: none')
-						+e.wrapper.swiper-wrapper
-							+b.services-net-domain-slide._health.swiper-slide
-								+e.banner
+					+b.services-net-domain-slider.services-net-inner
+						+e.banner.swiper-container
+							+e.wrapper.swiper-wrapper
+								+e.banner-slide.swiper-slide(data-tab='health')
 									+e.IMG(src='assets/images/services_net/sport.jpg')
 									+e.banner-banner
 										+e.H3.banner-title Здравоохранение
 										+e.SPAN.banner-value 293
 										+e.SPAN.banner-label учреждения
-								+e.info
-									+searchFormNet('Поиск').services-net__search
-									.services-net-table__total Всего учреждений 2 445
-									+table(getData('net'))
-							+b.services-net-domain-slide._social.swiper-slide
-								+e.banner
+								+e.banner-slide.swiper-slide(data-tab='social')
+									+e.IMG(src='assets/images/services_net/sport.jpg')
+									+e.banner-banner
+										+e.H3.banner-title Социальные услуги
+										+e.SPAN.banner-value 190
+										+e.SPAN.banner-label учреждений
+								+e.banner-slide.swiper-slide(data-tab='edu')
+									+e.IMG(src='assets/images/services_net/sport.jpg')
+									+e.banner-banner
+										+e.H3.banner-title Образование
+										+e.SPAN.banner-value 746
+										+e.SPAN.banner-label учреждений
+								+e.banner-slide.swiper-slide(data-tab='others')
+									+e.IMG(src='assets/images/services_net/sport.jpg')
+									+e.banner-banner
+										+e.H3.banner-title Иные сферы
+										+e.SPAN.banner-value 669
+										+e.SPAN.banner-label учреждений
+								+e.banner-slide.swiper-slide(data-tab='culture')
+									+e.IMG(src='assets/images/services_net/sport.jpg')
+									+e.banner-banner
+										+e.H3.banner-title Культура
+										+e.SPAN.banner-value 439
+										+e.SPAN.banner-label учреждений
+								+e.banner-slide.swiper-slide(data-tab='sport')
 									+e.IMG(src='assets/images/services_net/sport.jpg')
 									+e.banner-banner
 										+e.H3.banner-title Спорт
 										+e.SPAN.banner-value 108
-										+e.SPAN.banner-label учреждений
-								+e.info
-									+searchFormNet('Поиск').services-net__search
-									.services-net-table__total Всего учреждений 1 000000
-									+table(getData('net'))
+										+e.SPAN.banner-label учреждения
+							+arrow-button()._prev.services-net-domain-slider__arrow._prev.swiper-button-prev
+							+arrow-button().services-net-domain-slider__arrow._next.swiper-button-next
 
-						+arrow-button()._prev.services-net-domain-slider__arrow._prev.swiper-button-prev
-						+arrow-button().services-net-domain-slider__arrow._next.swiper-button-next
+						+e.info
+							+searchFormNet('Поиск').services-net__search
+							.services-net-table__total Всего учреждений 2 445
+							+table(getData('net'), 'Краткое наименование учреждения', 'ИНН', 'КПП')
+
+
 
 				+tabs-tab(data-tab-group="netTabs", data-tab="netTwo")
 
-					+b.services-net-municipality
+					+b.services-net-municipality.services-net-inner._active
 						+e.main
 							+e.H3.title 
 								| ВЫБЕРИТЕ
@@ -138,8 +163,47 @@ mixin services_net()
 						.services-net__foot
 							a(href="#").analityc-more Посмотреть весь список
 
-					+b.services-net-institutes(style='display: none')
+					+b.services-net-institutes.services-net-inner
 						+e.title Перечень государственных (муниципальных) учреждений города Москвы
 						+searchFormNet('Поиск').services-net__search
 						.services-net-table__total Всего учреждений 1 000000
-						+table(getData('net'))
+						+table(getData('net'), 'Краткое наименование учреждения', 'ИНН', 'КПП')
+
+					+b.services-net-institute.services-net-inner
+						+e.SPAN.back Назад к списку
+						+e.H3.title Государственное бюджетное учреждение здравоохранения города москва «Городская поликлиника №180 Департамента здравоохранения города москвы»
+						+e.requisites
+							+e.data
+								+e.data-row
+									+e.P.data-title Сокращенное наименование
+									+e.P.data-text ГБУ ГП №180 ДЗМ
+								+e.data-row
+									+e.P.data-title Адрес учреждения
+									+e.P.data-text Уваровский пер., 4
+								+e.data-row
+									+e.P.data-title ИНН
+									+e.P.data-text 7733137143
+								+e.data-row
+									+e.P.data-title КПП
+									+e.P.data-text 773301001
+								+e.data-row
+									+e.P.data-title Организационно-правовая форма
+									+e.P.data-text Государственные бюджетные учреждения субъектов Российской Федерации
+								+e.data-row
+									+e.P.data-title Вид деятельности
+									+e.P.data-text Врачебная практика
+							+e.address
+								+e.address-map(id='net-map')
+								+link()._dashed.services-net-institute__address-map-open Развернуть карту
+								+icon('close').map-close
+						+e.description
+							.analityc-control-switcher.analityc-control-switcher_net.active
+								a(href="#", data-tab-target="offers").active Услуги
+								a(href="#", data-tab-target="services") Работы
+								a(href="#", data-tab-target="property") Имущество
+							+e.year
+								+e.SPAN.year-label Год
+								+selectbox('year', [{"val":"opt1", "text":"2017"}, {"val":"opt2", "text":"2016"}]).services-net-institute__year-select
+							+table(getData('net-institute'), 'Наименование услуги', 'Пользователи', 'Объем услуги')._institute-table
+
+		+dropdown().load-anim-fade(data-delay="1700")

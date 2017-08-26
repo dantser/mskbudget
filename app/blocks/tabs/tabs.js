@@ -23,9 +23,12 @@ export default function tabs() {
 			$(document).find('.analityc-control-group_classify').hide();
 			$(document).find('.analityc-control-group_gp').css('display', 'inline-block');
       $(document).find('.analityc-widgethead__row_extra .analityc-control-switcher').hide();
-
 		}
 
+    if (targetTab == 'netOne' || targetTab == 'netTwo') {
+      tab.find('.services-net-inner').removeClass('services-net-inner_active');
+      tab.find('.services-net-inner').first().addClass('services-net-inner_active');
+    }
 
     $(document).find("[data-tab-group='" + tabGroup + "']").hide();
 
