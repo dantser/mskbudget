@@ -1,0 +1,17 @@
+include ../page-header/page-header
+
+mixin 404()
+  .d-budjet-cards_bg
+    .wrap.load-anim-fade(data-delay="1400")
+      
+      +b.page-not-found
+        +e.H1.header 404
+        +e.P.description Страница не найдена
+        
+mixin 404preloader()
+  .d-budjet-cards_bg
+    .wrap.load-anim-fade(data-delay="1400")
+      
+      +b.page-not-found
+        +e.H1.header(onclick="preloader();") 404
+        +e.P.description Страница не найдена
