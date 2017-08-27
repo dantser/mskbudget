@@ -478,12 +478,15 @@ function tabsLine() {
     $('.owl-nav').each(function() {
       var next = $(this).find('.owl-next');
       var prev = $(this).find('.owl-prev');
+
       next.on('click', function(e) {
-        $(this).parents('.section-tabs').find('.dd-holder').animate({ scrollLeft: '+=276' }, 300);
+        var offset = $(this).parents('.section-tabs').find('.tile__item').outerWidth(true);
+        $(this).parents('.section-tabs').find('.dd-holder').animate({ scrollLeft: '+='+offset }, 300);
       });
 
       prev.on('click', function(e) {
-        $(this).parents('.section-tabs').find('.dd-holder').animate({ scrollLeft: '-=276' }, 300);
+        var offset = $(this).parents('.section-tabs').find('.tile__item').outerWidth(true);
+        $(this).parents('.section-tabs').find('.dd-holder').animate({ scrollLeft: '-='+offset }, 300);
       });
 
 
