@@ -58,6 +58,8 @@ import servicesVMO from '../components/depfin_services_VMO/depfin_services_VMO';
 import socialSignificant from '../components/services_social_significant/socialSignificant';
 import servicesNet from '../components/services_net/servicesNet';
 import dropTable from '../blocks/drop-table/dropTable';
+import slideArrows from '../blocks/slide-arrows/slideArrows';
+import budgetForecast from '../components/budget-forecast/budgetForecast';
 
 $(() => {
 
@@ -129,4 +131,6 @@ $(() => {
   socialSignificant();
   servicesNet();
   dropTable();
+  slideArrows();
+  budgetForecast();
 });
