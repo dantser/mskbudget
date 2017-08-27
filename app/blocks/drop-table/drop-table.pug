@@ -1,13 +1,14 @@
 include ../../components/analityc-graphics/analityc-graphics
 
-mixin drop-table()
+mixin drop-table-forecast()
   +b.drop-table&attributes(attributes)
     +e.row._head
       +e.column._main._head
         +e.P.head-text Показатель
       +e.columns
         +e.column._unit
-          +e.P.head-text Единица измерения
+          +e.P.head-text._long Единица измерения
+          +e.P.head-text._short Показатель,<br> Ед. измерения
         +e.column
           +e.P.head-text
             span 2015
@@ -96,7 +97,7 @@ mixin drop-table()
         +analityc-graphics-forecast-industry()
     +e.row
       +e.column._main
-        +e.A(href="#").drop-text декабрь текущего года к декабрю предыдущего года
+        +e.A(href="#").drop-text Декабрь текущего года к декабрю предыдущего года
       +e.columns
         +e.column._unit
           +e.P.text %
