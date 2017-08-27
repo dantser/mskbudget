@@ -8,8 +8,8 @@ export default () => {
     cancel: ".tile__item_pinned, a, button, input",
     handle: ".widget-card__head",
     stop: function(event, ui) {
-       alert("New position: " + ui.item.index());
-   }
+       //alert("New position: " + ui.item.index());
+    }
   });
   // $( ".tile-item" ).draggable({
   //   connectToSortable: ".tile",
@@ -17,5 +17,5 @@ export default () => {
   //    });
   //  $( ".tile, .tile-item" ).disableSelection();
 
-   $('.widget-card-cities').find('.widget-card__pin').click();
+  //$('.widget-card-cities').find('.widget-card__pin').click();
 }

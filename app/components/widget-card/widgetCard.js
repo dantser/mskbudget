@@ -19,6 +19,13 @@ export default () => {
       e.preventDefault();
       EL.toggleClass('widget-card__pin_active');
       EL.parents('.tile__item').toggleClass('tile__item_pinned');
+
+      if ( !$(this).parents('.tile__item').hasClass('tile__item_pinned') ) {
+        var block = $(this).parents('.tile__item');
+        $(this).parents('.sortable').find('.tile__item.tile__item_pinned').last().after(block);
+      } else {
+        $(this).parents('.tile__item').prependTo( EL.parents('.sortable') );
+      }
     })
   });
 
