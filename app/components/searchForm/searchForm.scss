@@ -752,11 +752,24 @@
   padding: 0;
   margin: 0;
 
+  @media (max-width: 900px) {
+    text-align: right;
+  }
+
   .search {
 
     &__search-line {
       width: 619px;
       margin-right: 9px;
+
+      @media (max-width: 1280px) {
+        display: inline-block;
+      }
+
+      @media (max-width: 900px) {
+        width: 100%;
+      }
+
     }
 
     &__tooltip {
@@ -767,10 +780,38 @@
       right: 17px;
       top: 2px;
       fill: $color-link;
+
+      @media (max-width: 900px) and (min-width: 581px) {
+        width: 31px;
+        height: 34px;
+        right: 14px;
+        top: 18px;
+      }
+
     }
 
     &__filter {
       display: block;
+
+      @media (max-width: 1280px) {
+        margin-top: 0;
+      }
+
+      @media (max-width: 900px) and (min-width: 581px) {
+        width: calc(100% + 80px);
+        margin: 0 -40px;
+      }
+
+      @media (max-width: 900px) {
+        position: absolute;
+        top: 0;
+      }
+     
+      @media (max-width: 580px) {
+        width: calc(100% + 26px);
+        margin: 0 -13px;
+      }
+      
     }
   }
 
@@ -786,15 +827,53 @@
     text-transform: none;
     border: 1px solid;
     border-radius: 2px;
+
+    @media (max-width: 900px) and (min-width: 581px) {
+      padding-left: 24px;
+      height: 70px;
+      font-size: 32px;
+      line-height: 70px;
+    }
+
   }
 
   .d-si__submit {
     right: 17px;
     top: 2px;
+
+    @media (max-width: 900px) and (min-width: 581px) {
+      width: 31px;
+      height: 34px;
+      right: 14px;
+      top: 18px;
+    }
+
   }
 
   .link {
+    box-sizing: content-box;
+    line-height: 32px;
+    padding: 0 15px 12px;
     font-weight: 500;
+
+    &.active {
+      background-color: #f5f2ed!important;
+    }
+
+    @media (max-width: 900px) and (min-width: 581px) {
+      font-size: 32px;
+    }
+
+    @media (max-width: 900px) {
+      padding: 0;
+      margin-top: 22px; 
+    }
+
+    @media (max-width: 580px) {
+      transform: none !important;
+      margin-top: 13px;
+    }
+
   }
 
   .extra-search {
@@ -805,6 +884,15 @@
       width: 100%;
       padding: 22px 32px 32px;
       background: #f5f2ed;
+
+      @media (max-width: 900px) and (min-width: 581px) {
+        padding: 39px 45px 32px;
+      }
+
+      @media (max-width: 580px) {
+        padding: 39px 13px 32px;
+      }
+      
     }
 
     &__wrapper {
@@ -814,16 +902,34 @@
     &__title {
       font-size: 18px;
       margin: 0;
+
+    @media (max-width: 900px) and (min-width: 581px) {
+      font-size: 36px;
+    }
+
     }
 
     &__cols {
       border: none;
       margin-top: 18px;
       margin-bottom: 33px;
+
+      @media (max-width: 900px) and (min-width: 581px) {
+        margin-top: 27px;
+      }
+
     }
     
+    &__col {
+      @media (max-width: 900px) {
+        display: block;
+      }
+
+    }
+
     &__col_one,
     &__col_two {
+      width: auto;
       padding: 0;
       border: none;
     }
@@ -831,8 +937,17 @@
     &__col_two {
       margin-left: 70px;
 
+      @media (max-width: 900px) {
+        margin-left: 0;
+        margin-top: 43px;
+      }
+
       .extra-search__field-label {
         width: 77px;
+
+        @media (max-width: 900px) {
+          width: 100%;
+        }
       }
     }
 
@@ -840,10 +955,34 @@
       margin: 0;
       & + .extra-search__field {
         margin-top: 10px;
+
+        @media (max-width: 900px) and (min-width: 581px) {
+          margin-top: 16px;
+        }
+
       }
 
       .selectbox {
         padding: 0;
+
+        &__select {
+          @media (max-width: 900px) and (min-width: 581px) {
+            font-size: 28px;
+            line-height: 70px;
+          }
+        }
+
+        &__arrow {
+          @media (max-width: 900px) and (min-width: 581px) {
+            width: 55px;
+          }
+
+          span {
+            @media (max-width: 900px) and (min-width: 581px) {
+              border-width: 9px 9px 0;
+            }
+          }
+        }
       }
     }
 
@@ -853,6 +992,16 @@
       width: 116px;
       font-family: $PFDinTextPro;
       font-size: 14px;
+
+      @media (max-width: 900px) and (min-width: 581px) {
+        font-size: 32px;
+      }
+
+      @media (max-width: 900px) {
+        display: block;
+        width: 100%;
+      }
+    
     }
 
     &__field-input {
@@ -864,10 +1013,52 @@
       color: $color-black !important;
       background: $color-white;
       border: 1px solid #acacac;
+
+      @media (max-width: 900px) and (min-width: 581px) {
+        margin-top: 7px;
+        height: 70px;
+        font-size: 28px!important;
+        line-height: 70px;
+      }
+      
+
+      @media (max-width: 900px) {
+        display: block;
+        width: 100%;
+      }
     }
 
     .button {
       margin: 0 23px 0 0;
+
+      @media (max-width: 900px) and (min-width: 581px) {
+        width: 300px;
+        padding: 19px 50px;
+        font-size: 28px;
+        margin: 0 43px 0 0;
+      }
+
+    }
+
+    &__reset {
+      @media (max-width: 900px) and (min-width: 581px) {
+        font-size: 32px!important;
+      }
+    }
+
+    &__close {
+      position: absolute;
+      top: 17px;
+      right: 11px;
+      height: 20px;
+      width: 20px;
+
+      @media (max-width: 900px) and (min-width: 581px) {
+        right: 41px;
+        height: 40px;
+        width: 40px;
+        fill: $color-black;
+      }
     }
   }
 }

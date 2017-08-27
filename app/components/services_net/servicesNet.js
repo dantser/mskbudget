@@ -57,13 +57,20 @@ export default () => {
 
   // Раскрытие фильтра
   const FILTER_LINK = $('.filter-link');
+  const FILTER_CLOSE = $('.extra-search__close');
 
   FILTER_LINK.click(function() {
     if ($(this).hasClass('active'))
       $('.extra-search.modal').show();
     else
       $('.extra-search.modal').hide();
+
   })
+  FILTER_CLOSE.click(function() {
+    $('.extra-search.modal').hide();
+    FILTER_LINK.toggleClass('active');
+  })
+
 
   // Переход на таб Муниц. образование -> Перечень гос. учреждений
   const MORE_LINK = $('.analityc-more');
@@ -127,11 +134,9 @@ export default () => {
     e.preventDefault();
     $('.services-net-institute__address').addClass('services-net-institute__address_active');
     map.container.fitToViewport();
-    $('.services-net-institute__data, .services-net-institute__description').hide();
   })
   MAP_CLOSE.click(function() {
     $('.services-net-institute__address').removeClass('services-net-institute__address_active');
     map.container.fitToViewport();
-    $('.services-net-institute__data, .services-net-institute__description').show();
   })
 }
