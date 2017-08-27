@@ -4,6 +4,7 @@ include ../analityc-graphics/analityc-graphics
 include ../analityc-table/analityc-table
 include ../../blocks/drop-table/drop-table
 include ../../blocks/dropdown-block/dropdown-block
+include ../../blocks/slide-arrows/slide-arrows
 
 mixin budget-forecast()
   section.main._basic.basic-budget.sections__item.budget-forecast
@@ -15,6 +16,8 @@ mixin budget-forecast()
       .analityc-widget.analityc-widget_forecast.load-anim-fade(data-delay="1500")
         +analityc-widgethead-forecast().analityc-widgethead-forecast
         +analityc-table().analityc-table-forecast
-          +drop-table().budget-forecast__drop-table
+          +slide-arrows().budget-forecast__slide-arrows
+          .budget-forecast__table-wrapper
+            +drop-table-forecast().budget-forecast__drop-table
         
     +dropdown().load-anim-fade(data-delay="1700")

@@ -3263,6 +3263,7 @@
   &__growth-rate {
     @include block-justify;
     padding: 0 43px;
+    font-size: 1px;
   }
   &__col {
     display: inline-block;
@@ -3291,6 +3292,7 @@
     padding: 0 43px;
     margin-top: 6px;
     border-bottom: 1px solid #dcdcdc;
+    font-size: 1px;
     .analityc-graphics-rate-columns__col {
       height: 100%;
       position: relative;
@@ -3312,7 +3314,7 @@
     font-weight: 500;
     color: #fff;
     text-align: center;
-    padding: 0 20px;
+    padding: 0 10px;
     position: absolute;
     left: 0;
     right: 0;
@@ -3323,6 +3325,7 @@
     @include block-justify;
     padding: 0 43px;
     margin-top: 10px;
+    font-size: 1px;
   }
   &__caption {
     text-align: center;
@@ -3347,7 +3350,11 @@
       font-size: 14px;
       font-weight: 400;
       font-family: $PFDinTextPro;
+      height: 21px;
+      line-height: 21px;
       &:before {
+        width: 21px;
+        height: 21px;
         margin-right: 13px;
         position: relative;
       }
@@ -3356,6 +3363,134 @@
       }
       &_redline:before {
         top: 10px !important;
+      }
+    }
+  }
+  
+  @media screen and (min-width: 769px) and (max-width: 900px) {
+    &__col {
+      width: 13%;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    &__col {
+      width: 15%;
+    }
+    &__legend {
+      padding: 0;
+      height: auto;
+      .legend__item {
+        width: 100%;
+        & + .legend__item {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+  
+  @media screen and (min-width: 551px) and (max-width: 768px) {
+    padding-top: 105px;
+    padding-bottom: 40px;
+    &__rate-level {
+      font-size: 27px;
+      border-bottom-width: 3px;
+    }
+    &__rate-line {
+      border-bottom-width: 3px;
+      bottom: -3px;
+    }
+    &__growth-rate {
+      padding: 0 18px;
+    }
+    &__population {
+      margin-top: 9px;
+      height: 240px;
+      padding: 0 18px;
+    }
+    &__population-value {
+      font-size: 24px;
+    }
+    &__caption {
+      font-size: 24px;
+      span {
+        font-size: 18px;
+      }
+    }
+    &__captions {
+      padding: 0 18px;
+      margin-top: 11px;
+    }
+    &__legend {
+      margin-top: 32px;
+      .legend__item {
+        font-size: 21px;
+        &:before {
+          width: 30px;
+          height: 30px;
+          margin-top: -8px;
+        }
+        & + .legend__item {
+          margin-top: 20px;
+        }
+        &_redline:before {
+          height: 3px !important;
+          top: 13px !important;
+        }
+      }
+    }
+  }
+  
+  @media screen and (max-width: 550px) {
+    padding-top: 65px;
+    padding-bottom: 25px;
+    &__rate-level {
+      font-size: 18px;
+      border-bottom-width: 2px;
+    }
+    &__rate-line {
+      border-bottom-width: 2px;
+      bottom: -2px;
+    }
+    &__growth-rate {
+      padding: 0 15px;
+    }
+    &__population {
+      margin-top: 9px;
+      height: 156px;
+      padding: 0 15px;
+    }
+    &__population-value {
+      font-size: 14px;
+    }
+    &__captions {
+      padding: 0 15px;
+      margin-top: 11px;
+    }
+    &__caption {
+      font-size: 16px;
+      span {
+        font-size: 12px;
+      }
+    }
+    &__legend {
+      margin-top: 17px;
+      .legend__item {
+        font-size: 14px;
+        margin-bottom: 0;
+        &:before {
+          width: 21px;
+          height: 21px;
+          margin-top: 0;
+          margin-right: 8px;
+        }
+        & + .legend__item {
+          margin-top: 0;
+        }
+        &_redline:before {
+          height: 2px !important;
+          top: 10px !important;
+        }
       }
     }
   }
@@ -3368,6 +3503,7 @@
     padding: 0 36px;
     padding-bottom: 156px;
     border-bottom: 1px solid #dcdcdc;
+    font-size: 1px;
   }
   &__col {
     display: inline-block;
@@ -3391,6 +3527,7 @@
     @include block-justify;
     padding: 0 43px;
     margin-top: 10px;
+    font-size: 1px;
   }
   &__caption {
     text-align: center;
@@ -3415,7 +3552,11 @@
       font-size: 14px;
       font-weight: 400;
       font-family: $PFDinTextPro;
+      height: 21px;
+      line-height: 21px;
       &:before {
+        width: 21px;
+        height: 21px;
         margin-right: 13px;
         position: relative;
       }
@@ -3424,6 +3565,108 @@
       }
       &_orangeline:before {
         top: 10px !important;
+      }
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    &__captions {
+      padding: 0;
+    }
+    &__legend {
+      padding: 0;
+      height: auto;
+      .legend__item {
+        width: 100%;
+        & + .legend__item {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+  
+  @media screen and (min-width: 551px) and (max-width: 768px) {
+    padding-top: 132px;
+    &__rate-value {
+      font-size: 27px;
+    }
+    &__rate-line {
+      border-bottom-width: 3px;
+    }
+    &__growth-rate {
+      padding: 0;
+      padding-bottom: 163px;
+      border-bottom-width: 2px;
+    }
+    &__captions {
+      margin-top: 11px;
+    }
+    &__caption {
+      font-size: 24px;
+      span {
+        font-size: 18px;
+      }
+    }
+    &__legend {
+      margin-top: 32px;
+      .legend__item {
+        font-size: 21px;
+        &:before {
+          width: 30px;
+          height: 30px;
+          margin-top: -8px;
+        }
+        & + .legend__item {
+          margin-top: 20px;
+        }
+        &_orangeline:before {
+          height: 3px !important;
+          top: 13px !important;
+        }
+      }
+    }
+  }
+  
+  @media screen and (max-width: 550px) {
+    padding-top: 80px;
+    &__rate-value {
+      font-size: 18px;
+    }
+    &__rate-line {
+      border-bottom-width: 2px;
+    }
+    &__growth-rate {
+      padding: 0;
+      padding-bottom: 110px;
+      border-bottom-width: 1px;
+    }
+    &__captions {
+      margin-top: 8px;
+    }
+    &__caption {
+      font-size: 16px;
+      span {
+        font-size: 12px;
+      }
+    }
+    &__legend {
+      margin-top: 17px;
+      .legend__item {
+        font-size: 14px;
+        margin-bottom: 0;
+        &:before {
+          width: 21px;
+          height: 21px;
+          margin-top: 0;
+          margin-right: 8px;
+        }
+        & + .legend__item {
+          margin-top: 0;
+        }
+        &_orangeline:before {
+          height: 2px !important;
+          top: 10px !important;
+        }
       }
     }
   }
