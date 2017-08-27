@@ -293,6 +293,13 @@
       }
     }
   }
+  .analityc-control-switcher {
+    a:nth-child(2) {
+      border: 1px solid $color-link;
+      border-top: none;
+      border-bottom: none;
+    }
+  }
   // для таба "Все ВМО"
   &__map {
     &-wrapper {
@@ -551,13 +558,7 @@
         width: 100%;
       }
     }
-    .analityc-control-switcher {
-      a:nth-child(1) {
-        border: 1px solid $color-link;
-        border-top: none;
-        border-bottom: none;
-      }
-    }
+
     .services-VMO__figure {
       float: none;
       width: auto;
@@ -843,7 +844,23 @@
       }
     }
   }
+  .tabs__tab[data-tab="vmoCityDistricts"] {
+    .analityc-control-group {
+      span {
+        display: block;
+      }
+      @include clearfix;
+    }
+    .analityc-more {
+      float: left;
+      clear: left;
+      margin-top: 19px;
 
+      // &_bordered {
+      //   border-bottom: 1px solid #dcdcdc;
+      // }
+    }
+  }
 
 
   .analityc-select_vmo option {
