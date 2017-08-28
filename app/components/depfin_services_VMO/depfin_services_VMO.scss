@@ -11,13 +11,17 @@
   }
 
   &__tabs-control {
+    display: table;
+
     font-size: 0;
     width: 100%;
+    margin: 0;
+    padding: 0;
     margin-top: 41px;
 
     a {
       display: inline-block;
-      vertical-align: middle;
+      vertical-align: top;
       font-size: 16px;
       font-weight: 500;
       text-transform: uppercase;
@@ -87,6 +91,23 @@
       display: inline-block;
       vertical-align: middle;
       width: 72px;
+      margin-top: 0;
+    }
+    span {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+  }
+  .analityc-control-group._base {
+    width: auto;
+    vertical-align: middle;
+    margin-top: 25px;
+    .analityc-select {
+      display: inline-block;
+      vertical-align: middle;
+      width: 337px;
+      margin-top: 0;
     }
     span {
       display: inline-block;
@@ -166,6 +187,9 @@
         display: inline-block;
         vertical-align: middle;
       }
+      &_null {
+        width: 9.5%;
+      }
 
       &_place {
         width: 15%;
@@ -174,7 +198,35 @@
         width: 60%;
       }
       &_quality {
-        width: 25%;
+        width: 24.3%;
+      }
+      &_vol {
+        width: 20%;
+        span {
+          display: block;
+          font-size: 11px;
+        }
+      }
+      &_search {
+        width: 30%;
+        .analityc-control-group {
+          width: 227px;
+        }
+        input.d-si__search {
+          text-transform: none;
+          height: 32px;
+        }
+        .search__tooltip span {
+          font-size: 14px;
+          text-transform: none;
+        }
+      }
+      &_defpro {
+        width: 28%;
+      }
+      span.services-VMO__table-head_sub {
+        display: block;
+        font-size: 11px;
       }
     }
 
@@ -285,20 +337,81 @@
             display: inline-block;
             vertical-align: middle;
           }
+          a {
+            color: $color-link;
+          }
         }
-        &_three {
-          width: 25%;
+        &_four {
+          width: 20%;
           font-size: 14px;
+        }
+        &_five {
+          font-size: 14px;
+          width: 28%;
+        }
+        &_green {
+          color: #6ab30e;
+        }
+        &_red {
+          color: #e10221;
+        }
+      }
+    }
+
+    &_comparison {
+      .services-VMO__table-head {
+        &_mun {
+          width: 60%;
+        }
+      }
+      .vmoPassport-table {
+        .table__col {
+          &_one {
+            padding-left: 0px;
+          }
+          &_two {
+            width: 65%;
+          }
+        }
+      }
+    }
+    &_passlist {
+      .services-VMO__table-head {
+        margin-bottom: 12px;
+      }
+      .vmoPassport-table {
+        .table__col {
+          font-weight: 500;
+          &_one {
+            padding-left: 0px;
+            width: 10%;
+          }
+          &_two {
+            width: 30%;
+          }
+          &_four {
+            width: 15%;
+          }
+          &_five {
+            width: 30%;
+          }
         }
       }
     }
   }
   .analityc-control-switcher {
-    a:nth-child(2) {
-      border: 1px solid $color-link;
-      border-top: none;
-      border-bottom: none;
+    font-size: 0;
+    display: table;
+    a {
+      border-right: 1px solid $color-link;
+
+      &:last-child {
+        border-right: none;
+        margin-right: -1px;
+        padding-right: 31px;
+      }
     }
+
   }
   // для таба "Все ВМО"
   &__map {
@@ -553,6 +666,7 @@
       float: none;
       width: 676px;
       margin-left: -100px;
+      margin-right: -67px;
       z-index: 1;
       img {
         width: 100%;
@@ -591,7 +705,6 @@
       color: rgba(0, 0, 0, .5);
     }
     .analityc-control-group._search {
-      margin-left: -62px;
       width: 227px;
       span {
         margin-bottom: 5px;
@@ -599,7 +712,14 @@
       .search__tooltip span {
         font-size: 14px;
       }
+      .d-si__search {
+        height: 32px;
+      }
     }
+  }
+
+  .d-si__search {
+    height: 32px;
   }
 
   .services-VMO__content_municipal-graphics {
@@ -769,7 +889,7 @@
       }
     }
   }
-  .tabs__tab[data-tab="VMOsocialEc"] {
+  .tabs__tab.vmosocialEc {
     .services-VMO__title {
       margin-bottom: 32px;
     }
@@ -795,7 +915,7 @@
       }
     }
     .services-VMO__content_small {
-      width: 16.7%;
+      width: 16.5%;
       display: inline-block;
       vertical-align: top;
       margin-right: 40px;

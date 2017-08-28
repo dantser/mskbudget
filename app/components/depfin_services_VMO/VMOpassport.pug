@@ -1,0 +1,249 @@
+include depfin_services_VMO
+
+//- Конкретный паспорт ВМО
+mixin vmoPassport()
+  +b.SECTION.services-VMO.main._basic.basic-budget.sections__item
+    .wrapper
+      +page-header('внутригородские муниципальные образования', ['Сервисы'], false).services_VMO__page-header
+
+    //- Tab 1
+    .wrapper.wrapper_widget.load-anim-fade(data-delay="1500")
+      +e.tabs-control
+        a(href="#", data-tab-target="vmoAll") Все ВМО
+        a(href="#", data-tab-target="vmoMunicipalDistricts") Муниципальные округи
+        a(href="#", data-tab-target="vmoCityDistricts") Городские округи
+        a(href="#", data-tab-target="vmoSettlements") Поселения
+        a(href="#", class="active", data-tab-target="vmoPassports") Паспорта ВМО
+      .analityc-widget.analityc-widget_VMO
+        +tabs
+          +tabs-tab(data-tab-group="VMOpass" data-tab="vmoAll")
+            +vmoAll()
+          +tabs-tab(data-tab-group="VMOpass" data-tab="vmoMunicipalDistricts")
+            +vmoMunicipalDistricts()
+          +tabs-tab(data-tab-group="VMOpass" data-tab="vmoCityDistricts")
+            +vmoCityDistricts()
+          +tabs-tab(data-tab-group="VMOpass" data-tab="vmoSettlements")
+            +vmoSettlements()
+          +tabs-tab(data-tab-group="VMOpass" data-tab="vmoPassports").active
+            +vmoPassportContent()
+    +dropdown().load-anim-fade(data-delay="1700")
+
+mixin vmoPassportContent()
+  h4.services-VMO__subtitle Паспорт внутригородского муниципального образования
+  .services-VMO__content.services-VMO__content_passport
+    .services-VMO__coat-wrapper
+      img(src="assets/images/VMO/coat.png")
+    .services-VMO__right-block
+      h3.services-VMO__title Муниципальный округ Алексеевский
+      a(href="#").services-VMO__link www.alekseevsky-mncpt.ru
+      .services-VMO__figure-wrapper
+        .services-VMO__figure
+          span.services-VMO__descr площадь
+          span.services-VMO__digit 1500 га
+          span.services-VMO__subdescr 12,3% территории москвы
+        .services-VMO__figure
+          span.services-VMO__descr население
+          span.services-VMO__digit 1 200 000 
+            span человек
+          span.services-VMO__subdescr 12,3% территории москвы
+        .services-VMO__figure
+          span.services-VMO__descr плотность населения
+          span.services-VMO__digit 5 чел на га
+          span.services-VMO__subdescr 12,3% территории москвы
+      .services-VMO__rate
+        p I степень качества (высокое качество управления финансами)
+        a(href="#").services-VMO__link Подробнее
+  .services-VMO__content.services-VMO__content_municipal-graphics
+    .analityc-control-switcher.analityc-control-switcher_main.analityc-control-switcher_default.active
+      a(href="#" data-tab-target="VMOpassSocialEc").active Социально-экономические показатели
+      a(href="#" data-tab-target="VMOpassIncome") доходы
+      a(href="#" data-tab-target="VMOpassExpenses") расходы
+      a(href="#" data-tab-target="VMOpassComparison") Сравнение ВМО
+    +tabs
+      +tabs-tab(data-tab-group="vmoPassportContent" data-tab="VMOpassSocialEc").vmosocialEc.active
+        H3.services-VMO__title Социально-экономические показатели на конец 
+          .select-wrapper
+            select.analityc-select.analityc-select_year.analityc-select_vmo
+              option(selected) 2015
+              option 2016
+              option 2017 
+            span.ui-year  года
+              +icon('caret')
+        .services-VMO__content.services-VMO__content_population
+          h4.services-VMO__subtitle Население
+          .services-VMO__digit.services-VMO__digit_green 1 200 000 
+            span человек
+          .services-VMO__digit.services-VMO__digit_green
+            span 600 000 человек (50%)
+            span.services-VMO__subdescr 12,3% территории москвы
+          .services-VMO__digit.services-VMO__digit_green
+            span 600 000 человек (50%)
+            span.services-VMO__subdescr 12,3% территории москвы
+          .services-VMO__digit.services-VMO__digit_green
+            span 600 000 человек (50%)
+            span.services-VMO__subdescr 12,3% территории москвы
+        .services-VMO__content
+          .services-VMO__content.services-VMO__content_small
+            h4.services-VMO__subtitle занятость и заработная плата
+            .services-VMO__digit.services-VMO__digit_green 1 200 000 
+              span человек
+              span.services-VMO__subdescr среднесписочная численность работников организаций
+            .services-VMO__digit.services-VMO__digit_green
+              span 600 000 человек (50%)
+              span.services-VMO__subdescr 12,3% территории москвы
+          .services-VMO__content.services-VMO__content_small
+            h4.services-VMO__subtitle занятость и заработная плата
+            .services-VMO__digit.services-VMO__digit_green 1 200 000 
+              span человек
+              span.services-VMO__subdescr среднесписочная численность работников организаций
+            .services-VMO__digit.services-VMO__digit_green
+              span 600 000 человек (50%)
+              span.services-VMO__subdescr 12,3% территории москвы
+          .services-VMO__content.services-VMO__content_small
+            h4.services-VMO__subtitle Культура и спорт
+            .services-VMO__digit.services-VMO__digit_green
+              span 1000 спортивных сооружений
+            .services-VMO__digit.services-VMO__digit_green.services-VMO__digit_columns
+              span.services-VMO__digit_column 10
+              span.services-VMO__subdescr
+                | детско-юношеских спортивных школ на 
+                b 10 000 мест (1 место на 5 человек)
+
+          .services-VMO__content.services-VMO__content_small
+            h4.services-VMO__subtitle Промышленное производство и строительство
+            .services-VMO__digit.services-VMO__digit_green
+              span.services-VMO__subdescr 
+                | Отгружено товаров собственного производства, выполнено работ и услуг собственными силами
+                b на сумму 10 млрд руб.
+
+            .services-VMO__digit.services-VMO__digit_green
+              span.services-VMO__subdescr 
+                | Введено в действие жилых домов 
+                b общей площадью 1 млн кв. м
+          .services-VMO__content.services-VMO__content_small
+            h4.services-VMO__subtitle Розничная торговля
+            .services-VMO__digit.services-VMO__digit_green 
+              span.services-VMO__subdescr 
+                | Функционирует
+                b 1000 объектов 
+                | розничной торговли и общественного питания общей площадью 
+                b 20 тыс. кв. м
+      +tabs-tab(data-tab-group="vmoPassportContent" data-tab="VMOpassIncome").vmoicome
+        H3.services-VMO__title Доходы муниципальных округов за
+          .select-wrapper
+            select.analityc-select.analityc-select_year.analityc-select_vmo
+              option(selected) 2015
+              option 2016
+              option 2017 
+            span.ui-year  год
+              +icon('caret')
+        .services-VMO__figure-big 2 750,2 
+          span млн руб. 
+        +analityc-graphics-line('Структура фактических расходов муниципальных округов за 2016 год', getData('graphic-lines-vmo'))._date-one
+        .services-VMO__content.services-VMO__content_line-bar
+          .services-VMO__row
+            h4.services-VMO__subtitle Динамика доходов муниципальных округов
+            .legend
+              p.legend__item.legend__item_transparentpink Уточненный план, млн руб.
+              p.legend__item.legend__item_pink Исполнение, млн руб.
+          +analityc-graphics-line-vertical_vmo(getData('graphic-lines-vertical-vmo'))
+          +analityc-graphics-line-vertical-vmo_slider(getData('graphic-lines-vertical-vmo'))
+        .services-VMO__content.services-VMO__content_bottom.js-rules
+            h4.services-VMO__subtitle Источники доходов
+            .services-VMO__right-block
+              p.services-VMO__cursive Источники доходов муниципальных округов в соответствии со статьей 5 Закона города Москвы от 23.11.2016 г. № 42 "О бюджете города Москвы на 2017 год и плановый период 2018 и 2019 годов"
+              .services-VMO__list.services-VMO__list_income
+                ol.services-VMO__list-wrapper
+                  li.services-VMO__list-item 
+                    | Налоговые доходы в части отчислений от налога на доходы физических лиц по установленным нормативам с доходов:
+                    br
+                    | а) источником которых является налоговый агент, за исключением доходов, в отношении которых исчисление и уплата налога осуществляются в соответствии со статьями 227, 227.1 и 228 Налогового кодекса Российской Федерации;
+                    br
+                    | б) полученных от осуществления деятельности физическими лицами, зарегистрированными в качестве индивидуальных предпринимателей, нотариусов, занимающихся частной практикой, адвокатов, учредивших адвокатские кабинеты, и других лиц, занимающихся частной практикой, в соответствии со статьей 227 Налогового кодекса Российской Федерации;
+                    br
+                    | в) полученных физическими лицами в соответствии со статьей 228 Налогового кодекса Российской Федерации;
+                  li.services-VMO__list-item Утверждение положения о бюджетном процессе в муниципальном образовании
+                  li.services-VMO__list-item Владение, пользование и распоряжение имуществом, находящимся в муниципальной собственности
+                  li.services-VMO__list-item еще пункт
+                  li.services-VMO__list-item и еще один
+              +button()._kind_white Показать все источники доходов
+      +tabs-tab(data-tab-group="vmoPassportContent" data-tab="VMOpassExpenses").vmoexpenses
+        H3.services-VMO__title расходы муниципальных округов за 
+          .select-wrapper
+            select.analityc-select.analityc-select_year.analityc-select_vmo
+              option(selected) 2015
+              option 2016
+              option 2017 
+            span.ui-year  год
+              +icon('caret')
+        .services-VMO__figure-big 2 750,2 
+          span млн руб. 
+        +analityc-graphics-line('Структура фактических расходов муниципальных округов за 2016 год', getData('graphic-lines-vmo'))._date-one
+        .services-VMO__content.services-VMO__content_line-bar
+          .services-VMO__row
+            h4.services-VMO__subtitle Динамика расходов муниципальных округов
+            .legend
+              p.legend__item.legend__item_transparentpink Уточненный план, млн руб.
+              p.legend__item.legend__item_pink Исполнение, млн руб.
+          +analityc-graphics-line-vertical_vmo(getData('graphic-lines-vertical-vmo'))
+          +analityc-graphics-line-vertical-vmo_slider(getData('graphic-lines-vertical-vmo'))
+        .services-VMO__content.services-VMO__content_bottom.js-rules
+            h4.services-VMO__subtitle Полномочия
+            .services-VMO__right-block
+              p.services-VMO__cursive
+                | Полномочия муниципальных округов в соответствии со статьей 8 Закона города
+                | Москвы от 06.11.2002 г. № 56 (в ред. закона г. Москвы от 28.12.2016 г. № 55)
+                | «Об организации местного самоуправления в городе Москве»:
+              .services-VMO__list
+                ol.services-VMO__list-wrapper
+                  li.services-VMO__list-item Формирование, утверждение, исполнение местного бюджета и контроль за его исполнением, утверждение отчета об исполнении местного бюджета в соответствии с федеральным законодательством и законами города Москвы
+                  li.services-VMO__list-item Утверждение положения о бюджетном процессе в муниципальном образовании
+                  li.services-VMO__list-item Владение, пользование и распоряжение имуществом, находящимся в муниципальной собственности
+                  li.services-VMO__list-item еще пункт
+                  li.services-VMO__list-item и еще один
+              +button()._kind_white Показать все полномочия
+      +tabs-tab(data-tab-group="vmoPassportContent" data-tab="VMOpassComparison").vmocomparison
+        .services-VMO__row
+          .analityc-control-group._year
+            span Год
+            select.analityc-select
+              option(selected) 2017
+              option 2016
+              option 2015
+          .analityc-control-group._base
+            span База сравнения
+            select.analityc-select
+              option(selected) Объем доходов
+              option Объем расходов
+              option еще один очень длинный пункт
+        .services-VMO__table.services-VMO__table_comparison
+          .services-VMO__table-head
+            span.services-VMO__table-head_place Место
+            span.services-VMO__table-head_vol Объем доходов
+              span.services-VMO__table-head_sub млн.руб.
+            span.services-VMO__table-head_mun Муниципальный округ
+            
+          .services-VMO__table__wrapper
+            .vmoPassport-table.scroll-pane
+              -for (var i=0; i<6; i++)
+                .table__row
+                  .table__col.table__col_one= i+1
+                  .table__col.table__col_four 21,0
+                  .table__col.table__col_two
+                    img(src="assets/images/VMO/gerb_ivan.jpg")
+                    span Муниципальный округ Ивановское
+              -for (var i=0; i<100; i++)
+                .table__row
+                  .table__col.table__col_one= i+7
+                  .table__col.table__col_four 21,0
+                  .table__col.table__col_two
+                    img(src="assets/images/VMO/gerb_ivan.jpg")
+                    span Муниципальный округ Ивановское
+              -for (var i=0; i<40; i++)
+                .table__row
+                  .table__col.table__col_one= i+107
+                  .table__col.table__col_four 21,0
+                  .table__col.table__col_two
+                    img(src="assets/images/VMO/gerb_ivan.jpg")
+                    span Муниципальный округ Ивановское
+        
