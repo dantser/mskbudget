@@ -12,6 +12,10 @@ export default () => {
       });
     }
 
+    // if ($('.sectored_round').length) {
+
+    // }
+
     if ($('.service__icon').length) {
       $('.service__icon').each(function() {
         $(this).on('click', (e) => {
