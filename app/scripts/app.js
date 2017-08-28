@@ -60,6 +60,7 @@ import servicesNet from '../components/services_net/servicesNet';
 import dropTable from '../blocks/drop-table/dropTable';
 import slideArrows from '../blocks/slide-arrows/slideArrows';
 import budgetForecast from '../components/budget-forecast/budgetForecast';
+import servicesMoscow from '../components/services_moscow/servicesMoscow';
 
 $(() => {
 
@@ -133,4 +134,5 @@ $(() => {
   dropTable();
   slideArrows();
   budgetForecast();
+  servicesMoscow();
 });

@@ -1334,6 +1334,108 @@
   }
 }
 
+.analityc-graphics-line-gorizontal {
+  padding: 8px 70px 0;
+
+  &__top {
+    font-size: 0;
+  }
+
+  &__graphic {
+    & + .analityc-graphics-line-gorizontal__graphic {
+      margin-top: 11px;
+    }
+  }
+
+  &__caption,
+  &__lines {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &__caption {
+    font-family: $PFDinTextPro;
+    width: 23%;
+    font-size: 18px;
+  }
+
+  &__lines {
+    width: 77%;
+  }
+
+  &__line {
+    position: relative;
+    width: 10%;
+    height: 16px;
+
+    &_neg {
+      left: -10%;
+    }
+
+    &_yellow {
+      background: #fee300;
+      background: -moz-linear-gradient(90deg, #fee300 0%, #b7d224 100%);
+      background: -webkit-linear-gradient(90deg, #fee300 0%, #b7d224 100%);
+      background: -ms-linear-gradient(90deg, #fee300 0%, #b7d224 100%);
+      background-image: linear-gradient(90deg, #fee300 0%, #b7d224 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#fee300, endColorstr=#b7d224)
+    }
+
+    &_altblue {
+      background: #004ccf;
+      background: -moz-linear-gradient(90deg, #004ccf 0%, #00ffff 100%);
+      background: -webkit-linear-gradient(90deg, #004ccf 0%, #00ffff 100%);
+      background: -ms-linear-gradient(90deg, #004ccf 0%, #00ffff 100%);
+      background-image: linear-gradient(90deg, #004ccf 0%, #00ffff 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#004ccf, endColorstr=#00ffff)
+    }
+
+    &_pink {
+      background: #cb0da5;
+      background: -moz-linear-gradient(90deg, #cb0da5 0%, #f3546c 100%);
+      background: -webkit-linear-gradient(90deg, #cb0da5 0%, #f3546c 100%);
+      background: -ms-linear-gradient(90deg, #cb0da5 0%, #f3546c 100%);
+      background-image: linear-gradient(90deg, #cb0da5 0%, #f3546c 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#cb0da5, endColorstr=#f3546c)
+    }
+
+    & + .analityc-graphics-line-gorizontal__line {
+      margin-top: 3px;
+    }
+  }
+
+  &__line-bar-value {
+    position: absolute;
+    top: 0;
+    right: -24px;
+    font-size: 16px;
+    color: $color-black;
+  }
+
+  &__bottom {
+    font-size: 0;
+    margin-top: 5px;
+  }
+
+  &__data,
+  &__units {
+    font-size: 16px;
+    display: inline-block;
+  }
+
+  &__data {
+    width: 23%;
+    font-family: $PFDinTextPro;
+    color: #737373;
+  }
+
+  &__units {
+    width: 77%;
+    list-style: none;
+  }
+
+}
+
 .analityc-graphics-line-vertical {
   position: relative;
   text-align: justify;

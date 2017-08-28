@@ -830,6 +830,45 @@ mixin analityc-graphics-line-vertical-alt(data)
           +e.STRONG.caption-year= item.year
           +e.SPAN.caption-text= item.text
 
+
+mixin analityc-graphics-line-gorizontal(data)
+  +b.analityc-graphics-line-gorizontal&attributes(attributes)
+
+    +e.top
+      each item in data
+        +e.graphic
+
+          +e.caption= item.city
+
+          +e.lines
+
+            +e.line._yellow._neg
+              +e.line-bar-value= item.values[0]
+            +e.line._altblue
+              +e.line-bar-value= item.values[1]
+            +e.line._pink
+              +e.line-bar-value= item.values[2]
+    +e.bottom
+      +e.SPAN.data Города
+      +e.UL.units
+        +e.LI.unit -10
+        +e.LI.unit 0
+        +e.LI.unit 10
+        +e.LI.unit 20
+        +e.LI.unit 30
+        +e.LI.unit 40
+        +e.LI.unit 50
+        +e.LI.unit 60
+        +e.LI.unit 70
+        +e.LI.unit 80
+        +e.LI.unit 90
+        +e.LI.unit 100
+        +e.LI.unit 110
+        +e.LI.unit 120
+
+
+
+
 mixin analityc-graphics-bars(data)
   +b.analityc-graphics-bars&attributes(attributes)
 

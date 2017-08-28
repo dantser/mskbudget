@@ -1,0 +1,157 @@
+include ../../components/page-header/page-header
+include ../../blocks/buttons-set/buttons-set
+include ../../blocks/tabs/tabs
+//- для caption
+include ../../blocks/arrow-button/arrow-button
+include ../../blocks/link/link
+include ../../blocks/selectbox/selectbox
+include ../../blocks/icon/icons
+include ../analityc-graphics/analityc-graphics
+
+mixin services_moscow()
+	+b.SECTION.services-moscow.section__item&attributes(attributes)
+		.wrapper.services-moscow__wrapper
+			+e.head
+				+page-header('Москва и города мира', ['Сервисы'])
+				+e.buttons-set
+					+e.SPAN 
+						| Выберите
+						br
+						| набор данных
+					+buttons-set-alt(getData('buttons-set-net'))
+
+			+tabs.services-moscow__content
+				+tabs-tab(data-tab-group="moscowTabs", data-tab="moscowOne").active
+					+b.services-moscow-index.services-moscow__inner._active
+						+e.top.services-moscow__wrap
+							H3.services-moscow__title Ключевые показатели развития городов мира
+							P.services-moscow__description 
+								| В данном разделе представлена справочная информация по ряду городов: Москва, Лондон, Лос-Анджелес, Париж, Нью-Йорк, Токио, Мадрид, Берлин и Шанхай. Показатели подобраны в рамках единой методологии таким образом, чтобы отражать информацию о географии, населении, транспортной инфраструктуре, стоимости и комфортности проживания. Конвертация иностранных валют в рубли производится с использованием усредненных курсов обмена валют за 2015 год, публикуемых Центральным банком Российской Федерации. Для конвертации рублей в доллары используется курс доллара на 2015 год из прогноза социально-экономического развития Российской Федерации на 2015 год. Источники информации по показателям являются публичными и находятся в открытом доступе.
+								br
+								| Периодичность обновления данных – один раз в год.
+						+e.slider.swiper-container
+							+e.slider-wrapper.swiper-wrapper
+								+e.slide.swiper-slide
+									+e.IMG.slide-img(src='assets/images/services_moscow/moscow.jpg')
+									+e.slide-banner
+										+e.H3.slide-title Москва
+										+e.SPAN.slide-value 
+											| 1 570
+											+e.SPAN.slide-unit
+												| км
+												SUP 2
+										+e.SPAN.slide-value 
+											| 8 538 689
+											+e.SPAN.slide-unit
+												| население
+								+e.slide.swiper-slide
+									+e.IMG.slide-img(src='assets/images/services_moscow/moscow.jpg')
+									+e.slide-banner
+										+e.H3.slide-title Лондон
+										+e.SPAN.slide-value 
+											| 1 570
+											+e.SPAN.slide-unit
+												| км
+												SUP 2
+										+e.SPAN.slide-value 
+											| 8 538 689
+											+e.SPAN.slide-unit
+												| население
+							+arrow-button()._prev.services-moscow-index__slider-arrow._prev.swiper-button-prev
+							+arrow-button().services-moscow-index__slider-arrow._next.swiper-button-next
+						+e.bottom.services-moscow__wrap
+							+e.table
+								+e.city
+									+e.row._caption
+										P
+											SPAN Города
+									+e.row Москва
+									+e.row Лондон
+								+e.index.swiper-container
+									+e.index-wrapper.swiper-wrapper
+										+e.col.swiper-slide
+											+e.sort._desc
+												+e.sort-arrow._desc._active По убыванию
+												+e.sort-arrow._ask По возрастанию
+											+e.row._caption 
+												P
+													SPAN Площадь, км2
+											+e.row 2 561,5
+											+e.row 1 572,0
+										+e.col.swiper-slide
+											+e.sort._desc
+												+e.sort-arrow._desc._active По убыванию
+												+e.sort-arrow._ask По возрастанию
+											+e.row._caption 
+												P
+													SPAN Международные аэропорты, шт
+											+e.row 3
+											+e.row 5
+										+e.col.swiper-slide 
+											+e.sort._desc
+												+e.sort-arrow._desc._active По убыванию
+												+e.sort-arrow._ask По возрастанию
+											+e.row._caption 
+												P
+													SPAN Общая численность населения, чел
+											+e.row 12 330 126
+											+e.row 8 538 689
+										+e.col.swiper-slide
+											+e.sort._desc
+												+e.sort-arrow._desc._active По убыванию
+												+e.sort-arrow._ask По возрастанию
+											+e.row._caption 
+												P
+													SPAN Численность агломерации, чел
+											+e.row 16 570 000
+											+e.row 10 350 000
+										+e.col.swiper-slide
+											+e.sort._desc
+												+e.sort-arrow._desc._active По убыванию
+												+e.sort-arrow._ask По возрастанию
+											+e.row._caption 
+												P
+													SPAN Станции метро, шт
+											+e.row 
+												+e.icon
+													IMG(src='assets/images/services_moscow/moscow-st.png')
+												+e.row-value 200
+											+e.row 
+												+e.icon
+													IMG(src='assets/images/services_moscow/london-st.png')
+												+e.row-value 270
+
+
+
+										+e.col.swiper-slide
+											+e.sort._desc
+												+e.sort-arrow._desc._active По убыванию
+												+e.sort-arrow._ask По возрастанию
+											+e.row._caption 
+												P
+													SPAN Медведей, шт
+											+e.row 999 999 999
+											+e.row 0
+										+e.col.swiper-slide
+											+e.sort._desc
+												+e.sort-arrow._desc._active По убыванию
+												+e.sort-arrow._ask По возрастанию
+											+e.row._caption 
+												P
+													SPAN Балалаек, шт
+											+e.row 999 999 999
+											+e.row 0
+									+arrow-button()._prev.services-moscow-index__table-arrow._prev.swiper-button-prev
+									+arrow-button().services-moscow-index__table-arrow._next.swiper-button-next
+
+				+tabs-tab(data-tab-group="moscowTabs", data-tab="moscowTwo")
+					+b.services-moscow-params.services-moscow__inner._active
+						.services-moscow__wrap
+							H3.services-moscow__title Основные параметры бюджетов городов мира
+							P.services-moscow__description Раздел отражает плановые показатели бюджетов городов мира на 2016 год, в том числе: Москвы, Берлина, Лондона, Лос-Анджелеса, Мадрида, Нью-Йорка, Парижа и Шанхая.
+
+							+e.SPAN.year Выберите год
+							+selectbox('year', [{"val":"opt1", "text":"2015"}, {"val":"opt2", "text":"2016"}]).services-moscow-params__year-select
+							
+							+e.graphic
+								+analityc-graphics-line-gorizontal(getData('graphic-lines-services-moscow'))

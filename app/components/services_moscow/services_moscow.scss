@@ -1,0 +1,474 @@
+.services-moscow {
+	background: #282635 url(../images/bg-news.jpg) top no-repeat;
+  background-size: 100%;
+  font-family: $PFDinCondensedPro;
+  color: #000;
+
+  &__wrapper {
+		padding-bottom: 40px;
+  }
+
+	&__buttons-set {
+		margin-top: 24px;
+		font-size: 0;
+
+  	@media (max-width: 900px) and (min-width: 581px) {
+    	margin-top: 88px;
+  	}
+
+		@media (max-width: 580px) {
+	    margin-top: 28px;
+		}	
+		
+
+		span,
+		.buttons-set {
+			display: inline-block;
+			vertical-align: middle;
+
+	  	@media (max-width: 900px) {
+				display: block;
+	  	}	
+		}
+
+		span {
+			font-size: 18px;
+			line-height: 20px;
+			color: $color-white;
+			text-transform: uppercase;
+    	letter-spacing: .3px;
+    	margin-right: 29px;
+
+	  	@media (max-width: 900px) and (min-width: 581px) {
+				font-size: 36px;
+		    line-height: 40px;
+	  	}
+			
+	  	@media (max-width: 900px) {
+		    margin-right: 0;
+	  	}	
+		}
+
+		.buttons-set {
+	  	@media (max-width: 900px) {
+	    	margin-top: 21px;
+	  	}
+
+	  	@media (max-width: 900px) {
+	    	margin-top: 11px;
+	  	}
+
+	  	.button-light {
+		  	@media (max-width: 900px) and (min-width: 581px) {
+			    font-size: 32px;
+			    line-height: 50px;
+		  	}	
+
+		  	@media (max-width: 580px) {
+		  		padding: 11px 10px;
+					font-size: 16px;
+			    line-height: 12px;
+					margin-top: 0;
+		  	}	
+	  	}
+		}
+	}
+
+	&__content {
+  	background-color: $color-white;
+  	margin-top: 29px;
+	}
+
+  &__inner {
+		display: none;
+    padding: 37px 0;
+
+		&_active {
+			display: block;
+		}
+  }
+
+	&__wrap {
+    padding: 0 43px;
+	}
+
+	&__title {
+    font-size: 18px;
+    line-height: 24px;
+    text-transform: uppercase;
+    font-weight: 500;
+	}
+
+	&__description {
+    max-width: 850px;
+		font-family: $PFDinTextPro;
+		font-size: 16px;
+		line-height: 22px;
+    font-weight: 500;
+    letter-spacing: -.2px;
+    margin-top: 10px;
+	}
+}
+
+.services-moscow-index {
+
+	&__slider {
+		position: relative;
+		width: 100%;
+		height: 371px;
+		margin-top: 25px;
+
+		@media (max-width: 900px) {
+			height: auto;
+		}
+	}
+
+	&__slide-img {
+
+		@media (max-width: 900px) {
+	    display: block;
+	    height: 480px;
+		}
+
+		@media (max-width: 580px) {
+  		height: 240px;
+		}
+	}
+
+	&__slide-banner {
+		width: 296px;
+		position: absolute;
+		top: 50%;
+    right: 144px;
+    padding: 14px 30px 35px;
+		transform: translateY(-50%);
+		background-color: rgba(255, 255, 255, .8);
+		font-weight: 500;
+
+		@media (max-width: 900px) {
+	    width: 100%;
+      padding: 29px 27px 19px;
+			position: static;
+			transform: none;
+	    background-color: #f5f2ed;
+		}
+
+		@media (max-width: 580px) {
+	    padding: 14px 15px 10px;
+		}
+		
+	}
+
+	&__slide-title {
+		font-size: 24px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+
+		@media (max-width: 900px) and (min-width: 581px) {
+			font-size: 60px;
+			margin-bottom: 21px;
+		}
+
+		@media (max-width: 580px) {
+			font-size: 30px;
+		}
+
+	}
+
+	&__slide-value {
+		display: block;
+    font-size: 36px;
+
+		& + .services-moscow-index__slide-value {
+    	margin-top: 10px;
+		}
+
+		@media (max-width: 900px) and (min-width: 581px) {
+	    font-size: 60px;
+		}
+
+		@media (max-width: 580px) {
+			font-size: 30px;
+		}
+	}
+
+	&__slide-unit {
+    font-size: 18px;
+
+		@media (max-width: 900px) and (min-width: 581px) {
+      font-size: 32px;
+		}
+
+		@media (max-width: 580px) {
+			font-size: 16px;
+		}
+
+		sup {
+			position: relative;
+	    left: -4px;
+	    font-size: 10px;
+		}
+
+	}
+
+	&__slider-arrow {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 45px;
+    height: 45px;
+    margin-top: 0;
+
+		@media (max-width: 900px) and (min-width: 581px) {
+	    width: 90px;
+	    height: 90px;
+		}
+		
+		&_prev,
+		&_next {
+			background-image: none;
+		}
+
+		&_prev {
+			left: 0;
+
+			.arrow-button__icon {
+				transform: rotate(-180deg);
+			}
+		}
+
+		&_next {
+			right: 0;
+		}
+
+    .arrow-button__icon {
+    	width: 20px;
+   	 	height: 20px;
+
+			@media (max-width: 900px) and (min-width: 581px) {
+		    width: 40px;
+		    height: 40px;
+			}
+
+    }
+	}
+
+	&__bottom {
+
+	}
+
+	/*Таблица*/
+	&__table {
+		font-size: 0;
+		text-align: center;
+	}
+
+	&__city {
+		display: inline-block;
+		vertical-align: top;
+		width: 16%;
+		font-size: 18px;
+    text-align: left;
+    padding-top: 43px;
+
+		.services-moscow-index__row {
+			padding-left: 23px;
+			font-family: $PFDinTextPro;
+			font-size: 18px;
+			font-weight: 400;
+
+			&_caption {
+				padding-left: 0;
+				font-size: 16px;
+				color: #737373;
+				background: none;
+
+				P {
+			    transform: translate(0, -50%);
+			    left: 23px;
+
+			    SPAN {
+			    	border-bottom: none;
+			    }
+				}
+			}	
+		}
+	}
+
+	&__index {
+		display: inline-block;
+		position: relative;
+		vertical-align: top;
+		width: 84%;
+		padding-top: 43px;
+
+		.services-moscow-index__col:hover .services-moscow-index__sort {
+			display: block;
+		}
+	}
+
+	&__col {
+    width: 20%!important;
+	}
+
+	&__row {
+		height: 59px;
+		font-family: $PFDinCondensedPro;
+		font-size: 16px;
+    line-height: 59px;
+    font-weight: 500;
+    border-bottom: 2px solid rgba(0, 0, 0, .1);
+
+		&_caption {
+			position: relative;
+			font-family: $PFDinTextPro;
+			font-size: 16px;
+			line-height: 18px;
+			font-weight: 400;
+			color: $color-link;
+			background: $color-yellow;
+
+			P {
+				@include center-block;
+				width: 100%;
+
+		    SPAN {
+		    	border-bottom: 1px dashed $color-link;
+		    }
+			}
+		}
+	}
+
+	&__sort {
+		display: none;
+		width: 100%;
+    height: 25px;
+		position: absolute;
+		top: -25px;
+		padding-left: 5px;
+		font-family: $PFDinTextPro;
+		font-size: 12px;
+		line-height: 14px;
+		color: $color-link;
+		cursor: pointer;
+		z-index: 1;
+
+		&_desc {
+			.services-moscow-index__sort-arrow_desc {
+				display: inline-block;
+			}
+		}
+
+		&_ask {
+			.services-moscow-index__sort-arrow_ask {
+				display: inline-block;
+			}
+		}
+	}
+
+	&__sort-arrow {
+		display: none;
+		position: relative;
+		border-bottom: 1px dashed $color-link;
+
+		&::before {
+			position: absolute;
+			left: -16px;
+		}
+
+		&_desc {
+			&::before {
+				@include triangle($color-link, down, 4px);
+				border-top: 6px solid $color-link;
+				margin-top: 3px;
+			}
+		}
+
+		&_ask {
+			&::before {
+				@include triangle($color-link, up, 4px);
+				border-top: 6px solid $color-link;
+				margin-top: 3px;
+			}
+		}
+
+	}
+
+	&__table-arrow {
+		position: absolute;
+		top: 67.5px;
+		width: 10px;
+    height: 10px;
+    margin-top: 0;
+    background-color: none;
+
+		@media (max-width: 900px) and (min-width: 581px) {
+	    width: 90px;
+	    height: 90px;
+		}
+		
+		&_prev,
+		&_next {
+			background-image: none;
+		}
+
+		&_prev {
+			left: 11px;
+		}
+
+		&_next {
+			right: 11px;
+		}
+
+    .arrow-button__icon {
+			width: 10px;
+	    height: 10px;
+
+			@media (max-width: 900px) and (min-width: 581px) {
+		    width: 20px;
+		    height: 20px;
+			}
+
+    }
+	}
+
+	&__icon {
+		display: inline-block;
+		vertical-align: middle;
+    margin-right: 8px;
+
+		img {
+			display: inline-block;
+			vertical-align: middle;
+		}
+	}
+
+	&__row-value {
+		display: inline-block;
+		vertical-align: middle;
+	}
+}
+
+.services-moscow-params {
+	&__year {
+    display: block;
+		font-size: 18px;
+		font-weight: 500;
+		text-transform: uppercase;
+		margin-top: 27px;
+	}
+
+	&__year-select {
+    width: 70px;
+		margin-top: 10px;
+	}
+
+	&__graphic {
+		margin-top: 8px;
+	}
+}
+
+/*
+$PFDinTextPro
+$PFDinCondensedPro
+*/
