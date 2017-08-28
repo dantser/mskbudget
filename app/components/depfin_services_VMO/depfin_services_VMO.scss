@@ -439,13 +439,18 @@
   }
   &__content_bottom {
     margin-top: 0;
+    .services-VMO__text {
+      width: 100%;
+      margin-bottom: 0;
+      float: none;
+    }
   }
-
+  &__figures {
+    float: left;
+  }
   &__figure {
     margin-bottom: 95px;
     position: relative;
-    float: left;
-    width: 25%;
     z-index: 0;
     &::before {
       @include pseudo;
@@ -459,16 +464,15 @@
       border-top: 1px solid;
     }
     &_orange {
-      width: 50%;
       &::before {
         width: 173px;
-        left: -182px;
+        left: -172px;
       }
     }
 
     &_green::before {
       width: 243px;
-      left: -250px;
+      left: -240px;
     }
     .services-VMO__descr {
       display: inline-block;
@@ -592,6 +596,10 @@
 
         &_yellow {
           color: #30b068;
+
+          @media screen and (max-width: 1101px) and (min-width: 901px) {
+            top: 10px;
+          }
         }
 
         &_blue {
@@ -654,6 +662,9 @@
     }
     .table__col_one {
       width: 7.93%;
+    }
+    .analityc-table__wrapper {
+      overflow-x: scroll;
     }
   }
 
@@ -1106,6 +1117,67 @@
     vertical-align: top;
   }
 
+
+  @media (max-width: 1024px) {
+    .alternative-link {
+      clear: both;
+      float: left;
+    }
+    .services-VMO__content_allvmo {
+      float: right;
+      width: 60%;
+      .services-VMO__text {
+        width: 100%;
+        float: none;
+      }
+    }
+
+    .services-VMO__figure {
+      &_orange::before {
+        left: -153px;
+        width: 148px;
+      }
+      &_green::before {
+        left: -231px;
+        width: 226px;
+      }
+    }
+
+
+
+    .services-VMO__content_municipal {
+      .services-VMO__map-wrapper {
+        margin-left: -168px;
+        margin-right: -75px;
+        // width: 427px;
+      }
+      &-graphics .services-VMO__content_bottom {
+        .services-VMO__subtitle {
+          float: none;
+          display: block;
+          width: 100%;
+          margin-bottom: 25px;
+        }
+        .services-VMO__right-block {
+          float: none;
+          display: block;
+          width: 100%;
+        }
+        .button {
+          max-width: none;
+        }
+      }
+    }
+    .tabs__tab.vmosocialEc .services-VMO__content_small {
+      width: 30%;
+      &:nth-child(3n) {
+        margin-right: 0;
+      }
+    }
+    .analityc-control-switcher {
+      margin-top: 30px;
+    }
+  }
 }
 
 .ui-vmo {
