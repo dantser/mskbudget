@@ -399,15 +399,15 @@
             </div>
             <div class="wrapper wrapper_widget load-anim-fade" data-delay="1500">
                 <div class="services-VMO__tabs-control">
-                    <a class="active" href="#" data-tab-target="vmoAll">Все ВМО</a>
+                    <a href="#" data-tab-target="vmoAll">Все ВМО</a>
                     <a href="#" data-tab-target="vmoMunicipalDistricts">Муниципальные округи</a>
                     <a href="#" data-tab-target="vmoCityDistricts">Городские округи</a>
                     <a href="#" data-tab-target="vmoSettlements">Поселения</a>
-                    <a href="#" data-tab-target="vmoPassports">Паспорта ВМО</a>
+                    <a class="active" href="#" data-tab-target="vmoPassports">Паспорта ВМО</a>
                 </div>
                 <div class="analityc-widget analityc-widget_VMO">
                     <div class="tabs">
-                        <div class="tabs__tab active" data-tab-group="VMO" data-tab="vmoAll">
+                        <div class="tabs__tab" data-tab-group="VMOpass" data-tab="vmoAll">
                             <div class="services-VMO__content services-VMO__content_card">
                                 <div class="services-VMO__map-wrapper">
                                     <img src="assets/images/VMO/allVMO-map.png" />
@@ -610,7 +610,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tabs__tab" data-tab-group="VMO" data-tab="vmoMunicipalDistricts">
+                        <div class="tabs__tab" data-tab-group="VMOpass" data-tab="vmoMunicipalDistricts">
                             <H3 class="services-VMO__title">Муниципальные округи — сводная информация</H3>
                             <div class="services-VMO__content services-VMO__content_municipal">
                                 <div class="services-VMO__figure-wrapper">
@@ -1461,7 +1461,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tabs__tab" data-tab-group="VMO" data-tab="vmoCityDistricts">
+                    <div class="tabs__tab" data-tab-group="VMOpass" data-tab="vmoCityDistricts">
                         <H3 class="services-VMO__title">Городские округи — сводная информация</H3>
                         <div class="services-VMO__content services-VMO__content_municipal">
                             <div class="services-VMO__figure-wrapper">
@@ -2303,7 +2303,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="tabs__tab" data-tab-group="VMO" data-tab="vmoSettlements">
+                <div class="tabs__tab" data-tab-group="VMOpass" data-tab="vmoSettlements">
                     <H3 class="services-VMO__title">Поселения — сводная информация</H3>
                     <div class="services-VMO__content services-VMO__content_municipal">
                         <div class="services-VMO__figure-wrapper">
@@ -3154,552 +3154,1214 @@
                     </div>
                 </div>
             </div>
-            <div class="tabs__tab" data-tab-group="VMO" data-tab="vmoPassports">
-                <h3 class="services-VMO__title">перечень муниципальных образований города москвы</h3>
-                <div class="analityc-control-switcher analityc-control-switcher_main analityc-control-switcher_default active">
-                    <a href="#" data-tab-target="vmoListMun">Муниципальные округи</a>
-                    <a href="#" data-tab-target="vmoListCity">Городские округи</a>
-                    <a href="#" data-tab-target="vmoListSettlements">Поселения</a>
-                    <a class="active" href="#" data-tab-target="vmoListAll">Все</a>
+            <div class="tabs__tab active" data-tab-group="VMOpass" data-tab="vmoPassports">
+                <H3 class="services-VMO__title">Мониторинг и оценка качества управления муниципальными финансами</H3>
+                <div class="analityc-control-group _year">
+                    <span>Год</span>
+                    <select class="analityc-select">
+                        <option selected="selected">2017</option>
+                        <option>2016</option>
+                        <option>2015</option>
+                    </select>
                 </div>
-                <div class="tabs">
-                    <div class="tabs__tab" data-tab-group="VMOlist" data-tab="vmoListMun">
-                        <div class="services-VMO__table services-VMO__table_passlist">
-                            <div class="services-VMO__table-head">
-                                <span class="services-VMO__table-head_null">&nbsp;</span>
-                                <span class="services-VMO__table-head_search">
-                                    <div class="analityc-control-group _search">
-                                        <form class="search search search_widget d-si__search-form" action="#">
-                                            <div class="search__search-line">
-                                                <input class="d-si__search" type="text" placeholder="Введите название МО" title="Введите название МО" value="Введите название МО" />
-                                                <input class="d-si__submit" type="submit" value="" />
-                                                <div class="search__tooltip">
-                                                    <i></i>
-                                                    <span>Введите название МО</span>
-                                                </div>
-                                                <svg class="search__submit"><use xlink:href="assets/images/icon.svg#icon_icon-glass"></use></svg>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </span>
-                                <span class="services-VMO__table-head_place">доходы
-                                    <span class="services-VMO__table-head_sub">млн.руб.</span>
-                                </span>
-                                <span class="services-VMO__table-head_place">расходы
-                                    <span class="services-VMO__table-head_sub">млн.руб.</span>
-                                </span>
-                                <span class="services-VMO__table-head_defpro">дефицит/профицит
-                                    <span class="services-VMO__table-head_sub">млн.руб.</span>
-                                </span>
-                            </div>
-                            <div class="services-VMO__table__wrapper">
-                                <div class="vmoPassport-table scroll-pane">
-                                    <div class="table__row">
-                                        <div class="table__col table__col_one">А</div>
-                                        <div class="table__col table__col_two">
-                                            <img src="assets/images/VMO/gerb_ivan.jpg" />
-                                            <a href="#">Ивановское</a>
-                                        </div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_five table__col_green">0,1</div>
-                                    </div>
-                                    <div class="table__row">
-                                        <div class="table__col table__col_one"></div>
-                                        <div class="table__col table__col_two">
-                                            <img src="assets/images/VMO/gerb_ivan.jpg" />
-                                            <a href="#">Ивановское</a>
-                                        </div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_five table__col_green">0,1</div>
-                                    </div>
-                                    <div class="table__row">
-                                        <div class="table__col table__col_one"></div>
-                                        <div class="table__col table__col_two">
-                                            <img src="assets/images/VMO/gerb_ivan.jpg" />
-                                            <a href="#">Ивановское</a>
-                                        </div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_five table__col_green">0,1</div>
-                                    </div>
-                                    <div class="table__row">
-                                        <div class="table__col table__col_one"></div>
-                                        <div class="table__col table__col_two">
-                                            <img src="assets/images/VMO/gerb_ivan.jpg" />
-                                            <a href="#">Ивановское</a>
-                                        </div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_five table__col_green">0,1</div>
-                                    </div>
-                                    <div class="table__row">
-                                        <div class="table__col table__col_one"></div>
-                                        <div class="table__col table__col_two">
-                                            <img src="assets/images/VMO/gerb_ivan.jpg" />
-                                            <a href="#">Ивановское</a>
-                                        </div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_five table__col_green">0,1</div>
-                                    </div>
-                                    <div class="table__row">
-                                        <div class="table__col table__col_one">Б</div>
-                                        <div class="table__col table__col_two">
-                                            <img src="assets/images/VMO/gerb_ivan.jpg" />
-                                            <a href="#">Ивановское</a>
-                                        </div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_five table__col_red">-0,1</div>
-                                    </div>
-                                    <div class="table__row">
-                                        <div class="table__col table__col_one"></div>
-                                        <div class="table__col table__col_two">
-                                            <img src="assets/images/VMO/gerb_ivan.jpg" />
-                                            <a href="#">Ивановское</a>
-                                        </div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_five table__col_green">0,1</div>
-                                    </div>
-                                    <div class="table__row">
-                                        <div class="table__col table__col_one"></div>
-                                        <div class="table__col table__col_two">
-                                            <img src="assets/images/VMO/gerb_ivan.jpg" />
-                                            <a href="#">Ивановское</a>
-                                        </div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_five table__col_green">0,1</div>
-                                    </div>
-                                    <div class="table__row">
-                                        <div class="table__col table__col_one"></div>
-                                        <div class="table__col table__col_two">
-                                            <img src="assets/images/VMO/gerb_ivan.jpg" />
-                                            <a href="#">Ивановское</a>
-                                        </div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_five table__col_green">0,1</div>
-                                    </div>
-                                    <div class="table__row">
-                                        <div class="table__col table__col_one"></div>
-                                        <div class="table__col table__col_two">
-                                            <img src="assets/images/VMO/gerb_ivan.jpg" />
-                                            <a href="#">Ивановское</a>
-                                        </div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_five table__col_green">0,1</div>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="services-VMO__content">
+                    <h4 class="services-VMO__subtitle">Информация о результатах проведения мониторинга и оценки качества управления муниципальными финансами</h4>
+                    <p class="services-VMO__text">Департаментом финансов города Москва в соответствии с приказом от 31.12.2014 № 244 были проведены мониторинг соблюдения требований бюджетного законодательства, мониторинг и оценка качества организации и осуществления бюджетного процесса
+                        во внутригородских муниципальных образованиях в городе Москва (далее – ВМО) за 2015 год (далее – мониторинг).</p>
+                    <p class="services-VMO__text">Мониторинг проводился на основании данных бюджетной (бухгалтерской) отчетности, решений представительных органов местного самоуправления о бюджетах ВМО, об утверждении годовых отчетов об исполнении бюджетов ВМО, а также сведений, размещенных
+                        на официальный сайтах ВМО.</p>
+                </div>
+                <div class="services-VMO__content services-VMO__content_rate">
+                    <div class="services-VMO__cols">
+                        <div class="services-VMO__col">
+                            <h4 class="services-VMO__subtitle">По результатам мониторинга составлен рейтинг ВМО и присвоены следующие степени качества управления муниципальными финансами: </h4>
+                        </div>
+                        <div class="services-VMO__col">I степень качества, высокое качество управления финансами –
+                            <a href="#">6 ВМО (4,1 % от общего количества ВМО)</a>
+                        </div>
+                        <div class="services-VMO__col">II степень качества, удовлетворительный уровень организации бюджетного процесса –
+                            <a href="#">100 ВМО (68,5 %)</a>
+                        </div>
+                        <div class="services-VMO__col">III степень качества, ненадлежащее качество управления финансами –
+                            <a href="#">40 ВМО (27,4 %)</a>
                         </div>
                     </div>
-                    <div class="tabs__tab" data-tab-group="VMOlist" data-tab="vmoListCity">
-                        <div class="services-VMO__table services-VMO__table_passlist">
-                            <div class="services-VMO__table-head">
-                                <span class="services-VMO__table-head_null">&nbsp;</span>
-                                <span class="services-VMO__table-head_search">
-                                    <div class="analityc-control-group _search">
-                                        <form class="search search search_widget d-si__search-form" action="#">
-                                            <div class="search__search-line">
-                                                <input class="d-si__search" type="text" placeholder="Введите название МО" title="Введите название МО" value="Введите название МО" />
-                                                <input class="d-si__submit" type="submit" value="" />
-                                                <div class="search__tooltip">
-                                                    <i></i>
-                                                    <span>Введите название МО</span>
-                                                </div>
-                                                <svg class="search__submit"><use xlink:href="assets/images/icon.svg#icon_icon-glass"></use></svg>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </span>
-                                <span class="services-VMO__table-head_place">доходы
-                                    <span class="services-VMO__table-head_sub">млн.руб.</span>
-                                </span>
-                                <span class="services-VMO__table-head_place">расходы
-                                    <span class="services-VMO__table-head_sub">млн.руб.</span>
-                                </span>
-                                <span class="services-VMO__table-head_defpro">дефицит/профицит
-                                    <span class="services-VMO__table-head_sub">млн.руб.</span>
-                                </span>
-                            </div>
-                            <div class="services-VMO__table__wrapper">
-                                <div class="vmoPassport-table scroll-pane">
-                                    <div class="table__row">
-                                        <div class="table__col table__col_one">А</div>
-                                        <div class="table__col table__col_two">
-                                            <img src="assets/images/VMO/gerb_ivan.jpg" />
-                                            <a href="#">Ивановское</a>
-                                        </div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_five table__col_green">0,1</div>
-                                    </div>
-                                    <div class="table__row">
-                                        <div class="table__col table__col_one"></div>
-                                        <div class="table__col table__col_two">
-                                            <img src="assets/images/VMO/gerb_ivan.jpg" />
-                                            <a href="#">Ивановское</a>
-                                        </div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_five table__col_green">0,1</div>
-                                    </div>
-                                    <div class="table__row">
-                                        <div class="table__col table__col_one"></div>
-                                        <div class="table__col table__col_two">
-                                            <img src="assets/images/VMO/gerb_ivan.jpg" />
-                                            <a href="#">Ивановское</a>
-                                        </div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_five table__col_green">0,1</div>
-                                    </div>
-                                    <div class="table__row">
-                                        <div class="table__col table__col_one"></div>
-                                        <div class="table__col table__col_two">
-                                            <img src="assets/images/VMO/gerb_ivan.jpg" />
-                                            <a href="#">Ивановское</a>
-                                        </div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_five table__col_green">0,1</div>
-                                    </div>
-                                    <div class="table__row">
-                                        <div class="table__col table__col_one"></div>
-                                        <div class="table__col table__col_two">
-                                            <img src="assets/images/VMO/gerb_ivan.jpg" />
-                                            <a href="#">Ивановское</a>
-                                        </div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_five table__col_green">0,1</div>
-                                    </div>
-                                    <div class="table__row">
-                                        <div class="table__col table__col_one">Б</div>
-                                        <div class="table__col table__col_two">
-                                            <img src="assets/images/VMO/gerb_ivan.jpg" />
-                                            <a href="#">Ивановское</a>
-                                        </div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_five table__col_red">-0,1</div>
-                                    </div>
-                                    <div class="table__row">
-                                        <div class="table__col table__col_one"></div>
-                                        <div class="table__col table__col_two">
-                                            <img src="assets/images/VMO/gerb_ivan.jpg" />
-                                            <a href="#">Ивановское</a>
-                                        </div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_five table__col_green">0,1</div>
-                                    </div>
-                                    <div class="table__row">
-                                        <div class="table__col table__col_one"></div>
-                                        <div class="table__col table__col_two">
-                                            <img src="assets/images/VMO/gerb_ivan.jpg" />
-                                            <a href="#">Ивановское</a>
-                                        </div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_five table__col_green">0,1</div>
-                                    </div>
-                                    <div class="table__row">
-                                        <div class="table__col table__col_one"></div>
-                                        <div class="table__col table__col_two">
-                                            <img src="assets/images/VMO/gerb_ivan.jpg" />
-                                            <a href="#">Ивановское</a>
-                                        </div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_five table__col_green">0,1</div>
-                                    </div>
-                                    <div class="table__row">
-                                        <div class="table__col table__col_one"></div>
-                                        <div class="table__col table__col_two">
-                                            <img src="assets/images/VMO/gerb_ivan.jpg" />
-                                            <a href="#">Ивановское</a>
-                                        </div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_five table__col_green">0,1</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                </div>
+                <div class="services-VMO__table">
+                    <div class="services-VMO__table-head">
+                        <span class="services-VMO__table-head_place">Место</span>
+                        <span class="services-VMO__table-head_mun">Муниципальный округ</span>
+                        <span class="services-VMO__table-head_quality">Уровень качества</span>
                     </div>
-                    <div class="tabs__tab" data-tab-group="VMOlist" data-tab="vmoListSettlements">
-                        <div class="services-VMO__table services-VMO__table_passlist">
-                            <div class="services-VMO__table-head">
-                                <span class="services-VMO__table-head_null">&nbsp;</span>
-                                <span class="services-VMO__table-head_search">
-                                    <div class="analityc-control-group _search">
-                                        <form class="search search search_widget d-si__search-form" action="#">
-                                            <div class="search__search-line">
-                                                <input class="d-si__search" type="text" placeholder="Введите название МО" title="Введите название МО" value="Введите название МО" />
-                                                <input class="d-si__submit" type="submit" value="" />
-                                                <div class="search__tooltip">
-                                                    <i></i>
-                                                    <span>Введите название МО</span>
-                                                </div>
-                                                <svg class="search__submit"><use xlink:href="assets/images/icon.svg#icon_icon-glass"></use></svg>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </span>
-                                <span class="services-VMO__table-head_place">доходы
-                                    <span class="services-VMO__table-head_sub">млн.руб.</span>
-                                </span>
-                                <span class="services-VMO__table-head_place">расходы
-                                    <span class="services-VMO__table-head_sub">млн.руб.</span>
-                                </span>
-                                <span class="services-VMO__table-head_defpro">дефицит/профицит
-                                    <span class="services-VMO__table-head_sub">млн.руб.</span>
-                                </span>
-                            </div>
-                            <div class="services-VMO__table__wrapper">
-                                <div class="vmoPassport-table scroll-pane">
-                                    <div class="table__row">
-                                        <div class="table__col table__col_one">А</div>
-                                        <div class="table__col table__col_two">
-                                            <img src="assets/images/VMO/gerb_ivan.jpg" />
-                                            <a href="#">Ивановское</a>
-                                        </div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_five table__col_green">0,1</div>
-                                    </div>
-                                    <div class="table__row">
-                                        <div class="table__col table__col_one"></div>
-                                        <div class="table__col table__col_two">
-                                            <img src="assets/images/VMO/gerb_ivan.jpg" />
-                                            <a href="#">Ивановское</a>
-                                        </div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_five table__col_green">0,1</div>
-                                    </div>
-                                    <div class="table__row">
-                                        <div class="table__col table__col_one"></div>
-                                        <div class="table__col table__col_two">
-                                            <img src="assets/images/VMO/gerb_ivan.jpg" />
-                                            <a href="#">Ивановское</a>
-                                        </div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_five table__col_green">0,1</div>
-                                    </div>
-                                    <div class="table__row">
-                                        <div class="table__col table__col_one"></div>
-                                        <div class="table__col table__col_two">
-                                            <img src="assets/images/VMO/gerb_ivan.jpg" />
-                                            <a href="#">Ивановское</a>
-                                        </div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_five table__col_green">0,1</div>
-                                    </div>
-                                    <div class="table__row">
-                                        <div class="table__col table__col_one"></div>
-                                        <div class="table__col table__col_two">
-                                            <img src="assets/images/VMO/gerb_ivan.jpg" />
-                                            <a href="#">Ивановское</a>
-                                        </div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_five table__col_green">0,1</div>
-                                    </div>
-                                    <div class="table__row">
-                                        <div class="table__col table__col_one">Б</div>
-                                        <div class="table__col table__col_two">
-                                            <img src="assets/images/VMO/gerb_ivan.jpg" />
-                                            <a href="#">Ивановское</a>
-                                        </div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_five table__col_red">-0,1</div>
-                                    </div>
-                                    <div class="table__row">
-                                        <div class="table__col table__col_one"></div>
-                                        <div class="table__col table__col_two">
-                                            <img src="assets/images/VMO/gerb_ivan.jpg" />
-                                            <a href="#">Ивановское</a>
-                                        </div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_five table__col_green">0,1</div>
-                                    </div>
-                                    <div class="table__row">
-                                        <div class="table__col table__col_one"></div>
-                                        <div class="table__col table__col_two">
-                                            <img src="assets/images/VMO/gerb_ivan.jpg" />
-                                            <a href="#">Ивановское</a>
-                                        </div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_five table__col_green">0,1</div>
-                                    </div>
-                                    <div class="table__row">
-                                        <div class="table__col table__col_one"></div>
-                                        <div class="table__col table__col_two">
-                                            <img src="assets/images/VMO/gerb_ivan.jpg" />
-                                            <a href="#">Ивановское</a>
-                                        </div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_five table__col_green">0,1</div>
-                                    </div>
-                                    <div class="table__row">
-                                        <div class="table__col table__col_one"></div>
-                                        <div class="table__col table__col_two">
-                                            <img src="assets/images/VMO/gerb_ivan.jpg" />
-                                            <a href="#">Ивановское</a>
-                                        </div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_five table__col_green">0,1</div>
-                                    </div>
+                    <div class="services-VMO__table__wrapper">
+                        <div class="vmoPassport-table scroll-pane">
+                            <div class="table__row table__row_green">
+                                <div class="table__col table__col_one">1</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
                                 </div>
+                                <div class="table__col table__col_three">Высокое качество</div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="tabs__tab active" data-tab-group="VMOlist" data-tab="vmoListAll">
-                        <div class="services-VMO__table services-VMO__table_passlist">
-                            <div class="services-VMO__table-head">
-                                <span class="services-VMO__table-head_null">&nbsp;</span>
-                                <span class="services-VMO__table-head_search">
-                                    <div class="analityc-control-group _search">
-                                        <form class="search search search_widget d-si__search-form" action="#">
-                                            <div class="search__search-line">
-                                                <input class="d-si__search" type="text" placeholder="Введите название МО" title="Введите название МО" value="Введите название МО" />
-                                                <input class="d-si__submit" type="submit" value="" />
-                                                <div class="search__tooltip">
-                                                    <i></i>
-                                                    <span>Введите название МО</span>
-                                                </div>
-                                                <svg class="search__submit"><use xlink:href="assets/images/icon.svg#icon_icon-glass"></use></svg>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </span>
-                                <span class="services-VMO__table-head_place">доходы
-                                    <span class="services-VMO__table-head_sub">млн.руб.</span>
-                                </span>
-                                <span class="services-VMO__table-head_place">расходы
-                                    <span class="services-VMO__table-head_sub">млн.руб.</span>
-                                </span>
-                                <span class="services-VMO__table-head_defpro">дефицит/профицит
-                                    <span class="services-VMO__table-head_sub">млн.руб.</span>
-                                </span>
-                            </div>
-                            <div class="services-VMO__table__wrapper">
-                                <div class="vmoPassport-table scroll-pane">
-                                    <div class="table__row">
-                                        <div class="table__col table__col_one">А</div>
-                                        <div class="table__col table__col_two">
-                                            <img src="assets/images/VMO/gerb_ivan.jpg" />
-                                            <a href="#">Ивановское</a>
-                                        </div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_five table__col_green">0,1</div>
-                                    </div>
-                                    <div class="table__row">
-                                        <div class="table__col table__col_one"></div>
-                                        <div class="table__col table__col_two">
-                                            <img src="assets/images/VMO/gerb_ivan.jpg" />
-                                            <a href="#">Ивановское</a>
-                                        </div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_five table__col_green">0,1</div>
-                                    </div>
-                                    <div class="table__row">
-                                        <div class="table__col table__col_one"></div>
-                                        <div class="table__col table__col_two">
-                                            <img src="assets/images/VMO/gerb_ivan.jpg" />
-                                            <a href="#">Ивановское</a>
-                                        </div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_five table__col_green">0,1</div>
-                                    </div>
-                                    <div class="table__row">
-                                        <div class="table__col table__col_one"></div>
-                                        <div class="table__col table__col_two">
-                                            <img src="assets/images/VMO/gerb_ivan.jpg" />
-                                            <a href="#">Ивановское</a>
-                                        </div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_five table__col_green">0,1</div>
-                                    </div>
-                                    <div class="table__row">
-                                        <div class="table__col table__col_one"></div>
-                                        <div class="table__col table__col_two">
-                                            <img src="assets/images/VMO/gerb_ivan.jpg" />
-                                            <a href="#">Ивановское</a>
-                                        </div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_five table__col_green">0,1</div>
-                                    </div>
-                                    <div class="table__row">
-                                        <div class="table__col table__col_one">Б</div>
-                                        <div class="table__col table__col_two">
-                                            <img src="assets/images/VMO/gerb_ivan.jpg" />
-                                            <a href="#">Ивановское</a>
-                                        </div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_five table__col_red">-0,1</div>
-                                    </div>
-                                    <div class="table__row">
-                                        <div class="table__col table__col_one"></div>
-                                        <div class="table__col table__col_two">
-                                            <img src="assets/images/VMO/gerb_ivan.jpg" />
-                                            <a href="#">Ивановское</a>
-                                        </div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_five table__col_green">0,1</div>
-                                    </div>
-                                    <div class="table__row">
-                                        <div class="table__col table__col_one"></div>
-                                        <div class="table__col table__col_two">
-                                            <img src="assets/images/VMO/gerb_ivan.jpg" />
-                                            <a href="#">Ивановское</a>
-                                        </div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_five table__col_green">0,1</div>
-                                    </div>
-                                    <div class="table__row">
-                                        <div class="table__col table__col_one"></div>
-                                        <div class="table__col table__col_two">
-                                            <img src="assets/images/VMO/gerb_ivan.jpg" />
-                                            <a href="#">Ивановское</a>
-                                        </div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_five table__col_green">0,1</div>
-                                    </div>
-                                    <div class="table__row">
-                                        <div class="table__col table__col_one"></div>
-                                        <div class="table__col table__col_two">
-                                            <img src="assets/images/VMO/gerb_ivan.jpg" />
-                                            <a href="#">Ивановское</a>
-                                        </div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_four">21,0</div>
-                                        <div class="table__col table__col_five table__col_green">0,1</div>
-                                    </div>
+                            <div class="table__row table__row_green">
+                                <div class="table__col table__col_one">2</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
                                 </div>
+                                <div class="table__col table__col_three">Высокое качество</div>
+                            </div>
+                            <div class="table__row table__row_green">
+                                <div class="table__col table__col_one">3</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Высокое качество</div>
+                            </div>
+                            <div class="table__row table__row_green">
+                                <div class="table__col table__col_one">4</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Высокое качество</div>
+                            </div>
+                            <div class="table__row table__row_green">
+                                <div class="table__col table__col_one">5</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Высокое качество</div>
+                            </div>
+                            <div class="table__row table__row_green">
+                                <div class="table__col table__col_one">6</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Высокое качество</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">7</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">8</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">9</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">10</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">11</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">12</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">13</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">14</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">15</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">16</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">17</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">18</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">19</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">20</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">21</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">22</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">23</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">24</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">25</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">26</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">27</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">28</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">29</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">30</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">31</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">32</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">33</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">34</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">35</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">36</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">37</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">38</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">39</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">40</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">41</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">42</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">43</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">44</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">45</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">46</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">47</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">48</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">49</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">50</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">51</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">52</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">53</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">54</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">55</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">56</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">57</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">58</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">59</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">60</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">61</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">62</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">63</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">64</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">65</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">66</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">67</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">68</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">69</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">70</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">71</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">72</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">73</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">74</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">75</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">76</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">77</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">78</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">79</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">80</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">81</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">82</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">83</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">84</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">85</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">86</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">87</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">88</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">89</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">90</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">91</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">92</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">93</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">94</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">95</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">96</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">97</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">98</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">99</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">100</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">101</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">102</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">103</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">104</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">105</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_yellow">
+                                <div class="table__col table__col_one">106</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Удовлетворительный уровень</div>
+                            </div>
+                            <div class="table__row table__row_red">
+                                <div class="table__col table__col_one">107</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Ненадлежащее качество</div>
+                            </div>
+                            <div class="table__row table__row_red">
+                                <div class="table__col table__col_one">108</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Ненадлежащее качество</div>
+                            </div>
+                            <div class="table__row table__row_red">
+                                <div class="table__col table__col_one">109</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Ненадлежащее качество</div>
+                            </div>
+                            <div class="table__row table__row_red">
+                                <div class="table__col table__col_one">110</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Ненадлежащее качество</div>
+                            </div>
+                            <div class="table__row table__row_red">
+                                <div class="table__col table__col_one">111</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Ненадлежащее качество</div>
+                            </div>
+                            <div class="table__row table__row_red">
+                                <div class="table__col table__col_one">112</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Ненадлежащее качество</div>
+                            </div>
+                            <div class="table__row table__row_red">
+                                <div class="table__col table__col_one">113</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Ненадлежащее качество</div>
+                            </div>
+                            <div class="table__row table__row_red">
+                                <div class="table__col table__col_one">114</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Ненадлежащее качество</div>
+                            </div>
+                            <div class="table__row table__row_red">
+                                <div class="table__col table__col_one">115</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Ненадлежащее качество</div>
+                            </div>
+                            <div class="table__row table__row_red">
+                                <div class="table__col table__col_one">116</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Ненадлежащее качество</div>
+                            </div>
+                            <div class="table__row table__row_red">
+                                <div class="table__col table__col_one">117</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Ненадлежащее качество</div>
+                            </div>
+                            <div class="table__row table__row_red">
+                                <div class="table__col table__col_one">118</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Ненадлежащее качество</div>
+                            </div>
+                            <div class="table__row table__row_red">
+                                <div class="table__col table__col_one">119</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Ненадлежащее качество</div>
+                            </div>
+                            <div class="table__row table__row_red">
+                                <div class="table__col table__col_one">120</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Ненадлежащее качество</div>
+                            </div>
+                            <div class="table__row table__row_red">
+                                <div class="table__col table__col_one">121</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Ненадлежащее качество</div>
+                            </div>
+                            <div class="table__row table__row_red">
+                                <div class="table__col table__col_one">122</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Ненадлежащее качество</div>
+                            </div>
+                            <div class="table__row table__row_red">
+                                <div class="table__col table__col_one">123</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Ненадлежащее качество</div>
+                            </div>
+                            <div class="table__row table__row_red">
+                                <div class="table__col table__col_one">124</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Ненадлежащее качество</div>
+                            </div>
+                            <div class="table__row table__row_red">
+                                <div class="table__col table__col_one">125</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Ненадлежащее качество</div>
+                            </div>
+                            <div class="table__row table__row_red">
+                                <div class="table__col table__col_one">126</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Ненадлежащее качество</div>
+                            </div>
+                            <div class="table__row table__row_red">
+                                <div class="table__col table__col_one">127</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Ненадлежащее качество</div>
+                            </div>
+                            <div class="table__row table__row_red">
+                                <div class="table__col table__col_one">128</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Ненадлежащее качество</div>
+                            </div>
+                            <div class="table__row table__row_red">
+                                <div class="table__col table__col_one">129</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Ненадлежащее качество</div>
+                            </div>
+                            <div class="table__row table__row_red">
+                                <div class="table__col table__col_one">130</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Ненадлежащее качество</div>
+                            </div>
+                            <div class="table__row table__row_red">
+                                <div class="table__col table__col_one">131</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Ненадлежащее качество</div>
+                            </div>
+                            <div class="table__row table__row_red">
+                                <div class="table__col table__col_one">132</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Ненадлежащее качество</div>
+                            </div>
+                            <div class="table__row table__row_red">
+                                <div class="table__col table__col_one">133</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Ненадлежащее качество</div>
+                            </div>
+                            <div class="table__row table__row_red">
+                                <div class="table__col table__col_one">134</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Ненадлежащее качество</div>
+                            </div>
+                            <div class="table__row table__row_red">
+                                <div class="table__col table__col_one">135</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Ненадлежащее качество</div>
+                            </div>
+                            <div class="table__row table__row_red">
+                                <div class="table__col table__col_one">136</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Ненадлежащее качество</div>
+                            </div>
+                            <div class="table__row table__row_red">
+                                <div class="table__col table__col_one">137</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Ненадлежащее качество</div>
+                            </div>
+                            <div class="table__row table__row_red">
+                                <div class="table__col table__col_one">138</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Ненадлежащее качество</div>
+                            </div>
+                            <div class="table__row table__row_red">
+                                <div class="table__col table__col_one">139</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Ненадлежащее качество</div>
+                            </div>
+                            <div class="table__row table__row_red">
+                                <div class="table__col table__col_one">140</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Ненадлежащее качество</div>
+                            </div>
+                            <div class="table__row table__row_red">
+                                <div class="table__col table__col_one">141</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Ненадлежащее качество</div>
+                            </div>
+                            <div class="table__row table__row_red">
+                                <div class="table__col table__col_one">142</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Ненадлежащее качество</div>
+                            </div>
+                            <div class="table__row table__row_red">
+                                <div class="table__col table__col_one">143</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Ненадлежащее качество</div>
+                            </div>
+                            <div class="table__row table__row_red">
+                                <div class="table__col table__col_one">144</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Ненадлежащее качество</div>
+                            </div>
+                            <div class="table__row table__row_red">
+                                <div class="table__col table__col_one">145</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Ненадлежащее качество</div>
+                            </div>
+                            <div class="table__row table__row_red">
+                                <div class="table__col table__col_one">146</div>
+                                <div class="table__col table__col_two">
+                                    <img src="assets/images/VMO/gerb_ivan.jpg" />
+                                    <span>Муниципальный округ Ивановское</span>
+                                </div>
+                                <div class="table__col table__col_three">Ненадлежащее качество</div>
                             </div>
                         </div>
                     </div>
