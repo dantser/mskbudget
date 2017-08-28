@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import ymaps from 'ymaps'; 
+import ymaps from 'ymaps';
 
 export default () => {
 
@@ -19,10 +19,10 @@ export default () => {
         var circleLayout = maps.templateLayoutFactory.createClass(
           '<div class="placemark-layout-container">' +
             '<div class="circle-layout" data-object="' + num + '">' + num + '</div>' +
-            '<div class="balloon-layout">' + 
+            '<div class="balloon-layout">' +
               '<div class="balloon-layout__title">' + title  + '</div>' +
-              '<div class="balloon-layout__text">' + text + '</div>' + 
-              '<a href="#" class="balloon-layout__link">подробнее</div>' + 
+              '<div class="balloon-layout__text">' + text + '</div>' +
+              '<a href="#" class="balloon-layout__link">подробнее</div>' +
             '</div>' +
           '</div>'
         );
@@ -94,6 +94,8 @@ export default () => {
 		SEARCH.show();
 		$('.significant .tabs__tab[data-tab="significantOne"]').show();
   })
+
+  if ( $('#significant-bigmap').length > 0 ) {
 
   ymaps.load().then(maps => {
 
@@ -182,5 +184,7 @@ export default () => {
     })
   })
   .catch(error => console.log('Failed to load Yandex Maps', error));
+
+  }
 
 }

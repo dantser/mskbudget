@@ -41,23 +41,23 @@
 	$(document).ready(function() {
 
 		if( $(w).width() < 1100 ){
-			$('.share__btn').click(function() {
+			$(document).on('click', '.share__btn', function() {
 
 				var _ = $(this);
 
 				if( !_.hasClass('share__btn_act') ){
 
-					$('.share__panel').slideUp(321);
-					$('.share__btn').removeClass('share__btn_act');
+					$(document).find('.share__panel').slideUp(321);
+					$(document).find('.share__btn').removeClass('share__btn_act');
 					_.addClass('share__btn_act').next().slideDown(321);
-					$('.sections__subscribe').css('zIndex', 0);
+					$(document).find('.sections__subscribe').css('zIndex', 0);
 
 				}else{
 
 					_.removeClass('share__btn_act').next().slideUp(321, function() {
-						$('.sections__subscribe').css('zIndex', 3);
+						$(document).find('.sections__subscribe').css('zIndex', 3);
 					});
-					
+
 
 				}
 				return false;
@@ -65,37 +65,31 @@
 
 		} else {
 
-			$('.share__btn').mouseenter(function() {
-
+		function shareBtnInit() {
+			$(document).on('mouseenter', '.share__btn', function() {
 				$(this).addClass('share__btn_act').next().slideDown(321);
-				$('.sections__subscribe').css('zIndex', 0);
-
+				$(document).find('.sections__subscribe').css('zIndex', 0);
 			});
 
-
-
-			$('.share__panel').mouseleave(function() {
-
+			$(document).on('mouseleave', '.share__panel', function() {
 				$(this).slideUp(321).prev().removeClass('share__btn_act');
-				$('.sections__subscribe').css('zIndex', 3);
-
+				$(document).find('.sections__subscribe').css('zIndex', 3);
 			});
 
-			$('.share__btn').mouseleave(function(e) {
-
+			$(document).on('mouseleave', '.share__btn', function(e) {
 				if( e.pageY < ($(this).height() + $(this).offset().top) ){
-
 					$(this).removeClass('share__btn_act').next().slideUp(321);
-					$('.sections__subscribe').css('zIndex', 3);
-
+					$(document).find('.sections__subscribe').css('zIndex', 3);
 				}
-
 			});
+		}
 
-		} 
+		shareBtnInit();
+
+		}
 
 
-		$('.share__a_vk').on('click', function() {
+		$(document).on('click', '.share__a_vk', function() {
 		    Share.vkontakte(
 				document.location.href,
 				$('title').text(),
@@ -103,7 +97,7 @@
 				$("meta[property='og\\:image']").attr("content")
 			);
 		});
-		$('.share__a_fb').on('click', function() {
+		$(document).on('click', '.share__a_fb', function() {
 			Share.facebook(
 				document.location.href
 				// $('title').text(),
@@ -111,14 +105,14 @@
 				// $("meta[property='og\\:image']").attr("content")
 			);
 		});
-		$('.share__a_tw').on('click', function() {
+		$(document).on('click', '.share__a_tw', function() {
 			Share.twitter(
 				document.location.href,
 				$('title').text() + '. ' + $("meta[name='twitter\\:description']").attr("content"),
 				$("meta[name='twitter\\:image']").attr("content")
 			);
 		});
-		$('.share__a_ok').on('click', function() {
+		$(document).on('click', '.share__a_ok', function() {
 			Share.oklassniki(
 				document.location.href,
 				$('title').text(),

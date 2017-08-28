@@ -2,31 +2,23 @@ import $ from 'jquery';
 import 'jquery-ui-bundle';
 
 export default () => {
-  const FAVOR = $('.widget-card__favor');
-  const PIN = $('.widget-card__pin');
 
-  FAVOR.each(function () {
-    const EL = $(this);
-    EL.on('click', (e) => {
-      e.preventDefault();
-      EL.toggleClass('widget-card__favor_active');
-    })
+  $(document).on('click', '.widget-card__favor', function(e) {
+    e.preventDefault();
+    $(this).toggleClass('widget-card__favor_active');
   });
 
-  PIN.each(function () {
-    const EL = $(this);
-    EL.on('click', (e) => {
-      e.preventDefault();
-      EL.toggleClass('widget-card__pin_active');
-      EL.parents('.tile__item').toggleClass('tile__item_pinned');
+  $(document).on('click', '.widget-card__pin', function(e) {
+    e.preventDefault();
+    $(this).toggleClass('widget-card__pin_active');
+    $(this).parents('.tile__item').toggleClass('tile__item_pinned');
 
-      if ( !$(this).parents('.tile__item').hasClass('tile__item_pinned') ) {
-        var block = $(this).parents('.tile__item');
-        $(this).parents('.sortable').find('.tile__item.tile__item_pinned').last().after(block);
-      } else {
-        $(this).parents('.tile__item').prependTo( EL.parents('.sortable') );
-      }
-    })
+    if ( !$(this).parents('.tile__item').hasClass('tile__item_pinned') ) {
+      var block = $(this).parents('.tile__item');
+      $(this).parents('.sortable').find('.tile__item.tile__item_pinned').last().after(block);
+    } else {
+      $(this).parents('.tile__item').prependTo( $(this).parents('.sortable') );
+    }
   });
 
   // добавляем title всем заголовкам
@@ -35,9 +27,9 @@ export default () => {
   });
 
   // стрелочки в виджетах
-  $('.widget-card-gov-programs-result .arrow-button_next, .widget-card-social-support .arrow-button_next').on('click', function (e) {
+  $(document).on('click', '.widget-card-gov-programs-result .arrow-button_next, .widget-card-social-support .arrow-button_next', function (e) {
     e.preventDefault();
-    const widgetCard = $(this).parents('.widget-card').find('.widget-card__info-block-items_active');
+    var widgetCard = $(this).parents('.widget-card').find('.widget-card__info-block-items_active');
 
     widgetCard.find('.widget-card__info-block-item_active')
     .removeClass('widget-card__info-block-item_active')
@@ -48,9 +40,9 @@ export default () => {
     }
   });
 
-  $('.widget-card-gov-programs-result .arrow-button_prev, .widget-card-social-support .arrow-button_prev').on('click', function (e) {
+  $(document).on('click', '.widget-card-gov-programs-result .arrow-button_prev, .widget-card-social-support .arrow-button_prev', function (e) {
     e.preventDefault();
-    const widgetCard = $(this).parents('.widget-card').find('.widget-card__info-block-items_active');
+    var widgetCard = $(this).parents('.widget-card').find('.widget-card__info-block-items_active');
 
     widgetCard.find('.widget-card__info-block-item_active')
     .removeClass('widget-card__info-block-item_active')
@@ -62,9 +54,9 @@ export default () => {
   });
 
   // опросы и обучающий сервис
-  $('.widget-card-polls .arrow-button_next, .widget-card-polls-pers .arrow-button_next, .widget-card-quiz .arrow-button_next, .widget-card-quiz-pers .arrow-button_next, .widget-card-projects .arrow-button_next').on('click', function (e) {
+  $(document).on('click', '.widget-card-polls .arrow-button_next, .widget-card-polls-pers .arrow-button_next, .widget-card-quiz .arrow-button_next, .widget-card-quiz-pers .arrow-button_next, .widget-card-projects .arrow-button_next', function (e) {
     e.preventDefault();
-    const widgetCard = $(this).parents('.widget-card__content').find('.widget-card__info-block_active');
+    var widgetCard = $(this).parents('.widget-card__content').find('.widget-card__info-block_active');
 
     widgetCard.find('.widget-card__info_active').removeClass('widget-card__info_active')
     .next('.widget-card__info').addClass('widget-card__info_active');
@@ -74,9 +66,9 @@ export default () => {
     }
   });
 
-  $('.widget-card-polls .arrow-button_prev, .widget-card-polls-pers .arrow-button_prev, .widget-card-quiz .arrow-button_prev, .widget-card-quiz-pers .arrow-button_prev, .widget-card-projects .arrow-button_prev').on('click', function (e) {
+  $(document).on('click', '.widget-card-polls .arrow-button_prev, .widget-card-polls-pers .arrow-button_prev, .widget-card-quiz .arrow-button_prev, .widget-card-quiz-pers .arrow-button_prev, .widget-card-projects .arrow-button_prev', function (e) {
     e.preventDefault();
-    const widgetCard = $(this).parents('.widget-card__content').find('.widget-card__info-block_active');
+    var widgetCard = $(this).parents('.widget-card__content').find('.widget-card__info-block_active');
 
     widgetCard.find('.widget-card__info_active').removeClass('widget-card__info_active')
     .prev('.widget-card__info').addClass('widget-card__info_active');
@@ -87,9 +79,9 @@ export default () => {
   });
 
   // бюджетная сеть
-  $('.widget-card-budget-web .arrow-button_next').on('click', function (e) {
+  $(document).on('click', '.widget-card-budget-web .arrow-button_next', function (e) {
     e.preventDefault();
-    const widgetCard = $(this).parents('.widget-card').find('.widget-card__results_active');
+    var widgetCard = $(this).parents('.widget-card').find('.widget-card__results_active');
 
     widgetCard.find('.widget-card__results-total_active')
     .removeClass('widget-card__results-total_active')
@@ -100,9 +92,9 @@ export default () => {
     }
   });
 
-  $('.widget-card-budget-web .arrow-button_prev').on('click', function (e) {
+  $(document).on('click', '.widget-card-budget-web .arrow-button_prev', function (e) {
     e.preventDefault();
-    const widgetCard = $(this).parents('.widget-card').find('.widget-card__results_active');
+    var widgetCard = $(this).parents('.widget-card').find('.widget-card__results_active');
 
     widgetCard.find('.widget-card__results-total_active')
     .removeClass('widget-card__results-total_active')
@@ -119,8 +111,7 @@ export default () => {
 
 // сворачивание-разворачивание карточек в мобильной версии
   if ($(window).width() < 581) {
-    $('.widget-card__title h3').each(function () {
-      $(this).on('click', function () {
+      $(document).on('click', '.widget-card__title h3', function () {
         var $this = $(this);
         if ($this.parents().hasClass('dropdown-block') || $this.parents().hasClass('wrapper_main') || $this.parents().hasClass('lk-services-second')) {   //убираем сворачивание виджетов в блоке дропдаунов и на главной
           return;
@@ -131,15 +122,14 @@ export default () => {
         setTimeout(function () {
           $this.parents('.widget-card').find('.service__diagram-tabs').show();
         }, 321)
-      })
-    })
+      });
   };
 
 
 
   // виджет москва и города мира
-  $('.widget-card-cities .selectbox_cities').find('li').on('click', function () {
-    const newval = $(this).data('val');
+  $(document).on('click', '.widget-card-cities .selectbox_cities li', function () {
+    var newval = $(this).data('val');
     $('.widget-card-cities').find('.widget-card__results').slideUp();
     if (newval == "Москва") {
       $('.widget-card__results_moscow').slideDown(321);
@@ -157,8 +147,8 @@ export default () => {
   });
 
   // виджет результаты реализации гос.программ
-  $('.widget-card-gov-programs-result').find('li').on('click', function () {
-    const newval = $(this).data('val');
+  $(document).on('click', '.widget-card-gov-programs-result li', function () {
+    var newval = $(this).data('val');
     $('.widget-card-gov-programs-result').find('.widget-card__info-block-items').hide();
     if (newval == "opt1") {
       $('.widget-card-gov-programs-result .widget-card__info-block-items_opt1').show(321).addClass('widget-card__info-block-items_active');
@@ -172,9 +162,9 @@ export default () => {
   });
 
   // виджет социальная поддержка населения
-  $('.widget-card-social-support').find('li').on('click', function () {
-    const newval = $(this).data('val');
-    $('.widget-card-social-support').find('.widget-card__info-block-items').hide();
+  $(document).on('click', '.widget-card-social-support li', function () {
+    var newval = $(this).data('val');
+    $(this).parents('.widget-card-social-support').find('.widget-card__info-block-items').hide();
     if (newval == "opt1") {
       $('.widget-card-social-support .widget-card__info-block-items_opt1').show(321).addClass('widget-card__info-block-items_active');
     } else if (newval == "opt2") {
@@ -186,8 +176,8 @@ export default () => {
     }
   });
   // виджет внутригородские муниципальные образования
-  $('.widget-card-municipalities').find('li').on('click', function () {
-    const newval = $(this).data('val');
+  $(document).on('click', '.widget-card-municipalities li', function () {
+    var newval = $(this).data('val');
     $('.widget-card-municipalities').find('.widget-card__results-total').hide();
     if (newval == "opt1") {
       $('.widget-card-municipalities .widget-card__results-total_opt1').show(321);
@@ -200,8 +190,8 @@ export default () => {
     }
   });
 // виджет москва и регионы рф
-  $('.widget-card-regions').find('li').on('click', function () {
-    const newval = $(this).data('val');
+  $(document).on('click', '.widget-card-regions li', function () {
+    var newval = $(this).data('val');
     $(this).parents('.widget-card__content').find('.widget-card__results').slideUp(321);
     if (newval == "opt1") {
       $(this).parents('.widget-card__content').find('.widget-card__results_opt1').slideDown(321);
@@ -214,8 +204,8 @@ export default () => {
     }
   });
   // виджет бюджетная сеть
-  $('.widget-card-budget-web').find('li').on('click', function () {
-    const newval = $(this).data('val');
+  $(document).on('click', '.widget-card-budget-web li', function () {
+    var newval = $(this).data('val');
     $('.widget-card-budget-web').find('.widget-card__results').removeClass('widget-card__results_active');
     if (newval == "opt1") {
       $('.widget-card-budget-web .widget-card__results_opt1').addClass('widget-card__results_active');
@@ -229,8 +219,8 @@ export default () => {
   });
 
   // виджет калькулятор
-  $('.widget-card-calc').find('li').on('click', function () {
-    const newval = $(this).data('val');
+  $(document).on('click', '.widget-card-calc li', function () {
+    var newval = $(this).data('val');
     $(this).parents('.widget-card__content').find('.widget-card__output-calc').removeClass('widget-card__output-calc_active').hide(321);
     if (newval == "opt1") {
       $(this).parents('.widget-card__content').find('.widget-card__output-calc_opt1').show(321);

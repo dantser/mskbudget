@@ -158,7 +158,7 @@ budget.extend("common", {
     // };
 
     if ($(".datepicker").length) {
-      $(".datepicker").datepicker();
+      $(document).find(".datepicker").datepicker();
       $.datepicker.regional['ru'] = {
         changeMonth: true,
         changeYear: true,
@@ -261,7 +261,7 @@ budget.extend("common", {
     })
 
 
-    if ($('.sectored_round').length) {
+    if ($(document).find('.sectored_round').length) {
       self.correctSectoredRounds();
     }
 
@@ -271,7 +271,7 @@ budget.extend("common", {
 
     var self = this;
 
-    $('.sectored_round').each(function() {
+    $(document).find('.sectored_round').each(function() {
 
       var count = parseInt($(this).attr('sector-count'));
 

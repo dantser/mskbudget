@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import Swiper from 'swiper';
-import ymaps from 'ymaps'; 
+import ymaps from 'ymaps';
 
 export default () => {
 
@@ -45,9 +45,9 @@ export default () => {
     e.preventDefault();
     TAB_INNER_DOMAIN.removeClass(TAB_INNER_ACTIVE);
     TAB_INNER_DOMAIN_SLIDER.addClass(TAB_INNER_ACTIVE);
-    
+
     initialSlide = TAB_INNER_DOMAIN_SLIDER.find('.services-net-domain-slider__banner-slide[data-tab="' + $(this).data('target') + '"]').index();
-  
+
     sliderGallery = new Swiper('.services-net-domain-slider__banner', {
       initialSlide: initialSlide,
       prevButton: '.services-net-domain-slider__arrow_prev',
@@ -109,9 +109,14 @@ export default () => {
   LINK_BACK.click(function() {
     TAB_INNER.removeClass(TAB_INNER_ACTIVE);
     TAB_INNER_INSTITUTES.addClass(TAB_INNER_ACTIVE);
-  })
+  });
+
+if ( $('#net-map').length > 0 ) {
+
 
   var map;
+
+
 
   ymaps.load().then(maps => {
     map = new maps.Map("net-map", {
@@ -139,4 +144,6 @@ export default () => {
     $('.services-net-institute__address').removeClass('services-net-institute__address_active');
     map.container.fitToViewport();
   })
+}
+
 }
