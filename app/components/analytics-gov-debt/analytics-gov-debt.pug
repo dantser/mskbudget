@@ -1,0 +1,19 @@
+include ../page-header/page-header
+include ../analityc-widgethead/analityc-widgethead
+include ../analityc-graphics/analityc-graphics
+include ../analityc-table/analityc-table
+include ../../blocks/table/table
+include ../../blocks/dropdown-block/dropdown-block
+
+mixin analytics-gov-debt()
+  +b.SECTION.analytics-gov-debt.main.basic-budget.section__item&attributes(attributes)
+    .wrapper
+      +page-header('Государственный долг', ['Аналитика'], true)
+    .wrapper.wrapper_widget.wrapper_analytics-gov-debt
+      +e.analityc-widget.analityc-widget.load-anim-fade(data-delay="1500")
+        +analityc-widgethead-analytics-govdebt().__analityc-widgethead
+        +analityc-graphics-analytics-gov-debt-line()
+        +analityc-graphics-analytics-gov-debt-bars(getData('analytics-govdebt'))._analytics-gov-debt
+        +legend-icon-analytics-gov-debt()
+        +analityc-table()._gp
+          +table-analytics-gov-debt(getData('main'))

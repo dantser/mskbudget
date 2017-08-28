@@ -79,7 +79,7 @@ export default () => {
   // Прогноз социально-экономического развития города Москвы (численность населения)
   if ($('.analityc-graphics-rate-columns').length) {
     
-    rateLine('.analityc-graphics-rate-columns__growth-rate', 10, true);
+    rateLine('.analityc-graphics-rate-columns__growth-rate', 10, 100, true);
     
     // Тыс.чел
     $('.analityc-graphics-rate-columns__population').each(function(){
@@ -91,19 +91,18 @@ export default () => {
   }
   
   // Прогноз социально-экономического развития города Москвы (индекс промышленного производства)
-  if ($('.analityc-graphics-broken-line').length) {
-    
-    rateLine('.analityc-graphics-broken-line__growth-rate', 5);
+  if ($('.budget_forecast .analityc-graphics-broken-line').length) {
+    rateLine('.analityc-graphics-broken-line__growth-rate', 5, 100);
   }
   
   // Темп роста
-  function rateLine(el, coef, columns) {
+  function rateLine(el, coef, startrate, columns) {
     $(el).each(function(){
       
       var negRateDifference = 0;
       $(this).find('[data-rate-level]').each(function(){
         var rateLevel = parseFloat($(this).data('rate-level'));
-        var rateDiffernece = 100 - rateLevel;
+        var rateDiffernece = startrate - rateLevel;
         if (rateDiffernece < negRateDifference) {
           negRateDifference = rateDiffernece;
         }
@@ -129,6 +128,11 @@ export default () => {
         $(this).css('width', lineWidth+'px');
       });
     });
+  }
+  
+  // Аналитика - Государственный долг (уровень долговой нагрузки)
+  if ($('.analytics-gov-debt .analityc-graphics-broken-line').length) {
+    rateLine('.analityc-graphics-broken-line__growth-rate', 9, 8);
   }
 
 }

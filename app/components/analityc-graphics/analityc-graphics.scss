@@ -1770,6 +1770,79 @@
         margin-bottom: 0;
         margin-top: 5px;
         border-top: 17px solid #eb212e;
+        border-bottom: 0;
+      }
+    }
+  }
+  
+  &_analytics-gov-debt {
+    padding: 0 30px;
+    &:before {
+      top: auto;
+      bottom: 42px;
+    }
+    .analityc-graphics-bars__line-fill {
+      @include analityc-graphics-bars(red, 45%, #9d308a, rgb(157,48,138), rgb(255,105,91));
+      @include analityc-graphics-bars(altblue, 33%, #0051d0, rgb(0,76,207), rgb(0,255,255));
+      @include analityc-graphics-bars(green, 13%, #32b168, rgb(254,227,0), rgb(48,176,105));
+      @include analityc-graphics-bars(yellow, 3%, #ffd856, rgb(252,168,5), rgb(255,216,86));
+    }
+    .analityc-graphics-bars__line-fill_yellow {
+      cursor: pointer;
+      .analityc-graphics-bars__val {
+        position: absolute;
+        display: none;
+        left: 114%;
+        bottom: auto;
+        width: 38px;
+        height: 24px;
+        background-image: linear-gradient(to left, #fca805 0%, #ffd856 100%);
+        padding: 5px;
+        transition: all 0.5s ease;
+        &::after {
+          @include pseudo;
+          position: absolute;
+          top: 50%;
+          left: -18px;
+          transform: translateY(-50%);
+          border: 9px solid transparent;
+          border-right: 10px solid #ffd856;
+        }
+      }
+      &:hover {
+        .analityc-graphics-bars__val {
+          display: block;
+        }
+      }
+    }
+    .analityc-graphics-bars__line-fill_altblue {
+      .analityc-graphics-bars__val {
+        position: static;
+        display: block;
+        width: auto;
+        height: auto;
+        background-image: none;
+        &::after {
+          display: none;
+        }
+      }
+    }
+    .analityc-graphics-bars__line-bar-value {
+      margin-bottom: 7px;
+    }
+    .analityc-graphics-bars__lines {
+      height: 170px;
+    }
+    .analityc-graphics-bars__caption-year {
+      font-size: 18px;
+    }
+    .analityc-graphics-bars__caption {
+      margin-top: 22px;
+    }
+    .analityc-graphics-bars__changes {
+      bottom: 69%;
+      &_neg {
+        bottom: 79%;
       }
     }
   }
@@ -3517,11 +3590,17 @@
     text-align: center;
   }
   &__rate-line {
-    border-bottom: 2px solid #eb9b3b;
+    border-bottom: 2px solid;
     position: absolute;
     left: 50%;
     bottom: -10px;
     transform-origin: left bottom;
+    &_orange {
+      border-color: #eb9b3b;
+    }
+    &_grey {
+      border-color: #9aa1ad;
+    }
   }
   &__captions {
     @include block-justify;
