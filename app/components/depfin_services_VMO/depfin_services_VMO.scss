@@ -11,13 +11,17 @@
   }
 
   &__tabs-control {
+    display: table;
+
     font-size: 0;
     width: 100%;
+    margin: 0;
+    padding: 0;
     margin-top: 41px;
 
     a {
       display: inline-block;
-      vertical-align: middle;
+      vertical-align: top;
       font-size: 16px;
       font-weight: 500;
       text-transform: uppercase;
@@ -87,6 +91,23 @@
       display: inline-block;
       vertical-align: middle;
       width: 72px;
+      margin-top: 0;
+    }
+    span {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+  }
+  .analityc-control-group._base {
+    width: auto;
+    vertical-align: middle;
+    margin-top: 25px;
+    .analityc-select {
+      display: inline-block;
+      vertical-align: middle;
+      width: 337px;
+      margin-top: 0;
     }
     span {
       display: inline-block;
@@ -166,6 +187,9 @@
         display: inline-block;
         vertical-align: middle;
       }
+      &_null {
+        width: 9.5%;
+      }
 
       &_place {
         width: 15%;
@@ -174,7 +198,35 @@
         width: 60%;
       }
       &_quality {
-        width: 25%;
+        width: 24.3%;
+      }
+      &_vol {
+        width: 20%;
+        span {
+          display: block;
+          font-size: 11px;
+        }
+      }
+      &_search {
+        width: 30%;
+        .analityc-control-group {
+          width: 227px;
+        }
+        input.d-si__search {
+          text-transform: none;
+          height: 32px;
+        }
+        .search__tooltip span {
+          font-size: 14px;
+          text-transform: none;
+        }
+      }
+      &_defpro {
+        width: 28%;
+      }
+      span.services-VMO__table-head_sub {
+        display: block;
+        font-size: 11px;
       }
     }
 
@@ -285,20 +337,81 @@
             display: inline-block;
             vertical-align: middle;
           }
+          a {
+            color: $color-link;
+          }
         }
-        &_three {
-          width: 25%;
+        &_four {
+          width: 20%;
           font-size: 14px;
+        }
+        &_five {
+          font-size: 14px;
+          width: 28%;
+        }
+        &_green {
+          color: #6ab30e;
+        }
+        &_red {
+          color: #e10221;
+        }
+      }
+    }
+
+    &_comparison {
+      .services-VMO__table-head {
+        &_mun {
+          width: 60%;
+        }
+      }
+      .vmoPassport-table {
+        .table__col {
+          &_one {
+            padding-left: 0px;
+          }
+          &_two {
+            width: 65%;
+          }
+        }
+      }
+    }
+    &_passlist {
+      .services-VMO__table-head {
+        margin-bottom: 12px;
+      }
+      .vmoPassport-table {
+        .table__col {
+          font-weight: 500;
+          &_one {
+            padding-left: 0px;
+            width: 10%;
+          }
+          &_two {
+            width: 30%;
+          }
+          &_four {
+            width: 15%;
+          }
+          &_five {
+            width: 30%;
+          }
         }
       }
     }
   }
   .analityc-control-switcher {
-    a:nth-child(2) {
-      border: 1px solid $color-link;
-      border-top: none;
-      border-bottom: none;
+    font-size: 0;
+    display: table;
+    a {
+      border-right: 1px solid $color-link;
+
+      &:last-child {
+        border-right: none;
+        margin-right: -1px;
+        padding-right: 31px;
+      }
     }
+
   }
   // для таба "Все ВМО"
   &__map {
@@ -326,13 +439,18 @@
   }
   &__content_bottom {
     margin-top: 0;
+    .services-VMO__text {
+      width: 100%;
+      margin-bottom: 0;
+      float: none;
+    }
   }
-
+  &__figures {
+    float: left;
+  }
   &__figure {
     margin-bottom: 95px;
     position: relative;
-    float: left;
-    width: 25%;
     z-index: 0;
     &::before {
       @include pseudo;
@@ -346,16 +464,15 @@
       border-top: 1px solid;
     }
     &_orange {
-      width: 50%;
       &::before {
         width: 173px;
-        left: -182px;
+        left: -172px;
       }
     }
 
     &_green::before {
       width: 243px;
-      left: -250px;
+      left: -240px;
     }
     .services-VMO__descr {
       display: inline-block;
@@ -479,6 +596,10 @@
 
         &_yellow {
           color: #30b068;
+
+          @media screen and (max-width: 1101px) and (min-width: 901px) {
+            top: 10px;
+          }
         }
 
         &_blue {
@@ -542,6 +663,9 @@
     .table__col_one {
       width: 7.93%;
     }
+    .analityc-table__wrapper {
+      overflow-x: scroll;
+    }
   }
 
   // для таба "Муниципальные округи"
@@ -553,6 +677,7 @@
       float: none;
       width: 676px;
       margin-left: -100px;
+      margin-right: -67px;
       z-index: 1;
       img {
         width: 100%;
@@ -591,7 +716,6 @@
       color: rgba(0, 0, 0, .5);
     }
     .analityc-control-group._search {
-      margin-left: -62px;
       width: 227px;
       span {
         margin-bottom: 5px;
@@ -599,7 +723,14 @@
       .search__tooltip span {
         font-size: 14px;
       }
+      .d-si__search {
+        height: 32px;
+      }
     }
+  }
+
+  .d-si__search {
+    height: 32px;
   }
 
   .services-VMO__content_municipal-graphics {
@@ -769,7 +900,7 @@
       }
     }
   }
-  .tabs__tab[data-tab="VMOsocialEc"] {
+  .tabs__tab.vmosocialEc {
     .services-VMO__title {
       margin-bottom: 32px;
     }
@@ -795,7 +926,7 @@
       }
     }
     .services-VMO__content_small {
-      width: 16.7%;
+      width: 16.5%;
       display: inline-block;
       vertical-align: top;
       margin-right: 40px;
@@ -986,6 +1117,67 @@
     vertical-align: top;
   }
 
+
+  @media (max-width: 1024px) {
+    .alternative-link {
+      clear: both;
+      float: left;
+    }
+    .services-VMO__content_allvmo {
+      float: right;
+      width: 60%;
+      .services-VMO__text {
+        width: 100%;
+        float: none;
+      }
+    }
+
+    .services-VMO__figure {
+      &_orange::before {
+        left: -153px;
+        width: 148px;
+      }
+      &_green::before {
+        left: -231px;
+        width: 226px;
+      }
+    }
+
+
+
+    .services-VMO__content_municipal {
+      .services-VMO__map-wrapper {
+        margin-left: -168px;
+        margin-right: -75px;
+        // width: 427px;
+      }
+      &-graphics .services-VMO__content_bottom {
+        .services-VMO__subtitle {
+          float: none;
+          display: block;
+          width: 100%;
+          margin-bottom: 25px;
+        }
+        .services-VMO__right-block {
+          float: none;
+          display: block;
+          width: 100%;
+        }
+        .button {
+          max-width: none;
+        }
+      }
+    }
+    .tabs__tab.vmosocialEc .services-VMO__content_small {
+      width: 30%;
+      &:nth-child(3n) {
+        margin-right: 0;
+      }
+    }
+    .analityc-control-switcher {
+      margin-top: 30px;
+    }
+  }
 }
 
 .ui-vmo {

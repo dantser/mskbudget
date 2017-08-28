@@ -1026,7 +1026,8 @@ mixin analityc-widgethead-moscow-gp()
       a(href="#", data-type='structure') Структура
     .analityc-control-group._dp
       input(placeholder="Выберите дату исполнения", value="Выберите дату исполнения", readonly="readonly").datepicker
-      
+
+//- Бюджет Москвы - Социально-экономическое развитие
 mixin analityc-widgethead-forecast()
   +b.analityc-widgethead&attributes(attributes)
     .analityc-control-group._year
@@ -1042,3 +1043,132 @@ mixin analityc-widgethead-forecast()
         option Закон о внесении изменений
         option Закон об исполнении
         option Исполнение на дату
+
+//- Аналитика - Государственный долг
+mixin analityc-widgethead-analytics-govdebt()
+  +b.analityc-widgethead&attributes(attributes)
+
+    .analityc-control-frame.analityc-control-frame_left
+      span.analityc-control-frame-title Выберите год и месяц
+
+      .analityc-control-group
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        select.analityc-select.analityc-select_year
+          option(selected) 2015
+          option 2016
+          option 2017
+          option 2018
+          option 2019
+        select.analityc-select.analityc-select_month
+          option(selected) 1 января
+          option 1 февраля
+          option 1 марта
+          option 1 апреля
+          option 1 мая
+          option 1 июня
+          option 1 июля
+          option 1 августа
+          option 1 сентября
+          option 1 октября
+          option 1 ноября
+          option 1 декабря
+
+      .analityc-control-group
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        select.analityc-select.analityc-select_year
+          option 2015
+          option(selected) 2016
+          option 2017
+          option 2018
+          option 2019
+        select.analityc-select.analityc-select_month
+          option(selected) 1 января
+          option 1 февраля
+          option 1 марта
+          option 1 апреля
+          option 1 мая
+          option 1 июня
+          option 1 июля
+          option 1 августа
+          option 1 сентября
+          option 1 октября
+          option 1 ноября
+          option 1 декабря
+
+      .analityc-control-group
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        select.analityc-select.analityc-select_year
+          option 2015
+          option 2016
+          option(selected) 2017
+          option 2018
+          option 2019
+        select.analityc-select.analityc-select_month
+          option(selected) 1 января
+          option 1 февраля
+          option 1 марта
+          option 1 апреля
+          option 1 мая
+          option 1 июня
+          option 1 июля
+          option 1 августа
+          option 1 сентября
+          option 1 октября
+          option 1 ноября
+          option 1 декабря
+
+      .analityc-control-group
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        select.analityc-select.analityc-select_year
+          option 2015
+          option 2016
+          option 2017
+          option(selected) 2018
+          option 2019
+        select.analityc-select.analityc-select_month
+          option(selected) 1 января
+          option 1 февраля
+          option 1 марта
+          option 1 апреля
+          option 1 мая
+          option 1 июня
+          option 1 июля
+          option 1 августа
+          option 1 сентября
+          option 1 октября
+          option 1 ноября
+          option 1 декабря
+
+      .analityc-control-group
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        select.analityc-select.analityc-select_year
+          option 2015
+          option 2016
+          option 2017
+          option 2018
+          option(selected) 2019
+        select.analityc-select.analityc-select_month
+          option(selected) 1 января
+          option 1 февраля
+          option 1 марта
+          option 1 апреля
+          option 1 мая
+          option 1 июня
+          option 1 июля
+          option 1 августа
+          option 1 сентября
+          option 1 октября
+          option 1 ноября
+          option 1 декабря
+
+      a(href='#').analityc-add-group + Добавить год и месяц
+
+    .analityc-control-frame.analityc-control-frame_right
+      .analityc-control-switcher.analityc-control-switcher_expenses.analityc-control-switcher_large.active
+        a(href="#").active Темп роста к пред. периоду, млрд руб.
+        a(href="#") Доля в общей суммы,%
