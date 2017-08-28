@@ -419,7 +419,6 @@ budget.extend("common", {
 })
 
 $(budget.init);
-console.log(budget.init);
 
 
 
