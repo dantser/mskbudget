@@ -4,7 +4,7 @@
 //- date - дата новости
 //- модификатор ._big для увеличенной карточки
 
-mixin news-card(image, category, title, date)
+mixin news-card(image, category, title, date, tags)
   +b.news&attributes(attributes)
     a(href="#").news__thumb
       img(src="assets/images/news/"+image+".jpg", alt="thumb")
@@ -13,12 +13,12 @@ mixin news-card(image, category, title, date)
     .news__bottom
       p.news__date= date
       .news__tags
-        a(href="#") #итоги
-        a(href="#") #апробация
-        a(href="#") #старшеклассники
-    button.share__btn
-    .share__panel
-      +social('facebook-box', 'vk', 'tw', 'odnokl').__social
+        each tag in tags
+          a(href="#")= '#' + tag
+    .news__abs
+      button.share__btn
+      .share__panel
+        +social('facebook-box', 'vk', 'tw', 'odnokl').__social
 
 mixin event-card(image, title, date)
   +b.news._events&attributes(attributes)
@@ -45,7 +45,7 @@ mixin material-card(image, title, date)
       a(href="#").news__title= title
       p.news__date= date
 
-mixin news-card-dropdown(image, category, title, date)
+mixin news-card-dropdown(image, category, title, date, tags)
   +b.news._dropdown&attributes(attributes)
     a(href="#").news__thumb
       img(src="assets/images/news/"+image+".jpg", alt="thumb")
@@ -54,12 +54,12 @@ mixin news-card-dropdown(image, category, title, date)
     .news__bottom
       p.news__date= date
       .news__tags
-        a(href="#") #итоги
-        a(href="#") #апробация
-        a(href="#") #старшеклассники
-    button.share__btn
-    .share__panel
-      +social('facebook-box', 'vk', 'tw', 'odnokl').__social
+        each tag in tags
+          a(href="#")= '#' + tag
+    .news__abs
+      button.share__btn
+      .share__panel
+        +social('facebook-box', 'vk', 'tw', 'odnokl').__social
 
 mixin short-newscard(category, date, title)
   +b.short-newscard&attributes(attributes)
