@@ -82,6 +82,21 @@
     //     transform: translateX(60px);
     //     margin: 0 40px;
     //   }
+    .owl-nav {
+      // position: relative;
+      .owl-next, .owl-prev {
+        bottom: 15px;
+
+        @media (max-width: 1024px) {
+          bottom: 45px;
+        }
+        @media (max-width: 768px) {
+          bottom: 15px;
+        }
+      }
+    }
+
+
 
     .section-tabs__nav-btn {
       &:first-child {
@@ -294,7 +309,7 @@
     width:240px;
 }
 .graphic-table__table-td:first-child{
-    position:absolute;
+    position:sticky;
     left:0;
     background:#322a40;
     border-bottom:1px solid #463c3a;

@@ -479,19 +479,47 @@ function tabsLine() {
       var next = $(this).find('.owl-next');
       var prev = $(this).find('.owl-prev');
 
-      next.on('click', function(e) {
-        var offset = $(this).parents('.section-tabs').find('.tile__item').outerWidth(true);
-        $(this).parents('.section-tabs').find('.dd-holder').animate({ scrollLeft: '+='+offset }, 300);
-      });
+      if ($(this).hasClass('owl-nav_members')) {
+        next.on('click', function(e) {
+          // var offset = 300;
+          var offset = $(this).parents('.section-tabs').find('.section-tabs__nav-item').outerWidth(true);
+          $(this).parents('.section-tabs').find('.dd-holder').animate({ scrollLeft: '+='+offset }, 300);
+        });
 
-      prev.on('click', function(e) {
-        var offset = $(this).parents('.section-tabs').find('.tile__item').outerWidth(true);
-        $(this).parents('.section-tabs').find('.dd-holder').animate({ scrollLeft: '-='+offset }, 300);
-      });
+        prev.on('click', function(e) {
+          // var offset = 300;
+          var offset = $(this).parents('.section-tabs').find('.section-tabs__nav-item').outerWidth(true);
+          $(this).parents('.section-tabs').find('.dd-holder').animate({ scrollLeft: '-='+offset }, 300);
+        });
+
+      } else {
+        next.on('click', function(e) {
+          var offset = $(this).parents('.section-tabs').find('.tile__item').outerWidth(true);
+          $(this).parents('.section-tabs').find('.dd-holder').animate({ scrollLeft: '+='+offset }, 300);
+        });
+
+        prev.on('click', function(e) {
+          var offset = $(this).parents('.section-tabs').find('.tile__item').outerWidth(true);
+          $(this).parents('.section-tabs').find('.dd-holder').animate({ scrollLeft: '-='+offset }, 300);
+        });
+      }
+
+
 
 
     });
   }
+
+//   if ($('.owl-nav_members').length) {
+//     $('.owl-nav_members').each(function() {
+//       var next = $(this).find('.owl-next_members');
+//       var prev = $(this).find('.owl-prev_members');
+//
+//
+//
+//
+//     });
+// }
 
   function arrowActive(el) {
     if (!el) {
