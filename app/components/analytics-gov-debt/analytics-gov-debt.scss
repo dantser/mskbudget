@@ -127,5 +127,125 @@
   }
   .analityc-table .table__row .table__col:first-child {
     font-size: 14px;
+    white-space: normal;
+  }
+  &__graphics {
+    position: relative;
+  }
+  &__slide-arrows {
+    position: absolute;
+    left: -35px;
+    right: -35px;
+    top: 50%;
+    z-index: 2;
+    margin-top: -25px;
+  }
+  
+  @media screen and (max-width: 1140px) {
+    .analityc-graphics-broken-line {
+      padding-top: 3px;
+    }
+    .analityc-graphics-broken-line__growth-rate {
+      padding-bottom: 52px;
+    }
+    .legend-icon {
+      padding: 0;
+    }
+    .analityc-table {
+      margin-top: 84px;
+    }
+    &.basic-budget .analityc-widget {
+      padding-bottom: 48px;
+    }
+  }
+  
+  @media screen and (max-width: 1010px) {
+    .legend-icon__label {
+      font-size: 14px;
+    }
+    .legend-icon__circle, .legend-icon__icon {
+      width: 21px;
+      height: 21px;
+    }
+    .legend-icon__item .checkbox__box {
+      width: 15px;
+      height: 15px;
+    }
+    .legend-icon__item {
+      margin-bottom: 12px;
+    }
+  }
+  
+  @media screen and (max-width: 850px) {
+    &__analityc-widgethead {
+      .analityc-control-frame_right {
+        float: none;
+        clear: both;
+        margin-left: 0;
+      }
+    }
+    &__graphics {
+      margin-top: 50px;
+    }
+    &__graphic-wrapper,
+    &__table-wrapper {
+      overflow-x: auto;
+    }
+    .analityc-graphics-broken-line,
+    .analityc-graphics-bars,
+    .analityc-table .table{
+      min-width: 800px;
+    }
+  }
+  
+  @media screen and (min-width: 768px) and (max-width: 850px) {
+    &__analityc-widgethead {
+      .analityc-select {
+        &_year {
+          width: 70px;
+        }
+        &_month {
+          width: 180px;
+        }
+      }
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    &__analityc-widgethead {
+      .analityc-control-frame_left {
+        float: none;
+      }
+      .analityc-control-frame_right {
+        padding-right: 28px;
+      }
+      .analityc-select {
+        &_year {
+          width: 15% !important;
+          margin-right: 2% !important;
+        }
+        &_month {
+          width: 77% !important;
+        }
+      }
+      .analityc-add-group {
+        font-size: 19px;
+      }
+      .analityc-control-switcher {
+        position: static;
+        margin-top: 41px;
+        width: 100%;
+        a {
+          font-size: 16px;
+          line-height: 35px;
+          &:first-child {
+            width: 59%;
+          }
+          &:last-child {
+            width: 41%;
+          }
+        }
+      }
+    }
   }
 }

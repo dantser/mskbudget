@@ -2,23 +2,23 @@ import $ from 'jquery';
 
 export default () => {
   
-  function slideArrow(el) {
+  function slideArrow(el, arrows, offset) {
     
     if ($(el).length > 0) {
       
-      $('.slide-arrows__arrow_left').on('click', function (e) {
-        $(el).animate( { scrollLeft: '-=100' }, 300);
+      $(arrows).find('.slide-arrows__arrow_left').on('click', function (e) {
+        $(el).animate( { scrollLeft: '-='+offset }, 300);
       });
     
-      $('.slide-arrows__arrow_right').on('click', function (e) {
-        $(el).animate( { scrollLeft: '+=100' }, 300);
+      $(arrows).find('.slide-arrows__arrow_right').on('click', function (e) {
+        $(el).animate( { scrollLeft: '+='+offset }, 300);
       });
       
       function arrowActive(el) {
           
         var sL = $(el).scrollLeft(),
-            leftArr = $('.slide-arrows__arrow_left'),
-            rightArr = $('.slide-arrows__arrow_right');
+            leftArr = $(arrows).find('.slide-arrows__arrow_left'),
+            rightArr = $(arrows).find('.slide-arrows__arrow_right');
       
         if (sL === 0) {
           leftArr.addClass('disabled');
@@ -39,6 +39,10 @@ export default () => {
   }
   
   // Инициализация
-  slideArrow('.budget-forecast__table-wrapper');
+  // Бюджет Москвы - Социально-экономическое развитие
+  slideArrow('.budget-forecast__table-wrapper', '.budget-forecast__slide-arrows', 100);
+  // Аналитика - Государственный долг
+  slideArrow('.analytics-gov-debt__graphic-wrapper', '.analytics-gov-debt__slide-arrows_graphics', 100);
+  slideArrow('.analytics-gov-debt__table-wrapper', '.analytics-gov-debt__slide-arrows_table', 100);
   
 }
