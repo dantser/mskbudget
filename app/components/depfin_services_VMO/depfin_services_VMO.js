@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import 'jquery.scrollbar';
 import 'jquery-ui-bundle';
+import Swiper from 'swiper';
 
 export default () => {
   const VMO = $('.services-VMO');
@@ -85,5 +86,4 @@ export default () => {
      vmoGraphicsLegend.hide();
    }
  });
-
 }
