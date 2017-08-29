@@ -4,6 +4,7 @@ include ../analityc-graphics/analityc-graphics
 include ../analityc-table/analityc-table
 include ../../blocks/table/table
 include ../../blocks/dropdown-block/dropdown-block
+include ../../blocks/slide-arrows/slide-arrows
 
 mixin analytics-gov-debt()
   +b.SECTION.analytics-gov-debt.main.basic-budget.section__item&attributes(attributes)
@@ -12,8 +13,19 @@ mixin analytics-gov-debt()
     .wrapper.wrapper_widget.wrapper_analytics-gov-debt
       +e.analityc-widget.analityc-widget.load-anim-fade(data-delay="1500")
         +analityc-widgethead-analytics-govdebt().__analityc-widgethead
-        +analityc-graphics-analytics-gov-debt-line()
-        +analityc-graphics-analytics-gov-debt-bars(getData('analytics-govdebt'))._analytics-gov-debt
+        +e.graphics
+          +slide-arrows().__slide-arrows._graphics
+          +e.graphic-wrapper
+            +analityc-graphics-analytics-gov-debt-line()
+            +analityc-graphics-analytics-gov-debt-bars(getData('analytics-govdebt'))._analytics-gov-debt
         +legend-icon-analytics-gov-debt()
         +analityc-table()._gp
-          +table-analytics-gov-debt(getData('main'))
+          .table-switcher
+            .analityc-control-switcher.analityc-control-switcher_table.analityc-control-switcher_large.active
+              a(href="#").active млн руб.
+              a(href="#") млрд руб.
+          +slide-arrows().analytics-gov-debt__slide-arrows._table
+          .analytics-gov-debt__table-wrapper
+            +table-analytics-gov-debt(getData('main'))
+        a(href="/").analityc-more Перейти в&nbsp;раздел бюджет москвы
+    +dropdown().load-anim-fade(data-delay="1700")

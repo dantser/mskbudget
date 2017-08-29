@@ -1335,32 +1335,55 @@
 }
 
 .analityc-graphics-line-gorizontal {
-  padding: 8px 70px 0;
+  padding: 0 70px;
 
   &__top {
     font-size: 0;
   }
 
-  &__graphic {
-    & + .analityc-graphics-line-gorizontal__graphic {
-      margin-top: 11px;
-    }
-  }
-
-  &__caption,
+  &__captions,
   &__lines {
     display: inline-block;
     vertical-align: middle;
   }
 
-  &__caption {
+  &__captions,
+  &__lines-layout {
+    padding: 8px 0 17px;
+  }
+
+  &__captions {
     font-family: $PFDinTextPro;
-    width: 23%;
+    width: 16.5%; 
+  }
+
+  &__caption {
+    height: 54px;
     font-size: 18px;
+    line-height: 54px;
+
+    & + .analityc-graphics-line-gorizontal__caption {
+      margin-top: 11px;
+    }
   }
 
   &__lines {
-    width: 77%;
+    width: 83.5%;
+  }
+
+  &__lines-layout {
+    width: 100%;
+    padding-left: calc(100%/13);
+
+    background: linear-gradient(90deg, black, transparent 1px);
+    background-size: calc(100%/13);
+    background-position: center;
+  }
+
+  &__lines-wrap {
+    & + .analityc-graphics-line-gorizontal__lines-wrap {
+      margin-top: 11px;
+    }
   }
 
   &__line {
@@ -1414,26 +1437,44 @@
 
   &__bottom {
     font-size: 0;
-    margin-top: 5px;
+    margin-top: 14px;
   }
 
   &__data,
-  &__units {
+  &__units,
+  &__unit {
     font-size: 16px;
     display: inline-block;
+    vertical-align: top;
   }
 
   &__data {
-    width: 23%;
+    width: 16.5%;
     font-family: $PFDinTextPro;
     color: #737373;
   }
 
   &__units {
-    width: 77%;
+    width: 83.5%;
     list-style: none;
+    font-size: 0;
   }
 
+  &__unit {
+    position: relative;
+    width: 0;
+
+    & + .analityc-graphics-line-gorizontal__unit {
+      margin-left: calc(100%/13);
+    }
+
+    span {
+      position: absolute;
+      display: inline-block;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
 }
 
 .analityc-graphics-line-vertical {
@@ -1945,6 +1986,25 @@
       bottom: 69%;
       &_neg {
         bottom: 79%;
+      }
+    }
+    
+    @media screen and (max-width: 1140px) {
+      padding: 0;
+    }
+    @media screen and (min-width: 931px) and (max-width: 1010px) {
+      .analityc-graphics-bars__changes {
+        left: 115%;
+      }
+    }
+    @media screen and (min-width: 881px) and (max-width: 930px) {
+      .analityc-graphics-bars__changes {
+        left: 110%;
+      }
+    }
+    @media screen and (max-width: 880px) {
+      .analityc-graphics-bars__changes {
+        left: 105%;
       }
     }
   }
