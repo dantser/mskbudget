@@ -1790,22 +1790,61 @@ $(document).ready(function() {
       expensesGraphicsChanges = expenses.find($('.analityc-graphics_changes')),
       expensesTable = expenses.find($('.analityc-table')),
       expensesTableActive = expenses.find($('.analityc-table.active')),
+
+      expensesGraphicsApproved = expenses.find($('.analityc-graphics_approved')),
+      expensesGraphicsChanges = expenses.find($('.analityc-graphics_changes')),
+      expensesGraphicsDone = expenses.find($('.analityc-graphics_done')),
+      expensesGraphicsDateOne = expenses.find($('.analityc-graphics_date-one')),
+
+      expensesTableApproved = expenses.find($('.analityc-table_approved'));
       expensesTableChanges = expenses.find($('.analityc-table_changes'));
+      expensesTableDone = expenses.find($('.analityc-table_done'));
+      expensesTableDate = expenses.find($('.analityc-table_date'));
 
     if ($this.hasClass('analityc-control-button_graphics') && !$this.hasClass('active')) {
       $this.siblings().removeClass('active');
       $this.addClass('active');
+      if (expensesTableActive.hasClass('analityc-table_approved')) {
+        expensesTable.removeClass('active');
+        expensesGraphicsApproved.addClass('active');
+        expensesHead(2);
+      }
       if (expensesTableActive.hasClass('analityc-table_changes')) {
         expensesTable.removeClass('active');
         expensesGraphicsChanges.addClass('active');
         expensesHead(2);
       }
+      if (expensesTableActive.hasClass('analityc-table_done')) {
+        expensesTable.removeClass('active');
+        expensesGraphicsDone.addClass('active');
+        expensesHead(2);
+      }
+      if (expensesTableActive.hasClass('analityc-table_date')) {
+        expensesTable.removeClass('active');
+        expensesGraphicsDateOne.addClass('active');
+        expensesHead(2);
+      }
     } else if ($this.hasClass('analityc-control-button_table') && !$this.hasClass('active')) {
       $this.siblings().removeClass('active');
       $this.addClass('active');
+      if (expensesGraphicsActive.hasClass('analityc-graphics_approved')) {
+        expensesGraphics.removeClass('active');
+        expensesTableApproved.addClass('active');
+        expensesHead(1);
+      }
       if (expensesGraphicsActive.hasClass('analityc-graphics_changes')) {
         expensesGraphics.removeClass('active');
         expensesTableChanges.addClass('active');
+        expensesHead(1);
+      }
+      if (expensesGraphicsActive.hasClass('analityc-graphics_done')) {
+        expensesGraphics.removeClass('active');
+        expensesTableDone.addClass('active');
+        expensesHead(1);
+      }
+      if (expensesGraphicsActive.hasClass('analityc-graphics_date-one')) {
+        expensesGraphics.removeClass('active');
+        expensesTableDate.addClass('active');
         expensesHead(1);
       }
     }
