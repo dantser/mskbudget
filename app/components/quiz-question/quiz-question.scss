@@ -122,6 +122,8 @@
 
       @media (max-width: 639px) {
         padding: 20px 48px 20px 17px;
+        font-size: 18px;
+        line-height: 24px;
       }
     }
   }
@@ -264,6 +266,8 @@
         margin-top: -2px;
         font-weight: 300;
         font-size: 16px;
+        max-width: 90%;
+        display: inline-block;
 
         @media screen and (max-width: 1190px) {
           display: block;
@@ -285,6 +289,7 @@
     font-size: 16px;
     font-weight: 300;
     max-width: inherit;
+    margin: 0 0 16px 0;
 
     @include respond-to('mobile') {
       margin-bottom: 12px;
@@ -310,9 +315,9 @@
     }
 
     &__text {
-      @include respond-to('mobile') {
-        max-width: 95%;
-      }
+      // @include respond-to('mobile') {
+      //   max-width: 95%;
+      // }
 
       @media screen and (max-width: 400px) {
 
@@ -324,11 +329,11 @@
       .checkbox__text {
         color: #72b30c;
 
-        @media screen and (max-width: 639px) {
-          margin-left: -3px;
-          padding-left: 3px;
-          transform: translateX(7px);
-        }
+        // @media screen and (max-width: 639px) {
+        //   margin-left: -3px;
+        //   padding-left: 3px;
+        //   transform: translateX(7px);
+        // }
       }
 
       .checkbox__box {
@@ -363,6 +368,7 @@
     float: left;
     clear: left;
     transform: translateY(2px);
+    margin: 0;
 
     &__box {
       transform: translate(-1px, -1px);
@@ -453,6 +459,9 @@
 
     @include respond-to('mobile') {
       width: 70%;
+    }
+    @media (max-width: 450px) {
+      width: 85%;
     }
 
     strong {

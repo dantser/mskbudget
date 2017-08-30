@@ -8,6 +8,7 @@ include ../analityc-table/analityc-table
 include ../../blocks/search-form/search-form
 include ../../blocks/button/button
 include ../analityc-graphics/analityc-graphics
+include ../../blocks/selectbox/selectbox
 //- include VMOpassport
 
 mixin depfin_services_VMO()
@@ -17,12 +18,13 @@ mixin depfin_services_VMO()
 
     //- Tab 1
     .wrapper.wrapper_widget.load-anim-fade(data-delay="1500")
-      +e.tabs-control
-        a(href="#", class="active", data-tab-target="vmoAll") Все ВМО
-        a(href="#", data-tab-target="vmoMunicipalDistricts") Муниципальные округи
-        a(href="#", data-tab-target="vmoCityDistricts") Городские округи
-        a(href="#", data-tab-target="vmoSettlements") Поселения
-        a(href="#", data-tab-target="vmoPassports") Паспорта ВМО
+      +e.tabs-wrapper
+        +e.tabs-control
+          a(href="#", class="active", data-tab-target="vmoAll") Все ВМО
+          a(href="#", data-tab-target="vmoMunicipalDistricts") Муниципальные округи
+          a(href="#", data-tab-target="vmoCityDistricts") Городские округи
+          a(href="#", data-tab-target="vmoSettlements") Поселения
+          a(href="#", data-tab-target="vmoPassports") Паспорта ВМО
       .analityc-widget.analityc-widget_VMO
         +tabs
           +tabs-tab(data-tab-group="VMO" data-tab="vmoAll").active

@@ -8,12 +8,13 @@ mixin vmoPassport()
 
     //- Tab 1
     .wrapper.wrapper_widget.load-anim-fade(data-delay="1500")
-      +e.tabs-control
-        a(href="#", data-tab-target="vmoAll") Все ВМО
-        a(href="#", data-tab-target="vmoMunicipalDistricts") Муниципальные округи
-        a(href="#", data-tab-target="vmoCityDistricts") Городские округи
-        a(href="#", data-tab-target="vmoSettlements") Поселения
-        a(href="#", class="active", data-tab-target="vmoPassports") Паспорта ВМО
+      +e.tabs-wrapper
+        +e.tabs-control
+          a(href="#", data-tab-target="vmoAll") Все ВМО
+          a(href="#", data-tab-target="vmoMunicipalDistricts") Муниципальные округи
+          a(href="#", data-tab-target="vmoCityDistricts") Городские округи
+          a(href="#", data-tab-target="vmoSettlements") Поселения
+          a(href="#", class="active", data-tab-target="vmoPassports") Паспорта ВМО
       .analityc-widget.analityc-widget_VMO
         +tabs
           +tabs-tab(data-tab-group="VMOpass" data-tab="vmoAll")

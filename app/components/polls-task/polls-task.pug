@@ -13,8 +13,10 @@ mixin polls-task()
             option(value='1') 2015
             option(value='2') 2016
             option(value='3') 2017
-          input(type='text', placeholder='Поиск').d-si__search
-          input(type='submit', value='' title="Найти").d-si__submit
+          .search-line
+            input(type='text', placeholder='Поиск').d-si__search
+            input(type='submit', value='' title="Найти").d-si__submit
+            +icon('icon-glass').search.search__submit
         .d-si__quiz
           .d-si__quiz_item
             p.d-si__quiz_head Как сделать портал удобнее?

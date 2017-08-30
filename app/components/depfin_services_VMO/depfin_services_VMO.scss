@@ -93,11 +93,16 @@
       width: 72px;
       margin-top: 0;
     }
-    span {
+    .selectbox-year {
       display: inline-block;
       vertical-align: middle;
       margin-right: 10px;
     }
+  }
+  .selectbox_vmo {
+    width: 75px;
+    display: inline-block;
+    vertical-align: middle;
   }
   .analityc-control-group._base {
     width: auto;
@@ -178,7 +183,8 @@
 
     &-head {
       margin-top: 15px;
-      margin-bottom: 25px;
+      padding-bottom: 25px;
+      border-bottom: 2px solid #e6e6e6;
       span {
         font-size: 16px;
         font-weight: 500;
@@ -233,7 +239,7 @@
     &__wrapper {
       overflow-y: scroll;
       border-bottom: 1px solid #e6e6e6;
-      border-top: 2px solid #e6e6e6;
+
 
       // Custom Scrollbar
       > .scroll-element,
@@ -281,7 +287,7 @@
         -webkit-border-radius: 8px;
         -moz-border-radius: 8px;
         border-radius: 8px;
-        width: 10px;
+        width: 20px;
         right: 0;
         margin: 0 auto;
         cursor: pointer;
@@ -354,6 +360,9 @@
         }
         &_red {
           color: #e10221;
+        }
+        &_three {
+          font-size: 14px;
         }
       }
     }
@@ -1107,6 +1116,7 @@
       line-height: 42px;
       padding: 0 20px;
       border-radius: 2px;
+      clear: both;
 
       p {
         font-size: 14px;
@@ -1346,7 +1356,7 @@
     }
 
     .services-VMO__col {
-      width: 30%;
+      width: 29%;
       &:first-child {
         width: 100%;
         font-weight: 500;
@@ -1354,8 +1364,95 @@
         margin-right: 0;
       }
     }
+    .services-VMO__tabs {
+      &-control {
+        min-width: 768px;
+        &::after {
+
+        }
+      }
+      &-wrapper {
+        overflow-x: scroll;
+        overflow-y: hidden;
+      }
+    }
 
   }
+
+  @media (max-width: 760px) {
+
+    .services-VMO__col {
+      margin-right: 20px;
+    }
+    .vmopass {
+      .services-VMO__content {
+        &_text {
+          margin-top: 0;
+          width: 100%;
+        }
+        .services-VMO__text {
+          width: 85%;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 640px) {
+    .services-VMO__table .vmoPassport-table {
+      min-width: 640px;
+      position: relative;
+      max-height: 545px;
+    }
+    .services-VMO__table-head {
+      position: sticky;
+      background: $color-white;
+      height: 43px;
+      z-index: 1;
+      top: -1px;
+      width: 100%;
+      min-width: 640px;
+    }
+    .services-VMO__table__wrapper {
+
+      > .scroll-element.scroll-x.scroll-scrolly_visible .scroll-element_track { left: 0; }
+      > .scroll-element.scroll-x.scroll-scrolly_visible .scroll-element_size { left: 0; }
+      > .scroll-element.scroll-x {
+        bottom: 0;
+      }
+      >.scroll-element .scroll-bar {
+        margin: 0;
+      }
+      .scroll-element.scroll-y.scroll-scrolly_visible {
+        display: none;
+      }
+    }
+  }
+
+  @media (max-width: 500px) {
+    .services-VMO__title {
+      font-size: 18px;
+    }
+    .services-VMO__subtitle {
+      font-size: 16px;
+      line-height: 20px;
+    }
+    .services-VMO__col {
+      margin-right: 0;
+    }
+    .vmopass {
+      .services-VMO__content {
+        .services-VMO__text {
+          width: 100%;
+        }
+      }
+    }
+    .services-VMO__col {
+      width: 100%;
+      display: block;
+      margin-bottom: 12px;
+    }
+  }
+
 
   @media screen and (max-width: 768px) and (min-width: 551px) {
     .analityc-control-switcher a {
