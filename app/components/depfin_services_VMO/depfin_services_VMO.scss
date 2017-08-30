@@ -399,6 +399,12 @@
       }
     }
   }
+  .services-VMO__map-wrapper {
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
   .analityc-control-switcher {
     font-size: 0;
     display: table;
@@ -656,6 +662,12 @@
     }
   }
 
+
+  .analityc-graphics-line-vertical__wrapper {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
   .analityc-table_vmo {
     .table__col_four {
       width: 15.86%;
@@ -665,8 +677,10 @@
     }
     .analityc-table__wrapper {
       overflow-x: scroll;
+      padding-bottom: 20px;
     }
   }
+
 
   // для таба "Муниципальные округи"
 
@@ -1189,19 +1203,123 @@
       margin-left: 31px;
     }
   }
+
+  @media (max-width: 900px) and (min-width: 761px) {
+    .comp-diagram {
+      position: relative;
+      margin: 0;
+      top: auto;
+      left: auto;
+    }
+  }
+
+  @media (max-width: 800px) and (min-height: 501px) {
+    .comp-diagram__num_yellow {
+      top: 10px;
+    }
+  }
+
   @media (max-width: 768px) {
+    &__map-wrapper {
+      width: 70%;
+      padding-top: 116px;
+    }
+    &__content_card {
+      .services-VMO__text {
+        width: 74%;
+        float: none;
+        display: block;
+        margin-bottom: 12px;
+        position: absolute;
+      }
+      .services-VMO__figures {
+        padding-top: 77%;
+        margin-left: 0;
+      }
+    }
+
+    .services-VMO__figure {
+      margin-bottom: 20px;
+      &::before {
+        display: none;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+      .services-VMO__descr {
+        display: block;
+      }
+    }
+
+    .alternative-link {
+      margin-top: 35px;
+      margin-bottom: 30px;
+    }
+    .services-VMO__content_allvmo {
+      float: left;
+      width: 74%;
+      .services-VMO__text {
+        position: relative;
+      }
+    }
+    .services-VMO__graphics {
+      text-align: justify;
+    }
+    .services-VMO__content_graphics .analityc-widget-item {
+      width: auto;
+      display: inline-block;
+      vertical-align: middle;
+      margin-bottom: 40px;
+    }
+
     &__tabs-control a {
       font-size: 13px;
     }
+
     .services-VMO__content_municipal {
       .services-VMO__map-wrapper {
         width: 607px;
+        padding-top: 0;
       }
       .analityc-control-group._search {
         position: absolute;
         right: 0;
       }
+      &-graphics {
+        .services-VMO__content_line-bar {
+          .legend {
+            float: none;
+            display: block;
+          }
+
+          .services-VMO__subtitle {
+            float: none;
+            display: block;
+            margin-bottom: 10px;
+          }
+        }
+        .services-VMO__content_bottom .services-VMO__list {
+          height: 65px;
+        }
+      }
     }
+    .analityc-control-switcher a {
+      font-size: 16px;
+    }
+    .services-VMO__table-head {
+      &_null {
+        width: 0;
+      }
+      &_search {
+        width: 40%;
+      }
+    }
+    .services-VMO__table .vmoPassport-table {
+      height: 545px;
+    }
+
+
+
     .tabs__tab.vmosocialEc {
       .services-VMO__digit {
         margin-right: 0;
@@ -1216,6 +1334,27 @@
         }
       }
     }
+
+    .services-VMO__content_passport {
+      .services-VMO__right-block {
+        width: 65%;
+      }
+      .services-VMO__rate {
+        clear: both;
+        width: 100%;
+      }
+    }
+
+    .services-VMO__col {
+      width: 30%;
+      &:first-child {
+        width: 100%;
+        font-weight: 500;
+        margin-bottom: 10px;
+        margin-right: 0;
+      }
+    }
+
   }
 
   @media screen and (max-width: 768px) and (min-width: 551px) {
