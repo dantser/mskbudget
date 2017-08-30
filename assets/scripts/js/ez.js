@@ -479,19 +479,47 @@ function tabsLine() {
       var next = $(this).find('.owl-next');
       var prev = $(this).find('.owl-prev');
 
-      next.on('click', function(e) {
-        var offset = $(this).parents('.section-tabs').find('.tile__item').outerWidth(true);
-        $(this).parents('.section-tabs').find('.dd-holder').animate({ scrollLeft: '+='+offset }, 300);
-      });
+      if ($(this).hasClass('owl-nav_members')) {
+        next.on('click', function(e) {
+          // var offset = 300;
+          var offset = $(this).parents('.section-tabs').find('.section-tabs__nav-item').outerWidth(true);
+          $(this).parents('.section-tabs').find('.dd-holder').animate({ scrollLeft: '+='+offset }, 300);
+        });
 
-      prev.on('click', function(e) {
-        var offset = $(this).parents('.section-tabs').find('.tile__item').outerWidth(true);
-        $(this).parents('.section-tabs').find('.dd-holder').animate({ scrollLeft: '-='+offset }, 300);
-      });
+        prev.on('click', function(e) {
+          // var offset = 300;
+          var offset = $(this).parents('.section-tabs').find('.section-tabs__nav-item').outerWidth(true);
+          $(this).parents('.section-tabs').find('.dd-holder').animate({ scrollLeft: '-='+offset }, 300);
+        });
+
+      } else {
+        next.on('click', function(e) {
+          var offset = $(this).parents('.section-tabs').find('.tile__item').outerWidth(true);
+          $(this).parents('.section-tabs').find('.dd-holder').animate({ scrollLeft: '+='+offset }, 300);
+        });
+
+        prev.on('click', function(e) {
+          var offset = $(this).parents('.section-tabs').find('.tile__item').outerWidth(true);
+          $(this).parents('.section-tabs').find('.dd-holder').animate({ scrollLeft: '-='+offset }, 300);
+        });
+      }
+
+
 
 
     });
   }
+
+//   if ($('.owl-nav_members').length) {
+//     $('.owl-nav_members').each(function() {
+//       var next = $(this).find('.owl-next_members');
+//       var prev = $(this).find('.owl-prev_members');
+//
+//
+//
+//
+//     });
+// }
 
   function arrowActive(el) {
     if (!el) {
@@ -1387,25 +1415,25 @@ $(document).ready(function() {
       sourcesTable = sources.find($('.analityc-table')),
       sourcesTableButton = sources.find($('.analityc-control-button_table'));
 
-    sourcesGraphics.removeClass('_active');
-    sourcesTable.removeClass('_active');
-    sourcesGraphicsButton.addClass('_active');
-    sourcesTableButton.removeClass('_active');
+    sourcesGraphics.removeClass('active');
+    sourcesTable.removeClass('active');
+    sourcesGraphicsButton.addClass('active');
+    sourcesTableButton.removeClass('active');
 
     if ($this.val() === "Закон о бюджете утвержденный") {
-      sourcesGraphicsApproved.addClass('_active');
+      sourcesGraphicsApproved.addClass('active');
       sourcesHead(1);
       arrow.show();
     } else if ($this.val() === "Закон о внесении изменений") {
-      sourcesGraphicsChanges.addClass('_active');
+      sourcesGraphicsChanges.addClass('active');
       sourcesHead(1);
       arrow.show();
     } else if ($this.val() === "Закон об исполнении") {
-      sourcesGraphicsDone.addClass('_active');
+      sourcesGraphicsDone.addClass('active');
       sourcesHead(1);
       arrow.hide();
     } else if ($this.val() === "Исполнение на дату") {
-      sourcesGraphicsDate.addClass('_active');
+      sourcesGraphicsDate.addClass('active');
       sourcesHead(3);
       arrow.hide();
     }
@@ -1438,39 +1466,39 @@ $(document).ready(function() {
     var sources = $(".analityc-widget_sources"),
       arrow = $('.ar'),
       sourcesGraphics = sources.find($('.analityc-widget-sources')),
-      sourcesGraphicsActive = sources.find($('.analityc-widget-sources._active')),
+      sourcesGraphicsActive = sources.find($('.analityc-widget-sources.active')),
       sourcesGraphicsApproved = sources.find($('.analityc-widget-sources_approved')),
       sourcesGraphicsChanges = sources.find($('.analityc-widget-sources_changes')),
       sourcesGraphicsDone = sources.find($('.analityc-widget-sources_done')),
       sourcesGraphicsDate = sources.find($('.analityc-widget-sources_date')),
       sourcesTable = sources.find($('.analityc-table')),
-      sourcesTableActive = sources.find($('.analityc-table._active')),
-      sourcesTableApproved = sources.find($('.analityc-widget-sources-table_approved')),
-      sourcesTableChanges = sources.find($('.analityc-widget-sources-table_changes')),
-      sourcesTableDone = sources.find($('.analityc-widget-sources-table_done')),
-      sourcesTableDate = sources.find($('.analityc-widget-sources-table_date'));
+      sourcesTableActive = sources.find($('.analityc-table.active')),
+      sourcesTableApproved = sources.find($('.analityc-table_approved')),
+      sourcesTableChanges = sources.find($('.analityc-table_changes')),
+      sourcesTableDone = sources.find($('.analityc-table_done')),
+      sourcesTableDate = sources.find($('.analityc-table_date'));
 
     if ($this.hasClass('analityc-control-button_graphics') && !$this.hasClass('active')) {
       $this.siblings().removeClass('active');
       $this.addClass('active');
-      if (sourcesTableActive.hasClass('analityc-widget-sources-table_approved')) {
-        sourcesTable.removeClass('_active');
-        sourcesGraphicsApproved.addClass('_active');
+      if (sourcesTableActive.hasClass('analityc-table_approved')) {
+        sourcesTable.removeClass('active');
+        sourcesGraphicsApproved.addClass('active');
         sourcesHead(1);
         arrow.show();
-      } else if (sourcesTableActive.hasClass('analityc-widget-sources-table_changes')) {
-        sourcesTable.removeClass('_active');
-        sourcesGraphicsChanges.addClass('_active');
+      } else if (sourcesTableActive.hasClass('analityc-table_changes')) {
+        sourcesTable.removeClass('active');
+        sourcesGraphicsChanges.addClass('active');
         sourcesHead(1);
         arrow.show();
-      } else if (sourcesTableActive.hasClass('analityc-widget-sources-table_done')) {
-        sourcesTable.removeClass('_active');
-        sourcesGraphicsDone.addClass('_active');
+      } else if (sourcesTableActive.hasClass('analityc-table_done')) {
+        sourcesTable.removeClass('active');
+        sourcesGraphicsDone.addClass('active');
         sourcesHead(1);
         arrow.hide();
-      } else if (sourcesTableActive.hasClass('analityc-widget-sources-table_date')) {
-        sourcesTable.removeClass('_active');
-        sourcesGraphicsDate.addClass('_active');
+      } else if (sourcesTableActive.hasClass('analityc-table_date')) {
+        sourcesTable.removeClass('active');
+        sourcesGraphicsDate.addClass('active');
         sourcesHead(3);
         arrow.hide();
       }
@@ -1478,23 +1506,23 @@ $(document).ready(function() {
       $this.siblings().removeClass('active');
       $this.addClass('active');
       if (sourcesGraphicsActive.hasClass('analityc-widget-sources_approved')) {
-        sourcesGraphics.removeClass('_active');
-        sourcesTableApproved.addClass('_active');
+        sourcesGraphics.removeClass('active');
+        sourcesTableApproved.addClass('active');
         sourcesHead(2);
         arrow.hide();
       } else if (sourcesGraphicsActive.hasClass('analityc-widget-sources_changes')) {
-        sourcesGraphics.removeClass('_active');
-        sourcesTableChanges.addClass('_active');
+        sourcesGraphics.removeClass('active');
+        sourcesTableChanges.addClass('active');
         sourcesHead(2);
         arrow.hide();
       } else if (sourcesGraphicsActive.hasClass('analityc-widget-sources_done')) {
-        sourcesGraphics.removeClass('_active');
-        sourcesTableDone.addClass('_active');
+        sourcesGraphics.removeClass('active');
+        sourcesTableDone.addClass('active');
         sourcesHead(2);
         arrow.hide();
       } else if (sourcesGraphicsActive.hasClass('analityc-widget-sources_date')) {
-        sourcesGraphics.removeClass('_active');
-        sourcesTableDate.addClass('_active');
+        sourcesGraphics.removeClass('active');
+        sourcesTableDate.addClass('active');
         sourcesHead(2);
         arrow.hide();
       }
