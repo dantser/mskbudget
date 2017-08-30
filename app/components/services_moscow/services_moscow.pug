@@ -9,6 +9,22 @@ include ../../blocks/icon/icons
 include ../analityc-graphics/analityc-graphics
 
 mixin services_moscow()
+	
+	mixin slide(img, city, s, population)
+
+		+e.slide.swiper-slide
+			+e.IMG.slide-img(src='assets/images/services_moscow/' + img + '.jpg')
+			+e.slide-banner
+				+e.H3.slide-title= city
+				+e.SPAN.slide-value= s
+					+e.SPAN.slide-unit
+						| км
+						SUP 2
+				+e.SPAN.slide-value= population
+					+e.SPAN.slide-unit
+						| население
+
+
 	+b.SECTION.services-moscow.section__item&attributes(attributes)
 		.wrapper.services-moscow__wrapper
 			+e.head
@@ -18,15 +34,17 @@ mixin services_moscow()
 						| Выберите
 						br
 						| набор данных
-					+buttons-set-alt(getData('buttons-set-net'))
+					+buttons-set-alt(getData('buttons-set-moscow'))
 
 			+tabs.services-moscow__content
-				+tabs-tab(data-tab-group="moscowTabs", data-tab="moscowOne")
+				+tabs-tab(data-tab-group="moscowTabs", data-tab="moscowOne").active
 					+b.services-moscow-index.services-moscow__inner._active
 						+e.top.services-moscow__wrap
 							H3.services-moscow__title Ключевые показатели развития городов мира
 							P.services-moscow__description 
-								| В данном разделе представлена справочная информация по ряду городов: Москва, Лондон, Лос-Анджелес, Париж, Нью-Йорк, Токио, Мадрид, Берлин и Шанхай. Показатели подобраны в рамках единой методологии таким образом, чтобы отражать информацию о географии, населении, транспортной инфраструктуре, стоимости и комфортности проживания. Конвертация иностранных валют в рубли производится с использованием усредненных курсов обмена валют за 2015 год, публикуемых 
+								| В данном разделе представлена справочная информация по ряду городов: Москва, Лондон, Лос-Анджелес, Париж, Нью-Йорк, Токио, Мадрид, Берлин и Шанхай. Показатели подобраны в рамках единой методологии таким образом, чтобы отражать информацию о географии, населении, транспортной инфраструктуре, стоимости и комфортности проживания. 
+								br
+								| Конвертация иностранных валют в рубли производится с использованием усредненных курсов обмена валют за 2015 год, публикуемых 
 								+link() Центральным банком Российской Федерации
 								| . Для конвертации рублей в доллары используется курс доллара на 2015 год из 
 								+link() прогноза социально-экономического развития Российской Федерации на 2015 год
@@ -35,32 +53,10 @@ mixin services_moscow()
 								| Периодичность обновления данных – один раз в год.
 						+e.slider.swiper-container
 							+e.slider-wrapper.swiper-wrapper
-								+e.slide.swiper-slide
-									+e.IMG.slide-img(src='assets/images/services_moscow/moscow.jpg')
-									+e.slide-banner
-										+e.H3.slide-title Москва
-										+e.SPAN.slide-value 
-											| 1 570
-											+e.SPAN.slide-unit
-												| км
-												SUP 2
-										+e.SPAN.slide-value 
-											| 8 538 689
-											+e.SPAN.slide-unit
-												| население
-								+e.slide.swiper-slide
-									+e.IMG.slide-img(src='assets/images/services_moscow/moscow.jpg')
-									+e.slide-banner
-										+e.H3.slide-title Лондон
-										+e.SPAN.slide-value 
-											| 1 570
-											+e.SPAN.slide-unit
-												| км
-												SUP 2
-										+e.SPAN.slide-value 
-											| 8 538 689
-											+e.SPAN.slide-unit
-												| население
+								
+								+slide('moscow', 'Москва', '1 570', '8 538 689')
+								+slide('moscow', 'Лондон', '1 570', '8 538 689')
+
 							+arrow-button()._prev.services-moscow-index__slider-arrow._prev.swiper-button-prev
 							+arrow-button().services-moscow-index__slider-arrow._next.swiper-button-next
 						+e.bottom.services-moscow__wrap
@@ -125,8 +121,6 @@ mixin services_moscow()
 													IMG(src='assets/images/services_moscow/london-st.png')
 												+e.row-value 270
 
-
-
 										+e.col.swiper-slide
 											+e.sort._desc
 												+e.sort-arrow._desc._active По убыванию
@@ -154,7 +148,7 @@ mixin services_moscow()
 								+link() прогноза социально-экономического развития Российской Федерации на 2015 год
 								| . Источники информации по показателям являются публичными и находятся в открытом доступе. Периодичность обновления данных – один раз в год.
 
-				+tabs-tab(data-tab-group="moscowTabs", data-tab="moscowTwo").active
+				+tabs-tab(data-tab-group="moscowTabs", data-tab="moscowTwo")
 					+b.services-moscow-params.services-moscow__inner._active
 						.services-moscow__wrap
 							H3.services-moscow__title Основные параметры бюджетов городов мира
