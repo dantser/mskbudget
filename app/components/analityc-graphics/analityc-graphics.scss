@@ -1337,6 +1337,10 @@
 .analityc-graphics-line-gorizontal {
   padding: 0 70px;
 
+  @media(max-width: 900px) {
+    padding: 0; 
+  }
+
   &__top {
     font-size: 0;
   }
@@ -1355,12 +1359,22 @@
   &__captions {
     font-family: $PFDinTextPro;
     width: 16.5%; 
+
+    @media(max-width: 900px) {
+      width: 25%;
+    }
+
   }
 
   &__caption {
     height: 54px;
     font-size: 18px;
     line-height: 54px;
+
+    @media(max-width: 580px) {
+      font-size: 14px;
+    }
+
 
     & + .analityc-graphics-line-gorizontal__caption {
       margin-top: 11px;
@@ -1369,6 +1383,11 @@
 
   &__lines {
     width: 83.5%;
+
+    @media(max-width: 900px) {
+      width: 75%;
+    }
+
   }
 
   &__lines-layout {
@@ -1388,11 +1407,11 @@
 
   &__line {
     position: relative;
-    width: 10%;
+    width: 5%;
     height: 16px;
 
     &_neg {
-      left: -10%;
+      left: -5%;
     }
 
     &_yellow {
@@ -1430,9 +1449,15 @@
   &__line-bar-value {
     position: absolute;
     top: 0;
-    right: -24px;
+    right: -30px;
     font-size: 16px;
     color: $color-black;
+
+    @media (max-width: 580px) {
+      font-size: 14px;
+      line-height: 20px;
+    }
+
   }
 
   &__bottom {
@@ -1452,20 +1477,52 @@
     width: 16.5%;
     font-family: $PFDinTextPro;
     color: #737373;
+
+    @media (max-width: 900px) {
+      width: 25%;
+    }
+
+    @media (max-width: 580px) {
+      font-size: 12px;
+    }
+
   }
 
   &__units {
     width: 83.5%;
     list-style: none;
     font-size: 0;
+
+    @media (max-width: 900px) {
+      width: 75%;
+    }
   }
 
   &__unit {
     position: relative;
     width: 0;
 
+    @media (max-width: 580px) {
+      font-size: 14px;
+
+      &:nth-child(2n + 1) {
+        display: none;
+      }
+    }
+
     & + .analityc-graphics-line-gorizontal__unit {
       margin-left: calc(100%/13);
+
+      @media (max-width: 580px) {
+        margin-left: calc(100%/13*2);
+      }
+
+    }
+
+    &:nth-child(2) {
+      @media (max-width: 580px) {
+        margin-left: calc(100%/13);
+      }
     }
 
     span {
@@ -1473,6 +1530,58 @@
       display: inline-block;
       left: 50%;
       transform: translateX(-50%);
+    }
+  }
+
+  &__legend {
+    margin-top: 43px;
+    padding-left: 193px;
+    text-align: left!important;
+
+    @media (max-width: 900px) {
+      padding-left: 158px;
+    }
+
+    @media (max-width: 580px) {
+      padding-left: 0;
+    }
+
+
+    .legend__item {
+      display: inline-block;
+      color: #000;
+      font-size: 14px;
+
+      @media (max-width: 580px) {
+        white-space: nowrap;
+        line-height: 12px;
+        max-width: 80px;
+        margin-bottom: 0;
+      }
+
+      &::before {
+        width: 22px!important;
+        height: 22px!important;
+        vertical-align: middle;
+      }
+
+      & + .legend__item {
+        margin-left: 43px;
+
+        @media (max-width: 900px) {
+          margin-left: 28px;
+        }
+
+        @media (max-width: 580px) {
+          margin-left: 13px;
+        }
+      }
+
+      span {
+        display: inline-block;
+        vertical-align: middle;
+        white-space: normal;
+      }
     }
   }
 }

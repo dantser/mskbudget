@@ -13,16 +13,14 @@ export default () => {
       prevButton: '.services-moscow-index___table-arrow_prev',
       nextButton: '.services-moscow-index___table-arrow_next',
 
-  //       breakpoints: {
-  //         1140: {
-  //           slidesPerView: 3,
-  //         },
-  //         768: {
-  //           slidesPerView: 2,
-  //         },
-  //         640: {
-  //           slidesPerView: 1,
-  //         }
+      breakpoints: {
+        900: {
+          slidesPerView: 3,
+        },
+        580: {
+          slidesPerView: 1,
+        },
+      }
 
     });
 

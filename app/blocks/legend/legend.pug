@@ -5,7 +5,8 @@ include ../checkbox/checkbox
 mixin legend(data)
   +b.legend&attributes(attributes)
     each obj in data
-      +e.P(class="__item_"+obj.color+"")= obj.title
+      +e.P(class="__item_"+obj.color+"")
+        SPAN= obj.title
 
 mixin legend-checkbox(data)
   +b.legend._checkbox&attributes(attributes)
