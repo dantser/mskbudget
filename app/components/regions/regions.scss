@@ -14,6 +14,26 @@
     border: none !important;
   }
 
+  // .wrap {
+  //   position: relative;
+  // }
+
+
+  @media (min-width: 1600px) {
+    .arrows-wrapper {
+      max-width: 1149px;
+      position: relative;
+      margin: 0 auto;
+    }
+    .fixed-wrapper {
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 50%;
+    }
+  }
+
+
   .arrow-hide {
     width: 45px;
     height: 45px;
@@ -38,9 +58,10 @@
     background-size: 11px;
     width: 45px;
     height: 45px;
-    position: fixed;
+    position: absolute;
+
     left: 0;
-    top: 50%;
+
     cursor: pointer;
     transition: opacity .25s ease-in-out;
     z-index: 2;
@@ -55,6 +76,11 @@
           opacity: .3;
         }
       }
+    }
+
+    @media (max-width: 1599px) {
+      top: 50%;
+      position: fixed;
     }
   }
 
@@ -520,6 +546,12 @@
     }
   }
 }
+
+
+  ._regions__ar-left, ._regions__ar-right {
+    display: block !important;
+  }
+
 
 .d-si-content._regions {
   @media screen and (max-width: 700px) {
