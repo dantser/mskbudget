@@ -1337,7 +1337,7 @@
 .analityc-graphics-line-gorizontal {
   padding: 0 70px;
 
-  @media(max-width: 900px) {
+  @media(max-width: 1140px) {
     padding: 0; 
   }
 
@@ -1363,6 +1363,11 @@
     @media(max-width: 900px) {
       width: 25%;
     }
+
+    @media(max-width: 580px) {
+      width: 35%;
+    }
+
   }
 
   &__caption {
@@ -1373,7 +1378,6 @@
     @media(max-width: 580px) {
       font-size: 14px;
     }
-
 
     & + .analityc-graphics-line-gorizontal__caption {
       margin-top: 11px;
@@ -1387,15 +1391,18 @@
       width: 75%;
     }
 
+    @media(max-width: 580px) {
+      width: 65%;
+    }
   }
 
   &__lines-layout {
     width: 100%;
     padding-left: calc(100%/13);
 
-    background: linear-gradient(90deg, black, transparent 1px);
+    background: linear-gradient(90deg, rgba(0,0,0,.2), transparent 1px);
     background-size: calc(100%/13);
-    background-position: center;
+    background-position: 0%;
   }
 
   &__lines-wrap {
@@ -1406,12 +1413,8 @@
 
   &__line {
     position: relative;
-    width: 5%;
+    width: 0;
     height: 16px;
-
-    &_neg {
-      left: -5%;
-    }
 
     &_yellow {
       background: #fee300;
@@ -1453,6 +1456,7 @@
     color: $color-black;
 
     @media (max-width: 580px) {
+      right: -23px;
       font-size: 14px;
       line-height: 20px;
     }
@@ -1482,6 +1486,7 @@
     }
 
     @media (max-width: 580px) {
+      width: 35%;
       font-size: 12px;
     }
 
@@ -1495,6 +1500,11 @@
     @media (max-width: 900px) {
       width: 75%;
     }
+
+    @media (max-width: 580px) {
+      width: 65%;
+    }
+
   }
 
   &__unit {
@@ -1562,6 +1572,10 @@
         width: 22px!important;
         height: 22px!important;
         vertical-align: middle;
+
+        @media (max-width: 580px) {
+          margin-right: 2px;
+        }
       }
 
       & + .legend__item {
