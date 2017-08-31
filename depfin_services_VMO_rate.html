@@ -398,12 +398,14 @@
                 </div>
             </div>
             <div class="wrapper wrapper_widget load-anim-fade" data-delay="1500">
-                <div class="services-VMO__tabs-control">
-                    <a href="#" data-tab-target="vmoAll">Все ВМО</a>
-                    <a href="#" data-tab-target="vmoMunicipalDistricts">Муниципальные округи</a>
-                    <a href="#" data-tab-target="vmoCityDistricts">Городские округи</a>
-                    <a href="#" data-tab-target="vmoSettlements">Поселения</a>
-                    <a class="active" href="#" data-tab-target="vmoPassports">Паспорта ВМО</a>
+                <div class="services-VMO__tabs-wrapper">
+                    <div class="services-VMO__tabs-control">
+                        <a href="#" data-tab-target="vmoAll">Все ВМО</a>
+                        <a href="#" data-tab-target="vmoMunicipalDistricts">Муниципальные округи</a>
+                        <a href="#" data-tab-target="vmoCityDistricts">Городские округи</a>
+                        <a href="#" data-tab-target="vmoSettlements">Поселения</a>
+                        <a class="active" href="#" data-tab-target="vmoPassports">Паспорта ВМО</a>
+                    </div>
                 </div>
                 <div class="analityc-widget analityc-widget_VMO">
                     <div class="tabs">
@@ -2556,17 +2558,21 @@
                     </div>
                 </div>
             </div>
-            <div class="tabs__tab active" data-tab-group="VMOpass" data-tab="vmoPassports">
+            <div class="tabs__tab active vmopass" data-tab-group="VMOpass" data-tab="vmoPassports">
                 <H3 class="services-VMO__title">Мониторинг и оценка качества управления муниципальными финансами</H3>
                 <div class="analityc-control-group _year">
-                    <span>Год</span>
-                    <select class="analityc-select">
-                        <option selected="selected">2017</option>
-                        <option>2016</option>
-                        <option>2015</option>
-                    </select>
+                    <span class="selectbox-year">Год</span>
+                    <div class="selectbox selectbox selectbox_vmo">
+                        <select class="selectbox__select" name="year">
+                            <option value="opt1">2017</option>
+                            <option value="opt2">2016</option>
+                        </select>
+                        <span class="selectbox__arrow">
+                            <span></span>
+                        </span>
+                    </div>
                 </div>
-                <div class="services-VMO__content">
+                <div class="services-VMO__content services-VMO__content_text">
                     <h4 class="services-VMO__subtitle">Информация о результатах проведения мониторинга и оценки качества управления муниципальными финансами</h4>
                     <p class="services-VMO__text">Департаментом финансов города Москва в соответствии с приказом от 31.12.2014 № 244 были проведены мониторинг соблюдения требований бюджетного законодательства, мониторинг и оценка качества организации и осуществления бюджетного процесса
                         во внутригородских муниципальных образованиях в городе Москва (далее – ВМО) за 2015 год (далее – мониторинг).</p>
@@ -2590,12 +2596,12 @@
                     </div>
                 </div>
                 <div class="services-VMO__table">
-                    <div class="services-VMO__table-head">
-                        <span class="services-VMO__table-head_place">Место</span>
-                        <span class="services-VMO__table-head_mun">Муниципальный округ</span>
-                        <span class="services-VMO__table-head_quality">Уровень качества</span>
-                    </div>
                     <div class="services-VMO__table__wrapper">
+                        <div class="services-VMO__table-head">
+                            <span class="services-VMO__table-head_place">Место</span>
+                            <span class="services-VMO__table-head_mun">Муниципальный округ</span>
+                            <span class="services-VMO__table-head_quality">Уровень качества</span>
+                        </div>
                         <div class="vmoPassport-table scroll-pane">
                             <div class="table__row table__row_green">
                                 <div class="table__col table__col_one">1</div>
