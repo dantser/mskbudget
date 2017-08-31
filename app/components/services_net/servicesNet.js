@@ -56,7 +56,7 @@ export default () => {
   })
 
   // Раскрытие фильтра
-  const FILTER_LINK = $('.filter-link');
+  const FILTER_LINK = $('.search_net .filter-link');
   const FILTER_CLOSE = $('.extra-search__close');
 
   FILTER_LINK.click(function() {
