@@ -1400,10 +1400,10 @@ $(document).ready(function() {
 
 // переключение вкладок в (budget_moscow_sources)
 $(document).ready(function() {
-  $('.analityc-widget_sources .analityc-control-group._dp').addClass('active');
   $('.ar').hide();
   $(".analityc-widget_sources .analityc-control-group._stage .analityc-select").on("change", function() {
     var $this = $(this);
+    var $level = $(".analityc-widget_sources .analityc-control-group._level select.analityc-select");
     var sources = $('.analityc-widget_sources'),
       arrow = $('.ar'),
       sourcesGraphics = sources.find($('.analityc-widget-sources')),
@@ -1434,7 +1434,11 @@ $(document).ready(function() {
       arrow.hide();
     } else if ($this.val() === "Исполнение на дату") {
       sourcesGraphicsDate.addClass('active');
-      sourcesHead(3);
+      if ($level.val() === "Консолидированный бюджет") {
+        sourcesHead(4);
+      } else {
+        sourcesHead(3);
+      }
       arrow.hide();
     }
 
@@ -1444,25 +1448,35 @@ $(document).ready(function() {
     var sourcesButtons = $('.analityc-widget_sources .analityc-control-buttons'),
       sourcesSwitcherBig = $('.analityc-widget_sources .analityc-control-switcher_big'),
       sourcesDatepicker = $('.analityc-widget_sources .analityc-control-group._dp');
+      sourcesDatepickerAlt = $('.analityc-widget_sources .analityc-control-group._dp-alt');
 
     if (type === 1) {
       sourcesButtons.addClass('active');
       sourcesSwitcherBig.removeClass('active');
       sourcesDatepicker.removeClass('active');
+      sourcesDatepickerAlt.removeClass('active');
     } else if (type === 2) {
       sourcesButtons.addClass('active');
       sourcesSwitcherBig.addClass('active');
       sourcesDatepicker.removeClass('active');
+      sourcesDatepickerAlt.removeClass('active');
     } else if (type === 3) {
       sourcesButtons.addClass('active');
       sourcesSwitcherBig.removeClass('active');
       sourcesDatepicker.addClass('active');
+      sourcesDatepickerAlt.removeClass('active');
+    } else if (type === 4) {
+      sourcesButtons.removeClass('active');
+      sourcesSwitcherBig.removeClass('active');
+      sourcesDatepicker.removeClass('active');
+      sourcesDatepickerAlt.addClass('active');
     }
   }
 
   $(".analityc-widget_sources .analityc-control-button").on("click", function(e) {
     e.preventDefault();
     var $this = $(this);
+    var $level = $(".analityc-widget_sources .analityc-control-group._level select.analityc-select");
     var sources = $(".analityc-widget_sources"),
       arrow = $('.ar'),
       sourcesGraphics = sources.find($('.analityc-widget-sources')),
@@ -1499,7 +1513,13 @@ $(document).ready(function() {
       } else if (sourcesTableActive.hasClass('analityc-table_date')) {
         sourcesTable.removeClass('active');
         sourcesGraphicsDate.addClass('active');
-        sourcesHead(3);
+
+        if ($level.val() === "Консолидированный бюджет") {
+          sourcesHead(4);
+        } else {
+          sourcesHead(3);
+        }
+
         arrow.hide();
       }
     } else if ($this.hasClass('analityc-control-button_table') && !$this.hasClass('active')) {
@@ -1523,11 +1543,42 @@ $(document).ready(function() {
       } else if (sourcesGraphicsActive.hasClass('analityc-widget-sources_date')) {
         sourcesGraphics.removeClass('active');
         sourcesTableDate.addClass('active');
-        sourcesHead(2);
+        
+        if ($level.val() === "Консолидированный бюджет") {
+          sourcesHead(4);
+        } else {
+          sourcesHead(3);
+        }
+
         arrow.hide();
       }
     }
   });
+
+  $(".analityc-widget_sources .analityc-control-group._dp input").on("change", function() {
+    var sources = $(".analityc-widget_sources"),
+      sourcesGraphics = sources.find($('.analityc-graphics')),
+      sourcesGraphicsActive = sources.find($('.analityc-graphics.active')),
+      sourcesGraphicsDateTwo = sources.find($('.analityc-graphics_date-two'));
+
+    if (sourcesGraphicsActive.hasClass('analityc-graphics_date-one')) {
+      sourcesGraphics.removeClass('active');
+      sourcesGraphicsDateTwo.addClass('active');
+    }
+  });
+
+  $(".analityc-widget_sources .analityc-control-group._level select.analityc-select").on("change", function() {
+    var $this = $(this);
+    if ($('.analityc-widget_sources .analityc-control-group._stage select.analityc-select').val() === "Исполнение на дату") {
+      if ($this.val() === "Консолидированный бюджет") {
+        sourcesHead(4);
+      } else {
+        sourcesHead(3);
+      }
+    }
+
+  });
+
 });
 
 // переключение вкладок в Доходах бюджета (budget_income)
@@ -1571,37 +1622,37 @@ $(document).ready(function() {
   });
 
   function incomeHead(type) {
-    var incomeSwitcherDef = $('.analityc-widget_income .analityc-control-switcher_default'),
+    var incomeSwitcherLarge = $('.analityc-widget_income .analityc-control-switcher_large'),
       incomeButtons = $('.analityc-widget_income .analityc-control-buttons'),
       incomeSwitcherBig = $('.analityc-widget_income .analityc-control-switcher_big'),
       incomeDatepicker = $('.analityc-widget_income .analityc-control-group._dp'),
       incomeDatepickerAlt = $('.analityc-widget_income .analityc-control-group._dp-alt');
     if (type === 1) {
-      incomeSwitcherDef.addClass('active');
+      incomeSwitcherLarge.addClass('active');
       incomeButtons.addClass('active');
       incomeSwitcherBig.removeClass('active');
       incomeDatepicker.removeClass('active');
       incomeDatepickerAlt.removeClass('active');
     } else if (type === 2) {
-      incomeSwitcherDef.removeClass('active');
+      incomeSwitcherLarge.removeClass('active');
       incomeButtons.addClass('active');
       incomeSwitcherBig.removeClass('active');
       incomeDatepicker.removeClass('active');
       incomeDatepickerAlt.removeClass('active');
     } else if (type === 3) {
-      incomeSwitcherDef.removeClass('active');
+      incomeSwitcherLarge.removeClass('active');
       incomeButtons.addClass('active');
       incomeSwitcherBig.addClass('active');
       incomeDatepicker.removeClass('active');
       incomeDatepickerAlt.removeClass('active');
     } else if (type === 4) {
-      incomeSwitcherDef.removeClass('active');
+      incomeSwitcherLarge.removeClass('active');
       incomeButtons.addClass('active');
       incomeSwitcherBig.removeClass('active');
       incomeDatepicker.addClass('active');
       incomeDatepickerAlt.removeClass('active');
     } else if (type === 5) {
-      incomeSwitcherDef.removeClass('active');
+      incomeSwitcherLarge.removeClass('active');
       incomeSwitcherBig.removeClass('active');
       incomeDatepicker.removeClass('active');
       incomeDatepickerAlt.addClass('active');
@@ -1611,6 +1662,7 @@ $(document).ready(function() {
   $(".analityc-widget_income .analityc-control-button").on("click", function(e) {
     e.preventDefault();
     var $this = $(this);
+    var $level = $(".analityc-widget_income .analityc-control-group._level select.analityc-select");
     var income = $(".analityc-widget_income"),
       incomeGraphics = income.find($('.analityc-graphics')),
       incomeGraphicsActive = income.find($('.analityc-graphics.active')),
@@ -1643,7 +1695,12 @@ $(document).ready(function() {
       } else if (incomeTableActive.hasClass('analityc-table_date')) {
         incomeTable.removeClass('active');
         incomeGraphicsDateOne.addClass('active');
-        incomeHead(4);
+        
+        if ($level.val() === "Консолидированный бюджет") {
+          incomeHead(5);
+        } else {
+          incomeHead(4);
+        }
       }
     } else if ($this.hasClass('analityc-control-button_table') && !$this.hasClass('active')) {
       $this.siblings().removeClass('active');
@@ -1663,7 +1720,12 @@ $(document).ready(function() {
       } else if (incomeGraphicsActive.hasClass('analityc-graphics_date-one')) {
         incomeGraphics.removeClass('active');
         incomeTableDate.addClass('active');
-        incomeHead(4);
+
+        if ($level.val() === "Консолидированный бюджет") {
+          incomeHead(5);
+        } else {
+          incomeHead(4);
+        }
       }
     }
   });
@@ -1784,6 +1846,7 @@ $(document).ready(function() {
   $(".analityc-widget_expenses .analityc-control-button").on("click", function(e) {
     e.preventDefault();
     var $this = $(this);
+    var $level = $(".analityc-widget_expenses .analityc-control-group._level select.analityc-select");
     var expenses = $(".analityc-widget_expenses"),
       expensesGraphics = expenses.find($('.analityc-graphics')),
       expensesGraphicsActive = expenses.find($('.analityc-graphics.active')),
@@ -1807,22 +1870,27 @@ $(document).ready(function() {
       if (expensesTableActive.hasClass('analityc-table_approved')) {
         expensesTable.removeClass('active');
         expensesGraphicsApproved.addClass('active');
-        expensesHead(2);
+        expensesHead(1);
       }
       if (expensesTableActive.hasClass('analityc-table_changes')) {
         expensesTable.removeClass('active');
         expensesGraphicsChanges.addClass('active');
-        expensesHead(2);
+        expensesHead(1);
       }
       if (expensesTableActive.hasClass('analityc-table_done')) {
         expensesTable.removeClass('active');
         expensesGraphicsDone.addClass('active');
-        expensesHead(2);
+        expensesHead(1);
       }
       if (expensesTableActive.hasClass('analityc-table_date')) {
         expensesTable.removeClass('active');
         expensesGraphicsDateOne.addClass('active');
-        expensesHead(2);
+
+        if ($level.val() === "Консолидированный бюджет") {
+          expensesHead(4);
+        } else {
+          expensesHead(3);
+        }
       }
     } else if ($this.hasClass('analityc-control-button_table') && !$this.hasClass('active')) {
       $this.siblings().removeClass('active');
@@ -1830,22 +1898,27 @@ $(document).ready(function() {
       if (expensesGraphicsActive.hasClass('analityc-graphics_approved')) {
         expensesGraphics.removeClass('active');
         expensesTableApproved.addClass('active');
-        expensesHead(1);
+        expensesHead(2);
       }
       if (expensesGraphicsActive.hasClass('analityc-graphics_changes')) {
         expensesGraphics.removeClass('active');
         expensesTableChanges.addClass('active');
-        expensesHead(1);
+        expensesHead(2);
       }
       if (expensesGraphicsActive.hasClass('analityc-graphics_done')) {
         expensesGraphics.removeClass('active');
         expensesTableDone.addClass('active');
-        expensesHead(1);
+        expensesHead(2);
       }
       if (expensesGraphicsActive.hasClass('analityc-graphics_date-one')) {
         expensesGraphics.removeClass('active');
         expensesTableDate.addClass('active');
-        expensesHead(1);
+        
+        if ($level.val() === "Консолидированный бюджет") {
+          expensesHead(4);
+        } else {
+          expensesHead(3);
+        }
       }
     }
   });
