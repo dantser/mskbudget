@@ -53,6 +53,12 @@
           @media (max-width: 570px) {
             width: (1/2)*100%;
           }
+        &.mobile-active {
+          background: #fee300;
+          .depfin-services-social-support__item-icon svg {fill: black;}
+          .depfin-services-social-support__item-text {color: $color-black;}
+          .depfin-services-social-support__sublist {opacity: 1; pointer-events: all;}
+        }
       }
 
       &:after {
@@ -855,7 +861,9 @@
     }
   }
 
-  .scroll-content { -webkit-overflow-scrolling: touch; -ms-overflow-style: none;
+  .scroll-content { 
+    -webkit-overflow-scrolling: touch; 
+    //-ms-overflow-style: none;
     padding-bottom: 100px;
   }
   .scroll-bar { position: absolute; height: 2px; background-color: white; top: 0; }
