@@ -51,15 +51,17 @@ mixin vmoPassportContent()
           span.services-VMO__descr плотность населения
           span.services-VMO__digit 5 чел на га
           span.services-VMO__subdescr 12,3% территории москвы
-    .services-VMO__rate
-      p I степень качества (высокое качество управления финансами)
-      a(href="#").services-VMO__link Подробнее
+    .services-VMO__rate-wrapper
+      .services-VMO__rate
+        p I степень качества (высокое качество управления финансами)
+        a(href="#").services-VMO__link Подробнее
   .services-VMO__content.services-VMO__content_municipal-graphics
-    .analityc-control-switcher.analityc-control-switcher_main.analityc-control-switcher_default.active
-      a(href="#" data-tab-target="VMOpassSocialEc").active Социально-экономические показатели
-      a(href="#" data-tab-target="VMOpassIncome") доходы
-      a(href="#" data-tab-target="VMOpassExpenses") расходы
-      a(href="#" data-tab-target="VMOpassComparison") Сравнение ВМО
+    .analityc-control-switcher.analityc-control-switcher_main.active
+      .analityc-control-switcher-wrapper
+        a(href="#" data-tab-target="VMOpassSocialEc").active Социально-экономические показатели
+        a(href="#" data-tab-target="VMOpassIncome") доходы
+        a(href="#" data-tab-target="VMOpassExpenses") расходы
+        a(href="#" data-tab-target="VMOpassComparison") Сравнение ВМО
     +tabs
       +tabs-tab(data-tab-group="vmoPassportContent" data-tab="VMOpassSocialEc").vmosocialEc.active
         H3.services-VMO__title Социально-экономические показатели на конец 
@@ -147,8 +149,8 @@ mixin vmoPassportContent()
             .legend
               p.legend__item.legend__item_transparentpink Уточненный план, млн руб.
               p.legend__item.legend__item_pink Исполнение, млн руб.
-          +analityc-graphics-line-vertical_vmo(getData('graphic-lines-vertical-vmo'))
-          +analityc-graphics-line-vertical-vmo_slider(getData('graphic-lines-vertical-vmo'))
+          .analityc-graphics-line-vertical__wrapper
+            +analityc-graphics-line-vertical_vmo(getData('graphic-lines-vertical-vmo'))
         .services-VMO__content.services-VMO__content_bottom.js-rules
             h4.services-VMO__subtitle Источники доходов
             .services-VMO__right-block
@@ -186,8 +188,8 @@ mixin vmoPassportContent()
             .legend
               p.legend__item.legend__item_transparentpink Уточненный план, млн руб.
               p.legend__item.legend__item_pink Исполнение, млн руб.
-          +analityc-graphics-line-vertical_vmo(getData('graphic-lines-vertical-vmo'))
-          +analityc-graphics-line-vertical-vmo_slider(getData('graphic-lines-vertical-vmo'))
+          .analityc-graphics-line-vertical__wrapper
+            +analityc-graphics-line-vertical_vmo(getData('graphic-lines-vertical-vmo'))
         .services-VMO__content.services-VMO__content_bottom.js-rules
             h4.services-VMO__subtitle Полномочия
             .services-VMO__right-block
@@ -206,11 +208,8 @@ mixin vmoPassportContent()
       +tabs-tab(data-tab-group="vmoPassportContent" data-tab="VMOpassComparison").vmocomparison
         .services-VMO__row
           .analityc-control-group._year
-            span Год
-            select.analityc-select
-              option(selected) 2017
-              option 2016
-              option 2015
+            span.selectbox-year Год
+            +selectbox('year', [{"val":"opt1", "text":"2017"}, {"val":"opt2", "text":"2016"}]).selectbox_vmo
           .analityc-control-group._base
             span База сравнения
             select.analityc-select
@@ -218,13 +217,12 @@ mixin vmoPassportContent()
               option Объем расходов
               option еще один очень длинный пункт
         .services-VMO__table.services-VMO__table_comparison
-          .services-VMO__table-head
-            span.services-VMO__table-head_place Место
-            span.services-VMO__table-head_vol Объем доходов
-              span.services-VMO__table-head_sub млн.руб.
-            span.services-VMO__table-head_mun Муниципальный округ
-            
           .services-VMO__table__wrapper
+            .services-VMO__table-head
+              span.services-VMO__table-head_place Место
+              span.services-VMO__table-head_vol Объем доходов
+                span.services-VMO__table-head_sub млн.руб.
+              span.services-VMO__table-head_mun Муниципальный округ
             .vmoPassport-table.scroll-pane
               -for (var i=0; i<6; i++)
                 .table__row
@@ -247,4 +245,4 @@ mixin vmoPassportContent()
                   .table__col.table__col_two
                     img(src="assets/images/VMO/gerb_ivan.jpg")
                     span Муниципальный округ Ивановское
-        
+          
