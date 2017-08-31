@@ -158,7 +158,7 @@ export default () => {
       if (subcat) {
         $(cardsHeading).find('[data-category="'+cat+'"][data-subcategory="'+subcat+'"]').addClass('active');
       } else {
-        $(cardsHeading).find('[data-category="'+cat+'"]').not('[data-subcategory]').addClass('active');
+        $(cardsHeading).find('[data-category="'+cat+'"]').addClass('active');
       }
       animFadeOn(cardsHeading);
       
@@ -184,7 +184,7 @@ export default () => {
       if (subcat) {
         $(cardsHeading).find('[data-category="'+cat+'"][data-subcategory="'+subcat+'"]').addClass('active');
       } else {
-        $(cardsHeading).find('[data-category="'+cat+'"]').not('[data-subcategory]').addClass('active');
+        $(cardsHeading).find('[data-category="'+cat+'"]').addClass('active');
       }
       
       if (!$(cardsList).hasClass('active')) {
@@ -218,17 +218,28 @@ export default () => {
     $(document).on('click', startLink, function(e){
       e.preventDefault();
       e.stopPropagation();
+      
       if (isMobile.any()) {
         if ($(this).hasClass('mobile-active')) {
           var category = $(this).parent().data('category');
-          moveToCategory(category);
+          if ($(this).next()) {
+            var subcategory = $(this).next().children().first().data('subcategory');
+            moveToCategory(category, subcategory);
+          } else {
+            moveToCategory(category);
+          }
         } else {
           $(startLink).removeClass('mobile-active');
           $(this).addClass('mobile-active');
         }
       } else {
         var category = $(this).parent().data('category');
-        moveToCategory(category);
+        if ($(this).next()) {
+          var subcategory = $(this).next().children().first().data('subcategory');
+          moveToCategory(category, subcategory);
+        } else {
+          moveToCategory(category);
+        }
       }
     });
     
@@ -243,7 +254,12 @@ export default () => {
     $(document).on('click', navLink, function(e){
       e.preventDefault();
       var category = $(this).parent().data('category');
-      changeCategory(category);
+      if ($(this).next()) {
+        var subcategory = $(this).next().children().first().data('subcategory');
+        changeCategory(category, subcategory);
+      } else {
+        changeCategory(category);
+      }
     });
     
     $(document).on('click', navSublink, function(e){
