@@ -56,6 +56,11 @@ export default () => {
 
     if ($('._regions').length) {
 
+      // if ($(window).width() > 1600) {
+      //   $('._regions__ar-left, ._regions__ar-right').appendTo('._regions .wrap');
+      //
+      // }
+
       const regionSlider = new Swiper('.d-smr__chart-wrapper', {
         slidesPerView: 3,
         nextButton: '._regions__ar-right',
