@@ -27,7 +27,7 @@ mixin depfin_services_VMO()
           a(href="#", data-tab-target="vmoPassports") Паспорта ВМО
       .analityc-widget.analityc-widget_VMO
         +tabs
-          +tabs-tab(data-tab-group="VMO" data-tab="vmoAll")
+          +tabs-tab(data-tab-group="VMO" data-tab="vmoAll").active
             +vmoAll()
           +tabs-tab(data-tab-group="VMO" data-tab="vmoMunicipalDistricts")
             +vmoMunicipalDistricts()
@@ -35,7 +35,7 @@ mixin depfin_services_VMO()
             +vmoCityDistricts()
           +tabs-tab(data-tab-group="VMO" data-tab="vmoSettlements")
             +vmoSettlements()
-          +tabs-tab(data-tab-group="VMO" data-tab="vmoPassports").active
+          +tabs-tab(data-tab-group="VMO" data-tab="vmoPassports")
             +vmoPassportListContent()
     +dropdown().load-anim-fade(data-delay="1700")
 
