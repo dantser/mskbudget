@@ -1012,21 +1012,43 @@ mixin analityc-graphics-govdebt-approved()
   +b.analityc-graphics&attributes(attributes)._approved
     +e.P.periodtext
       span Плановый период
-    .swiper-container.round-graphics_slider
-      +e.cols.swiper-wrapper
-        +e.col._altcolumn.swiper-slide
-          +e.P.year 2017
-          +e.graphic._altcolumn
-        +e.col._altcolumn.swiper-slide
-          +e.SPAN.period-left
-          +e.P.year 2018
-          +e.graphic._altcolumn
-        +e.col._altcolumn.swiper-slide
-          +e.SPAN.period-right
-          +e.P.year 2019
-          +e.graphic._altcolumn
-    span.analityc-graphics_round-next
-    span.analityc-graphics_round-prev
+    +e.head
+      +e.col
+        +e.P.year 2017
+      +e.col
+        +e.SPAN.period-left
+        +e.P.year 2018
+      +e.col
+        +e.SPAN.period-right
+        +e.P.year 2019
+    +e.growth-rate
+      +e.col
+        +e.P.rate-level(data-rate-level="3.5") 3,5%
+          +e.rate-line
+      +e.col
+        +e.P.rate-level(data-rate-level="3.1") 3,1%
+          +e.rate-line
+      +e.col
+        +e.P.rate-level(data-rate-level="2.9") 2,9%
+    +e.growth-rate
+      +e.col
+        +e.P.rate-level(data-rate-level="87.6") 87,6%
+          +e.rate-line
+      +e.col
+        +e.P.rate-level(data-rate-level="61.5") 61,5%
+          +e.rate-line
+      +e.col
+        +e.P.rate-level(data-rate-level="57.1") 57,1%
+    +e.columns
+      +e.col._altcolumn
+        +e.graphic._altcolumn
+          +e.P.altcolumn-value 61,5
+      +e.col._altcolumn
+        +e.graphic._altcolumn
+          +e.P.altcolumn-value 57,1
+      +e.col._altcolumn
+        +e.graphic._altcolumn
+          +e.P.altcolumn-value 57,1
     +legend(getData('legend-govdebt1')).__legend
 
 mixin analityc-graphics-govdebt-changes()

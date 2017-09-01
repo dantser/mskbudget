@@ -119,3 +119,76 @@
     position: relative;
   }
 }
+
+.widget-card {
+  &__title h3 {
+    @media (max-width: 580px) {
+      width: 85%;
+    }
+  }
+  //переопределяем дефолтные стили, а то разваливаются карточки
+  @media (max-height: 610px) and (max-width: 900px) {
+    .service {
+      min-height: inherit;
+    }
+    .service__capt {
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    .service__dashed-diagram {
+      height: 195px;
+    }
+
+    .service-dots {
+      bottom: 52px;
+    }
+
+    .diagram-tabs {
+      height: 84px;
+      bottom: 41px;
+      &__caption {
+        height: 28px;
+        line-height: 30px;
+        font-size: 14px;
+      }
+      &__btn {
+        height: 55px;
+        min-width: 53px;
+        font-size: 18px;
+        text-align: left;
+        padding: 7px 11px;
+
+        &::before {
+          display: block;
+          height: 21px;
+          width: 25px;
+          background-image: url(../images/sprite.png);
+          background-repeat: no-repeat;
+          background-position: 0 0;
+          background-size: auto;
+          top: 0;
+          margin-right: 0;
+        }
+        &_other::before {
+          background-position: -234px 7px;
+        }
+
+        &_house::before {
+          background-position: -207px 0;
+        }
+        &_build::before {
+          background-position: -180px -45px;
+        }
+        &_bag::before {
+          background-position: -180px -21px;
+        }
+        &_bank::before {
+          background-position: -180px 0;
+        }
+      }
+    }
+
+
+  }
+}
