@@ -584,6 +584,13 @@ mixin analityc-graphics-mix(data)
     +e.round
       +e.round-title= data.roundTitle
       +e.round-content
+
+        .segment-diagram(id='diagram-' + data.diagramId)
+          .segment-diagram__value
+            p.segment-diagram__value-num 1830,3
+            span.segment-diagram__val.segment-diagram__val1= data.diagramVal[0]
+            span.segment-diagram__val.segment-diagram__val2= data.diagramVal[1]
+
     +e.lines
       each item in data.item
         +e.line
