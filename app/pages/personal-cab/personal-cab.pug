@@ -20,7 +20,7 @@ block page
 
       block content
         section.lk.lk_questions.sections__item
-          .lk-bg-container
+          .lk-bg-container.load-anim-fade(data-delay="1500")
             //.lk-bg(data-tab-bg="questions").active
               img(src="assets/images/profile/profile-bg-questions.jpg")
             .lk-bg(data-tab-bg="services")
@@ -32,7 +32,7 @@ block page
             .lk-bg(data-tab-bg="profile-edit")
               img(src="assets/images/profile/profile-bg-profile-edit.jpg")
                 
-          .wrap.wrapper_lk
+          .wrap.wrapper_lk.load-anim-fade(data-delay="1500")
             +lk-nav("", 1)
             +tabs
               +tabs-tab(data-tab-group="lktabs" data-tab="profile").active

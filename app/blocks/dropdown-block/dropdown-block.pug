@@ -3,7 +3,7 @@ include ../../blocks/news-card/news-card
 include ../../components/lk-services/lk-services
 
 mixin dropdown()
-  .dropdown-block&attributes(attributes)
+  .dropdown-block.load-anim-fade(data-delay="1700")&attributes(attributes)
     +doc-cards-dropdown(getData('doc-cards-dropdown'))
     +b.section-tabs._news._dropdown
       +e.head._closed

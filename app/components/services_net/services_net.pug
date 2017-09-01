@@ -39,12 +39,12 @@ mixin services_net()
 		.wrapper.services-net__wrapper
 			+e.head
 				+page-header('Бюджетная сеть', ['Сервисы'])
-				+e.P.head-about Сводная информация о сети государственных (муниципальных) учреждений города Москвы
-				+e.buttons-set
+				+e.P.head-about.load-anim-fade(data-delay="1500") Сводная информация о сети государственных (муниципальных) учреждений города Москвы
+				+e.buttons-set.load-anim-fade(data-delay="1500")
 					+e.SPAN Выберите признак для сортировки
 					+buttons-set-alt(getData('buttons-set-net'))
 
-			+tabs.services-net__content
+			+tabs.services-net__content.load-anim-fade(data-delay="1500")
 
 				+tabs-tab(data-tab-group="netTabs", data-tab="netOne").active
 
