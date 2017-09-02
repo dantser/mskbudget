@@ -1,0 +1,50 @@
+include ../../blocks/icon/icons
+include ../../blocks/link/link
+include ../../blocks/alternative-link/alternative-link
+include ../../blocks/button/button
+include ../../blocks/blue-dropdown/blue-dropdown
+include ../../components/page-header/page-header
+include ../../blocks/table1/table1
+include ../../blocks/legend/legend
+
+mixin defaultDropdown(text)
+  +blue-dropdown(text, 'football')
+    +blue-dropdown-item('basketball-ball')
+      a(href="#") Массовая физкультурно-спортивная работа
+    +blue-dropdown-item('briefcase')
+      a(href="#") Подготовка спортивного резерва, развитие спорта высших достижений
+
+mixin services_gov_program_list()
+  +b.SECTION.gov-program._list-page.basic-budget.main._basic.section__item
+    .wrap
+      +page-header('Результаты реализации государственных программ', ['сервисы'])
+      
+      .d-si__quiz-container.load-anim-fade(data-delay="1500")
+        +e.head-program-list.__content-padding
+          +e.H3.main-title Государственные программы города Москвы 
+          
+        +e.content_program-list.__content-padding
+          +e.col._count_2
+            +e.col-content
+              +e.H4.col-heading Социально-направленные государственные программы 
+              +defaultDropdown('Социальная поддержка жителей города Москвы')
+              +defaultDropdown('Столичное образование')
+              +defaultDropdown('Столичное здравоохранение')
+              +defaultDropdown('Культура Москвы')
+              +defaultDropdown('Спорт Москвы')
+                  
+          +e.col._count_2
+            +e.col-content
+              +e.H4.col-heading Прочие государственные программы
+              +defaultDropdown('Развитие транспортной системы')
+              +defaultDropdown('Жилище')
+              +defaultDropdown('Развитие коммунально-инженерной инфраструктуры и энергосбережение')
+              +defaultDropdown('Открытое правительство')
+              +defaultDropdown('Информационный город')
+              +defaultDropdown('Развитие городской среды')
+              +defaultDropdown('Экономическое развитие и инвестиционная привлекательность города Москвы')
+              +defaultDropdown('Градостроительная политика')
+              +defaultDropdown('Безопасный город')
+              
+        +e.bottom-link.__content-padding
+          a.analityc-more(href='#') Перейти на страницу Государственные программы раздела Бюджет Москвы
