@@ -6,7 +6,7 @@ mixin mediaEvent()
 		.wrapper.page-content-wrapper
 			+e.header
 				+page-header('События', ['Медиацентр'])
-				+e.FORM.search-group
+				+e.FORM.search-group.load-anim-fade(data-delay="1500")
 					+e.search-title Другие события
 					// datepicker
 					.form__date-range(id='rid-0')
@@ -16,7 +16,7 @@ mixin mediaEvent()
 						SPAN.form__date-range-icon
 					+button(true)._kind_yellow Искать
 
-			+e.content
+			+e.content.load-anim-fade(data-delay="1500")
 				+e.H3.title В Москве пройдет финансовый форум
 				+e.SPAN.date 16.03.2017
 				+e.img
@@ -60,10 +60,3 @@ mixin mediaEvent()
 						+e.A(href='#').tag-link События
 					+e.LI.tag
 						+e.A(href='#').tag-link Москва
-
-
-
-
-
-
-

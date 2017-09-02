@@ -13,19 +13,19 @@ mixin depfin_about_budget_preparation()
       p.d-abs__head_descr.load-anim-fade(data-delay="1500")
         strong.font-PFDinPro-bold Бюджетный процесс
         |  — деятельность по подготовке проектов бюджетов, утверждению, исполнению бюджетов, контролю исполнения, осуществлению бюджетного учета, составлению, внешней проверке, рассмотрению и утверждению бюджетной отчетности.
-      .d-abs__foot.load-anim-fade(data-delay="1700")
+      .d-abs__foot.load-anim-fade(data-delay="1500")
         p.d-abs__foot-side Выберите уровень бюджетной системы
         .d-abs__foot-content
           +b.buttons-set
             +e.item
-              a(href="http://www.google.com").button-light.button-light--fill Бюджет Москвы
+              a(href="#", data-tab-filter="mskbudget").button-light.button-light--fill Бюджет Москвы
             +e.item
-              a(href="http://www.google.com").button-light Федеральный бюджет
+              a(href="#", data-tab-filter="fedbud").button-light Федеральный бюджет
   // d-abs-content
   
   
   .content-wrap
-    +tabs.load-anim-fade(data-delay="1900")
+    +tabs.load-anim-fade(data-delay="1500")
       +tabs-tab(data-tab-group="budgetPrep", data-tab="mskbudget").active
         +b.graphic-table._mskbud
           +e.frame
@@ -929,9 +929,9 @@ mixin depfin_about_budget_preparation()
           
           
       
-      +b.section-tabs.section-tabs_members
+      +b.section-tabs.section-tabs_members.section-tabs_dropdown
         +e.head._closed
-          .wrap
+          .wrapper
             +b.UL.labels
               +e.LI.item
                 +b.SPAN.label.js-label-button.js-label-button-closed.js-label

@@ -54,6 +54,22 @@ export default () => {
 // Custom scroll for "паспорта ВМО"
   VMO.find('.services-VMO__table__wrapper').scrollbar();
 
+  // $(document).ready(function () {
+  //
+  //   setTimeout(function () {
+  //     const activeTab = $('.tabs__tab.active');
+  //     const table = activeTab.find('.services-VMO__table_passlist');
+  //     const tableHeight = table.height();
+  //     const tableHeadHeight = table.find('.services-VMO__table-head');
+  //     const scrollbarHeight = tableHeight - tableHeadHeight;
+  //     console.log(tableHeight);
+  //
+  //     VMO.find('.scroll-element.scroll-y').css('height', scrollbarHeight);
+  //   }, 5000)
+  //
+  // });
+
+
 // переключение таблица-график
   VMO.find(".analityc-control-button").on("click", function(e) {
    e.preventDefault();

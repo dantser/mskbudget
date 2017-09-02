@@ -21,15 +21,15 @@ export default () => {
 		  // 	e.stopPropagation();
 			// });
 
-      $(".page-header .d-si__icons_item").on('click', function(e) {
-				$(this).siblings().find('.page-header__panel').removeClass('page-header__panel_active');
-		  	$(this).find('.page-header__panel').toggleClass('page-header__panel_active');
-		  	e.stopPropagation();
-			});
-
-			$('html').click(function() {
-				$('.page-header__panel').removeClass('page-header__panel_active');
-			});
+      //$(".page-header .d-si__icons_item").on('click', function(e) {
+      //  $(this).siblings().find('.page-header__panel').removeClass('page-header__panel_active');
+      //  $(this).find('.page-header__panel').toggleClass('page-header__panel_active');
+      //  e.stopPropagation();
+      //});
+    //
+      //$('html').click(function() {
+      //  $('.page-header__panel').removeClass('page-header__panel_active');
+      //});
     // }
 
   });

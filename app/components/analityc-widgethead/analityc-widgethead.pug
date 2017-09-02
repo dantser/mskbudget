@@ -69,14 +69,17 @@ mixin analityc-widgethead-income(type)
       select.analityc-select
         option(selected) Виды
         option Виды
-    .analityc-control-switcher.analityc-control-switcher_default.active
-      a(href="#").active %
-      a(href="#") млрд руб.
     .analityc-control-buttons.active
       a(href="#").analityc-control-button.analityc-control-button_graphics.active
         +icon('graphic', true)
       a(href="#").analityc-control-button.analityc-control-button_table
         +icon('table', true)
+        
+    .analityc-control-switcher.analityc-control-switcher_large.active
+      a(href="#").active доля от общей суммы, %
+      a(href="#") млрд руб.
+
+
     .analityc-control-switcher.analityc-control-switcher_big
       a(href="#").active млрд руб.
       a(href="#") млн руб.
@@ -286,8 +289,32 @@ mixin analityc-widgethead-sources(type)
     .analityc-control-switcher.analityc-control-switcher_big
       a(href="#").active млрд руб.
       a(href="#") млн руб.
+
     .analityc-control-group._dp
-      input(placeholder="22.04.2017", value="22.04.2017", readonly="readonly").datepicker
+      input(value="Выберите дату исполнения", readonly="readonly").datepicker
+
+    .analityc-control-group._dp-alt.expenses__dp
+      select(disabled).analityc-select.analityc-select_date.analityc-select_disabled
+        option 01
+      select.analityc-select.analityc-select_month
+        option(selected=selected) января
+        option февраля
+        option марта
+        option апреля
+        option мая
+        option июня
+        option июля
+        option августа
+        option сентября
+        option октября
+        option ноября
+        option декабря
+      select.analityc-select.analityc-select_year
+        option 2014
+        option(selected=selected) 2015
+        option 2016
+        option 2017
+        option 2018
 
 mixin analityc-widgethead-analityc-income()
   +b.analityc-widgethead._income&attributes(attributes)

@@ -42,8 +42,8 @@
 
 .sections_budget-preparation {
   .wrap {
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
+    max-width: 1100px;
   }
 
   // .section-tabs .dd-holder {
@@ -87,11 +87,14 @@
       .owl-next, .owl-prev {
         bottom: 15px;
 
-        @media (max-width: 1024px) {
+        @media screen and (min-width: 1001px) and (max-width: 1190px) {
+          bottom: 25px;
+        }
+        @media screen and (min-width: 801px) and (max-width: 1000px) {
           bottom: 45px;
         }
-        @media (max-width: 768px) {
-          bottom: 15px;
+        @media screen and (max-width: 800px) {
+          bottom: 5px;
         }
       }
     }
@@ -117,16 +120,21 @@
   }
 }
 
-.section-tabs_documents {
+.section-tabs_bp, .section-tabs_members {
   overflow: hidden;
-  .wrapper {
-    @media screen and (max-width: 1180px) {
-      margin: 0;
-    }
+  div.wrapper {
+    // @media screen and (max-width: 1180px) {
+    //   margin: 0 auto;
+    // }
+    //
+    // @media screen and (min-width: 1025px) and (max-width: 1180px) {
+    //   padding: 0 40px;
+    // }
 
-    @media screen and (min-width: 1025px) and (max-width: 1180px) {
-      padding: 0 40px;
-    }
+    // @media screen and (min-width: 1025px) and (max-width: 1180px) {
+    //   max-width: 1180px;
+    //   padding: 0 40px;
+    // }
 
     @media screen and (min-width: 769px) and (max-width: 1024px) {
       padding: 0 30px;
@@ -736,6 +744,12 @@
     align-items: center;
   }
 
+  @media screen and (min-width: 1025px) and (max-width: 1100px) {
+    .section-tabs__nav {
+      padding: 0 40px;
+    }
+  }
+
   // @media screen and (min-width: 801px) and (max-width: 900px) {
   //   .tile__item {
       // width: 300px !important;
@@ -1009,7 +1023,7 @@
       }
     }
     .section-tabs__nav-btn {
-      min-height: 136px;
+      //min-height: 136px;
     }
 
     .section-tabs_members {
@@ -1510,7 +1524,7 @@
     .section-tabs__nav-btn {
       font-size: 30px;
       padding: 22px 31px 25px;
-      max-width: 530px;
+      //max-width: 530px;
       line-height: 43px;
       min-height: auto;
     }

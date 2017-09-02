@@ -29,14 +29,14 @@ mixin services_moscow()
 		.wrapper.services-moscow__wrapper
 			+e.head
 				+page-header('Москва и города мира', ['Сервисы'])
-				+e.buttons-set
+				+e.buttons-set.load-anim-fade(data-delay="1500")
 					+e.SPAN 
 						| Выберите
 						br
 						| набор данных
 					+buttons-set-alt(getData('buttons-set-moscow'))
 
-			+tabs.services-moscow__content
+			+tabs.services-moscow__content.load-anim-fade(data-delay="1500")
 				+tabs-tab(data-tab-group="moscowTabs", data-tab="moscowOne").active
 					+b.services-moscow-index.services-moscow__inner._active
 						+e.top.services-moscow__wrap

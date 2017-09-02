@@ -49,6 +49,15 @@
     .news {
       border: 1px solid #959595;
     }
+
+    .share__btn {
+      right: -1px;
+    }
+
+    .share__panel {
+      width: calc(100% + 2px);
+      left: -1px;
+    }
   }
 
   &__heading {
@@ -245,9 +254,16 @@
 
   &__read-also {
     margin-top: 82px;
+
+    .social__link {
+      display: inline-block;
+    }
   }
 
   &__card-wrapper {
+    height: 545px;
+    overflow: hidden;
+
     margin-top: 42px;
     text-align: justify;
     &:after {
@@ -255,6 +271,10 @@
       display: inline-block;
       width: 100%;
       height: 0.000000001px;
+    }
+
+    @media (max-width: 900px) {
+      height: 460px;
     }
 
     @media (max-width: 640px) {
@@ -269,11 +289,6 @@
     float: none;
     display: inline-block;
     vertical-align: middle;
-
-    &:nth-child(n+4) {
-      display: none;
-    }
-
   }
 
   &__show-more {
