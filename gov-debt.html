@@ -467,26 +467,66 @@
                             <p class="analityc-graphics__periodtext">
                                 <span>Плановый период</span>
                             </p>
-                            <div class="swiper-container round-graphics_slider">
-                                <div class="analityc-graphics__cols swiper-wrapper">
-                                    <div class="analityc-graphics__col analityc-graphics__col_altcolumn swiper-slide">
-                                        <p class="analityc-graphics__year">2017</p>
-                                        <div class="analityc-graphics__graphic analityc-graphics__graphic_altcolumn"></div>
+                            <div class="analityc-graphics__head">
+                                <div class="analityc-graphics__col">
+                                    <p class="analityc-graphics__year">2017</p>
+                                </div>
+                                <div class="analityc-graphics__col">
+                                    <span class="analityc-graphics__period-left"></span>
+                                    <p class="analityc-graphics__year">2018</p>
+                                </div>
+                                <div class="analityc-graphics__col">
+                                    <span class="analityc-graphics__period-right"></span>
+                                    <p class="analityc-graphics__year">2019</p>
+                                </div>
+                            </div>
+                            <div class="analityc-graphics__growth-rate">
+                                <div class="analityc-graphics__col">
+                                    <p class="analityc-graphics__rate-level" data-rate-level="3.5">3,5%
+                                        <span class="analityc-graphics__rate-line"></span>
+                                    </p>
+                                </div>
+                                <div class="analityc-graphics__col">
+                                    <p class="analityc-graphics__rate-level" data-rate-level="3.1">3,1%
+                                        <span class="analityc-graphics__rate-line"></span>
+                                    </p>
+                                </div>
+                                <div class="analityc-graphics__col">
+                                    <p class="analityc-graphics__rate-level" data-rate-level="2.9">2,9%</p>
+                                </div>
+                            </div>
+                            <div class="analityc-graphics__growth-rate">
+                                <div class="analityc-graphics__col">
+                                    <p class="analityc-graphics__rate-level" data-rate-level="87.6">87,6%
+                                        <span class="analityc-graphics__rate-line"></span>
+                                    </p>
+                                </div>
+                                <div class="analityc-graphics__col">
+                                    <p class="analityc-graphics__rate-level" data-rate-level="61.5">61,5%
+                                        <span class="analityc-graphics__rate-line"></span>
+                                    </p>
+                                </div>
+                                <div class="analityc-graphics__col">
+                                    <p class="analityc-graphics__rate-level" data-rate-level="57.1">57,1%</p>
+                                </div>
+                            </div>
+                            <div class="analityc-graphics__columns">
+                                <div class="analityc-graphics__col analityc-graphics__col_altcolumn">
+                                    <div class="analityc-graphics__graphic analityc-graphics__graphic_altcolumn">
+                                        <p class="analityc-graphics__altcolumn-value">61,5</p>
                                     </div>
-                                    <div class="analityc-graphics__col analityc-graphics__col_altcolumn swiper-slide">
-                                        <span class="analityc-graphics__period-left"></span>
-                                        <p class="analityc-graphics__year">2018</p>
-                                        <div class="analityc-graphics__graphic analityc-graphics__graphic_altcolumn"></div>
+                                </div>
+                                <div class="analityc-graphics__col analityc-graphics__col_altcolumn">
+                                    <div class="analityc-graphics__graphic analityc-graphics__graphic_altcolumn">
+                                        <p class="analityc-graphics__altcolumn-value">57,1</p>
                                     </div>
-                                    <div class="analityc-graphics__col analityc-graphics__col_altcolumn swiper-slide">
-                                        <span class="analityc-graphics__period-right"></span>
-                                        <p class="analityc-graphics__year">2019</p>
-                                        <div class="analityc-graphics__graphic analityc-graphics__graphic_altcolumn"></div>
+                                </div>
+                                <div class="analityc-graphics__col analityc-graphics__col_altcolumn">
+                                    <div class="analityc-graphics__graphic analityc-graphics__graphic_altcolumn">
+                                        <p class="analityc-graphics__altcolumn-value">57,1</p>
                                     </div>
                                 </div>
                             </div>
-                            <span class="analityc-graphics_round-next"></span>
-                            <span class="analityc-graphics_round-prev"></span>
                             <div class="legend analityc-graphics__legend">
                                 <p class="legend__item legend__item_altgreen">
                                     <SPAN>Верхний предел государственного долга, млрд руб.</SPAN>
@@ -2169,9 +2209,7 @@
                     <a class="open-popup" href="#login">вернуться к регистрации</a>
                 </div>
             </div>
-            <a class="open-popup return-popup" href="#login">
-                <svg class="close-popup-icon"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
-            </a>
+            <a class="open-popup return-popup" href="#login"></a>
         </div>
         <div class="blackout popup-window" id="blackout">
             <div class="popup">
@@ -2602,6 +2640,39 @@
                     maxValue: 100,
                 })
             }
+            diagram('#diagram-26', {
+                viewBox: 270,
+                stroke: 45,
+                kind: 'segment2',
+                data: [54.2, 45.8],
+                gradient: [
+                    ['#141291', '#cc0fa3'],
+                    ['#fff', '#fff']
+                ],
+                maxValue: 100,
+            })
+            diagram('#diagram-27', {
+                viewBox: 270,
+                stroke: 45,
+                kind: 'segment2',
+                data: [40.0, 60.0],
+                gradient: [
+                    ['#141291', '#cc0fa3'],
+                    ['#fff', '#fff']
+                ],
+                maxValue: 100,
+            })
+            diagram('#diagram-28', {
+                viewBox: 270,
+                stroke: 45,
+                kind: 'segment2',
+                data: [60.0, 40.0],
+                gradient: [
+                    ['#141291', '#cc0fa3'],
+                    ['#fff', '#fff']
+                ],
+                maxValue: 100,
+            })
 
         });
     </script>

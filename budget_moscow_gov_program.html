@@ -909,7 +909,15 @@
                                 <div class="analityc-mix analityc-mix_date-one">
                                     <div class="analityc-mix__round">
                                         <div class="analityc-mix__round-title">2017</div>
-                                        <div class="analityc-mix__round-content"></div>
+                                        <div class="analityc-mix__round-content">
+                                            <div class="segment-diagram" id="diagram-26">
+                                                <div class="segment-diagram__value">
+                                                    <p class="segment-diagram__value-num">1830,3</p>
+                                                    <span class="segment-diagram__val segment-diagram__val1">54,2%</span>
+                                                    <span class="segment-diagram__val segment-diagram__val2">45,8%</span>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="analityc-mix__lines">
                                         <div class="analityc-mix__line">
@@ -1003,7 +1011,15 @@
                                 <div class="analityc-mix analityc-mix_date-two">
                                     <div class="analityc-mix__round">
                                         <div class="analityc-mix__round-title">2018</div>
-                                        <div class="analityc-mix__round-content"></div>
+                                        <div class="analityc-mix__round-content">
+                                            <div class="segment-diagram" id="diagram-27">
+                                                <div class="segment-diagram__value">
+                                                    <p class="segment-diagram__value-num">1830,3</p>
+                                                    <span class="segment-diagram__val segment-diagram__val1">40,0%</span>
+                                                    <span class="segment-diagram__val segment-diagram__val2">60,0%</span>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="analityc-mix__lines">
                                         <div class="analityc-mix__line">
@@ -1097,7 +1113,15 @@
                                 <div class="analityc-mix analityc-mix_date-three">
                                     <div class="analityc-mix__round">
                                         <div class="analityc-mix__round-title">2019</div>
-                                        <div class="analityc-mix__round-content"></div>
+                                        <div class="analityc-mix__round-content">
+                                            <div class="segment-diagram" id="diagram-28">
+                                                <div class="segment-diagram__value">
+                                                    <p class="segment-diagram__value-num">1830,3</p>
+                                                    <span class="segment-diagram__val segment-diagram__val1">60,0%</span>
+                                                    <span class="segment-diagram__val segment-diagram__val2">40,0%</span>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="analityc-mix__lines">
                                         <div class="analityc-mix__line">
@@ -3720,9 +3744,7 @@
                     <a class="open-popup" href="#login">вернуться к регистрации</a>
                 </div>
             </div>
-            <a class="open-popup return-popup" href="#login">
-                <svg class="close-popup-icon"><use xlink:href="assets/images/icon.svg#icon_cross"></use></svg>
-            </a>
+            <a class="open-popup return-popup" href="#login"></a>
         </div>
         <div class="blackout popup-window" id="blackout">
             <div class="popup">
@@ -4154,6 +4176,39 @@
                     maxValue: 100,
                 })
             }
+            diagram('#diagram-26', {
+                viewBox: 270,
+                stroke: 45,
+                kind: 'segment2',
+                data: [54.2, 45.8],
+                gradient: [
+                    ['#141291', '#cc0fa3'],
+                    ['#fff', '#fff']
+                ],
+                maxValue: 100,
+            })
+            diagram('#diagram-27', {
+                viewBox: 270,
+                stroke: 45,
+                kind: 'segment2',
+                data: [40.0, 60.0],
+                gradient: [
+                    ['#141291', '#cc0fa3'],
+                    ['#fff', '#fff']
+                ],
+                maxValue: 100,
+            })
+            diagram('#diagram-28', {
+                viewBox: 270,
+                stroke: 45,
+                kind: 'segment2',
+                data: [60.0, 40.0],
+                gradient: [
+                    ['#141291', '#cc0fa3'],
+                    ['#fff', '#fff']
+                ],
+                maxValue: 100,
+            })
 
         });
     </script>
