@@ -1,0 +1,25 @@
+include ../icon/icons
+
+mixin blue-dropdown(heading, iconname)
+  - var isicon = '';
+  if iconname
+    - isicon = '_has-icon';
+  +b.blue-dropdown&attributes(attributes)
+    +e.heading(class=isicon)
+      if iconname
+        +icon(iconname).heading-icon
+      +e.P.heading-text
+        +e.SPAN.heading-span= heading
+        +e.arrow
+          +icon('caret')
+    +e.list
+      block
+        
+mixin blue-dropdown-item(iconname)
+  - var isicon = '';
+  if iconname
+    - isicon = '_has-icon';
+  +e.item(class=isicon)&attributes(attributes)
+    if iconname
+      +icon(iconname).item-icon
+    block
