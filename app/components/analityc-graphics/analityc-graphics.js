@@ -134,5 +134,14 @@ export default () => {
   if ($('.analytics-gov-debt .analityc-graphics-broken-line').length) {
     rateLine('.analityc-graphics-broken-line__growth-rate', 9, 8);
   }
+  
+  // Бюджет Москвы - Государственный долг (уровень долговой нагрузки)
+  if ($('.gov-debt .analityc-graphics__growth-rate_level').length) {
+    rateLine('.analityc-graphics__growth-rate_level', 40, 2.9, true);
+  }
+  // Бюджет Москвы - Государственный долг (предельный объем государственного долга)
+  if ($('.gov-debt .analityc-graphics__growth-rate_limit').length) {
+    rateLine('.analityc-graphics__growth-rate_limit', 1.5, 57.1, true);
+  }
 
 }

@@ -39,10 +39,18 @@ export default () => {
   }
   
   // Инициализация
+  
   // Бюджет Москвы - Социально-экономическое развитие
   slideArrow('.budget-forecast__table-wrapper', '.budget-forecast__slide-arrows', 100);
+  
   // Аналитика - Государственный долг
   slideArrow('.analytics-gov-debt__graphic-wrapper', '.analytics-gov-debt__slide-arrows_graphics', 100);
   slideArrow('.analytics-gov-debt__table-wrapper', '.analytics-gov-debt__slide-arrows_table', 100);
+  
+  // Бюджет Москвы - Государственный долг
+  if ($('.gov-debt .analityc-graphics__graphic-slider_approved').length) {
+    var colWidth = $('.gov-debt .analityc-graphics__graphic-slider_approved').outerWidth();
+    slideArrow('.gov-debt .analityc-graphics__graphic-slider_approved', '.gov-debt .analityc-graphics__slide-arrows_approved', colWidth);
+  }
   
 }

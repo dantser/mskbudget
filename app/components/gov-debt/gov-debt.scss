@@ -133,9 +133,8 @@
   }
 
   &__analityc-widgethead {
-
-    @media (max-width: 768px) {
-      margin-top: 100px;
+    @media screen and (max-width: 768px) {
+      padding-bottom: 0;
     }
     .analityc-control-switcher {
       display: none;
@@ -148,7 +147,6 @@
           padding: 0 60px;
         }
       }
-
     }
   }
 
@@ -157,15 +155,19 @@
     right: 205px;
     top: 13px;
     width: 344px;
-
-    @media (max-width: 1024px) {
+    
+    @media screen and (min-width: 1025px) and (max-width: 1140px) {
+      right: 160px;
+    }
+    @media screen and (min-width: 901px) and (max-width: 1024px) {
       right: 100px;
     }
-
-    @media (max-width: 768px) {
+    @media screen and (min-width: 769px) and (max-width: 900px) {
+      right: 40px;
+    }
+    @media screen and (min-width: 481px) and (max-width: 768px) {
       right: 3px;
     }
-
     @media (max-width: 480px) {
       right: 0;
       left: 20px;
@@ -210,6 +212,41 @@
       }
     }
   }
+  
+  .analityc-graphics__graphic-container {
+    position: relative;
+  }
+  
+  .analityc-graphics__graphic-slider {
+    @media screen and (max-width: 768px) {
+      overflow-x: auto;
+      min-height: 372px;
+    }
+  }
+  
+  .analityc-graphics__graphic-wrapper {
+    @media screen and (max-width: 768px) {
+      width: 300%;
+    }
+  }
+  
+  .analityc-graphics__rate-line {
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+  
+  .analityc-graphics__slide-arrows {
+    display: none;
+    position: absolute;
+    left: -30px;
+    right: -30px;
+    top: 50%;
+    @media screen and (max-width: 768px) {
+      display: block;
+    }
+  }
+  
   .analityc-graphics {
     &_round-next {
       @media (width: 640px) {
@@ -261,15 +298,32 @@
   &__analityc-graphics {
     display: none;
 
-
-
     // approved
     &.analityc-graphics_approved {
       margin-top: 110px;
       margin-bottom: 80px;
+      padding: 0 28px;
+      
+      @media screen and (max-width: 768px) {
+        margin-top: 50px;
+        padding: 0;
+      }
+      
+      .analityc-graphics__col {
+        width: 23.4%;
+        margin-bottom: -16px;
+        
+        @media screen and (min-width: 769px) and (max-width: 1253px) {
+          margin-bottom: -19px;
+        }
+        @media screen and (max-width: 768px) {
+          margin-bottom: 0;
+          width: 33%;
+          padding: 0 110px;
+        }
+      }
       .analityc-graphics__legend {
-        margin-top: 40px;
-        padding: 0 28px;
+        margin-top: 26px;
         text-align: justify;
         &:after {
           content: '';
@@ -306,6 +360,7 @@
       }
       .analityc-graphics__cols {
         padding: 0 65px;
+        box-sizing: border-box;
       }
       .analityc-graphics__col {
         width: 25.2%;

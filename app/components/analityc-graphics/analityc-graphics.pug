@@ -1,6 +1,7 @@
 include ../../blocks/legend/legend
 include ../../blocks/checkbox/checkbox
 include ../../blocks/icon/icons
+include ../../blocks/slide-arrows/slide-arrows
 
 //- legendtype - тип легенды(json файл)
 mixin analityc-graphics-round(legendtype)
@@ -1012,91 +1013,92 @@ mixin analityc-graphics-govdebt-approved()
   +b.analityc-graphics&attributes(attributes)._approved
     +e.P.periodtext
       span Плановый период
-    +e.head
-      +e.col
-        +e.P.year 2017
-      +e.col
-        +e.SPAN.period-left
-        +e.P.year 2018
-      +e.col
-        +e.SPAN.period-right
-        +e.P.year 2019
-    +e.growth-rate
-      +e.col
-        +e.P.rate-level(data-rate-level="3.5") 3,5%
-          +e.rate-line
-      +e.col
-        +e.P.rate-level(data-rate-level="3.1") 3,1%
-          +e.rate-line
-      +e.col
-        +e.P.rate-level(data-rate-level="2.9") 2,9%
-    +e.growth-rate
-      +e.col
-        +e.P.rate-level(data-rate-level="87.6") 87,6%
-          +e.rate-line
-      +e.col
-        +e.P.rate-level(data-rate-level="61.5") 61,5%
-          +e.rate-line
-      +e.col
-        +e.P.rate-level(data-rate-level="57.1") 57,1%
-    +e.columns
-      +e.col._altcolumn
-        +e.graphic._altcolumn
-          +e.P.altcolumn-value 61,5
-      +e.col._altcolumn
-        +e.graphic._altcolumn
-          +e.P.altcolumn-value 57,1
-      +e.col._altcolumn
-        +e.graphic._altcolumn
-          +e.P.altcolumn-value 57,1
+    +e.graphic-container
+      +slide-arrows().__slide-arrows._approved
+      +e.graphic-slider._approved
+        +e.graphic-wrapper
+          +e.head
+            +e.col
+              +e.P.year 2017
+            +e.col
+              +e.SPAN.period-left
+              +e.P.year 2018
+            +e.col
+              +e.SPAN.period-right
+              +e.P.year 2019
+          +e.growth-rate._level._blue
+            +e.col
+              +e.P.rate-level(data-rate-level="3.5") 3,5%
+                +e.rate-line
+            +e.col
+              +e.P.rate-level(data-rate-level="3.1") 3,1%
+                +e.rate-line
+            +e.col
+              +e.P.rate-level(data-rate-level="2.9") 2,9%
+          +e.growth-rate._limit._pink
+            +e.col
+              +e.P.rate-level(data-rate-level="87.6") 87,6
+                +e.rate-line
+            +e.col
+              +e.P.rate-level(data-rate-level="61.5") 61,5
+                +e.rate-line
+            +e.col
+              +e.P.rate-level(data-rate-level="57.1") 57,1
+          +e.columns
+            +e.col
+              +e.graphic._limitcolumn
+                +e.P.limitcolumn-value 61,5
+            +e.col
+              +e.graphic._limitcolumn
+                +e.P.limitcolumn-value 57,1
+            +e.col
+              +e.graphic._limitcolumn
+                +e.P.limitcolumn-value 57,1
     +legend(getData('legend-govdebt1')).__legend
 
 mixin analityc-graphics-govdebt-changes()
   +b.analityc-graphics&attributes(attributes)._changes
     +e.P.periodtext
       span Плановый период
-    .swiper-container.round-graphics_slider
-      +e.cols.swiper-wrapper
-        +e.col.swiper-slide
-          +e.P.year 2017
-          +e.changes._neg
-            +e.abs +14,0
-            +e.percent +22,8%
-          +e.graphic._double-column
-            +e.graphic-column
-              +e.graphic-column-val 61,5
-            +e.graphic-column
-              +e.graphic-column-val 75,5
-          +e.bottom
-            p Бюджет утвержденный
-            p Бюджет с учетом изменений
-        +e.col.swiper-slide
-          +e.SPAN.period-left
-          +e.P.year 2018
-          +e.changes._rev
-            +e.abs -10,0
-            +e.percent -3,8%
-          +e.graphic._double-column
-            +e.graphic-column
-              +e.graphic-column-val 61,5
-            +e.graphic-column
-              +e.graphic-column-val 47,1
-          +e.bottom
-            p Бюджет утвержденный
-            p Бюджет с учетом изменений
-        +e.col.swiper-slide
-          +e.SPAN.period-right
-          +e.P.year 2019
-          +e.graphic._double-column
-            +e.graphic-column
-              +e.graphic-column-val 57,1
-            +e.graphic-column
-              +e.graphic-column-val 57,1
-          +e.bottom
-            p Бюджет утвержденный
-            p Бюджет с учетом изменений
-    span.analityc-graphics_round-next
-    span.analityc-graphics_round-prev
+    +e.cols
+      +e.col
+        +e.P.year 2017
+        +e.changes._neg
+          +e.abs +14,0
+          +e.percent +22,8%
+        +e.graphic._double-column
+          +e.graphic-column
+            +e.graphic-column-val 61,5
+          +e.graphic-column
+            +e.graphic-column-val 75,5
+        +e.bottom
+          p Бюджет утвержденный
+          p Бюджет с учетом изменений
+      +e.col
+        +e.SPAN.period-left
+        +e.P.year 2018
+        +e.changes._rev
+          +e.abs -10,0
+          +e.percent -3,8%
+        +e.graphic._double-column
+          +e.graphic-column
+            +e.graphic-column-val 61,5
+          +e.graphic-column
+            +e.graphic-column-val 47,1
+        +e.bottom
+          p Бюджет утвержденный
+          p Бюджет с учетом изменений
+      +e.col
+        +e.SPAN.period-right
+        +e.P.year 2019
+        +e.graphic._double-column
+          +e.graphic-column
+            +e.graphic-column-val 57,1
+          +e.graphic-column
+            +e.graphic-column-val 57,1
+        +e.bottom
+          p Бюджет утвержденный
+          p Бюджет с учетом изменений
     +b.legend.__legend
       +e.P.item._altgreen Верхний предел государственного долга, млрд руб.
 
