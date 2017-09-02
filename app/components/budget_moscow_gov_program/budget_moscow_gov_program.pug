@@ -7,25 +7,43 @@ include ../analityc-graphics/analityc-graphics
 include ../../blocks/dropdown-block/dropdown-block
 include ../../blocks/tabs/tabs
 
-mixin budget_moscow_gov_program()
-  +b.SECTION.section.main._basic.basic-budget.moscow-gov-program.sections__item
+//- pageType - название программы, если задан, то страница в режиме отдельной программы
+mixin budget_moscow_gov_program(program)
+  if (program)
+    - var pageType = 'moscow-gov-program_one';
+    - var header = 'Государственная программа ' + program;
+    - var widgethead = true;
+  else
+    - var pageType = '';
+    - var header = 'Государственные программы';
+    - var widgethead = false;
+
+
+  //- +b.SECTION.section.main._basic.basic-budget.moscow-gov-program.sections__item
+  +b.SECTION(class= 'section main main_basic basic-budget sections__item moscow-gov-program ' + pageType)
     .ar.ar-left
     .ar.ar-right
     .wrapper
-      +page-header('Государственные программы', ['О бюджете', 'Бюджетная система'], false, true)
+      //- +page-header('Государственные программы', ['О бюджете', 'Бюджетная система'], false, true)
+      +page-header(header, ['О бюджете', 'Бюджетная система'], false, true)
       .article-controls
         span
         span
         span
       .analityc-widget.analityc-widget_moscow-gov-program.load-anim-fade(data-delay="1500")
-        +analityc-widgethead-moscow-gp()
+
+        +analityc-widgethead-moscow-gp(widgethead)
+
+
         .analityc-widget-sources.analityc-widget-moscow-gov-program_done._active
           +analityc-graphics-multiline(getData('graphic-multiline'))
+
         +analityc-table()._changes.analityc-widget-moscow-gov-program-table_done
           +icon('angle-arrow').section__ar.section__ar_left
           +icon('angle-arrow').section__ar.section__ar_right
           .analityc-table__wrapper
             +table-income(getData('income1'))
+
         .analityc-widget-sources.analityc-widget-moscow-gov-program_structure
           p.analityc-graphics__periodtext
             span Плановый период
@@ -45,11 +63,18 @@ mixin budget_moscow_gov_program()
               +analityc-graphics-mix(getData('graphic-lines-mix1')[1])._date-two
             +tabs-tab(data-tab-group="analityc-structure", data-tab="structure3")
               +analityc-graphics-mix(getData('graphic-lines-mix1')[2])._date-three
+            //- этап Закон об исполнении
+            +tabs-tab(data-tab-group="analityc-structure", data-tab="structure4")
+              +analityc-graphics-mix(getData('graphic-lines-mix1')[3])._date-two
+            +tabs-tab(data-tab-group="analityc-structure", data-tab="structure5")
+              +analityc-graphics-mix(getData('graphic-lines-mix1')[4])._date-three
+
         +analityc-table()._changes.analityc-widget-moscow-gov-program-table_structure
           +icon('angle-arrow').section__ar.section__ar_left
           +icon('angle-arrow').section__ar.section__ar_right
           .analityc-table__wrapper
             +table-income(getData('income1'))
+
         .analityc-widget-sources.analityc-widget-moscow-gov-program_changes
           p.analityc-graphics__periodtext
             span Плановый период
@@ -69,18 +94,38 @@ mixin budget_moscow_gov_program()
               +analityc-graphics-line-alt(getData('graphic-lines-gp1'))._date-two
             +tabs-tab(data-tab-group="analityc-lines", data-tab="line3")
               +analityc-graphics-line-alt(getData('graphic-lines-gp1'))._date-three
+
         +analityc-table()._changes.analityc-widget-moscow-gov-program-table_changes
           +icon('angle-arrow').section__ar.section__ar_left
           +icon('angle-arrow').section__ar.section__ar_right
           .analityc-table__wrapper
             +table-income(getData('income1'))
+
         .analityc-widget-sources.analityc-widget-moscow-gov-program_date
           +analityc-graphics-js-line(getData('graphic-js-line1')[0])
+
         +analityc-table()._changes.analityc-widget-moscow-gov-program-table_date
           +icon('angle-arrow').section__ar.section__ar_left
           +icon('angle-arrow').section__ar.section__ar_right
           .analityc-table__wrapper
             +table-income(getData('income1'))
+
+        //- **************************************************
+        .analityc-widget-sources.analityc-widget-moscow-gov-program_exec
+          +tabs
+            +tabs-tab(data-tab-group="analityc-exec", data-tab="line1").active
+              +analityc-graphics-line-alt(getData('graphic-lines-gp1'))._date-one._exec
+            +tabs-tab(data-tab-group="analityc-exec", data-tab="line2")
+              +analityc-graphics-line-alt(getData('graphic-lines-gp1'))._date-two._exec
+            +tabs-tab(data-tab-group="analityc-exec", data-tab="line3")
+              +analityc-graphics-line-alt(getData('graphic-lines-gp1'))._date-three._exec
+
+        +analityc-table()._changes.analityc-widget-moscow-gov-program-table_exec
+          +icon('angle-arrow').section__ar.section__ar_left
+          +icon('angle-arrow').section__ar.section__ar_right
+          .analityc-table__wrapper
+            +table-income(getData('income1'))
+
         .analityc-widget__bottom
           a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
           a(href="/").analityc-more.analityc-more_results Результаты реализации государственных программ

@@ -1017,7 +1017,8 @@ mixin analityc-widgethead-govdebt()
         a(href="#").active доля от общей суммы, %
         a(href="#") млрд. руб.
 
-mixin analityc-widgethead-moscow-gp()
+//- program - если задан, то панель в режиме для отдельной программы
+mixin analityc-widgethead-moscow-gp(program)
   +b.analityc-widgethead&attributes(attributes)
     .analityc-control-group._year
       span Год
@@ -1030,6 +1031,7 @@ mixin analityc-widgethead-moscow-gp()
       select.analityc-select
         option(selected) Закон о бюджете утвержденный
         option Закон о внесении изменений
+        option Закон об исполнении
         option Исполнение на дату
     .analityc-control-group._level
       span Уровень
@@ -1053,6 +1055,15 @@ mixin analityc-widgethead-moscow-gp()
       a(href="#", data-type='structure') Структура
     .analityc-control-group._dp
       input(placeholder="Выберите дату исполнения", value="Выберите дату исполнения", readonly="readonly").datepicker
+    //- в отдельной программе
+    if (program)
+      .analityc-control-switcher.analityc-control-switcher_sub
+        a(href="#", data-type='sub-gp').active Подпрограммы
+        a(href="#", data-type='expenses') Виды расходов
+      .analityc-control-switcher.analityc-control-switcher_units
+        a(href="#").active доля от общей суммы, %
+        a(href="#") млрд руб.
+
 
 //- Бюджет Москвы - Социально-экономическое развитие
 mixin analityc-widgethead-forecast()

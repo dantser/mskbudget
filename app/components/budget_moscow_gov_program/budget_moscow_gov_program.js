@@ -28,7 +28,6 @@ export default () => {
 
 		if ($(this).attr('data-type') == 'gp') {
 			GRAPHICDONE.addClass('_active');
-
 			GRAPHICSTRUCTURE.removeClass('_active');
 		}
 		if ($(this).attr('data-type') == 'structure') {
@@ -91,9 +90,9 @@ export default () => {
 
   })
 
-  // Формирование графика Закон о внесении изменений
+  // Формирование графика Закон о внесении изменений, Закон об исполнении
 
-  const GRAPHIC_CHANGES = $('.analityc-widget-moscow-gov-program_changes');
+  const GRAPHIC_CHANGES = $('.analityc-widget-moscow-gov-program_changes, .analityc-widget-moscow-gov-program_exec');
   const GRAPHIC_CHANGES_TAB = GRAPHIC_CHANGES.find('.tabs__tab');
 
   GRAPHIC_CHANGES_TAB.each(function() {
