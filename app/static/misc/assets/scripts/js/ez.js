@@ -1564,7 +1564,7 @@ $(document).ready(function() {
       } else if (sourcesGraphicsActive.hasClass('analityc-widget-sources_date')) {
         sourcesGraphics.removeClass('active');
         sourcesTableDate.addClass('active');
-        
+
         if ($level.val() === "Консолидированный бюджет") {
           sourcesHead(4);
         } else {
@@ -1627,7 +1627,7 @@ $(document).ready(function() {
       incomeHead(1);
     } else if ($this.val() === "Закон о внесении изменений") {
       incomeGraphicsChanges.addClass('active');
-      incomeHead(2);
+      incomeHead(1);
     } else if ($this.val() === "Закон об исполнении") {
       incomeGraphicsDone.addClass('active');
       incomeHead(1);
@@ -1716,7 +1716,7 @@ $(document).ready(function() {
       } else if (incomeTableActive.hasClass('analityc-table_date')) {
         incomeTable.removeClass('active');
         incomeGraphicsDateOne.addClass('active');
-        
+
         if ($level.val() === "Консолидированный бюджет") {
           incomeHead(5);
         } else {
@@ -1934,7 +1934,7 @@ $(document).ready(function() {
       if (expensesGraphicsActive.hasClass('analityc-graphics_date-one')) {
         expensesGraphics.removeClass('active');
         expensesTableDate.addClass('active');
-        
+
         if ($level.val() === "Консолидированный бюджет") {
           expensesHead(4);
         } else {
