@@ -7,20 +7,21 @@ include ../analityc-graphics/analityc-graphics
 include ../../blocks/dropdown-block/dropdown-block
 include ../../blocks/tabs/tabs
 
-mixin budget_moscow_gov_program()
+//- program - название гп
+mixin budget_moscow_gov_program_one(header)
 
-  +b.SECTION.section.main.main_basic.basic-budget.sections__item.moscow-gov-program
+  +b.SECTION.section.main.main_basic.basic-budget.sections__item.moscow-gov-program.moscow-gov-program_one
     .ar.ar-left
     .ar.ar-right
     .wrapper
-      +page-header('Государственные программы', ['О бюджете', 'Бюджетная система'], false, true)
+      +page-header(header, ['О бюджете', 'Бюджетная система'], false, true)
       .article-controls
         span
         span
         span
       .analityc-widget.analityc-widget_moscow-gov-program.load-anim-fade(data-delay="1500")
 
-        +analityc-widgethead-moscow-gp()
+        +analityc-widgethead-moscow-gp(true)
 
         // Этап Закон о бюджете утв.
         .analityc-widget-sources.analityc-widget-moscow-gov-program_done._active
