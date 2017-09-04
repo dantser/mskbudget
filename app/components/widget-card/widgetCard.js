@@ -5,11 +5,13 @@ export default () => {
 
   $(document).on('click', '.widget-card__favor', function(e) {
     e.preventDefault();
+    e.stopPropagation();
     $(this).toggleClass('widget-card__favor_active');
   });
 
   $(document).on('click', '.widget-card__pin', function(e) {
     e.preventDefault();
+    e.stopPropagation();
     $(this).toggleClass('widget-card__pin_active');
     $(this).parents('.tile__item').toggleClass('tile__item_pinned');
 
@@ -22,7 +24,7 @@ export default () => {
   });
 
   // добавляем title всем заголовкам
-  $('.widget-card__results-total, .widget-card__info-block-title, .widget-card__lessons-text').each(function(){
+  $('.widget-card__title h3, .widget-card__results-total, .widget-card__info-block-title, .widget-card__lessons-text').each(function(){
     $(this).attr('title', $(this).text() );
   });
 
@@ -111,7 +113,7 @@ export default () => {
 
 // сворачивание-разворачивание карточек в мобильной версии
   if ($(window).width() < 581) {
-      $(document).on('click', '.widget-card__title h3', function () {
+      $(document).on('click', '.widget-card__title', function () {
         var $this = $(this);
         if ($this.parents().hasClass('dropdown-block') || $this.parents().hasClass('wrapper_main') || $this.parents().hasClass('lk-services-second')) {   //убираем сворачивание виджетов в блоке дропдаунов и на главной
           return;

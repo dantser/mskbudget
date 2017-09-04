@@ -58,6 +58,9 @@
       @media (max-width: 768px) {
         width: 19%;
       }
+      @media (max-width: 550px) {
+        margin-bottom: 30px;
+      }
       .analityc-select {
         background-position: 92% 13px;
       }
@@ -68,7 +71,7 @@
       .analityc-select {
         padding: 0 15px;
 
-        @media (max-width: 480px) {
+        @media (max-width: 550px) {
           box-sizing: border-box;
         }
       }
@@ -141,10 +144,25 @@
       &.active {
         display: inline-block;
       }
-
-      @media screen and (max-width: 768px) and (min-width: 551px) {
+      
+      @media screen and (max-width: 768px) {
+        position: static;
+      }
+      @media screen and (max-width: 768px) and (min-width: 631px) {
         a {
           padding: 0 60px;
+        }
+      }
+      @media screen and (max-width: 630px) {
+        width: 100%;
+        a {
+          padding: 0 20px;
+          &:first-child {
+            width: 60%;
+          }
+          &:last-child {
+            width: 40%;
+          }
         }
       }
     }
@@ -155,6 +173,7 @@
     right: 205px;
     top: 13px;
     width: 344px;
+    z-index: 2;
     
     @media screen and (min-width: 1025px) and (max-width: 1140px) {
       right: 160px;
@@ -219,14 +238,17 @@
   
   .analityc-graphics__graphic-slider {
     @media screen and (max-width: 768px) {
+      overflow-y: hidden;
       overflow-x: auto;
-      min-height: 372px;
     }
   }
   
   .analityc-graphics__graphic-wrapper {
     @media screen and (max-width: 768px) {
       width: 300%;
+      &_noslide {
+        width: 900px;
+      }
     }
   }
   
@@ -239,11 +261,15 @@
   .analityc-graphics__slide-arrows {
     display: none;
     position: absolute;
-    left: -30px;
-    right: -30px;
+    left: -35px;
+    right: -35px;
     top: 50%;
     @media screen and (max-width: 768px) {
       display: block;
+    }
+    @media screen and (max-width: 550px) {
+      left: -20px;
+      right: -20px;
     }
   }
   
@@ -319,7 +345,15 @@
         @media screen and (max-width: 768px) {
           margin-bottom: 0;
           width: 33%;
+        }
+        @media screen and (min-width: 551px) and (max-width: 768px) {
           padding: 0 110px;
+        }
+        @media screen and (min-width: 451px) and (max-width: 550px) {
+          padding: 0 50px;
+        }
+        @media screen and (max-width: 450px) {
+          padding: 0 20px;
         }
       }
       .analityc-graphics__legend {
@@ -344,8 +378,9 @@
     &.analityc-graphics_changes {
       margin-top: 102px;
       margin-bottom: 28px;
+      
       @media (max-width: 768px) {
-        margin-top: 0;
+        margin-top: 50px;
         .analityc-graphics__graphic_double-column {
           width: 250px;
         }
@@ -361,6 +396,14 @@
       .analityc-graphics__cols {
         padding: 0 65px;
         box-sizing: border-box;
+        
+        @media screen and (max-width: 768px) {
+          padding: 0;
+          border-bottom: 0;
+          &:after {
+            display: block;
+          }
+        }
       }
       .analityc-graphics__col {
         width: 25.2%;
@@ -394,6 +437,19 @@
               height: 88%;
             }
           }
+        }
+        
+        @media screen and (max-width: 768px) {
+          width: 33.3333%;
+        }
+        @media screen and (min-width: 551px) and (max-width: 768px) {
+          padding: 0 110px;
+        }
+        @media screen and (min-width: 451px) and (max-width: 550px) {
+          padding: 0 50px;
+        }
+        @media screen and (max-width: 450px) {
+          padding: 0 20px;
         }
       }
       .analityc-graphics__changes {
@@ -468,7 +524,8 @@
         margin-top: 64px;
         padding: 0 65px;
         @media (max-width: 768px) {
-          margin-top: 0;
+          margin-top: 26px;
+          padding: 0;
         }
       }
       .analityc-graphics__legend .legend__item {
@@ -484,30 +541,41 @@
         margin-top: 35px;
         border-bottom: 0;
 
-        @media (max-width: 480px) {
+        @media screen and (max-width: 1020px) {
           padding-left: 0;
+        }
+        @media screen and (max-width: 768px) {
+          white-space: normal;
         }
       }
       .analityc-graphics__col {
         width: 32%;
         vertical-align: middle;
-        @media (max-width: 900px) {
-          display: block;
+        
+        @media (max-width: 1020px) {
+          width: 100%;
         }
-        @media (max-width: 700px) and  (min-width: 481px) {
+        @media (max-width: 700px) and  (min-width: 631px) {
           margin-bottom: 144px;
         }
+        @media screen and (max-width: 630px) {
+          margin-bottom: 50px;
+        }
+        
         &_wide {
           width: 62%;
 
-          @media (max-width: 900px) {
+          @media (max-width: 1020px) {
             width: 100%;
-            display: block;
           }
         }
       }
       .analityc-graphics__legend_vert {
         margin-top: 20px;
+        
+        @media screen and (max-width: 630px) {
+          height: auto;
+        }
       }
     }
     // other
@@ -608,17 +676,22 @@
     text-transform: uppercase;
     margin-top: 17px;
 
-    @media (max-width: 768px) {
-      padding-right: 60%;
+    @media screen and (max-width: 768px) {
       font-size: 26px;
     }
-
-    @media (max-width: 480px) {
+    @media screen and (min-width: 631px) and (max-width: 768px) {
+      padding-right: 60%;
+    }
+    @media screen and (max-width: 630px) {
       padding-right: 0;
     }
+    @media screen and (min-width: 481px) and (max-width: 630px) {
+      margin-top: 120px;
+    }
+    @media screen and (max-width: 480px) {
+      margin-top: 20px;
+    }
   }
-
-
 
   &__analityc-tab {
     display: none;
@@ -671,7 +744,7 @@
       }
     }
 
-    @media (max-width: 320px) {
+    @media (max-width: 480px) {
       .gov-debt__rating-table-value, .gov-debt__rating-table-item {
         font-size: 12px;
       }

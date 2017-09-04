@@ -1087,9 +1087,23 @@
       left: 0;
       top: 0;
 
-      @media (max-width: 480px) {
+      @media (max-width: 630px) {
         display: none;
       }
+    }
+    
+    @media screen and (max-width: 1020px) {
+      margin: auto;
+    }
+    @media screen and (min-width: 769px) and (max-width: 1020px) {
+      width: 660px;
+    }
+    @media screen and (min-width: 631px) and (max-width: 768px) {
+      width: 550px;
+    }
+    @media screen and (max-width: 630px) {
+      width: 100%;
+      height: auto;
     }
   }
 
@@ -1097,12 +1111,12 @@
     position: absolute;
     width: 150px;
     height: 150px;
-    @media (max-width: 480px) {
-      position: relative;
-      left: auto;
-      right: auto;
-      top: auto;
+    
+    @media (max-width: 630px) {
+      position: static;
+      margin: auto;
     }
+    
     .segment-diagram {
       width: auto;
       height: auto;
@@ -1129,15 +1143,16 @@
       top: 0;
       bottom: 0;
       margin: auto;
-
-      @media (max-width: 600px) {
-        left: 32px;
+      
+      @media screen and (max-width: 768px) {
+        width: 220px;
+        height: 220px;
+        left: 50px;
       }
-      @media (max-width: 480px) {
-        left: auto;
-        right: auto;
-        top: auto;
-        bottom: auto;
+      @media screen and (max-width: 630px) {
+        width: 275px;
+        height: 275px;
+        margin-bottom: 50px;
       }
       .segment-diagram {
         &__val1 {
@@ -1161,18 +1176,22 @@
     &_right-top {
       right: 60px;
       top: 70px;
-      @media (max-width: 480px) {
-        left: auto;
-        right: auto;
-        top: auto;
-        bottom: auto;
+      
+      @media screen and (max-width: 768px) {
+        right: 30px;
+        top: 60px;
+      }
+      @media screen and (min-width: 351px) and (max-width: 630px) {
         display: inline-block;
         vertical-align: middle;
         margin-right: 10px;
       }
-      @media (max-width: 320px) {
-        margin-right: 0;
+      @media (max-width: 350px) {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 50px;
       }
+      
       .segment-diagram {
         &__value-num {
           font-size: 26px;
@@ -1202,17 +1221,15 @@
     &_right-bottom {
       right: 60px;
       bottom: 70px;
-      @media (max-width: 600px) {
-        bottom: 80px;
+      
+      @media screen and (max-width: 768px) {
+        right: 30px;
       }
-      @media (max-width: 480px) {
-        left: auto;
-        right: auto;
-        top: auto;
-        bottom: auto;
+      @media (max-width: 630px) {
         display: inline-block;
         vertical-align: middle;
       }
+      
       .segment-diagram {
         &__value-num {
           padding-top: 6px;
@@ -3652,6 +3669,9 @@
   .analityc-graphics__graphic {
     margin-top: 28px;
     width: 430px;
+    &_limitcolumn {
+      width: 100%;
+    }
   }
   // .analityc-widget_income .analityc-graphics__graphic, .analityc-widget_expenses .analityc-graphics__graphic {
   //
@@ -3752,6 +3772,9 @@
   .analityc-graphics__graphic {
     margin-top: 14px;
     width: 216px;
+    &_limitcolumn {
+      width: 100%;
+    }
   }
   .analityc-widget_income .analityc-graphics__graphic, .analityc-widget_expenses .analityc-graphics__graphic {
     width: 216px;

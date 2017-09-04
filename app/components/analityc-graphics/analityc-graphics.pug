@@ -1299,45 +1299,49 @@ mixin analityc-graphics-govdebt-changes()
   +b.analityc-graphics&attributes(attributes)._changes
     +e.P.periodtext
       span Плановый период
-    +e.cols
-      +e.col
-        +e.P.year 2017
-        +e.changes._neg
-          +e.abs +14,0
-          +e.percent +22,8%
-        +e.graphic._double-column
-          +e.graphic-column
-            +e.graphic-column-val 61,5
-          +e.graphic-column
-            +e.graphic-column-val 75,5
-        +e.bottom
-          p Бюджет утвержденный
-          p Бюджет с учетом изменений
-      +e.col
-        +e.SPAN.period-left
-        +e.P.year 2018
-        +e.changes._rev
-          +e.abs -10,0
-          +e.percent -3,8%
-        +e.graphic._double-column
-          +e.graphic-column
-            +e.graphic-column-val 61,5
-          +e.graphic-column
-            +e.graphic-column-val 47,1
-        +e.bottom
-          p Бюджет утвержденный
-          p Бюджет с учетом изменений
-      +e.col
-        +e.SPAN.period-right
-        +e.P.year 2019
-        +e.graphic._double-column
-          +e.graphic-column
-            +e.graphic-column-val 57,1
-          +e.graphic-column
-            +e.graphic-column-val 57,1
-        +e.bottom
-          p Бюджет утвержденный
-          p Бюджет с учетом изменений
+    +e.graphic-container
+      +slide-arrows().__slide-arrows._changes
+      +e.graphic-slider._changes
+        +e.graphic-wrapper
+          +e.cols
+            +e.col
+              +e.P.year 2017
+              +e.changes._neg
+                +e.abs +14,0
+                +e.percent +22,8%
+              +e.graphic._double-column
+                +e.graphic-column
+                  +e.graphic-column-val 61,5
+                +e.graphic-column
+                  +e.graphic-column-val 75,5
+              +e.bottom
+                p Бюджет утвержденный
+                p Бюджет с учетом изменений
+            +e.col
+              +e.SPAN.period-left
+              +e.P.year 2018
+              +e.changes._rev
+                +e.abs -10,0
+                +e.percent -3,8%
+              +e.graphic._double-column
+                +e.graphic-column
+                  +e.graphic-column-val 61,5
+                +e.graphic-column
+                  +e.graphic-column-val 47,1
+              +e.bottom
+                p Бюджет утвержденный
+                p Бюджет с учетом изменений
+            +e.col
+              +e.SPAN.period-right
+              +e.P.year 2019
+              +e.graphic._double-column
+                +e.graphic-column
+                  +e.graphic-column-val 57,1
+                +e.graphic-column
+                  +e.graphic-column-val 57,1
+              +e.bottom
+                p Бюджет утвержденный
+                p Бюджет с учетом изменений
     +b.legend.__legend
       +e.P.item._altgreen Верхний предел государственного долга, млрд руб.
 
@@ -1389,36 +1393,40 @@ mixin analityc-graphics-govdebt-date()
 
 mixin analityc-graphics-govdebt-repayment()
   +b.analityc-graphics&attributes(attributes)._repayment
-    +e.graphic._multicolumn
-      +e.graphic-column
-        +e.graphic-column-fill
-          +e.P.graphic-column-val 26,1
-      +e.graphic-column._low
-        +e.graphic-column-fill
-          +e.P.graphic-column-val 4,4
-      +e.graphic-column._zero
-        +e.graphic-column-fill
-          +e.P.graphic-column-val 0,0
-      +e.graphic-column._zero
-        +e.graphic-column-fill
-          +e.P.graphic-column-val 0,0
-      +e.graphic-column._zero
-        +e.graphic-column-fill
-          +e.P.graphic-column-val 0,0
-      +e.graphic-column
-        +e.graphic-column-fill
-          +e.P.graphic-column-val 30,0
-      +e.graphic-column._low
-        +e.graphic-column-fill
-          +e.P.graphic-column-val 1,5
-    +e.graphic-years
-      +e.P.graphic-year 2017
-      +e.P.graphic-year 2018
-      +e.P.graphic-year 2019
-      +e.P.graphic-year 2020
-      +e.P.graphic-year 2021
-      +e.P.graphic-year 2022
-      +e.P.graphic-year 2025-2034
+    +e.graphic-container
+      +slide-arrows().__slide-arrows._repayment
+      +e.graphic-slider._repayment
+        +e.graphic-wrapper._noslide
+          +e.graphic._multicolumn
+            +e.graphic-column
+              +e.graphic-column-fill
+                +e.P.graphic-column-val 26,1
+            +e.graphic-column._low
+              +e.graphic-column-fill
+                +e.P.graphic-column-val 4,4
+            +e.graphic-column._zero
+              +e.graphic-column-fill
+                +e.P.graphic-column-val 0,0
+            +e.graphic-column._zero
+              +e.graphic-column-fill
+                +e.P.graphic-column-val 0,0
+            +e.graphic-column._zero
+              +e.graphic-column-fill
+                +e.P.graphic-column-val 0,0
+            +e.graphic-column
+              +e.graphic-column-fill
+                +e.P.graphic-column-val 30,0
+            +e.graphic-column._low
+              +e.graphic-column-fill
+                +e.P.graphic-column-val 1,5
+          +e.graphic-years
+            +e.P.graphic-year 2017
+            +e.P.graphic-year 2018
+            +e.P.graphic-year 2019
+            +e.P.graphic-year 2020
+            +e.P.graphic-year 2021
+            +e.P.graphic-year 2022
+            +e.P.graphic-year 2025-2034
 
 
 //- @qluqua
