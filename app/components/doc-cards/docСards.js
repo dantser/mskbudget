@@ -24,7 +24,8 @@ export default function docCards() {
       });
       NAV.show();
     })
-  })
+  });
+
 
   TOP_BUTTON.on('click', function(e) {
     e.preventDefault();
@@ -58,7 +59,7 @@ export default function docCards() {
     const wrapperWidth = slideCnt * slideWidth;
 
     parent.find('.section-tabs__content').css('width', wrapperWidth+'px')
-  }
+  };
 
   $('.section-tabs__card[data-directory]').each(function(){
     if (!$(this).hasClass('section-tabs__card_dir')) {
@@ -67,4 +68,26 @@ export default function docCards() {
     }
   });
 
+  // добавляем три точки при переполнении заголовков
+
+  function overflowDotts(size, element) {
+    const CONTENT = $(element);
+    CONTENT.each(function () {
+      const SIZE = size;
+      const CONTENTTEXT = $(this).text();
+        if(CONTENTTEXT.length > SIZE){
+          $(this).text(CONTENTTEXT.slice(0, SIZE) + ' ...');
+        }
+    });
+  };
+
+  overflowDotts(60, '.section-tabs__title');
+  overflowDotts(400, '.section-tabs__text');
+
+
+  if ($(window).width() < 650) {
+    overflowDotts(310, '.news__title');
+  } else {
+    overflowDotts(179, '.news__title');
+  }
 }
