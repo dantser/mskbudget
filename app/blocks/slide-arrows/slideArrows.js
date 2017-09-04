@@ -7,10 +7,12 @@ export default () => {
     if ($(el).length > 0) {
       
       $(arrows).find('.slide-arrows__arrow_left').on('click', function (e) {
+        if (offset === 'sliderwidth') {offset = $(el).outerWidth();}
         $(el).animate( { scrollLeft: '-='+offset }, 300);
       });
     
       $(arrows).find('.slide-arrows__arrow_right').on('click', function (e) {
+        if (offset === 'sliderwidth') {offset = $(el).outerWidth();}
         $(el).animate( { scrollLeft: '+='+offset }, 300);
       });
       
@@ -48,9 +50,8 @@ export default () => {
   slideArrow('.analytics-gov-debt__table-wrapper', '.analytics-gov-debt__slide-arrows_table', 100);
   
   // Бюджет Москвы - Государственный долг
-  if ($('.gov-debt .analityc-graphics__graphic-slider_approved').length) {
-    var colWidth = $('.gov-debt .analityc-graphics__graphic-slider_approved').outerWidth();
-    slideArrow('.gov-debt .analityc-graphics__graphic-slider_approved', '.gov-debt .analityc-graphics__slide-arrows_approved', colWidth);
-  }
+  slideArrow('.gov-debt .analityc-graphics__graphic-slider_approved', '.gov-debt .analityc-graphics__slide-arrows_approved', 'sliderwidth');
+  slideArrow('.gov-debt .analityc-graphics__graphic-slider_changes', '.gov-debt .analityc-graphics__slide-arrows_changes', 'sliderwidth');
+  slideArrow('.gov-debt .analityc-graphics__graphic-slider_repayment', '.gov-debt .analityc-graphics__slide-arrows_repayment', 100);
   
 }
