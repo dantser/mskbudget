@@ -9,18 +9,26 @@ export default () => {
           govdebtGraphics = govdebt.find($('.gov-debt__analityc-tab_govdebt .gov-debt__analityc-graphics')),
           govdebtGraphicsApproved = govdebt.find($('.analityc-graphics_approved')),
           govdebtGraphicsChanges = govdebt.find($('.analityc-graphics_changes')),
-          govdebtGraphicsDate = govdebt.find($('.analityc-graphics_date'));
+          govdebtGraphicsDate = govdebt.find($('.analityc-graphics_date')),
+          govdebtTable = govdebt.find($('.gov-debt__analityc-tab_govdebt .analityc-table')),
+          govdebtTableApproved = govdebt.find($('.analityc-table_approved')),
+          govdebtTableChanges = govdebt.find($('.analityc-table_changes')),
+          govdebtTableDate = govdebt.find($('.analityc-table_done'));
 
       govdebtGraphics.removeClass('active');
+      govdebtTable.removeClass('active');
 
       if ($this.val() ===  "Закон о бюджете утвержденный") {
         govdebtGraphicsApproved.addClass('active');
+        govdebtTableApproved.addClass('active');
         govdebtHead(1);
       } else if ($this.val() ===  "Закон о внесении изменений") {
         govdebtGraphicsChanges.addClass('active');
+        govdebtTableChanges.addClass('active');
         govdebtHead(1);
       } else if ($this.val() ===  "Исполнение на дату") {
         govdebtGraphicsDate.addClass('active');
+        govdebtTableDate.addClass('active');
         govdebtHead(2);
       }
 
