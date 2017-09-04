@@ -1050,9 +1050,17 @@ mixin analityc-widgethead-moscow-gp(program)
         +icon('graphic', true)
       a(href="#").analityc-control-button.analityc-control-button_table
         +icon('table', true)
-    .analityc-control-switcher.analityc-control-switcher_large
-      a(href="#", data-type='gp').active Государственные программы
-      a(href="#", data-type='structure') Структура
+
+    //- в отдельной программе
+    if program
+      .analityc-control-switcher.analityc-control-switcher_sub.active
+        a(href="#", data-type='sub-gp').active Подпрограммы
+        a(href="#", data-type='expenses') Виды расходов
+    else
+      .analityc-control-switcher.analityc-control-switcher_large
+        a(href="#", data-type='gp').active Государственные программы
+        a(href="#", data-type='structure') Структура
+
     .analityc-control-group._dp
       input(placeholder="Выберите дату исполнения", value="Выберите дату исполнения", readonly="readonly").datepicker
     .analityc-control-group._dp-alt.expenses__dp
@@ -1078,14 +1086,9 @@ mixin analityc-widgethead-moscow-gp(program)
         option 2017
         option 2018
 
-    //- в отдельной программе
-    if program
-      .analityc-control-switcher.analityc-control-switcher_sub.active
-        a(href="#", data-type='sub-gp').active Подпрограммы
-        a(href="#", data-type='expenses') Виды расходов
-      .analityc-control-switcher.analityc-control-switcher_units.active
-        a(href="#").active доля от общей суммы, %
-        a(href="#") млрд руб.
+    .analityc-control-switcher.analityc-control-switcher_units.active
+      a(href="#").active доля от общей суммы, %
+      a(href="#") млрд руб.
 
 
 //- Бюджет Москвы - Социально-экономическое развитие

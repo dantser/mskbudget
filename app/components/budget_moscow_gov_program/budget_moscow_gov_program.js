@@ -18,6 +18,7 @@ export default () => {
 	const SWITCHER = $('.analityc-widget_moscow-gov-program .analityc-control-switcher_large');
 
 	const GRAPHICDONE = $('.analityc-widget-moscow-gov-program_done');
+	const GRAPHICCHANGES = $('.analityc-widget-moscow-gov-program_changes');
 	const GRAPHICEXEC = $('.analityc-widget-moscow-gov-program_exec');
 
 	const GRAPHICSTRUCTURE_DONE = $('.analityc-widget-moscow-gov-program_structure-done');
@@ -49,6 +50,41 @@ export default () => {
 				GRAPHICSTRUCTURE_EXEC.addClass('_active');
 		}
 	});
+
+	const SWITCHER_SUB = $('.analityc-widget_moscow-gov-program .analityc-control-switcher_sub');
+	const UNITS = $('.analityc-widget_moscow-gov-program .analityc-control-switcher_units');
+	const GRAPHICEXPENSES = $('.analityc-widget-moscow-gov-program_expenses');
+
+	SWITCHER_SUB.on('click', 'a', function(e) {
+		e.preventDefault();
+
+		SWITCHER_SUB.children('a').each(function(id, item) {
+			$(item).removeClass('active');
+		});
+
+		$(this).addClass('active');
+
+		if ($(this).attr('data-type') == 'sub-gp') {
+			GRAPHICEXPENSES.removeClass('_active');
+
+			if (STAGE.val() === "Закон о бюджете утвержденный")
+				GRAPHICDONE.addClass('_active');
+			else if (STAGE.val() === "Закон о внесении изменений") {
+				GRAPHICCHANGES.addClass('_active');
+				UNITS.removeClass('active');
+			}
+			else if (STAGE.val() === "Закон об исполнении")
+				GRAPHICEXEC.addClass('_active');
+			else if (STAGE.val() === "Исполнение на дату")
+				UNITS.removeClass('active');
+		}
+		if ($(this).attr('data-type') == 'expenses') {
+			$('.analityc-widget_moscow-gov-program .analityc-widget-sources').removeClass('_active');
+			GRAPHICEXPENSES.addClass('_active');
+			UNITS.addClass('active');
+		}
+	});
+
 
 	// Формирование графика Закон о бюджете утв. - гп
 	const GRAPHIC_DONE = $('.analityc-widget-moscow-gov-program_done');

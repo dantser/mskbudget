@@ -117,6 +117,20 @@
     vertical-align: middle;
   }
 
+  .analityc-control-switcher_sub,
+  .analityc-control-switcher_units {
+    position: static!important;
+  }
+
+  .analityc-control-switcher_units {
+    margin-left: 3%;
+
+    @media (max-width: 900px) {
+      margin-left: 0;
+      margin-top: 25px;
+    }
+  }
+
   .analityc-control-buttons,
   .analityc-control-switcher_large,
   .analityc-control-switcher_sub,
@@ -139,8 +153,8 @@
       padding: 0 60px!important;
     } 
 
-    @media (max-width: 450px) {
-      padding: 0 5px!important;
+    @media (max-width: 580px) {
+      padding: 0!important;
     } 
   }
 
@@ -154,7 +168,7 @@
     margin-top: 49px;
     margin-bottom: 47px;
 
-    &_done, &_structure, &_changes, &_date, &_exec {
+    &_done, &_structure, &_changes, &_date, &_exec, &_expenses {
       display: none;
       &._active {
         display: block;
@@ -173,16 +187,24 @@
         }
       }
 
+      &_done .table, 
+      &_date .table {
+        @media (max-width: 900px) {
+          min-width: 580px;
+        }
+      }
+
+      &_changes .table {
+        @media (max-width: 900px) {
+          min-width: 980px;
+        }
+      }
+
       .analityc-table__wrapper {
         overflow-x: auto;
         overflow-y: hidden;
       }
 
-      .table {
-        @media (max-width: 900px) {
-          min-width: 980px;
-        }
-      }
     }
   }
 
@@ -191,10 +213,6 @@
 
     @media (max-width: 1140px) {
       margin-top: 7px;
-    }
-
-    @media (max-width: 900px) {
-      margin-top: 52px;
     }
 
     @media (max-width: 450px) {
@@ -268,6 +286,13 @@
     @media (max-width: 580px){
       margin-bottom: 0;
     } 
+
+    .analityc-graphics__toptext {
+      @media (max-width: 580px) {
+        top: 13px;
+        right: 0;
+      }
+    }
 
     .analityc-graphics__periodtext {
       width: 69%;
@@ -397,6 +422,10 @@
         padding-bottom: 25px;
       }   
     }
+  }
+
+  .legend {
+    height: auto !important;
   }
 
   .analityc-widget__bottom {
