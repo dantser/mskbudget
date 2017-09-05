@@ -55,10 +55,14 @@
     }
     .analityc-control-group._year {
       width: 13.4%;
-      @media (max-width: 768px) {
+      
+      @media screen and (min-width: 769px) and (max-width: 1000px) {
+        width: 18%;
+      }
+      @media screen and (max-width: 768px) {
         width: 19%;
       }
-      @media (max-width: 550px) {
+      @media screen and (max-width: 550px) {
         margin-bottom: 30px;
       }
       .analityc-select {
@@ -69,8 +73,6 @@
     .analityc-control-group._stage {
       width: 67%;
       .analityc-select {
-        padding: 0 15px;
-
         @media (max-width: 550px) {
           box-sizing: border-box;
         }
@@ -102,7 +104,12 @@
       &.active {
         display: inline-block;
       }
-      @media (max-width: 768px) {
+      
+      @media screen and (min-width: 769px) and (max-width: 1000px) {
+        margin-left: 0;
+        width: 100%;
+      }
+      @media screen and (max-width: 768px) {
         width: 100%;
       }
       .analityc-select {
@@ -110,19 +117,40 @@
         width: 24%;
         margin-right: 10px;
         background-position: 92% 13px;
-        @media (max-width: 768px) {
+        
+        @media screen and (min-width: 1001px) and (max-width: 1140px) {
+          width: 25%;
+        }
+        @media screen and (min-width: 769px) and (max-width: 1000px) {
+          width: 32%;
+        }
+        @media screen and (max-width: 768px) {
           width: 28%;
         }
 
         &_year {
           width: 15%;
-          @media (max-width: 768px) {
+          
+          @media screen and (min-width: 1001px) and (max-width: 1140px) {
+            width: 17%;
+          }
+          @media screen and (min-width: 769px) and (max-width: 1000px) {
+            width: 22%;
+          }
+          @media screen and (max-width: 768px) {
             width: 17%;
           }
         }
         &_date {
           width: 12%;
-          @media (max-width: 768px) {
+          
+          @media screen and (min-width: 1001px) and (max-width: 1140px) {
+            width: 13%;
+          }
+          @media screen and (min-width: 769px) and (max-width: 1000px) {
+            width: 14%;
+          }
+          @media screen and (max-width: 768px) {
             width: 15%;
           }
         }
@@ -132,6 +160,18 @@
       margin-top: 52px;
       font-weight: 500;
       text-decoration: none;
+    }
+  }
+  
+  .analityc-widgethead .analityc-select {
+    @media screen and (min-width: 769px) and (max-width: 1140px) {
+      background: #f5f5f5 url(../images/select-ar.png) right 7px top 13px no-repeat!important;
+    }
+  }
+  
+  .analityc-control-group .analityc-select {
+    @media screen and (min-width: 451px) and (max-width: 550px) {
+      background-position: top 50% right 7px !important;
     }
   }
 
@@ -156,7 +196,7 @@
       @media screen and (max-width: 630px) {
         width: 100%;
         a {
-          padding: 0 20px;
+          padding: 0 10px;
           &:first-child {
             width: 60%;
           }
@@ -449,7 +489,7 @@
           padding: 0 50px;
         }
         @media screen and (max-width: 450px) {
-          padding: 0 20px;
+          padding: 0 15px;
         }
       }
       .analityc-graphics__changes {
@@ -468,8 +508,11 @@
           display: block;
           position: absolute;
           bottom: 100%;
+          left: 0;
+          right: 0;
+          width: 0;
+          margin: auto;
           margin-bottom: 8px;
-          left: 10px;
           border: 6px solid transparent;
           border-bottom: 17px solid #73b20f;
         }
@@ -483,10 +526,20 @@
           top: 0;
           &:after {
             top: 100%;
+            left: 0;
+            right: 0;
+            width: 0;
+            margin: auto;
             margin-top: 6px;
-            left: 10px;
             border: 6px solid transparent;
             border-top: 17px solid #73b20f;
+          }
+        }
+        
+        @media screen and (max-width: 768px) {
+          top: 30px;
+          &_rev {
+            top: 0;
           }
         }
       }
@@ -599,6 +652,11 @@
       display: block;
     }
     
+    .analityc-control-switcher {
+      margin-top: 0;
+      margin-bottom: 30px;
+    }
+    
     .section__ar {
       position: absolute;
       top: 40%;
@@ -623,6 +681,7 @@
     }
     &__wrapper {
       overflow-x: auto;
+      padding-top: 20px;
       // overflow-y: hidden;
     }
 

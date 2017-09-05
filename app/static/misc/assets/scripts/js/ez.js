@@ -1736,11 +1736,12 @@ $(document).ready(function() {
       incomeGraphicsDone.addClass('active');
       incomeHead(1);
     } else if ($this.val() === "Исполнение на дату") {
-      incomeGraphicsDateOne.addClass('active');
-      incomeHead(4);
       if ($level.val() === "Консолидированный бюджет") {
         incomeHead(5);
         incomeGraphicsDateOne.addClass('active');
+      } else {
+        incomeGraphicsDateOne.addClass('active');
+        incomeHead(4);
       }
     }
 
@@ -1879,14 +1880,25 @@ $(document).ready(function() {
 
   $(".analityc-widget_income .analityc-control-group._level select.analityc-select").on("change", function() {
     var $this = $(this);
+    var income = $(".analityc-widget_income"),
+      incomeGraphics = income.find($('.analityc-graphics')),
+      incomeTable = income.find($('.analityc-table'));
+    
     if ($('.analityc-widget_income .analityc-control-group._stage select.analityc-select').val() === "Исполнение на дату") {
       if ($this.val() === "Консолидированный бюджет") {
-        incomeHead(6);
+        if (incomeGraphics.hasClass('active')) {
+          incomeHead(5);
+        } else {
+          incomeHead(6);
+        }
       } else {
-        incomeHead(7);
+        if (incomeGraphics.hasClass('active')) {
+          incomeHead(4);
+        } else {
+          incomeHead(7);
+        }
       }
     }
-
   });
 });
 
