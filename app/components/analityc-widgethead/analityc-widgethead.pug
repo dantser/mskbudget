@@ -1236,3 +1236,64 @@ mixin analityc-widgethead-analytics-govdebt()
       .analityc-control-switcher.analityc-control-switcher_expenses.analityc-control-switcher_large.active
         a(href="#").active Темп роста к пред. периоду, млрд руб.
         a(href="#") Доля в общей суммы,%
+
+mixin analityc-widgethead-mrelations()
+  +b.analityc-widgethead&attributes(attributes)
+    .analityc-control-group-wrapper
+      .analityc-control-group._year
+        span Год
+        select.analityc-select
+          option(selected) 2017
+          option 2016
+          option 2015
+      .analityc-control-group._stage
+        span Этап
+        select.analityc-select
+          option(selected) Закон о бюджете утвержденный
+          option Закон о внесении изменений
+          option Закон об исполнении
+          option Исполнение на дату
+      .analityc-control-group._transfer
+        span Классификация
+        select.analityc-select
+          option(selected) Виды трансфертов
+          option Направления расходования
+    .analityc-control-group-wrapper
+      .analityc-control-buttons.active
+        a(href="#").analityc-control-button.analityc-control-button_graphics.active
+          +icon('graphic', true)
+        a(href="#").analityc-control-button.analityc-control-button_table
+          +icon('table', true)   
+
+      .analityc-control-group._dp
+        input(placeholder="Выберите дату исполнения", value="Выберите дату исполнения", readonly="readonly").datepicker
+      .analityc-control-group._dp-alt.expenses__dp
+        select(disabled).analityc-select.analityc-select_date.analityc-select_disabled
+          option 01
+        select.analityc-select.analityc-select_month
+          option(selected=selected) января
+          option февраля
+          option марта
+          option апреля
+          option мая
+          option июня
+          option июля
+          option августа
+          option сентября
+          option октября
+          option ноября
+          option декабря
+        select.analityc-select.analityc-select_year
+          option 2014
+          option(selected=selected) 2015
+          option 2016
+          option 2017
+          option 2018
+
+      .analityc-control-switcher.analityc-control-switcher_big
+        a(href="#").active млрд руб.
+        a(href="#") млн руб.
+
+      .analityc-control-switcher.analityc-control-switcher_large.active
+        a(href="#").active доля от общей суммы, %
+        a(href="#") млрд руб.
