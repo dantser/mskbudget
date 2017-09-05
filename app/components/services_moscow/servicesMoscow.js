@@ -3,7 +3,7 @@ import Swiper from 'swiper';
 
 export default () => {
 
-    $('.buttons-set__item').click(function() {
+    $('.services-moscow__buttons-set .buttons-set__item').click(function() {
       $('.button-light').removeClass('button-light--fill');
       $(this).find('.button-light').addClass('button-light--fill');
     })
