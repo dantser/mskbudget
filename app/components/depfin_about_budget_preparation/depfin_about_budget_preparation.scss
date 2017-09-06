@@ -711,6 +711,9 @@
   &_members {
     z-index: auto;
   }
+  .dd-holder {
+    position: relative;
+  }
 }
 
 .section-tabs__tab {
@@ -718,9 +721,14 @@
     top: 0;
     position: fixed;
     z-index: 2001;
-    overflow-y: scroll;
     height: 100%;
     width: 100%;
+    
+    .wrap {
+      height: 100%;
+      overflow-y: scroll;
+      -webkit-overflow-scrolling: touch;
+    }
   }
 }
 
@@ -1539,8 +1547,12 @@
       font-size: 38px;
     }
     .section-tabs__tab {
-      padding-top: 37px;
-      padding-bottom: 100px;
+      padding-top: 0;
+      padding-bottom: 0;
+      .wrap {
+        padding-top: 37px;
+        padding-bottom: 100px;
+      }
     }
     .section-tabs__tab-button {
       top: 27px;
@@ -1801,8 +1813,12 @@
       font-size: 18px;
     }
     .section-tabs__tab {
-      padding-top: 20px;
-      padding-bottom: 50px;
+      padding-top: 0;
+      padding-bottom: 0;
+      .wrap {
+        padding-top: 20px;
+        padding-bottom: 50px;
+      }
     }
     .section-tabs__tab-button {
       top: 19px;
