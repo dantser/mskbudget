@@ -41,7 +41,6 @@
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.01em;
-    margin-bottom: 20px;
   }
   .table {
     position: relative;
@@ -93,8 +92,6 @@
 .analityc-widget_mrelations .analityc-table_work,
 .analityc-widget_mrelations .analityc-table_domain,
 .analityc-widget-moscow-gov-program-table_done {
-  padding-top: 47px;
-  padding-bottom: 110px;
   .table__row {
     padding-right: 24%;
     font-size: 18px;
@@ -147,8 +144,6 @@
 }
 
 .analityc-table_changes {
-  padding-top: 27px;
-  padding-bottom: 94px;
   .table__row {
     font-size: 16px;
     .table__col {
@@ -196,8 +191,6 @@
 
 .analityc-table_done,
 .analityc-widget-moscow-gov-program-table_exec {
-  padding-top: 36px;
-  padding-bottom: 0;
   .table__row {
     padding-right: 54%;
     font-size: 18px;
@@ -239,8 +232,16 @@
 
 .analityc-table_date,
 .analityc-widget-moscow-gov-program-table_date {
-  padding-top: 27px;
-  padding-bottom: 10px;
+  margin-top: 50px;
+
+  @media (max-width: 1140px) and (min-width: 901px) {
+    margin-top: 20px;
+  }
+
+  @media (max-width: 580px) {
+    margin-top: 20px;
+  }
+
   .table__row {
     padding-right: 33%;
     font-size: 18px;
@@ -500,9 +501,6 @@
 }
 
 @media screen and (min-width: 761px) and (max-width: 1100px) {
-  .analityc-table_changes {
-    padding-top: 47px;
-  }
   .analityc-table_done .table__row {
     padding-right: 20%;
   }
@@ -538,13 +536,9 @@
 @media screen and (max-width: 550px) {
   .analityc-table_done {
     overflow-x: scroll;
-    padding-bottom: 50px;
   }
   .analityc-table_done .table {
     min-width: 430px;
-  }
-  .analityc-table_date {
-    padding-bottom: 50px;
   }
   .analityc-table__heading {
     font-size: 24px;

@@ -1276,8 +1276,8 @@ $(document).ready(function() {
 
     gpGraphics.removeClass('_active');
     gpTable.removeClass('_active');
-    gpGraphicsButton.addClass('_active');
-    gpTableButton.removeClass('_active');
+    gpGraphicsButton.addClass('active');
+    gpTableButton.removeClass('active');
     tablearr.hide();
 
     if ($this.val() === "Закон о бюджете утвержденный") {
