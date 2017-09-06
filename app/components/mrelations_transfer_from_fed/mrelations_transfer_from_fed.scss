@@ -52,7 +52,7 @@
 	.analityc-control-group._dp-alt,
 	.analityc-control-switcher_large,
 	.analityc-control-switcher_big {
-		display: inline-block;
+		display: none;
 		margin-left: 30px!important;
     margin-bottom: 0;
 
@@ -60,6 +60,11 @@
 			display: block!important;
 			margin-left: 0!important;
 		}
+
+    &.active {
+      display: inline-block;
+    }
+
 	}
 
 	.analityc-control-group._stage,
@@ -77,6 +82,11 @@
 	.analityc-control-switcher_large,
 	.analityc-control-switcher_big {
 		margin-top: 30px!important;
+
+		@media (max-width: 1140px) and (min-width: 901px) {
+	    margin-top: 0!important;
+		}
+
 	}
 
 	.analityc-control-group._dp,
@@ -93,6 +103,11 @@
 	}
 
 	.analityc-control-group._dp input.datepicker {
+		@media (max-width: 1140px) {
+	    height: 31px!important;
+	    line-height: 31px!important;
+		}
+
 		@media (max-width: 900px) and (min-width: 581px) {
 			height: 52px!important;
 	    line-height: 50px!important;
@@ -106,6 +121,63 @@
 			margin-top: 0!important;
 		}
 	}
+
+  .analityc-graphics, .analityc-table {
+    display: none;
+    &.active {
+      display: block;
+    }
+  }
+
+	.analityc-table {
+    &__wrapper {
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+
+
+    &_approved .table, 
+    &_work .table,
+    &_domain .table,
+    &_date .table {
+      @media (max-width: 580px) {
+        min-width: 580px;
+      }
+    }
+
+    &_changes .table {
+      @media (max-width: 900px) {
+        min-width: 980px;
+      }
+    }
+
+	}
+
+  .section__ar {
+    display: none;
+    position: absolute;
+    top: 50%;
+    z-index: 3000;
+    width: 21px;
+    height: 26px;
+
+    @media (max-width: 900px) {
+      display: inline;
+    } 
+
+    &_disabled {
+      opacity: 0;
+    }
+
+    &_left {
+      right: 101%;
+      transform: rotate(180deg);
+    }
+
+    &_right {
+      left: 101%;
+    }
+  }
 
   .swiper-container {
     overflow: visible;

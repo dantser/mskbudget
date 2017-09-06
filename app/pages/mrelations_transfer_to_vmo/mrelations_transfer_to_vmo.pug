@@ -1,8 +1,8 @@
 extends ../../layouts/default
-include ../../components/mrelations_transfer/mrelations_transfer
+include ../../components/mrelations_transfer_to_vmo/mrelations_transfer_to_vmo
 
 block head
-  - var pageTitle = 'Межбюджетные оношения'
+  - var pageTitle = 'Межбюджетные отношения'
 
 block page
   block header
@@ -12,7 +12,7 @@ block page
     +sections()
 
       block content
-        +mrelations_transfer('Межбюджетные отношения. Трансферты из федерального бюджета в бюджет г. Москвы')
+        +mrelations_transfer_to_vmo()
         +footer()
         +button-top()
         

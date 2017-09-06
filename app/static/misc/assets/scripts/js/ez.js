@@ -2172,3 +2172,195 @@ $(document).ready(function() {
     $(".analityc-widget_expenses .analityc-control-group._transfer .analityc-popup").removeClass('active');
   });
 });
+
+// переключение вкладок в Межбюджетных отношениях (mrelations_transfer)
+$(document).ready(function() {
+
+  $(".analityc-widget_mrelations .analityc-control-group._stage select.analityc-select").on("change", function() {
+    var $this = $(this);
+    var transfer = $(".analityc-widget_mrelations .analityc-control-group._transfer select.analityc-select");
+    var mrelations = $(".analityc-widget_mrelations"),
+        mrelationsGraphics = mrelations.find($('.analityc-graphics')),
+        mrelationsGraphicsApproved = mrelations.find($('.analityc-graphics_approved')),
+        mrelationsGraphicsDomain = mrelations.find($('.analityc-graphics_domain')),
+        mrelationsGraphicsChanges = mrelations.find($('.analityc-graphics_changes')),
+        mrelationsGraphicsWork = mrelations.find($('.analityc-graphics_work')),
+        mrelationsGraphicsDone = mrelations.find($('.analityc-graphics_done')),
+        mrelationsGraphicsDate = mrelations.find($('.analityc-graphics_date')),
+
+        mrelationsTable = mrelations.find($('.analityc-table')),
+        mrelationsGraphicsButton = mrelations.find($('.analityc-control-button_graphics')),
+        mrelationsTableButton = mrelations.find($('.analityc-control-button_table'));
+
+        mrelationsSwitcherBig = mrelations.find('.analityc-control-switcher_big'),
+        mrelationsSwitcherLarge = mrelations.find('.analityc-control-switcher_large'),
+
+        mrelationsDatepicker = mrelations.find('.analityc-control-group._dp'),
+
+    transfer.val('Виды трансфертов');
+    mrelationsGraphics.removeClass('active');
+    mrelationsTable.removeClass('active');
+    mrelationsGraphicsButton.addClass('active');
+    mrelationsTableButton.removeClass('active');
+    mrelationsSwitcherLarge.addClass('active');
+    mrelationsSwitcherBig.removeClass('active');
+    mrelationsDatepicker.removeClass('active');
+
+    if ($this.val() === "Закон о бюджете утвержденный") {
+      mrelationsGraphicsApproved.addClass('active');
+    } else if ($this.val() === "Закон о внесении изменений") {
+      mrelationsGraphicsChanges.addClass('active');
+    } else if ($this.val() === "Закон о бюджете (действующая редакция)") {
+      mrelationsGraphicsWork.addClass('active');
+    } else if ($this.val() === "Закон об исполнении") {
+      mrelationsGraphicsDone.addClass('active');
+    } else if ($this.val() === "Исполнение на дату") {
+      mrelationsGraphicsDate.addClass('active');
+      mrelationsDatepicker.addClass('active');
+    }
+
+  })
+
+  $(".analityc-widget_mrelations .analityc-control-button").on("click", function(e) {
+    e.preventDefault();
+    var $this = $(this);
+    var mrelations = $(".analityc-widget_mrelations"),
+        mrelationsGraphics = mrelations.find($('.analityc-graphics')),
+        mrelationsGraphicsActive = mrelations.find($('.analityc-graphics.active')),
+        mrelationsGraphicsApproved = mrelations.find($('.analityc-graphics_approved')),
+        mrelationsGraphicsDomain = mrelations.find($('.analityc-graphics_domain')),
+        mrelationsGraphicsChanges = mrelations.find($('.analityc-graphics_changes')),
+        mrelationsGraphicsWork = mrelations.find($('.analityc-graphics_work')),
+        mrelationsGraphicsDone = mrelations.find($('.analityc-graphics_done')),
+        mrelationsGraphicsDate = mrelations.find($('.analityc-graphics_date')),
+
+        mrelationsTable = mrelations.find($('.analityc-table')),
+        mrelationsTableActive = mrelations.find($('.analityc-table.active')),
+        mrelationsTableApproved = mrelations.find($('.analityc-table_approved')),
+        mrelationsTableDomain = mrelations.find($('.analityc-table_domain')),
+        mrelationsTableChanges = mrelations.find($('.analityc-table_changes')),
+        mrelationsTableWork = mrelations.find($('.analityc-table_work')),
+        mrelationsTableDone = mrelations.find($('.analityc-table_done')),
+        mrelationsTableDate = mrelations.find($('.analityc-table_date')),
+
+        mrelationsGraphicsButton = mrelations.find($('.analityc-control-button_graphics')),
+        mrelationsTableButton = mrelations.find($('.analityc-control-button_table'));
+
+        mrelationsSwitcherBig = mrelations.find('.analityc-control-switcher_big'),
+        mrelationsSwitcherLarge = mrelations.find('.analityc-control-switcher_large'),
+
+        mrelationsDatepicker = mrelations.find('.analityc-control-group._dp');
+
+    if ($this.hasClass('analityc-control-button_graphics') && !$this.hasClass('active')) {
+      $this.siblings().removeClass('active');
+      $this.addClass('active');
+
+      mrelationsSwitcherLarge.addClass('active');
+      mrelationsSwitcherBig.removeClass('active');
+
+      if (mrelationsTableActive.hasClass('analityc-table_approved')) {
+        mrelationsTable.removeClass('active');
+        mrelationsGraphicsApproved.addClass('active');
+      } else if (mrelationsTableActive.hasClass('analityc-table_domain')) {
+        mrelationsTable.removeClass('active');
+        mrelationsGraphicsDomain.addClass('active');
+      } else if (mrelationsTableActive.hasClass('analityc-table_changes')) {
+        mrelationsTable.removeClass('active');
+        mrelationsGraphicsChanges.addClass('active');
+      } else if (mrelationsTableActive.hasClass('analityc-table_work')) {
+        mrelationsTable.removeClass('active');
+        mrelationsGraphicsWork.addClass('active');
+      } else if (mrelationsTableActive.hasClass('analityc-table_done')) {
+        mrelationsTable.removeClass('active');
+        mrelationsGraphicsDone.addClass('active');
+      } else if (mrelationsTableActive.hasClass('analityc-table_date')) {
+        mrelationsTable.removeClass('active');
+        mrelationsGraphicsDate.addClass('active');
+        mrelationsDatepicker.addClass('active');
+      }
+
+    } else if ($this.hasClass('analityc-control-button_table') && !$this.hasClass('active')) {
+      $this.siblings().removeClass('active');
+      $this.addClass('active');
+
+      mrelationsSwitcherLarge.removeClass('active');
+      mrelationsSwitcherBig.addClass('active');
+
+      if (mrelationsGraphicsActive.hasClass('analityc-graphics_approved')) {
+        mrelationsGraphics.removeClass('active');
+        mrelationsTableApproved.addClass('active');
+      } else if (mrelationsGraphicsActive.hasClass('analityc-graphics_domain')) {
+        mrelationsGraphics.removeClass('active');
+        mrelationsTableDomain.addClass('active');
+      } else if (mrelationsGraphicsActive.hasClass('analityc-graphics_changes')) {
+        mrelationsGraphics.removeClass('active');
+        mrelationsTableChanges.addClass('active');
+      } else if (mrelationsGraphicsActive.hasClass('analityc-graphics_work')) {
+        mrelationsGraphics.removeClass('active');
+        mrelationsTableWork.addClass('active');
+      } else if (mrelationsGraphicsActive.hasClass('analityc-graphics_done')) {
+        mrelationsGraphics.removeClass('active');
+        mrelationsTableDone.addClass('active');
+      } else if (mrelationsGraphicsActive.hasClass('analityc-graphics_date')) {
+        mrelationsGraphics.removeClass('active');
+        mrelationsTableDate.addClass('active');
+        mrelationsDatepicker.addClass('active');
+      }
+    }
+
+  })
+
+  $(".analityc-widget_mrelations .analityc-control-group._transfer select.analityc-select").on("change", function() {
+    var $this = $(this);
+    var stage = $(".analityc-widget_mrelations .analityc-control-group._stage select.analityc-select");
+    var mrelations = $(".analityc-widget_mrelations"),
+        mrelationsGraphics = mrelations.find($('.analityc-graphics')),
+        mrelationsGraphicsApproved = mrelations.find($('.analityc-graphics_approved')),
+        mrelationsGraphicsDomain = mrelations.find($('.analityc-graphics_domain')),
+        mrelationsGraphicsChanges = mrelations.find($('.analityc-graphics_changes')),
+        mrelationsGraphicsWork = mrelations.find($('.analityc-graphics_work')),
+        mrelationsGraphicsDone = mrelations.find($('.analityc-graphics_done')),
+        mrelationsGraphicsDate = mrelations.find($('.analityc-graphics_date')),
+
+        mrelationsTable = mrelations.find($('.analityc-table')),
+
+        mrelationsGraphicsButton = mrelations.find($('.analityc-control-button_graphics')),
+        mrelationsTableButton = mrelations.find($('.analityc-control-button_table'));
+
+        mrelationsSwitcherBig = mrelations.find('.analityc-control-switcher_big'),
+        mrelationsSwitcherLarge = mrelations.find('.analityc-control-switcher_large'),
+
+        mrelationsDatepicker = mrelations.find('.analityc-control-group._dp');
+
+    mrelationsGraphics.removeClass('active');
+    mrelationsTable.removeClass('active');
+
+    mrelationsGraphicsButton.addClass('active');
+    mrelationsTableButton.removeClass('active');
+
+    mrelationsSwitcherLarge.addClass('active');
+    mrelationsSwitcherBig.removeClass('active');
+
+    mrelationsDatepicker.removeClass('active');
+
+    if ($this.val() === "Виды трансфертов") {
+      
+      if (stage.val() === "Закон о бюджете утвержденный") {
+        mrelationsGraphicsApproved.addClass('active');
+      } else if (stage.val() === "Закон о внесении изменений") {
+        mrelationsGraphicsChanges.addClass('active');
+      } else if (stage.val() === "Закон о бюджете (действующая редакция)") {
+        mrelationsGraphicsWork.addClass('active');
+      } else if (stage.val() === "Закон об исполнении") {
+        mrelationsGraphicsDone.addClass('active');
+      } else if (stage.val() === "Исполнение на дату") {
+        mrelationsGraphicsDate.addClass('active');
+        mrelationsDatepicker.addClass('active');
+      }
+
+    } else if ($this.val() === "Направления расходования") {
+      mrelationsGraphicsDomain.addClass('active');
+    }
+  })
+
+})
