@@ -18,11 +18,11 @@
   }
   &__close-button {
     position: absolute;
-    right: -8px;
+    right: calc((100% - 1180px)/2);
     top: 46px;
 
     @media screen and (max-width: 800px) {
-      position: fixed;
+      //position: fixed;
       z-index: 5;
       opacity: .7;
     }
@@ -286,7 +286,7 @@
       margin-top: 36px;
     }
     &__close-button {
-      right: -25px;
+      right: 15px;
       top: 27px;
     }
   }
@@ -322,13 +322,14 @@
     top: 0;
     position: fixed;
     z-index: 2001;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
     height: 100%;
 
     &__wrapper {
       margin: 0;
-      overflow: hidden;
+      height: 100%;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      -webkit-overflow-scrolling: touch;
     }
     &__content {
       display: table;
