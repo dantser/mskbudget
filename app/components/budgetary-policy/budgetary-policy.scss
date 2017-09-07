@@ -250,7 +250,7 @@
     margin-top: 0!important;
     margin: 0;
     position: absolute;
-    width: 30px;
+    width: 45px;
     height: 45px;
     background: #fee300 url(../images/ar-left_2.png) 50% no-repeat;
     background-size: 12px;
@@ -258,11 +258,23 @@
     z-index: 2;
   }
   .ar-left {
-    left: calc((100% - 660px)/2);
+    left: calc((100% - 1010px)/2);
+    &.three-slide {
+      left: calc((100% - 890px)/2);
+    }
+    &.ie9 {
+      left: calc((100% - 725px)/2);
+    }
   }
   .ar-right {
-    right: calc((100% - 660px)/2);
+    right: calc((100% - 1010px)/2);
     transform: rotate(180deg);
+    &.three-slide {
+      right: calc((100% - 890px)/2);
+    }
+    &.ie9 {
+      right: calc((100% - 725px)/2);
+    }
   }
 }
 
@@ -714,10 +726,10 @@
   }
   
   #carousel .ar-left {
-    left: 0;
+    left: 0 !important;
   }
   #carousel .ar-right {
-    right: 0;
+    right: 0 !important;
   }
 
   #carousel .carousel-count {
