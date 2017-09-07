@@ -16,7 +16,11 @@ mixin budget_income()
         +analityc-widgethead-income()
         +analityc-graphics-round('income1')._approved.active
         +analityc-table()._approved
-          +table-income(getData('income'))
+          +icon('angle-arrow').section__ar.section__ar_left
+          +icon('angle-arrow').section__ar.section__ar_right
+          .analityc-table__wrapper
+            +table-income(getData('income'))
+
         +analityc-graphics-column('income1')._changes
 
         +analityc-table()._changes
@@ -29,8 +33,13 @@ mixin budget_income()
         +analityc-table()._done
           +table-income(getData('income2'))
         +analityc-graphics-line('Исполнение доходов бюджета на 22.04.2017', getData('graphic-lines-income1'))._date-one
+
         +analityc-table('Исполнение доходов бюджета на 22.04.2017')._date
-          +table-income(getData('sources'))
+          +icon('angle-arrow').section__ar.section__ar_left
+          +icon('angle-arrow').section__ar.section__ar_right
+          .analityc-table__wrapper
+            +table-income(getData('sources'))
+
         +analityc-graphics-line('Исполнение доходов бюджета на 1 февраля 2017', getData('graphic-lines-income2'))._date-two
         a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
     +dropdown().load-anim-fade(data-delay="1700")
