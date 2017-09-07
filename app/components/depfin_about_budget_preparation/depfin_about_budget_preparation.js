@@ -81,6 +81,16 @@ export default function aboutBudgetPreparation() {
       $(prepTab+'[data-tab="'+filter+'"]').addClass('active');
       loadTableToMiddle();
       markCurrentMonth();
+      
+      $('.graphic-table__table-tr').removeClass('active');
+      $('.step__head').removeClass('active');
+      $('.steps-details').removeClass('active');
+      setTimeout(function() {
+        $('.steps-details').hide();
+      }, 250);
+      if ($(window).width() > 800) {
+        $('.steps').css('height', 'auto');
+      }
     });
     
     
