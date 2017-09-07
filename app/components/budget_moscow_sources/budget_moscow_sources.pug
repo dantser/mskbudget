@@ -63,7 +63,10 @@ mixin budget_moscow_sources()
               +e.SPAN.val 216,9
           
           +analityc-table('Исполнение доходов бюджета на 22.04.2017')._date
-            +table-sources(getData('sources'))
+            +icon('angle-arrow').section__ar.section__ar_left
+            +icon('angle-arrow').section__ar.section__ar_right
+            .analityc-table__wrapper
+              +table-sources(getData('sources'))
           
           .analityc-widget-sources.analityc-widget-sources_approved.active
             p.analityc-graphics__periodtext
@@ -148,7 +151,10 @@ mixin budget_moscow_sources()
                   +e.SPAN.data_green(data-char='2019') +9,7
           
           +analityc-table()._approved
-            +table-sources(getData('income'))
+            +icon('angle-arrow').section__ar.section__ar_left
+            +icon('angle-arrow').section__ar.section__ar_right
+            .analityc-table__wrapper
+              +table-sources(getData('income'))
           
           .analityc-widget-sources.analityc-widget-sources_changes
             p.analityc-graphics__periodtext
