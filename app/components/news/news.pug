@@ -28,7 +28,7 @@ mixin news()
         
         // news
         +e.card-wrapper
-          .tile
+          +news-cards().__news-cards
             .tile__item(data-filter="budget").active
               +news-card(1, 'Новости бюджета', 'Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»', '8 августа 2016', ['итоги', 'апробация', 'старшеклассники', 'тест1', 'тест2', 'тест3'])._blue._big.tile__inner
             .tile__item(data-filter="moscow").active

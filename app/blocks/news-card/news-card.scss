@@ -301,3 +301,58 @@
     }
   }
 }
+
+.news-cards {
+  .tile {
+    margin: 0 -10px!important;
+    height: auto!important;
+  }
+  .tile__item {
+    margin-bottom: 40px;
+    min-width: 344px;
+    width: 33.3333%;
+    text-align: left;
+    float: none;
+    display: inline-block;
+    vertical-align: top;
+    -webkit-transition: all .25s ease-in-out;
+    transition: all .25s ease-in-out;
+    
+    @media screen and (min-width: 761px) and (max-width: 1100px) {
+      width: 50%;
+    }
+    @media screen and (max-width: 760px) {
+      min-width: 0;
+      width: 100%;
+      max-width: 344px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  .tile__inner {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    height: 485px;
+    max-width: 100%;
+    margin: 10px;
+    width: auto!important;
+  }
+  &_dropdown {
+    padding-bottom: 56px;
+    .tile {
+      max-width: none;
+    }
+    .tile__item {
+      min-width: 0 !important;
+      width: 273px !important;
+      margin: 0 2px !important;
+    }
+    .tile__inner {
+      height: 420px;
+      margin: 5px !important;
+    }
+  }
+}
