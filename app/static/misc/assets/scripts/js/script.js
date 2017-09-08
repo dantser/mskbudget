@@ -788,8 +788,12 @@ budget.extend("whatIsBudgetWeight", {
 
                 //if (Modernizr.mobile) {
 
-                        $('.budgetScales-mainWeight._revenues, .budgetScales-supportingWeight._financingOfDeficit').on("click", function (event) {
+                        $('.budgetScales-mainWeight._revenues').on("click", function (event) {
                           $('.whatIsBudget-component:first-child .whatIsBudget-component__termin').click();
+                        });
+
+                        $('.budgetScales-supportingWeight._financingOfDeficit').on("click", function (event) {
+                          $('.whatIsBudget-component:eq(1) .whatIsBudget-component__termin').click();
                         });
 
                         this.elements.$zoneBalance.on("click", function (event) {

@@ -18,7 +18,15 @@
     padding-bottom: 0;
 
     &_head {
-      padding: 16px 0 22px 37px;
+      padding-top: 16px;
+      padding-bottom: 22px;
+      display: table;
+      width: 100%;
+
+      .gov-program__head-container-text {
+        display: table-cell;
+        width: 100%;
+      }
 
       @media (min-width: 501px) and (max-width: 700px) {
         font-size: 18px;
@@ -26,7 +34,6 @@
 
       @media (max-width: 500px) {
         font-size: 18px;
-        padding-left: 15px;
       }
 
       &::after {
@@ -212,17 +219,17 @@
     }
   }
 
-  &__icon-ball {
-    width: 54px;
-    height: 53px;
-    display: inline-block;
+  &__head-icon {
+    width: 50px;
+    height: 55px;
+    display: table-cell;
     vertical-align: middle;
-    margin-right: 25px;
+    margin-right: 30px;
 
     @media (min-width: 501px) and (max-width: 700px) {
       width: 44px;
       height: 43px;
-      margin-right: 15px;
+      margin-right: 16px;
     }
 
     @media (max-width: 500px) {
@@ -291,6 +298,11 @@
     padding: 48px 0 24px 40px;
     letter-spacing: 0.007em;
 
+    &_border_top {
+      border-top: 1px solid $color-light-gray;
+      padding-top: 24px;
+    }
+
     .gov-program__title {
       display: inline-block;
       vertical-align: middle;
@@ -306,6 +318,7 @@
         background-color: $color-white;
         letter-spacing: -0.4px;
         width: 100%;
+        margin-top: 0;
       }
     }
   }
@@ -317,7 +330,9 @@
     width: 11px;
     height: 11px;
     right: 0;
-    top: 17px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
     fill: $color-link;
     transition: all .5s ease;
 
@@ -362,14 +377,12 @@
       color: $color-link;
       font-family: $PFDinCondensedPro;
       height: inherit;
-      padding: 12px 25px 18px 0;
+      padding: 18px 25px 18px 0;
       line-height: normal;
       letter-spacing: -.092px;
 
       &::after {
         border-top-color: $color-link;
-        top: 39%;
-        margin-top: 0;
       }
 
       @media (min-width: 701px) and (max-width: 960px) {
@@ -459,7 +472,7 @@
   }
 
   .link_bottom {
-    margin: 30px 0 740px 38px;
+    margin: 30px 0 55px 40px;
     font-size: 12px;
   }
 

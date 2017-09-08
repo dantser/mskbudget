@@ -6,11 +6,15 @@ include ../../components/page-header/page-header
 include ../../blocks/table1/table1
 include ../../blocks/legend/legend
 
-mixin services_gov_program()
+mixin services_gov_program_subprogram()
   +b.SECTION.gov-program.basic-budget.main._basic.section__item
     .wrapper
       +page-header('Результаты реализации государственных программ', ['сервисы'])
       .d-si__quiz-container.load-anim-fade(data-delay="1500")
+        +e.subhead.__content-padding
+          +e.subhead-container
+            +e.I.subhead-icon.fa.fa-level-up(aria-hidden="true")
+            +e.A.subhead-title Государственная программа города Москвы «Спорт Москвы» на 2012–2018 годы
         .d-si__quiz-container_head.gov-program__content-padding
           +icon('soccer-ball').head-icon
           +e.SPAN.head-container-text 
@@ -45,25 +49,8 @@ mixin services_gov_program()
                 li.text Расширение сети объектов спорта, в том числе уникальных и специализированных, строительство и реконструкция спортивных объектов по приоритетным видам спорта.
                 li.text Развитие материально-технической базы организаций, подведомственных Москомспорту, в том числе обеспечение их доступности для лиц с ограниченными возможностями здоровья и инвалидов, совершенствование системы эксплуатации и содержания существующих объектов спорта
               +link()._dashed.js-showhide Показать все 10 задач государственной программы
-            +e.col_two
-              +e.H4.title Координатор
-              +e.IMG(src='assets/images/Gorbenko.jpg').person
-              +e.P.person-descr
-                | Заместитель Мэра Москвы в Правительстве Москвы по вопросам
-                | региональной безопасности и информационной политики
-                span Горбенко А.Н.
-              +e.H4.title Ответственный исполнитель
-              +link() Департамент физической культуры и спорта города Москвы
-              +alternative-link('Перейти на страницу государственной программы «Спорт москвы»', 'раздела «Бюджет москвы» ')
-          +e.content_two
-            +e.H4.title Подпрограммы
-            +link()
-              +icon('basketball-ball').icon-basketball-ball
-              | Массовая физкультурно-спортивная работа
-            +link()
-              +icon('football-player').icon-football-player
-              | Подготовка спортивного резерва, развитие спорта высших достижений
-          +e.content_three
+
+          +e.content_three.__content_three_border_top
             +e.H4.title Этапы реализации
             .analityc-control-group._stages
               select.analityc-select
@@ -71,10 +58,10 @@ mixin services_gov_program()
                 option Этап 2: 01.01.2012-31.12.2012
                 option Этап 3: 01.01.2012-31.12.2012
                 option Этап 4: 01.01.2012-31.12.2012
-        .dropdown.dropdown_b.dropdown_active
-          a(href="#").dropdown__btn.dropdown__btn_y.dropdown__btn_b.dropdown__btn_active Конечные результаты государственной программы
+        .dropdown.dropdown_b
+          a(href="#").dropdown__btn.dropdown__btn_y.dropdown__btn_b Конечные результаты государственной программы
             +icon('delete').icon-close
-          .dropdown__content.dropdown__content_db
+          .dropdown__content
             .table-wrapper
               +table1()
         .dropdown.dropdown_b
