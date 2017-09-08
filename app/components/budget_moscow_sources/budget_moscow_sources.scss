@@ -51,7 +51,6 @@
 
   @media screen and (max-width: 768px) and (min-width: 551px) {
     .analityc-widgethead .analityc-select {
-      background: #f5f5f5 url(../images/select-ar.png) right 13px top 13px no-repeat!important;
 
       &_disabled {
         background-color: #e5e5e5 !important;
@@ -97,6 +96,7 @@
     }
 
     @media (max-width: 700px) and (min-width: 551px) {
+      padding: 38px 40px 46px;
       margin-left: -40px;
       margin-right: -40px;
     }
@@ -113,27 +113,6 @@
 
   .analityc-select {
     line-height: 30px;
-
-    @media screen and (max-width: 760px) and (min-width: 551px) {
-      height: inherit;
-      background-size: 10px !important;
-    }
-
-
-    @media (max-width: 760px) and (min-width: 701px) {
-      option {
-        font-size: 14px;
-      }
-    }
-
-    @media screen and (max-width: 700px) {
-      font-size: 14px;
-      padding: 0 0 0 10px !important;
-
-      option {
-        font-size: 14px;
-      }
-    }
 
     @media screen and (min-width:0\0) {
       background-image: none !important;
@@ -221,11 +200,6 @@
       background: #f5f5f5 url(../images/select-ar.png) 93% 13px no-repeat;
       width: 60px;
       width: calc(100% - 12px);
-
-      @media screen and (max-width: 768px) {
-        background-position: 94% 16px;
-      }
-
 
       @media (max-width: 450px) {
         background-size: 8px !important;
@@ -322,12 +296,9 @@
     }
 
     @media screen and (max-width: 768px) {
-      margin-top: 0;
+      margin-top: 13px;
       vertical-align: baseline;
       width: 100%;
-      input {
-        background-position: 98% 39%;
-      }
     }
 
 
@@ -346,10 +317,13 @@
         color: black;
       }
       @media screen and (max-width: 768px) {
-        height: 52px !important;
+        height: 52px!important;
+        line-height: 50px!important;
+        background-position: 98% 39%;
       }
-      @media screen and (max-width: 640px) {
+      @media screen and (max-width: 580px) {
         height: 30px !important;
+        line-height: 30px !important;
       }
     }
   }
@@ -439,6 +413,10 @@
   input.datepicker {
     width: 339px;
     width: 100%;
+
+    @media (max-width: 768px) and (min-width: 551px) {
+      font-size: 20px;
+    }
   }
 
   @mixin sources-table-slider($minWidth) {
