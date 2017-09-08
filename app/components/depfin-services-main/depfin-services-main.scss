@@ -118,19 +118,42 @@
   &__stages {
     position: relative;
   }
-}
 
-.widget-card {
-  &__title h3 {
+  .widget-card__title h3 {
+    @media (max-width: 768px) {
+      max-width: 245px;
+    }
+    @media (max-width: 600px) {
+      max-width: 175px;
+    }
     @media (max-width: 580px) {
+      width: 92%;
+      max-width: 360px;
+    }
+    @media (max-width: 430px) {
       width: 85%;
+      max-width: 190px;
     }
   }
+
+  // .widget-card__arrow-open {
+  //   @media (max-width: 580px) {
+  //     right: 0;
+  //     left: auto;
+  //   }
+  // }
+
+
+@media (max-height: 610px) and (max-width: 900px) {
+  .service {
+    min-height: inherit;
+    height: inherit;
+  }
+}
+
+
   //переопределяем дефолтные стили, а то разваливаются карточки
   @media (max-height: 610px) and (max-width: 900px) {
-    .service {
-      min-height: inherit;
-    }
     .service__capt {
       font-size: 15px;
       margin-bottom: 10px;

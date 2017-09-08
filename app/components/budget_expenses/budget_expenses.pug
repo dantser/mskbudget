@@ -20,7 +20,10 @@ mixin budget_expenses()
         +analityc-graphics-round4('expenses4')._approved._kinds
 
         +analityc-table()._approved
-          +table-expenses(getData('moscow_expenses'))
+          +icon('angle-arrow').section__ar.section__ar_left
+          +icon('angle-arrow').section__ar.section__ar_right
+          .analityc-table__wrapper
+            +table-expenses(getData('moscow_expenses'))
 
         +analityc-graphics-column('expenses5', true)._changes
         +analityc-table()._changes
@@ -35,7 +38,10 @@ mixin budget_expenses()
 
         +analityc-graphics-line('Исполнение расходов бюджета на 22.04.2017', getData('graphic-lines-expenses1'))._date-one
         +analityc-table('Исполнение доходов бюджета на 22.04.2017')._date
-          +table-expenses(getData('sources'))
+          +icon('angle-arrow').section__ar.section__ar_left
+          +icon('angle-arrow').section__ar.section__ar_right
+          .analityc-table__wrapper
+            +table-expenses(getData('sources'))
 
         +analityc-graphics-line('Исполнение расходов бюджета на 01.02.2017', getData('graphic-lines-expenses1'))._date-two
         a(href="/").analityc-more Перейти в&nbsp;раздел аналитика

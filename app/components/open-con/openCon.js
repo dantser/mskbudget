@@ -2,6 +2,9 @@ import $ from 'jquery';
 
 export default () => {
   const TABLINK = $('.open-con .button-light');
+  if (!TABLINK) {
+    return
+  }
 
   TABLINK.each( function () {
     const EL = $(this);

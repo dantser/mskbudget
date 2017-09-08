@@ -171,7 +171,6 @@
     overflow:hidden;
     color:#fff;
     text-align:left;
-
 }
 .graphic-table::after,
 .graphic-table::before{
@@ -181,9 +180,6 @@
   position:absolute;
   top:0;
   z-index:2;
-
-
-
   cursor: grab;
   cursor: pointer;
 
@@ -515,6 +511,7 @@
     white-space:nowrap;
     overflow:hidden;
     text-overflow:ellipsis;
+    cursor: pointer;
 }
 .graphic-table__line-output.type_01{
     background:#71a8dc;
@@ -532,6 +529,12 @@
 .graphic-table__line-output.type_05{
     background:#666f84;
     color:rgba(255,255,255,0.4);
+}
+.graphic-table__line-output.type_06{
+    background:#26c082;
+}
+.graphic-table__line-output.type_07{
+    background:#633863;
 }
 
 .steps {
@@ -711,6 +714,9 @@
   &_members {
     z-index: auto;
   }
+  .dd-holder {
+    position: relative;
+  }
 }
 
 .section-tabs__tab {
@@ -718,9 +724,14 @@
     top: 0;
     position: fixed;
     z-index: 2001;
-    overflow-y: scroll;
     height: 100%;
     width: 100%;
+    
+    .wrap {
+      height: 100%;
+      overflow-y: scroll;
+      -webkit-overflow-scrolling: touch;
+    }
   }
 }
 
@@ -1539,8 +1550,12 @@
       font-size: 38px;
     }
     .section-tabs__tab {
-      padding-top: 37px;
-      padding-bottom: 100px;
+      padding-top: 0;
+      padding-bottom: 0;
+      .wrap {
+        padding-top: 37px;
+        padding-bottom: 100px;
+      }
     }
     .section-tabs__tab-button {
       top: 27px;
@@ -1612,7 +1627,9 @@
       margin-top: 123px;
     }
     .section-tabs__tab .wrap {
-      margin: 0 40px !important;
+      margin: 0 !important;
+      padding-left: 55px;
+      padding-right: 55px;
     }
     .btn-close-b, .btn-close-c {
       width: 76px;
@@ -1795,14 +1812,20 @@
       background: url(../images/sprite.png) no-repeat -102px -48px;
     }
     .section-tabs__tab .wrap {
-      margin: 0 20px !important;
+      margin: 0 !important;
+      padding-left: 35px;
+      padding-right: 35px;
     }
     .cols__side .title-mx {
       font-size: 18px;
     }
     .section-tabs__tab {
-      padding-top: 20px;
-      padding-bottom: 50px;
+      padding-top: 0;
+      padding-bottom: 0;
+      .wrap {
+        padding-top: 20px;
+        padding-bottom: 50px;
+      }
     }
     .section-tabs__tab-button {
       top: 19px;

@@ -52,6 +52,10 @@
   @media screen and (max-width: 768px) and (min-width: 551px) {
     .analityc-widgethead .analityc-select {
       background: #f5f5f5 url(../images/select-ar.png) right 13px top 13px no-repeat!important;
+
+      &_disabled {
+        background-color: #e5e5e5 !important;
+      }
     }
   }
   .arr-switchclass {
@@ -85,8 +89,22 @@
 
   .analityc-widget {
     margin-top: 36px;
-    padding: 22px 40px 28px 39px;
     margin-bottom: 55px;
+
+    @media (max-width: 900px) and (min-width: 761px) {
+      margin-left: -10px;
+      margin-right: -10px;
+    }
+
+    @media (max-width: 700px) and (min-width: 551px) {
+      margin-left: -40px;
+      margin-right: -40px;
+    }
+
+    @media (max-width: 580px) {
+      margin-left: -15px;
+      margin-right: -15px;
+    }
   }
 
   .analityc-control-button_graphics svg, .analityc-control-button_table svg {
@@ -119,6 +137,10 @@
 
     @media screen and (min-width:0\0) {
       background-image: none !important;
+    }
+
+    &_disabled {
+      background-color: #e5e5e5!important;
     }
   }
 
@@ -185,6 +207,13 @@
         padding: 0 40px;
       }
     }
+
+    & a {
+      @media screen and (max-width: 580px) {
+        padding: 0;
+      }
+    }
+
   }
 
   .analityc-control-group._year {
@@ -388,10 +417,6 @@
     &_disabled {
       opacity: 0;
     }
-
-    @media (max-width: 1088px) {
-      display: inline !important;
-    }
   }
 
   .analityc-widget-sources {
@@ -416,23 +441,48 @@
     width: 100%;
   }
 
+  @mixin sources-table-slider($minWidth) {
+    .table {
+      min-width: $minWidth;
+    }
+    
+    .analityc-table__wrapper {
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+
+    .section__ar {
+      display: inline!important;
+    }
+  }
+
   .analityc-table {
     display: none;
-    padding-top: 46px;
     padding-left: 9px;
     margin-bottom: 77px;
 
-    @media screen and (max-width: 1100px) {
-      box-shadow: inset -15px 0px 12px 0px rgba(255,255,255,0.83);
+    overflow-x: visible;
+    overflow-y: visible;
 
-      .table {
-        min-width: 980px;
+    & .table {
+      min-width: auto;
+    }
+
+    &_approved,
+    &_date {
+      @media screen and (max-width: 580px) {
+        @include sources-table-slider(580px);
       }
     }
 
-    &__wrapper {
-      overflow-x: auto;
-      overflow-y: hidden;
+    &_changes {
+      @media screen and (max-width: 900px) {
+        @include sources-table-slider(980px);
+      }
+    }
+
+    @media screen and (max-width: 1100px) {
+      box-shadow: inset -15px 0px 12px 0px rgba(255,255,255,0.83);
     }
   }
 

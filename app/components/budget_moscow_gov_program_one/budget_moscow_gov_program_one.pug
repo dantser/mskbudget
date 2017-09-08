@@ -1,0 +1,77 @@
+include ../page-header/page-header
+include ../../blocks/grid/grid
+include ../../blocks/table/table
+include ../analityc-widgethead/analityc-widgethead
+include ../analityc-table/analityc-table
+include ../analityc-graphics/analityc-graphics
+include ../../blocks/dropdown-block/dropdown-block
+include ../../blocks/tabs/tabs
+
+//- program - название гп
+mixin budget_moscow_gov_program_one(header)
+
+	+b.SECTION.section.main.main_basic.basic-budget.sections__item.moscow-gov-program.moscow-gov-program_one
+		.ar.ar-left
+		.ar.ar-right
+		.wrapper
+			+page-header(header, ['О бюджете', 'Бюджетная система'], false, true)
+			.article-controls
+				span
+				span
+				span
+			.analityc-widget.analityc-widget_moscow-gov-program.load-anim-fade(data-delay="1500")
+
+				+analityc-widgethead-moscow-gp(true)
+
+				// Этап Закон о бюджете утв.
+				.analityc-widget-sources.analityc-widget-moscow-gov-program_done._active
+					+analityc-graphics-round5()
+
+				.analityc-widget-sources.analityc-widget-moscow-gov-program_expenses
+					+analityc-graphics-round6()
+
+				+analityc-table().analityc-widget-moscow-gov-program-table_done
+					+icon('angle-arrow').section__ar.section__ar_left
+					+icon('angle-arrow').section__ar.section__ar_right
+					.analityc-table__wrapper
+						+table-income(getData('income'))
+
+				// Этап Закон о внесении изменений
+				.analityc-widget-sources.analityc-widget-moscow-gov-program_changes
+					+analityc-graphics-column2()
+
+				+analityc-table()._changes.analityc-widget-moscow-gov-program-table_changes
+					+icon('angle-arrow').section__ar.section__ar_left
+					+icon('angle-arrow').section__ar.section__ar_right
+					.analityc-table__wrapper
+						+table-income(getData('income1'))
+
+
+				// этап Закон об исполнении
+				.analityc-widget-sources.analityc-widget-moscow-gov-program_exec
+					+tabs
+						+tabs-tab(data-tab-group="analityc-exec", data-tab="exec1").active
+							+analityc-graphics-singleround2()._exec
+
+				+analityc-table().analityc-widget-moscow-gov-program-table_exec
+					+table-income(getData('income2'))
+
+
+				// Этап Исполнение на дату 
+				.analityc-widget-sources.analityc-widget-moscow-gov-program_date
+					+tabs
+						+tabs-tab(data-tab-group="analityc-date", data-tab="date1").active
+							+analityc-graphics-js-line(getData('graphic-js-line1')[0])
+
+				+analityc-table('Исполнение доходов бюджета на 22.04.2017').analityc-widget-moscow-gov-program-table_date
+					+icon('angle-arrow').section__ar.section__ar_left
+					+icon('angle-arrow').section__ar.section__ar_right
+					.analityc-table__wrapper
+						+table-income(getData('sources'))
+
+
+
+				.analityc-widget__bottom
+					a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
+					a(href="/").analityc-more.analityc-more_results Результаты реализации государственных программ
+		+dropdown().load-anim-fade(data-delay="1700")

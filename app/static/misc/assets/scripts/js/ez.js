@@ -419,7 +419,7 @@ budget.extend("common", {
 })
 
 $(budget.init);
-console.log(budget.init);
+//console.log(budget.init);
 
 
 
@@ -480,16 +480,68 @@ function tabsLine() {
       var prev = $(this).find('.owl-prev');
 
       if ($(this).hasClass('owl-nav_members')) {
+        
+        var navItem = $(this).parents('.section-tabs').find('.dd-holder .section-tabs__nav-item');
+        
         next.on('click', function(e) {
-          // var offset = 300;
-          var offset = $(this).parents('.section-tabs').find('.section-tabs__nav-item').outerWidth(true);
-          $(this).parents('.section-tabs').find('.dd-holder').animate({ scrollLeft: '+='+offset }, 300);
+          
+          navItem.each(function(){
+            var nawItemWidth = 0;
+            $(this).prevAll().each(function(){
+              nawItemWidth = nawItemWidth + $(this).outerWidth();
+            });
+            $(this).attr('data-offset', nawItemWidth);
+          });
+          
+          var currentHolderPosition = $(this).parents('.section-tabs').find('.dd-holder').scrollLeft();
+          var currentNavItem;
+          
+          for (var i = 0; i < navItem.length; i++) {
+            var navItemPosition = Math.floor(navItem.eq(i).position().left);
+            
+            if (navItemPosition > 0) {
+              currentNavItem = navItem.eq(i);
+              break;
+            } else if (navItemPosition == 0) {
+              currentNavItem = navItem.eq(i+1);
+              break;
+            }
+          }
+          
+          var offset = currentNavItem.data('offset');
+          $(this).parents('.section-tabs').find('.dd-holder').animate({ scrollLeft: offset }, 300);
         });
 
         prev.on('click', function(e) {
-          // var offset = 300;
-          var offset = $(this).parents('.section-tabs').find('.section-tabs__nav-item').outerWidth(true);
-          $(this).parents('.section-tabs').find('.dd-holder').animate({ scrollLeft: '-='+offset }, 300);
+          
+          navItem.each(function(){
+            var nawItemWidth = 0;
+            $(this).prevAll().each(function(){
+              nawItemWidth = nawItemWidth + $(this).outerWidth();
+            });
+            $(this).attr('data-offset', nawItemWidth);
+          });
+          
+          var currentHolderPosition = $(this).parents('.section-tabs').find('.dd-holder').scrollLeft();
+          var currentNavItem;
+          
+          for (var i = 0; i < navItem.length; i++) {
+            var navItemPosition = Math.floor(navItem.eq(i).position().left);
+            
+            if (navItemPosition > 0) {
+              currentNavItem = navItem.eq(i-1);
+              break;
+            } else if (navItemPosition == 0) {
+              currentNavItem = navItem.eq(i-1);
+              if (i-1 < 0) {
+                currentNavItem = navItem.eq(i);
+              }
+              break;
+            }
+          }
+          
+          var offset = currentNavItem.data('offset');
+          $(this).parents('.section-tabs').find('.dd-holder').animate({ scrollLeft: offset }, 300);
         });
 
       } else {
@@ -503,10 +555,6 @@ function tabsLine() {
           $(this).parents('.section-tabs').find('.dd-holder').animate({ scrollLeft: '-='+offset }, 300);
         });
       }
-
-
-
-
     });
   }
 
@@ -748,8 +796,9 @@ function sectionTabs() {
       $('[data-section-tab-for="' + $(this).data('section-tab-for') + '"]').addClass(sectionTabNavBtnActive);
       $('[data-section-tab="' + $(this).data('section-tab-for') + '"]').addClass(sectionTabActive);
       if ($(window).width() < 800) {
-        window.scroll = $(window).scrollTop();
-        $("body").css('top', -scroll + 'px').toggleClass('noscroll');
+        //window.scroll = $(window).scrollTop();
+        //$("body").css('top', -scroll + 'px').toggleClass('noscroll');
+        $('body').css('overflow', 'hidden');
       }
     }
     return false
@@ -759,8 +808,9 @@ function sectionTabs() {
     $('.section-tabs__tab--active').removeClass('section-tabs__tab--active');
     $('.section-tabs__nav-btn--active').removeClass('section-tabs__nav-btn--active');
     if ($(window).width() < 800) {
-      $("body").css('top', "0").removeClass('noscroll');
-      $(window).scrollTop(scroll);
+      //$("body").css('top', "0").removeClass('noscroll');
+      //$(window).scrollTop(scroll);
+      $('body').css('overflow', '');
     }
   });
 
@@ -774,14 +824,19 @@ function sectionTabs() {
 }
 
 function stepsDetails() {
-  $('.graphic-table__title-wrap, .step .link-more, .step__head').each(function() {
+  $('.graphic-table__title-wrap, .step .link-more, .step__head, .graphic-table__line-output').each(function() {
     $(this).click(function(e) {
       e.preventDefault();
+      var output = false;
       if ($(this).hasClass('graphic-table__title-wrap')) {
         var stepNumber = $(this).attr('data-step');
       }
       if ($(this).hasClass('link-more') || $(this).hasClass('step__head')) {
         var stepNumber = $(this).parents('.step').attr('data-step');
+      }
+      if ($(this).hasClass('graphic-table__line-output')) {
+        output = true;
+        var stepNumber = $(this).parents('.graphic-table__table-tr').find('.graphic-table__title-wrap').attr('data-step');
       }
       $('.steps').each(function() {
         var steps = $('.steps:visible'),
@@ -801,6 +856,22 @@ function stepsDetails() {
         currentStepHead.addClass('active');
         $('.steps-details__content').hide();
         currentStepDetails.show();
+        
+        if (output) {
+          setTimeout(function(){
+            if ($(window).width() > 800) {
+              var headerHeight = $('.header').outerHeight();
+              var dateBlockOffset = $('.tabs__tab.active').find(currentStepDetails).find('.steps-details__date-list').offset().top;
+              dateBlockOffset -= headerHeight+30;
+              $('html, body').animate( {scrollTop: dateBlockOffset}, 1000);
+            } else {
+              var dateBlockOffset = $('.tabs__tab.active').find(currentStepDetails).find('.steps-details__date-list-wrapper').position().top;
+              dateBlockOffset -= 110;
+              $('.tabs__tab.active .steps-details__wrapper').animate({scrollTop: dateBlockOffset}, 1000);
+            }
+          }, 700);
+        }
+        
         if ($(window).width() > 800) {
           stepsDetails.show();
           stepsDetails.css('top', offsetDiff + 'px').addClass('active');
@@ -812,8 +883,6 @@ function stepsDetails() {
           $("body").css('top', -scroll + 'px').toggleClass('noscroll');
         }
       })
-
-
     });
   })
 
@@ -1260,6 +1329,7 @@ $(document).ready(function() {
   $('.ar').hide();
   $(".analityc-widget_moscow-gov-program .analityc-control-group._stage .analityc-select").on("change", function() {
     var $this = $(this);
+    var $level = $(".analityc-widget_moscow-gov-program .analityc-control-group._level select.analityc-select");
     var sources = $('.analityc-widget_moscow-gov-program'),
       arrow = $('.ar'),
       tablearr = $('section__ar');
@@ -1275,8 +1345,8 @@ $(document).ready(function() {
 
     gpGraphics.removeClass('_active');
     gpTable.removeClass('_active');
-    gpGraphicsButton.addClass('_active');
-    gpTableButton.removeClass('_active');
+    gpGraphicsButton.addClass('active');
+    gpTableButton.removeClass('active');
     tablearr.hide();
 
     if ($this.val() === "Закон о бюджете утвержденный") {
@@ -1293,9 +1363,14 @@ $(document).ready(function() {
       arrow.show();
     } else if ($this.val() === "Исполнение на дату") {
       gpGraphicsDate.addClass('_active');
-      gpHead(3);
+      if ($level.val() === "Консолидированный бюджет") {
+        gpHead(4);
+      } else {
+        gpHead(3);
+      }
+      gpSwitcherUnits.removeClass('active');
       arrow.hide();
-    } 
+    }
 
   });
 
@@ -1303,38 +1378,65 @@ $(document).ready(function() {
     var gpButtons = $('.analityc-widget_moscow-gov-program .analityc-control-buttons'),
       gpSwitcherBig = $('.analityc-widget_moscow-gov-program .analityc-control-switcher_large'),
       gpDatepicker = $('.analityc-widget_moscow-gov-program .analityc-control-group._dp');
+      gpDatepickerAlt = $('.analityc-widget_moscow-gov-program .analityc-control-group._dp-alt');
+      gpSwitcherSub = $('.analityc-widget_moscow-gov-program .analityc-control-switcher_sub');
+      gpSwitcherUnits = $('.analityc-widget_moscow-gov-program .analityc-control-switcher_units');
+
 
     if (type === 1) {
       gpButtons.addClass('active');
       gpSwitcherBig.addClass('active');
       gpDatepicker.removeClass('active');
+      gpDatepickerAlt.removeClass('active');
+      gpSwitcherSub.addClass('active');
+      gpSwitcherUnits.addClass('active');
     } else if (type === 2) {
       gpButtons.addClass('active');
       gpSwitcherBig.removeClass('active');
       gpDatepicker.removeClass('active');
+      gpDatepickerAlt.removeClass('active');
+      gpSwitcherSub.addClass('active');
+      gpSwitcherUnits.removeClass('active');
     } else if (type === 3) {
       gpButtons.addClass('active');
       gpSwitcherBig.removeClass('active');
       gpDatepicker.addClass('active');
+      gpDatepickerAlt.removeClass('active');
+      gpSwitcherSub.removeClass('active');
+      gpSwitcherUnits.removeClass('active');
+    } else if (type === 4) {
+      gpButtons.addClass('active');
+      gpSwitcherBig.removeClass('active');
+      gpDatepicker.removeClass('active');
+      gpDatepickerAlt.addClass('active');
+      gpSwitcherSub.removeClass('active');
+      gpSwitcherUnits.removeClass('active');
     }
   }
 
   $(".analityc-widget_moscow-gov-program .analityc-control-button").on("click", function(e) {
     e.preventDefault();
     var $this = $(this);
+    var stage = $(".analityc-widget_moscow-gov-program .analityc-control-group._stage .analityc-select");
+    var switcherSub = $(".analityc-widget_moscow-gov-program .analityc-control-switcher_sub");
+    var switcherUnits = $(".analityc-widget_moscow-gov-program .analityc-control-switcher_units");
     var sources = $(".analityc-widget_moscow-gov-program"),
       arrow = $('.ar'),
       tablearr = $('.section__ar'),
       gpGraphics = sources.find($('.analityc-widget-sources')),
       gpGraphicsActive = sources.find($('.analityc-widget-sources._active')),
       gpGraphicsDate = sources.find($('.analityc-widget-moscow-gov-program_date')),
+
       gpGraphicsStructure = sources.find($('.analityc-widget-moscow-gov-program_structure')),
+      gpGraphicsStructureDone = sources.find($('.analityc-widget-moscow-gov-program_structure-done')),
+      gpGraphicsStructureExec = sources.find($('.analityc-widget-moscow-gov-program_structure-exec')),
+
       gpGraphicsChanges = sources.find($('.analityc-widget-moscow-gov-program_changes')),
       gpGraphicsDone = sources.find($('.analityc-widget-moscow-gov-program_done')),
       gpGraphicsExec = sources.find($('.analityc-widget-moscow-gov-program_exec')),
       gpTable = sources.find($('.analityc-table')),
       gpTableActive = sources.find($('.analityc-table._active')),
-      gpTableStructure = sources.find($('.analityc-widget-moscow-gov-program-table_structure')),
+
       gpTableChanges = sources.find($('.analityc-widget-moscow-gov-program-table_changes')),
       gpTableDone = sources.find($('.analityc-widget-moscow-gov-program-table_done')),
       gpTableDate = sources.find($('.analityc-widget-moscow-gov-program-table_date'));
@@ -1343,13 +1445,8 @@ $(document).ready(function() {
     if ($this.hasClass('analityc-control-button_graphics') && !$this.hasClass('active')) {
       $this.siblings().removeClass('active');
       $this.addClass('active');
-      if (gpTableActive.hasClass('analityc-widget-moscow-gov-program-table_structure')) {
-        gpTable.removeClass('_active');
-        gpGraphicsStructure.addClass('_active');
-        gpHead(1);
-        arrow.show();
-        tablearr.hide();
-      } else if (gpTableActive.hasClass('analityc-widget-moscow-gov-program-table_changes')) {
+
+      if (gpTableActive.hasClass('analityc-widget-moscow-gov-program-table_changes')) {
         gpTable.removeClass('_active');
         gpGraphicsChanges.addClass('_active');
         gpHead(2);
@@ -1373,19 +1470,43 @@ $(document).ready(function() {
         gpHead(1);
         arrow.hide();
         tablearr.hide();
+      } else if (gpTableActive.hasClass('analityc-widget-moscow-gov-program-table_structure-done')) {
+        gpTable.removeClass('_active');
+        gpGraphicsDone.addClass('_active');
+        gpHead(1);
+        arrow.hide();
+        tablearr.hide();
+      } else if (gpTableActive.hasClass('analityc-widget-moscow-gov-program-table_structure-exec')) {
+        gpTable.removeClass('_active');
+        gpGraphicsExec.addClass('_active');
+        gpHead(1);
+        arrow.hide();
+        tablearr.hide();
+      } else if (gpTableActive.hasClass('analityc-widget-moscow-gov-program-table_expenses')) {
+        gpTable.removeClass('_active');
+
+        if (stage.val() === "Закон о бюджете утвержденный")
+          gpGraphicsDone.addClass('_active');
+        else if (stage.val() === "Закон о внесении изменений")
+          gpGraphicsChanges.addClass('_active');
+        else if (stage.val() === "Закон об исполнении")
+          gpGraphicsExec.addClass('_active');
+        else if (stage.val() === "Исполнение на дату")
+         gpGraphicsDate.addClass('_active');
+
+        gpHead(1);
+        arrow.hide();
+        tablearr.hide();
+      }
+
+      if (stage.val() === "Закон о бюджете утвержденный" || stage.val() === "Закон об исполнении") {
+        switcherUnits.addClass('active');
       }
 
     } else if ($this.hasClass('analityc-control-button_table') && !$this.hasClass('active')) {
       $this.siblings().removeClass('active');
       $this.addClass('active');
-      if (gpGraphicsActive.hasClass('analityc-widget-moscow-gov-program_structure')) {
-        gpGraphics.removeClass('_active');
-        gpTableStructure.addClass('_active');
-        gpHead(1);
-        arrow.hide();
-        if ($(window).width() < 900)
-          tablearr.show();
-      } else if (gpGraphicsActive.hasClass('analityc-widget-moscow-gov-program_changes')) {
+      if (gpGraphicsActive.hasClass('analityc-widget-moscow-gov-program_changes')) {
         gpGraphics.removeClass('_active');
         gpTableChanges.addClass('_active');
         gpHead(2);
@@ -1413,10 +1534,62 @@ $(document).ready(function() {
         arrow.hide();
         if ($(window).width() < 900)
           tablearr.show();
+      } else if (gpGraphicsActive.hasClass('analityc-widget-moscow-gov-program_structure-done')) {
+        gpGraphics.removeClass('_active');
+        gpTableDone.addClass('_active');
+        gpHead(2);
+        arrow.hide();
+        if ($(window).width() < 900)
+          tablearr.show();
+      } else if (gpGraphicsActive.hasClass('analityc-widget-moscow-gov-program_structure-exec')) {
+        gpGraphics.removeClass('_active');
+        gpTableExec.addClass('_active');
+        gpHead(2);
+        arrow.hide();
+        if ($(window).width() < 900)
+          tablearr.show();
+      } else if (gpGraphicsActive.hasClass('analityc-widget-moscow-gov-program_expenses')) {
+        gpGraphics.removeClass('_active');
 
+        if (stage.val() === "Закон о бюджете утвержденный")
+          gpTableDone.addClass('_active');
+        else if (stage.val() === "Закон о внесении изменений")
+          gpTableChanges.addClass('_active');
+        else if (stage.val() === "Закон об исполнении")
+          gpTableExec.addClass('_active');
+        else if (stage.val() === "Исполнение на дату")
+          gpTableDate.addClass('_active');
+
+        gpHead(2);
+        arrow.hide();
+        if ($(window).width() < 900)
+          tablearr.show();
       }
+
+      switcherSub.removeClass('active');
+      switcherUnits.addClass('active')
     }
   });
+
+  $(".analityc-widget_moscow-gov-program .analityc-control-group._level select.analityc-select").on("change", function() {
+    var $this = $(this);
+    var stage = $(".analityc-widget_moscow-gov-program .analityc-control-group._stage .analityc-select");
+    var switcherUnits = $(".analityc-widget_moscow-gov-program .analityc-control-switcher_units");
+    var gpTableButton = $(".analityc-widget_moscow-gov-program .analityc-control-button_table");
+    if ($('.analityc-widget_moscow-gov-program .analityc-control-group._stage select.analityc-select').val() === "Исполнение на дату") {
+      if ($this.val() === "Консолидированный бюджет") {
+        gpHead(4);
+      } else {
+        gpHead(3);
+      }
+
+      if (stage.val() === "Закон о бюджете утвержденный" || stage.val() === "Закон об исполнении" || gpTableButton.hasClass('active')) {
+        switcherUnits.addClass('active');
+      }
+    }
+
+  });
+
 });
 
 // переключение вкладок в (budget_moscow_sources)
@@ -1632,11 +1805,12 @@ $(document).ready(function() {
       incomeGraphicsDone.addClass('active');
       incomeHead(1);
     } else if ($this.val() === "Исполнение на дату") {
-      incomeGraphicsDateOne.addClass('active');
-      incomeHead(4);
       if ($level.val() === "Консолидированный бюджет") {
         incomeHead(5);
         incomeGraphicsDateOne.addClass('active');
+      } else {
+        incomeGraphicsDateOne.addClass('active');
+        incomeHead(4);
       }
     }
 
@@ -1677,6 +1851,16 @@ $(document).ready(function() {
       incomeSwitcherBig.removeClass('active');
       incomeDatepicker.removeClass('active');
       incomeDatepickerAlt.addClass('active');
+    } else if (type === 6) {
+      incomeSwitcherLarge.removeClass('active');
+      incomeSwitcherBig.addClass('active');
+      incomeDatepicker.removeClass('active');
+      incomeDatepickerAlt.addClass('active');
+    } else if (type === 7) {
+      incomeSwitcherLarge.removeClass('active');
+      incomeSwitcherBig.addClass('active');
+      incomeDatepicker.addClass('active');
+      incomeDatepickerAlt.removeClass('active');
     }
   }
 
@@ -1708,7 +1892,7 @@ $(document).ready(function() {
       } else if (incomeTableActive.hasClass('analityc-table_changes')) {
         incomeTable.removeClass('active');
         incomeGraphicsChanges.addClass('active');
-        incomeHead(2);
+        incomeHead(1);
       } else if (incomeTableActive.hasClass('analityc-table_done')) {
         incomeTable.removeClass('active');
         incomeGraphicsDone.addClass('active');
@@ -1729,7 +1913,7 @@ $(document).ready(function() {
       if (incomeGraphicsActive.hasClass('analityc-graphics_approved')) {
         incomeGraphics.removeClass('active');
         incomeTableApproved.addClass('active');
-        incomeHead(1);
+        incomeHead(3);
       } else if (incomeGraphicsActive.hasClass('analityc-graphics_changes')) {
         incomeGraphics.removeClass('active');
         incomeTableChanges.addClass('active');
@@ -1737,15 +1921,15 @@ $(document).ready(function() {
       } else if (incomeGraphicsActive.hasClass('analityc-graphics_done')) {
         incomeGraphics.removeClass('active');
         incomeTableDone.addClass('active');
-        incomeHead(1);
+        incomeHead(3);
       } else if (incomeGraphicsActive.hasClass('analityc-graphics_date-one')) {
         incomeGraphics.removeClass('active');
         incomeTableDate.addClass('active');
 
         if ($level.val() === "Консолидированный бюджет") {
-          incomeHead(5);
+          incomeHead(6);
         } else {
-          incomeHead(4);
+          incomeHead(7);
         }
       }
     }
@@ -1765,14 +1949,25 @@ $(document).ready(function() {
 
   $(".analityc-widget_income .analityc-control-group._level select.analityc-select").on("change", function() {
     var $this = $(this);
+    var income = $(".analityc-widget_income"),
+      incomeGraphics = income.find($('.analityc-graphics')),
+      incomeTable = income.find($('.analityc-table'));
+    
     if ($('.analityc-widget_income .analityc-control-group._stage select.analityc-select').val() === "Исполнение на дату") {
       if ($this.val() === "Консолидированный бюджет") {
-        incomeHead(5);
+        if (incomeGraphics.hasClass('active')) {
+          incomeHead(5);
+        } else {
+          incomeHead(6);
+        }
       } else {
-        incomeHead(4);
+        if (incomeGraphics.hasClass('active')) {
+          incomeHead(4);
+        } else {
+          incomeHead(7);
+        }
       }
     }
-
   });
 });
 
@@ -1802,6 +1997,8 @@ $(document).ready(function() {
     expensesGraphicsButton.addClass('active');
     expensesTableButton.removeClass('active');
     expensesBottomTip.removeClass('active');
+    $('.analityc-control-group._dp-alt').removeClass('ml-0');
+    $('.analityc-control-group._dp').removeClass('ml-0');
 
     if ($this.val() === "Закон о бюджете утвержденный" && $classify.val() === "Целевые статьи (программный и непрограммный тип)") {
       expensesGraphicsTargeted.addClass('active');
@@ -1861,6 +2058,16 @@ $(document).ready(function() {
       expensesSwitcherBig.removeClass('active');
       expensesDatepicker.removeClass('active');
       expensesDatepickerAlt.addClass('active');
+    } else if (type === 5) {
+      expensesSwitcherLarge.removeClass('active');
+      expensesSwitcherBig.addClass('active');
+      expensesDatepicker.addClass('active');
+      expensesDatepickerAlt.removeClass('active');
+    } else if (type === 6) {
+      expensesSwitcherLarge.removeClass('active');
+      expensesSwitcherBig.addClass('active');
+      expensesDatepicker.removeClass('active');
+      expensesDatepickerAlt.addClass('active');
     }
   }
 
@@ -1888,6 +2095,8 @@ $(document).ready(function() {
     if ($this.hasClass('analityc-control-button_graphics') && !$this.hasClass('active')) {
       $this.siblings().removeClass('active');
       $this.addClass('active');
+      $('.analityc-control-group._dp-alt').removeClass('ml-0');
+      $('.analityc-control-group._dp').removeClass('ml-0');
       if (expensesTableActive.hasClass('analityc-table_approved')) {
         expensesTable.removeClass('active');
         expensesGraphicsApproved.addClass('active');
@@ -1916,6 +2125,8 @@ $(document).ready(function() {
     } else if ($this.hasClass('analityc-control-button_table') && !$this.hasClass('active')) {
       $this.siblings().removeClass('active');
       $this.addClass('active');
+      $('.analityc-control-group._dp-alt').addClass('ml-0');
+      $('.analityc-control-group._dp').addClass('ml-0');
       if (expensesGraphicsActive.hasClass('analityc-graphics_approved')) {
         expensesGraphics.removeClass('active');
         expensesTableApproved.addClass('active');
@@ -1936,9 +2147,9 @@ $(document).ready(function() {
         expensesTableDate.addClass('active');
 
         if ($level.val() === "Консолидированный бюджет") {
-          expensesHead(4);
+          expensesHead(6);
         } else {
-          expensesHead(3);
+          expensesHead(5);
         }
       }
     }
@@ -1959,10 +2170,19 @@ $(document).ready(function() {
   $(".analityc-widget_expenses .analityc-control-group._level select.analityc-select").on("change", function() {
     var $this = $(this);
     if ($('.analityc-widget_expenses .analityc-control-group._stage select.analityc-select').val() === "Исполнение на дату") {
-      if ($this.val() === "Консолидированный бюджет") {
-        expensesHead(4);
+
+      if ($('.analityc-widget_expenses .analityc-control-button_table').hasClass('active')) {
+        if ($this.val() === "Консолидированный бюджет") {
+          expensesHead(6);
+        } else {
+          expensesHead(5);
+        }
       } else {
-        expensesHead(3);
+        if ($this.val() === "Консолидированный бюджет") {
+          expensesHead(4);
+        } else {
+          expensesHead(3);
+        }
       }
     }
 
@@ -2021,3 +2241,195 @@ $(document).ready(function() {
     $(".analityc-widget_expenses .analityc-control-group._transfer .analityc-popup").removeClass('active');
   });
 });
+
+// переключение вкладок в Межбюджетных отношениях (mrelations_transfer)
+$(document).ready(function() {
+
+  $(".analityc-widget_mrelations .analityc-control-group._stage select.analityc-select").on("change", function() {
+    var $this = $(this);
+    var transfer = $(".analityc-widget_mrelations .analityc-control-group._transfer select.analityc-select");
+    var mrelations = $(".analityc-widget_mrelations"),
+        mrelationsGraphics = mrelations.find($('.analityc-graphics')),
+        mrelationsGraphicsApproved = mrelations.find($('.analityc-graphics_approved')),
+        mrelationsGraphicsDomain = mrelations.find($('.analityc-graphics_domain')),
+        mrelationsGraphicsChanges = mrelations.find($('.analityc-graphics_changes')),
+        mrelationsGraphicsWork = mrelations.find($('.analityc-graphics_work')),
+        mrelationsGraphicsDone = mrelations.find($('.analityc-graphics_done')),
+        mrelationsGraphicsDate = mrelations.find($('.analityc-graphics_date')),
+
+        mrelationsTable = mrelations.find($('.analityc-table')),
+        mrelationsGraphicsButton = mrelations.find($('.analityc-control-button_graphics')),
+        mrelationsTableButton = mrelations.find($('.analityc-control-button_table'));
+
+        mrelationsSwitcherBig = mrelations.find('.analityc-control-switcher_big'),
+        mrelationsSwitcherLarge = mrelations.find('.analityc-control-switcher_large'),
+
+        mrelationsDatepicker = mrelations.find('.analityc-control-group._dp'),
+
+    transfer.val('Виды трансфертов');
+    mrelationsGraphics.removeClass('active');
+    mrelationsTable.removeClass('active');
+    mrelationsGraphicsButton.addClass('active');
+    mrelationsTableButton.removeClass('active');
+    mrelationsSwitcherLarge.addClass('active');
+    mrelationsSwitcherBig.removeClass('active');
+    mrelationsDatepicker.removeClass('active');
+
+    if ($this.val() === "Закон о бюджете утвержденный") {
+      mrelationsGraphicsApproved.addClass('active');
+    } else if ($this.val() === "Закон о внесении изменений") {
+      mrelationsGraphicsChanges.addClass('active');
+    } else if ($this.val() === "Закон о бюджете (действующая редакция)") {
+      mrelationsGraphicsWork.addClass('active');
+    } else if ($this.val() === "Закон об исполнении") {
+      mrelationsGraphicsDone.addClass('active');
+    } else if ($this.val() === "Исполнение на дату") {
+      mrelationsGraphicsDate.addClass('active');
+      mrelationsDatepicker.addClass('active');
+    }
+
+  })
+
+  $(".analityc-widget_mrelations .analityc-control-button").on("click", function(e) {
+    e.preventDefault();
+    var $this = $(this);
+    var mrelations = $(".analityc-widget_mrelations"),
+        mrelationsGraphics = mrelations.find($('.analityc-graphics')),
+        mrelationsGraphicsActive = mrelations.find($('.analityc-graphics.active')),
+        mrelationsGraphicsApproved = mrelations.find($('.analityc-graphics_approved')),
+        mrelationsGraphicsDomain = mrelations.find($('.analityc-graphics_domain')),
+        mrelationsGraphicsChanges = mrelations.find($('.analityc-graphics_changes')),
+        mrelationsGraphicsWork = mrelations.find($('.analityc-graphics_work')),
+        mrelationsGraphicsDone = mrelations.find($('.analityc-graphics_done')),
+        mrelationsGraphicsDate = mrelations.find($('.analityc-graphics_date')),
+
+        mrelationsTable = mrelations.find($('.analityc-table')),
+        mrelationsTableActive = mrelations.find($('.analityc-table.active')),
+        mrelationsTableApproved = mrelations.find($('.analityc-table_approved')),
+        mrelationsTableDomain = mrelations.find($('.analityc-table_domain')),
+        mrelationsTableChanges = mrelations.find($('.analityc-table_changes')),
+        mrelationsTableWork = mrelations.find($('.analityc-table_work')),
+        mrelationsTableDone = mrelations.find($('.analityc-table_done')),
+        mrelationsTableDate = mrelations.find($('.analityc-table_date')),
+
+        mrelationsGraphicsButton = mrelations.find($('.analityc-control-button_graphics')),
+        mrelationsTableButton = mrelations.find($('.analityc-control-button_table'));
+
+        mrelationsSwitcherBig = mrelations.find('.analityc-control-switcher_big'),
+        mrelationsSwitcherLarge = mrelations.find('.analityc-control-switcher_large'),
+
+        mrelationsDatepicker = mrelations.find('.analityc-control-group._dp');
+
+    if ($this.hasClass('analityc-control-button_graphics') && !$this.hasClass('active')) {
+      $this.siblings().removeClass('active');
+      $this.addClass('active');
+
+      mrelationsSwitcherLarge.addClass('active');
+      mrelationsSwitcherBig.removeClass('active');
+
+      if (mrelationsTableActive.hasClass('analityc-table_approved')) {
+        mrelationsTable.removeClass('active');
+        mrelationsGraphicsApproved.addClass('active');
+      } else if (mrelationsTableActive.hasClass('analityc-table_domain')) {
+        mrelationsTable.removeClass('active');
+        mrelationsGraphicsDomain.addClass('active');
+      } else if (mrelationsTableActive.hasClass('analityc-table_changes')) {
+        mrelationsTable.removeClass('active');
+        mrelationsGraphicsChanges.addClass('active');
+      } else if (mrelationsTableActive.hasClass('analityc-table_work')) {
+        mrelationsTable.removeClass('active');
+        mrelationsGraphicsWork.addClass('active');
+      } else if (mrelationsTableActive.hasClass('analityc-table_done')) {
+        mrelationsTable.removeClass('active');
+        mrelationsGraphicsDone.addClass('active');
+      } else if (mrelationsTableActive.hasClass('analityc-table_date')) {
+        mrelationsTable.removeClass('active');
+        mrelationsGraphicsDate.addClass('active');
+        mrelationsDatepicker.addClass('active');
+      }
+
+    } else if ($this.hasClass('analityc-control-button_table') && !$this.hasClass('active')) {
+      $this.siblings().removeClass('active');
+      $this.addClass('active');
+
+      mrelationsSwitcherLarge.removeClass('active');
+      mrelationsSwitcherBig.addClass('active');
+
+      if (mrelationsGraphicsActive.hasClass('analityc-graphics_approved')) {
+        mrelationsGraphics.removeClass('active');
+        mrelationsTableApproved.addClass('active');
+      } else if (mrelationsGraphicsActive.hasClass('analityc-graphics_domain')) {
+        mrelationsGraphics.removeClass('active');
+        mrelationsTableDomain.addClass('active');
+      } else if (mrelationsGraphicsActive.hasClass('analityc-graphics_changes')) {
+        mrelationsGraphics.removeClass('active');
+        mrelationsTableChanges.addClass('active');
+      } else if (mrelationsGraphicsActive.hasClass('analityc-graphics_work')) {
+        mrelationsGraphics.removeClass('active');
+        mrelationsTableWork.addClass('active');
+      } else if (mrelationsGraphicsActive.hasClass('analityc-graphics_done')) {
+        mrelationsGraphics.removeClass('active');
+        mrelationsTableDone.addClass('active');
+      } else if (mrelationsGraphicsActive.hasClass('analityc-graphics_date')) {
+        mrelationsGraphics.removeClass('active');
+        mrelationsTableDate.addClass('active');
+        mrelationsDatepicker.addClass('active');
+      }
+    }
+
+  })
+
+  $(".analityc-widget_mrelations .analityc-control-group._transfer select.analityc-select").on("change", function() {
+    var $this = $(this);
+    var stage = $(".analityc-widget_mrelations .analityc-control-group._stage select.analityc-select");
+    var mrelations = $(".analityc-widget_mrelations"),
+        mrelationsGraphics = mrelations.find($('.analityc-graphics')),
+        mrelationsGraphicsApproved = mrelations.find($('.analityc-graphics_approved')),
+        mrelationsGraphicsDomain = mrelations.find($('.analityc-graphics_domain')),
+        mrelationsGraphicsChanges = mrelations.find($('.analityc-graphics_changes')),
+        mrelationsGraphicsWork = mrelations.find($('.analityc-graphics_work')),
+        mrelationsGraphicsDone = mrelations.find($('.analityc-graphics_done')),
+        mrelationsGraphicsDate = mrelations.find($('.analityc-graphics_date')),
+
+        mrelationsTable = mrelations.find($('.analityc-table')),
+
+        mrelationsGraphicsButton = mrelations.find($('.analityc-control-button_graphics')),
+        mrelationsTableButton = mrelations.find($('.analityc-control-button_table'));
+
+        mrelationsSwitcherBig = mrelations.find('.analityc-control-switcher_big'),
+        mrelationsSwitcherLarge = mrelations.find('.analityc-control-switcher_large'),
+
+        mrelationsDatepicker = mrelations.find('.analityc-control-group._dp');
+
+    mrelationsGraphics.removeClass('active');
+    mrelationsTable.removeClass('active');
+
+    mrelationsGraphicsButton.addClass('active');
+    mrelationsTableButton.removeClass('active');
+
+    mrelationsSwitcherLarge.addClass('active');
+    mrelationsSwitcherBig.removeClass('active');
+
+    mrelationsDatepicker.removeClass('active');
+
+    if ($this.val() === "Виды трансфертов") {
+      
+      if (stage.val() === "Закон о бюджете утвержденный") {
+        mrelationsGraphicsApproved.addClass('active');
+      } else if (stage.val() === "Закон о внесении изменений") {
+        mrelationsGraphicsChanges.addClass('active');
+      } else if (stage.val() === "Закон о бюджете (действующая редакция)") {
+        mrelationsGraphicsWork.addClass('active');
+      } else if (stage.val() === "Закон об исполнении") {
+        mrelationsGraphicsDone.addClass('active');
+      } else if (stage.val() === "Исполнение на дату") {
+        mrelationsGraphicsDate.addClass('active');
+        mrelationsDatepicker.addClass('active');
+      }
+
+    } else if ($this.val() === "Направления расходования") {
+      mrelationsGraphicsDomain.addClass('active');
+    }
+  })
+
+})

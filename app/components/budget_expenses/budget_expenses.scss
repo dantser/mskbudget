@@ -1,3 +1,7 @@
+.ml-0 {
+  margin-left: 0 !important;
+}
+
 .analityc-widget_expenses {
   padding-bottom: 50px;
 
@@ -42,31 +46,54 @@
     &_disabled {
       opacity: 0;
     }
-
-    @media (max-width: 1088px) {
-      display: inline !important;
-    }
   }
 
   .analityc-select_disabled {
     background-color: #e5e5e5!important;
   }
 
-  .analityc-table {
-    display: none;
-
-    @media screen and (max-width: 1100px) {
-      box-shadow: inset -15px 0px 12px 0px rgba(255,255,255,0.83);
-
-      .table {
-        min-width: 980px;
-      }
+  @mixin expenses-table-slider($minWidth) {
+    .table {
+      min-width: $minWidth;
     }
-
-    &__wrapper {
+    
+    .analityc-table__wrapper {
       overflow-x: auto;
       overflow-y: hidden;
     }
+
+    .section__ar {
+      display: inline!important;
+    }
+  }
+
+
+  .analityc-table {
+    overflow-x: visible;
+    overflow-y: visible;
+
+    & .table {
+      min-width: auto;
+    }
+
+    &_approved,
+    &_date {
+      @media screen and (max-width: 580px) {
+        @include expenses-table-slider(580px);
+      }
+    }
+
+    &_changes {
+      @media screen and (max-width: 900px) {
+        @include expenses-table-slider(980px);
+      }
+    }
+
+
+    @media screen and (max-width: 1100px) {
+      box-shadow: inset -15px 0px 12px 0px rgba(255,255,255,0.83);
+    }
+
   }
 
   .analityc-control-buttons {
@@ -321,7 +348,7 @@
   .analityc-widget_expenses input.datepicker {
     height: 58px;
     line-height: 58;
-    font-size: 23px;
+    font-size: 20px;
     background-position: 97% 39%;
   }
   .analityc-widget_expenses .analityc-control-group._dp:before {

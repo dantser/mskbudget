@@ -55,8 +55,15 @@
     }
     .analityc-control-group._year {
       width: 13.4%;
-      @media (max-width: 768px) {
+      
+      @media screen and (min-width: 769px) and (max-width: 1000px) {
+        width: 18%;
+      }
+      @media screen and (max-width: 768px) {
         width: 19%;
+      }
+      @media screen and (max-width: 550px) {
+        margin-bottom: 30px;
       }
       .analityc-select {
         background-position: 92% 13px;
@@ -66,9 +73,7 @@
     .analityc-control-group._stage {
       width: 67%;
       .analityc-select {
-        padding: 0 15px;
-
-        @media (max-width: 480px) {
+        @media (max-width: 550px) {
           box-sizing: border-box;
         }
       }
@@ -99,7 +104,12 @@
       &.active {
         display: inline-block;
       }
-      @media (max-width: 768px) {
+      
+      @media screen and (min-width: 769px) and (max-width: 1000px) {
+        margin-left: 0;
+        width: 100%;
+      }
+      @media screen and (max-width: 768px) {
         width: 100%;
       }
       .analityc-select {
@@ -107,19 +117,40 @@
         width: 24%;
         margin-right: 10px;
         background-position: 92% 13px;
-        @media (max-width: 768px) {
+        
+        @media screen and (min-width: 1001px) and (max-width: 1140px) {
+          width: 25%;
+        }
+        @media screen and (min-width: 769px) and (max-width: 1000px) {
+          width: 32%;
+        }
+        @media screen and (max-width: 768px) {
           width: 28%;
         }
 
         &_year {
           width: 15%;
-          @media (max-width: 768px) {
+          
+          @media screen and (min-width: 1001px) and (max-width: 1140px) {
+            width: 17%;
+          }
+          @media screen and (min-width: 769px) and (max-width: 1000px) {
+            width: 22%;
+          }
+          @media screen and (max-width: 768px) {
             width: 17%;
           }
         }
         &_date {
           width: 12%;
-          @media (max-width: 768px) {
+          
+          @media screen and (min-width: 1001px) and (max-width: 1140px) {
+            width: 13%;
+          }
+          @media screen and (min-width: 769px) and (max-width: 1000px) {
+            width: 14%;
+          }
+          @media screen and (max-width: 768px) {
             width: 15%;
           }
         }
@@ -129,6 +160,22 @@
       margin-top: 52px;
       font-weight: 500;
       text-decoration: none;
+    }
+  }
+  
+  .analityc-widgethead .analityc-select {
+    @media screen and (min-width: 769px) and (max-width: 1140px) {
+      background: #f5f5f5 url(../images/select-ar.png) right 7px top 13px no-repeat!important;
+    }
+
+    &_disabled {
+      background-color: #e5e5e5 !important;
+    } 
+  }
+  
+  .analityc-control-group .analityc-select {
+    @media screen and (min-width: 451px) and (max-width: 550px) {
+      background-position: top 50% right 7px !important;
     }
   }
 
@@ -141,10 +188,25 @@
       &.active {
         display: inline-block;
       }
-
-      @media screen and (max-width: 768px) and (min-width: 551px) {
+      
+      @media screen and (max-width: 768px) {
+        position: static;
+      }
+      @media screen and (max-width: 768px) and (min-width: 631px) {
         a {
           padding: 0 60px;
+        }
+      }
+      @media screen and (max-width: 630px) {
+        width: 100%;
+        a {
+          padding: 0 10px;
+          &:first-child {
+            width: 60%;
+          }
+          &:last-child {
+            width: 40%;
+          }
         }
       }
     }
@@ -155,6 +217,7 @@
     right: 205px;
     top: 13px;
     width: 344px;
+    z-index: 2;
     
     @media screen and (min-width: 1025px) and (max-width: 1140px) {
       right: 160px;
@@ -217,16 +280,23 @@
     position: relative;
   }
   
+  .legend {
+    height: auto!important;
+  }
+
   .analityc-graphics__graphic-slider {
     @media screen and (max-width: 768px) {
+      overflow-y: hidden;
       overflow-x: auto;
-      min-height: 372px;
     }
   }
   
   .analityc-graphics__graphic-wrapper {
     @media screen and (max-width: 768px) {
       width: 300%;
+      &_noslide {
+        width: 900px;
+      }
     }
   }
   
@@ -239,11 +309,15 @@
   .analityc-graphics__slide-arrows {
     display: none;
     position: absolute;
-    left: -30px;
-    right: -30px;
+    left: -35px;
+    right: -35px;
     top: 50%;
     @media screen and (max-width: 768px) {
       display: block;
+    }
+    @media screen and (max-width: 550px) {
+      left: -20px;
+      right: -20px;
     }
   }
   
@@ -306,9 +380,14 @@
       
       @media screen and (max-width: 768px) {
         margin-top: 50px;
+        margin-bottom: 50px;
         padding: 0;
       }
       
+      @media screen and (max-width: 580px) {
+        margin-bottom: 0;
+      }
+
       .analityc-graphics__col {
         width: 23.4%;
         margin-bottom: -16px;
@@ -319,7 +398,15 @@
         @media screen and (max-width: 768px) {
           margin-bottom: 0;
           width: 33%;
+        }
+        @media screen and (min-width: 551px) and (max-width: 768px) {
           padding: 0 110px;
+        }
+        @media screen and (min-width: 451px) and (max-width: 550px) {
+          padding: 0 50px;
+        }
+        @media screen and (max-width: 450px) {
+          padding: 0 20px;
         }
       }
       .analityc-graphics__legend {
@@ -344,8 +431,9 @@
     &.analityc-graphics_changes {
       margin-top: 102px;
       margin-bottom: 28px;
+      
       @media (max-width: 768px) {
-        margin-top: 0;
+        margin-top: 50px;
         .analityc-graphics__graphic_double-column {
           width: 250px;
         }
@@ -361,6 +449,14 @@
       .analityc-graphics__cols {
         padding: 0 65px;
         box-sizing: border-box;
+        
+        @media screen and (max-width: 768px) {
+          padding: 0;
+          border-bottom: 0;
+          &:after {
+            display: block;
+          }
+        }
       }
       .analityc-graphics__col {
         width: 25.2%;
@@ -395,6 +491,19 @@
             }
           }
         }
+        
+        @media screen and (max-width: 768px) {
+          width: 33.3333%;
+        }
+        @media screen and (min-width: 551px) and (max-width: 768px) {
+          padding: 0 110px;
+        }
+        @media screen and (min-width: 451px) and (max-width: 550px) {
+          padding: 0 50px;
+        }
+        @media screen and (max-width: 450px) {
+          padding: 0 15px;
+        }
       }
       .analityc-graphics__changes {
         position: absolute;
@@ -412,8 +521,11 @@
           display: block;
           position: absolute;
           bottom: 100%;
+          left: 0;
+          right: 0;
+          width: 0;
+          margin: auto;
           margin-bottom: 8px;
-          left: 10px;
           border: 6px solid transparent;
           border-bottom: 17px solid #73b20f;
         }
@@ -427,10 +539,20 @@
           top: 0;
           &:after {
             top: 100%;
+            left: 0;
+            right: 0;
+            width: 0;
+            margin: auto;
             margin-top: 6px;
-            left: 10px;
             border: 6px solid transparent;
             border-top: 17px solid #73b20f;
+          }
+        }
+        
+        @media screen and (max-width: 768px) {
+          top: 30px;
+          &_rev {
+            top: 0;
           }
         }
       }
@@ -452,10 +574,10 @@
         margin-bottom: 17px;
       }
       .analityc-graphics__period-left {
-        left: 5px;
+        left: 25px;
       }
       .analityc-graphics__period-right {
-        left: -70px;
+        left: -90px;
         width: 113px;
       }
       .analityc-graphics__periodtext {
@@ -463,12 +585,18 @@
         margin-right: 9.5%;
         width: 54%;
         margin-top: -36px;
+        
+        @media screen and (max-width: 1024px) {
+          right: 7%;
+          margin-right: 8.5%;
+        }
       }
       .analityc-graphics__legend {
         margin-top: 64px;
         padding: 0 65px;
         @media (max-width: 768px) {
-          margin-top: 0;
+          margin-top: 26px;
+          padding: 0;
         }
       }
       .analityc-graphics__legend .legend__item {
@@ -484,30 +612,41 @@
         margin-top: 35px;
         border-bottom: 0;
 
-        @media (max-width: 480px) {
+        @media screen and (max-width: 1020px) {
           padding-left: 0;
+        }
+        @media screen and (max-width: 768px) {
+          white-space: normal;
         }
       }
       .analityc-graphics__col {
         width: 32%;
         vertical-align: middle;
-        @media (max-width: 900px) {
-          display: block;
+        
+        @media (max-width: 1020px) {
+          width: 100%;
         }
-        @media (max-width: 700px) and  (min-width: 481px) {
+        @media (max-width: 700px) and  (min-width: 631px) {
           margin-bottom: 144px;
         }
+        @media screen and (max-width: 630px) {
+          margin-bottom: 50px;
+        }
+        
         &_wide {
           width: 62%;
 
-          @media (max-width: 900px) {
+          @media (max-width: 1020px) {
             width: 100%;
-            display: block;
           }
         }
       }
       .analityc-graphics__legend_vert {
         margin-top: 20px;
+        
+        @media screen and (max-width: 630px) {
+          height: auto;
+        }
       }
     }
     // other
@@ -525,38 +664,89 @@
     }
   }
 
-  .analityc-table {
-    .section__ar {
-      position: absolute;
-      top: 40%;
-      z-index: 2001;
-      width: 21px;
-      height: 26px;
-      padding: 5px;
-      transition: all .5s ease-in-out;
-      &_disabled {
-        opacity: 0;
+  .section__ar {
+    display: none!important;
+    position: absolute;
+    top: 50%;
+    z-index: 3000;
+    width: 21px;
+    height: 26px;
+    padding: 5px;
+
+    &_left {
+      right: 101%;
+      transform: rotate(180deg);
+
+      @media screen and (max-width: 480px) {
+        right: 98%;
       }
-      @media (max-width: 1088px) {
-        display: inline !important;
-      }
-      &_left {
-        right: 99%;
-        transform: rotate(180deg);
-      }
-      &_right {
-        left: 99%;
-      }
-    }
-    &__wrapper {
-      overflow-x: auto;
-      // overflow-y: hidden;
     }
 
-    .table {
-      @media (max-width: 1100px) {
-        min-width: 980px;
+    &_right {
+      left: 101%;
+
+      @media screen and (max-width: 480px) {
+        left: 98%;
       }
+    }
+
+    &_disabled {
+      opacity: 0;
+    }
+  }
+
+
+  @mixin debt-table-slider($minWidth) {
+    .table {
+      min-width: $minWidth;
+    }
+    
+    .analityc-table__wrapper {
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+
+    .section__ar {
+      display: inline!important;
+    }
+  }
+
+  .analityc-table {
+    display: none;
+    &.active {
+      display: block;
+    }
+    
+    overflow-x: visible;
+    overflow-y: visible;
+
+    .table {
+      min-width: auto;
+    }
+
+    &_approved {
+      @media screen and (max-width: 580px) {
+        @include debt-table-slider(580px);
+      }
+    }
+
+    &_changes {
+      @media screen and (max-width: 900px) {
+        @include debt-table-slider(980px);
+      }
+    }
+
+    .analityc-control-switcher {
+      margin-top: 0;
+      margin-bottom: 30px;
+
+      @media (max-width: 580px) {
+        margin-bottom: 0;
+      }
+    }
+    
+    &__wrapper {
+      padding-top: 20px;
     }
   }
 
@@ -608,17 +798,22 @@
     text-transform: uppercase;
     margin-top: 17px;
 
-    @media (max-width: 768px) {
-      padding-right: 60%;
+    @media screen and (max-width: 768px) {
       font-size: 26px;
     }
-
-    @media (max-width: 480px) {
+    @media screen and (min-width: 631px) and (max-width: 768px) {
+      padding-right: 60%;
+    }
+    @media screen and (max-width: 630px) {
       padding-right: 0;
     }
+    @media screen and (min-width: 481px) and (max-width: 630px) {
+      margin-top: 120px;
+    }
+    @media screen and (max-width: 480px) {
+      margin-top: 20px;
+    }
   }
-
-
 
   &__analityc-tab {
     display: none;
@@ -671,7 +866,7 @@
       }
     }
 
-    @media (max-width: 320px) {
+    @media (max-width: 480px) {
       .gov-debt__rating-table-value, .gov-debt__rating-table-item {
         font-size: 12px;
       }

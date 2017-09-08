@@ -46,7 +46,12 @@
   .analityc-select {
     @media (max-width: 450px) {
       padding-left: 7px!important;
-    }    
+    }   
+
+    &_disabled {
+      background-color: #e5e5e5 !important;
+    } 
+    
   }
 
   .analityc-control-button+.analityc-control-button {
@@ -86,6 +91,10 @@
     margin-left: 29px;
     margin-top: 33px;
   
+    @media (max-width: 1140px) and (min-width: 901px) {
+      margin-top: 0;
+    }  
+
     @media (max-width: 900px) {
       width: 100%;
     }  
@@ -95,6 +104,12 @@
     }
 
     input.datepicker {
+
+      @media (max-width: 1140px) {
+        height: 31px;
+        line-height: 31px;
+      }  
+
       @media (max-width: 900px) {
         padding: 0 13px;
         font-size: 20px;
@@ -111,11 +126,45 @@
     }
   }
 
+  .analityc-control-group._dp-alt {
+    margin-top: 30px;
+    margin-left: 29px;
+    margin-bottom: 0;
+    vertical-align: middle;
+
+    @media (max-width: 1140px) and (min-width: 901px) {
+      margin-top: 0;
+    }  
+
+    @media (max-width: 900px) {
+      width: 100%;
+    }  
+
+    .analityc-select {
+      margin-top: 0;
+    }
+  }
+
+  .analityc-control-switcher_sub,
+  .analityc-control-switcher_units {
+    position: static!important;
+  }
+
+  .analityc-control-switcher_units {
+    margin-left: 3%;
+
+    @media (max-width: 900px) {
+      margin-left: 0;
+      margin-top: 25px;
+    }
+  }
+
   .analityc-control-buttons,
   .analityc-control-switcher_large,
   .analityc-control-switcher_sub,
   .analityc-control-switcher_units,
-  .analityc-control-group._dp {
+  .analityc-control-group._dp,
+  .analityc-control-group._dp-alt {
     display: none;
     &.active {
       display: inline-block !important;
@@ -132,8 +181,8 @@
       padding: 0 60px!important;
     } 
 
-    @media (max-width: 450px) {
-      padding: 0 5px!important;
+    @media (max-width: 580px) {
+      padding: 0!important;
     } 
   }
 
@@ -147,11 +196,15 @@
     margin-top: 49px;
     margin-bottom: 47px;
 
-    &_done, &_structure, &_changes, &_date, &_exec {
+    &_done, &_structure, &_changes, &_date, &_exec, &_expenses {
       display: none;
       &._active {
         display: block;
       }
+    }
+
+    &_structure-exec .tabs__tab.active {
+      display: block !important;
     }
 /*start*/
     &-table {
@@ -162,16 +215,24 @@
         }
       }
 
+      &_done .table, 
+      &_date .table {
+        @media (max-width: 900px) {
+          min-width: 580px;
+        }
+      }
+
+      &_changes .table {
+        @media (max-width: 900px) {
+          min-width: 980px;
+        }
+      }
+
       .analityc-table__wrapper {
         overflow-x: auto;
         overflow-y: hidden;
       }
 
-      .table {
-        @media (max-width: 900px) {
-          min-width: 980px;
-        }
-      }
     }
   }
 
@@ -182,26 +243,10 @@
       margin-top: 7px;
     }
 
-    @media (max-width: 900px) {
-      margin-top: 52px;
-    }
-
     @media (max-width: 450px) {
       margin-top: 26px;
     }
 
-  }
-
-  .analityc-table {
-    margin-top: 64px;
-
-    @media (max-width: 1140px) {
-      margin-top: 7px;
-    }
-
-    @media (max-width: 900px) {
-      margin-top: 0;
-    }
   }
 
   .analityc-widget-moscow-gov-program {
@@ -257,6 +302,13 @@
     @media (max-width: 580px){
       margin-bottom: 0;
     } 
+
+    .analityc-graphics__toptext {
+      @media (max-width: 580px) {
+        top: 13px;
+        right: 0;
+      }
+    }
 
     .analityc-graphics__periodtext {
       width: 69%;
@@ -386,6 +438,10 @@
         padding-bottom: 25px;
       }   
     }
+  }
+
+  .legend {
+    height: auto !important;
   }
 
   .analityc-widget__bottom {

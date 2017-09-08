@@ -81,6 +81,16 @@ export default function aboutBudgetPreparation() {
       $(prepTab+'[data-tab="'+filter+'"]').addClass('active');
       loadTableToMiddle();
       markCurrentMonth();
+      
+      $('.graphic-table__table-tr').removeClass('active');
+      $('.step__head').removeClass('active');
+      $('.steps-details').removeClass('active');
+      setTimeout(function() {
+        $('.steps-details').hide();
+      }, 250);
+      if ($(window).width() > 800) {
+        $('.steps').css('height', 'auto');
+      }
     });
     
     
@@ -155,7 +165,21 @@ export default function aboutBudgetPreparation() {
       var targetMember = $('[data-target-for = '+target+']');
       var targetMemberIndex = targetMember.parents('.owl-item').index();
       targetMember.click();
-      $('.owl-carousel.sections').trigger('to.owl.carousel', targetMemberIndex);
+      var navItem = targetMember.parents('.section-tabs').find('.dd-holder .section-tabs__nav-item');
+      var activeNavItem = targetMember.parent();
+
+      navItem.each(function(){
+        var nawItemWidth = 0;
+        $(this).prevAll().each(function(){
+          nawItemWidth = nawItemWidth + $(this).outerWidth();
+        });
+        $(this).attr('data-offset', nawItemWidth);
+      });
+      
+      var offset = Math.floor(activeNavItem.data('offset'));
+      targetMember.parents('.section-tabs').find('.dd-holder').animate({ scrollLeft: offset }, 300);
+      
+      //$('.owl-carousel.sections').trigger('to.owl.carousel', targetMemberIndex);
     });
   }
 }

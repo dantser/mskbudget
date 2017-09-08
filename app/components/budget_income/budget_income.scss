@@ -73,22 +73,42 @@
     &_disabled {
       opacity: 0;
     }
+  }
 
-    @media (max-width: 1088px) {
-      display: inline !important;
+  @mixin income-table-slider($minWidth) {
+    .table {
+      min-width: $minWidth;
+    }
+    
+    .analityc-table__wrapper {
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+
+    .section__ar {
+      display: inline!important;
     }
   }
 
   .analityc-table {
-    @media screen and (max-width: 1100px) {
-      &_changes .table {
-        min-width: 980px;
+    overflow-x: visible;
+    overflow-y: visible;
+
+    & .table {
+      min-width: auto;
+    }
+
+    &_approved,
+    &_date {
+      @media screen and (max-width: 580px) {
+        @include income-table-slider(580px);
       }
     }
 
-    &__wrapper {
-      overflow-x: auto;
-      overflow-y: hidden;
+    &_changes {
+      @media screen and (max-width: 900px) {
+        @include income-table-slider(980px);
+      }
     }
   }
 
@@ -146,6 +166,12 @@
         margin-left: 0!important;
      }
 
+  }
+
+  .analityc-control-switcher_large a {
+    @media (max-width: 900px) and (min-width: 581px) {
+      padding: 0 55px;
+    }
   }
 
   .analityc-control-switcher_default,
