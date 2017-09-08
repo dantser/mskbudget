@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 export default function docCards() {
-  const DIR = $('.section-tabs__card_dir').parents('.tile__item');
+  const DIR = $('.section-tabs__content .documents-cards__directory').parents('.tile__item');
   const TOP_BUTTON = $('.js-button-top');
   const NAV = $('.section-tabs__navigation');
   const FAVOR = $('.section-tabs__is-added');
@@ -12,15 +12,14 @@ export default function docCards() {
     EL.on('click', (e) => {
       e.preventDefault();
       // EL.parent().siblings().removeClass(ACTIVE_CLASS);
-      const DIRNAME = $(this).find('.section-tabs__card').data('directory');
-      const DIRNAMETEXT = $(this).find('.section-tabs__title').text();
+      const DIRNAME = $(this).find('.documents-cards__directory').data('directory');
+      const DIRNAMETEXT = $(this).find('.directory__title').text();
       $('.section-tabs__current-dir').text(DIRNAMETEXT);
       $('.tile__item').addClass('hidden');
-      $('.section-tabs__card[data-directory="'+DIRNAME+'"]').each(function(){
-        if (!$(this).hasClass('section-tabs__card_dir')) {
-          $(this).parents('.tile__item').removeClass('hidden');
-          slider('.section-tabs_documents');
-        }
+      console.log(DIRNAME);
+      $('.documents-cards__document[data-directory="'+DIRNAME+'"]').each(function(){
+        $(this).parents('.tile__item').removeClass('hidden');
+        slider('.section-tabs_documents');
       });
       NAV.show();
     })
@@ -31,11 +30,9 @@ export default function docCards() {
     e.preventDefault();
     NAV.hide();
     $('.tile__item').removeClass('hidden');
-    $('.section-tabs__card[data-directory]').each(function(){
-      if (!$(this).hasClass('section-tabs__card_dir')) {
-        $(this).parents('.tile__item').addClass('hidden');
-        slider('.section-tabs_documents');
-      }
+    $('.documents-cards__document[data-directory]').each(function(){
+      $(this).parents('.tile__item').addClass('hidden');
+      slider('.section-tabs_documents');
     });
   })
 
