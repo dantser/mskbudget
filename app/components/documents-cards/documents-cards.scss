@@ -1,41 +1,121 @@
 .documents-cards {
   display: block;
   margin: -5px -5px 0;
-
-  .tile__inner {
-    margin: 5px;
-
-    @media (max-width: 700px) {
-      margin: 5px !important;
-    }
-  }
-
-  .tile__item {
-    margin-bottom: 10px;
-    width: 277px;
-
-    @media (max-width: 1180px) {
-      width: 33.333%;
-      max-width: 277px;
-    }
-
-    @media (max-width: 900px) {
-      width: 50% !important;
-      max-width: none !important;
-    }
-
-    @media (max-width: 700px) {
-      margin: 0 0 10px !important;
-    }
-
-    @media (max-width: 600px) {
-      width: 100% !important;
-    }
-  }
-
+  font-size: 0;
+  font-family: $PFDinCondensedPro;
+  font-weight: 400;
+  
   .tile {
-    @media (max-width: 1180px) {
-      margin: 0 !important;
+    height: auto;
+    margin: 0 !important;
+  }
+  .tile__item {
+    width: 273px !important;
+    height: 380px !important;
+    margin: 0 0 14px !important;
+  }
+  
+  &__document {
+    margin: 5px;
+  }
+  
+  &__directory {
+    width: 100%;
+    margin: 5px;
+  }
+  
+  &_page {
+    margin: 0 -7px;
+    height: 380px;
+    overflow: hidden;
+  }
+  
+  &_dropdown {
+    padding-bottom: 56px;
+    .tile {
+      max-width: none;
     }
+    .tile__item {
+      margin: 0 1px !important;
+    }
+  }
+}
+
+.document {
+  &__is-added {
+    position: relative;
+    float: right;
+    height: 39px;
+    width: 40px;
+    border-left: 1px solid #e4e8eb;
+    transition: .5s;
+    cursor: pointer;
+    &:hover {
+      background: #fee300;
+    }
+  }
+  &__favor {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.directory {
+  position: relative;
+  padding: 20px 20px 70px;
+  cursor: pointer;
+  &__tit-wrap {
+    margin-top: 18px;
+    position: relative;
+    z-index: 3;
+  }
+  &__title {
+    color: #0d46a1;
+    font-size: 22px;
+    line-height: 26px;
+    text-decoration: none;
+    border-bottom: 1px solid #cfdaec;
+    font-weight: 500;
+  }
+  &__bg-t, &__bg-r {
+    display: block;
+    position: absolute;
+    left: 0;
+    background: #fff;
+    z-index: 2;
+  }
+  &__bg-t {
+    top: 0;
+    height: 100%;
+    right: 150px;
+    background-color: #fee300;
+  }
+  &__bg-r {
+    bottom: 0;
+    width: 100%;
+    top: 28px;
+    background-color: #fee300;
+  }
+  &__bg-tt {
+    background-color: #fff;
+    position: absolute;
+    width: 96%;
+    height: 97%;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+  }
+  &__corner {
+    position: absolute;
+    top: 0;
+    display: inline-block;
+    right: 111px;
+    border-bottom: 28px solid #fee300;
+    border-right: 39px solid transparent;
+    z-index: 2;
   }
 }
