@@ -82,23 +82,23 @@
 
   .tile__item {
     width: 25%;
-    height: 400px;
+    //height: 400px;
     display: block;
     width: calc(100%/4);
-    padding: 0 5px;
+    //padding: 0 5px;
     margin-bottom: 14px;
 
     @media (max-width: 1140px) {
       width: 33.333%;
       width: calc(100%/3);
-      padding: 0 10px;
+      //padding: 0 10px;
       margin-bottom: 37px;
     }
 
     @media (max-width: 900px) {
       width: 50%;
       width: calc(100%/2);
-      padding: 0 10px;
+      //padding: 0 10px;
       margin: 0 auto;
       margin-bottom: 28px;
     }
@@ -111,7 +111,7 @@
 
   }
   .tile__inner {
-    width: 100%;
+    //width: 100%;
     margin: 0;
   }
 
@@ -119,22 +119,22 @@
     position: relative;
   }
 
-  .widget-card__title h3 {
-    @media (max-width: 768px) {
-      max-width: 245px;
-    }
-    @media (max-width: 600px) {
-      max-width: 175px;
-    }
-    @media (max-width: 580px) {
-      width: 92%;
-      max-width: 360px;
-    }
-    @media (max-width: 430px) {
-      width: 85%;
-      max-width: 190px;
-    }
-  }
+  //.widget-card__title h3 {
+  //  @media (max-width: 768px) {
+  //    max-width: 245px;
+  //  }
+  //  @media (max-width: 600px) {
+  //    max-width: 175px;
+  //  }
+  //  @media (max-width: 580px) {
+  //    width: 92%;
+  //    max-width: 360px;
+  //  }
+  //  @media (max-width: 430px) {
+  //    width: 85%;
+  //    max-width: 190px;
+  //  }
+  //}
 
   // .widget-card__arrow-open {
   //   @media (max-width: 580px) {
@@ -211,7 +211,41 @@
         }
       }
     }
+  }
+}
 
-
+.services-cards {
+  margin: 20px -5px 0;
+  .tile {
+    height: auto;
+    margin: 0 !important;
+  }
+  .tile__item {
+    width: 273px !important;
+    margin: 0 0 14px !important;
+  }
+  .tile__inner {
+    margin: 5px !important;
+    height: 420px !important;
+    width: 263px !important;
+  }
+  .widget-card {
+    height: 100%;
+  }
+  &_dropdown {
+    padding-bottom: 56px;
+    .tile {
+      max-width: none;
+    }
+    .tile__item {
+      margin: 0 2px !important;
+    }
+  }
+  &_main {
+    .tile__inner {
+      @media screen and (max-width: 580px) {
+        height: auto !important;
+      }
+    }
   }
 }

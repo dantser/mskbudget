@@ -7,6 +7,16 @@ include ../../blocks/search-form/search-form
 include ../../blocks/range/range
 include ../../blocks/arrow-button/arrow-button
 
+mixin services-cards()
+	+b.services-cards&attributes(attributes)
+		.tile
+			block
+            
+mixin services-cards-sortable()
+	+b.services-cards&attributes(attributes)
+		.tile.sortable
+			block
+
 mixin widget-card-edu
 	.tile__item.ui-state-default&attributes(attributes)
 		.tile__inner
@@ -654,24 +664,25 @@ mixin depfin-services-main()
 			+e.P.description.load-anim-fade(data-delay="1500")
 				+e.B Сервисы
 				| &nbsp;— это интерактивные инструменты изучения информации на бюджетную тематику. Заходя в любой из сервисов, Вы сможете в простой и понятной форме изучить информацию в различных срезах.
-			.tile.load-anim-fade(data-delay="1500")
+			//.tile.load-anim-fade(data-delay="1500")
 				.sortable
-					+widget-card-gov-programs()
-					+widget-card-invest-program()
-					+widget-card-gov-debt()
-					+widget-card-gov-debt-alt()
-					+widget-card-cities()
-					+widget-card-gov-programs-result()
-					+widget-card-polls()
-					+widget-card-polls-pers()
-					+widget-card-municipalities()
-					+widget-card-social-support()
-					+widget-card-calc()
-					+widget-card-calc-pers()
-					+widget-card-quiz()
-					+widget-card-quiz-pers()
-					+widget-card-edu()
-					+widget-card-edu-pers()
-					+widget-card-regions()
-					+widget-card-budget-web()
-					+widget-card-projects()
+			+services-cards-sortable()(data-delay="1500")._main
+				+widget-card-gov-programs()
+				+widget-card-invest-program()
+				+widget-card-gov-debt()
+				+widget-card-gov-debt-alt()
+				+widget-card-cities()
+				+widget-card-gov-programs-result()
+				+widget-card-polls()
+				+widget-card-polls-pers()
+				+widget-card-municipalities()
+				+widget-card-social-support()
+				+widget-card-calc()
+				+widget-card-calc-pers()
+				+widget-card-quiz()
+				+widget-card-quiz-pers()
+				+widget-card-edu()
+				+widget-card-edu-pers()
+				+widget-card-regions()
+				+widget-card-budget-web()
+				+widget-card-projects()
