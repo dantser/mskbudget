@@ -15,7 +15,7 @@ $(document).ready(function() {
 	letter('#letters-slider');
 
 	var activeLetter = "а",
-	    activeLetters = $('letter__line-item_active').length;
+	    activeLetters = visibleLettersCountGlobal; //$(document).find('.letter__line-item_active').length;
 
 	// Определяем активную букву
 	$('.letter__slider').scroll(function(e){
@@ -43,7 +43,7 @@ $(document).ready(function() {
 				$(this).parents('.letter__line-item').addClass('letter__line-item_active').addClass('letter__line-item_current');
 
 				for (var i = 1; i < activeLetters; i++) {
-        	$(this).parents('.letter__line').find('.letter__line-item_active:last').next().addClass('letter__line-item_active');
+        	$(this).parents('.letter__line').find('.letter__line-item_active').next().addClass('letter__line-item_active');
     		}
 
 				return false;
@@ -51,8 +51,8 @@ $(document).ready(function() {
 		});
 	}
 
-	$(".js-drag-scroll-element").scrollEnd(function(){
+	$(".letter__slider").scroll(function(){
     selectLetter();
-	}, 0);
+	});
 
 });

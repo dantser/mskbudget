@@ -20,10 +20,10 @@ export default function () {
   // Показать еще (для страницы документов)
   $('.documents-page .more__a').on('click', function (e) {
     e.preventDefault();
-    $('.documents-page .documents-card_page').animate({
-      height: $('.documents-page .documents-card_page').find('.tile').height()
+    $('.documents-page .documents-cards').animate({
+      height: $('.documents-page .documents-cards').find('.tile').height()
     }, 1000, function(){
-      $('.documents-page .documents-card_page').height('auto');
+      $('.documents-page .documents-cards').height('auto');
     });
   });
 
