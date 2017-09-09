@@ -12,6 +12,7 @@ export default () => {
     const $tooltip = $this.find('.range-ui__tooltip');
     const data = $.parseJSON($slider.attr('data-slider'));
     const optimal = parseFloat(data.optimal);
+    const changeTo = parseFloat(data.changeTo) || optimal; // сдвинуть бегунок
     const min = parseFloat(data.min);
     const max = parseFloat(data.max);
     const step = parseFloat(data.step);
@@ -76,6 +77,9 @@ export default () => {
         setValue(event, ui);
       },
     });
+
+    // сдвинуть бегунок
+    $slider.slider('value', changeTo);
 
     $refresh.on('click', e => {
       e.preventDefault();
