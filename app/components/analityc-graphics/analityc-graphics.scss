@@ -2881,7 +2881,7 @@
         }
 
         .svg-wrap {
-          transform: scale(-1, 1)  rotate(-40deg);
+          /*transform: scale(-1, 1)  rotate(-40deg);*/
 
           .svg {
             display: inline;
@@ -2895,7 +2895,8 @@
 
         &__val {
           position: absolute;
-          z-index: 1;
+          z-index: 1; 
+          transform: translateX(-50%) translateY(-50%);
           @media (max-width: 900px) {
             font-size: 23px!important;
           }
@@ -2937,7 +2938,9 @@
 
         &__value-num {
           font-size: 36px;
-
+          display: table-cell;
+          vertical-align: middle;
+          
           @media (max-width: 900px){
             font-size: 60px!important;
             padding-top: 7px;

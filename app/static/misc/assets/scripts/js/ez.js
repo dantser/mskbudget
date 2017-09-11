@@ -1379,6 +1379,7 @@ $(document).ready(function() {
       arrow.hide();
     }
 
+    positionValues();
   });
 
   function gpHead(type) {
@@ -1845,6 +1846,7 @@ $(document).ready(function() {
       }
     }
 
+    positionValues();
   });
 
   function incomeHead(type) {
@@ -2062,6 +2064,8 @@ $(document).ready(function() {
         expensesGraphicsDateOne.addClass('active');
       }
     }
+
+    positionValues();
   });
 
   function expensesHead(type) {
@@ -2253,6 +2257,7 @@ $(document).ready(function() {
       }
     }
 
+    positionValues();
   });
 });
 
