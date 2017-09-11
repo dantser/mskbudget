@@ -116,6 +116,7 @@
   vertical-align: middle;
   border: 1px solid #0d46a1;
   border-radius: 2px;
+  font-family: $PFDinCondensedPro;
 
   a {
     display: inline-block;
@@ -150,22 +151,23 @@
 .analityc-control-button {
   display: inline-block;
   vertical-align: middle;
-  transition: all .25s ease-in-out;
 
   & + & {
     margin-left: 10px;
   }
 
+  svg { transition: fill .3s ease; }
+
   &_graphics, &_table {
 
-    & svg {
+    svg {
       width: 30px;
       height: 30px;
       fill: $color-link;
     }
 
     &:hover, &.active {
-      & svg {
+      svg {
         fill: #d8d8d8;
       }
     }

@@ -121,7 +121,7 @@
       padding: 0 10px;
     }
   }
-  
+
   &__head {
     @include block-justify;
     margin-bottom: 97px;
@@ -146,7 +146,7 @@
   &__columns {
     @include block-justify;
     border-bottom: 1px solid #dcdcdc;
-    
+
     @media screen and (max-width: 768px) {
       border-bottom: 0;
     }
@@ -271,6 +271,7 @@
         width: 100%;
         height: 100%;
         bottom: 0;
+        font-family: $PFDinCondensedPro;
 
         @media (max-height: 610px) and (max-width: 900px) {
           width: 140px;
@@ -296,10 +297,16 @@
         &__val {
           position: absolute;
           color: $color-white;
-          
+          transform: translateX(-50%) translateY(-50%);
+
+          &_dark {
+            color: $color-black;
+          }
+
           &_overval {
             color: $color-black;
             border-bottom: 1px solid #000;
+            transform: none;
             &:after {
               content: '';
               display: inline-block;
@@ -317,7 +324,7 @@
               }
             }
           }
-          
+
           @media (max-width: 900px) {
             font-size: 11px;
           }
@@ -345,7 +352,7 @@
         &__val2 {
           top: -29px;
           right: 24px;
-          
+
           &.segment-diagram__val_overval {
             top: -80px;
             right: -11px;
@@ -354,7 +361,7 @@
               transform: skewY(-65deg);
             }
           }
-          
+
           @media (max-width: 1024px) {
             right: 16px;
           }
@@ -379,7 +386,7 @@
               transform: skewY(61deg);
             }
           }
-          
+
           @media (max-width: 1024px) {
             right: 16px;
           }
@@ -412,7 +419,7 @@
         &__val5 {
           bottom: -67px;
           left: 46px;
-          
+
           &.segment-diagram__val_overval {
             bottom: -92px;
             left: 0;
@@ -421,7 +428,7 @@
               transform: skewY(-47deg);
             }
           }
-          
+
           @media (max-width: 1024px) {
             left: 42px;
           }
@@ -453,6 +460,8 @@
 
         &__value-num {
           font-size: 36px;
+          display: table-cell;
+          vertical-align: middle;
 
           @media (max-width: 900px){
             font-size: 26px;
@@ -766,7 +775,7 @@
         background-image: linear-gradient(to top, #041397 0%, #ff0036 100%);
       }
     }
-    
+
     &_limitcolumn {
       margin-top: 0;
       height: 105px;
@@ -794,14 +803,16 @@
       width: 33%;
       padding-left: 34px;
       position: relative;
-      height: 1.2em;
-      line-height: 1;
+      line-height: 1.2em;
       text-align: left;
+      height: auto;
+      padding-bottom: 3px;
+      padding-top: 2px;
 
       &:before {
         position: absolute;
         left: 0;
-        top: -4px;
+        top: -1px;
       }
     }
 
@@ -1141,7 +1152,7 @@
         display: none;
       }
     }
-    
+
     @media screen and (max-width: 1020px) {
       margin: auto;
     }
@@ -1161,12 +1172,12 @@
     position: absolute;
     width: 150px;
     height: 150px;
-    
+
     @media (max-width: 630px) {
       position: static;
       margin: auto;
     }
-    
+
     .segment-diagram {
       width: 100%;
       height: 100%;
@@ -1202,7 +1213,7 @@
       top: 0;
       bottom: 0;
       margin: auto;
-      
+
       @media screen and (max-width: 768px) {
         width: 220px;
         height: 220px;
@@ -1248,7 +1259,7 @@
     &_right-top {
       right: 60px;
       top: 70px;
-      
+
       @media screen and (max-width: 768px) {
         right: 30px;
         top: 60px;
@@ -1263,7 +1274,7 @@
         margin: 0 auto;
         margin-bottom: 50px;
       }
-      
+
       .segment-diagram {
         &__value-num {
           font-size: 26px;
@@ -1298,7 +1309,7 @@
     &_right-bottom {
       right: 60px;
       bottom: 70px;
-      
+
       @media screen and (max-width: 768px) {
         right: 30px;
       }
@@ -1306,7 +1317,7 @@
         display: inline-block;
         vertical-align: middle;
       }
-      
+
       .segment-diagram {
         &__value-num {
           padding-top: 6px;
@@ -1497,7 +1508,7 @@
   padding: 0 70px;
 
   @media(max-width: 1140px) {
-    padding: 0; 
+    padding: 0;
   }
 
   &__top {
@@ -1517,7 +1528,7 @@
 
   &__captions {
     font-family: $PFDinTextPro;
-    width: 16.5%; 
+    width: 16.5%;
 
     @media(max-width: 900px) {
       width: 25%;
@@ -2861,7 +2872,7 @@
 
         @media (max-height: 581px) and (max-width: 900px) {
           width: 460px!important;
-          height: 460px!important; 
+          height: 460px!important;
         }
 
         @media (max-width: 580px) {
@@ -2920,7 +2931,7 @@
           }
           @media (max-width: 580px) {
             top: 99px!important;
-            right: 56px!important;  
+            right: 56px!important;
           }
         }
 
@@ -3872,6 +3883,8 @@
   }
   .analityc-graphics__year {
     font-size: 16px;
+    font-family: $PFDinCondensedPro;
+    font-weight: 500;
   }
   .analityc-graphics_column .analityc-graphics__year {
     font-size: 23px;
