@@ -14,12 +14,46 @@ export default () => {
     e.stopPropagation();
     $(this).toggleClass('widget-card__pin_active');
     $(this).parents('.tile__item').toggleClass('tile__item_pinned');
-
-    if ( !$(this).parents('.tile__item').hasClass('tile__item_pinned') ) {
-      var block = $(this).parents('.tile__item');
-      $(this).parents('.sortable').find('.tile__item.tile__item_pinned').last().after(block);
+    
+    if ($(this).parents('.wrapper_main')) {
+      
+      var activeItem = $(this).parents('.tile__item'),
+          slider = $(this).parents('.slider'),
+          slide = slider.find('.slick-slide'),
+          firstSlide = slide.eq(1),
+          lastPinnedItem = slider.find('.tile__item_pinned').last();
+      
+      if ( !$(this).parents('.tile__item').hasClass('tile__item_pinned') ) {
+        
+        var currentSlide = lastPinnedItem.parents('.slick-slide').index();
+        activeItem.insertAfter(lastPinnedItem);
+        slide.each(function(){
+          if (!$(this).hasClass('slick-cloned') && $(this).index() <= currentSlide && $(this).index() !== 1) {
+            $(this).find('.tile__item').first().appendTo($(this).prev().find('.tile'));
+          }
+        });
+        
+      } else {
+        
+        var currentSlide = $(this).parents('.slick-slide').index();
+        activeItem.prependTo(firstSlide.find('.tile'));
+        slide.each(function(){
+          if (!$(this).hasClass('slick-cloned') && $(this).index() < currentSlide) {
+            $(this).find('.tile__item').last().prependTo($(this).next().find('.tile'));
+          }
+        });
+        
+      }
+      
     } else {
-      $(this).parents('.tile__item').prependTo( $(this).parents('.sortable') );
+      
+      if ( !$(this).parents('.tile__item').hasClass('tile__item_pinned') ) {
+        var block = $(this).parents('.tile__item');
+        $(this).parents('.sortable').find('.tile__item.tile__item_pinned').last().after(block);
+      } else {
+        $(this).parents('.tile__item').prependTo( $(this).parents('.sortable') );
+      }
+      
     }
   });
 
