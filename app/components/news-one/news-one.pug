@@ -6,7 +6,7 @@ include ../../blocks/news-card/news-card
 
 mixin news-one()
   +b.SECTION.news-one.sections__item&attributes(attributes)
-    .wrapper.page-content-wrapper
+    .wrap
       +e.header
         // page-header
         +page-header('Новости', ['Медиацентр'], true)
@@ -21,7 +21,7 @@ mixin news-one()
               SPAN.form__date-range-icon
           INPUT(type='submit', value='Искать').form__submit
     
-    .wrapper.page-content-wrapper.page-content-wrapper_wide
+    .wrap
       +e.content.load-anim-fade(data-delay="1500")
         +e.H2.heading Расходы на ремонт домов престарелых и интернатов увеличились в 10 раз
         +e.P.date 06.10.2016
@@ -103,7 +103,7 @@ mixin news-one()
             span.d-sr__social_txt Поделиться новостью:
             +social('facebook-box', 'vk', 'tw', 'odnokl', 'printer').__social.d-si-content__social
     
-    .wrapper.page-content-wrapper
+    .wrap
       +e.read-also
         +e.H2.heading._white.load-anim-fade(data-delay="1500") Читайте также
         +e.card-wrapper.load-anim-fade(data-delay="1500")
