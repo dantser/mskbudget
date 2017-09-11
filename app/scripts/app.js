@@ -63,6 +63,7 @@ import budgetForecast from '../components/budget-forecast/budgetForecast';
 import servicesMoscow from '../components/services_moscow/servicesMoscow';
 import bluedropdown from '../blocks/blue-dropdown/blue-dropdown';
 import documentsCards from '../components/documents-cards/documentsCards';
+import tablesActive from '../blocks/table1/table1';
 
 $(() => {
 
@@ -139,4 +140,5 @@ $(() => {
   servicesMoscow();
   bluedropdown();
   documentsCards();
+  tablesActive();
 });

@@ -1238,6 +1238,25 @@ mixin analityc-widgethead-analytics-govdebt()
         a(href="#") Доля в общей суммы,%
 
 //- type - boolean, если задан, то панель в режиме Трансферы в ВМО
+mixin analityc-widgethead-gov-realisation(type)
+  +b.analityc-widgethead&attributes(attributes)
+  
+    .analityc-control-group-wrapper
+      .analityc-control-buttons.active
+        a(href="#", data-select-switcher='switcher1').analityc-control-button.analityc-control-button_graphics
+          +icon('graphic', true)
+          
+        a(href="#", data-select-switcher='switcher2').analityc-control-button.analityc-control-button_table.active
+          +icon('table', true)   
+
+      .analityc-control-switcher.analityc-control-switcher_large(data-switcher='switcher1')
+        a(href="#").active доля от общей суммы, %
+        a(href="#") млрд руб.
+        
+      .analityc-control-switcher.analityc-control-switcher_big.active(data-switcher='switcher2')
+        a(href="#").active млрд руб.
+        a(href="#") млн руб.
+
 mixin analityc-widgethead-mrelations(type)
   +b.analityc-widgethead&attributes(attributes)
     .analityc-control-group-wrapper

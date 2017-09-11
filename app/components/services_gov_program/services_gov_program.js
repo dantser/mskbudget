@@ -1,36 +1,32 @@
 import $ from 'jquery';
 
 export default () => {
-  const SLIDE_TEXT = $('.gov-program__tasks .text:nth-child(n+3)');
-  const SHOWHIDE = $('.js-showhide');
   const DROPDOWN = $('.dropdown');
   const DROPDOWN_C = '.dropdown';
   const DROPDOWN_BTN = $('.dropdown__btn');
-
-
-  if (!SHOWHIDE || !SLIDE_TEXT) {
-    return;
+  
+  if (DROPDOWN.length > 0) {
+    DROPDOWN_BTN.each( function() { // eslint-disable-line
+      const EL = $(this);
+      const DROPDOWN_ACTIVE_CLASS = 'dropdown_active';
+  
+      EL.on('click', (e) => {
+        e.preventDefault();
+        EL.parent().siblings(DROPDOWN_C).removeClass(DROPDOWN_ACTIVE_CLASS);
+        EL.parent(DROPDOWN_C).toggleClass(DROPDOWN_ACTIVE_CLASS);
+      });
+    });
   }
 
-  DROPDOWN_BTN.each( function() { // eslint-disable-line
-    const EL = $(this);
-    const DROPDOWN_ACTIVE_CLASS = 'dropdown_active';
+  $(document).on('click', '.gov-program .js-govprogram-showhide', function(e) {
+    e.preventDefault();
 
-    EL.on('click', (e) => {
-      e.preventDefault();
-      EL.parent().siblings(DROPDOWN_C).removeClass(DROPDOWN_ACTIVE_CLASS);
-      EL.parent(DROPDOWN_C).toggleClass(DROPDOWN_ACTIVE_CLASS);
-    });
-  });
-
-  SHOWHIDE.each( function () { // eslint-disable-line
-    const EL = $(this);
-    const SHORTEXTCLASS = 'gov-program__tasks_short';
-    EL.on('click', (e) => {
-      e.preventDefault();
-      SLIDE_TEXT.slideToggle();
-      const ELTEXT = EL.text();
-      EL.text(ELTEXT === 'Показать все 10 задач государственной программы' ? 'Скрыть задачи' : 'Показать все 10 задач государственной программы');
-    });
+    if ( !$(this).hasClass('is-active') ) {
+      $(this).addClass('is-active').prev('.gov-program__list').find('li:hidden').slideDown('321').addClass('is-active');
+      $(this).attr('data-text', $(this).text() ).text('Скрыть задачи');
+    } else {
+      $(this).removeClass('is-active').prev('.gov-program__list').find('li.is-active').slideUp('321').removeClass('is-active');
+      $(this).text( $(this).data('text') );
+    }
   });
 }

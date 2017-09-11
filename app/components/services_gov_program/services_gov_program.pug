@@ -5,113 +5,155 @@ include ../../blocks/button/button
 include ../../components/page-header/page-header
 include ../../blocks/table1/table1
 include ../../blocks/legend/legend
+include ../doc-cards/doc-cards
+include ../analityc-widgethead/analityc-widgethead
+include ../analityc-graphics/analityc-graphics
+include ../analityc-table/analityc-table
 
-mixin services_gov_program()
-  +b.SECTION.gov-program.basic-budget.main._basic.section__item
-    .wrapper
+
+
+mixin gov_program-structure()
+  +b.SECTION.gov-program.basic-budget.main._basic.section__item&attributes(attributes)
+    .wrap
       +page-header('Результаты реализации государственных программ', ['сервисы'])
-      .d-si__quiz-container.load-anim-fade(data-delay="1500")
-        .d-si__quiz-container_head.gov-program__content-padding
-          +icon('soccer-ball').head-icon
-          +e.SPAN.head-container-text 
-            | Государственная программа города Москвы&nbsp;
-            br
-            | «Спорт Москвы» на 2012-2018 годы
-        .d-si__quiz-container_body
-          +e.head
-            +e.H4.title Описание программы
-            +e.P.description
-              | Государственная программа города Москвы «Спорт Москвы» на 2012-2018 года
-              | является комплексом мероприятий, направленных на создание и обеспечение современной
-              | и доступной спортивной инфраструктуры, популяризацию спортивного образа жизни и
-              | привлечение жителей города Москвы к регулярным занятиям спортом, а также воспитание
-              | и подготовка спортивного резерва и развитие спорта высших достижений 
-          +e.content_one
-            +e.col_one
-              +e.H4.title Цели
-              +e.OL.objectives
-                li.text Увеличение числа жителей города Москвы, занимающихся физической культурой и спортом
-                li.text Достижение московскими спортсменами наивысших спортивных результатов
-              +e.H4.title Задачи
-              +e.OL.tasks
-                li.text Обеспечение жителей города Москвы возможностями для удовлетворения потребностей в занятиях физической культурой и спортом и участия в физкультурных, спортивных и массовых спортивно-зрелищных мероприятиях
-                li.text Популяризация физической культуры и спорта среди жителей города Москвы всех возрастных групп, в том числе лиц с ограниченными возможностями здоровья и инвалидов.
-                li.text Совершенствование системы физического воспитания детей и молодежи.
-                li.text Модернизация системы подготовки специалистов в области физической культуры и спорта.
-                li.text Совершенствование взаимодействия физкультурно-спортивных организаций города Москвы с органами исполнительной власти города Москвы и органами местного самоуправления внутригородских муниципальных образований в городе Москве по привлечению жителей города Москвы к регулярным занятиям физической культурой и спортом.
-                li.text Развитие спорта высших достижений, в том числе повышение результативности выступления московских спортсменов в составе сборных команд Российской Федерации на Олимпийских играх, Паралимпийских играх и Сурдлимпийских играх, Всемирной универсиаде, чемпионатах и кубках мира, чемпионатах и кубках Европы, официальных значимых физкультурных, спортивных и массовых спортивно-зрелищных мероприятиях.
-                li.text Приоритетное развитие видов спорта, входящих в программы Олимпийских игр, Паралимпийских игр и Сурдлимпийских игр.
-                li.text Совершенствование системы подготовки московских спортсменов высокого класса, осуществление научно-методического, медико-биологического, антидопингового и информационно-технологического обеспечения подготовки спортивного резерва
-                li.text Расширение сети объектов спорта, в том числе уникальных и специализированных, строительство и реконструкция спортивных объектов по приоритетным видам спорта.
-                li.text Развитие материально-технической базы организаций, подведомственных Москомспорту, в том числе обеспечение их доступности для лиц с ограниченными возможностями здоровья и инвалидов, совершенствование системы эксплуатации и содержания существующих объектов спорта
-              +link()._dashed.js-showhide Показать все 10 задач государственной программы
-            +e.col_two
-              +e.H4.title Координатор
-              +e.IMG(src='assets/images/Gorbenko.jpg').person
-              +e.P.person-descr
-                | Заместитель Мэра Москвы в Правительстве Москвы по вопросам
-                | региональной безопасности и информационной политики
-                span Горбенко А.Н.
-              +e.H4.title Ответственный исполнитель
-              +link() Департамент физической культуры и спорта города Москвы
-              +alternative-link('Перейти на страницу государственной программы «Спорт москвы»', 'раздела «Бюджет москвы» ')
-          +e.content_two
-            +e.H4.title Подпрограммы
-            +link()
-              +icon('basketball-ball').icon-basketball-ball
-              | Массовая физкультурно-спортивная работа
-            +link()
-              +icon('football-player').icon-football-player
-              | Подготовка спортивного резерва, развитие спорта высших достижений
-          +e.content_three
-            +e.H4.title Этапы реализации
-            .analityc-control-group._stages
-              select.analityc-select
-                option(selected) Этап 1: 01.01.2012-31.12.2012
-                option Этап 2: 01.01.2012-31.12.2012
-                option Этап 3: 01.01.2012-31.12.2012
-                option Этап 4: 01.01.2012-31.12.2012
-        .dropdown.dropdown_b.dropdown_active
-          a(href="#").dropdown__btn.dropdown__btn_y.dropdown__btn_b.dropdown__btn_active Конечные результаты государственной программы
-            +icon('delete').icon-close
-          .dropdown__content.dropdown__content_db
-            .table-wrapper
-              +table1()
-        .dropdown.dropdown_b
-          a(href="#").dropdown__btn.dropdown__btn_y.dropdown__btn_b Финансовое обеспечение государственной программы
-            +icon('delete').icon-close
-          .dropdown__content
-            .analityc-control-buttons
-              a(href="#").analityc-control-button.analityc-control-button_graphics.active
-              a(href="#").analityc-control-button.analityc-control-button_table
-            .analityc-control-switcher
-              a(href="#") МЛРД РУБ.
-              a(href="#").active млн руб.
-            .table-wrapper
-              .analityc-table.active
-                +table2()
-              .analityc-graphics
-                .analityc-graphics__col
-                  p.analityc-graphics__year 2012
-                  .analityc-graphics__graphic.analityc-graphics__graphic_round
-                .analityc-graphics__col
-                  p.analityc-graphics__year 2012-2018
-                  .analityc-graphics__graphic.analityc-graphics__graphic_round
-                .analityc-graphics__col
-                  +legend(getData('legend-govProgram'))
-        .dropdown.dropdown_b
-          a(href="#").dropdown__btn.dropdown__btn_y.dropdown__btn_b Меры государственной поддержки в рамках государственной программы
-            +icon('delete').icon-close
-          .dropdown__content
-            div.text Меры государственной поддержки в рамках государственной программы
-        .dropdown.dropdown_b
-          a(href="#").dropdown__btn.dropdown__btn_y.dropdown__btn_b Публичные нормативные обязательства
-            +icon('delete').icon-close
-          .dropdown__content
-             div.text Публичные нормативные обязательства
-        .dropdown.dropdown_b
-          a(href="#").dropdown__btn.dropdown__btn_y.dropdown__btn_b Эффективность и результативность государственной программы
-            +icon('delete').icon-close
-          .dropdown__content
-            div.text Эффективность и результативность государственной программы
-      +link()._white._bottom.load-anim-fade(data-delay="1700") Постановление Правительства Москвы от 10.10.2016 г. № 658-ПП «О внесении изменений в постановление Правительства Москвы от 20 сентября 2011 г. № 432-ПП»
+      +e.wrapper.load-anim-fade(data-delay="1500")
+        block
+  +doc-cards-dropdown(getData('doc-cards-dropdown'))
+      
+mixin gov_program-subhead()
+  +e.subhead.__content-padding&attributes(attributes)
+    +e.subhead-container
+      +e.I.subhead-icon.fa.fa-level-up(aria-hidden="true")
+      +e.A.subhead-title
+        block
+
+mixin gov_program-head(theicon)
+  +e.head.__content-padding&attributes(attributes)
+    +icon(theicon).head-icon
+    +e.SPAN.head-container-text 
+      block
+
+mixin gov_program-description()
+  +e.description-block.__content-padding&attributes(attributes)
+    block
+
+mixin gov_program-col-one()
+  +e.col_one&attributes(attributes)
+    +e.H4.title Цели
+    +e.OL.list
+      li Увеличение числа жителей города Москвы, занимающихся физической культурой и спортом
+      li Достижение московскими спортсменами наивысших спортивных результатов
+    +e.H4.title Задачи
+    +e.OL.list
+      li Обеспечение жителей города Москвы возможностями для удовлетворения потребностей в занятиях физической культурой и спортом и участия в физкультурных, спортивных и массовых спортивно-зрелищных мероприятиях
+      li Популяризация физической культуры и спорта среди жителей города Москвы всех возрастных групп, в том числе лиц с ограниченными возможностями здоровья и инвалидов.
+      li(style='display: none') Совершенствование системы физического воспитания детей и молодежи.
+      li(style='display: none') Модернизация системы подготовки специалистов в области физической культуры и спорта.
+      li(style='display: none') Совершенствование взаимодействия физкультурно-спортивных организаций города Москвы с органами исполнительной власти города Москвы и органами местного самоуправления внутригородских муниципальных образований в городе Москве по привлечению жителей города Москвы к регулярным занятиям физической культурой и спортом.
+      li(style='display: none') Развитие спорта высших достижений, в том числе повышение результативности выступления московских спортсменов в составе сборных команд Российской Федерации на Олимпийских играх, Паралимпийских играх и Сурдлимпийских играх, Всемирной универсиаде, чемпионатах и кубках мира, чемпионатах и кубках Европы, официальных значимых физкультурных, спортивных и массовых спортивно-зрелищных мероприятиях.
+      li(style='display: none') Приоритетное развитие видов спорта, входящих в программы Олимпийских игр, Паралимпийских игр и Сурдлимпийских игр.
+      li(style='display: none') Совершенствование системы подготовки московских спортсменов высокого класса, осуществление научно-методического, медико-биологического, антидопингового и информационно-технологического обеспечения подготовки спортивного резерва
+      li(style='display: none') Расширение сети объектов спорта, в том числе уникальных и специализированных, строительство и реконструкция спортивных объектов по приоритетным видам спорта.
+      li(style='display: none') Развитие материально-технической базы организаций, подведомственных Москомспорту, в том числе обеспечение их доступности для лиц с ограниченными возможностями здоровья и инвалидов, совершенствование системы эксплуатации и содержания существующих объектов спорта
+    +link()._dashed.js-govprogram-showhide Показать все 10 задач государственной программы
+
+mixin gov-program-col-two()
+  +e.col_two
+    +e.H4.title Координатор
+    +e.person
+      +e.person-image
+        img(src='assets/images/Gorbenko.jpg')
+      +e.P.person-description Заместитель Мэра Москвы в Правительстве Москвы по вопросам региональной безопасности и информационной политики <span>Горбенко А.Н.</span>
+    +e.H4.title Ответственный исполнитель
+    +link() Департамент физической культуры и спорта города Москвы
+    +alternative-link('Перейти на страницу государственной программы «Спорт москвы»', 'раздела «Бюджет москвы» ')
+
+mixin gov-program-col-three()
+  +e.content_three.__content-padding&attributes(attributes)
+    +e.H4.title Этапы реализации
+    .analityc-control-group._stages
+      select.analityc-select.js-change-table1-col.js-change-table2-col
+        option(selected, value="period1") Этап 1: 01.01.2012-31.12.2012
+        option(value="period2") Этап 2: 01.01.2013-31.12.2013
+        option(value="period3") Этап 3: 01.01.2014-31.12.2014
+        option(value="period4") Этап 4: 01.01.2015-31.12.2015
+        option(value="period5") Этап 5: 01.01.2016-31.12.2016
+        option(value="period6") Этап 6: 01.01.2017-31.12.2017
+        option(value="period7") Этап 7: 01.01.2018-31.12.2018
+
+mixin gov_program-dropdowns()
+  .dropdown.gov-program__content-padding.dropdown_b.dropdown_active
+    a(href="#").dropdown__btn.dropdown__btn_y.dropdown__btn_b.dropdown__btn_active Конечные результаты государственной программы
+      +icon('delete').icon-close
+    .dropdown__content.dropdown__content_db
+      .table-wrapper
+        +table1()
+  .dropdown.gov-program__content-padding.dropdown_b
+    a(href="#").dropdown__btn.dropdown__btn_y.dropdown__btn_b Финансовое обеспечение государственной программы
+      +icon('delete').icon-close
+    .dropdown__content
+      +analityc-widgethead-gov-realisation().analityc-widget_income
+      .table-wrapper
+        .analityc-table.active
+          +table2()
+        +analityc-graphics-singleround4()
+            
+  .dropdown.gov-program__content-padding.dropdown_b
+    a(href="#").dropdown__btn.dropdown__btn_y.dropdown__btn_b Меры государственной поддержки в рамках государственной программы
+      +icon('delete').icon-close
+    .dropdown__content
+      +e.OL.list
+        li Увеличение числа жителей города Москвы, занимающихся физической культурой и спортом
+        li Достижение московскими спортсменами наивысших спортивных результатов
+  .dropdown.gov-program__content-padding.dropdown_b
+    a(href="#").dropdown__btn.dropdown__btn_y.dropdown__btn_b Публичные нормативные обязательства
+      +icon('delete').icon-close
+    .dropdown__content
+      +e.OL.list
+        li Увеличение числа жителей города Москвы, занимающихся физической культурой и спортом
+        li Достижение московскими спортсменами наивысших спортивных результатов
+  .dropdown.gov-program__content-padding.dropdown_b
+    a(href="#").dropdown__btn.dropdown__btn_y.dropdown__btn_b Эффективность и результативность государственной программы
+      +icon('delete').icon-close
+    .dropdown__content
+      +e.OL.list
+        li Увеличение числа жителей города Москвы, занимающихся физической культурой и спортом
+        li Достижение московскими спортсменами наивысших спортивных результатов
+    
+mixin gov-program-programs()    
+  +e.programs
+    +e.H4.title Подпрограммы
+    +e.programs-links
+      +link()._left-icon
+        +icon('basketball-ball').icon
+        | Массовая физкультурно-спортивная работа
+      +link()._left-icon
+        +icon('football-player').icon
+        | Подготовка спортивного резерва, развитие спорта высших достижений
+    
+//-    
+//-
+//-
+//-
+//-
+//-
+//-
+    
+mixin services_gov_program()
+  +gov_program-structure()
+    +gov_program-head('soccer-ball') Государственная программа города Москвы <br> «Спорт Москвы» на 2012-2018 годы
+    +e.body
+      +gov_program-description()
+        +e.H4.title Описание программы
+        +e.P.description Государственная программа города Москвы «Спорт Москвы» на 2012-2018 года является комплексом мероприятий, направленных на создание и обеспечение современной и доступной спортивной инфраструктуры, популяризацию спортивного образа жизни и привлечение жителей города Москвы к регулярным занятиям спортом, а также воспитание и подготовка спортивного резерва и развитие спорта высших достижений 
+      
+      +e.content_one.__content-padding
+        +gov_program-col-one()
+        +gov-program-col-two()
+          
+      +e.content_two.__content-padding
+        +gov-program-programs()
+      
+      +gov-program-col-three()
+      
+    +gov_program-dropdowns().__content_three_border_top
