@@ -1343,15 +1343,22 @@ $(document).ready(function() {
       gpTable = sources.find($('.analityc-table')),
       gpTableButton = sources.find($('.analityc-control-button_table'));
 
+  var switcherUnits = $(".analityc-widget_moscow-gov-program .analityc-control-switcher_units");
+  var switcherBig = $(".analityc-widget_moscow-gov-program .analityc-control-switcher_big");
+
+
     gpGraphics.removeClass('_active');
     gpTable.removeClass('_active');
     gpGraphicsButton.addClass('active');
     gpTableButton.removeClass('active');
+    switcherUnits.removeClass('active');
+    switcherBig.removeClass('active');
     tablearr.hide();
 
     if ($this.val() === "Закон о бюджете утвержденный") {
       gpGraphicsDone.addClass('_active');
       gpHead(1);
+      switcherUnits.addClass('active')
       arrow.show();
     } else if ($this.val() === "Закон о внесении изменений") {
       gpGraphicsChanges.addClass('_active');
@@ -1360,6 +1367,7 @@ $(document).ready(function() {
     } else if ($this.val() === "Закон об исполнении") {
       gpGraphicsExec.addClass('_active');
       gpHead(1);
+      switcherUnits.addClass('active')
       arrow.show();
     } else if ($this.val() === "Исполнение на дату") {
       gpGraphicsDate.addClass('_active');
@@ -1368,7 +1376,6 @@ $(document).ready(function() {
       } else {
         gpHead(3);
       }
-      gpSwitcherUnits.removeClass('active');
       arrow.hide();
     }
 
@@ -1380,8 +1387,6 @@ $(document).ready(function() {
       gpDatepicker = $('.analityc-widget_moscow-gov-program .analityc-control-group._dp');
       gpDatepickerAlt = $('.analityc-widget_moscow-gov-program .analityc-control-group._dp-alt');
       gpSwitcherSub = $('.analityc-widget_moscow-gov-program .analityc-control-switcher_sub');
-      gpSwitcherUnits = $('.analityc-widget_moscow-gov-program .analityc-control-switcher_units');
-
 
     if (type === 1) {
       gpButtons.addClass('active');
@@ -1389,28 +1394,24 @@ $(document).ready(function() {
       gpDatepicker.removeClass('active');
       gpDatepickerAlt.removeClass('active');
       gpSwitcherSub.addClass('active');
-      gpSwitcherUnits.addClass('active');
     } else if (type === 2) {
       gpButtons.addClass('active');
       gpSwitcherBig.removeClass('active');
       gpDatepicker.removeClass('active');
       gpDatepickerAlt.removeClass('active');
       gpSwitcherSub.addClass('active');
-      gpSwitcherUnits.removeClass('active');
     } else if (type === 3) {
       gpButtons.addClass('active');
       gpSwitcherBig.removeClass('active');
       gpDatepicker.addClass('active');
       gpDatepickerAlt.removeClass('active');
       gpSwitcherSub.removeClass('active');
-      gpSwitcherUnits.removeClass('active');
     } else if (type === 4) {
       gpButtons.addClass('active');
       gpSwitcherBig.removeClass('active');
       gpDatepicker.removeClass('active');
       gpDatepickerAlt.addClass('active');
       gpSwitcherSub.removeClass('active');
-      gpSwitcherUnits.removeClass('active');
     }
   }
 
@@ -1420,6 +1421,7 @@ $(document).ready(function() {
     var stage = $(".analityc-widget_moscow-gov-program .analityc-control-group._stage .analityc-select");
     var switcherSub = $(".analityc-widget_moscow-gov-program .analityc-control-switcher_sub");
     var switcherUnits = $(".analityc-widget_moscow-gov-program .analityc-control-switcher_units");
+    var switcherBig = $(".analityc-widget_moscow-gov-program .analityc-control-switcher_big");
     var sources = $(".analityc-widget_moscow-gov-program"),
       arrow = $('.ar'),
       tablearr = $('.section__ar'),
@@ -1442,6 +1444,9 @@ $(document).ready(function() {
       gpTableDate = sources.find($('.analityc-widget-moscow-gov-program-table_date'));
       gpTableExec = sources.find($('.analityc-widget-moscow-gov-program-table_exec'));
 
+    switcherUnits.removeClass('active');
+    switcherBig.removeClass('active');
+
     if ($this.hasClass('analityc-control-button_graphics') && !$this.hasClass('active')) {
       $this.siblings().removeClass('active');
       $this.addClass('active');
@@ -1456,6 +1461,7 @@ $(document).ready(function() {
         gpTable.removeClass('_active');
         gpGraphicsDone.addClass('_active');
         gpHead(1);
+        switcherUnits.addClass('active');
         arrow.hide();
         tablearr.hide();
       } else if (gpTableActive.hasClass('analityc-widget-moscow-gov-program-table_date')) {
@@ -1468,18 +1474,21 @@ $(document).ready(function() {
         gpTable.removeClass('_active');
         gpGraphicsExec.addClass('_active');
         gpHead(1);
+        switcherUnits.addClass('active');
         arrow.hide();
         tablearr.hide();
       } else if (gpTableActive.hasClass('analityc-widget-moscow-gov-program-table_structure-done')) {
         gpTable.removeClass('_active');
         gpGraphicsDone.addClass('_active');
         gpHead(1);
+        switcherUnits.addClass('active');
         arrow.hide();
         tablearr.hide();
       } else if (gpTableActive.hasClass('analityc-widget-moscow-gov-program-table_structure-exec')) {
         gpTable.removeClass('_active');
         gpGraphicsExec.addClass('_active');
         gpHead(1);
+        switcherUnits.addClass('active');
         arrow.hide();
         tablearr.hide();
       } else if (gpTableActive.hasClass('analityc-widget-moscow-gov-program-table_expenses')) {
@@ -1495,6 +1504,7 @@ $(document).ready(function() {
          gpGraphicsDate.addClass('_active');
 
         gpHead(1);
+        switcherUnits.addClass('active');
         arrow.hide();
         tablearr.hide();
       }
@@ -1506,6 +1516,7 @@ $(document).ready(function() {
     } else if ($this.hasClass('analityc-control-button_table') && !$this.hasClass('active')) {
       $this.siblings().removeClass('active');
       $this.addClass('active');
+      switcherBig.addClass('active');
       if (gpGraphicsActive.hasClass('analityc-widget-moscow-gov-program_changes')) {
         gpGraphics.removeClass('_active');
         gpTableChanges.addClass('_active');
@@ -1567,7 +1578,6 @@ $(document).ready(function() {
       }
 
       switcherSub.removeClass('active');
-      switcherUnits.addClass('active')
     }
   });
 
@@ -1575,6 +1585,7 @@ $(document).ready(function() {
     var $this = $(this);
     var stage = $(".analityc-widget_moscow-gov-program .analityc-control-group._stage .analityc-select");
     var switcherUnits = $(".analityc-widget_moscow-gov-program .analityc-control-switcher_units");
+    var switcherBig = $(".analityc-widget_moscow-gov-program .analityc-control-switcher_big");
     var gpTableButton = $(".analityc-widget_moscow-gov-program .analityc-control-button_table");
     if ($('.analityc-widget_moscow-gov-program .analityc-control-group._stage select.analityc-select').val() === "Исполнение на дату") {
       if ($this.val() === "Консолидированный бюджет") {
@@ -1583,9 +1594,14 @@ $(document).ready(function() {
         gpHead(3);
       }
 
-      if (stage.val() === "Закон о бюджете утвержденный" || stage.val() === "Закон об исполнении" || gpTableButton.hasClass('active')) {
+      if ((stage.val() === "Закон о бюджете утвержденный" || stage.val() === "Закон об исполнении") && !pTableButton.hasClass('active')) {
         switcherUnits.addClass('active');
       }
+
+      if (gpTableButton.hasClass('active')) {
+        switcherBig.addClass('active');
+      }
+
     }
 
   });
@@ -1664,6 +1680,16 @@ $(document).ready(function() {
       sourcesSwitcherBig.removeClass('active');
       sourcesDatepicker.removeClass('active');
       sourcesDatepickerAlt.addClass('active');
+    } else if (type === 5) {
+      sourcesButtons.addClass('active');
+      sourcesSwitcherBig.addClass('active');
+      sourcesDatepicker.addClass('active');
+      sourcesDatepickerAlt.removeClass('active');
+    } else if (type === 6) {
+      sourcesButtons.removeClass('active');
+      sourcesSwitcherBig.addClass('active');
+      sourcesDatepicker.removeClass('active');
+      sourcesDatepickerAlt.addClass('active');
     }
   }
 
@@ -1739,9 +1765,9 @@ $(document).ready(function() {
         sourcesTableDate.addClass('active');
 
         if ($level.val() === "Консолидированный бюджет") {
-          sourcesHead(4);
+          sourcesHead(6);
         } else {
-          sourcesHead(3);
+          sourcesHead(5);
         }
 
         arrow.hide();
@@ -1763,11 +1789,16 @@ $(document).ready(function() {
 
   $(".analityc-widget_sources .analityc-control-group._level select.analityc-select").on("change", function() {
     var $this = $(this);
+    sourcesDatepicker = $('.analityc-widget_sources .analityc-control-group._dp');
+    sourcesDatepickerAlt = $('.analityc-widget_sources .analityc-control-group._dp-alt');
+
     if ($('.analityc-widget_sources .analityc-control-group._stage select.analityc-select').val() === "Исполнение на дату") {
       if ($this.val() === "Консолидированный бюджет") {
-        sourcesHead(4);
+        sourcesDatepickerAlt.addClass('active');
+        sourcesDatepicker.removeClass('active');
       } else {
-        sourcesHead(3);
+        sourcesDatepickerAlt.removeClass('active');
+        sourcesDatepicker.addClass('active');
       }
     }
 

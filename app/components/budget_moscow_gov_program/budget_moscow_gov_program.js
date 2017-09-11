@@ -182,4 +182,23 @@ export default () => {
 			cnt++;
 		})
 	})
+
+  // График analityc-line - попапы для коротких линий (вызов при отрисовке)
+  const GR_LINE = $('.analityc-widget_moscow-gov-program .analityc-line_line');
+
+  GR_LINE.each(function() {
+	  var LINE_BAR = $(this).find('.analityc-line__line');
+
+	  LINE_BAR.each(function() {
+	  	var fillPers = $(this).find('.analityc-line__line-fill');
+
+	    if (fillPers.outerWidth() > 80) {
+	      $(this).find('.analityc-line__line-abs').remove();
+	    } else {
+	      $(this).find('.analityc-line__line-value').text('');
+	    }
+	  })
+
+  })
+
 }

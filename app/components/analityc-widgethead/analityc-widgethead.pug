@@ -67,8 +67,8 @@ mixin analityc-widgethead-income(type)
     .analityc-control-group._transfer
       span Классификация доходов
       select.analityc-select
-        option(selected) Виды
-        option Виды
+        option(selected) Без межбюджетных трансфертов
+        option(disabled) с трансфертами
     .analityc-control-buttons.active
       a(href="#").analityc-control-button.analityc-control-button_graphics.active
         +icon('graphic', true)
@@ -286,9 +286,6 @@ mixin analityc-widgethead-sources(type)
         +icon('graphic', true)
       a(href="#").analityc-control-button.analityc-control-button_table
         +icon('table', true)
-    .analityc-control-switcher.analityc-control-switcher_big
-      a(href="#").active млрд руб.
-      a(href="#") млн руб.
 
     .analityc-control-group._dp
       input(value="Выберите дату исполнения", readonly="readonly").datepicker
@@ -315,6 +312,10 @@ mixin analityc-widgethead-sources(type)
         option 2016
         option 2017
         option 2018
+
+    .analityc-control-switcher.analityc-control-switcher_big
+      a(href="#").active млрд руб.
+      a(href="#") млн руб.
 
 mixin analityc-widgethead-analityc-income()
   +b.analityc-widgethead._income&attributes(attributes)
@@ -1043,8 +1044,8 @@ mixin analityc-widgethead-moscow-gp(program)
     .analityc-control-group._transfer
       span Межбюджетные трансферты
       select.analityc-select
-        option(selected) Виды
-        option Виды
+        option(selected) Без межбюджетных трансфертов
+        option(disabled) с трансфертами
     .analityc-control-buttons.active
       a(href="#").analityc-control-button.analityc-control-button_graphics.active
         +icon('graphic', true)
@@ -1090,6 +1091,9 @@ mixin analityc-widgethead-moscow-gp(program)
       a(href="#").active доля от общей суммы, %
       a(href="#") млрд руб.
 
+    .analityc-control-switcher.analityc-control-switcher_big
+      a(href="#").active млрд руб.
+      a(href="#") млн руб.
 
 //- Бюджет Москвы - Социально-экономическое развитие
 mixin analityc-widgethead-forecast()
