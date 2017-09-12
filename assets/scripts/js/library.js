@@ -9394,3 +9394,62 @@ var _gsScope = "undefined" != typeof module && module.exports && "undefined" != 
         return Oc.call(this, e, t)
     }, ct.compile = Cc, ct
 });
+
+
+// Функция, позиционирующая числовые подписи в графиках
+//////////////////////////////
+function positionValues() {
+  $(document).find('.segment-diagram__val').each(function(){
+  // Задаем базовое позиционирование
+  $(this).css({
+    left: 0,
+    top: 0
+  });
+
+  var thisOffsL = $(this).offset().left,
+      thisOffsT = $(this).offset().top,
+      elW = $(this).width(),
+      elH = $(this).height();
+
+  var indexOffset = $(this).parent().find('.segment-diagram__value-num').length > 0 ? -1 : 0,
+      index = $(this).index() + indexOffset,
+      id = $(this).parents('.segment-diagram').attr('id');
+
+  // Вся диаграмма
+  var d = $(this).parents('.segment-diagram'),
+      dxcenter = d.width() / 2,
+      dycenter = d.height() / 2,
+      dR = dycenter - 22, // 22 это половина толщины линии в диаграмме
+      dxoutcenter = d.offset().left + dxcenter,
+      dyoutcenter = d.offset().top + dycenter;
+
+  // Ищем соответствующий кусок диаграммы
+  var diagram = $(this).parents('.segment-diagram').find('#' + id + '-' + index),
+      diagOffsL = diagram.offset().left,
+      diagOffsT = diagram.offset().top,
+      dW = diagram.outerWidth(),
+      dH = diagram.outerHeight(),
+      diagelemcenterx = diagOffsL + (dW / 2),
+      diagelemcentery = diagOffsT + (dH / 2);
+
+  // Расчеты
+  var x1 = dxoutcenter,
+      x2 = diagelemcenterx,
+      x = x1 - x2, // катет1
+      y1 = dyoutcenter,
+      y2 = diagelemcentery,
+      y = y1 - y2, // катет2
+      r = Math.sqrt(x*x + y*y), // гипотенуза
+      delta = dR / r, // коэффициент
+      xnew = x * delta, // новый отступ от центра x
+      ynew = y * delta; // новый отступ от центра y
+
+  $(this).css({
+    left: dxcenter - xnew,
+    top: dycenter - ynew
+  });
+});
+}
+
+$(document).ready(function(){ positionValues(); });
+$(document).on('click', '.analityc-control-button_graphics, .dropdown__btn', positionValues);
