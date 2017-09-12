@@ -105,6 +105,11 @@
     @media (max-width: 700px) and (min-width: 551px) {
       padding: 38px 40px 46px;
     }
+
+    @media screen and (max-width: 450px) {
+      padding: 22px 15px 28px;
+    }
+
   }
 
   .analityc-control-button_graphics svg, .analityc-control-button_table svg {
@@ -126,7 +131,12 @@
   .analityc-control-buttons {
     margin-top: 30px;
 
-    @media screen and (max-width: 1020px) {
+    @media screen and (max-width: 1140px) {
+      vertical-align: top;
+      margin-top: 18px;
+    }
+
+    @media screen and (max-width: 900px) {
       margin-top: 25px;
       margin-right: 2%;
     }
@@ -173,8 +183,14 @@
   }
   .analityc-control-switcher_big {
     display: none;
+    margin-left: 2.6%;
 
-    @media screen and (max-width: 1020px) {
+    @media screen and (max-width: 1140px) {
+      margin-top: 18px;
+      vertical-align: top;
+    }
+
+    @media screen and (max-width: 900px) {
       margin-top: 25px;
     }
 
@@ -203,12 +219,12 @@
 
       @media (max-width: 450px) {
         background-size: 8px !important;
-        background-position: 93% 11px !important;
+        background-position: right 7px top 11px!important;
       }
     }
 
     @media (max-width: 450px) {
-      width: 50%;
+      width: 19%;
     }
   }
 
@@ -228,7 +244,6 @@
 
   .analityc-control-switcher_big.active {
     display: inline-block !important;
-    margin-top: 23px;
   }
 
   .analityc-control-group._year, .analityc-control-group._stage, .analityc-control-group._level {
@@ -246,17 +261,32 @@
     width: 361px;
     width: calc(33.6% - 1px);
 
+    @media (max-width: 1140px) and (min-width: 901px) {
+      width: 36.4%;
+      margin-left: 2%;
+      margin-top: 18px;
+      vertical-align: top;
+    }
+
+    @media screen and (max-width: 900px) {
+      margin-left: 0;
+      margin-top: 25px;
+      vertical-align: baseline;
+      width: 100%;
+    }
+
     &::before {
       background-position: -209px -116px;
       right: 12px;
     }
 
     &-alt {
-      margin-top: 30px;
       margin-left: 2.9%;
+      margin-top: 30px;
 
        @media (max-width: 1140px) {
          margin-left: 1.9%;
+         margin-top: 18px;
          .analityc-select {
            &_month {
              width: 28%;
@@ -268,37 +298,20 @@
        }
        @media (width: 1024px) {
          width: calc(43.1% - 93px);
-
-         .analityc-select {
-           margin-top: 0;
-         }
        }
 
        @media (max-width: 768px) {
          width: 100%;
          margin-top: 13px;
        }
+
+       .analityc-select {
+         margin-top: 0;
+       }
     }
 
     &-alt.active {
       display: inline-block;
-    }
-
-
-    @media screen and (max-width: 1023px) {
-      margin-top: 25px;
-      margin-left: 0;
-    }
-
-    @media (max-width: 1024px) and (min-width: 769px) {
-      width: 36.4%;
-      margin-left: 2%;
-    }
-
-    @media screen and (max-width: 768px) {
-      margin-top: 13px;
-      vertical-align: baseline;
-      width: 100%;
     }
 
 

@@ -32,6 +32,7 @@ export default () => {
         govdebtHead(2);
       }
 
+      positionValues();
     });
 
     function govdebtHead(type) {

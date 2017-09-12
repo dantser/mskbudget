@@ -1189,6 +1189,7 @@
       &__val {
         position: absolute;
         color: $color-white;
+        transform: translateX(-50%) translateY(-50%);
         &_overval {
           color: $color-black;
           border-bottom: 1px solid #000;
@@ -1204,6 +1205,8 @@
       }
       &__value-num {
         font-size: 36px;
+        display: table-cell;
+        vertical-align: middle;
       }
     }
     &_big {
@@ -2715,6 +2718,10 @@
         width: 78.5%;
         height: 26px;
       }
+
+      &:hover .analityc-line__line-abs {
+        display: block;
+      }
     }
 
     &-fill {
@@ -2764,6 +2771,32 @@
       @media (max-width: 900px) and (min-width: 581px) {
         font-size: 24px;
         line-height: 54px;
+      }
+    }
+
+    &-abs {
+      display: none;
+      position: absolute;
+      left: -80px;
+      width: 75px;
+      font-size: 14px;
+      line-height: 26px;
+      text-align: center;
+      color: white;
+      border-radius: 2px;
+      z-index: 1;
+      cursor: pointer;
+      background-image: linear-gradient(90deg,#ff0036 0,#021398);
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: -17px;
+        border: 10px solid transparent;
+        border-left: 10px solid #021398;
       }
     }
 
@@ -2851,7 +2884,7 @@
         }
 
         .svg-wrap {
-          transform: scale(-1, 1)  rotate(-40deg);
+          /*transform: scale(-1, 1)  rotate(-40deg);*/
 
           .svg {
             display: inline;
@@ -2865,13 +2898,19 @@
 
         &__val {
           position: absolute;
-          z-index: 1;
+          color: #fff;
+          z-index: 1; 
+          transform: translateX(-50%) translateY(-50%);
           @media (max-width: 900px) {
             font-size: 23px!important;
           }
 
           @media (max-width: 580px) {
             font-size: 11px!important;
+          }
+
+          &_dark {
+            color: $color-black;
           }
         }
 
@@ -2907,7 +2946,9 @@
 
         &__value-num {
           font-size: 36px;
-
+          display: table-cell;
+          vertical-align: middle;
+          
           @media (max-width: 900px){
             font-size: 60px!important;
             padding-top: 7px;
