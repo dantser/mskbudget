@@ -4,19 +4,25 @@ export default () => {
   const DROPDOWN = $('.dropdown');
   const DROPDOWN_C = '.dropdown';
   const DROPDOWN_BTN = $('.dropdown__btn');
-  
+
   if (DROPDOWN.length > 0) {
     DROPDOWN_BTN.each( function() { // eslint-disable-line
       const EL = $(this);
       const DROPDOWN_ACTIVE_CLASS = 'dropdown_active';
-  
+
       EL.on('click', (e) => {
-        e.preventDefault();
+        if (EL.is('a')) {
+          e.preventDefault();
+        }
         EL.parent().siblings(DROPDOWN_C).removeClass(DROPDOWN_ACTIVE_CLASS);
         EL.parent(DROPDOWN_C).toggleClass(DROPDOWN_ACTIVE_CLASS);
       });
     });
   }
+
+  $('.dropdown__table-download').click(function(e){
+    e.stopPropagation();
+  });
 
   $(document).on('click', '.gov-program .js-govprogram-showhide', function(e) {
     e.preventDefault();
