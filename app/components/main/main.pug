@@ -113,6 +113,8 @@ mixin main()
             span по состоянию<br> на
             .dp
               input(value='01.06.2017', tabindex="0").datepicker__show.jq-spec-datepicker
+            //input(value='01.06.2017', tabindex="0")#altfield
+              span.jq-inline-datepicker
 
 
     .slider.slider_diagrams(data-sides-900="2")
@@ -224,7 +226,7 @@ mixin main()
           | на портале
     // /SUBSCRIBE
     // NEWS_SLIDER/
-    .slider(data-sides-700="4", data-sides-900="3", data-sides-1100="2")
+    .slider.slider_news(data-sides-700="4", data-sides-900="3", data-sides-1100="2")
       .cube-brick(data-brick-700="1", data-brick-900="1", data-brick-1100="1")
         // NEWS_ITEM/
         .tile__item.anim-left(data-delay="100")

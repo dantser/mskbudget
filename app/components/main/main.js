@@ -107,6 +107,38 @@ export default () => {
         }
       }
     }
+    
+    //if ($(".jq-inline-datepicker").length > 0) {
+    //  $('.jq-inline-datepicker').datepicker({
+    //    inline: true,
+    //    altField: '#altfield',
+    //    dateFormat: 'dd.mm.yy',
+    //    changeMonth: true,
+    //    changeYear: true,
+    //    showOtherMonths: true,
+    //    selectOtherMonths: false,
+    //    firstDay: 1,
+    //    monthNames: ['январь', 'февраль', 'март', 'апрель', 'май', 'июнь',
+    //      'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь'
+    //    ],
+    //    monthNamesShort: ['январь', 'февраль', 'март', 'апрель', 'май', 'июнь',
+    //      'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь'
+    //    ],
+    //    dayNamesMin: ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'],
+    //    beforeShowDay: DisableSpecificDates,
+    //    beforeShow: function(input, inst) {
+    //      $('#ui-datepicker-div').removeClass(function() {
+    //        return $('input').get(0).id;
+    //      });
+    //      $('#ui-datepicker-div').removeClass('datepicker__show');
+    //      $('#ui-datepicker-div').addClass($(this).attr('class'));
+    //    }
+    //  });
+    //}
+    //
+    //$('#altfield').change(function(){
+    //  $('.jq-inline-datepicker').datepicker('setDate', $(this).val());
+    //});
 
     $(document).on('click', function() {
       $('.jq-spec-datepicker').blur().removeClass('hasDatepicker');

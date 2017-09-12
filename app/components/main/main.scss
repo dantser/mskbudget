@@ -570,11 +570,10 @@
     position: relative;
     color: #000;
     position: absolute;
-    left: 7px;
-    right: 7px;
     top: 50%;
-    margin: -190px 0 0 0;
-    min-height: 380px;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
   }
 
   .news__tags {
@@ -591,7 +590,7 @@
   }
 
   .ui-datepicker {
-    display: none !important;
+    display: block !important;
   }
 
   .lh-1_2 {
@@ -622,7 +621,7 @@
     height: auto;
   }
   
-  .slider_services {
+  .slider_services, .slider_news {
     .wrap {
       height: 100%;
       @media screen and (min-width: 701px) and (max-width: 1180px) {
@@ -633,6 +632,15 @@
         padding-left: 35px;
         padding-right: 35px;
       }
+    }
+  }
+  
+  .news__title {
+    max-height: 7.2em;
+    overflow: hidden;
+    
+    @media screen and (max-height: 690px) {
+      max-height: 4.8em;
     }
   }
 }
@@ -682,9 +690,6 @@
         width: 100%;
         height: 100%;
       }
-    }
-    .news {
-      margin: -170px 0 0;
     }
   }
 }
@@ -949,12 +954,6 @@
       left: 14px;
       right: 14px;
     }
-    .news {
-      position: absolute;
-      left: 14px;
-      right: 14px;
-      top: 50%;
-    }
     .large-diagram__svg, .large-diagram__svg .svg {
       width: 220px;
       height: 220px;
@@ -1095,18 +1094,6 @@
   }
 }
 
-@media (min-width: 651px) and (max-width: 700px) {
-  .wrapper_main {
-    .news {
-      width: 300px;
-      position: absolute;
-      left: 50% !important;
-      margin: -200px 0 0 -150px !important;
-      right: 0;
-    }
-  }
-}
-
 @media (max-width: 650px) {
   .wrapper_main {
     .service {
@@ -1126,21 +1113,9 @@
   }
 }
 
-
-
-@media (min-width: 451px) and (max-width: 650px) {
-  .wrapper_main {
-    .news {
-      top: 0 !important;
-      bottom: 0 !important;
-      margin: auto !important;
-    }
-  }
-}
-
 @media (max-width: 480px) {
   .wrapper_main {
-    .service, div.news {
+    .service {
       min-height: 380px;
       height: 245px;
       width: 250px;
@@ -1192,12 +1167,45 @@
       width: 140px;
       height: 140px;
     }
-    .news {
-      margin: 130px auto 0;
-      max-width: 260px;
-      min-height: 1px;
-      height: 245px;
-      padding-bottom: 50px;
+    .news__thumb {
+      height: 160px;
+    }
+    .news__category {
+      margin: 0 0 20px 20px;
+      font-size: 13px;
+      height: 20px;
+      line-height: 22px;
+      padding: 0 7px;
+    }
+    .news__title {
+      font-size: 18px;
+      margin: 0 19px;
+    }
+    .news__bottom {
+      padding: 0 0 15px 19px;
+    }
+    .news__date, .news__tags {
+      font-size: 13px;
+    }
+  }
+}
+
+@media (max-width: 650px) and (max-height: 580px) {
+  .wrapper_main {
+    .news__category {
+      margin-bottom: 10px;
+    }
+    .news__title {
+      font-size: 16px;
+      max-height: 3.6em;
+    }
+  }
+}
+
+@media (max-width: 650px) and (max-height: 550px) {
+  .wrapper_main {
+    .news__thumb {
+      height: 100px;
     }
   }
 }
@@ -1362,33 +1370,6 @@
     .service__place { font-size: 28px; padding: 3px 6px 3px; margin-bottom: 7px; }
     .service__select { margin-bottom: 10px; }
 
-    .news {
-      margin: auto !important;
-      max-width: 213px;
-      min-height: 310px;
-      height: 245px;
-      padding-bottom: 50px;
-      position: relative;
-      top: 0;
-      left: 0;
-      right: 0;
-    }
-    .news__title {
-      font-size: 13px;
-      margin: 0 12px;
-    }
-    .news__category {
-      margin: 0 0 10px 12px;
-      font-size: 10px;
-      height: 13px;
-      line-height: 15px;
-      padding: 0 3px;
-      vertical-align: top;
-    }
-
-    .news__date, .news__tags {
-      font-size: 9px;
-    }
     .slick-dots {
       top: 25%;
     }
@@ -1508,10 +1489,6 @@
     .service__diagram-tabs {
       bottom: 10px !important;
     }
-    .news {
-      top: 20px !important;
-      min-height: 260px !important;
-    }
   }
 }
 
@@ -1596,6 +1573,12 @@ body.home {
           display: none;
         }
       }
+      
+      @media screen and (max-width: 650px) and (max-height: 550px) {
+        .dashed-diagram__value-p {
+          font-size: 14px;
+        }
+      }
     
       // карточка бюджетного калькулятора
       .widget-card__budget-stat+.widget-card__budget-stat {
@@ -1608,7 +1591,7 @@ body.home {
         height: 100px;
         margin: 0 auto;
       }
-      @media screen and (max-width: 605px) and (max-height: 550px) {
+      @media screen and (max-width: 650px) and (max-height: 550px) {
         .widget-card-budget-web .widget-card__map img {
           height: 40px;
         }
@@ -1623,7 +1606,7 @@ body.home {
           margin-top: 0;
         }
       }
-      @media screen and (min-width: 606px) and (max-width: 1170px) and (max-height: 650px) {
+      @media screen and (min-width: 651px) and (max-width: 1170px) and (max-height: 650px) {
         .widget-card__budget-total {
           margin-top: 2px;
         }
@@ -1631,7 +1614,7 @@ body.home {
           margin-top: 0;
         }
       }
-      @media screen and (max-width: 605px) {
+      @media screen and (max-width: 650px) {
         .widget-card__budget-stat-count {
           font-size: 28px;
         }
@@ -1639,7 +1622,7 @@ body.home {
           margin-left: 3px;
         }
       }
-      @media screen and (max-width: 605px) and (max-height: 550px) {
+      @media screen and (max-width: 650px) and (max-height: 550px) {
         .widget-card__budget-stats {
           margin-top: 9px;
         }
@@ -1666,19 +1649,19 @@ body.home {
           margin-top: 15px;
         }
       }
-      @media screen and (max-width: 605px) and (max-height: 550px) {
+      @media screen and (max-width: 650px) and (max-height: 550px) {
         .widget-card__info-block-items {
           height: 67px;
         } 
       }
       
       // Внутригородские муниципальные образования
-      @media screen and (min-width: 606px) and (max-width: 1170px) and (max-height: 650px) {
+      @media screen and (min-width: 651px) and (max-width: 1170px) and (max-height: 650px) {
         .widget-card-municipalities .widget-card__map img {
           height: 135px;
         }
       }
-      @media screen and (max-width: 605px) and (max-height: 550px) {
+      @media screen and (max-width: 650px) and (max-height: 550px) {
         .widget-card-municipalities .widget-card__map img {
           height: 85px;
           margin-left: auto;
@@ -1696,7 +1679,7 @@ body.home {
           height: auto;
         }
       }
-      @media screen and (max-width: 605px) and (max-height: 650px) {
+      @media screen and (max-width: 650px) and (max-height: 650px) {
         .widget-card__lessons-text {
           font-size: 13px;
         }
@@ -1704,7 +1687,7 @@ body.home {
           font-size: 16px;
         }
       }
-      @media screen and (max-width: 605px) and (max-height: 550px) {
+      @media screen and (max-width: 650px) and (max-height: 550px) {
         .widget-card__lessons {
           margin-bottom: 7px;
         }
@@ -1718,7 +1701,7 @@ body.home {
       }
       
       // Общественно значимые проекты
-      @media screen and (min-width: 606px) and (max-width: 1170px) and (max-height: 650px) {
+      @media screen and (min-width: 651px) and (max-width: 1170px) and (max-height: 650px) {
         .widget-card-projects .widget-card__info-block-subtitle {
           margin-top: 20px;
         }
@@ -1726,14 +1709,14 @@ body.home {
           max-width: 100%;
         }
       }
-      @media screen and (max-width: 605px) and (max-height: 550px) {
+      @media screen and (max-width: 650px) and (max-height: 550px) {
         .widget-card-projects .widget-card__info-block-subtitle {
           margin-top: 14px;
         } 
       }
       
       // Государственные программы
-      @media screen and (max-width: 605px) and (max-height: 550px) {
+      @media screen and (max-width: 650px) and (max-height: 550px) {
         .widget-card-gov-programs .dashed-diagram__diagram, .widget-card-gov-programs .dashed-diagram__diagram .svg {
           width: 110px !important;
           height: 110px !important;
@@ -1744,7 +1727,7 @@ body.home {
       }
       
       // Адресная инвестиционная программа
-      @media screen and (max-width: 605px) and (max-height: 550px) {
+      @media screen and (max-width: 650px) and (max-height: 550px) {
         .widget-card-invest-program .segment-diagram, .widget-card-invest-program .segment-diagram .svg {
           width: 110px !important;
           height: 110px !important;
@@ -1752,7 +1735,7 @@ body.home {
       }
       
       // Государственный долг
-      @media screen and (max-width: 605px) and (max-height: 550px) {
+      @media screen and (max-width: 650px) and (max-height: 550px) {
         .widget-card-gov-debt .segment-diagram, .widget-card-gov-debt .segment-diagram .svg {
           width: 110px !important;
           height: 110px !important;
@@ -1760,7 +1743,7 @@ body.home {
       }
       
       // Москва и города мира
-      @media screen and (max-width: 605px) and (max-height: 550px) {
+      @media screen and (max-width: 650px) and (max-height: 550px) {
         .widget-card__results-total {
           font-size: 15px;
         }
@@ -1776,7 +1759,7 @@ body.home {
       }
       
       // Опрос общественного мнения
-      @media screen and (max-width: 605px) and (max-height: 550px) {
+      @media screen and (max-width: 650px) and (max-height: 550px) {
         .widget-card-polls-pers .widget-card__info-block-title, .widget-card-quiz-pers .widget-card__info-block-title {
           font-size: 13px;
           height: 30px;
@@ -1793,7 +1776,7 @@ body.home {
       }
       
       // Социальная поддержка населения
-      @media screen and (max-width: 605px) and (max-height: 550px) {
+      @media screen and (max-width: 650px) and (max-height: 550px) {
         .widget-card__info-block-item {
           max-height: 100%;
           font-size: 11px;
@@ -1801,7 +1784,7 @@ body.home {
       }
       
       // Москва и субъекты РФ
-      @media screen and (max-width: 605px) and (max-height: 550px) {
+      @media screen and (max-width: 650px) and (max-height: 550px) {
         .widget-card-regions .widget-card__map img {
           height: 35px;
           margin-left: auto;
