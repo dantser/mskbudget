@@ -130,9 +130,8 @@ export default () => {
 	})
 
 	// Формирование графика Закон о бюджете утв. - структура
-
 	const GRAPHIC_STR = $('.analityc-widget-moscow-gov-program_structure');
-	const GRAPHIC_STR_TAB = GRAPHIC_STR.find('.tabs__tab');
+	const GRAPHIC_STR_TAB = GRAPHIC_STR.find('.analityc-mix');
 	
 	GRAPHIC_STR_TAB.each(function() {
 		const LINE_STR = $(this).find('.analityc-mix__line');
@@ -187,22 +186,57 @@ export default () => {
 		})
 	})
 
-  // График analityc-line - попапы для коротких линий (вызов при отрисовке)
-  const GR_LINE = $('.analityc-widget_moscow-gov-program .analityc-line_line');
 
-  GR_LINE.each(function() {
-	  var LINE_BAR = $(this).find('.analityc-line__line');
+	// Этап Закон о бюджете утвержденный - клик по диаграммам
+	const GRAPHIC_MIX = $('.analityc-widget-moscow-gov-program_structure .analityc-mix');
 
-	  LINE_BAR.each(function() {
-	  	var fillPers = $(this).find('.analityc-line__line-fill');
+	GRAPHIC_MIX.each(function() {
+		var $this = $(this);
 
-	    if (fillPers.outerWidth() > 80) {
-	      $(this).find('.analityc-line__line-abs').remove();
-	    } else {
-	      $(this).find('.analityc-line__line-value').text('');
-	    }
+		// $this.find('path').click(function() {
+		// 	$this.find('.analityc-mix__lines').show();
+		// })
+
+		$this.click(function() {
+			$this.siblings().hide();
+			$this.css('width', '100%');
+			$this.find('.analityc-mix__lines').addClass('active');
+			createGrStructure()
+		})
+	})
+
+
+	// График analityc-line - попапы для коротких линий (вызов при отрисовке)
+	function grLinePopup() {
+	  
+	  const GR_LINE = $('.analityc-widget_moscow-gov-program .analityc-line_line');
+
+	  GR_LINE.each(function() {
+		  var LINE_BAR = $(this).find('.analityc-line__line');
+
+		  LINE_BAR.each(function() {
+		  	var line = $(this).find('.analityc-line__line-wrap');
+		  	var fillPers = $(this).find('.analityc-line__line-fill');
+		  	var isLong = fillPers.outerWidth() > 30 ? true : false;
+		  	var val = $(this).find('.analityc-line__line-value');
+		  	var abs = $(this).find('.analityc-line__line-abs');
+
+		  	val.show();
+		  	if (!isLong) {
+		  		val.hide();
+			  	line.hover(function() {
+			  			abs.show();
+			  	}, function() {
+							abs.hide();
+			  	})
+		  	}
+		  })
+
 	  })
+	}
 
-  })
-
+	$(document).ready(function(){ 
+		grLinePopup(); 
+	});
+	$(document).on('change', '.analityc-widget_moscow-gov-program .analityc-control-group._stage .analityc-select', grLinePopup);
 }

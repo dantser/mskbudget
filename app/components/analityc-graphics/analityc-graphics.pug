@@ -1131,6 +1131,7 @@ mixin analityc-graphics-line-alt(data, title)
                 +e.line-abs= obj.value
             +e.SPAN.line-bar-value= obj.barvalue
 
+//- moscow_gov_program
 mixin analityc-graphics-mix(data)
   +b.analityc-mix&attributes(attributes)
     +e.round
@@ -1170,11 +1171,6 @@ mixin analityc-graphics-mix(data)
 
 mixin analityc-graphics-js-line(data)
   +b.analityc-js-line&attributes(attributes)
-    +e.header
-      +icon('car').icon
-      +e.H2.heading= data.heading
-      +e.A(href=data.link).link Паспорт программы
-      +e.H3.subheading= data.subheading
     each item in data.item
       if item.strong
         +e.line._big

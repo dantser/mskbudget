@@ -6,6 +6,7 @@ include ../analityc-table/analityc-table
 include ../analityc-graphics/analityc-graphics
 include ../../blocks/dropdown-block/dropdown-block
 include ../../blocks/tabs/tabs
+include ../../blocks/icon/icons
 
 //- program - название гп
 mixin budget_moscow_gov_program_one(header)
@@ -14,7 +15,7 @@ mixin budget_moscow_gov_program_one(header)
 		.ar.ar-left
 		.ar.ar-right
 		.wrapper
-			+page-header(header, ['О бюджете', 'Бюджетная система'], false, true)
+			+page-header('Государственные программы', ['О бюджете', 'Бюджетная система'], false, true)
 			.article-controls
 				span
 				span
@@ -22,6 +23,13 @@ mixin budget_moscow_gov_program_one(header)
 			.analityc-widget.analityc-widget_moscow-gov-program.load-anim-fade(data-delay="1500")
 
 				+analityc-widgethead-moscow-gp(true)
+
+				A(href='#').moscow-gov-program__gp-list К списку государственных программ
+				.moscow-gov-program__header
+					+icon('car', true).moscow-gov-program__icon
+					H2.moscow-gov-program__heading= header
+					A(href='#').moscow-gov-program__link Паспорт программы
+					H3.moscow-gov-program__subheading Исполнение программных расходов на 22.04.2017
 
 				// Этап Закон о бюджете утв.
 				.analityc-widget-sources.analityc-widget-moscow-gov-program_done._active

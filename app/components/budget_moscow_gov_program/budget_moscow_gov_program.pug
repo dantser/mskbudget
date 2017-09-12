@@ -23,28 +23,26 @@ mixin budget_moscow_gov_program()
         +analityc-widgethead-moscow-gp()
 
         // Этап Закон о бюджете утв.
-        .analityc-widget-sources.analityc-widget-moscow-gov-program_done._active
+        .analityc-widget-sources.analityc-widget-moscow-gov-program_done
           +analityc-graphics-multiline(getData('graphic-multiline'))
 
-        .analityc-widget-sources.analityc-widget-moscow-gov-program_structure.analityc-widget-moscow-gov-program_structure-done
-          p.analityc-graphics__periodtext
-            span Плановый период
-          .graphic__row
-            span.graphic__data.graphic__data_active
-              span.js-button(data-tab-target='structure1') 2017
-            span.graphic__data
-              span.js-button(data-tab-target='structure2') 2018
-              span.graphic__period-left
-            span.graphic__data
-              span.js-button(data-tab-target='structure3') 2019
-              span.graphic__period-right
-          +tabs
-            +tabs-tab(data-tab-group="analityc-structure", data-tab="structure1").active
-              +analityc-graphics-mix(getData('graphic-lines-mix1')[0])._date-one
-            +tabs-tab(data-tab-group="analityc-structure", data-tab="structure2")
-              +analityc-graphics-mix(getData('graphic-lines-mix1')[1])._date-two
-            +tabs-tab(data-tab-group="analityc-structure", data-tab="structure3")
-              +analityc-graphics-mix(getData('graphic-lines-mix1')[2])._date-three
+        .analityc-widget-sources.analityc-widget-moscow-gov-program_structure.analityc-widget-moscow-gov-program_structure-done._active
+          .analityc-widget-moscow-gov-program__structure-wrapper
+            p.analityc-graphics__periodtext
+              span Плановый период
+            .graphic__row
+              span.graphic__data.graphic__data_active
+                span.js-button(data-tab-target='structure1') 2017
+              span.graphic__data
+                span.js-button(data-tab-target='structure2') 2018
+                span.graphic__period-left
+              span.graphic__data
+                span.js-button(data-tab-target='structure3') 2019
+                span.graphic__period-right
+          .analityc-graphics__wrapper
+            +analityc-graphics-mix(getData('graphic-lines-mix1')[0])._date-one
+            +analityc-graphics-mix(getData('graphic-lines-mix1')[1])._date-two
+            +analityc-graphics-mix(getData('graphic-lines-mix1')[2])._date-three
 
         +analityc-table().analityc-widget-moscow-gov-program-table_done
           +icon('angle-arrow').section__ar.section__ar_left
@@ -87,9 +85,7 @@ mixin budget_moscow_gov_program()
               +analityc-graphics-line-alt(getData('graphic-lines-gp1'))._exec
 
         .analityc-widget-sources.analityc-widget-moscow-gov-program_structure.analityc-widget-moscow-gov-program_structure-exec
-          +tabs
-            +tabs-tab(data-tab-group="analityc-structure").active
-              +analityc-graphics-mix(getData('graphic-lines-mix1')[3])
+          +analityc-graphics-mix(getData('graphic-lines-mix1')[3])
 
         +analityc-table().analityc-widget-moscow-gov-program-table_exec
           +table-income(getData('income2'))
