@@ -265,4 +265,39 @@
       }
     }
   }
+  &_slide {
+    height: 100%;
+    margin: 0 -5px 0;
+    padding: 200px 0;
+    .tile {
+      height: 100%;
+    }
+    .tile__item {
+      @media screen and (min-width: 921px) and (max-width: 1170px) {
+        width: 33.3333% !important;
+      }
+      @media screen and (min-width: 606px) and (max-width: 920px) {
+        width: 50% !important;
+      }
+      @media screen and (max-width: 605px) {
+        min-width: 0 !important;
+        width: 100% !important;
+        max-width: 240px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+    }
+    .tile__inner {
+      max-height: 100% !important;
+    }
+    .widget-card {
+      min-height: 0;
+    }
+    @media screen and (min-width: 701px) and (max-width: 1600px) {
+      padding: 140px 0 110px;
+    }
+    @media screen and (max-width: 700px) {
+      padding: 130px 0 60px;
+    }
+  }
 }

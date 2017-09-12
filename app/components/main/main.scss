@@ -61,8 +61,6 @@
     }
   }
 
-
-
   .sections__datepicker .dp,
   .service__datepicker {
     position: relative;
@@ -75,7 +73,6 @@
     cursor: pointer;
   }
 
-
   .service.service_widget {
     padding: 0;
 
@@ -86,8 +83,6 @@
         padding: 0;
       }
     }
-
-
 
     @media (max-width: 900px) {
 
@@ -103,21 +98,9 @@
 
   .widget-card {
 
-    @media (max-width: 900px) and (min-width: 769px) {
-      min-height: 298px;
-    }
-
-    @media (max-width: 768px) {
-      min-height: 397px;
-    }
-
     @media (max-width: 650px) {
       height: 100%;
       min-height: 1px;
-    }
-
-    @media (max-width: 480px) {
-      min-height: 380px;
     }
 
     @media (max-width: 320px) {
@@ -150,12 +133,6 @@
         padding: 10px 15px 30px;
       }
 
-      @media (max-width: 480px) {
-        min-height: 84px;
-        padding: 14px 20px 11px;
-        height: inherit;
-      }
-
       @media (max-width: 320px) {
         min-height: 1px;
         height: 61px;
@@ -170,17 +147,11 @@
         min-height: 12px;
         text-transform: lowercase;
         line-height: 15px;
+        padding-right: 40px;
 
         &::first-letter {
           text-transform: uppercase;
         }
-      }
-
-      @media (max-width: 480px) {
-        font-size: 17px;
-        margin-bottom: 7px;
-        min-height: 36px;
-        line-height: 20.4px;
       }
 
       @media (max-width: 320px) {
@@ -189,6 +160,10 @@
         min-height: 12px;
         text-transform: lowercase;
         line-height: 15px;
+      }
+      
+      h3 {
+        max-width: 100%;
       }
     }
 
@@ -199,7 +174,6 @@
         margin-top: 0;
       }
       @media (max-width: 480px) {
-        margin-top: 9px;
         font-size: 14px;
       }
 
@@ -355,7 +329,6 @@
       .widget-card__bottom-link {
         @media (max-width: 900px) {
           height: 36px;
-          padding: 4px 15px 9px 57px;
         }
         @media (width: 768px) {
           height: inherit;
@@ -363,17 +336,22 @@
           font-size: 14px;
           line-height: 16px;
         }
-        @media (max-width: 480px) {
-          height: inherit;
-          padding: 13px 19px 13px 65px;
-          font-size: 14px;
-          line-height: 16px;
-        }
+        //@media (max-width: 480px) {
+        //  height: inherit;
+        //  padding: 13px 19px 13px 65px;
+        //  font-size: 14px;
+        //  line-height: 16px;
+        //}
 
         @media (max-width: 320px) {
           height: 36px;
           padding: 4px 15px 9px 57px;
           font-size: 12px;
+        }
+        &.widget-card__bottom-link_gradiented {
+          @media (max-width: 900px) {
+            padding: 4px 25px 9px 57px;
+          }
         }
       }
     }
@@ -410,24 +388,6 @@
       }
     }
 
-    &-polls .widget-card__bottom-link_gradiented, &-quiz .widget-card__bottom-link_gradiented {
-      @media (max-width: 900px) {
-        padding-top: 7px;
-      }
-
-      @media (width: 768px) {
-        padding-top: 12px;
-      }
-
-      @media (max-width: 480px) {
-        padding-top: 12px;
-      }
-
-      @media (max-width: 320px) {
-        padding-top: 7px;
-      }
-    }
-
     &.widget-card-quiz .widget-card__info-block-date, &.widget-card-polls .widget-card__info-block-date {
       @media (max-width: 900px) {
         margin-top: 0;
@@ -438,8 +398,6 @@
       @media (max-width: 900px) {
         padding-bottom: 22px;
       }
-
-
     }
 
     &-polls {
@@ -449,25 +407,16 @@
     }
 
     .selectbox {
-      @media (max-width: 900px) {
-        height: 27px;
-        line-height: 27px;
-      }
+      //@media (max-width: 900px) {
+      //  height: 27px;
+      //  line-height: 27px;
+      //}
 
       @media (width: 768px) {
         line-height: 32px;
         height: 100%;
       }
 
-      @media (max-width: 480px) {
-        line-height: 32px;
-        height: 100%;
-      }
-
-      @media (max-width: 320px) {
-        height: 27px;
-        line-height: 27px;
-      }
       &__select {
         @media (max-width: 900px) {
           font-size: 12px;
@@ -548,8 +497,6 @@
       }
     }
   }
-
-
 
   .button {
     display: block;
@@ -639,8 +586,6 @@
     }
   }
 
-
-
   .share__panel {
     line-height: 50px;
   }
@@ -653,30 +598,13 @@
     line-height: 20px!important;
   }
 
-  // .footer {
-  //   height: 100%;
-  // }
-
-  // .footer-mob-sub-menu {
-  //   display: none;
-  // }
-
-  .sections__ahead .wrap {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .sections__subscribe .wrap {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
   .banner__wrap {
     padding: 18.625rem 0 0 242px;
   }
   
   .button-top {
     bottom: 90px;
+    right: -5px;
     
     @media screen and (max-width: 700px) {
       bottom: 55px;
@@ -691,6 +619,21 @@
     top: 50%;
     width: 100%;
     margin-top: -20px;
+    height: auto;
+  }
+  
+  .slider_services {
+    .wrap {
+      height: 100%;
+      @media screen and (min-width: 701px) and (max-width: 1180px) {
+        padding-left: 55px;
+        padding-right: 55px;
+      }
+      @media screen and (max-width: 700px) {
+        padding-left: 35px;
+        padding-right: 35px;
+      }
+    }
   }
 }
 
@@ -819,7 +762,7 @@
   }
 }
 
-@media (max-width: 1180px) {
+@media (min-width: 701px) and (max-width: 1180px) {
   .wrapper_main {
     .sections__ahead .wrap {
       padding-left: 55px;
@@ -828,6 +771,18 @@
     .sections__subscribe .wrap {
       padding-left: 55px;
       padding-right: 55px;
+    }
+  }
+}
+@media (max-width: 700px) {
+  .wrapper_main {
+    .sections__ahead .wrap {
+      padding-left: 35px;
+      padding-right: 35px;
+    }
+    .sections__subscribe .wrap {
+      padding-left: 35px;
+      padding-right: 35px;
     }
   }
 }
@@ -1142,7 +1097,7 @@
 
 @media (min-width: 651px) and (max-width: 700px) {
   .wrapper_main {
-    .news, .service {
+    .news {
       width: 300px;
       position: absolute;
       left: 50% !important;
@@ -1175,11 +1130,6 @@
 
 @media (min-width: 451px) and (max-width: 650px) {
   .wrapper_main {
-    .service {
-      top: 0 !important;
-      bottom: 0 !important;
-      margin: auto !important;
-    }
     .news {
       top: 0 !important;
       bottom: 0 !important;
@@ -1351,7 +1301,7 @@
 
     .service {
       margin: auto !important;
-      max-width: 213px;
+      //max-width: 213px;
       min-height: 310px;
       height: 268px;
       padding-bottom: 50px;
@@ -1511,9 +1461,6 @@
 }
 @media (max-height: 550px) and (max-width: 450px) {
   .wrapper_main {
-    .tile__item {
-      width: 70% !important;
-    }
     .service {
       max-width: none !important;
       min-height: 250px !important;
@@ -1543,7 +1490,7 @@
     }
     .dashed-diagram__value-p,
     .segment-diagram__value-num {
-      font-size: 15px !important;
+      font-size: 14px !important;
     }
     .diagram-tabs__btn {
       font-size: 13px !important;
@@ -1604,6 +1551,14 @@
   }
 }
 
+@media screen and (max-width: 900px) {
+  .wrapper_main {
+    .widget-card__state, .widget-card__subtitle {
+      font-size: 13px;
+    }
+  }
+}
+
 
 // @qluqua переписываю каскадом стили слайдера "СЕРВИСЫ" на главной страницы
 body.home {
@@ -1619,64 +1574,241 @@ body.home {
       // обертка карточки
       .tile__item {
         position: relative;
+      }
 
-        @media (max-width: 700px) {
-          width: 80% !important;
-          margin: 0 auto;
+      // сама карточка
+      .tile__inner,
+      .tile__inner.service {
+        position: absolute;
+        top: 50% !important;
+        bottom: auto !important;
+        left: 0px !important;
+        right: 0px !important;
+        min-height: auto;
+        padding: 0;
+        transform: translateY(-50%);
+        background: none;
+        
+        @media screen and (max-width: 350px) {
+          width: 242px;
         }
-
-        // сама карточка
-        .tile__inner,
-        .tile__inner.service {
-          position: absolute;
-          top: 50% !important;
-          bottom: auto !important;
-          left: 7px !important;
-          right: 7px !important;
-          height: auto !important;
-          min-height: auto;
-          width: 260px;
-          margin: 15px auto auto auto !important;
-          padding: 0;
-          transform: translateY(-50%);
-          background: none;
-          
-          @media screen and (max-width: 350px) {
-            width: 242px;
-          }
-
-          &:before {
-            display: none;
-          }
-
-          .widget-card {
-            height: auto;
-            min-height: 400px;
-
-            @media (max-width: 700px) and (max-height: 700px) {
-              transform: scale(.7);
-              margin-top: 50px;
-            }
-
-            // @media (max-height: 700px) {
-            //   transform: scale(.7);
-            //   margin-top: 50px;
-            // }
-          }
-
-          // карточка бюджетного калькулятора
-          .widget-card__budget-stat+.widget-card__budget-stat {
-            float: right;
-            margin-left: 0;
-          }
-
-          // карточка Бюджетная сеть
-          .widget-card-budget-web .widget-card__map img {
-            height: 100px;
-            margin: 0 auto;
-          }
+        &:before {
+          display: none;
         }
       }
+    
+      // карточка бюджетного калькулятора
+      .widget-card__budget-stat+.widget-card__budget-stat {
+        float: right;
+        margin-left: 0;
+      }
+    
+      // карточка Бюджетная сеть
+      .widget-card-budget-web .widget-card__map img {
+        height: 100px;
+        margin: 0 auto;
+      }
+      @media screen and (max-width: 605px) and (max-height: 550px) {
+        .widget-card-budget-web .widget-card__map img {
+          height: 40px;
+        }
+      }
+      
+      // Бюджетный калькулятор
+      @media screen and (min-width: 1171px) and (max-height: 650px) {
+        .widget-card__budget-total {
+          margin-top: 10px;
+        }
+        .widget-card__budget-total+.widget-card__budget-total {
+          margin-top: 0;
+        }
+      }
+      @media screen and (min-width: 606px) and (max-width: 1170px) and (max-height: 650px) {
+        .widget-card__budget-total {
+          margin-top: 2px;
+        }
+        .widget-card__budget-total+.widget-card__budget-total {
+          margin-top: 0;
+        }
+      }
+      @media screen and (max-width: 605px) {
+        .widget-card__budget-stat-count {
+          font-size: 28px;
+        }
+        .widget-card__budget-total-count {
+          margin-left: 3px;
+        }
+      }
+      @media screen and (max-width: 605px) and (max-height: 550px) {
+        .widget-card__budget-stats {
+          margin-top: 9px;
+        }
+        .widget-card__budget-stat {
+          font-size: 12px;
+        }
+        .widget-card__budget-stat-count {
+          font-size: 24px;
+        }
+        .widget-card__budget-total {
+          margin-top: -12px;
+        }
+        .widget-card__budget-total+.widget-card__budget-total {
+          margin-top: 0;
+        }
+        .widget-card__budget-total-title {
+          font-size: 10px;
+        }
+      }
+      
+      // Результаты реализации госпрограмм
+      @media screen and (max-width: 1170px) and (max-height: 650px) {
+        .widget-card-gov-programs-result .widget-card__nav-buttons {
+          margin-top: 15px;
+        }
+      }
+      @media screen and (max-width: 605px) and (max-height: 550px) {
+        .widget-card__info-block-items {
+          height: 67px;
+        } 
+      }
+      
+      // Внутригородские муниципальные образования
+      @media screen and (min-width: 606px) and (max-width: 1170px) and (max-height: 650px) {
+        .widget-card-municipalities .widget-card__map img {
+          height: 135px;
+        }
+      }
+      @media screen and (max-width: 605px) and (max-height: 550px) {
+        .widget-card-municipalities .widget-card__map img {
+          height: 85px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+      
+      // Обучающий сервис
+      @media screen and (max-width: 1170px) and (max-height: 650px) {
+        .widget-card__lessons-text {
+          margin-top: 13px;
+          height: auto;
+        }
+        .widget-card__lessons-text_active {
+          height: auto;
+        }
+      }
+      @media screen and (max-width: 605px) and (max-height: 650px) {
+        .widget-card__lessons-text {
+          font-size: 13px;
+        }
+        .widget-card__lessons-text_active {
+          font-size: 16px;
+        }
+      }
+      @media screen and (max-width: 605px) and (max-height: 550px) {
+        .widget-card__lessons {
+          margin-bottom: 7px;
+        }
+        .widget-card__lessons-text {
+          font-size: 11px;
+          margin-top: 3px;
+        }
+        .widget-card__lessons-text_active {
+          font-size: 11px;
+        }
+      }
+      
+      // Общественно значимые проекты
+      @media screen and (min-width: 606px) and (max-width: 1170px) and (max-height: 650px) {
+        .widget-card-projects .widget-card__info-block-subtitle {
+          margin-top: 20px;
+        }
+        .widget-card__info-block-desc {
+          max-width: 100%;
+        }
+      }
+      @media screen and (max-width: 605px) and (max-height: 550px) {
+        .widget-card-projects .widget-card__info-block-subtitle {
+          margin-top: 14px;
+        } 
+      }
+      
+      // Государственные программы
+      @media screen and (max-width: 605px) and (max-height: 550px) {
+        .widget-card-gov-programs .dashed-diagram__diagram, .widget-card-gov-programs .dashed-diagram__diagram .svg {
+          width: 110px !important;
+          height: 110px !important;
+        }
+        .service__dashed-diagram {
+          height: 120px;
+        }
+      }
+      
+      // Адресная инвестиционная программа
+      @media screen and (max-width: 605px) and (max-height: 550px) {
+        .widget-card-invest-program .segment-diagram, .widget-card-invest-program .segment-diagram .svg {
+          width: 110px !important;
+          height: 110px !important;
+        } 
+      }
+      
+      // Государственный долг
+      @media screen and (max-width: 605px) and (max-height: 550px) {
+        .widget-card-gov-debt .segment-diagram, .widget-card-gov-debt .segment-diagram .svg {
+          width: 110px !important;
+          height: 110px !important;
+        }
+      }
+      
+      // Москва и города мира
+      @media screen and (max-width: 605px) and (max-height: 550px) {
+        .widget-card__results-total {
+          font-size: 15px;
+        }
+        .widget-card__select {
+          margin-top: 7px;
+        }
+        .widget-card__results {
+          margin-top: 7px;
+        }
+        .widget-card__results-rating {
+          margin-top: 1px;
+        }
+      }
+      
+      // Опрос общественного мнения
+      @media screen and (max-width: 605px) and (max-height: 550px) {
+        .widget-card-polls-pers .widget-card__info-block-title, .widget-card-quiz-pers .widget-card__info-block-title {
+          font-size: 13px;
+          height: 30px;
+        }
+        .widget-card-polls-pers .widget-card__info-block, .widget-card-quiz-pers .widget-card__info-block {
+          padding: 5px 0 0;
+        }
+        .widget-card__nav-buttons {
+          margin-top: 4px;
+        }
+        .widget-card-polls-pers .widget-card__content, .widget-card-quiz-pers .widget-card__content {
+          padding: 0 20px 0;
+        }
+      }
+      
+      // Социальная поддержка населения
+      @media screen and (max-width: 605px) and (max-height: 550px) {
+        .widget-card__info-block-item {
+          max-height: 100%;
+          font-size: 11px;
+        }
+      }
+      
+      // Москва и субъекты РФ
+      @media screen and (max-width: 605px) and (max-height: 550px) {
+        .widget-card-regions .widget-card__map img {
+          height: 35px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+      
     }
   }
 }
