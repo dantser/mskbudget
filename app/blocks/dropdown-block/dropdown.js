@@ -16,7 +16,6 @@ export default () => {
     } else {
       slideWidth = 1100*0.25;
     }
-    console.log(slideWidth);
     parent.find('.tile__item').attr('style', 'width: '+slideWidth+'px !important');
     const wrapperWidth = slideCnt * slideWidth;
 

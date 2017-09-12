@@ -9,7 +9,7 @@ mixin news-card(image, category, title, date, tags)
     a(href="#").news__thumb
       img(src="assets/images/news/"+image+".jpg", alt="thumb")
     a(href="#").news__category= category
-    a(href="#").news__title= title
+    a(href="#", title=title).news__title= title
     .news__bottom
       p.news__date= date
       .news__tags

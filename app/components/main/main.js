@@ -143,5 +143,21 @@ export default () => {
     $(document).on('click', function() {
       $('.jq-spec-datepicker').blur().removeClass('hasDatepicker');
     });
+    
+    if ($('.wrapper_main').length) {
+      
+      function overflowDotts(size, element) {
+        var content = $(element);
+        content.each(function () {
+          var contentText = $(this).text();
+          if(contentText.length > size){
+            $(this).text(contentText.slice(0, size) + ' ...');
+          }
+        });
+      };
+      
+      overflowDotts(80, '.news__title'); 
+    }
+    
   });
 }
