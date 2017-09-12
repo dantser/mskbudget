@@ -1346,6 +1346,8 @@ $(document).ready(function() {
   var switcherUnits = $(".analityc-widget_moscow-gov-program .analityc-control-switcher_units");
   var switcherBig = $(".analityc-widget_moscow-gov-program .analityc-control-switcher_big");
 
+  var switcherLarge = $('.analityc-widget_moscow-gov-program .analityc-control-switcher_large a');
+  var switcherSub = $('.analityc-widget_moscow-gov-program .analityc-control-switcher_sub a');
 
     gpGraphics.removeClass('_active');
     gpTable.removeClass('_active');
@@ -1354,6 +1356,10 @@ $(document).ready(function() {
     switcherUnits.removeClass('active');
     switcherBig.removeClass('active');
     tablearr.hide();
+    switcherLarge.removeClass('active');
+    switcherLarge.eq(0).addClass('active');
+    switcherSub.removeClass('active');
+    switcherSub.eq(0).addClass('active');
 
     if ($this.val() === "Закон о бюджете утвержденный") {
       gpGraphicsDone.addClass('_active');
@@ -1423,6 +1429,9 @@ $(document).ready(function() {
     var switcherSub = $(".analityc-widget_moscow-gov-program .analityc-control-switcher_sub");
     var switcherUnits = $(".analityc-widget_moscow-gov-program .analityc-control-switcher_units");
     var switcherBig = $(".analityc-widget_moscow-gov-program .analityc-control-switcher_big");
+    var switcherLarge = $('.analityc-widget_moscow-gov-program .analityc-control-switcher_large a');
+    var switcherSubLink = $('.analityc-widget_moscow-gov-program .analityc-control-switcher_sub a');
+
     var sources = $(".analityc-widget_moscow-gov-program"),
       arrow = $('.ar'),
       tablearr = $('.section__ar'),
@@ -1447,6 +1456,10 @@ $(document).ready(function() {
 
     switcherUnits.removeClass('active');
     switcherBig.removeClass('active');
+    switcherLarge.removeClass('active');
+    switcherLarge.eq(0).addClass('active');
+    switcherSubLink.removeClass('active');
+    switcherSubLink.eq(0).addClass('active');
 
     if ($this.hasClass('analityc-control-button_graphics') && !$this.hasClass('active')) {
       $this.siblings().removeClass('active');
@@ -2324,6 +2337,7 @@ $(document).ready(function() {
       mrelationsDatepicker.addClass('active');
     }
 
+    positionValues();
   })
 
   $(".analityc-widget_mrelations .analityc-control-button").on("click", function(e) {
@@ -2466,6 +2480,8 @@ $(document).ready(function() {
     } else if ($this.val() === "Направления расходования") {
       mrelationsGraphicsDomain.addClass('active');
     }
+
+    positionValues();
   })
 
 })

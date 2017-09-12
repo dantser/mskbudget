@@ -1189,6 +1189,7 @@
       &__val {
         position: absolute;
         color: $color-white;
+        transform: translateX(-50%) translateY(-50%);
         &_overval {
           color: $color-black;
           border-bottom: 1px solid #000;
@@ -1204,6 +1205,8 @@
       }
       &__value-num {
         font-size: 36px;
+        display: table-cell;
+        vertical-align: middle;
       }
     }
     &_big {
@@ -2895,6 +2898,7 @@
 
         &__val {
           position: absolute;
+          color: #fff;
           z-index: 1; 
           transform: translateX(-50%) translateY(-50%);
           @media (max-width: 900px) {
@@ -2903,6 +2907,10 @@
 
           @media (max-width: 580px) {
             font-size: 11px!important;
+          }
+
+          &_dark {
+            color: $color-black;
           }
         }
 

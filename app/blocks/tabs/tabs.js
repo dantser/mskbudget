@@ -35,5 +35,7 @@ export default function tabs() {
     $(document).find("[data-tab-bg='" + targetTab + "']").addClass("active").siblings().removeClass("active");
 
     tab.show();
+
+    positionValues();
   });
 }

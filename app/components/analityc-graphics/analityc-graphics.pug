@@ -1141,7 +1141,7 @@ mixin analityc-graphics-mix(data)
           .segment-diagram__value
             p.segment-diagram__value-num 1830,3
             span.segment-diagram__val= data.diagramVal[0]
-            span.segment-diagram__val= data.diagramVal[1]
+            span.segment-diagram__val.segment-diagram__val_dark= data.diagramVal[1]
 
     +e.lines
       each item in data.item
@@ -1671,7 +1671,7 @@ mixin analityc-graphics-govdebt-date()
                 span.segment-diagram__val 68,8%
                 span.segment-diagram__val  10,0%
                 span.segment-diagram__val  12,5%
-                span.segment-diagram__val.segment-diagram__val_overval 0,7%
+                span.segment-diagram__val 0,7%
           +e.graphic-angle._right-top
             p.graphic-text Внутренний долг
             .segment-diagram#diagram-24
@@ -1680,7 +1680,7 @@ mixin analityc-graphics-govdebt-date()
                 span.segment-diagram__val 68,8%
                 span.segment-diagram__val  10,0%
                 span.segment-diagram__val  12,5%
-                span.segment-diagram__val.segment-diagram__val_overval 0,7%
+                span.segment-diagram__val 0,7%
           +e.graphic-angle._right-bottom
             p.graphic-text Внешний долг
             .segment-diagram#diagram-25

@@ -49,6 +49,8 @@ export default () => {
 			else if (STAGE.val() === "Закон об исполнении")
 				GRAPHICSTRUCTURE_EXEC.addClass('_active');
 		}
+
+		positionValues();
 	});
 
 	const SWITCHER_SUB = $('.analityc-widget_moscow-gov-program .analityc-control-switcher_sub');
@@ -83,6 +85,8 @@ export default () => {
 			GRAPHICEXPENSES.addClass('_active');
 			UNITS.addClass('active');
 		}
+
+		positionValues();
 	});
 
 
