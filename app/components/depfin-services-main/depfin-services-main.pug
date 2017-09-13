@@ -68,22 +68,22 @@ mixin widget-card-regions
 						+searchFormWidget('самарская область', 'Введите название ВМО')
 					+e.select
 						+selectbox('select', getData('widget-card-selectbox'))
-					+e.results._opt1
+					+e.results._active(data-option='opt1')
 						+e.results-total._active 300 тыс. руб. на 1 жителя
 						+e.results-rating
 							+e.results-pos 8 место
 							+e.results-in из 85 субъектов РФ
-					+e.results._opt2
+					+e.results(data-option='opt2')
 						+e.results-total._active 300 тыс. руб. на 1 жителя
 						+e.results-rating
 							+e.results-pos 8 место
 							+e.results-in из 85 субъектов РФ
-					+e.results._opt3
+					+e.results(data-option='opt3')
 						+e.results-total._active 300 тыс. руб. на 1 жителя
 						+e.results-rating
 							+e.results-pos 8 место
 							+e.results-in из 85 субъектов РФ
-					+e.results._opt4
+					+e.results(data-option='opt4')
 						+e.results-total._active 300 тыс. руб. на 1 жителя
 						+e.results-rating
 							+e.results-pos 8 место
@@ -98,28 +98,28 @@ mixin widget-card-calc
 				+widget-card-content()
 					+e.select
 						+selectbox('select', getData('widget-card-selectbox'))
-					+e.output-calc._opt1._active
+					+e.output-calc._active(data-option='opt1')
 						+e.range
 							+range-for-widgets('widget_card_calc1', "0", "400.8")
 						+e.value
 							+e.value-title Дефицит
 							+e.value-value#opt1Value -47,5
 							+e.value-units млрд руб.
-					+e.output-calc._opt2
+					+e.output-calc(data-option='opt2')
 						+e.range
 							+range-for-widgets('widget_card_calc2', "20", "500")
 						+e.value
 							+e.value-title Профицит
 							+e.value-value#opt2Value 5
 							+e.value-units млрд руб.
-					+e.output-calc._opt3
+					+e.output-calc(data-option='opt3')
 						+e.range
 							+range-for-widgets('widget_card_calc3', "300", "600")
 						+e.value
 							+e.value-title Дефицит
 							+e.value-value#opt3Value -10,3
 							+e.value-units млрд руб.
-					+e.output-calc._opt4
+					+e.output-calc(data-option='opt4')
 						+e.range
 							+range-for-widgets('widget_card_calc4', "2", "200")
 						+e.value
@@ -137,7 +137,7 @@ mixin widget-card-calc-pers
 				+widget-card-content()
 					+e.select
 						+selectbox-cities('select', getData('widget-card-selectbox'))
-					+e.output-calc._opt1._active
+					+e.output-calc._active(data-option='opt1')
 						+e.budget-stats
 							+e.budget-stat
 								+e.P.budget-stat-title доходы
@@ -155,7 +155,7 @@ mixin widget-card-calc-pers
 							+e.SPAN.budget-total-title изменение государственного долга
 							+e.SPAN.budget-total-count 0,0
 							+e.SPAN.budget-total-text млн руб.
-					+e.output-calc._opt2
+					+e.output-calc(data-option='opt2')
 						+e.budget-stats
 							+e.budget-stat
 								+e.P.budget-stat-title доходы
@@ -173,7 +173,7 @@ mixin widget-card-calc-pers
 							+e.SPAN.budget-total-title изменение государственного долга
 							+e.SPAN.budget-total-count 0,0
 							+e.SPAN.budget-total-text млн руб.
-					+e.output-calc._opt3
+					+e.output-calc(data-option='opt3')
 						+e.budget-stats
 							+e.budget-stat
 								+e.P.budget-stat-title доходы
@@ -191,7 +191,7 @@ mixin widget-card-calc-pers
 							+e.SPAN.budget-total-title изменение государственного долга
 							+e.SPAN.budget-total-count 1,0
 							+e.SPAN.budget-total-text млн руб.
-					+e.output-calc._opt4
+					+e.output-calc(data-option='opt4')
 						+e.budget-stats
 							+e.budget-stat
 								+e.P.budget-stat-title доходы
@@ -369,27 +369,30 @@ mixin widget-card-cities
 				+widget-card-head('Москва и города мира')
 				+widget-card-content()
 					+e.logo
-						img(src='assets/images/logo.png')
+						img(src='assets/images/logo.png', data-option='moscow').active
+						img(src='assets/images/coat/london.png', data-option='london')
+						img(src='assets/images/coat/paris.png', data-option='paris')
+						img(src='assets/images/coat/berlin.png', data-option='berlin')
 					+e.select
 						+selectbox-cities('select', getData('widget-card-selectbox-cities')).selectbox-cities
 					+e.select
 						+selectbox('select', getData('widget-card-selectbox-cities2'))
-					+e.results._moscow._active
+					+e.results._active(data-option='moscow')
 						+e.results-total._active 12 500 тысяч человек
 						+e.results-rating
 							+e.results-pos 8 место
 							+e.results-in из 8 крупнейших городов мира
-					+e.results._london
+					+e.results(data-option='london')
 						+e.results-total._active 12 500 тысяч человек
 						+e.results-rating
 							+e.results-pos 8 место
 							+e.results-in из 8 крупнейших городов мира
-					+e.results._paris
+					+e.results(data-option='paris')
 						+e.results-total._active 12 500 тысяч человек
 						+e.results-rating
 							+e.results-pos 8 место
 							+e.results-in из 8 крупнейших городов мира
-					+e.results._berlin
+					+e.results(data-option='berlin')
 						+e.results-total._active 12 500 тысяч человек
 						+e.results-rating
 							+e.results-pos 8 место
@@ -408,19 +411,19 @@ mixin widget-card-gov-programs-result
 					+e.nav-buttons
 						+arrow-button()._prev.widget-card__arrow-button
 						+arrow-button()._next.widget-card__arrow-button
-					+e.info-block-items._opt1.widget-card__info-block-items_active
+					+e.info-block-items._active(data-option='opt1')
 						+e.info-block-item._active Будет построено 10 новых стадионов
 						+e.info-block-item Будет построено 11 новых стадионов
 						+e.info-block-item Будет построено 12 новых стадионов
-					+e.info-block-items._opt2
+					+e.info-block-items(data-option='opt2')
 						+e.info-block-item._active Будет построено 13 новых стадионов
 						+e.info-block-item Будет построено 14 новых стадионов
 						+e.info-block-item Будет построено 15 новых стадионов
-					+e.info-block-items._opt3
+					+e.info-block-items(data-option='opt3')
 						+e.info-block-item._active Будет построено 16 новых стадионов
 						+e.info-block-item Будет построено 17 новых стадионов
 						+e.info-block-item Будет построено 18 новых стадионов
-					+e.info-block-items._opt4
+					+e.info-block-items(data-option='opt4')
 						+e.info-block-item._active Будет построено 19 новых стадионов
 						+e.info-block-item Будет построено 20 новых стадионов
 						+e.info-block-item Будет построено 21 новых стадионов
@@ -437,19 +440,19 @@ mixin widget-card-social-support
 					+e.nav-buttons
 						+arrow-button()._prev.widget-card__arrow-button
 						+arrow-button()._next.widget-card__arrow-button
-					+e.info-block-items._opt1.widget-card__info-block-items_active
+					+e.info-block-items._active(data-option="opt1")
 						+e.info-block-item._active Компенсация понесенных расходов на ритуальные услуги умерших инвалидов и участников Великой Отечественной войны 1941-1945 годов
 						+e.info-block-item второй блок
 						+e.info-block-item третий блок
-					+e.info-block-items._opt2
+					+e.info-block-items(data-option="opt2")
 						+e.info-block-item._active Компенсация понесенных расходов на ритуальные услуги умерших инвалидов и участников Великой Отечественной войны 1941-1945 годов
 						+e.info-block-item второй блок
 						+e.info-block-item третий блок
-					+e.info-block-items._opt3
+					+e.info-block-items(data-option="opt3")
 						+e.info-block-item._active Компенсация понесенных расходов на ритуальные услуги умерших инвалидов и участников Великой Отечественной войны 1941-1945 годов
 						+e.info-block-item второй блок
 						+e.info-block-item третий блок
-					+e.info-block-items._opt4
+					+e.info-block-items(data-option="opt4")
 						+e.info-block-item._active Компенсация понесенных расходов на ритуальные услуги умерших инвалидов и участников Великой Отечественной войны 1941-1945 годов
 						+e.info-block-item второй блок
 						+e.info-block-item третий блок
@@ -593,11 +596,11 @@ mixin widget-card-municipalities
 						+searchFormWidget('замоскворечье', 'Введите название субъекта РФ')
 					+e.select
 						+selectbox('select', getData('widget-card-selectbox-vmo'))
-					+e.results
-						+e.results-total._opt1._active 57 700 человек
-						+e.results-total._opt2 57 700 кв.м
-						+e.results-total._opt3 57 700 децибел
-						+e.results-total._opt4 57 700 атомов
+					+e.results._active
+						+e.results-total._active(data-option='opt1') 57 700 человек
+						+e.results-total(data-option='opt2') 57 700 кв.м
+						+e.results-total(data-option='opt3') 57 700 децибел
+						+e.results-total(data-option='opt4') 57 700 атомов
 				+widget-card-bottom-link()
 
 mixin widget-card-budget-web
@@ -615,19 +618,19 @@ mixin widget-card-budget-web
 					+e.nav-buttons
 						+arrow-button()._prev.widget-card__arrow-button
 						+arrow-button()._next.widget-card__arrow-button
-					+e.results._opt1._active
+					+e.results._active(data-option='opt1')
 						+e.results-total._active 12 детских садов
 						+e.results-total 13 школ
 						+e.results-total 14 больниц
-					+e.results._opt2
+					+e.results(data-option='opt2')
 						+e.results-total._active 13 детских садов
 						+e.results-total 14 школ
 						+e.results-total 15 больниц
-					+e.results._opt3
+					+e.results(data-option='opt3')
 						+e.results-total._active 14 детских садов
 						+e.results-total 15 школ
 						+e.results-total 16 больниц
-					+e.results._opt4
+					+e.results(data-option='opt4')
 						+e.results-total._active 15 детских садов
 						+e.results-total 16 школ
 						+e.results-total 17 больниц

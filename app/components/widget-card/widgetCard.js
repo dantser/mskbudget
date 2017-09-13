@@ -166,106 +166,58 @@ export default () => {
   // виджет москва и города мира
   $(document).on('click', '.widget-card-cities .selectbox_cities li', function () {
     var newval = $(this).data('val');
-    $('.widget-card-cities').find('.widget-card__results').slideUp();
-    if (newval == "Москва") {
-      $('.widget-card__results_moscow').slideDown(321);
-      $(this).parents('.widget-card-cities').find('.widget-card__logo img').attr('src', 'assets/images/logo.png');
-    } else if (newval == "Лондон") {
-      $('.widget-card__results_london').slideDown(321);
-      $(this).parents('.widget-card-cities').find('.widget-card__logo img').attr('src', 'assets/images/coat/london.png');
-    } else if (newval == "Париж") {
-      $('.widget-card__results_paris').slideDown(321);
-      $(this).parents('.widget-card-cities').find('.widget-card__logo img').attr('src', 'assets/images/coat/paris.png');
-    } else if (newval == "Берлин") {
-      $('.widget-card__results_berlin').slideDown(321);
-      $(this).parents('.widget-card-cities').find('.widget-card__logo img').attr('src', 'assets/images/coat/berlin.png');
-    }
+    var widgetCard = $(this).parents('.widget-card');
+    widgetCard.find('.widget-card__results').slideUp();
+    widgetCard.find('.widget-card__logo img').removeClass('active');
+    widgetCard.find('.widget-card__results[data-option="'+newval+'"]').slideDown(321);
+    widgetCard.find('.widget-card__logo img[data-option="'+newval+'"]').addClass('active');
   });
 
   // виджет результаты реализации гос.программ
   $(document).on('click', '.widget-card-gov-programs-result li', function () {
     var newval = $(this).data('val');
-    $('.widget-card-gov-programs-result').find('.widget-card__info-block-items').hide();
-    if (newval == "opt1") {
-      $('.widget-card-gov-programs-result .widget-card__info-block-items_opt1').show(321).addClass('widget-card__info-block-items_active');
-    } else if (newval == "opt2") {
-      $('.widget-card-gov-programs-result .widget-card__info-block-items_opt2').show(321).addClass('widget-card__info-block-items_active');
-    } else if (newval == "opt3") {
-      $('.widget-card-gov-programs-result .widget-card__info-block-items_opt3').show(321).addClass('widget-card__info-block-items_active');
-    } else if (newval == "opt4") {
-      $('.widget-card-gov-programs-result .widget-card__info-block-items_opt4').show(321).addClass('widget-card__info-block-items_active');
-    }
+    var widgetCard = $(this).parents('.widget-card');
+    widgetCard.find('.widget-card__info-block-items').hide();
+    widgetCard.find('.widget-card__info-block-items[data-option="'+newval+'"]').show(321).addClass('widget-card__info-block-items_active');
   });
 
   // виджет социальная поддержка населения
   $(document).on('click', '.widget-card-social-support li', function () {
     var newval = $(this).data('val');
-    $(this).parents('.widget-card-social-support').find('.widget-card__info-block-items').hide();
-    if (newval == "opt1") {
-      $('.widget-card-social-support .widget-card__info-block-items_opt1').show(321).addClass('widget-card__info-block-items_active');
-    } else if (newval == "opt2") {
-      $('.widget-card-social-support .widget-card__info-block-items_opt2').show(321).addClass('widget-card__info-block-items_active');
-    } else if (newval == "opt3") {
-      $('.widget-card-social-support .widget-card__info-block-items_opt3').show(321).addClass('widget-card__info-block-items_active');
-    } else if (newval == "opt4") {
-      $('.widget-card-social-support .widget-card__info-block-items_opt4').show(321).addClass('widget-card__info-block-items_active');
-    }
+    var widgetCard = $(this).parents('.widget-card');
+    widgetCard.find('.widget-card__info-block-items').hide();
+    widgetCard.find('.widget-card__info-block-items[data-option="'+newval+'"]').show(321).addClass('widget-card__info-block-items_active');
   });
+  
   // виджет внутригородские муниципальные образования
   $(document).on('click', '.widget-card-municipalities li', function () {
     var newval = $(this).data('val');
-    $('.widget-card-municipalities').find('.widget-card__results-total').hide();
-    if (newval == "opt1") {
-      $('.widget-card-municipalities .widget-card__results-total_opt1').show(321);
-    } else if (newval == "opt2") {
-      $('.widget-card-municipalities .widget-card__results-total_opt2').show(321);
-    } else if (newval == "opt3") {
-      $('.widget-card-municipalities .widget-card__results-total_opt3').show(321);
-    } else if (newval == "opt4") {
-      $('.widget-card-municipalities .widget-card__results-total_opt4').show(321);
-    }
+    var widgetCard = $(this).parents('.widget-card');
+    widgetCard.find('.widget-card__results-total').hide();
+    widgetCard.find('.widget-card__results-total[data-option="'+newval+'"]').show(321);
   });
-// виджет москва и регионы рф
+  
+  // виджет москва и регионы рф
   $(document).on('click', '.widget-card-regions li', function () {
     var newval = $(this).data('val');
-    $(this).parents('.widget-card__content').find('.widget-card__results').slideUp(321);
-    if (newval == "opt1") {
-      $(this).parents('.widget-card__content').find('.widget-card__results_opt1').slideDown(321);
-    } else if (newval == "opt2") {
-      $(this).parents('.widget-card__content').find('.widget-card__results_opt2').slideDown(321);
-    } else if (newval == "opt3") {
-      $(this).parents('.widget-card__content').find('.widget-card__results_opt3').slideDown(321);
-    } else if (newval == "opt4") {
-      $(this).parents('.widget-card__content').find('.widget-card__results_opt4').slideDown(321);
-    }
+    var widgetCard = $(this).parents('.widget-card');
+    widgetCard.find('.widget-card__results').slideUp(321);
+    widgetCard.find('.widget-card__results[data-option="'+newval+'"]').slideDown(321);
   });
+  
   // виджет бюджетная сеть
   $(document).on('click', '.widget-card-budget-web li', function () {
     var newval = $(this).data('val');
-    $('.widget-card-budget-web').find('.widget-card__results').removeClass('widget-card__results_active');
-    if (newval == "opt1") {
-      $('.widget-card-budget-web .widget-card__results_opt1').addClass('widget-card__results_active');
-    } else if (newval == "opt2") {
-      $('.widget-card-budget-web .widget-card__results_opt2').addClass('widget-card__results_active');
-    } else if (newval == "opt3") {
-      $('.widget-card-budget-web .widget-card__results_opt3').addClass('widget-card__results_active');
-    } else if (newval == "opt4") {
-      $('.widget-card-budget-web .widget-card__results_opt4').addClass('widget-card__results_active');
-    }
+    var widgetCard = $(this).parents('.widget-card');
+    widgetCard.find('.widget-card__results').removeClass('widget-card__results_active');
+    widgetCard.find('.widget-card__results[data-option="'+newval+'"]').addClass('widget-card__results_active');
   });
 
   // виджет калькулятор
   $(document).on('click', '.widget-card-calc li', function () {
     var newval = $(this).data('val');
-    $(this).parents('.widget-card__content').find('.widget-card__output-calc').removeClass('widget-card__output-calc_active').hide(321);
-    if (newval == "opt1") {
-      $(this).parents('.widget-card__content').find('.widget-card__output-calc_opt1').show(321);
-    } else if (newval == "opt2") {
-      $(this).parents('.widget-card__content').find('.widget-card__output-calc_opt2').show(321);
-    } else if (newval == "opt3") {
-      $(this).parents('.widget-card__content').find('.widget-card__output-calc_opt3').show(321);
-    } else if (newval == "opt4") {
-      $(this).parents('.widget-card__content').find('.widget-card__output-calc_opt4').show(321);
-    }
+    var widgetCard = $(this).parents('.widget-card');
+    widgetCard.find('.widget-card__output-calc').removeClass('widget-card__output-calc_active').hide(321);
+    widgetCard.find('.widget-card__output-calc[data-option="'+newval+'"]').show(321);
   });
 }

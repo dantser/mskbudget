@@ -23,7 +23,7 @@
   /*Если карточка раскрыта на мобильном разрешении*/
   &_active {
     transition: all .321s ease-in-out;
-    min-height: 400px;
+    min-height: 420px;
     padding-bottom: 40px;
 
     .widget-card__arrow-open {
@@ -356,9 +356,10 @@
     margin-top: 6px;
     background-color: #f5f2dc;
     overflow: hidden;
+    display: none;
 
-    &_opt2, &_opt3, &_opt4 {
-      display: none;
+    &_active {
+      display: block;
     }
   }
 
@@ -461,14 +462,7 @@
   &__results {
     margin-top: 11px;
     width: 100%;
-
-    &_paris, &_london, &_berlin {
-      display: none;
-    }
-
-    &_opt2, &_opt3, &_opt4 {
-      display: none;
-    }
+    display: none;
 
     &_active {
       display: inline-block;
@@ -498,9 +492,10 @@
 
   &__results-total {
     font-size: 22px;
-
-    &_opt2, &_opt3, &_opt4 {
-      display: none;
+    display: none;
+    
+    &_active {
+      display: block;
     }
   }
 
@@ -575,6 +570,10 @@
 
     img {
       @include fill-img;
+      display: none;
+      &.active {
+        display: block;
+      }
     }
   }
 
@@ -789,16 +788,11 @@
   }
 }
 
-.widget-card-municipalities {
-
-}
-
 .widget-card-budget-web {
   .widget-card__select {
     margin-bottom: 8px;
   }
-  .widget-card__nav-buttons,
-  .widget-card__results {
+  .widget-card__nav-buttons {
     display: inline-block;
     vertical-align: middle;
     margin-top: 0;
@@ -806,11 +800,10 @@
 
   .widget-card__results {
     width: 150px;
-  }
-
-  .widget-card__results {
-    &_opt1, &_opt2, &_opt3, &_opt4 {
-      display: none;
+    vertical-align: middle;
+    margin-top: 0;
+    @media screen and (max-width: 580px) {
+      width: 140px;
     }
   }
 
@@ -821,10 +814,6 @@
   .widget-card__nav-buttons {
     margin-right: 10px;
   }
-
-  // .widget-card__results {
-  //   margin-left: 10px;
-  // }
 }
 
 .widget-card-projects {
