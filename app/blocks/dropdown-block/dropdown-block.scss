@@ -140,8 +140,9 @@
   &_documents, &_news, &_services {
     .dd-holder {
       background-color: rbg(29,27,39);
-
       position: relative;
+      margin-left: -5px;
+      margin-right: -5px;
     }
 
     .section-tabs__content {
@@ -163,7 +164,7 @@
         }
 
         @media (max-width: 480px) {
-          max-width: 275px !important;
+          max-width: 263px !important;
         }
 
         &-list {
@@ -174,25 +175,19 @@
           content: '';
           position: absolute;
           top: 0;
-          bottom: 0;
-          width: 8px;
+          bottom: 20px;
+          width: 18px;
           z-index: 3;
-          max-height: 480px;
-
-          @media (max-width: 1440px) {
-            max-height: calc(100% - 20px);
-          }
-
         }
 
         &::before {
-          right: -1px;
+          right: -11px;
           background: linear-gradient(90deg,rgba(29,27,39,0) 0,#1d1b27);
           filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr="#000000FF",endColorstr="#1d1b27");
         }
 
         &::after {
-          left: -1px;
+          left: -11px;
           background: linear-gradient(90deg,#1d1b27 0,rgba(29,27,39,0));
           filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr="#1d1b27",endColorstr="#000000FF");
         }

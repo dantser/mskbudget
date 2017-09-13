@@ -47,11 +47,13 @@ body.home .footer-frame-wrp { display: none; }
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
-      align-content: center;
+      align-items: stretch;
+      align-content: stretch;
       
       @media (min-width: 1024px) {
         flex: 1 0;
+        align-items: stretch;
+        align-content: center;
       }
     }
 
@@ -79,6 +81,13 @@ body.home .footer-frame-wrp { display: none; }
         // iframe#footer_frame {
         //   max-height: 100% !important; // Safari fix
         // }
+      }
+    }
+    
+    &__wrap {
+      @media screen and (max-width: 1024px) {
+        margin-left: 0;
+        margin-right: 0;
       }
     }
 

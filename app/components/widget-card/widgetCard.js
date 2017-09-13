@@ -15,7 +15,7 @@ export default () => {
     $(this).toggleClass('widget-card__pin_active');
     $(this).parents('.tile__item').toggleClass('tile__item_pinned');
     
-    if ($(this).parents('.wrapper_main')) {
+    if ($(this).parents('.wrapper_main').length) {
       
       var activeItem = $(this).parents('.tile__item'),
           slider = $(this).parents('.slider'),

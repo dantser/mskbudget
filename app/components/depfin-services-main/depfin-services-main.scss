@@ -26,6 +26,13 @@
     margin: 0;
     padding: 0;
   }
+  .widget-card__arrow-open {
+    @media (max-width: 580px) {
+      display: inline-block;
+      top: -3px;
+      vertical-align: top;
+    }
+  }
 
   .service-dots button {
     width: 9px;
@@ -248,6 +255,8 @@
     height: 100%;
   }
   &_dropdown {
+    margin-left: 0;
+    margin-right: 0;
     padding-bottom: 56px;
     .tile {
       max-width: none;
@@ -260,6 +269,9 @@
     }
   }
   &_main {
+    .tile {
+      position: relative;
+    }
     .tile__inner {
       @media screen and (max-width: 580px) {
         height: auto !important;
