@@ -185,7 +185,7 @@ var letter;
 			threshold: 0,
 		});
 
-		_.slider.find('.letter__hover').mouseenter(function() {
+		_.slider.siblings('.letter__hover').mouseenter(function() {
 
 			var direct = $(this).attr('data-direct');
 
@@ -205,7 +205,7 @@ var letter;
 
 		});
 
-		_.slider.find('.letter__hover').mouseleave(function() {
+		_.slider.siblings('.letter__hover').mouseleave(function() {
 			clearInterval(int);
 		});
 
