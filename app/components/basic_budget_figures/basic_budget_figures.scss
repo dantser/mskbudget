@@ -120,6 +120,34 @@ label {
 
 }
 
+.basic-budget .wrapper {
+  @media (max-width: 580px) {
+    padding-left: 0!important;
+    padding-right: 0!important;
+  }
+
+}
+
+.basic-budget-figures {
+  .page-header {
+    @media (max-width: 1140px) {
+      padding-left: 75px;
+      padding-right: 74px;
+    }
+
+    @media (max-width: 900px) {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+
+    @media (max-width: 580px) {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+  }
+}
+
 .wrapper {
   position: relative;
 //  max-width: 1100px;
@@ -494,8 +522,8 @@ label {
 }
 
 .analityc-control-group._year .analityc-select {
-  width: 72px;
-  width: calc(100% - 12px);
+  box-sizing: border-box;
+  width: 100%;
 }
 .analityc-select option {
   font-size: 14px;
@@ -777,13 +805,6 @@ label {
   color: white;
   padding: 20px 0 45px 0;
 }
-.basic-budget .analityc-control-group._year {
-  .analityc-select {
-    background-position: 90% 13px;
-    width: 72px;
-    width: calc(100% - 12px);
-  }
-}
 .analityc-control-group._dp.basic-budget__dp {
   margin-left: 9.8%;
   width: 343px;
@@ -826,11 +847,8 @@ label {
   }
 }
 
-@media (min-width: 901px) and (max-width: 1140px) {
-  .basic-budget .wrapper {
-    padding-left: 75px;
-    padding-right: 74px;
-  }
+@media (max-width: 1140px) and (min-width: 901px) {
+
   .analityc-widget {
     padding-top: 22px;
   }
@@ -843,20 +861,12 @@ label {
     margin-bottom: 18px;
   }
   .analityc-control-group._year {
-    width: 29.1%;
+    width: 7.4%;
   }
   .analityc-select {
     margin-top: 11px;
     height: 38px;
     font-size: 15px;
-  }
-  .analityc-select {
-    background: #f5f5f5 url(../images/select-ar.png) 96% 16px no-repeat;
-    background-size: 11px;
-  }
-  .analityc-control-group._year .analityc-select {
-    background: #f5f5f5 url(../images/select-ar.png) 94% 16px no-repeat;
-    background-size: 11px;
   }
   .analityc-control-group + .analityc-control-group {
     margin-left: 3.8%;
@@ -971,11 +981,8 @@ label {
   }
 }
 
-@media (min-width: 761px) and (max-width: 900px) {
-  .basic-budget .wrapper {
-    padding-left: 75px;
-    padding-right: 74px;
-  }
+@media (max-width: 900px) and (min-width: 761px) {
+
   .analityc-widget-rounds .legend {
     height: auto;
   }
@@ -1032,10 +1039,6 @@ label {
     }
   }
 
-  .analityc-control-group._year {
-    width: 29.1%;
-  }
-
   .analityc-control-group._level {
     width: 45%;
   }
@@ -1058,14 +1061,6 @@ label {
     margin-top: 11px;
     height: 38px;
     font-size: 16px;
-  }
-  .analityc-select {
-    background: #f5f5f5 url(../images/select-ar.png) 96% 16px no-repeat;
-    background-size: 11px;
-  }
-  .analityc-control-group._year .analityc-select {
-    background: #f5f5f5 url(../images/select-ar.png) 94% 16px no-repeat;
-    background-size: 11px;
   }
   .analityc-widget-label {
     top: 211px;
@@ -1164,16 +1159,9 @@ label {
 
 @media (min-width: 701px) and (max-width: 760px) {
 
-  .basic-budget .wrapper {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
   .main h1 {
     padding-right: 20px;
     line-height: 67px;
-  }
-  .analityc-widget {
-    padding: 38px 30px 46px 30px;
   }
   .basic-budget .analityc-widget {
     margin-top: 30px;
@@ -1182,9 +1170,6 @@ label {
   .analityc-control-group {
     margin-left: 0 !important;
     margin-bottom: 29px;
-  }
-   .analityc-control-group._year {
-    width: 50%;
   }
   .analityc-control-group > span {
     font-size: 22px;
@@ -1197,16 +1182,8 @@ label {
     font-size: 23px;
     letter-spacing: 0.7px;
   }
-  .analityc-select {
-    background: #f5f5f5 url(../images/select-ar.png) 97% 26px no-repeat;
-    background-size: 15px;
-  }
   .analityc-select option {
     font-size: 14px;
-  }
-  .analityc-control-group._year .analityc-select {
-    background: #f5f5f5 url(../images/select-ar.png) 94% 26px no-repeat;
-    background-size: 15px;
   }
 
   .analityc-control-group._stage {
@@ -1266,6 +1243,14 @@ label {
       margin-left: 0;
     }
   }
+
+  .basic-budget .analityc-widget {
+    padding: 38px 40px 46px;
+  }
+
+  .analityc-control-group._year {
+    width: 19%;
+  }
 }
 
 @media (max-width: 901px) and (min-height: 501px) {
@@ -1281,8 +1266,6 @@ label {
     .comp-diagram__num_yellow {
       top: 10px;
     }
-
-
   }
 }
 
@@ -1332,10 +1315,6 @@ label {
 
 @media (min-width: 551px) and (max-width: 700px) {
 
-  .basic-budget .wrapper {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
   ._basic .basic-budget {
     padding-top: 81px;
   }
@@ -1372,10 +1351,6 @@ label {
   .analityc-control-group._stage {
     width: 100%;
   }
-
-  .analityc-control-group._year {
-   width: 50%;
- }
  .analityc-control-group._level {
    width: 100%;
  }
@@ -1400,16 +1375,8 @@ label {
    font-size: 23px;
    letter-spacing: 0.7px;
  }
- .analityc-select {
-   background: #f5f5f5 url(../images/select-ar.png) 97% 26px no-repeat;
-   background-size: 15px;
- }
  .analityc-select option {
    font-size: 14px;
- }
- .analityc-control-group._year .analityc-select {
-   background: #f5f5f5 url(../images/select-ar.png) 94% 26px no-repeat;
-   background-size: 15px;
  }
  .analityc-widget-label {
    top: 579px;
@@ -1420,25 +1387,17 @@ label {
    margin-top: 30px;
    margin-bottom: 60px;
  }
- .analityc-widget {
-   padding: 38px 30px 46px 30px;
- }
 }
 
 @media (min-width: 451px) and (max-width: 550px) {
   .basic-budget {
     padding-top: 75px;
   }
-  .basic-budget .wrapper {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
   .main h1 {
     line-height: 49px;
     font-size: 51px;
   }
   .basic-budget .analityc-widget {
-    padding: 18px 20px 28px 20px;
     margin-bottom: 45px;
   }
   .analityc-control-group {
@@ -1454,14 +1413,6 @@ label {
     height: 40px;
     font-size: 13px;
     letter-spacing: 0;
-  }
-  .analityc-select {
-    background: #f5f5f5 url(../images/select-ar.png) 97% 17px no-repeat;
-    background-size: 10px;
-  }
-  .analityc-control-group._year .analityc-select {
-    background: #f5f5f5 url(../images/select-ar.png) 94% 17px no-repeat;
-    background-size: 10px;
   }
   .analityc-select option {
     font-size: 13px;
@@ -1501,9 +1452,6 @@ label {
     right: -24px;
     top: 26px;
   }
-  .analityc-control-group._year {
-    width: 50%;
-  }
   .analityc-control-group._stage {
     width: 100%;
   }
@@ -1535,10 +1483,6 @@ label {
   }
 }
 @media (max-width: 450px) {
-  .basic-budget .wrapper {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
   .comp-diagram {
     margin: -100px 0 0 -100px;
     width: 200px;
@@ -1581,9 +1525,6 @@ label {
   .analityc-control-group._transfer {
    width: 100%;
   }
-  .analityc-control-group._year {
-    width: 50%;
-  }
   .analityc-control-group {
     margin-bottom: 19px;
   }
@@ -1601,14 +1542,7 @@ label {
     height: 40px;
     font-size: 13px;
     letter-spacing: 0;
-  }
-  .analityc-select {
-    background: #f5f5f5 url(../images/select-ar.png) 97% 17px no-repeat;
-    background-size: 10px;
-  }
-  .analityc-control-group._year .analityc-select {
-    background: #f5f5f5 url(../images/select-ar.png) 94% 17px no-repeat;
-    background-size: 10px;
+    background: #f5f5f5 url(../images/select-ar.png) right 7px center no-repeat;
   }
   .analityc-select option {
     font-size: 13px;
@@ -1621,7 +1555,7 @@ label {
     left: auto;
   }
   .basic-budget .analityc-widget {
-    padding: 18px 20px 28px 20px;
+    padding: 18px 15px 28px;
     margin-bottom: 45px;
     margin-top: 30px;
   }

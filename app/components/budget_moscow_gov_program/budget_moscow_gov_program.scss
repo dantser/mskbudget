@@ -575,16 +575,83 @@
     } 
     
 
+    .analityc-widget-moscow-gov-program__structure-wrapper {
+      height: 0;
+      .js-button {
+        display: none;
+      }
+
+      &.active {
+        height: auto;
+        .js-button {
+          display: inline;
+        }
+      }
+    }
+
     .graphic__data {
       @media (max-width: 1140px) {
         padding-bottom: 25px;
       }   
     }
 
-    .analityc-mix__lines {
-      display: none;
+    .analityc-mix {
+      margin: 0 35px;
+
+      @media (max-width: 1140px) {
+        margin: 0 20px;
+      }   
+
+      @media (max-width: 900px) {
+        margin: 0;
+      }   
+      
+
       &.active {
-        display: inline-block;
+        width: 100%;
+      }
+
+      .segment-diagram {
+        &__value {
+          pointer-events: none;
+        }
+
+        .svg-wrap {
+          svg {
+            overflow: visible;
+          }
+          path {
+            cursor: pointer;
+            transition: all .25s ease-in-out;
+            &:hover {
+              stroke-width: 60px;
+            }
+
+            &.stroke-white {
+              stroke: #c0c6d4;
+            }
+          }
+          
+        }
+      }
+
+      &__lines {
+        display: none;
+
+        &.active {
+          display: inline-block;
+          
+          &.analityc-mix__lines_social-gp {
+            .analityc-mix__line-bar {
+              background-image: linear-gradient(to right, #021398 0%, #ff0036 100%);
+            }
+          }
+          &.analityc-mix__lines_other-gp {
+            .analityc-mix__line-bar {
+              background-image: linear-gradient(to right, #11a360 0%, #32d197 100%);
+            }
+          }
+        }
       }
     }
   }
