@@ -6,10 +6,24 @@ export default () => {
 	TABLINK.each( function () { // eslint-disable-line
 		const EL = $(this);
 		const ACTIVE_CLASS = 'graphic__data_active';
+		const GR_MIX = $('.analityc-widget-moscow-gov-program_structure-done .analityc-mix');
 		EL.on('click', (e) => {
 			e.preventDefault();
 			EL.parent().siblings().removeClass(ACTIVE_CLASS);
 			EL.parent().addClass(ACTIVE_CLASS);
+
+			var year = parseInt(EL.parent().data('year'), 10);
+
+			GR_MIX.find('path, .analityc-mix__lines').removeClass('active');
+			GR_MIX.find('path').addClass('stroke-white')
+			
+			GR_MIX.eq(year).find('path').eq(0).removeClass('stroke-white');
+			GR_MIX.eq(year).find('path').eq(0).addClass('active');
+			GR_MIX.eq(year).addClass('active');
+			GR_MIX.eq(year).find('.analityc-mix__lines_social-gp').addClass('active');
+			GR_MIX.siblings().hide();
+			GR_MIX.eq(year).show();
+
 		})
 	})
 
@@ -192,19 +206,42 @@ export default () => {
 
 	GRAPHIC_MIX.each(function() {
 		var $this = $(this);
+		var segmentLines = $this.find('.analityc-mix__lines');
 
-		// $this.find('path').click(function() {
-		// 	$this.find('.analityc-mix__lines').show();
-		// })
+		$this.find('path').click(function() {
+			
+			var segmentId = ($(this).attr('id')).split('-')[2];
 
-		$this.click(function() {
-			$this.siblings().hide();
-			$this.css('width', '100%');
-			$this.find('.analityc-mix__lines').addClass('active');
-			createGrStructure()
+			if ($(this).hasClass('active')) {
+
+				$(this).removeClass('active');
+				$(this).siblings('path').removeClass('stroke-white');
+				segmentLines.removeClass('active');
+				$this.removeClass('active');
+				$this.siblings().show();
+
+				$('.analityc-widget-moscow-gov-program__structure-wrapper').removeClass('active');
+			} else {
+
+				$this.siblings().hide();
+				$this.addClass('active');
+				$(this).siblings('path').removeClass('active');
+				$(this).addClass('active');
+				$(this).removeClass('stroke-white');
+				$(this).siblings('path').addClass('stroke-white');
+
+				segmentLines.removeClass('active');
+				if (segmentId == '0')
+					$this.find('.analityc-mix__lines_social-gp').addClass('active');
+				else if (segmentId == '1')
+					$this.find('.analityc-mix__lines_other-gp').addClass('active');
+
+				$('.analityc-widget-moscow-gov-program__structure-wrapper').addClass('active');
+			}
+
+
 		})
 	})
-
 
 	// График analityc-line - попапы для коротких линий (вызов при отрисовке)
 	function grLinePopup() {

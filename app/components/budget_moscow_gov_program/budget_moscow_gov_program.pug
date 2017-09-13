@@ -31,13 +31,13 @@ mixin budget_moscow_gov_program()
             p.analityc-graphics__periodtext
               span Плановый период
             .graphic__row
-              span.graphic__data.graphic__data_active
-                span.js-button(data-tab-target='structure1') 2017
-              span.graphic__data
-                span.js-button(data-tab-target='structure2') 2018
+              span(data-year='0').graphic__data.graphic__data_active
+                span.js-button 2017
+              span(data-year='1').graphic__data
+                span.js-button 2018
                 span.graphic__period-left
-              span.graphic__data
-                span.js-button(data-tab-target='structure3') 2019
+              span(data-year='2').graphic__data
+                span.js-button 2019
                 span.graphic__period-right
           .analityc-graphics__wrapper
             +analityc-graphics-mix(getData('graphic-lines-mix1')[0])._date-one

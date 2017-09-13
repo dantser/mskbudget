@@ -1144,8 +1144,8 @@ mixin analityc-graphics-mix(data)
             span.segment-diagram__val= data.diagramVal[0]
             span.segment-diagram__val.segment-diagram__val_dark= data.diagramVal[1]
 
-    +e.lines
-      each item in data.item
+    +e.lines._social-gp
+      each item in data.item1
         +e.line
           if item.strong
             +e.P.title
@@ -1168,6 +1168,32 @@ mixin analityc-graphics-mix(data)
                   span /
                   +e.SPAN.js-grmix-val= item.value2
                   +e.line-fill
+
+    +e.lines._other-gp
+      each item in data.item2
+        +e.line
+          if item.strong
+            +e.P.title
+              strong= item.title
+          else
+            +e.P.title= item.title
+              +icon('edu-hat').title-icon
+          +e.line-wrap
+            if item.overwidth
+              +e.line-bar._overwidth
+                +e.line-values
+                  = item.value1
+                  span /
+                  +e.SPAN.js-grmix-val= item.value2
+                +e.line-fill
+            else
+              +e.line-bar
+                +e.line-values
+                  = item.value1
+                  span /
+                  +e.SPAN.js-grmix-val= item.value2
+                  +e.line-fill
+          
 
 mixin analityc-graphics-js-line(data)
   +b.analityc-js-line&attributes(attributes)
