@@ -262,7 +262,13 @@ budget.extend("common", {
 
 
     if ($(document).find('.sectored_round').length) {
-      self.correctSectoredRounds();
+      if ($('.wrapper_main').length) {
+        setTimeout(function(){
+          self.correctSectoredRounds();
+        }, 1000);
+      } else {
+        self.correctSectoredRounds();
+      }
     }
 
   },
@@ -463,7 +469,9 @@ $(document).ready(function() {
 
 
   //init func
-  basicBudgetFiguresDiagrams();
+  if (!$('.wrapper_main').length) {
+    basicBudgetFiguresDiagrams();
+  }
   tabsLine();
   sectionTabs();
   stepsDetails();

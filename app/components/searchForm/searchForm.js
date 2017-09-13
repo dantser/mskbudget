@@ -25,14 +25,26 @@ export default () => {
   });
 
   // тултип
-  $('.search_widget .d-si__search').each(function () {
-    $(this).on('focus', function () {
-      $(this).siblings('.search__tooltip').fadeIn(321);
-      $(this).removeAttr("value");
-    });
-    $(this).on('blur', function () {
-      $(this).siblings('.search__tooltip').fadeOut(321);
-    });
+  //$('.search_widget .d-si__search').each(function () {
+  //  $(this).on('focus', function () {
+  //    $(this).siblings('.search__tooltip').fadeIn(321);
+  //    $(this).removeAttr("value");
+  //  });
+  //  $(this).on('blur', function () {
+  //    $(this).siblings('.search__tooltip').fadeOut(321);
+  //  });
+  //});
+  
+  $(document).on('focus click', '.search_widget .d-si__search', function(e){
+    e.stopPropagation();
+    $(this).siblings('.search__tooltip').fadeIn(321);
+    $(this).removeAttr("value");
+  });
+  $(document).on('blur keyup change', '.search_widget .d-si__search', function(){
+    $(this).siblings('.search__tooltip').fadeOut(321);
+  });
+  $(document).on('click', function(){
+    $('.search_widget .d-si__search').blur();
   });
 
 
