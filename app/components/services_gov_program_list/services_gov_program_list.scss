@@ -1,13 +1,6 @@
 .gov-program {
   font-family: $PFDinTextPro;
 
-  .d-si__quiz-container {
-    @media (max-width: 768px) {
-      margin-left: -15px;
-      margin-right: -15px;
-    }
-  }
-
   &_list-page {
     padding-bottom: 60px;
 
@@ -47,6 +40,8 @@
   }
 
   &__content {
+
+    @include clearfix;
 
     &-padding {
       padding-left: 40px;
@@ -103,6 +98,11 @@
     padding-top: 21px;
     padding-bottom: 21px;
     border-top: 1px solid #ccdfec;
+
+    &_top {
+      border-top: 0;
+      border-bottom: 1px solid #e6e6e6;
+    }
 
     .analityc-more {
       margin-top: 0 !important;
