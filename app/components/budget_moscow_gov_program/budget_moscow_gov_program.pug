@@ -12,12 +12,14 @@ mixin budget_moscow_gov_program()
   +b.SECTION.section.main.main_basic.basic-budget.sections__item.moscow-gov-program
     .ar.ar-left
     .ar.ar-right
-    .wrapper
+    .wrapper-header
       +page-header('Государственные программы', ['О бюджете', 'Бюджетная система'], false, true)
       .article-controls
         span
         span
         span
+
+    .wrapper
       .analityc-widget.analityc-widget_moscow-gov-program.load-anim-fade(data-delay="1500")
 
         +analityc-widgethead-moscow-gp()
@@ -39,10 +41,14 @@ mixin budget_moscow_gov_program()
               span(data-year='2').graphic__data
                 span.js-button 2019
                 span.graphic__period-right
-          .analityc-graphics__wrapper
-            +analityc-graphics-mix(getData('graphic-lines-mix1')[0])._date-one
-            +analityc-graphics-mix(getData('graphic-lines-mix1')[1])._date-two
-            +analityc-graphics-mix(getData('graphic-lines-mix1')[2])._date-three
+          .analityc-graphics__wrapper.swiper-container
+            .swiper-wrapper
+              +analityc-graphics-mix(getData('graphic-lines-mix1')[0])._date-one.swiper-slide
+              +analityc-graphics-mix(getData('graphic-lines-mix1')[1])._date-two.swiper-slide
+              +analityc-graphics-mix(getData('graphic-lines-mix1')[2])._date-three.swiper-slide
+            span.analityc-graphics_round-next
+            span.analityc-graphics_round-prev
+            +legend(getData('legend-moscow-gp2')).analityc-graphics__legend
 
         +analityc-table().analityc-widget-moscow-gov-program-table_done
           +icon('angle-arrow').section__ar.section__ar_left
@@ -86,6 +92,8 @@ mixin budget_moscow_gov_program()
 
         .analityc-widget-sources.analityc-widget-moscow-gov-program_structure.analityc-widget-moscow-gov-program_structure-exec
           +analityc-graphics-mix(getData('graphic-lines-mix1')[3])
+          +legend(getData('legend-moscow-gp2')).analityc-graphics__legend.analityc-graphics__legend_vert
+
 
         +analityc-table().analityc-widget-moscow-gov-program-table_exec
           +table-income(getData('income2'))

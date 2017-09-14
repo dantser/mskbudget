@@ -7,9 +7,10 @@ include ../../blocks/dropdown-block/dropdown-block
 
 mixin gov-debt()
   +b.SECTION.gov-debt.basic-budget.section__item&attributes(attributes)
-    .wrapper
+    .wrapper-header
       +page-header('Государственный долг', ['Бюджет Москвы'], true)
-    .wrapper.wrapper_govdebt.wrapper_widget
+
+    .wrapper.wrapper_govdebt
       +e.analityc-widget.analityc-widget.load-anim-fade(data-delay="1500")
         +e.analityc-tab-links
           +e.A(href="#", data-govdebt-tab="govdebt").analityc-tab-link.active Государственный долг г. Москвы

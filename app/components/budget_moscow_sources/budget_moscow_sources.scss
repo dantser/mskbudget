@@ -1,30 +1,6 @@
 .moscow-sources {
   display: block;
 
-  .page-header {
-    margin-right: 10%;
-
-    @media (max-width: 1140px) {
-      margin-right: 0;
-    }
-
-    @media (max-width: 1140px) {
-      padding-left: 75px;
-      padding-right: 74px;
-    }
-
-    @media (max-width: 700px) and (min-width: 551px) {
-      padding-left: 40px;
-      padding-right: 40px;
-    }
-
-    @media (max-width: 550px) {
-      padding-left: 15px;
-      padding-right: 15px;
-    }
-
-  }
-
   .wrapper {
     @media (max-width: 1140px) {
       padding: 0 !important;
@@ -60,15 +36,6 @@
     }
   }
 
-
-  @media screen and (max-width: 768px) and (min-width: 551px) {
-    .analityc-widgethead .analityc-select {
-
-      &_disabled {
-        background-color: #e5e5e5 !important;
-      }
-    }
-  }
   .arr-switchclass {
     display: table-cell;
 
@@ -112,20 +79,15 @@
 
   }
 
-  .analityc-control-button_graphics svg, .analityc-control-button_table svg {
-    width: 29px;
+  .analityc-control-group._level {
+    @media screen and (min-width: 901px) {
+      margin-right: 30%;
+    }
+
   }
 
-  .analityc-select {
-    line-height: 30px;
-
-    @media screen and (min-width:0\0) {
-      background-image: none !important;
-    }
-
-    &_disabled {
-      background-color: #e5e5e5!important;
-    }
+  .analityc-control-button_graphics svg, .analityc-control-button_table svg {
+    width: 29px;
   }
 
   .analityc-control-buttons {
@@ -156,31 +118,6 @@
     }
   }
 
-  .analityc-control-group._level {
-    margin-right: 30%;
-
-    @media (min-width: 1020px) and (max-width: 1140px) {
-      margin-right: 22%;
-      margin-left: 2%;
-      width: 28.1%;
-    }
-
-    @media screen and (max-width: 1020px) {
-      margin-right: 2%;
-      margin-left: 0;
-      width: 38.1%;
-    }
-
-    @media screen and (max-width: 768px) {
-      width: 100%;
-    }
-
-    .analityc-select {
-      width: 234px;
-      width: calc(100% - 12px);
-      background-position: 97% 13px;
-    }
-  }
   .analityc-control-switcher_big {
     display: none;
     margin-left: 2.6%;
@@ -211,37 +148,14 @@
 
   }
 
-  .analityc-control-group._stage {
-    .analityc-select {
-      width: 338px;
-      width: calc(100% - 12px);
-      background-position: 98% 13px;
-    }
-
-    @media (max-width: 900px) and (min-width: 761px) {
-      margin-left: 2.1%;
-    }
-
-
-  }
-
   .analityc-control-switcher_big.active {
     display: inline-block !important;
-  }
-
-  .analityc-control-group._year, .analityc-control-group._stage, .analityc-control-group._level {
-
-    @media (max-width: 1140px) and (min-width: 1020px) {
-      margin-bottom: 0;
-
-    }
   }
 
   .analityc-control-group._dp {
     display: none;
     margin-top: 30px;
     margin-left: 3.2%;
-    width: 361px;
     width: calc(33.6% - 1px);
 
     @media (max-width: 1140px) and (min-width: 901px) {
@@ -270,33 +184,17 @@
        @media (max-width: 1140px) {
          margin-left: 1.9%;
          margin-top: 18px;
-         .analityc-select {
-           &_month {
-             width: 28%;
-           }
-           &_year {
-             width: 17%;
-           }
-         }
-       }
-       @media (width: 1024px) {
-         width: calc(43.1% - 93px);
        }
 
-       @media (max-width: 768px) {
-         width: 100%;
+       @media (max-width: 900px) {
          margin-top: 13px;
-       }
-
-       .analityc-select {
-         margin-top: 0;
+         margin-left: 0;
        }
     }
 
     &-alt.active {
       display: inline-block;
     }
-
 
     input {
       height: 30px !important;

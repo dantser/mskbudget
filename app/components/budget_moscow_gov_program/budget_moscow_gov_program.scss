@@ -6,21 +6,15 @@
   padding: 20px 30px 20px 40px;
 
   @media (max-width: 1140px) {
-    margin-left: -75px;
-    margin-right: -74px;
     padding-bottom: 31px;
   }
 
   @media (max-width: 900px) {
     padding: 27px 38px 20px 40px;
-    margin-left: -40px;
-    margin-right: -40px;
   }
 
   @media (max-width: 450px) {
     padding: 21px 18px 28px;
-    margin-left: -15px;
-    margin-right: -15px;
   }
 
 }
@@ -31,27 +25,6 @@
     @media (max-width: 450px) {
       padding-bottom: 0; 
     }    
-  }
-
-  .analityc-control-group {
-    @media (max-width: 900px) {
-      margin-bottom: 25px!important;
-    }  
-
-    @media (max-width: 450px) {
-      margin-bottom: 8px!important;
-    }    
-  }
-
-  .analityc-select {
-    @media (max-width: 450px) {
-      padding-left: 7px!important;
-    }   
-
-    &_disabled {
-      background-color: #e5e5e5 !important;
-    } 
-    
   }
 
   .analityc-control-button+.analityc-control-button {
@@ -77,16 +50,6 @@
     }       
   }
 
-  .analityc-control-group span {
-    @media (max-width: 900px) {
-      font-size: 24px;
-    }
-
-    @media (max-width: 450px) {
-      font-size: 16px;
-    }
-  }
-
   .analityc-control-group._dp {
     margin-left: 29px;
     margin-top: 33px;
@@ -97,6 +60,7 @@
 
     @media (max-width: 900px) {
       width: 100%;
+      margin-left: 0;
     }  
     
     @media (max-width: 450px) {
@@ -138,6 +102,7 @@
 
     @media (max-width: 900px) {
       width: 100%;
+      margin-left: 0;
     }  
 
     .analityc-select {
@@ -281,18 +246,17 @@
     }
 
     @media (max-width: 900px) and (min-width: 581px){
-      top: 99px;
       font-size: 30px;
     }
 
     @media (max-width: 580px) {
-      top: 52px;
       font-size: 20px;
     }
 
   }
 
   &__subheading {
+    display: none;
     font-size: 30px;
     text-transform: uppercase;
     margin-top: 7px;
@@ -326,9 +290,6 @@
       }
     }
 
-    &_structure-exec .tabs__tab.active {
-      display: block !important;
-    }
 /*start*/
     &-table {
       &_done, &_structure, &_changes, &_date, &_exec {
@@ -399,6 +360,27 @@
     }
   }
 
+  .analityc-js-line {
+    .analityc-graphics__toptext {
+      right: 0;
+      @media (max-width: 1140px) {
+        top: 20px;
+      }
+
+      @media (max-width: 900px) {
+        top: 40px;
+      }
+
+      @media (max-width: 580px) {
+        top: 60px;
+      }
+    }
+
+    .analityc-graphics__heading {
+      margin-bottom: 42px;
+    }
+  }
+
   .analityc-js-line__right-block {
     display: none;
   }
@@ -430,13 +412,19 @@
   }
 
   .analityc-graphics__wrapper {
-    text-align: justify;
-    font-size: 0;
-    &:after {
-      content: '';
-      display: inline-block;
-      width: 100%;
-      height: 0.0000000001px;
+    overflow: visible;
+
+    .swiper-wrapper {
+      @media (min-width: 901px) {
+        text-align: justify;
+        font-size: 0;
+        &:after {
+          content: '';
+          display: inline-block;
+          width: 100%;
+          height: 0.0000000001px;
+        }
+      }      
     }
   }
 
@@ -596,7 +584,10 @@
     }
 
     .analityc-mix {
-      margin: 0 35px;
+
+      @media (min-width: 900px) {
+        margin: 0 35px;
+      }       
 
       @media (max-width: 1140px) {
         margin: 0 20px;
@@ -656,7 +647,94 @@
     }
   }
 
-  
+  .analityc-widget-moscow-gov-program_structure {
+
+    @media screen and (max-width: 900px) {
+      .analityc-graphics_round-next, 
+      .analityc-graphics_round-prev {
+        position: absolute;
+        top: 0;
+        bottom: 50%;
+        transform: translateY(100%);
+        margin: auto;
+        z-index: 2;
+        width: 46px;
+        height: 46px;
+        background-color: $color-yellow;
+        color: $color-black;
+        text-indent: -9999px;
+        overflow: hidden;
+        cursor: pointer;
+        user-select: none;
+      }
+      .analityc-graphics_round-next::after, 
+      .analityc-graphics_round-prev::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        z-index: 2;
+        width: 14px;
+        height: 14px;
+        border-bottom: 2px solid currentColor;
+      }
+      .analityc-graphics_round-next {
+        right: -40px;
+
+        @media screen and (max-width: 480px) {
+          right: -15px;
+        }
+        @media screen and (max-width: 400px) {
+          width: 23px;
+          height: 40px;
+          box-shadow: -2px 0 5px 0 rgba(0,0,0,.39);
+        }
+
+        &::after {
+          right: 8px;
+          border-right: 2px solid currentColor;
+          transform: rotate(-45deg);
+        }
+        &.swiper-button-disabled {
+          background-color: rgba(254, 227, 0, .3);
+        }
+      }
+      .analityc-graphics_round-prev {
+        left: -40px;
+        @media screen and (max-width: 480px) {
+          left: -15px;
+        }
+        @media screen and (max-width: 400px) {
+          width: 23px;
+          height: 40px;
+          box-shadow: -2px 0 5px 0 rgba(0,0,0,.39);
+        }
+        &::after {
+          left: 8px;
+          border-left: 2px solid currentColor;
+          transform: rotate(45deg);
+        }
+        &.swiper-button-disabled {
+          background-color: rgba(254, 227, 0, .3);
+        }
+      }
+    }
+  }
+
+  .analityc-widget-moscow-gov-program_structure-exec {
+
+      .tabs__tab.active {
+        display: block !important;
+      }
+
+      .analityc-mix {
+        display: block;
+        margin: 0 auto;
+      }
+  }
 
   .legend {
     height: auto !important;

@@ -36,6 +36,10 @@
       display: inline-block;
     }
 
+    @media (max-width: 900px) {
+      margin-left: 0;
+    }
+    
     @media (max-width: 768px) {
       margin-top: 13px;
     }
@@ -44,9 +48,6 @@
     overflow: visible;
   }
 
-  .analityc-select_disabled {
-    background-color: #e5e5e5 !important;
-  }
   .column-value {
     z-index: 5;
   }
@@ -135,34 +136,23 @@
   .analityc-control-group._dp-alt {
     margin-top: 25px;
     margin-left: 2.9%;
+
+    @media (max-width: 1140px) {
+      margin-left: 1.9%;
+    }
+
+    @media (max-width: 900px) {
+      margin-left: 0;
+    }
+
+    @media (max-width: 768px) {
+      margin-top: 13px;
+    }
+
+    .analityc-select {
+      padding: 0 28px 0 12px;
+    }
   }
-
- div.analityc-control-group._dp-alt {
-   @media (max-width: 1140px) {
-     margin-left: 1.9%;
-     .analityc-select {
-       &_month {
-         width: 28%;
-       }
-       &_year {
-         width: 17%;
-       }
-     }
-   }
-   @media (width: 1024px) {
-     width: calc(43.1% - 93px);
-     margin-top: 0;
-
-     .analityc-select {
-       margin-top: 0;
-     }
-   }
-
-   @media (max-width: 768px) {
-     width: 100%;
-     margin-top: 13px;
-   }
- }
 
   .analityc-control-switcher_default,
   .analityc-control-switcher_large,
@@ -244,7 +234,6 @@
 
 @media (width: 1024px) {
   .analityc-widget_income .analityc-control-group._dp {
-    margin-left: 1.9%;
     width: 335.6px;
     width: calc(45.2% - 93px);
     margin-top: 0;
@@ -353,19 +342,8 @@
     margin: 0 auto;
   }
 
-  .analityc-widget_income .analityc-control-group._stage .analityc-select {
-    padding: 0 0 0 12px;
-  }
-
   .analityc-widget_income .analityc-widgethead .analityc-control-buttons {
     margin-top: 17px;
-  }
-
-  .analityc-widget_income .analityc-control-group._level .analityc-select {
-    padding: 0 0 0 12px;
-  }
-  .analityc-widget_income  .analityc-select {
-    background-position: right 13px top 17px !important;
   }
 }
 
@@ -374,8 +352,5 @@
     height: 26px;
     line-height: 24px;
     padding: 0 5px;
-  }
-  .analityc-widget_income .analityc-select {
-    background-position: right 7px top 11px!important;
   }
 }

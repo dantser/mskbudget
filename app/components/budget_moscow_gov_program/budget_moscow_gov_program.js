@@ -1,6 +1,20 @@
 import $ from 'jquery';
 
 export default () => {
+
+	if ($(window).width() < 900) {
+		var GR_MIX_SLIDER = new Swiper('.analityc-widget-moscow-gov-program_structure-done .swiper-container', {
+      nextButton: '.analityc-graphics_round-next',
+      prevButton: '.analityc-graphics_round-prev',
+      slidesPerView: '1',
+      centeredSlides: true,
+      spaceBetween: 30,
+      speed: 500,
+      observer: true,
+      observeParents: true
+		});
+	}
+
 	const TABLINK = $('.moscow-gov-program .js-button');
 
 	TABLINK.each( function () { // eslint-disable-line

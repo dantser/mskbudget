@@ -99,8 +99,57 @@
   }
 }
 
+.analityc-select {
+  box-sizing: border-box;
+  display: block;
+  border: 1px solid #d5d5d5;
+  border-radius: 3px;
+  margin-top: 5px;
+  width: 100%;
+  height: auto;
+  padding: 0px 28px 0px 12px;
+  color: black;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: inherit;
+  line-height: 30px;
+  text-transform: uppercase;
+  cursor: pointer;
+  background: #f5f5f5 url(../images/select-ar.png) right 10px center no-repeat;
+  background-size: 9px;
+  
+  &_disabled {
+    background-color: $color-light-gray!important;
+    cursor: default;
+  }
+
+  option {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+  }
+
+  @media screen and (min-width:0\0) {
+    background-image: none !important;
+  }
+}
+
 .analityc-control-group {
+  display: inline-block;
+  vertical-align: top;
   position: relative;
+  margin-left: 2%;
+  margin-bottom: 18px;
+
+  & > span {
+    text-transform: uppercase;
+    font-size: 18px;
+    color: $color-black;
+  }
+
   .analityc-popup {
     left: 0;
     right: 0;
@@ -110,7 +159,30 @@
   }
 }
 
+.analityc-control-group._year {
+  width: 6.8%;
+  margin-left: 0;
+}
+
+.analityc-control-group._stage {
+  width: 33%;
+}
+
+.analityc-control-group._level {
+  width: 22.9%;
+}
+
+.analityc-control-group._transfer {
+  width: 26%;
+}
+
+.analityc-control-group._classify {
+  width: 42.5%;
+}
+
+
 .analityc-control-switcher {
+  position: static;
   margin-top: 30px;
   display: inline-block;
   vertical-align: middle;
@@ -249,33 +321,78 @@
 
 
 @media screen and (max-width: 1140px) {
-  .analityc-widgethead {
-    .analityc-select {
-      margin-top: 6px;
-      height: 30px;
-    }
-    .jq-selectbox__select {
-      padding: 0 0 0 10px;
-    }
-    .analityc-control-group._year {
-      width: 7.4%;
-    }
-    .analityc-control-group._stage {
-      width: 34.7%;
-      margin-left: 2.1%;
-    }
-    .analityc-control-group._level {
-      margin-left: 1%;
-      width: 24.8%;
-    }
-    .analityc-control-group._transfer {
-      margin-left: 1.1%;
-      width: 29%;
-    }
+  .jq-selectbox__select {
+    padding: 0 0 0 10px;
   }
+  .analityc-control-group._year {
+    width: 7.4%;
+  }
+  .analityc-control-group._stage {
+    width: 34%;
+  }
+  .analityc-control-group._level {
+    width: 24%;
+  }
+  .analityc-control-group._transfer {
+    width: 27.6%;
+  }
+  .analityc-control-group._classify {
+    width: 42.5%;
+  }
+
   .analityc-bottomtip {
     width: 64.6%;
     margin-top: 47px;
+  }
+}
+
+@media (max-width: 1140px) and (min-width: 901px) {
+  .analityc-select {
+    margin-top: 6px;
+  }
+}
+
+@media (max-width: 900px) {
+  .analityc-control-group {
+    display: block;
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 28px;
+
+    & > span {
+      font-size: 23px;
+    }
+  }
+
+  .analityc-control-group._year {
+    width: 19%;
+  }
+  .analityc-control-group._stage {
+    width: 100%;
+  }
+  .analityc-control-group._level {
+    width: 100%;
+  }
+  .analityc-control-group._transfer {
+    width: 100%;
+  }
+  .analityc-control-group._classify {
+    width: 100%;
+  }
+
+  .analityc-select {
+    padding: 0 0 0 12px;
+    margin-top: 14px;
+    padding-left: 16px;
+    font-size: 20px;
+    line-height: 54px;
+    letter-spacing: 0.7px;
+    background: #f5f5f5 url(../images/select-ar.png) right 14px center no-repeat;
+    background-size: 14px;
+
+    option {
+      font-size: 20px;
+    }
   }
 }
 
@@ -284,44 +401,14 @@
     .jq-selectbox__select-text {
       font-size: 14px;
     }
-    .analityc-select {
-      background: #f5f5f5 url(../images/select-ar.png) right 11px top 13px no-repeat !important;
-      background-size: 9px !important;
-    }
   }
 }
 
 @media screen and (max-width: 1020px) {
-  .analityc-widgethead .analityc-control-group._year {
-    width: 19%;
-  }
-  .analityc-widgethead .analityc-control-group._stage {
-    width: 78.9%;
-  }
-  .analityc-widgethead .analityc-control-group._level {
-    margin-left: 0;
-    width: 49%;
-  }
-  .analityc-widgethead .analityc-control-group._transfer {
-    margin-left: 2%;
-    width: 49%;
-  }
-  .analityc-widget_expenses .analityc-control-group._classify {
-    margin-left: 0;
-    width: 100%;
-    margin-top: 15px;
-  }
+
   .analityc-bottomtip {
     width: 100%;
     float: none;
-  }
-}
-
-@media (max-width: 768px) and (min-width: 320px) {
-  .analityc-widget_expenses .analityc-control-group._classify {
-    margin-left: 0;
-    width: 100%;
-    margin-top: 15px;
   }
 }
 
@@ -349,40 +436,14 @@
   .analityc-control-button + .analityc-control-button {
     margin-left: 20px;
   }
-  .analityc-widget_expenses .analityc-control-group._classify {
-    width: 100%;
-  }
-  .analityc-control-group._classify {
-    .analityc-select {
-      width: 100%;
-      white-space: normal;
-    }
-  }
 
   .analityc-widgethead {
     position: relative;
-    .analityc-control-group._stage {
-      width: 100%;
-    }
-    .analityc-control-group._level {
-      width: 100%;
-    }
-    .analityc-control-group._transfer {
-      width: 100%;
-    }
+
     .analityc-control-buttons {
       position: absolute;
       top: 0;
     }
-    .analityc-control-switcher {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      margin-top: 0;
-    }
-  }
-  .analityc-widget_expenses .analityc-widgethead .analityc-control-switcher {
-    margin-left: 0;
   }
 }
 
@@ -397,11 +458,6 @@
     .jq-selectbox__select {
       line-height: 52px;
     }
-    .analityc-select {
-      height: 52px;
-      padding: 0 0 0 12px !important;
-      font-size: 20px;
-    }
     .jq-selectbox__select-text {
       font-size: 20px;
     }
@@ -411,14 +467,6 @@
     .jq-selectbox li {
       font-size: 20px;
       font-family: inherit;
-    }
-    .analityc-select {
-      background: #f5f5f5 url(../images/select-ar.png) right 14px top 20px no-repeat !important;
-      background-size: 14px !important;
-    }
-    .analityc-control-group {
-      margin-left: 0!important;
-      margin-bottom: 20px;
     }
     .analityc-control-buttons {
       right: 0;
@@ -433,7 +481,7 @@
   }
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 580px) {
   .analityc-control-switcher {
     margin-top: 25px;
     width: 100%;
@@ -468,48 +516,60 @@
       width: 50%;
     }
   }
-  .analityc-widgethead {
-    padding-bottom: 53px;
-    .jq-selectbox__select {
-      line-height: 26px;
-      padding: 0 0 0 5px;
-    }
-    .jq-selectbox__select-text {
-      font-size: 13px;
-    }
-    .jq-selectbox__dropdown {
-      font-size: 13px;
-    }
-    .jq-selectbox li {
-      font-size: 13px;
-      font-family: inherit;
-    }
-    .analityc-control-group>span {
-      font-size: 16px;
-    }
-    .analityc-select {
-      margin-top: 2px;
-      height: 26px;
-    }
-    .analityc-select {
-      background: #f5f5f5 url(../images/select-ar.png) right 7px top 11px no-repeat !important;
-      background-size: 8px !important;
-    }
-    .analityc-control-group {
-      margin-bottom: 5px;
-    }
-    .analityc-control-buttons {
-      margin-top: 17px;
-      right: -5px;
-    }
-    .analityc-control-button {
-      width: 35px;
-      height: 30px;
-    }
-    .analityc-control-button+.analityc-control-button {
-      margin-left: 15px;
+
+  padding-bottom: 53px;
+  .jq-selectbox__select {
+    line-height: 26px;
+    padding: 0 0 0 5px;
+  }
+  .jq-selectbox__select-text {
+    font-size: 13px;
+  }
+  .jq-selectbox__dropdown {
+    font-size: 13px;
+  }
+  .jq-selectbox li {
+    font-size: 13px;
+    font-family: inherit;
+  }
+
+  .analityc-control-group {
+    margin-bottom: 18px;
+
+    & > span {
+      font-size: 18px;
     }
   }
+
+  .analityc-control-group._year {
+    width: 22%;
+  }
+
+  .analityc-select {
+    padding: 0 0 0 10px;
+    margin-top: 8px;
+    font-size: 13px;
+    line-height: 40px;
+    background: #f5f5f5 url(../images/select-ar.png) right 10px center no-repeat;
+    background-size: 9px;
+
+    & option {
+      font-size: 13px;
+    }
+  }
+
+  .analityc-control-buttons {
+    margin-top: 17px;
+    right: -5px;
+  }
+  .analityc-control-button {
+    width: 35px;
+    height: 30px;
+  }
+  .analityc-control-button+.analityc-control-button {
+    margin-left: 15px;
+  }
+
   .analityc-bottomtip>span {
     display: inline-block;
     .analityc-popup {
@@ -573,32 +633,18 @@
   width: 390px;
 }
 
-
-
 .analityc-widgethead_income {
   padding-right: 0 !important;
-
-  .analityc-select {
-    box-sizing: border-box;
-    height: 32px !important;
-    padding-top: 3px !important;
-  }
 
   .analityc-select_month, .analityc-select_year {
     background-position: 81% 13px !important;
     width: 70px !important;
   }
 
-  .analityc-control-switcher_large {
-    margin-top: 17px !important;
-    max-width: 100%;
-  }
-
   .analityc-control-switcher_xl {
     margin-top: 17px !important;
     max-width: 100%;
   }
-
 
   .analityc-control-switcher a {
     font-size: 13px;
@@ -622,7 +668,6 @@
     margin-left: 10px;
     margin-right: 10px;
   }
-
 
   .analityc-control-frame_left {
     width: 463px !important;

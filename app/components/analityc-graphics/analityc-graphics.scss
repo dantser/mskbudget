@@ -2857,7 +2857,6 @@
     &-content {
       height: 270px;
       width: 100%;
-      background-color: $color-light-gray;
       margin-top: 8px;
 
       @media (max-width: 900px){
@@ -3136,7 +3135,8 @@
   }
 
   &__right-block {
-    left: 52.4%;
+    /*left: 52.4%;*/
+    left: 51.4%;
     top: -100%;
     min-width: 200px;
     position: absolute;
@@ -3293,12 +3293,37 @@
 
       .analityc-js-line__left-block {
         border: 1px solid #d3d3d3;
-        border-right: none;
+        border-right: 2px solid white;
+        z-index: 1;
         position: relative;
         display: block;
 
         @media (max-width: 900px) {
           border: none;
+        }
+        
+        &::before,
+        &::after {
+          content: "";
+          display: block;
+          position: absolute;
+          width: 1px;
+          height: 59%;
+          left: 102%;
+          background-color: #d3d3d3;
+
+          @media (max-width: 900px) {
+            display: none;
+          }
+        }
+
+        &::before {
+          transform: rotate(-30deg);
+          top: -5%;
+        }
+        &::after {
+          transform: rotate(30deg);
+          bottom: -5%;
         }
 
       }
@@ -3371,6 +3396,10 @@
         .analityc-js-line__line-bar-value {
           top: 21%;
         }
+      }
+
+      .analityc-js-line__right-block {
+        top: 0px;
       }
     }
 

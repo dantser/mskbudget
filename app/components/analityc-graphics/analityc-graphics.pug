@@ -1195,8 +1195,10 @@ mixin analityc-graphics-mix(data)
                   +e.line-fill
           
 
-mixin analityc-graphics-js-line(data)
+mixin analityc-graphics-js-line(title, data)
   +b.analityc-js-line&attributes(attributes)
+    P.analityc-graphics__toptext МЛРД РУБ.
+    P.analityc-graphics__heading= title
     each item in data.item
       if item.strong
         +e.line._big

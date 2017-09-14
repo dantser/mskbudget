@@ -14,12 +14,14 @@ mixin budget_moscow_gov_program_one(header)
 	+b.SECTION.section.main.main_basic.basic-budget.sections__item.moscow-gov-program.moscow-gov-program_one
 		.ar.ar-left
 		.ar.ar-right
-		.wrapper
+		.wrapper-header
 			+page-header('Государственные программы', ['О бюджете', 'Бюджетная система'], false, true)
 			.article-controls
 				span
 				span
 				span
+
+		.wrapper
 			.analityc-widget.analityc-widget_moscow-gov-program.load-anim-fade(data-delay="1500")
 
 				+analityc-widgethead-moscow-gp(true)
@@ -29,7 +31,7 @@ mixin budget_moscow_gov_program_one(header)
 					+icon('car', true).moscow-gov-program__icon
 					H2.moscow-gov-program__heading= header
 					A(href='#').moscow-gov-program__link Паспорт программы
-					H3.moscow-gov-program__subheading Исполнение программных расходов на 22.04.2017
+					//- H3.moscow-gov-program__subheading Исполнение программных расходов на 22.04.2017
 
 				// Этап Закон о бюджете утв.
 				.analityc-widget-sources.analityc-widget-moscow-gov-program_done._active
@@ -69,7 +71,7 @@ mixin budget_moscow_gov_program_one(header)
 				.analityc-widget-sources.analityc-widget-moscow-gov-program_date
 					+tabs
 						+tabs-tab(data-tab-group="analityc-date", data-tab="date1").active
-							+analityc-graphics-js-line(getData('graphic-js-line1')[0])
+							+analityc-graphics-js-line('Исполнение доходов бюджета на 22.04.2017', getData('graphic-js-line1')[0])
 
 				+analityc-table('Исполнение доходов бюджета на 22.04.2017').analityc-widget-moscow-gov-program-table_date
 					+icon('angle-arrow').section__ar.section__ar_left
