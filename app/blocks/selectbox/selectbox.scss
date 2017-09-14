@@ -140,3 +140,14 @@
     }
   }
 }
+
+// ie fixes
+// IE9-10
+@media screen\0 {
+  .selectbox ul {display: none;}
+  .selectbox.active ul {display: block;}
+}
+
+// IE11
+_:-ms-fullscreen, :root .selectbox ul {display: block; transition: all .3s ease-in-out;}
+_:-ms-fullscreen, :root .selectbox.active ul {display: block}

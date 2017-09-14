@@ -220,4 +220,32 @@ export default () => {
     widgetCard.find('.widget-card__output-calc').removeClass('widget-card__output-calc_active').hide(321);
     widgetCard.find('.widget-card__output-calc[data-option="'+newval+'"]').show(321);
   });
+  
+  // Выделение регионов на карте
+  $(document).on('change', '.widget-card .d-si__search', function () {
+    var region = $(this).val(),
+        regionMap = $(this).parents('.widget-card').find('.svg-map');
+    region = region.toLowerCase();
+    regionMap.find('path, polygon').removeClass('active');
+    regionMap.find('[data-name="'+region+'"]').addClass('active');
+  });
+  
+  // Обрезание текста многоточием
+  if ($('.widget-card').length) {
+    
+    function overflowDotts(size, element) {
+      const CONTENT = $(element);
+      CONTENT.each(function () {
+        const SIZE = size;
+        const CONTENTTEXT = $(this).text();
+          if(CONTENTTEXT.length > SIZE){
+            $(this).text(CONTENTTEXT.slice(0, SIZE) + ' ...');
+          }
+      });
+    };
+  
+    overflowDotts(70, '.widget-card-polls .widget-card__info-block-title, .widget-card-quiz .widget-card__info-block-title');
+    overflowDotts(45, '.widget-card-polls-pers .widget-card__info-block-title, .widget-card-quiz-pers .widget-card__info-block-title');
+  }
+
 }
