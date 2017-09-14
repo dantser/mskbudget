@@ -6,6 +6,7 @@ include ../../blocks/selectbox/selectbox
 include ../../blocks/search-form/search-form
 include ../../blocks/range/range
 include ../../blocks/arrow-button/arrow-button
+include ../../blocks/svg-map/svg-map
 
 mixin services-cards()
 	+b.services-cards&attributes(attributes)
@@ -62,10 +63,11 @@ mixin widget-card-regions
 			+widget-card().widget-card-regions
 				+widget-card-head('Москва и субъекты РФ')
 				+widget-card-content()
-					+e.map
-						img(src='assets/images/map_mini.png')
+					+e.map._regions
+						//img(src='assets/images/map_mini.png')
+						+svg-map-russia()
 					+e.search
-						+searchFormWidget('самарская область', 'Введите название ВМО')
+						+searchFormWidget('регион 1', 'Введите название ВМО')
 					+e.select
 						+selectbox('select', getData('widget-card-selectbox'))
 					+e.results._active(data-option='opt1')
@@ -345,12 +347,12 @@ mixin widget-card-gov-debt-alt
 								span.diagram-tabs__span-js
 							p.diagram-tabs__caption Бюджетные кредиты
 						li.diagram-tabs__item.diagram-tabs__item_blue
-							a(href="#").diagram-tabs__btn.diagram-tabs__btn_bag#button_diagram-71-1 28,8
+							a(href="#").diagram-tabs__btn.diagram-tabs__btn_bag#button_diagram-71-2 28,8
 								span.diagram-tabs__span-hov
 								span.diagram-tabs__span-js
 							p.diagram-tabs__caption Внутренний долг
 						li.diagram-tabs__item.diagram-tabs__item_violet
-							a(href="#").diagram-tabs__btn.diagram-tabs__btn_build#button_diagram-71-2 48,4
+							a(href="#").diagram-tabs__btn.diagram-tabs__btn_build#button_diagram-71-1 48,4
 								span.diagram-tabs__span-hov
 								span.diagram-tabs__span-js
 							p.diagram-tabs__caption Внешний долг
@@ -532,15 +534,15 @@ mixin widget-card-quiz
 						+arrow-button()._next.widget-card__arrow-button
 					+e.info-block._active
 						+e.info._opt1._active
-							+e.info-block-title История бюджета города Москвы во второй половине XX – начале ХХI века
+							+e.info-block-title История бюджета города Москвы во второй половине XX – начале ХХI века История бюджета города Москвы во второй половине XX – начале ХХI века
 							+e.info-block-date Создана 30.01.2017
 							+widget-card-bottom-link(false, 'Пройти викторину')._gradiented
 						+e.info._opt2
-							+e.info-block-title История бюджета города Москвы во первой половине XX – начале ХХI века
+							+e.info-block-title История бюджета города Москвы во первой половине XX – начале ХХI века История бюджета города Москвы во первой половине XX – начале ХХI века
 							+e.info-block-date Создана 30.01.2017
 							+widget-card-bottom-link(false, 'Пройти викторину')._gradiented
 						+e.info._opt3
-							+e.info-block-title История бюджета города Москвы в третьей(?) половине XX – начале ХХI века
+							+e.info-block-title История бюджета города Москвы в третьей(?) половине XX – начале ХХI века История бюджета города Москвы в третьей(?) половине XX – начале ХХI века
 							+e.info-block-date Создана 30.01.2017
 							+widget-card-bottom-link(false, 'Пройти викторину')._gradiented
 				+widget-card-bottom-link()
@@ -554,15 +556,15 @@ mixin widget-card-quiz-pers
 					+e.info-block._active
 						+e.info._opt1._active
 							+e.info-block-subtitle Вы можете пройти следующие викторины:
-							+e.info-block-title История бюджета города Москвы в первой половине ХХ...
+							+e.info-block-title История бюджета города Москвы во второй половине XX – начале ХХI века
 							+e.info-block-date до 30.01.2017
 						+e.info._opt2
 							+e.info-block-subtitle Вы можете пройти следующие викторины:
-							+e.info-block-title История бюджета города Москвы во второй половине ХХ...
+							+e.info-block-title История бюджета города Москвы во первой половине XX – начале ХХI века
 							+e.info-block-date до 30.01.2017
 						+e.info._opt3
 							+e.info-block-subtitle Вы можете пройти следующие викторины:
-							+e.info-block-title История бюджета города Москвы в третьей(?) половине...
+							+e.info-block-title История бюджета города Москвы в третьей(?) половине XX – начале ХХI века
 							+e.info-block-date до 30.01.2017
 					+e.nav-buttons
 						+arrow-button()._prev.widget-card__arrow-button
@@ -571,13 +573,13 @@ mixin widget-card-quiz-pers
 					+e.info-block._active
 						+e.info._opt1._active
 							+e.info-block-subtitle Вы приняли участие в викторинах:
-							+e.info-block-title История бюджета города Москвы в первой половине ХХ...
+							+e.info-block-title История бюджета города Москвы во второй половине XX – начале ХХI века
 						+e.info._opt2
 							+e.info-block-subtitle Вы приняли участие в викторинах:
-							+e.info-block-title История бюджета города Москвы во второй половине ХХ...
+							+e.info-block-title История бюджета города Москвы во первой половине XX – начале ХХI века
 						+e.info._opt3
 							+e.info-block-subtitle Вы приняли участие в викторинах:
-							+e.info-block-title История бюджета города Москвы в третьей(?) половине...
+							+e.info-block-title История бюджета города Москвы в третьей(?) половине XX – начале ХХI века
 					+e.nav-buttons
 						+arrow-button()._prev.widget-card__arrow-button
 						+arrow-button()._next.widget-card__arrow-button
@@ -590,10 +592,11 @@ mixin widget-card-municipalities
 			+widget-card().widget-card-municipalities
 				+widget-card-head('Внутригородские муниципальные образования')
 				+widget-card-content()
-					+e.map
-						img(src='assets/images/map_mini2.png')
+					+e.map._moscow
+						//img(src='assets/images/map_mini2.png')
+						+svg-map-moscow()
 					+e.search
-						+searchFormWidget('замоскворечье', 'Введите название субъекта РФ')
+						+searchFormWidget('регион 1', 'Введите название субъекта РФ')
 					+e.select
 						+selectbox('select', getData('widget-card-selectbox-vmo'))
 					+e.results._active
@@ -609,10 +612,11 @@ mixin widget-card-budget-web
 			+widget-card().widget-card-budget-web
 				+widget-card-head('Бюджетная сеть', 'Сводная информация о сети государственных учреждений г. Москвы')
 				+widget-card-content()
-					+e.map
-						img(src='assets/images/map_mini2.png')
+					+e.map._moscow
+						//img(src='assets/images/map_mini2.png')
+						+svg-map-moscow()
 					+e.search
-						+searchFormWidget('замоскворечье', 'Введите название района Москвы')
+						+searchFormWidget('регион 1', 'Введите название района Москвы')
 					+e.select
 						+selectbox('select', getData('widget-card-selectbox-with-icon2')).selectbox-for-widgets
 					+e.nav-buttons

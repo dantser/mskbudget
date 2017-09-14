@@ -35,13 +35,18 @@ export default () => {
   //  });
   //});
   
-  $(document).on('focus click', '.search_widget .d-si__search', function(e){
-    e.stopPropagation();
+  $(document).on('focus', '.search_widget .d-si__search', function(){
     $(this).siblings('.search__tooltip').fadeIn(321);
-    $(this).removeAttr("value");
+    //$(this).removeAttr("value");
+    $(this).val("");
+    $('.search_widget .d-si__search').not($(this)).blur();
   });
   $(document).on('blur keyup change', '.search_widget .d-si__search', function(){
     $(this).siblings('.search__tooltip').fadeOut(321);
+  });
+  $(document).on('click', '.search_widget .d-si__search', function(e){
+    e.stopPropagation();
+    $('.search_widget .d-si__search').not($(this)).blur();
   });
   $(document).on('click', function(){
     $('.search_widget .d-si__search').blur();
