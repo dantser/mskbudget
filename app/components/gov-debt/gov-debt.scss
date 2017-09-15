@@ -45,10 +45,6 @@
 
     .analityc-select {
       font-weight: 500;
-
-      @media (max-width: 480px) {
-        line-height: 26px;
-      }
     }
     .analityc-control-group>span {
       font-weight: 500;
@@ -56,35 +52,33 @@
     .analityc-control-group._year {
       width: 13.4%;
       
+      @media screen and (max-width: 1140px) {
+        width: 15%;
+      }
+
       @media screen and (min-width: 769px) and (max-width: 1000px) {
         width: 18%;
       }
       @media screen and (max-width: 768px) {
-        width: 19%;
+        width: 22%;
       }
       @media screen and (max-width: 550px) {
         margin-bottom: 30px;
       }
-      .analityc-select {
-        background-position: 92% 13px;
-      }
-
     }
     .analityc-control-group._stage {
       width: 67%;
-      .analityc-select {
-        @media (max-width: 550px) {
-          box-sizing: border-box;
-        }
-      }
 
-      @media (max-width: 768px) {
+      @media (max-width: 900px) {
         width: 100%;
-        display: block;
       }
     }
     .analityc-control-group+.analityc-control-group {
       margin-left: 5.5%;
+
+      @media (max-width: 900px) {
+        margin-left: 0;
+      }
     }
     .analityc-control-switcher {
       font-size: 0;
@@ -97,7 +91,7 @@
       display: none;
       margin-top: 10px;
       margin-left: 19.5%;
-      width: 66%;
+      width: auto;
       &:before {
         background-position: -209px -117px;
       }
@@ -105,77 +99,25 @@
         display: inline-block;
       }
       
-      @media screen and (min-width: 769px) and (max-width: 1000px) {
+      @media screen and (max-width: 1140px) {
+        margin-left: 21.5%;
+      }
+      
+      @media screen and (max-width: 900px) {
         margin-left: 0;
-        width: 100%;
       }
-      @media screen and (max-width: 768px) {
-        width: 100%;
-      }
+
       .analityc-select {
         display: inline-block;
-        width: 24%;
+        width: auto;
+        padding: 0 28px 0 12px;
         margin-right: 10px;
-        background-position: 92% 13px;
-        
-        @media screen and (min-width: 1001px) and (max-width: 1140px) {
-          width: 25%;
-        }
-        @media screen and (min-width: 769px) and (max-width: 1000px) {
-          width: 32%;
-        }
-        @media screen and (max-width: 768px) {
-          width: 28%;
-        }
-
-        &_year {
-          width: 15%;
-          
-          @media screen and (min-width: 1001px) and (max-width: 1140px) {
-            width: 17%;
-          }
-          @media screen and (min-width: 769px) and (max-width: 1000px) {
-            width: 22%;
-          }
-          @media screen and (max-width: 768px) {
-            width: 17%;
-          }
-        }
-        &_date {
-          width: 12%;
-          
-          @media screen and (min-width: 1001px) and (max-width: 1140px) {
-            width: 13%;
-          }
-          @media screen and (min-width: 769px) and (max-width: 1000px) {
-            width: 14%;
-          }
-          @media screen and (max-width: 768px) {
-            width: 15%;
-          }
-        }
       }
     }
     .analityc-more {
       margin-top: 52px;
       font-weight: 500;
       text-decoration: none;
-    }
-  }
-  
-  .analityc-widgethead .analityc-select {
-    @media screen and (min-width: 769px) and (max-width: 1140px) {
-      background: #f5f5f5 url(../images/select-ar.png) right 7px top 13px no-repeat!important;
-    }
-
-    &_disabled {
-      background-color: #e5e5e5 !important;
-    } 
-  }
-  
-  .analityc-control-group .analityc-select {
-    @media screen and (min-width: 451px) and (max-width: 550px) {
-      background-position: top 50% right 7px !important;
     }
   }
 
@@ -237,9 +179,6 @@
     }
   }
 
-  select.analityc-select_disabled {
-    background-color: #e5e5e5 !important;
-  }
   &__analityc-tab-link {
     display: block;
     position: relative;
