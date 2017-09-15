@@ -1397,33 +1397,28 @@ $(document).ready(function() {
   });
 
   function gpHead(type) {
-    var gpButtons = $('.analityc-widget_moscow-gov-program .analityc-control-buttons'),
-      gpSwitcherBig = $('.analityc-widget_moscow-gov-program .analityc-control-switcher_large'),
+    var gpSwitcherLarge = $('.analityc-widget_moscow-gov-program .analityc-control-switcher_large'),
       gpDatepicker = $('.analityc-widget_moscow-gov-program .analityc-control-group._dp');
       gpDatepickerAlt = $('.analityc-widget_moscow-gov-program .analityc-control-group._dp-alt');
       gpSwitcherSub = $('.analityc-widget_moscow-gov-program .analityc-control-switcher_sub');
 
     if (type === 1) {
-      gpButtons.addClass('active');
-      gpSwitcherBig.addClass('active');
+      gpSwitcherLarge.addClass('active');
       gpDatepicker.removeClass('active');
       gpDatepickerAlt.removeClass('active');
       gpSwitcherSub.addClass('active');
     } else if (type === 2) {
-      gpButtons.addClass('active');
-      gpSwitcherBig.removeClass('active');
+      gpSwitcherLarge.removeClass('active');
       gpDatepicker.removeClass('active');
       gpDatepickerAlt.removeClass('active');
       gpSwitcherSub.addClass('active');
     } else if (type === 3) {
-      gpButtons.addClass('active');
-      gpSwitcherBig.removeClass('active');
+      gpSwitcherLarge.removeClass('active');
       gpDatepicker.addClass('active');
       gpDatepickerAlt.removeClass('active');
       gpSwitcherSub.removeClass('active');
     } else if (type === 4) {
-      gpButtons.addClass('active');
-      gpSwitcherBig.removeClass('active');
+      gpSwitcherLarge.removeClass('active');
       gpDatepicker.removeClass('active');
       gpDatepickerAlt.addClass('active');
       gpSwitcherSub.removeClass('active');
@@ -1434,6 +1429,7 @@ $(document).ready(function() {
     e.preventDefault();
     var $this = $(this);
     var stage = $(".analityc-widget_moscow-gov-program .analityc-control-group._stage .analityc-select");
+    var level = $(".analityc-widget_moscow-gov-program .analityc-control-group._level select.analityc-select");
     var switcherSub = $(".analityc-widget_moscow-gov-program .analityc-control-switcher_sub");
     var switcherUnits = $(".analityc-widget_moscow-gov-program .analityc-control-switcher_units");
     var switcherBig = $(".analityc-widget_moscow-gov-program .analityc-control-switcher_big");
@@ -1462,12 +1458,17 @@ $(document).ready(function() {
       gpTableDate = sources.find($('.analityc-widget-moscow-gov-program-table_date'));
       gpTableExec = sources.find($('.analityc-widget-moscow-gov-program-table_exec'));
 
-    switcherUnits.removeClass('active');
-    switcherBig.removeClass('active');
+    
+    
     switcherLarge.removeClass('active');
     switcherLarge.eq(0).addClass('active');
     switcherSubLink.removeClass('active');
     switcherSubLink.eq(0).addClass('active');
+
+    if (!$this.hasClass('active')) {
+      switcherUnits.removeClass('active');
+      switcherBig.removeClass('active');
+    }
 
     if ($this.hasClass('analityc-control-button_graphics') && !$this.hasClass('active')) {
       $this.siblings().removeClass('active');
@@ -1489,7 +1490,11 @@ $(document).ready(function() {
       } else if (gpTableActive.hasClass('analityc-widget-moscow-gov-program-table_date')) {
         gpTable.removeClass('_active');
         gpGraphicsDate.addClass('_active');
-        gpHead(3);
+        if (level.val() === "Консолидированный бюджет") {
+          gpHead(4);
+        } else {
+          gpHead(3);
+        }
         arrow.hide();
         tablearr.hide();
       } else if (gpTableActive.hasClass('analityc-widget-moscow-gov-program-table_exec')) {
@@ -1556,7 +1561,11 @@ $(document).ready(function() {
       } else if (gpGraphicsActive.hasClass('analityc-widget-moscow-gov-program_date')) {
         gpGraphics.removeClass('_active');
         gpTableDate.addClass('_active');
-        gpHead(3);
+        if (level.val() === "Консолидированный бюджет") {
+          gpHead(4);
+        } else {
+          gpHead(3);
+        }
         arrow.hide();
         if ($(window).width() < 900)
           tablearr.show();
