@@ -9,14 +9,16 @@ export default () => {
     })
 
     var slider = new Swiper('.services-moscow-index__slider', {
-      prevButton: '.services-moscow-index___slider-arrow_prev',
+      prevButton: '.services-moscow-index__slider-arrow_prev',
       nextButton: '.services-moscow-index__slider-arrow_next',
+      loop: true
     });
 
-    var table = new Swiper('.services-moscow-index__index', {
+    var table = new Swiper('.services-moscow-index__index-container', {
       slidesPerView: 5,
-      prevButton: '.services-moscow-index___table-arrow_prev',
-      nextButton: '.services-moscow-index___table-arrow_next',
+      prevButton: '.services-moscow-index__table-arrow_prev',
+      nextButton: '.services-moscow-index__table-arrow_next',
+      loop: true,
 
       breakpoints: {
         900: {
@@ -31,7 +33,7 @@ export default () => {
     const SORT_BTN = $('.services-moscow-index__sort');
 
     SORT_BTN.click(function() {
-      $(this).toggleClass('services-moscow-index__sort_desc services-moscow-index__sort_asc');
+      $(this).toggleClass('services-moscow-index__sort_desc services-moscow-index__sort_ask');
     })
 
     const GRAPHIC = $('.services-moscow .analityc-graphics-line-gorizontal');
@@ -56,4 +58,6 @@ export default () => {
       }
 
     })
+  
+    $('.city-popup__wrapper').scrollbar();
 }
