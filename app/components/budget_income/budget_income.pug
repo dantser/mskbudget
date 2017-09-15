@@ -7,11 +7,11 @@ include ../../blocks/dropdown-block/dropdown-block
 
 mixin budget_income()
   section.main._basic.basic-budget.sections__item.budget-income
-    .wrapper
+    .wrapper-header
       +page-header('Доходы бюджета', ['Аналитика'], true)
 
       // Tab 1
-    .wrapper.wrapper_widget
+    .wrapper
       .analityc-widget.analityc-widget_income.load-anim-fade(data-delay="1500")
         +analityc-widgethead-income()
         +analityc-graphics-round('income1')._approved.active
