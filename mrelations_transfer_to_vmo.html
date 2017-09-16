@@ -361,7 +361,7 @@
                         <p class="page-head__breadcrumbs load-anim-fade" data-delay="500">
                             <a class="page-head__category" href="#">Бюджет Москвы</a>
                         </p>
-                        <h1 class="page-head__title load-anim-fade" data-delay="700">Межбюджетные отношения. Трансферты во внутригородские муниципальные образования г. Москвы</h1>
+                        <h1 class="page-head__title load-anim-fade" data-delay="700">Межбюджетные отношения</h1>
                     </div>
                     <div class="d-si__head_icons">
                         <div class="favor icons-item load-anim-fade" title="Добавить в избранное" data-delay="900">
@@ -405,9 +405,22 @@
                         </div>
                     </div>
                 </div>
+                <div class="mrelations__switcher load-anim-fade" data-delay="1500">
+                    <P class="mrelations__switcher-text">ВЫБЕРИТЕ ТИП
+                        <br> ТРАНСФЕРТОВ:</P>
+                    <A class="mrelations__switcher-text mrelations__switcher-text_link" href="#">из федерального бюджета
+                        <br> в бюджет г. Москвы</A>
+                    <A class="mrelations__switcher-text mrelations__switcher-text_link" href="#">из бюджета г. Москвы во внутригородские
+                        <br> муниципальные образования</A>
+                </div>
             </div>
             <div class="wrapper">
                 <div class="analityc-widget analityc-widget_mrelations load-anim-fade" data-delay="1500">
+                    <A class="mrelations-transfer__main" href="#">На главную</A>
+                    <div class="mrelations-transfer__header">
+                        <svg class="mrelations-transfer__icon"><use xlink:href="assets/images/icon.svg#icon_car"></use></svg>
+                        <h2 class="mrelations-transfer__heading">Трансферты во внутригородские муниципальные образования г. Москвы</h2>
+                    </div>
                     <div class="analityc-widgethead">
                         <div class="analityc-control-group-wrapper">
                             <div class="analityc-control-group _year">
@@ -716,7 +729,6 @@
                         <p class="analityc-graphics__periodtext">
                             <span>Плановый период</span>
                         </p>
-                        <p class="analityc-graphics__toptext">МЛРД РУБ.</p>
                         <div class="swiper-container column-graphics_slider">
                             <div class="analityc-graphics__cols swiper-wrapper">
                                 <div class="analityc-graphics__col swiper-slide">
@@ -1137,28 +1149,23 @@
                             </p>
                             <div class="table__row table__row_caption">
                                 <div class="table__col table__col_four">Виды доходов</div>
-                                <div class="table__col table__col_four">Фактическое исполнение</div>
-                                <div class="table__col table__col_four">% исполнения</div>
+                                <div class="table__col table__col_four">2017</div>
                             </div>
                             <div class="table__row">
                                 <div class="table__col table__col_four">Трансферты из федерального бюджета, всего</div>
-                                <div class="table__col table__col_two">1 598,90</div>
-                                <div class="table__col table__col_two">1 598,90</div>
+                                <div class="table__col table__col_one">1 598,90</div>
                             </div>
                             <div class="table__row">
                                 <div class="table__col table__col_four">Субсидии</div>
-                                <div class="table__col table__col_two">1 598,90</div>
-                                <div class="table__col table__col_two">1 598,90</div>
+                                <div class="table__col table__col_one">1 598,90</div>
                             </div>
                             <div class="table__row">
                                 <div class="table__col table__col_four">Субвенции</div>
-                                <div class="table__col table__col_two">1 598,90</div>
-                                <div class="table__col table__col_two">1 598,90</div>
+                                <div class="table__col table__col_one">1 598,90</div>
                             </div>
                             <div class="table__row">
                                 <div class="table__col table__col_four">Иные межбюджетные трансферты</div>
-                                <div class="table__col table__col_two">1 598,90</div>
-                                <div class="table__col table__col_two">1 598,90</div>
+                                <div class="table__col table__col_one">1 598,90</div>
                             </div>
                         </div>
                     </div>
@@ -3005,6 +3012,16 @@
                 gradient: [green, violet, pink],
                 maxValue: 100,
             });
+
+            diagram('#diagram-49', {
+                viewBox: 270,
+                stroke: 45,
+                kind: 'segment2',
+                data: [37.0, 10.0, 48.0, 5.0],
+                gradient: [greenyellow, gray, altblue, pink],
+                maxValue: 100,
+            })
+
 
             positionValues();
 
