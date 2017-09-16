@@ -354,7 +354,6 @@
         </button>
     </header>
     <div class="sections">
-        <!-- Попап с данными о городах-->
         <section class="services-moscow section__item">
             <div class="wrapper services-moscow__wrapper">
                 <div class="services-moscow__head">
@@ -463,6 +462,556 @@
                             </div>
                             <div class="services-moscow-index__bottom services-moscow__wrap">
                                 <div class="services-moscow-index__table">
+                                    <a class="arrow-button arrow-button_prev services-moscow-index__table-arrow services-moscow-index__table-arrow_prev swiper-button-prev" href="#">
+                                        <svg class="arrow-button__icon"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
+                                    </a>
+                                    <a class="arrow-button services-moscow-index__table-arrow services-moscow-index__table-arrow_next swiper-button-next" href="#">
+                                        <svg class="arrow-button__icon"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
+                                    </a>
+                                    <div class="city-popup services-moscow-index__city-popup">
+                                        <div class="city-popup__close">
+                                            <svg><use xlink:href="assets/images/icon.svg#icon_close"></use></svg>
+                                        </div>
+                                        <div class="city-popup__category active" data-category="square">
+                                            <p class="city-popup__title">Площадь</p>
+                                            <div class="city-popup__wrapper">
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Москва</p>
+                                                    <p class="city-popup__source">Федеральная служба государственной статистики по городу Москве</p>
+                                                    <p class="city-popup__value">2 561,5 км2</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="http://moscow.gks.ru/wps/wcm/connect/rosstat_ts/moscow/ru/statistics/government/">http://moscow.gks.ru/wps/wcm/connect/rosstat_ts/moscow/ru/statistics/government/</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Лондон</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">1 572,0 км2</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://en.wikipedia.org/wiki/London#Geography">https://en.wikipedia.org/wiki/London#Geography</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Лос-Анджелес</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">1 302,2 км2</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://en.wikipedia.org/wiki/Los_Angeles">https://en.wikipedia.org/wiki/Los_Angeles</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Париж</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">105,4 км2</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://en.wikipedia.org/wiki/Paris">https://en.wikipedia.org/wiki/Paris</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Нью-Йорк</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">1 213,4 км2</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://en.wikipedia.org/wiki/New_York_City">https://en.wikipedia.org/wiki/New_York_City</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Токио</p>
+                                                    <p class="city-popup__source">Официальный портал &quot;Tokyo Metropolitan Board of Education&quot;</p>
+                                                    <p class="city-popup__value">2 190,9 км2</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="http://www.kyoiku.metro.tokyo.jp/buka/soumu/tokyo2017/tokyo2017JpEng.pdf">http://www.kyoiku.metro.tokyo.jp/buka/soumu/tokyo2017/tokyo2017JpEng.pdf</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Мадрид</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">604,3 км2</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://en.wikipedia.org/wiki/Madrid">https://en.wikipedia.org/wiki/Madrid</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Берлин</p>
+                                                    <p class="city-popup__source">Управление статистики Германии и федеральных земель</p>
+                                                    <p class="city-popup__value">891,7 км2</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="http://www.statistik-portal.de/Statistik-Portal/en/en_jb01_jahrtab1.asp">http://www.statistik-portal.de/Statistik-Portal/en/en_jb01_jahrtab1.asp</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Шанхай</p>
+                                                    <p class="city-popup__source">Национальное бюро статистики Китая</p>
+                                                    <p class="city-popup__value">6 340,5 км2</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="http://www.stats-sh.gov.cn/tjnj/nje16.htm?d1=2016tjnje/E0202.htm">http://www.stats-sh.gov.cn/tjnj/nje16.htm?d1=2016tjnje/E0202.htm</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="city-popup__category" data-category="airports">
+                                            <p class="city-popup__title">Международные аэропорты</p>
+                                            <div class="city-popup__wrapper">
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Москва</p>
+                                                    <p class="city-popup__source">Wikipedia Wikipedia Wikipedia Wikipedia Wikipedia Wikipedia Wikipedia Wikipedia Wikipedia Wikipedia</p>
+                                                    <p class="city-popup__value">3 шт</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Лондон</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">5 шт</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Лос-Анджелес</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">5 шт</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Париж</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">3 шт</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Нью-Йорк</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">4 шт</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Токио</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">2 шт</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Мадрид</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">1 шт</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Берлин</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">3 шт</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Шанхай</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">1 шт</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="city-popup__category" data-category="population">
+                                            <p class="city-popup__title">Общая численность населения</p>
+                                            <div class="city-popup__wrapper">
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Москва</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">12 330 126 чел</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Лондон</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">8 538 689 чел</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Лос-Анджелес</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">3 971 883 чел</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Париж</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">2 196 936 чел</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Нью-Йорк</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">8 550 405 чел</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Токио</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">13 510 000 чел</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Мадрид</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">3 255 944 чел</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Берлин</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">3 469 849 чел</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Шанхай</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">24 150 000 чел</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="city-popup__category" data-category="agglomeration">
+                                            <p class="city-popup__title">Численность агломерации</p>
+                                            <div class="city-popup__wrapper">
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Москва</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">16 570 000 чел</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Лондон</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">10 350 000 чел</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Лос-Анджелес</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">15 135 000 чел</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Париж</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">10 870 000 чел</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Нью-Йорк</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">20 685 000 чел</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Токио</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">37 750 000 чел</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Мадрид</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">6 240 000 чел</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Берлин</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">4 085 000 чел</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Шанхай</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">22 685 000 чел</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="city-popup__category" data-category="subway">
+                                            <p class="city-popup__title">Станции метро</p>
+                                            <div class="city-popup__wrapper">
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Москва</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">200 шт</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Лондон</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">270 шт</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Лос-Анджелес</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">93 шт</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Париж</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">300 шт</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Нью-Йорк</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">469 шт</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Токио</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">285 шт</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Мадрид</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">300 шт</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Берлин</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">173 шт</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Шанхай</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">339 шт</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="city-popup__category" data-category="category6">
+                                            <p class="city-popup__title">Медведи</p>
+                                            <div class="city-popup__wrapper">
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Москва</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">999 999 999 шт</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Лондон</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">0 шт</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Лос-Анджелес</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">0 шт</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Париж</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">0 шт</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Нью-Йорк</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">0 шт</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Токио</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">0 шт</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Мадрид</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">0 шт</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Берлин</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">0 шт</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Шанхай</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">0 шт</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="city-popup__category" data-category="category7">
+                                            <p class="city-popup__title">Балалайки</p>
+                                            <div class="city-popup__wrapper">
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Москва</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">999 999 999 шт</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Лондон</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">0 шт</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Лос-Анджелес</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">0 шт</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Париж</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">0 шт</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Нью-Йорк</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">0 шт</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Токио</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">0 шт</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Мадрид</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">0 шт</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Берлин</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">0 шт</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                                <div class="city-popup__row">
+                                                    <p class="city-popup__city-name">Шанхай</p>
+                                                    <p class="city-popup__source">Wikipedia</p>
+                                                    <p class="city-popup__value">0 шт</p>
+                                                    <p class="city-popup__link">
+                                                        <a href="https://ru.wikipedia.org/wiki">https://ru.wikipedia.org/wiki</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="services-moscow-index__city">
                                         <div class="services-moscow-index__row services-moscow-index__row_caption">
                                             <P>
@@ -471,119 +1020,202 @@
                                         </div>
                                         <div class="services-moscow-index__row">Москва</div>
                                         <div class="services-moscow-index__row">Лондон</div>
+                                        <div class="services-moscow-index__row">Лос-Анджелес</div>
+                                        <div class="services-moscow-index__row">Париж</div>
+                                        <div class="services-moscow-index__row">Нью-Йорк</div>
+                                        <div class="services-moscow-index__row">Токио</div>
+                                        <div class="services-moscow-index__row">Мадрид</div>
+                                        <div class="services-moscow-index__row">Берлин</div>
+                                        <div class="services-moscow-index__row">Шанхай</div>
                                     </div>
                                     <div class="services-moscow-index__index swiper-container">
-                                        <div class="services-moscow-index__index-container">
-                                            <div class="services-moscow-index__index-wrapper swiper-wrapper">
-                                                <div class="services-moscow-index__col swiper-slide">
-                                                    <div class="services-moscow-index__sort services-moscow-index__sort_desc">
-                                                        <span class="services-moscow-index__sort-arrow services-moscow-index__sort-arrow_desc">По убыванию</span>
-                                                        <span class="services-moscow-index__sort-arrow services-moscow-index__sort-arrow_ask">По возрастанию</span>
-                                                    </div>
-                                                    <div class="services-moscow-index__row services-moscow-index__row_caption">
-                                                        <P>
-                                                            <SPAN>Площадь, км2</SPAN>
-                                                        </P>
-                                                    </div>
-                                                    <div class="services-moscow-index__row">2 561,5</div>
-                                                    <div class="services-moscow-index__row">1 572,0</div>
+                                        <div class="services-moscow-index__index-wrapper swiper-wrapper">
+                                            <div class="services-moscow-index__col swiper-slide">
+                                                <div class="services-moscow-index__sort services-moscow-index__sort_desc">
+                                                    <span class="services-moscow-index__sort-arrow services-moscow-index__sort-arrow_desc">По убыванию</span>
+                                                    <span class="services-moscow-index__sort-arrow services-moscow-index__sort-arrow_ask">По возрастанию</span>
                                                 </div>
-                                                <div class="services-moscow-index__col swiper-slide">
-                                                    <div class="services-moscow-index__sort services-moscow-index__sort_desc">
-                                                        <span class="services-moscow-index__sort-arrow services-moscow-index__sort-arrow_desc">По убыванию</span>
-                                                        <span class="services-moscow-index__sort-arrow services-moscow-index__sort-arrow_ask">По возрастанию</span>
-                                                    </div>
-                                                    <div class="services-moscow-index__row services-moscow-index__row_caption">
-                                                        <P>
-                                                            <SPAN>Международные аэропорты, шт</SPAN>
-                                                        </P>
-                                                    </div>
-                                                    <div class="services-moscow-index__row">3</div>
-                                                    <div class="services-moscow-index__row">5</div>
+                                                <div class="services-moscow-index__row services-moscow-index__row_caption">
+                                                    <P>
+                                                        <SPAN data-category="square">Площадь, км2</SPAN>
+                                                    </P>
                                                 </div>
-                                                <div class="services-moscow-index__col swiper-slide">
-                                                    <div class="services-moscow-index__sort services-moscow-index__sort_desc">
-                                                        <span class="services-moscow-index__sort-arrow services-moscow-index__sort-arrow_desc">По убыванию</span>
-                                                        <span class="services-moscow-index__sort-arrow services-moscow-index__sort-arrow_ask">По возрастанию</span>
-                                                    </div>
-                                                    <div class="services-moscow-index__row services-moscow-index__row_caption">
-                                                        <P>
-                                                            <SPAN>Общая численность населения, чел</SPAN>
-                                                        </P>
-                                                    </div>
-                                                    <div class="services-moscow-index__row">12 330 126</div>
-                                                    <div class="services-moscow-index__row">8 538 689</div>
+                                                <div class="services-moscow-index__row">2 561,5</div>
+                                                <div class="services-moscow-index__row">1 572,0</div>
+                                                <div class="services-moscow-index__row">1 302,0</div>
+                                                <div class="services-moscow-index__row">1 214,9</div>
+                                                <div class="services-moscow-index__row">1 214,9</div>
+                                                <div class="services-moscow-index__row">2 188,7</div>
+                                                <div class="services-moscow-index__row">607,0</div>
+                                                <div class="services-moscow-index__row">892,0</div>
+                                                <div class="services-moscow-index__row">6 340,5</div>
+                                            </div>
+                                            <div class="services-moscow-index__col swiper-slide">
+                                                <div class="services-moscow-index__sort services-moscow-index__sort_desc">
+                                                    <span class="services-moscow-index__sort-arrow services-moscow-index__sort-arrow_desc">По убыванию</span>
+                                                    <span class="services-moscow-index__sort-arrow services-moscow-index__sort-arrow_ask">По возрастанию</span>
                                                 </div>
-                                                <div class="services-moscow-index__col swiper-slide">
-                                                    <div class="services-moscow-index__sort services-moscow-index__sort_desc">
-                                                        <span class="services-moscow-index__sort-arrow services-moscow-index__sort-arrow_desc">По убыванию</span>
-                                                        <span class="services-moscow-index__sort-arrow services-moscow-index__sort-arrow_ask">По возрастанию</span>
-                                                    </div>
-                                                    <div class="services-moscow-index__row services-moscow-index__row_caption">
-                                                        <P>
-                                                            <SPAN>Численность агломерации, чел</SPAN>
-                                                        </P>
-                                                    </div>
-                                                    <div class="services-moscow-index__row">16 570 000</div>
-                                                    <div class="services-moscow-index__row">10 350 000</div>
+                                                <div class="services-moscow-index__row services-moscow-index__row_caption">
+                                                    <P>
+                                                        <SPAN data-category="airports">Международные аэропорты, шт</SPAN>
+                                                    </P>
                                                 </div>
-                                                <div class="services-moscow-index__col swiper-slide">
-                                                    <div class="services-moscow-index__sort services-moscow-index__sort_desc">
-                                                        <span class="services-moscow-index__sort-arrow services-moscow-index__sort-arrow_desc">По убыванию</span>
-                                                        <span class="services-moscow-index__sort-arrow services-moscow-index__sort-arrow_ask">По возрастанию</span>
-                                                    </div>
-                                                    <div class="services-moscow-index__row services-moscow-index__row_caption">
-                                                        <P>
-                                                            <SPAN>Станции метро, шт</SPAN>
-                                                        </P>
-                                                    </div>
-                                                    <div class="services-moscow-index__row">
-                                                        <div class="services-moscow-index__icon">
-                                                            <IMG src="assets/images/services_moscow/moscow-st.png"></IMG>
-                                                        </div>
-                                                        <div class="services-moscow-index__row-value">200</div>
-                                                    </div>
-                                                    <div class="services-moscow-index__row">
-                                                        <div class="services-moscow-index__icon">
-                                                            <IMG src="assets/images/services_moscow/london-st.png"></IMG>
-                                                        </div>
-                                                        <div class="services-moscow-index__row-value">270</div>
-                                                    </div>
+                                                <div class="services-moscow-index__row">3</div>
+                                                <div class="services-moscow-index__row">5</div>
+                                                <div class="services-moscow-index__row">5</div>
+                                                <div class="services-moscow-index__row">3</div>
+                                                <div class="services-moscow-index__row">4</div>
+                                                <div class="services-moscow-index__row">2</div>
+                                                <div class="services-moscow-index__row">1</div>
+                                                <div class="services-moscow-index__row">3</div>
+                                                <div class="services-moscow-index__row">1</div>
+                                            </div>
+                                            <div class="services-moscow-index__col swiper-slide">
+                                                <div class="services-moscow-index__sort services-moscow-index__sort_desc">
+                                                    <span class="services-moscow-index__sort-arrow services-moscow-index__sort-arrow_desc">По убыванию</span>
+                                                    <span class="services-moscow-index__sort-arrow services-moscow-index__sort-arrow_ask">По возрастанию</span>
                                                 </div>
-                                                <div class="services-moscow-index__col swiper-slide">
-                                                    <div class="services-moscow-index__sort services-moscow-index__sort_desc">
-                                                        <span class="services-moscow-index__sort-arrow services-moscow-index__sort-arrow_desc">По убыванию</span>
-                                                        <span class="services-moscow-index__sort-arrow services-moscow-index__sort-arrow_ask">По возрастанию</span>
-                                                    </div>
-                                                    <div class="services-moscow-index__row services-moscow-index__row_caption">
-                                                        <P>
-                                                            <SPAN>Медведей, шт</SPAN>
-                                                        </P>
-                                                    </div>
-                                                    <div class="services-moscow-index__row">999 999 999</div>
-                                                    <div class="services-moscow-index__row">0</div>
+                                                <div class="services-moscow-index__row services-moscow-index__row_caption">
+                                                    <P>
+                                                        <SPAN data-category="population">Общая численность населения, чел</SPAN>
+                                                    </P>
                                                 </div>
-                                                <div class="services-moscow-index__col swiper-slide">
-                                                    <div class="services-moscow-index__sort services-moscow-index__sort_desc">
-                                                        <span class="services-moscow-index__sort-arrow services-moscow-index__sort-arrow_desc">По убыванию</span>
-                                                        <span class="services-moscow-index__sort-arrow services-moscow-index__sort-arrow_ask">По возрастанию</span>
+                                                <div class="services-moscow-index__row">12 330 126</div>
+                                                <div class="services-moscow-index__row">8 538 689</div>
+                                                <div class="services-moscow-index__row">3 971 883</div>
+                                                <div class="services-moscow-index__row">2 196 936</div>
+                                                <div class="services-moscow-index__row">8 550 405</div>
+                                                <div class="services-moscow-index__row">13 510 000</div>
+                                                <div class="services-moscow-index__row">3 255 944</div>
+                                                <div class="services-moscow-index__row">3 469 849</div>
+                                                <div class="services-moscow-index__row">24 150 000</div>
+                                            </div>
+                                            <div class="services-moscow-index__col swiper-slide">
+                                                <div class="services-moscow-index__sort services-moscow-index__sort_desc">
+                                                    <span class="services-moscow-index__sort-arrow services-moscow-index__sort-arrow_desc">По убыванию</span>
+                                                    <span class="services-moscow-index__sort-arrow services-moscow-index__sort-arrow_ask">По возрастанию</span>
+                                                </div>
+                                                <div class="services-moscow-index__row services-moscow-index__row_caption">
+                                                    <P>
+                                                        <SPAN data-category="agglomeration">Численность агломерации, чел</SPAN>
+                                                    </P>
+                                                </div>
+                                                <div class="services-moscow-index__row">16 570 000</div>
+                                                <div class="services-moscow-index__row">10 350 000</div>
+                                                <div class="services-moscow-index__row">15 135 000</div>
+                                                <div class="services-moscow-index__row">10 870 000</div>
+                                                <div class="services-moscow-index__row">20 685 000</div>
+                                                <div class="services-moscow-index__row">37 750 000</div>
+                                                <div class="services-moscow-index__row">6 240 000</div>
+                                                <div class="services-moscow-index__row">4 085 000</div>
+                                                <div class="services-moscow-index__row">22 685 000</div>
+                                            </div>
+                                            <div class="services-moscow-index__col swiper-slide">
+                                                <div class="services-moscow-index__sort services-moscow-index__sort_desc">
+                                                    <span class="services-moscow-index__sort-arrow services-moscow-index__sort-arrow_desc">По убыванию</span>
+                                                    <span class="services-moscow-index__sort-arrow services-moscow-index__sort-arrow_ask">По возрастанию</span>
+                                                </div>
+                                                <div class="services-moscow-index__row services-moscow-index__row_caption">
+                                                    <P>
+                                                        <SPAN data-category="subway">Станции метро, шт</SPAN>
+                                                    </P>
+                                                </div>
+                                                <div class="services-moscow-index__row">
+                                                    <div class="services-moscow-index__icon">
+                                                        <IMG src="assets/images/services_moscow/moscow-st.png"></IMG>
                                                     </div>
-                                                    <div class="services-moscow-index__row services-moscow-index__row_caption">
-                                                        <P>
-                                                            <SPAN>Балалаек, шт</SPAN>
-                                                        </P>
+                                                    <div class="services-moscow-index__row-value">200</div>
+                                                </div>
+                                                <div class="services-moscow-index__row">
+                                                    <div class="services-moscow-index__icon">
+                                                        <IMG src="assets/images/services_moscow/london-st.png"></IMG>
                                                     </div>
-                                                    <div class="services-moscow-index__row">999 999 999</div>
-                                                    <div class="services-moscow-index__row">0</div>
+                                                    <div class="services-moscow-index__row-value">270</div>
+                                                </div>
+                                                <div class="services-moscow-index__row">
+                                                    <div class="services-moscow-index__icon">
+                                                        <IMG src="assets/images/services_moscow/la-st.png"></IMG>
+                                                    </div>
+                                                    <div class="services-moscow-index__row-value">93</div>
+                                                </div>
+                                                <div class="services-moscow-index__row">
+                                                    <div class="services-moscow-index__icon">
+                                                        <IMG src="assets/images/services_moscow/paris-st.png"></IMG>
+                                                    </div>
+                                                    <div class="services-moscow-index__row-value">300</div>
+                                                </div>
+                                                <div class="services-moscow-index__row">
+                                                    <div class="services-moscow-index__icon">
+                                                        <IMG src="assets/images/services_moscow/ny-st.png"></IMG>
+                                                    </div>
+                                                    <div class="services-moscow-index__row-value">469</div>
+                                                </div>
+                                                <div class="services-moscow-index__row">
+                                                    <div class="services-moscow-index__icon">
+                                                        <IMG src="assets/images/services_moscow/tokyo-st.png"></IMG>
+                                                    </div>
+                                                    <div class="services-moscow-index__row-value">285</div>
+                                                </div>
+                                                <div class="services-moscow-index__row">
+                                                    <div class="services-moscow-index__icon">
+                                                        <IMG src="assets/images/services_moscow/madrid-st.png"></IMG>
+                                                    </div>
+                                                    <div class="services-moscow-index__row-value">300</div>
+                                                </div>
+                                                <div class="services-moscow-index__row">
+                                                    <div class="services-moscow-index__icon">
+                                                        <IMG src="assets/images/services_moscow/berlin-st.png"></IMG>
+                                                    </div>
+                                                    <div class="services-moscow-index__row-value">173</div>
+                                                </div>
+                                                <div class="services-moscow-index__row">
+                                                    <div class="services-moscow-index__icon">
+                                                        <IMG src="assets/images/services_moscow/shanhai-st.png"></IMG>
+                                                    </div>
+                                                    <div class="services-moscow-index__row-value">339</div>
                                                 </div>
                                             </div>
+                                            <div class="services-moscow-index__col swiper-slide">
+                                                <div class="services-moscow-index__sort services-moscow-index__sort_desc">
+                                                    <span class="services-moscow-index__sort-arrow services-moscow-index__sort-arrow_desc">По убыванию</span>
+                                                    <span class="services-moscow-index__sort-arrow services-moscow-index__sort-arrow_ask">По возрастанию</span>
+                                                </div>
+                                                <div class="services-moscow-index__row services-moscow-index__row_caption">
+                                                    <P>
+                                                        <SPAN data-category="category6">Медведей, шт</SPAN>
+                                                    </P>
+                                                </div>
+                                                <div class="services-moscow-index__row">999 999 999</div>
+                                                <div class="services-moscow-index__row">0</div>
+                                                <div class="services-moscow-index__row">0</div>
+                                                <div class="services-moscow-index__row">0</div>
+                                                <div class="services-moscow-index__row">0</div>
+                                                <div class="services-moscow-index__row">0</div>
+                                                <div class="services-moscow-index__row">0</div>
+                                                <div class="services-moscow-index__row">0</div>
+                                                <div class="services-moscow-index__row">0</div>
+                                            </div>
+                                            <div class="services-moscow-index__col swiper-slide">
+                                                <div class="services-moscow-index__sort services-moscow-index__sort_desc">
+                                                    <span class="services-moscow-index__sort-arrow services-moscow-index__sort-arrow_desc">По убыванию</span>
+                                                    <span class="services-moscow-index__sort-arrow services-moscow-index__sort-arrow_ask">По возрастанию</span>
+                                                </div>
+                                                <div class="services-moscow-index__row services-moscow-index__row_caption">
+                                                    <P>
+                                                        <SPAN data-category="category7">Балалаек, шт</SPAN>
+                                                    </P>
+                                                </div>
+                                                <div class="services-moscow-index__row">999 999 999</div>
+                                                <div class="services-moscow-index__row">0</div>
+                                                <div class="services-moscow-index__row">0</div>
+                                                <div class="services-moscow-index__row">0</div>
+                                                <div class="services-moscow-index__row">0</div>
+                                                <div class="services-moscow-index__row">0</div>
+                                                <div class="services-moscow-index__row">0</div>
+                                                <div class="services-moscow-index__row">0</div>
+                                                <div class="services-moscow-index__row">0</div>
+                                            </div>
                                         </div>
-                                        <a class="arrow-button arrow-button_prev services-moscow-index__table-arrow services-moscow-index__table-arrow_prev swiper-button-prev" href="#">
-                                            <svg class="arrow-button__icon"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
-                                        </a>
-                                        <a class="arrow-button services-moscow-index__table-arrow services-moscow-index__table-arrow_next swiper-button-next" href="#">
-                                            <svg class="arrow-button__icon"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
-                                        </a>
                                     </div>
                                 </div>
                                 <div class="services-moscow__note"> Конвертация иностранных валют в рубли производится с использованием усредненных курсов обмена валют за 2015 год, публикуемых
@@ -781,90 +1413,63 @@
                                     <a class="link" href="#">прогноза социально-экономического развития Российской Федерации на 2016 год.</a>
                                     <br/>Информация носит справочный характер, подробная информация о бюджетах городов мира размещена на официальных сайтах.
                                     <br/>
-                                    <a class="link link_dashed" href="#">Источники данных</a>
+                                    <a class="link link_dashed services-moscow-params__sources-link" href="#">Источники данных</a>
+                                    <div class="city-popup city-popup_two-col services-moscow-params__city-popup">
+                                        <div class="city-popup__close">
+                                            <svg><use xlink:href="assets/images/icon.svg#icon_close"></use></svg>
+                                        </div>
+                                        <div class="city-popup__row">
+                                            <p class="city-popup__city-name">Москва</p>
+                                            <p class="city-popup__link">
+                                                <a href="http://budget.mos.ru/project_summary_2017_2019">http://budget.mos.ru/project_summary_2017_2019</a>
+                                            </p>
+                                        </div>
+                                        <div class="city-popup__row">
+                                            <p class="city-popup__city-name">Берлин</p>
+                                            <p class="city-popup__link">
+                                                <a href="http://budget.mos.ru/project_summary_2017_2019">http://budget.mos.ru/project_summary_2017_2019</a>
+                                            </p>
+                                        </div>
+                                        <div class="city-popup__row">
+                                            <p class="city-popup__city-name">Лондон</p>
+                                            <p class="city-popup__link">
+                                                <a href="http://budget.mos.ru/project_summary_2017_2019">http://budget.mos.ru/project_summary_2017_2019</a>
+                                            </p>
+                                        </div>
+                                        <div class="city-popup__row">
+                                            <p class="city-popup__city-name">Лос-Анджелес</p>
+                                            <p class="city-popup__link">
+                                                <a href="http://budget.mos.ru/project_summary_2017_2019">http://budget.mos.ru/project_summary_2017_2019</a>
+                                            </p>
+                                        </div>
+                                        <div class="city-popup__row">
+                                            <p class="city-popup__city-name">Мадрид</p>
+                                            <p class="city-popup__link">
+                                                <a href="http://budget.mos.ru/project_summary_2017_2019">http://budget.mos.ru/project_summary_2017_2019</a>
+                                            </p>
+                                        </div>
+                                        <div class="city-popup__row">
+                                            <p class="city-popup__city-name">Нью-Йорк</p>
+                                            <p class="city-popup__link">
+                                                <a href="http://budget.mos.ru/project_summary_2017_2019">http://budget.mos.ru/project_summary_2017_2019</a>
+                                            </p>
+                                        </div>
+                                        <div class="city-popup__row">
+                                            <p class="city-popup__city-name">Париж</p>
+                                            <p class="city-popup__link">
+                                                <a href="http://budget.mos.ru/project_summary_2017_2019">http://budget.mos.ru/project_summary_2017_2019</a>
+                                            </p>
+                                        </div>
+                                        <div class="city-popup__row">
+                                            <p class="city-popup__city-name">Шанхай</p>
+                                            <p class="city-popup__link">
+                                                <a href="http://budget.mos.ru/project_summary_2017_2019">http://budget.mos.ru/project_summary_2017_2019</a>
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="city-popup">
-                <div class="city-popup__close">
-                    <svg><use xlink:href="assets/images/icon.svg#icon_close"></use></svg>
-                </div>
-                <p class="city-popup__title">Площадь</p>
-                <div class="city-popup__wrapper">
-                    <div class="city-popup__row">
-                        <p class="city-popup__city-name">Москва</p>
-                        <p class="city-popup__source">Федеральная служба государственной статистики по городу Москве</p>
-                        <p class="city-popup__value">2 561,5 км2</p>
-                        <p class="city-popup__link">
-                            <A href="http://moscow.gks.ru/wps/wcm/connect/rosstat_ts/moscow/ru/statistics/government/">http://moscow.gks.ru/wps/wcm/connect/rosstat_ts/moscow/ru/statistics/government/</A>
-                        </p>
-                    </div>
-                    <div class="city-popup__row">
-                        <p class="city-popup__city-name">Лондон</p>
-                        <p class="city-popup__source">Wikipedia</p>
-                        <p class="city-popup__value">1 572,0 км2</p>
-                        <p class="city-popup__link">
-                            <A href="https://en.wikipedia.org/wiki/London#Geography">https://en.wikipedia.org/wiki/London#Geography</A>
-                        </p>
-                    </div>
-                    <div class="city-popup__row">
-                        <p class="city-popup__city-name">Лос-Анджелес</p>
-                        <p class="city-popup__source">Wikipedia</p>
-                        <p class="city-popup__value">1 302,2 км2</p>
-                        <p class="city-popup__link">
-                            <A href="https://en.wikipedia.org/wiki/Los_Angeles">https://en.wikipedia.org/wiki/Los_Angeles</A>
-                        </p>
-                    </div>
-                    <div class="city-popup__row">
-                        <p class="city-popup__city-name">Париж</p>
-                        <p class="city-popup__source">Wikipedia</p>
-                        <p class="city-popup__value">105,4 км2</p>
-                        <p class="city-popup__link">
-                            <A href="https://en.wikipedia.org/wiki/Paris">https://en.wikipedia.org/wiki/Paris</A>
-                        </p>
-                    </div>
-                    <div class="city-popup__row">
-                        <p class="city-popup__city-name">Нью-Йорк</p>
-                        <p class="city-popup__source">Wikipedia</p>
-                        <p class="city-popup__value">1 213,4 км2</p>
-                        <p class="city-popup__link">
-                            <A href="https://en.wikipedia.org/wiki/New_York_City">https://en.wikipedia.org/wiki/New_York_City</A>
-                        </p>
-                    </div>
-                    <div class="city-popup__row">
-                        <p class="city-popup__city-name">Токио</p>
-                        <p class="city-popup__source">Официальный портал "Tokyo Metropolitan Board of Education"</p>
-                        <p class="city-popup__value">2 190,9 км2</p>
-                        <p class="city-popup__link">
-                            <A href="http://www.kyoiku.metro.tokyo.jp/buka/soumu/tokyo2017/tokyo2017JpEng.pdf">http://www.kyoiku.metro.tokyo.jp/buka/soumu/tokyo2017/tokyo2017JpEng.pdf</A>
-                        </p>
-                    </div>
-                    <div class="city-popup__row">
-                        <p class="city-popup__city-name">Мадрид</p>
-                        <p class="city-popup__source">Wikipedia</p>
-                        <p class="city-popup__value">604,3 км2</p>
-                        <p class="city-popup__link">
-                            <A href="https://en.wikipedia.org/wiki/Madrid">https://en.wikipedia.org/wiki/Madrid</A>
-                        </p>
-                    </div>
-                    <div class="city-popup__row">
-                        <p class="city-popup__city-name">Берлин</p>
-                        <p class="city-popup__source">Управление статистики Германии и федеральных земель</p>
-                        <p class="city-popup__value">891,7 км2</p>
-                        <p class="city-popup__link">
-                            <A href="http://www.statistik-portal.de/Statistik-Portal/en/en_jb01_jahrtab1.asp">http://www.statistik-portal.de/Statistik-Portal/en/en_jb01_jahrtab1.asp</A>
-                        </p>
-                    </div>
-                    <div class="city-popup__row">
-                        <p class="city-popup__city-name">Шанхай</p>
-                        <p class="city-popup__source">Национальное бюро статистики Китая</p>
-                        <p class="city-popup__value">6 340,5 км2</p>
-                        <p class="city-popup__link">
-                            <A href="http://www.stats-sh.gov.cn/tjnj/nje16.htm?d1=2016tjnje/E0202.htm">http://www.stats-sh.gov.cn/tjnj/nje16.htm?d1=2016tjnje/E0202.htm</A>
-                        </p>
                     </div>
                 </div>
             </div>
