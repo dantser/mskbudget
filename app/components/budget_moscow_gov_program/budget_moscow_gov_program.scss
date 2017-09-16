@@ -169,7 +169,6 @@
     color: #0d46a1;
     font-weight: 500;
     cursor: pointer;
-    margin-top: 30px;
   }
 
   &__icon {
@@ -190,19 +189,20 @@
   }
 
   &__header {
+    display: inline-block;
+    position: relative;
     margin-top: 12px;
     margin-bottom: 34px;
+    max-width: 90%;
 
-    @media (max-width: 900px) and (min-width: 581px) {
-      margin-bottom: 121px;
-    }
-    @media (max-width: 580px) {
-      margin-bottom: 58px;
+    @media (max-width: 1140px) {
+      max-width: 100%;
     }
   }
 
   &__heading {
     font-size: 30px;
+    line-height: 0.9em;
     text-transform: uppercase;
     display: inline-block;
     margin-left: 11px;
@@ -224,20 +224,21 @@
   }
 
   &__link {
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    left: 101%;
     font-size: 14px;
     font-weight: 400;
     font-family: $PFDinTextPro;
     color: $color-link;
-    display: inline-block;
-    margin-left: 23px;
-
+    white-space: nowrap;
+    
     @media (max-width: 1140px) {
-      display: block;
-      position: relative;
-      top: 35px;
-      margin-left: 0;
+      position: static;
       text-align: right;
-      line-height: 0px;
+      display: block;
+      line-height: 1.2em;
     }
 
     @media (max-width: 900px) {
@@ -283,7 +284,12 @@
     margin-top: 49px;
     margin-bottom: 47px;
 
-    &_done, &_structure, &_changes, &_date, &_exec, &_expenses {
+    &_done, 
+    &_structure, 
+    &_changes, 
+    &_date, 
+    &_exec, 
+    &_expenses {
       display: none;
       &._active {
         display: block;
@@ -292,7 +298,11 @@
 
 /*start*/
     &-table {
-      &_done, &_structure, &_changes, &_date, &_exec {
+      &_done, 
+      &_structure, 
+      &_changes, 
+      &_date, 
+      &_exec {
         display: none;
         &._active {
           display: block;
@@ -738,10 +748,6 @@
   }
 
   .analityc-widget-moscow-gov-program_structure-exec {
-
-      .tabs__tab.active {
-        display: block !important;
-      }
 
       .analityc-mix {
         display: block;

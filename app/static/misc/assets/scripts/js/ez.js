@@ -2352,6 +2352,7 @@ $(document).ready(function() {
     } else if ($this.val() === "Исполнение на дату") {
       mrelationsGraphicsDate.addClass('active');
       mrelationsDatepicker.addClass('active');
+      mrelationsSwitcherLarge.removeClass('active');
     }
 
     positionValues();
@@ -2413,6 +2414,7 @@ $(document).ready(function() {
         mrelationsTable.removeClass('active');
         mrelationsGraphicsDate.addClass('active');
         mrelationsDatepicker.addClass('active');
+        mrelationsSwitcherLarge.removeClass('active');
       }
 
     } else if ($this.hasClass('analityc-control-button_table') && !$this.hasClass('active')) {
@@ -2492,6 +2494,7 @@ $(document).ready(function() {
       } else if (stage.val() === "Исполнение на дату") {
         mrelationsGraphicsDate.addClass('active');
         mrelationsDatepicker.addClass('active');
+        mrelationsSwitcherLarge.removeClass('active');
       }
 
     } else if ($this.val() === "Направления расходования") {

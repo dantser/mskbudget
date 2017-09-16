@@ -5,13 +5,23 @@ include ../analityc-table/analityc-table
 include ../../blocks/table/table
 include ../../blocks/dropdown-block/dropdown-block
 
-mixin mrelations_transfer_from_fed()
+mixin mrelations_transfer_from_fed(header)
 	+b.SECTION.mrelations-transfer.main._basic.basic-budget.section__item&attributes(attributes)
 		.wrapper-header
-			+page-header('Межбюджетные отношения. Трансферты из федерального бюджета в бюджет г. Москвы', ['Бюджет Москвы'], true)
+			+page-header('Межбюджетные отношения', ['Бюджет Москвы'], true)
+			.mrelations__switcher.load-anim-fade(data-delay="1500")
+				P.mrelations__switcher-text ВЫБЕРИТЕ ТИП<br> ТРАНСФЕРТОВ:
+				A(href="#").mrelations__switcher-text.mrelations__switcher-text_link из федерального бюджета<br> в бюджет г. Москвы
+				A(href="#").mrelations__switcher-text.mrelations__switcher-text_link из бюджета г. Москвы во внутригородские<br> муниципальные образования
 
 		.wrapper
 			.analityc-widget.analityc-widget_mrelations.load-anim-fade(data-delay="1500")
+
+				A(href='#').mrelations-transfer__main На главную
+				+e.header
+					+icon('car').icon
+					+e.H2.heading= header
+
 				+analityc-widgethead-mrelations()
 
 				+analityc-graphics-round7()._approved.active

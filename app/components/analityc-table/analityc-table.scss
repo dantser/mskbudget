@@ -462,16 +462,25 @@
 }
 
 @media screen and (min-width: 1101px) and (max-width: 1140px) {
-  .analityc-table_approved .table__row {
-    padding-right: 20%;
+
+  .analityc-table_approved,
+  .analityc-widget_mrelations .analityc-table_work,
+  .analityc-widget_mrelations .analityc-table_domain,
+  .analityc-widget-moscow-gov-program-table_done {
+    .table__row {
+      padding-right: 20%;
+    }
+
+    .table__period-right {
+      right: 119px;
+    }
+
+    .table__periodtext {
+      right: 20%;
+      width: 42.5%;
+    }
   }
-  .analityc-table_approved .table__period-right {
-    right: 119px;
-  }
-  .analityc-table_approved .table__periodtext {
-    right: 20%;
-    width: 42.5%;
-  }
+
   .analityc-table_done .table__row {
     padding-right: 50%;
   }
@@ -481,20 +490,30 @@
 }
 
 @media screen and (max-width: 1100px) {
-  .analityc-table_approved .table__row {
-    padding-right: 0;
+
+  .analityc-table_approved,
+  .analityc-widget_mrelations .analityc-table_work,
+  .analityc-widget_mrelations .analityc-table_domain,
+  .analityc-widget-moscow-gov-program-table_done {
+    .table__row {
+      padding-right: 0;
+    }
+
+    .table__period-right {
+      right: 86%;
+    }
+
+    .table__periodtext {
+      width: 52.5%;
+      right: 0;
+      font-size: 11px;
+    }
   }
-  .analityc-table_approved .table__period-right {
-    right: 86%;
-  }
+
   .analityc-table .table__periodtext span {
     padding: 0 5px;
   }
-  .analityc-table_approved .table__periodtext {
-    width: 52.5%;
-    right: 0;
-    font-size: 11px;
-  }
+
   .analityc-table_date .table__row {
     padding-right: 0;
   }
@@ -514,20 +533,34 @@
 
 @media screen and (max-width: 760px) {
   .analityc-table_approved,
+  .analityc-widget_mrelations .analityc-table_work,
+  .analityc-widget_mrelations .analityc-table_domain,
+  .analityc-widget-moscow-gov-program-table_done,
   .analityc-table_date {
     overflow-x: scroll;
   }
   .analityc-table_approved .table,
-  .analityc-table_date .table {
-    min-width: 600px;
+  .analityc-widget_mrelations .analityc-table_work,
+  .analityc-widget_mrelations .analityc-table_domain,
+  .analityc-widget-moscow-gov-program-table_done,
+  .analityc-table_date {
+    .table {
+      min-width: 600px;
+    }
   }
-  .analityc-table .table__periodtext {
-    display: none;
+
+  .analityc-table,
+  .analityc-widget_mrelations .analityc-table_work,
+  .analityc-widget_mrelations .analityc-table_domain,
+  .analityc-widget-moscow-gov-program-table_done,
+  .analityc-table_date {
+    .table__periodtext,
+    .table__period-left,
+    .table__period-right {
+      display: none;
+    }
   }
-  .analityc-table .table__period-left,
-  .analityc-table .table__period-right {
-    display: none;
-  }
+
   .analityc-table_done .table__row {
     padding-right: 0;
   }

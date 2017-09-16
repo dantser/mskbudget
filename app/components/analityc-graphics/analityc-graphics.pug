@@ -809,7 +809,6 @@ mixin analityc-graphics-column3()
   +b.analityc-graphics&attributes(attributes)._column
     +e.P.periodtext
       span Плановый период
-    +e.P.toptext МЛРД РУБ.
     .swiper-container.column-graphics_slider
       +e.cols.swiper-wrapper
         +e.col.swiper-slide
@@ -935,6 +934,136 @@ mixin analityc-graphics-column3()
       span.analityc-graphics_round-prev
       +legend(getData('legend-mrelations3')).analityc-graphics__legend
 
+mixin analityc-graphics-column4()
+  +b.analityc-graphics&attributes(attributes)._column
+    +e.P.periodtext
+      span Плановый период
+    +e.P.toptext МЛРД РУБ.
+    .swiper-container.column-graphics_slider
+      +e.cols.swiper-wrapper
+        +e.col.swiper-slide
+          +e.P.year 2017
+          +e.graphic._column
+            .column1
+              .column__value 435,5
+              .column-area.column-area3
+                .column-value 227,5
+              .column-area.column-area4
+                .column-value 24,6
+              .column-area.column-area5
+                .column-value 157,4
+              .column-area.column-area6
+                .column-value 26,0
+            .subcolumn
+              .column-area
+                .column-area3.subcolumn-area
+                .column-value +10,0
+              .column-area
+                .column-area4.subcolumn-area
+                .column-value +10,0
+              .column-area
+                .column-area5.subcolumn-area
+                .column-value +10,0
+              .column-area
+                .column-area6.subcolumn-area
+                .column-value +10,0
+            .column2
+              .column__value 474,5
+              .column-area.column-area3
+                .column-value 237,5
+              .column-area.column-area4
+                .column-value 34,6
+              .column-area.column-area5
+                .column-value 167,4
+              .column-area.column-area6
+                .column-value 26,0
+          +e.bottom
+            p Бюджет утвержденный
+            p Бюджет с учетом изменений
+        +e.col.swiper-slide
+          +e.SPAN.period-left
+          +e.P.year 2018
+          +e.graphic._column
+            .column1
+              .column__value 438,0
+              .column-area.column-area3
+                .column-value 209,8
+              .column-area.column-area4
+                .column-value 25,2
+              .column-area.column-area5
+                .column-value 176,5
+              .column-area.column-area6
+                .column-value 26,5
+            .subcolumn
+              .column-area
+                .column-area3.subcolumn-area
+                .column-value +10,0
+              .column-area
+                .column-area4.subcolumn-area
+                .column-value +10,0
+              .column-area
+                .column-area5.subcolumn-area
+                .column-value +10,0
+              .column-area
+                .column-area6.subcolumn-area
+                .column-value +10,0
+            .column2
+              .column__value 468,0
+              .column-area.column-area3
+                .column-value 219,8
+              .column-area.column-area4
+                .column-value 35,2
+              .column-area.column-area5
+                .column-value 186,5
+              .column-area.column-area6
+                .column-value 26,5
+          +e.bottom
+            p Бюджет утвержденный
+            p Бюджет с учетом изменений
+        +e.col.swiper-slide
+          +e.SPAN.period-right
+          +e.P.year 2019
+          +e.graphic._column
+            .column1
+              .column__value 436,6
+              .column-area.column-area3
+                .column-value 211,1
+              .column-area.column-area4
+                .column-value 24,5
+              .column-area.column-area5
+                .column-value 173,5
+              .column-area.column-area6
+                .column-value 27,5
+            .subcolumn
+              .column-area
+                .column-area3.subcolumn-area
+                .column-value +10,0
+              .column-area
+                .column-area4.subcolumn-area
+                .column-value +10,0
+              .column-area
+                .column-area5.subcolumn-area
+                .column-value +10,0
+              .column-area
+                .column-area6.subcolumn-area
+                .column-value +10,0
+            .column2
+              .column__value 466,6
+              .column-area.column-area3
+                .column-value 221,1
+              .column-area.column-area4
+                .column-value 34,5
+              .column-area.column-area5
+                .column-value 183,5
+              .column-area.column-area6
+                .column-value 27,5
+          +e.bottom
+            p Бюджет утвержденный
+            p Бюджет с учетом изменений
+      span.analityc-graphics_round-next
+      span.analityc-graphics_round-prev
+      +legend(getData('legend-moscow-gp')).analityc-graphics__legend
+
 //- legendtype - тип легенды(json файл)
 mixin analityc-graphics-singleround(legendtype)
   +b.analityc-graphics&attributes(attributes)._singleround
@@ -1023,6 +1152,24 @@ mixin analityc-graphics-singleround4()
               span.segment-diagram__val 66,8%
       +e.col
         +legend(getData('legend-govProgram')).analityc-graphics__legend.analityc-graphics__legend_vert
+
+mixin analityc-graphics-singleround5()
+  +b.analityc-graphics&attributes(attributes)._singleround
+    +e.cols
+      +e.col
+        +e.P.year 2016
+        +e.graphic._round
+          .segment-diagram#diagram-49
+            .segment-diagram__value
+              p.segment-diagram__value-num 435,5
+              span.segment-diagram__val 37%
+              span.segment-diagram__val 10%
+              span.segment-diagram__val 48%
+              span.segment-diagram__val 5%
+
+      +e.col
+        +legend(getData('legend-moscow-gp')).analityc-graphics__legend.analityc-graphics__legend_vert
+
 
 //- legendtype - тип легенды(json файл)
 mixin analityc-graphics-singleround-alt(legendtype)

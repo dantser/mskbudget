@@ -84,6 +84,9 @@ export default () => {
 	const SWITCHER_SUB = $('.analityc-widget_moscow-gov-program .analityc-control-switcher_sub');
 	const UNITS = $('.analityc-widget_moscow-gov-program .analityc-control-switcher_units');
 	const GRAPHICEXPENSES = $('.analityc-widget-moscow-gov-program_expenses');
+	const GRAPHICEXPENSES_DONE = $('.analityc-widget-moscow-gov-program_expenses-done');
+	const GRAPHICEXPENSES_CHANGES = $('.analityc-widget-moscow-gov-program_expenses-changes');
+	const GRAPHICEXPENSES_EXEC = $('.analityc-widget-moscow-gov-program_expenses-exec');
 
 	SWITCHER_SUB.on('click', 'a', function(e) {
 		e.preventDefault();
@@ -110,7 +113,14 @@ export default () => {
 		}
 		if ($(this).attr('data-type') == 'expenses') {
 			$('.analityc-widget_moscow-gov-program .analityc-widget-sources').removeClass('_active');
-			GRAPHICEXPENSES.addClass('_active');
+			
+			if (STAGE.val() === "Закон о бюджете утвержденный")
+				GRAPHICEXPENSES_DONE.addClass('_active');
+			else if (STAGE.val() === "Закон о внесении изменений")
+				GRAPHICEXPENSES_CHANGES.addClass('_active');
+			else if (STAGE.val() === "Закон об исполнении")
+				GRAPHICEXPENSES_EXEC.addClass('_active');
+
 			UNITS.addClass('active');
 		}
 
@@ -174,9 +184,8 @@ export default () => {
 	// Формирование графика Закон о внесении изменений, Закон об исполнении, Исполнение на дату
 
 	const GRAPHIC_CHANGES = $('.analityc-widget-moscow-gov-program_changes, .analityc-widget-moscow-gov-program_exec, .analityc-widget-moscow-gov-program_date');
-	const GRAPHIC_CHANGES_TAB = GRAPHIC_CHANGES.find('.tabs__tab');
 
-	GRAPHIC_CHANGES_TAB.each(function() {
+	GRAPHIC_CHANGES.each(function() {
 		const LINE_STR = $(this).find('.analityc-line__line');
 		var full = 0;
 		var cnt = 0;
@@ -203,12 +212,6 @@ export default () => {
 			fillPers = num * 100.0 / sum; // процент заливки
 
 			$(this).find('.analityc-line__line-fill').css('width', fillPers + '%');
-
-			// if ($(this).parents('.analityc-widget-moscow-gov-program_date').length > 0) {
-			// 	var gpOffset = linePers/2 + fillPers;
-			// 	console.log(gpOffset)
-			// 	$(this).find('.analityc-line__line-bar-value').css('left', gpOffset + '%');
-			// }
 
 			cnt++;
 		})
