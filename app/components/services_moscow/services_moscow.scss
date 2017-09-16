@@ -357,29 +357,20 @@
 	}
 
 	&__bottom {
-		overflow: hidden;
-
 		@media (max-width: 1140px) {
-	    padding: 0 0 0 4px;
+	    	padding: 0 30px;
 		}
-
-		@media (max-width: 900px) {
-	    padding: 0;
+		@media (max-width: 580px) {
+	    	padding: 0 20px;
 		}
-
 	}
-
+	
 	/*Таблица*/
 	&__table {
-		min-width: 680px;
+		//min-width: 680px;
 		font-size: 0;
 		text-align: center;
-
-		@media (max-width: 580px) {
-      min-width: 300px;
-      padding-left: 6px;
-		}
-
+		position: relative;
 	}
 
 	&__city {
@@ -404,6 +395,9 @@
 			font-family: $PFDinTextPro;
 			font-size: 18px;
 			font-weight: 400;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
 
 			@media (max-width: 580px) {
 				padding-left: 7px;
@@ -451,6 +445,32 @@
 		@media (max-width: 580px) {
 			width: 62%;
 		}
+		
+		&:after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			height: 100%;
+			width: 40px;
+			right: 0;
+			z-index: 2;
+			background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+			background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+			background: linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=1 );
+		}
+		
+		@media screen and (min-width: 901px) {
+			&:after {
+				display: none;
+			}
+		}
+		@media screen and (max-width: 580px) {
+			&:after {
+				width: 20px;
+			}
+		}
 
 
 		.services-moscow-index__col:hover .services-moscow-index__sort {
@@ -458,24 +478,26 @@
 		}
 	}
 	
-	&__index-container {
-		cursor: move;
-		cursor: -webkit-grab;
-		cursor: -moz-grab;
-		cursor: grab;
+	&__index-wrapper {
+		.services-moscow-index__col {
+			cursor: move;
+			cursor: -webkit-grab;
+			cursor: -moz-grab;
+			cursor: grab;
+		}
 	}
 
 	&__col {
-    width: 20%!important;
 
-    @media(max-width: 900px) {
-    	width: 30%!important;
-    }
-
-    @media(max-width: 580px) {
-    	width: 56%!important;
-    }
-
+    	@media(max-width: 900px) {
+    		width: 30%!important;
+    	}
+		@media(max-width: 790px) {
+			width: 143px !important;
+		}
+    	@media(max-width: 580px) {
+    		width: 110px!important;
+    	}
 	}
 
 	&__row {
@@ -512,6 +534,7 @@
 
 		    SPAN {
 		    	border-bottom: 1px dashed $color-link;
+				cursor: pointer;
 		    }
 			}
 		}
@@ -574,39 +597,42 @@
 
 	&__table-arrow {
 		position: absolute;
-		top: 67.5px;
-		width: 10px;
-    height: 10px;
-    margin-top: 0;
-    background-color: none;
-
-		@media (max-width: 900px) {
-			display: none;
-		}
-		
-		&_prev,
-		&_next {
-			background-image: none;
-		}
+		top: 50%;
+		width: 20px;
+    	height: 20px;
+    	margin-top: 10px;
+    	background: none;
+		z-index: 2;
 
 		&_prev {
-			left: 11px;
+			left: -30px;
+			@media screen and (max-width: 1140px) {
+				left: -25px;
+			}
+			@media (max-width: 580px) {
+		   		left: -20px;
+			}
 		}
 
 		&_next {
-			right: 11px;
+			right: -30px;
+			@media screen and (max-width: 1140px) {
+				right: -25px;
+			}
+			@media (max-width: 580px) {
+		   		right: -20px;
+			}
 		}
 
-    .arrow-button__icon {
-			width: 10px;
-	    height: 10px;
+    	.arrow-button__icon {
+			width: 20px;
+	    	height: 20px;
 
-			@media (max-width: 900px) and (min-width: 581px) {
-		    width: 20px;
-		    height: 20px;
+			@media (max-width: 580px) {
+		   		width: 18px;
+		   		height: 18px;
 			}
-
-    }
+    	}
 	}
 
 	&__icon {
@@ -623,6 +649,14 @@
 	&__row-value {
 		display: inline-block;
 		vertical-align: middle;
+	}
+	
+	&__city-popup {
+		position: absolute;
+		top: 10px;
+		left: 0;
+		right: 0;
+		margin: auto;
 	}
 }
 
@@ -661,7 +695,7 @@
 	}
 
 	&__year-select {
-    width: 70px;
+    width: 75px;
 		margin-top: 10px;
 	}
 
@@ -679,6 +713,8 @@
 	}
 
 	.services-moscow__note {
+		position: relative;
+
 		@media (max-width: 1140px) and (min-width: 901px){
     	padding: 0;
     	margin-top: 43px;
@@ -695,108 +731,11 @@
 	    font-size: 16px;
 	    line-height: 22px;
 		}
-
 	}
-}
-
-
-// Попап с данными о городах
-.city-popup {
-	display: none;
-	position: fixed;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
-	width: 510px;
-	padding: 10px 18px;
-	background-color: #ebebeb;
-	border: 1px solid #d5d5d5;
-	border-radius: 2px;
-	box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.4);
-	z-index: 9999;
 	
-	&__close {
+	&__city-popup {
 		position: absolute;
-		right: 10px;
-		top: 10px;
-		width: 20px;
-		height: 20px;
-		cursor: pointer;
-		transition: all .25s ease-in-out;
-		
-		&:hover {
-			opacity: .7;
-		}
-		
-		svg {
-			width: 100%;
-			height: 100%;
-		}
+		left: 0;
+		bottom: 50px;
 	}
-	
-	&__title {
-		text-align: center;
-		font-size: 18px;
-		font-weight: 500;
-	}
-	
-	&__wrapper {
-		margin-top: 20px;
-		max-height: 390px;
-		font-size: 0;
-	}
-	
-	&__row {
-		& + & {
-			margin-top: 10px;
-		}
-	}
-	
-	&__city-name {
-		font-size: 16px;
-		font-weight: 500;
-	}
-	
-	&__source {
-		display: inline-block;
-		vertical-align: top;
-		font-size: 16px;
-		width: 40%;
-		padding-right: 20px;
-	}
-	
-	&__value {
-		display: inline-block;
-		vertical-align: top;
-		font-size: 16px;
-		width: 30%;
-		padding-right: 20px;
-	}
-	
-	&__link {
-		display: inline-block;
-		vertical-align: top;
-		width: 30%;
-		padding-right: 20px;
-		font-size: 16px;
-		color: $color-blue;
-		overflow: hidden;
-		white-space: nowrap;
-		text-overflow: ellipsis;
-	}
-	
-	// Custom Scrollbar
-    .scroll-element, .scroll-element div {border: none; margin: 0; padding: 0; position: absolute; z-index: 10;}
-    .scroll-element div {display: block; height: 100%; left: 0; top: 0; width: 100%;}
-    .scroll-element.scroll-y {height: 100%; right: 2px; top: 0; width: 2px;}
-    .scroll-element .scroll-element_outer {overflow: hidden;}
-    .scroll-element .scroll-element_outer, .scroll-element .scroll-element_track, .scroll-element .scroll-bar {-webkit-border-radius: 8px; -moz-border-radius: 8px; border-radius: 8px;}
-    .scroll-element .scroll-element_track { background-color: #d6d6d6; }
-    .scroll-element .scroll-bar { background-color: #0d46a1; }
-    .scroll-element:hover .scroll-bar { background-color: #0d46a1; }
-    .scroll-element.scroll-draggable .scroll-bar { background-color: #0d46a1; }
-    .scroll-element.scroll-x.scroll-scrolly_visible .scroll-element_track { left: -12px; }
-    .scroll-element.scroll-y.scroll-scrollx_visible .scroll-element_track { top: -12px; }
-    .scroll-element.scroll-x.scroll-scrolly_visible .scroll-element_size { left: -12px; }
-    .scroll-element.scroll-y.scroll-scrollx_visible .scroll-element_size { top: -12px; }
 }

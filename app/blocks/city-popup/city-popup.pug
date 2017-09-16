@@ -1,0 +1,118 @@
+include ../../blocks/icon/icons
+
+mixin city-popup-table-row(name, source, value, link)
+  +e.row
+    +e.P.city-name= name
+    +e.P.source= source
+    +e.P.value= value
+    +e.P.link
+      a(href=link)= link
+      
+mixin city-popup-sources-row(name, link)
+  +e.row
+    +e.P.city-name= name
+    +e.P.link
+      a(href=link)= link
+
+mixin city-popup-table()
+  +b.city-popup&attributes(attributes)
+    +e.close
+      +icon('close')
+    +e.category(data-category='square').active
+      +e.P.title Площадь
+      +e.wrapper
+        +city-popup-table-row('Москва', 'Федеральная служба государственной статистики по городу Москве', '2 561,5 км2', 'http://moscow.gks.ru/wps/wcm/connect/rosstat_ts/moscow/ru/statistics/government/')
+        +city-popup-table-row('Лондон', 'Wikipedia', '1 572,0 км2', 'https://en.wikipedia.org/wiki/London#Geography')
+        +city-popup-table-row('Лос-Анджелес', 'Wikipedia', '1 302,2 км2', 'https://en.wikipedia.org/wiki/Los_Angeles')
+        +city-popup-table-row('Париж', 'Wikipedia', '105,4 км2', 'https://en.wikipedia.org/wiki/Paris')
+        +city-popup-table-row('Нью-Йорк', 'Wikipedia', '1 213,4 км2', 'https://en.wikipedia.org/wiki/New_York_City')
+        +city-popup-table-row('Токио', 'Официальный портал "Tokyo Metropolitan Board of Education"', '2 190,9 км2', 'http://www.kyoiku.metro.tokyo.jp/buka/soumu/tokyo2017/tokyo2017JpEng.pdf')
+        +city-popup-table-row('Мадрид', 'Wikipedia', '604,3 км2', 'https://en.wikipedia.org/wiki/Madrid')
+        +city-popup-table-row('Берлин', 'Управление статистики Германии и федеральных земель', '891,7 км2', 'http://www.statistik-portal.de/Statistik-Portal/en/en_jb01_jahrtab1.asp')
+        +city-popup-table-row('Шанхай', 'Национальное бюро статистики Китая', '6 340,5 км2', 'http://www.stats-sh.gov.cn/tjnj/nje16.htm?d1=2016tjnje/E0202.htm')
+    +e.category(data-category='airports')
+      +e.P.title Международные аэропорты
+      +e.wrapper
+        +city-popup-table-row('Москва', 'Wikipedia Wikipedia Wikipedia Wikipedia Wikipedia Wikipedia Wikipedia Wikipedia Wikipedia Wikipedia', '3 шт', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Лондон', 'Wikipedia', '5 шт', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Лос-Анджелес', 'Wikipedia', '5 шт', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Париж', 'Wikipedia', '3 шт', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Нью-Йорк', 'Wikipedia', '4 шт', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Токио', 'Wikipedia', '2 шт', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Мадрид', 'Wikipedia', '1 шт', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Берлин', 'Wikipedia', '3 шт', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Шанхай', 'Wikipedia', '1 шт', 'https://ru.wikipedia.org/wiki')
+    +e.category(data-category='population')
+      +e.P.title Общая численность населения
+      +e.wrapper
+        +city-popup-table-row('Москва', 'Wikipedia', '12 330 126 чел', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Лондон', 'Wikipedia', '8 538 689 чел', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Лос-Анджелес', 'Wikipedia', '3 971 883 чел', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Париж', 'Wikipedia', '2 196 936 чел', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Нью-Йорк', 'Wikipedia', '8 550 405 чел', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Токио', 'Wikipedia', '13 510 000 чел', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Мадрид', 'Wikipedia', '3 255 944 чел', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Берлин', 'Wikipedia', '3 469 849 чел', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Шанхай', 'Wikipedia', '24 150 000 чел', 'https://ru.wikipedia.org/wiki')
+    +e.category(data-category='agglomeration')
+      +e.P.title Численность агломерации
+      +e.wrapper
+        +city-popup-table-row('Москва', 'Wikipedia', '16 570 000 чел', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Лондон', 'Wikipedia', '10 350 000 чел', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Лос-Анджелес', 'Wikipedia', '15 135 000 чел', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Париж', 'Wikipedia', '10 870 000 чел', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Нью-Йорк', 'Wikipedia', '20 685 000 чел', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Токио', 'Wikipedia', '37 750 000 чел', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Мадрид', 'Wikipedia', '6 240 000 чел', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Берлин', 'Wikipedia', '4 085 000 чел', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Шанхай', 'Wikipedia', '22 685 000 чел', 'https://ru.wikipedia.org/wiki')
+    +e.category(data-category='subway')
+      +e.P.title Станции метро
+      +e.wrapper
+        +city-popup-table-row('Москва', 'Wikipedia', '200 шт', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Лондон', 'Wikipedia', '270 шт', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Лос-Анджелес', 'Wikipedia', '93 шт', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Париж', 'Wikipedia', '300 шт', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Нью-Йорк', 'Wikipedia', '469 шт', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Токио', 'Wikipedia', '285 шт', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Мадрид', 'Wikipedia', '300 шт', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Берлин', 'Wikipedia', '173 шт', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Шанхай', 'Wikipedia', '339 шт', 'https://ru.wikipedia.org/wiki')
+    +e.category(data-category='category6')
+      +e.P.title Медведи
+      +e.wrapper
+        +city-popup-table-row('Москва', 'Wikipedia', '999 999 999 шт', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Лондон', 'Wikipedia', '0 шт', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Лос-Анджелес', 'Wikipedia', '0 шт', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Париж', 'Wikipedia', '0 шт', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Нью-Йорк', 'Wikipedia', '0 шт', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Токио', 'Wikipedia', '0 шт', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Мадрид', 'Wikipedia', '0 шт', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Берлин', 'Wikipedia', '0 шт', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Шанхай', 'Wikipedia', '0 шт', 'https://ru.wikipedia.org/wiki')
+    +e.category(data-category='category7')
+      +e.P.title Балалайки
+      +e.wrapper
+        +city-popup-table-row('Москва', 'Wikipedia', '999 999 999 шт', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Лондон', 'Wikipedia', '0 шт', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Лос-Анджелес', 'Wikipedia', '0 шт', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Париж', 'Wikipedia', '0 шт', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Нью-Йорк', 'Wikipedia', '0 шт', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Токио', 'Wikipedia', '0 шт', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Мадрид', 'Wikipedia', '0 шт', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Берлин', 'Wikipedia', '0 шт', 'https://ru.wikipedia.org/wiki')
+        +city-popup-table-row('Шанхай', 'Wikipedia', '0 шт', 'https://ru.wikipedia.org/wiki')
+
+mixin city-popup-sources()
+  +b.city-popup&attributes(attributes)
+    +e.close
+      +icon('close')
+    +city-popup-sources-row('Москва', 'http://budget.mos.ru/project_summary_2017_2019')
+    +city-popup-sources-row('Берлин', 'http://budget.mos.ru/project_summary_2017_2019')
+    +city-popup-sources-row('Лондон', 'http://budget.mos.ru/project_summary_2017_2019')
+    +city-popup-sources-row('Лос-Анджелес', 'http://budget.mos.ru/project_summary_2017_2019')
+    +city-popup-sources-row('Мадрид', 'http://budget.mos.ru/project_summary_2017_2019')
+    +city-popup-sources-row('Нью-Йорк', 'http://budget.mos.ru/project_summary_2017_2019')
+    +city-popup-sources-row('Париж', 'http://budget.mos.ru/project_summary_2017_2019')
+    +city-popup-sources-row('Шанхай', 'http://budget.mos.ru/project_summary_2017_2019')
+      
