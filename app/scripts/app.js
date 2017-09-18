@@ -64,6 +64,7 @@ import servicesMoscow from '../components/services_moscow/servicesMoscow';
 import bluedropdown from '../blocks/blue-dropdown/blue-dropdown';
 import documentsCards from '../components/documents-cards/documentsCards';
 import tablesActive from '../blocks/table1/table1';
+import mrelations from '../components/mrelations/mrelations';
 
 $(() => {
 
@@ -141,4 +142,5 @@ $(() => {
   bluedropdown();
   documentsCards();
   tablesActive();
+  mrelations();
 });

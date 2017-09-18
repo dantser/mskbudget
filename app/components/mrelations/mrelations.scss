@@ -59,11 +59,13 @@
         padding: 8px 22px 6px;
         font-size: 12px;
       }
-        
-      &:hover {
+       
+      &:hover,
+      &.active {
         background-color: $color-yellow;
         color: #000;
       }
+
       & + & {
         border-left: 0;
 
@@ -201,6 +203,10 @@
       width: 21.3%;
       text-align: center;      
 
+      @media (max-width: 1140px) and (min-width: 901px) {
+        width: 26%;
+      }
+
       img {
         left: -22px;
         top: -5px;
@@ -221,16 +227,24 @@
       text-align: right;
       padding-right: 34px;
 
+      @media (max-width: 1140px) and (min-width: 901px) {
+        width: 21%;
+      }
+
       img {
         left: -62px;
         top: 42px;
+
+        @media (max-width: 1140px) and (min-width: 901px) {
+          left: -82px;
+        }
 
         @media (max-width: 900px) {
           width: 60%;
         }   
 
         @media (max-width: 580px) {
-          width: 100%;
+          width: 85%;
         }           
 
       }
@@ -325,5 +339,24 @@
     font-size: 18px;
     font-weight: 500;
     color: $color-link;
+  }
+
+  &__note {
+    color: $color-white;
+    font-weight: 500;
+    margin: 0 0 10px 0;
+
+    @media (max-width: 1140px) {
+      margin: 0 0 10px 30px;
+    }
+
+    @media (max-width: 900px) {
+      margin: 0 0 10px 20px;
+    }
+
+    @media (max-width: 580px) {
+      margin: 0 0 10px 0;
+    }
+
   }
 }

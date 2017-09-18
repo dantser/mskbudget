@@ -194,21 +194,6 @@
 		}
 	}
 
-	.analityc-control-switcher {
-		position: static!important;
-		margin-left: 30px;
-
-		@media (max-width: 900px) {
-			margin-left: 0px!important;
-		}
-
-		& + .analityc-control-switcher {
-			@media (max-width: 900px) {
-				margin-top: 20px;
-			}
-		}
-	}
-
 	.analityc-control-group._stage,
 	.analityc-control-group._transfer,
 	.analityc-control-group._dp,
@@ -245,6 +230,20 @@
 
 	}
 
+	.analityc-control-switcher {
+		position: static!important;
+
+		&.active {
+			display: inline-block!important;
+		}
+
+		& + .analityc-control-switcher {
+			@media (max-width: 900px) {
+				margin-top: 20px;
+			}
+		}
+	}
+
 	.analityc-control-switcher_large,
 	.analityc-control-switcher_big {
 		margin-top: 30px!important;
@@ -253,6 +252,12 @@
 	    margin-top: 0!important;
 		}
 
+	}
+
+	.analityc-control-switcher_large a {
+		@media (max-width: 900px) and (min-width: 581px) {
+	    padding: 0 55px;
+		}
 	}
 
 	.analityc-control-group._dp,
@@ -343,19 +348,6 @@
 		.svg-wrap {
 	    transform: scale(-1,-1);
 		}
-
-		.segment-diagram__val1 {
-	    top: 109px;
-	    left: 198px;
-		}
-		.segment-diagram__val2 {
-	    top: -41px;
-	    right: 227px;
-		}
-		.segment-diagram__val3 {
-	    top: 89px;
-	    right: 50px;
-		}
 	}
 
 	#diagram-40,
@@ -364,50 +356,12 @@
 		.svg-wrap {
 	    transform: scale(1, 1) rotate(-100deg);
 		}
-		.segment-diagram__val1 {
-	    top: 0;
-	    left: 21px;
-		}
-		.segment-diagram__val2 {
-			top: -97px;
-	    right: 125px;
-		}
-		.segment-diagram__val3 {
-	    top: -43px;
-	    right: 36px;
-		}
-		.segment-diagram__val4 {
-	    top: 52px;
-	    right: 25px;
-		}
-		.segment-diagram__val5 {
-	    bottom: -91px;
-	    left: 182px;
-		}
-		.segment-diagram__val6 {
-			top: 118px;
-	    left: 95px;
-		}
 	}
 
 	#diagram-43 {
 		.svg-wrap {
 	    transform: scale(-1,-1);
 		}
-
-		.segment-diagram__val1 {
-	    top: 124px;
-	    left: 153px;
-		}
-		.segment-diagram__val2 {
-	    top: 0;
-	    right: 242px;
-		}
-		.segment-diagram__val3 {
-	    top: -9px;
-	    right: 23px;
-		}
-
 	}
 
 	.analityc-graphics_line {
@@ -426,6 +380,13 @@
 				right: 10%;
 			}
 
+			.analityc-graphics__line-abs {
+				background-image: linear-gradient(to right,cyan,#004ccf);
+        &::after {
+          border-right-color: cyan;
+        }
+			}
+
 			.analityc-graphics__line-fill {
 				width: 50%;
 			}
@@ -437,6 +398,14 @@
 
 			.analityc-graphics__line-bar-value {
 		    right: 95%;
+			}
+
+			.analityc-graphics__line-abs {
+		    background-image: linear-gradient(to right,#9d308a,#ff695b);
+        &::after {
+          border-right-color: #9d308a;
+        }
+
 			}
 
 			.analityc-graphics__line-fill {
@@ -452,6 +421,13 @@
         right: 20%;
 			}
 
+			.analityc-graphics__line-abs {
+        background-image: linear-gradient(to right,#11a360,#32d197);
+        &::after {
+          border-right-color: #11a360;
+        }
+			}
+
 			.analityc-graphics__line-fill {
 				width: 40%;
 			}
@@ -465,10 +441,48 @@
         right: 90%;
 			}
 
+			.analityc-graphics__line-abs {
+        background-image: linear-gradient(to right,#d5d8de,#838a9a);
+        &::after {
+          border-right-color: #d5d8de;
+        }
+			}
+
 			.analityc-graphics__line-fill {
 				width: 5%;
 			}
 		}
+
+    .analityc-graphics__line-abs {
+      display: none;
+      position: absolute;
+      left: -80px;
+      width: 75px;
+      font-size: 14px;
+      line-height: 26px;
+      text-align: center;
+      color: white;
+      border-radius: 2px;
+      z-index: 3;
+      cursor: pointer;
+
+      @media (max-width: 900px) {
+        left: -43px;
+        width: 40px;
+        font-size: 12px;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: -17px;
+        border: 10px solid transparent;
+        border-right: 10px solid;
+      }
+    }
 	}
 
 	#diagram-44,
@@ -477,24 +491,6 @@
 		.svg-wrap {
 	    transform: scale(-1,-1);
 		}
-
-		.segment-diagram__val1 {
-			top: 116px;
-	    left: 185px;
-		}
-		.segment-diagram__val2 {
-	    top: 8px;
-	    right: 244px;
-		}
-		.segment-diagram__val3 {
-			top: -19px;
-	    right: 24px;
-		}
-		.segment-diagram__val4 {
-	    top: 87px;
-	    right: 48px;
-		}
-
 	}
 
 	.analityc-graphics_column {

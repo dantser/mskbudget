@@ -1224,11 +1224,13 @@ mixin analityc-graphics-line(title, data)
             +e.line-bar._overwidth
               +e.line-total
               +e.SPAN.line-bar-value= obj.barvalue
+              +e.line-abs= obj.barvalue
               +e.line-fill
           else
             +e.line-bar
               +e.line-total
               +e.SPAN.line-bar-value= obj.barvalue
+              +e.line-abs= obj.barvalue
               +e.line-fill
 mixin analityc-graphics-multiline(data)
   +b.analityc-multiline&attributes(attributes)
@@ -1261,8 +1263,8 @@ mixin analityc-graphics-multiline(data)
 
 mixin analityc-graphics-line-alt(data, title)
   +b.analityc-line&attributes(attributes)._line
+    P.analityc-graphics__toptext МЛРД РУБ.
     if title
-      P.analityc-graphics__toptext МЛРД РУБ.
       P.analityc-graphics__heading= title
     +e.lines
       each obj in data
@@ -1271,7 +1273,7 @@ mixin analityc-graphics-line-alt(data, title)
             span= obj.title
             +icon('edu-hat').title-icon
           +e.line-wrap
-            +e.line-bar._overwidth
+            +e.line-bar
               +e.line-total._altred
               +e.line-fill
                 +e.line-value= obj.value

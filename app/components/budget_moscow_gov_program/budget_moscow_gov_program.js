@@ -186,6 +186,7 @@ export default () => {
 	const GRAPHIC_CHANGES = $('.analityc-widget-moscow-gov-program_changes, .analityc-widget-moscow-gov-program_exec, .analityc-widget-moscow-gov-program_date');
 
 	GRAPHIC_CHANGES.each(function() {
+		var $this = $(this);
 		const LINE_STR = $(this).find('.analityc-line__line');
 		var full = 0;
 		var cnt = 0;
@@ -196,7 +197,14 @@ export default () => {
 			var num = parseFloat(($(this).find('.analityc-line__line-value').text()).replace(',', '.'));
 			var barNum = parseFloat(($(this).find('.analityc-line__line-bar-value').text()).replace(',', '.'));
 
-			var sum = num + barNum;
+			// отрицательное значение (Закон о внесении изменений)
+			if (barNum < 0) {
+				var sum = num + barNum*(-1);
+				if ($this.hasClass('analityc-widget-moscow-gov-program_changes'))
+					$(this).find('.analityc-line__line-total').addClass('analityc-line__line-total_negative');
+			}
+			else
+				var sum = num + barNum;
 
 			if (cnt == 0) {
 				full = sum;
