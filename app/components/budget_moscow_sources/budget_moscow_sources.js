@@ -134,7 +134,7 @@ export default () => {
 
 
   // стрелочки на графиках в адаптиве
-  $('.ar-left, .ar-right').hide();
+  //$('.ar-left, .ar-right').hide();
   $(window).on('scroll', function(){
     if ($('.moscow-sources').length) {
       if ($('.analityc-widget-sources_changes').hasClass('_active') || $('.analityc-widget-sources_approved').hasClass('_active')) {
@@ -145,12 +145,13 @@ export default () => {
         var colHeadTopDistance = $('.moscow-sources .analityc-widget_sources').offset().top - headerHeight;
         var colHeadBottomDistance = $('.footer').offset().top - $(window).height() - 200;
 
-        if (sourcesScroll >= arrowTopDistance && sourcesScroll <= arrowBottomDistance) {
-          $('.ar-left, .ar-right').show();
-        } else {
-          $('.ar-left, .ar-right').hide();
-        }
+        //if (sourcesScroll >= arrowTopDistance && sourcesScroll <= arrowBottomDistance) {
+        //  $('.ar-left, .ar-right').show();
+        //} else {
+        //  $('.ar-left, .ar-right').hide();
+        //}
       }
     }
   });
+  
 };

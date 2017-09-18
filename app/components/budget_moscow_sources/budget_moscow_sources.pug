@@ -7,8 +7,8 @@ include ../../blocks/dropdown-block/dropdown-block
 
 mixin budget_moscow_sources()
   +b.SECTION.section.main._basic.basic-budget.moscow-sources.sections__item
-      .ar.ar-left.disabled
-      .ar.ar-right
+      //.ar.ar-left.disabled
+      //.ar.ar-right
       .wrapper-header
         +page-header('Источники финансирования дефицита бюджета', ['Бюджет Москвы'], true)
         .article-controls
@@ -38,9 +38,10 @@ mixin budget_moscow_sources()
             +b.linear-diagram_budget-credits
               +e.H4.sources_blue Возврат бюджетных кредитов
               +e.block
-                +e.fill_abs
-                  +e.SPAN.value 0,05 (50%)
                 +e.fill
+                +e.fill_hover
+                  +e.fill_abs
+                    +e.SPAN.value 0,05 (50%)
               +e.SPAN.val 0,1
             +b.linear-diagram_loans
               +e.H4.sources_pink Заемные средства
@@ -71,6 +72,8 @@ mixin budget_moscow_sources()
               +table-sources(getData('sources'))
           
           .analityc-widget-sources.analityc-widget-sources_approved.active
+            .ar.ar-left.disabled
+            .ar.ar-right
             p.analityc-graphics__periodtext
               span Плановый период
             P.toptext МЛРД РУБ.
@@ -181,15 +184,24 @@ mixin budget_moscow_sources()
                     +b.linear-diagram
                       +e.fill
                         +e.fill_extra
+                      +e.fill_hover
+                        +e.fill_abs
+                          +e.SPAN.value 1,0
                       +e.SPAN.val_extra +1,0
                   +e.data(data-char='2018')
                     +b.linear-diagram
                       +e.fill
                         +e.fill_extra
+                      +e.fill_hover
+                        +e.fill_abs
+                          +e.SPAN.value 1,0
                       +e.SPAN.val_extra +1,0
                   +e.data(data-char='2019')
                     +b.linear-diagram
                       +e.fill_down
+                      +e.fill_hover
+                        +e.fill_abs
+                          +e.SPAN.value 1,0
                       +e.SPAN.val_down -1,0
                 +e.row.__credits
                   +e.title.linear-diagram__sources_blue Возврат бюджетных кредитов
@@ -197,7 +209,10 @@ mixin budget_moscow_sources()
                     +b.linear-diagram
                       +e.fill
                         +e.fill_extra
-                      +e.SPAN.val_extra 0,1 (+0,1)
+                      +e.fill_hover
+                        +e.fill_abs
+                          +e.SPAN.value 0,1
+                      +e.SPAN.val_extra +0,1
                   +e.data(data-char='2018')
                     +b.linear-diagram
                       +e.fill
@@ -206,9 +221,10 @@ mixin budget_moscow_sources()
                       +e.SPAN.val_extra +1,0
                   +e.data(data-char='2019')
                     +b.linear-diagram
-                      .linear-diagram__fill_abs
-                        +e.SPAN.value 0,4
                       +e.fill
+                      +e.fill_hover
+                        +e.fill_abs
+                          +e.SPAN.value 0,4
                       +e.SPAN.val 0,4
                 +e.row.__loans
                   +e.title.linear-diagram__sources_pink Заемные средства
@@ -231,6 +247,9 @@ mixin budget_moscow_sources()
                     +b.linear-diagram
                       +e.SPAN.val_extra +2,5
                       +e.fill_extra
+                      +e.fill_hover._hover-rev._extra
+                        +e.fill_abs
+                          +e.SPAN.value -2,5
                 +e.row.__sources
                   +e.title.linear-diagram__sources_green Использование остатков средств бюджета
                   +e.data(data-char='2017')
