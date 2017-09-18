@@ -6,9 +6,13 @@ export default function selectbox() {
     const selBox = $(this);
 
     if (selBox.hasClass('selectbox-for-widgets')) {
+      const imgUrl = selBox.find('option:eq(0)').data('imageurl');
       const img = selBox.find('option:eq(0)').data('image');
       const period = selBox.find('option:eq(0)').data('period');
-      selBox.prepend('<img src="assets/images/' + img + '.png">');
+      if (imgUrl)
+        selBox.prepend('<img src="' + imgUrl + '">');
+      else
+        selBox.prepend('<img src="assets/images/' + img + '.png">');
       if (period)
         selBox.append('<i>' + period + '</i>')
     }
@@ -21,15 +25,32 @@ export default function selectbox() {
 
       if (selBox.hasClass('selectbox-for-widgets')) {
 
+        const imgUrl = $(this).data('imageurl');
         const img = $(this).data('image');
         const period = $(this).data('period');
 
         if ($(this).attr('data-locked')) {
-          const li = '<li class="locked" data-val=' + vval + '><img src="assets/images/' + img + '.png"><span>' + ttext + '</span>' + (period ? '<i>' + period +'</i>' : '') + '</li>';
-          selBox.find('ul').append(li);
+          if (imgUrl)
+          {
+            const li = '<li class="locked" data-val=' + vval + '><img src="' + imgUrl + '"><span>' + ttext + '</span>' + (period ? '<i>' + period +'</i>' : '') + '</li>';
+            selBox.find('ul').append(li);
+          }
+          else
+          {
+            const li = '<li class="locked" data-val=' + vval + '><img src="assets/images/' + img + '.png"><span>' + ttext + '</span>' + (period ? '<i>' + period +'</i>' : '') + '</li>';
+            selBox.find('ul').append(li);
+          }
         } else {
-          const li = '<li data-val=' + vval + '><img src="assets/images/' + img + '.png"><span>' + ttext + '</span>' + (period ? '<i>' + period +'</i>' : '') + '</li>';
-          selBox.find('ul').append(li);
+          if (imgUrl)
+          {
+            const li = '<li data-val=' + vval + '><img src="' + imgUrl + '"><span>' + ttext + '</span>' + (period ? '<i>' + period +'</i>' : '') + '</li>';
+            selBox.find('ul').append(li);
+          }
+          else
+          {
+            const li = '<li data-val=' + vval + '><img src="assets/images/' + img + '.png"><span>' + ttext + '</span>' + (period ? '<i>' + period +'</i>' : '') + '</li>';
+            selBox.find('ul').append(li);
+          }
         }
 
       } else {
