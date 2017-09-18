@@ -1,6 +1,6 @@
 export default function () {
   // Отправка формы при кнажатии enter
-  $('.js-enterform').each(function() {
+  /*$('.js-enterform').each(function() {
       $(this).find('input').keypress(function(e) {
           // Enter pressed?
           // e.preventDefault();
@@ -9,7 +9,7 @@ export default function () {
               e.preventDefault();
           }
       });
-  });
+  });*/
 
   // Показать еще
   $('.more__a').on('click', function (e) {
