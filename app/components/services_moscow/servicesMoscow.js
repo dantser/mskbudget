@@ -59,7 +59,7 @@ export default () => {
     $('.city-popup__wrapper').scrollbar();
   
   //Попап
-  $(document).on('click', '.services-moscow-index__row_caption span', function(e){
+  $(document).on('click', '.services-moscow-index__col-heading', function(e){
     e.stopPropagation();
     var category = $(this).data('category');
     var popup = $(this).parents('.services-moscow-index__table').find('.services-moscow-index__city-popup');
