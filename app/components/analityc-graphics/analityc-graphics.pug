@@ -1247,7 +1247,7 @@ mixin analityc-graphics-multiline(data)
     each obj in data
       +e.DIV(class="__line_"+obj.class)
         +e.A(href="#").title= obj.title
-          +icon('edu-hat').title-icon
+          +icon(obj.icon).title-icon
         +e.line-wrap
           +e.line-bar
             +e.line-total._green
@@ -1271,7 +1271,7 @@ mixin analityc-graphics-line-alt(data, title)
         +e.DIV(class="__line_"+obj.class)
           +e.A(href="#").title
             span= obj.title
-            +icon('edu-hat').title-icon
+            +icon(obj.icon).title-icon
           +e.line-wrap
             +e.line-bar
               +e.line-total._altred
@@ -1301,7 +1301,7 @@ mixin analityc-graphics-mix(data)
               strong= item.title
           else
             +e.P.title= item.title
-              +icon('edu-hat').title-icon
+              +icon(item.icon).title-icon
           +e.line-wrap
             if item.overwidth
               +e.line-bar._overwidth

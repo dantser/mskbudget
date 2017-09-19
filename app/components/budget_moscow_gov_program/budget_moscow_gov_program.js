@@ -28,6 +28,7 @@ export default () => {
 
 			var year = parseInt(EL.parent().data('year'), 10);
 
+			GR_MIX.removeClass('active');
 			GR_MIX.find('path, .analityc-mix__lines').removeClass('active');
 			GR_MIX.find('path').addClass('stroke-white')
 			
@@ -240,7 +241,7 @@ export default () => {
 			if ($(this).hasClass('active')) {
 
 				$(this).removeClass('active');
-				$(this).siblings('path').removeClass('stroke-white');
+				GRAPHIC_MIX.find('path').removeClass('stroke-white');
 				segmentLines.removeClass('active');
 				$this.removeClass('active');
 				$this.siblings().show();

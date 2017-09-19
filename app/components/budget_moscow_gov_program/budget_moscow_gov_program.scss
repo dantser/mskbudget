@@ -160,7 +160,7 @@
     }    
   }
 
-/*Наименование*/
+  /*Наименование*/
   &__gp-list {
     display: block;
     font-family: PFDinCondensedPro,sans-serif;
@@ -172,6 +172,7 @@
   }
 
   &__icon {
+    position: relative;
     width: 29px;
     height: 24px;
     display: inline-block;
@@ -184,6 +185,10 @@
     @media (max-width: 900px) and (min-width: 581px){
       width: 63px;
       height: 58px;
+    }
+
+    img {
+      @include fill-img;
     }
 
   }
@@ -296,7 +301,7 @@
       }
     }
 
-/*start*/
+  /*start*/
     &-table {
       &_done, 
       &_structure, 
@@ -844,4 +849,15 @@
       }
     }
   }
+}
+
+.moscow-gov-program_one {
+  .analityc-widget-moscow-gov-program_changes {
+    .analityc-graphics__toptext {
+      @media (max-width: 580px) {
+        top: 15px;
+      }
+    }
+  }
+
 }
