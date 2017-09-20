@@ -20,7 +20,7 @@
       cursor: pointer;
       z-index: 5;
 
-      &.disabled {
+      &.swiper-button-disabled {
         opacity: .5;
       }
     }
@@ -31,20 +31,34 @@
       height: 69px;
     }
 
-    @media screen and (max-width: 550px) {
-      background-size: 10px;
-      width: 24px;
-      height: 49px;
+    @media screen and (max-width: 800px) {
+      top: 20px;
+      width: 50px;
+      height: 50px;
+    }
+    
+    @media screen and (max-width: 630px) {
+      top: 20px;
+      width: 38px;
+      height: 38px;
     }
   }
 
   .ar-left {
     left: -40px;
+    
+    @media screen and (max-width: 550px) {
+      left: -15px;
+    }
   }
 
   .ar-right {
     right: -40px;
     transform: rotate(180deg);
+    
+    @media screen and (max-width: 550px) {
+      right: -15px;
+    }
   }
 
   .analityc-widget {
@@ -53,6 +67,12 @@
 
     @media (max-width: 700px) and (min-width: 551px) {
       padding: 38px 40px 46px;
+    }
+  }
+  
+  .analityc-widgethead {
+    @media screen and (max-width: 550px) {
+      padding-bottom: 50px;
     }
   }
 
@@ -226,12 +246,20 @@
     transition: all 0.5s ease-in-out;
 
     &_left {
-      right: 101%;
+      left: -30px;
       transform: rotate(180deg);
+      
+      @media screen and (max-width: 550px) {
+        left: -20px;
+      }
     }
 
     &_right {
-      left: 101%;
+      right: -30px;
+      
+      @media screen and (max-width: 550px) {
+        right: -20px;
+      }
     }
 
     &_disabled {
@@ -254,6 +282,11 @@
     &_date {
       margin-top: 78px;
       margin-bottom: 130px;
+      
+      @media screen and (max-width: 550px) {
+        margin-top: 20px;
+        margin-bottom: 40px;
+      }
     }
   }
 
@@ -288,6 +321,7 @@
   .analityc-table {
     display: none;
     padding-left: 9px;
+    padding-right: 9px;
     margin-bottom: 77px;
     overflow-x: visible;
     overflow-y: visible;
@@ -324,17 +358,73 @@
     text-transform: uppercase;
     text-align: left;
     margin-bottom: 43px;
-    letter-spacing: -.45px
+    letter-spacing: -.45px;
+    
+    @media screen and (max-width: 550px) {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
   }
 
   &__diagram-content {
     margin-bottom: 120px;
+  }
+  
+  .linear-diagrams {
+    @media screen and (max-width: 980px) {
+      position: relative;
+      margin: 0 -20px;
+      
+      &:before, &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        width: 20px;
+        height: 100%;
+        z-index: 2;
+      }
+      
+      &:before {
+        left: 0;
+        background: -moz-linear-gradient(right, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+        background: -webkit-linear-gradient(right, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+        background: linear-gradient(to left, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 );
+      }
+      
+      &:after {
+        right: 0;
+        background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+        background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+        background: linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=1 );
+      }
+      
+      .linear-diagram {
+        min-width: 900px;
+      }
+    }
+    
+    @media screen and (max-width: 550px) {
+      margin: 0 -10px;
+      
+      .linear-diagram {
+        min-width: 580px;
+      }
+    }
+    
+    &__wrapper {
+      overflow-x: auto;
+      padding: 10px 20px;
+    }
   }
 
   .linear-diagram {
     font-weight: 500;
     text-align: left;
     margin-bottom: 7px;
+    white-space: nowrap;
 
     &__sources {
       color: #000000;
@@ -346,6 +436,11 @@
       display: inline-block;
       vertical-align: middle;
       width: 22.8%;
+      
+      @media screen and (max-width: 550px) {
+        font-size: 10px;
+        line-height: 12px;
+      }
 
       &_bold {font-weight: 700;}
       &_italic {font-style: italic;}
@@ -358,7 +453,7 @@
     &__wrapper {
       display: inline-block;
       vertical-align: middle;
-      width: calc(77.2% - 26px);
+      width: calc(76% - 26px);
     }
 
     &__block {
@@ -373,9 +468,18 @@
       width: 14px;
       height: 37px;
       left: 14px;
-      top: -3px;
+      top: 0;
+      bottom: 0;
+      margin: auto;
       z-index: 2;
       background: url('../images/wave.png') no-repeat;
+      
+      @media screen and (max-width: 550px) {
+        background-size: 100%;
+        width: 10px;
+        height: 26px;
+        left: 7px;
+      }
     }
 
     &__fill {
@@ -384,6 +488,10 @@
       position: relative;
       cursor: pointer;
       transition: all 1s ease;
+      
+      @media screen and (max-width: 550px) {
+        height: 22px;
+      }
     }
     
     &__fill-hover {
@@ -439,13 +547,12 @@
       color: $color-white;
       font-family: $PFDinCondensedPro;
       font-size: 14px;
+      white-space: nowrap;
       opacity: 1;
       z-index: 1;
-
-      @media (max-width: 500px) {
-        font-size: 12px;
-        top: 9px;
-        right: 5px;
+      
+      @media screen and (max-width: 550px) {
+        font-size: 11px;
       }
       
       &_out {
@@ -457,7 +564,6 @@
       
       &_abs {
         position: static;
-        white-space: nowrap;
         display: table-cell;
         vertical-align: middle;
         transform: none !important;
@@ -569,6 +675,10 @@
     right: 22px;
     top: -20px;
     color: #000;
+    
+    @media screen and (max-width: 550px) {
+      top: -30px;
+    }
   }
 
   // TABLE
@@ -576,29 +686,69 @@
     position: relative;
   }
 
-  .graphic, .graphic_accepted {
+  .graphic {
     width: 100%;
     background-color: transparent;
     padding-right: 10px;
     margin-left: -9px;
     font-size: 14px;
+    
+    @media screen and (min-width: 981px) {
+      overflow: visible!important;
+    }
+    
+    @media screen and (max-width: 980px) {
+      margin-left: auto;
+      padding-right: 0;
+    }
+    
+    &__wrapper {
+      font-size: 0;
+    }
+    
+    &__slide {
+      display: inline-block;
+      vertical-align: top;
+      width: 50%;
+      
+      &_mobile {
+        margin-left: -25%;
+        
+        @media screen and (max-width: 980px) {
+          margin-left: 0;
+        }
+        
+        .graphic__title {
+          opacity: 0;
+          z-index: -1;
+          
+          @media screen and (max-width: 980px) {
+            opacity: 1;
+            z-index: auto;
+          }
+        }
+      }
+    }
 
     &__row {
       border: none;
       width: 100%;
       font-size: 0;
-
-      @media (max-width: 980px) {
-
-        .graphic__data:nth-child(n+4) {
-          display: none;
-        }
-      }
-
-      @media (max-width: 980px) {
-
-        .graphic__data:nth-child(n+3) {
-          display: none;
+      
+      &_caption {
+        
+        @media screen and (max-width: 980px) {
+          margin: 20px 0;
+          
+          .graphic__title {
+            display: none;
+          }
+          
+          .graphic__data {
+            width: auto !important;
+            padding: 5px;
+            background-color: $color-yellow;
+          }
         }
       }
     }
@@ -608,23 +758,27 @@
       vertical-align: middle;
       font-size: 16px;
       line-height: 18px;
-    }
-    
-    &__slide-row {
-      display: inline-table;
-      vertical-align: middle;
-      width: 79%;
+      width: 44%;
+      position: relative;
+      
+      @media screen and (max-width: 550px) {
+        width: 35%;
+        font-size: 10px;
+        line-height: 12px;
+      }
     }
 
     &__data {
-      width: 33.3333%;
-      display: table-cell;
+      width: 56%;
+      display: inline-block;
       vertical-align: middle;
       padding: 5px 0;
       transition: all 2s ease;
+      position: relative;
+      z-index: 2;
       
-      &_alone {
-        display: inline-block;
+      @media screen and (max-width: 550px) {
+        width: 65%;
       }
 
       &_year {
@@ -643,7 +797,23 @@
         position: relative;
         font-size: 24px;
         transform: translateY(-3px);
+        
+        @media screen and (max-width: 550px) {
+          font-size: 20px;
+          transform: none;
+        }
+      }
 
+      &_green {
+        color: #85c53e;
+        font-size: 24px;
+        
+        @media screen and (max-width: 550px) {
+          font-size: 20px;
+        }
+      }
+      
+      &_arrowed {
         &::after {
           @include pseudo;
           height: 208px;
@@ -652,6 +822,10 @@
           right: calc(50% - 1px);
           background-color: #c9c9c9;
           top: 36px;
+          
+          @media screen and (max-width: 550px) {
+            height: 168px;
+          }
         }
 
         &::before {
@@ -660,12 +834,9 @@
           border: 2px solid transparent;	border-top: 5px solid #c9c9c9;
           right: 50%;
           right: calc(50% - 2px);
-        }
-
-        @media (max-width: 760px) {
-          transform: none;
-          &::after, &::before {
-            display: none;
+          
+          @media screen and (max-width: 550px) {
+            top: 203px;
           }
         }
 
@@ -674,11 +845,6 @@
             right: 50%;
           }
         }
-      }
-
-      &_green {
-        color: #85c53e;
-        font-size: 24px;
       }
     }
 
@@ -715,9 +881,10 @@
       margin-bottom: 0;
       position: relative;
       display: inline-block;
-
-      @media (max-width: 680px) {
-        text-align: left;
+      height: 28px;
+      
+      @media screen and (max-width: 550px) {
+        height: 20px;
       }
 
       &__fill {
@@ -726,6 +893,7 @@
         position: relative;
         width: auto;
         cursor: auto;
+        height: 100%;
 
         @media (max-width: 680px) {
           left: 0;
@@ -777,10 +945,18 @@
             left: 100%;
             right: auto;
             margin-left: 5px;
+            
+            @media screen and (max-width: 550px) {
+              margin-left: 3px;
+            }
           }
         }
         .linear-diagram__wave {
           left: 8px;
+          
+          @media screen and (max-width: 550px) {
+            left: 3px;
+          }
         }
         .linear-diagram__fill-extra, .linear-diagram__fill-down {
           left: 100%;
@@ -788,6 +964,20 @@
         }
         .linear-diagram__fill-abs {
           right: 100%;
+        }
+        
+        &_small {
+          .linear-diagram__fill-hover {
+            display: none;
+          }
+          @media screen and (max-width: 550px) {
+            > .linear-diagram__value {
+              display: none;
+            }
+            .linear-diagram__fill-hover {
+              display: block;
+            }
+          }
         }
       }
       
@@ -798,10 +988,18 @@
             right: 100%;
             left: auto;
             margin-right: 5px;
+            
+            @media screen and (max-width: 550px) {
+              margin-right: 3px;
+            }
           }
         }
         .linear-diagram__wave {
           right: 8px;
+          
+          @media screen and (max-width: 550px) {
+            right: 3px;
+          }
         }
         .linear-diagram__fill-extra, .linear-diagram__fill-down {
           right: 100%;
@@ -810,6 +1008,20 @@
         .linear-diagram__fill-abs {
           left: 100%;
         }
+        
+        &_small {
+          .linear-diagram__fill-hover {
+            display: none;
+          }
+          @media screen and (max-width: 550px) {
+            > .linear-diagram__value {
+              display: none;
+            }
+            .linear-diagram__fill-hover {
+              display: block;
+            }
+          }
+        }
       }
 
       &__value {
@@ -817,6 +1029,11 @@
         transform: translateY(-50%);
         left: auto;
         right: auto;
+        
+        @media screen and (max-width: 550px) {
+          font-size: 10px;
+        }
+        
         &_out {
           color: #000;
         }
@@ -825,15 +1042,11 @@
       &__wave {
         left: auto;
         right: auto;
-      }
-
-      &__sources {
-        width: 21%;
-
-        @media (max-width: 680px) {
-          width: 100%;
-          display: block;
-          text-align: left;
+        background-size: 100%;
+        
+        @media screen and (max-width: 550px) {
+          width: 9px;
+          height: 26px;
         }
       }
     }
@@ -852,7 +1065,6 @@
       margin-top: 23px;
 
       .graphic__title {
-        line-height: 20px;
         letter-spacing: 0.2px;
         padding-top: 0px;
         transform: translateX(-1px);
@@ -862,58 +1074,32 @@
 
   .graphic_proficit {
     text-align: left;
-
-    .graphic {
-      &__data {
-        width: 58%;
-        position: relative;
-        text-align: center;
-
-        &_arrowed {
-          &::after {
-            @include pseudo;
-            height: 209px;
-            width: 1px;
-            right: 50%;
-            background-color: #c9c9c9;
-            top: 36px;
-          }
-
-          @media (max-width: 680px) {
-            &::after, &::before {
-              display: none;
-            }
-          }
-
-          @media (min-width: 320px) and (max-width: 680px) {
-            width: 100% !important;
-            display: block !important;
-            text-align: left !important;
-          }
-
-          &::before {
-            @include pseudo;
-            top: 243px;
-            border: 2px solid transparent;	border-top: 5px solid #c9c9c9;
-            right: 50%;
-            right: calc(50% - 2px);
-          }
-        }
+    
+    @media screen and (max-width: 980px) {
+      text-align: center;
+    }
+    
+    .graphic__title {
+      width: 22%;
+      
+      @media screen and (max-width: 980px) {
+        width: 44%;
       }
+      @media screen and (max-width: 550px) {
+        width: 35%;
+      }
+    }
 
-      &__title {
-        width: 21%;
-
-        @media (max-width: 1280px) {
-          display: table-cell;
-          text-align: right;
-        }
-
-        @media (min-width: 320px) and (max-width: 680px) {
-          width: 100% !important;
-          display: block !important;
-          text-align: left !important;
-        }
+    .graphic__data {
+      width: 58%;
+      position: relative;
+      text-align: center;
+      
+      @media screen and (max-width: 980px) {
+        width: 56%;
+      }
+      @media screen and (max-width: 550px) {
+        width: 65%;
       }
     }
   }
@@ -923,21 +1109,13 @@
     .linear-diagram__sources {
       margin-right: 26px;
       
-      @media (max-width: 1140px) {
-        display: block;
-        width: 100%;
-        margin-right: 0;
-        text-align: left;
-        margin-bottom: 5px;
+      @media screen and (max-width: 550px) {
+        margin-right: 16px;
       }
     }
 
     .linear-diagram__val {
       margin-left: 12px;
-
-      @media (max-width: 768px) {
-        margin-left: -35px;
-      }
     }
   }
 

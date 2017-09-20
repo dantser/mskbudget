@@ -69,26 +69,6 @@ export default () => {
       arrowActive($(this));
     });
     
-    // стрелочки на графиках в адаптиве
-    //$('.ar-left, .ar-right').hide();
-    $(window).on('scroll', function(){
-      if ($('.moscow-sources').length) {
-        if ($('.analityc-widget-sources_changes').hasClass('_active') || $('.analityc-widget-sources_approved').hasClass('_active')) {
-          var sourcesScroll = $(window).scrollTop();
-          var arrowTopDistance = $('.moscow-sources .analityc-widget_sources').offset().top - $(window).height() / 4;
-          var arrowBottomDistance = $('.footer').offset().top - $(window).height() / 1.3;
-          var headerHeight = $('.header').height();
-          var colHeadTopDistance = $('.moscow-sources .analityc-widget_sources').offset().top - headerHeight;
-          var colHeadBottomDistance = $('.footer').offset().top - $(window).height() - 200;
-          
-          //if (sourcesScroll >= arrowTopDistance && sourcesScroll <= arrowBottomDistance) {
-          //  $('.ar-left, .ar-right').show();
-          //} else {
-          //  $('.ar-left, .ar-right').hide();
-          //}
-        }
-      }
-    });
     
     // графики
     graphicInit();
@@ -110,10 +90,16 @@ export default () => {
         }
         
         var diff = (posWidth - negWidth)/2;
+        if ($(window).width() <= 550) {
+          diff /= 1.7;
+        }
         $(this).css('left', diff+'px');
         
         $(this).find('[data-width]').each(function(){
           var dwidth = $(this).data('width');
+          if ($(window).width() <= 550) {
+            dwidth /= 1.7;
+          }
           $(this).width(dwidth);
         });
       });
@@ -124,5 +110,32 @@ export default () => {
       });
     }
     
+    
+    // слайдер
+    approvedSliderInit();
+    
+    $(".analityc-widget_sources .analityc-control-group._stage .analityc-select").on("change", function() {
+      if ($(this).val() === "Закон о внесении изменений" && $('.analityc-widget-sources_changes').hasClass('active')) {
+        changesSliderInit();
+      }
+    });
+    
+    function approvedSliderInit() {
+      if ($(window).width() <= 980) {
+        var approvedGraphSlider = new Swiper ('.analityc-widget-sources_approved .graphic', {
+          prevButton: '.ar-left_approved',
+          nextButton: '.ar-right_approved'
+        });
+      }
+    }
+    
+    function changesSliderInit() {
+      if ($(window).width() <= 980) {
+        var changesGraphSlider = new Swiper ('.analityc-widget-sources_changes .graphic', {
+          prevButton: '.ar-left_changes',
+          nextButton: '.ar-right_changes'
+        });
+      }
+    }
   }
 }
