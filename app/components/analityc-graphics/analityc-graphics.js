@@ -91,8 +91,8 @@ export default () => {
   }
 
   // Прогноз социально-экономического развития города Москвы (индекс промышленного производства)
-  if ($('.budget_forecast .analityc-graphics-broken-line').length) {
-    rateLine('.analityc-graphics-broken-line__growth-rate', 5, 100);
+  if ($('.budget-forecast .analityc-graphics-broken-line').length) {
+    rateLine('.analityc-graphics-broken-line__growth-rate', 5, 94.9);
   }
 
   // Темп роста
