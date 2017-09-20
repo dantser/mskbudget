@@ -179,7 +179,7 @@ mixin table-income_slider(data)
 
       +dataType(data, 'nonTax')
 
-mixin table-vmo_slider(data)
+mixin table-vmo(data)
 
 
   mixin dataType(data, type)
@@ -227,33 +227,40 @@ mixin table-vmo_slider(data)
         +e.col._one план
         +e.col._one факт
 
-        +e.col._one факт
+        +e.col._one план
         +e.col._one факт
 
-    +e.row
-      +e.col._four Доходы
+        +e.col._one план
+        +e.col._one факт
+
+    +e.row._opened._hassub
+      +e.col._four
+        +icon('angle-arrow').arrow
+        | Доходы
 
       +dataType(data, 'total')
 
-    +e.row
-      +e.col._four ...
+    +e.row._subrow_tax
+      +e.col._four._subcol Налоговые доходы
 
-      +dataType(data, 'other')
+      +dataType(data, 'tax')
 
-    +e.row
-      +e.col._four Расходы
+    +e.row._opened._hassub
+      +e.col._four
+        +icon('angle-arrow').arrow
+        | Расходы
 
-      +dataType(data, 'total')
+      +dataType(data, 'org')
 
-    +e.row
-      +e.col._four ...
+    +e.row._subrow_tax
+      +e.col._four._subcol Общегосударственные вопросы
 
-      +dataType(data, 'other')
+      +dataType(data, 'ndfl')
 
     +e.row
       +e.col._four Дефицит/профицит
 
-      +dataType(data, 'total')
+      +dataType(data, 'other')
 
 //- таблица в расходах бюджета
 mixin table-expenses(data)

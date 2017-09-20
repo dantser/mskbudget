@@ -3,8 +3,8 @@ include depfin_services_VMO
 //- Конкретный паспорт ВМО
 mixin vmoPassport()
   +b.SECTION.services-VMO.main._basic.basic-budget.sections__item
-    .wrapper
-      +page-header('внутригородские муниципальные образования', ['Сервисы'], false).services_VMO__page-header
+    .wrapper-header
+      +page-header('внутригородские муниципальные образования', ['Сервисы'], false)
 
     //- Tab 1
     .wrapper.wrapper_widget.load-anim-fade(data-delay="1500")
@@ -147,8 +147,8 @@ mixin vmoPassportContent()
           .services-VMO__row
             h4.services-VMO__subtitle Динамика доходов муниципальных округов
             .legend
-              p.legend__item.legend__item_transparentpink Уточненный план, млн руб.
-              p.legend__item.legend__item_pink Исполнение, млн руб.
+              p.legend__item.legend__item_transparentblue Уточненный план, млн руб.
+              p.legend__item.legend__item_blue Исполнение, млн руб.
           .analityc-graphics-line-vertical__wrapper
             +analityc-graphics-line-vertical_vmo(getData('graphic-lines-vertical-vmo'))
         .services-VMO__content.services-VMO__content_bottom.js-rules

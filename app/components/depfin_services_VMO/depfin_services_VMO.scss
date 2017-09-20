@@ -4,11 +4,6 @@
   background-size: cover;
   background-position: center 0;
 
-  &__page-header {
-    .page-head__title {
-      letter-spacing: 0;
-    }
-  }
   &__tabs-wrapper {
     z-index: 2;
     position: relative;
@@ -92,6 +87,40 @@
       }
       .services-VMO__content_municipal {
         padding-bottom: 150px;
+      }
+    }
+    &[data-tab="VMOincome"],
+    &[data-tab="VMOpassIncome"] {
+      .services-VMO__figure-big {
+        background: -webkit-linear-gradient(0deg,#004ccf,cyan);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        @media screen\0 {
+          color: #004ccf;
+        }
+      }
+
+      .analityc-graphics_line {
+        .analityc-graphics__line-values {
+          color: #004ccf;
+        }
+        .analityc-graphics__line-total {
+          background: #0051d0;
+          background-image: linear-gradient(90deg,#004ccf,cyan);
+        }
+      }
+
+      .analityc-graphics-line-vertical_vmo {
+        .analityc-graphics-line-vertical__line_transparentpink {
+          .analityc-graphics-line-vertical__line-fill {
+            background: linear-gradient(0deg,rgba(0,76,207,.4),rgba(0,255,255,.4));
+          }
+        }
+        .analityc-graphics-line-vertical__line_pink2 {
+          .analityc-graphics-line-vertical__line-fill {
+            background: linear-gradient(0deg,#004ccf,cyan);
+          }
+        }
       }
     }
   }
@@ -725,16 +754,81 @@
     overflow-y: hidden;
   }
 
-  .analityc-table_vmo {
-    .table__col_four {
-      width: 15.86%;
+  .section__ar {
+    display: none;
+    position: absolute;
+    top: 50%;
+    z-index: 3000;
+    width: 21px;
+    height: 26px;
+    padding: 5px;
+
+    &_left {
+      right: 101%;
+      transform: rotate(180deg);
+
+      @media screen and (max-width: 480px) {
+        right: 98%;
+      }
     }
-    .table__col_one {
-      width: 7.93%;
+
+    &_right {
+      left: 101%;
+
+      @media screen and (max-width: 480px) {
+        left: 98%;
+      }
     }
+
+    &_disabled {
+      opacity: 0;
+    }
+  }
+
+  @mixin income-table-slider($minWidth) {
+    .table {
+      min-width: $minWidth;
+    }
+    
     .analityc-table__wrapper {
-      overflow-x: scroll;
-      padding-bottom: 20px;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+
+    .section__ar {
+      display: inline!important;
+    }
+  }
+
+  .analityc-table {
+    overflow-x: visible;
+    overflow-y: visible;
+
+    .table {
+      min-width: auto;
+
+      &__col {
+        text-align: center;
+
+        &_four {
+          width: calc(75% / 6);
+      
+          &:first-child {
+            width: 25%;
+            text-align: left;
+          }
+        }
+
+        &_one {
+          width: calc(75% / 12);
+        }
+      }
+    }
+
+    &_vmo {
+      @media screen and (max-width: 900px) {
+        @include income-table-slider(980px);
+      }
     }
   }
 
@@ -838,6 +932,7 @@
     }
 
     .services-VMO__figure-big {
+      display: inline-block;
       font-size: 72px;
       background: -webkit-linear-gradient(right, #ff695b, #9d308a);
       -webkit-background-clip: text;
@@ -908,6 +1003,11 @@
           background: #9f3189;
           background: linear-gradient(0deg,rgba(157,48,138,.4),rgba(255,105,91,.4));
           filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=rgba(255,105,91,.4),endColorstr=rgba(157,48,138,.4));
+        }
+        &__item_transparentblue::before {
+          background: #9f3189;
+          background: linear-gradient(0deg,rgba(0,76,207,.4),rgba(0,255,255,.4));
+          filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=rgba(0,255,255,.4),endColorstr=rgba(0,76,207,.4));
         }
       }
     }
