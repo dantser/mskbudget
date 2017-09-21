@@ -1142,7 +1142,11 @@ function basicBudgetFiguresDiagrams() {
         'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь'
       ],
       dayNamesMin: ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'],
-      beforeShowDay: DisableSpecificDates
+      beforeShowDay: EnableSpecificDates,
+      onSelect: function() {
+        var selecteddate = $(this).val();
+        $(this).next().val(selecteddate);
+      }
       // beforeShow: function(input, inst) {
       //   convertToLists(inst);
       // },
@@ -1176,8 +1180,30 @@ function basicBudgetFiguresDiagrams() {
         return [true];
       }
     }
-
   }
+  
+  function EnableSpecificDates(date) {
+      var enableddates = ["6-6-2017", "6-9-2017", "6-15-2017", "6-23-2017", "10-26-2017", "10-4-2017", "10-12-2017", "1-28-2018"];
+      var m = date.getMonth();
+      var d = date.getDate();
+      var y = date.getFullYear();
+      var day = date.getDay();
+
+      // First convert the date in to the mm-dd-yyyy format
+      // Take note that we will increment the month count by 1
+      var currentdate = (m + 1) + '-' + d + '-' + y;
+
+      // We will now check if the date belongs to enableddates array
+      for (var i = 0; i < enableddates.length; i++) {
+
+        // Now check if the current date is in enabled dates array.
+        if ($.inArray(currentdate, enableddates) != -1) {
+          return [true];
+        } else {
+          return [false];
+        }
+      }
+    }
 
 
 }
