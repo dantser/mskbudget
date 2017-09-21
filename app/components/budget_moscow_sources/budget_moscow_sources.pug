@@ -4,6 +4,7 @@ include ../../blocks/table/table
 include ../analityc-widgethead/analityc-widgethead
 include ../analityc-table/analityc-table
 include ../../blocks/dropdown-block/dropdown-block
+include ../../blocks/slide-arrows/slide-arrows
 
 mixin budget_moscow_sources()
   +b.SECTION.section.main._basic.basic-budget.moscow-sources.sections__item
@@ -23,6 +24,7 @@ mixin budget_moscow_sources()
             H3.moscow-sources__diagram-title Исполнение доходов бюджета на 22.04.2017
             P.toptext МЛРД РУБ.
             .linear-diagrams
+              +slide-arrows.linear-diagrams__slide-arrows
               .linear-diagrams__wrapper
                 +b.linear-diagram_redblue
                   +e.H4.sources_bold Всего по источникам финансирования дефицита
