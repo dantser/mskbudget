@@ -102,4 +102,26 @@ export default () => {
      vmoGraphicsLegend.hide();
    }
  });
+
+  const MAP_POPUP = VMO.find('.services-VMO__map-popup');
+  VMO.find('.svg-map path').hover(function(e) {
+    
+    var coordsX = $(this).offset().left,
+        coordsY = $(this).offset().top,
+        width = this.getBoundingClientRect().width,
+        height = this.getBoundingClientRect().height;
+
+    MAP_POPUP.addClass('active');
+    MAP_POPUP.offset({top:coordsY + height, left:coordsX - width / 2});
+
+  }, function() {
+    MAP_POPUP.removeClass('active');
+  })
+
+  const SORT_BTN = VMO.find('.services-VMO__sort');
+
+  SORT_BTN.click(function() {
+    $(this).toggleClass('services-VMO__sort_desc services-VMO__sort_ask');
+  })
+
 }

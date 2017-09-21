@@ -9,6 +9,7 @@ include ../../blocks/search-form/search-form
 include ../../blocks/button/button
 include ../analityc-graphics/analityc-graphics
 include ../../blocks/selectbox/selectbox
+include ../../blocks/svg-map/svg-map
 //- include VMOpassport
 
 mixin depfin_services_VMO()
@@ -38,6 +39,7 @@ mixin depfin_services_VMO()
           +tabs-tab(data-tab-group="VMO" data-tab="vmoPassports")
             +vmoPassportListContent()
     +dropdown().load-anim-fade(data-delay="1700")
+    +e.map-popup Замоскворечье
 
 
 //- таб "Все ВМО"
@@ -53,11 +55,11 @@ mixin vmoAll()
       .services-VMO__figure.services-VMO__figure_blue
         span.services-VMO__digit.services-VMO__digit_blue 125
         span.services-VMO__descr муниципальных округов
-      .services-VMO__figure.services-VMO__figure_orange
-        span.services-VMO__digit.services-VMO__digit_orange 2
-        span.services-VMO__descr городских округа
       .services-VMO__figure.services-VMO__figure_green
-        span.services-VMO__digit.services-VMO__digit_green 19
+        span.services-VMO__digit.services-VMO__digit_green 2
+        span.services-VMO__descr городских округа
+      .services-VMO__figure.services-VMO__figure_orange
+        span.services-VMO__digit.services-VMO__digit_orange 19
         span.services-VMO__descr поселений
     +alternative-link('Перечень муниципальных образований города Москвы')
       +e.A(href="#").title Мониторинг и оценка качества управления муниципальными финансами
@@ -139,11 +141,11 @@ mixin vmoMunicipalDistricts()
         span.services-VMO__digit.services-VMO__digit_blue 5 
           span чел на га
         span.services-VMO__subdescr 12,3% территории москвы
-    .services-VMO__map-wrapper
-      img(src="assets/images/VMO/mapMunicipales.png")
     .analityc-control-group._search
       span Муниципальные округи
       +searchFormWidget('замоскворечье', 'Введите название района Москвы')
+    .services-VMO__map-wrapper
+      +svg-map-mo()
   .services-VMO__content.services-VMO__content_municipal-graphics
     .analityc-control-switcher.analityc-control-switcher_main.analityc-control-switcher_default.active
       .analityc-control-switcher-wrapper
@@ -301,27 +303,27 @@ mixin vmoCityDistricts()
   H3.services-VMO__title Городские округи — сводная информация
   .services-VMO__content.services-VMO__content_municipal
     .services-VMO__figure-wrapper
-      .services-VMO__figure.services-VMO__figure_orange
+      .services-VMO__figure.services-VMO__figure_green
         span.services-VMO__descr площадь
-        span.services-VMO__digit.services-VMO__digit_orange 1500 
+        span.services-VMO__digit.services-VMO__digit_green 1500 
           span га
         span.services-VMO__subdescr 12,3% территории москвы
-      .services-VMO__figure.services-VMO__figure_orange
+      .services-VMO__figure.services-VMO__figure_green
         span.services-VMO__descr население
-        span.services-VMO__digit.services-VMO__digit_orange 1 200 000 
+        span.services-VMO__digit.services-VMO__digit_green 1 200 000 
           span человек
         span.services-VMO__subdescr 12,3% территории москвы
-      .services-VMO__figure.services-VMO__figure_orange
+      .services-VMO__figure.services-VMO__figure_green
         span.services-VMO__descr плотность населения
-        span.services-VMO__digit.services-VMO__digit_orange 5 
+        span.services-VMO__digit.services-VMO__digit_green 5 
           span чел на га
         span.services-VMO__subdescr 12,3% территории москвы
-    .services-VMO__map-wrapper
-      img(src="assets/images/VMO/cityMap.png")
     .analityc-control-group._search
       span Городские округи
       a(href="/").analityc-more.analityc-more_bordered Троицк
       a(href="/").analityc-more Щербинка
+    .services-VMO__map-wrapper
+      +svg-map-go()
   .services-VMO__content.services-VMO__content_municipal-graphics
     .analityc-control-switcher.analityc-control-switcher_main.analityc-control-switcher_default.active
       .analityc-control-switcher-wrapper
@@ -340,39 +342,39 @@ mixin vmoCityDistricts()
               +icon('caret')
         .services-VMO__content.services-VMO__content_population
           h4.services-VMO__subtitle Население
-          .services-VMO__digit.services-VMO__digit_orange 1 200 000 
+          .services-VMO__digit.services-VMO__digit_green 1 200 000 
             span человек
-          .services-VMO__digit.services-VMO__digit_orange
+          .services-VMO__digit.services-VMO__digit_green
             span 600 000 человек (50%)
             span.services-VMO__subdescr 12,3% территории москвы
-          .services-VMO__digit.services-VMO__digit_orange
+          .services-VMO__digit.services-VMO__digit_green
             span 600 000 человек (50%)
             span.services-VMO__subdescr 12,3% территории москвы
-          .services-VMO__digit.services-VMO__digit_orange
+          .services-VMO__digit.services-VMO__digit_green
             span 600 000 человек (50%)
             span.services-VMO__subdescr 12,3% территории москвы
         .services-VMO__content
           .services-VMO__content.services-VMO__content_small
             h4.services-VMO__subtitle занятость и заработная плата
-            .services-VMO__digit.services-VMO__digit_orange 1 200 000 
+            .services-VMO__digit.services-VMO__digit_green 1 200 000 
               span человек
               span.services-VMO__subdescr среднесписочная численность работников организаций
-            .services-VMO__digit.services-VMO__digit_orange
+            .services-VMO__digit.services-VMO__digit_green
               span 600 000 человек (50%)
               span.services-VMO__subdescr 12,3% территории москвы
           .services-VMO__content.services-VMO__content_small
             h4.services-VMO__subtitle занятость и заработная плата
-            .services-VMO__digit.services-VMO__digit_orange 1 200 000 
+            .services-VMO__digit.services-VMO__digit_green 1 200 000 
               span человек
               span.services-VMO__subdescr среднесписочная численность работников организаций
-            .services-VMO__digit.services-VMO__digit_orange
+            .services-VMO__digit.services-VMO__digit_green
               span 600 000 человек (50%)
               span.services-VMO__subdescr 12,3% территории москвы
           .services-VMO__content.services-VMO__content_small
             h4.services-VMO__subtitle Культура и спорт
-            .services-VMO__digit.services-VMO__digit_orange
+            .services-VMO__digit.services-VMO__digit_green
               span 1000 спортивных сооружений
-            .services-VMO__digit.services-VMO__digit_orange.services-VMO__digit_columns
+            .services-VMO__digit.services-VMO__digit_green.services-VMO__digit_columns
               span.services-VMO__digit_column 10
               span.services-VMO__subdescr
                 | детско-юношеских спортивных школ на 
@@ -380,18 +382,18 @@ mixin vmoCityDistricts()
 
           .services-VMO__content.services-VMO__content_small
             h4.services-VMO__subtitle Промышленное производство и строительство
-            .services-VMO__digit.services-VMO__digit_orange
+            .services-VMO__digit.services-VMO__digit_green
               span.services-VMO__subdescr 
                 | Отгружено товаров собственного производства, выполнено работ и услуг собственными силами
                 b на сумму 10 млрд руб.
 
-            .services-VMO__digit.services-VMO__digit_orange
+            .services-VMO__digit.services-VMO__digit_green
               span.services-VMO__subdescr 
                 | Введено в действие жилых домов 
                 b общей площадью 1 млн кв. м
           .services-VMO__content.services-VMO__content_small
             h4.services-VMO__subtitle Розничная торговля
-            .services-VMO__digit.services-VMO__digit_orange 
+            .services-VMO__digit.services-VMO__digit_green
               span.services-VMO__subdescr 
                 | Функционирует
                 b 1000 объектов 
@@ -479,26 +481,26 @@ mixin vmoSettlements()
   H3.services-VMO__title Поселения — сводная информация
   .services-VMO__content.services-VMO__content_municipal
     .services-VMO__figure-wrapper
-      .services-VMO__figure.services-VMO__figure_green
+      .services-VMO__figure.services-VMO__figure_orange
         span.services-VMO__descr площадь
-        span.services-VMO__digit.services-VMO__digit_green 1500 
+        span.services-VMO__digit.services-VMO__digit_orange 1500 
           span га
         span.services-VMO__subdescr 12,3% территории москвы
-      .services-VMO__figure.services-VMO__figure_green
+      .services-VMO__figure.services-VMO__figure_orange
         span.services-VMO__descr население
-        span.services-VMO__digit.services-VMO__digit_green 1 200 000 
+        span.services-VMO__digit.services-VMO__digit_orange 1 200 000 
           span человек
         span.services-VMO__subdescr 12,3% территории москвы
-      .services-VMO__figure.services-VMO__figure_green
+      .services-VMO__figure.services-VMO__figure_orange
         span.services-VMO__descr плотность населения
-        span.services-VMO__digit.services-VMO__digit_green 5 
+        span.services-VMO__digit.services-VMO__digit_orange 5 
           span чел на га
         span.services-VMO__subdescr 12,3% территории москвы
-    .services-VMO__map-wrapper
-      img(src="assets/images/VMO/settlementsMap.png")
     .analityc-control-group._search
       span Поселения
       +searchFormWidget('внуковское', 'Введите название поселения')
+    .services-VMO__map-wrapper
+      +svg-map-setl()
   .services-VMO__content.services-VMO__content_municipal-graphics
     .analityc-control-switcher.analityc-control-switcher_main.analityc-control-switcher_default.active
       .analityc-control-switcher-wrapper
@@ -517,39 +519,39 @@ mixin vmoSettlements()
               +icon('caret')
         .services-VMO__content.services-VMO__content_population
           h4.services-VMO__subtitle Население
-          .services-VMO__digit.services-VMO__digit_green 1 200 000 
+          .services-VMO__digit.services-VMO__digit_orange 1 200 000 
             span человек
-          .services-VMO__digit.services-VMO__digit_green
+          .services-VMO__digit.services-VMO__digit_orange
             span 600 000 человек (50%)
             span.services-VMO__subdescr 12,3% территории москвы
-          .services-VMO__digit.services-VMO__digit_green
+          .services-VMO__digit.services-VMO__digit_orange
             span 600 000 человек (50%)
             span.services-VMO__subdescr 12,3% территории москвы
-          .services-VMO__digit.services-VMO__digit_green
+          .services-VMO__digit.services-VMO__digit_orange
             span 600 000 человек (50%)
             span.services-VMO__subdescr 12,3% территории москвы
         .services-VMO__content
           .services-VMO__content.services-VMO__content_small
             h4.services-VMO__subtitle занятость и заработная плата
-            .services-VMO__digit.services-VMO__digit_green 1 200 000 
+            .services-VMO__digit.services-VMO__digit_orange 1 200 000 
               span человек
               span.services-VMO__subdescr среднесписочная численность работников организаций
-            .services-VMO__digit.services-VMO__digit_green
+            .services-VMO__digit.services-VMO__digit_orange
               span 600 000 человек (50%)
               span.services-VMO__subdescr 12,3% территории москвы
           .services-VMO__content.services-VMO__content_small
             h4.services-VMO__subtitle занятость и заработная плата
-            .services-VMO__digit.services-VMO__digit_green 1 200 000 
+            .services-VMO__digit.services-VMO__digit_orange 1 200 000 
               span человек
               span.services-VMO__subdescr среднесписочная численность работников организаций
-            .services-VMO__digit.services-VMO__digit_green
+            .services-VMO__digit.services-VMO__digit_orange
               span 600 000 человек (50%)
               span.services-VMO__subdescr 12,3% территории москвы
           .services-VMO__content.services-VMO__content_small
             h4.services-VMO__subtitle Культура и спорт
-            .services-VMO__digit.services-VMO__digit_green
+            .services-VMO__digit.services-VMO__digit_orange
               span 1000 спортивных сооружений
-            .services-VMO__digit.services-VMO__digit_green.services-VMO__digit_columns
+            .services-VMO__digit.services-VMO__digit_orange.services-VMO__digit_columns
               span.services-VMO__digit_column 10
               span.services-VMO__subdescr
                 | детско-юношеских спортивных школ на 
@@ -557,18 +559,18 @@ mixin vmoSettlements()
 
           .services-VMO__content.services-VMO__content_small
             h4.services-VMO__subtitle Промышленное производство и строительство
-            .services-VMO__digit.services-VMO__digit_green
+            .services-VMO__digit.services-VMO__digit_orange
               span.services-VMO__subdescr 
                 | Отгружено товаров собственного производства, выполнено работ и услуг собственными силами
                 b на сумму 10 млрд руб.
 
-            .services-VMO__digit.services-VMO__digit_green
+            .services-VMO__digit.services-VMO__digit_orange
               span.services-VMO__subdescr 
                 | Введено в действие жилых домов 
                 b общей площадью 1 млн кв. м
           .services-VMO__content.services-VMO__content_small
             h4.services-VMO__subtitle Розничная торговля
-            .services-VMO__digit.services-VMO__digit_green 
+            .services-VMO__digit.services-VMO__digit_orange
               span.services-VMO__subdescr 
                 | Функционирует
                 b 1000 объектов 
@@ -708,10 +710,22 @@ mixin vmoPassportListTable()
             +searchFormWidget('Введите название МО', 'Введите название МО')
         span.services-VMO__table-head_place доходы
           span.services-VMO__table-head_sub млн.руб.
+          .services-VMO__sort.services-VMO__sort_desc
+            .services-VMO__sort-arrow.services-VMO__sort-arrow_desc По убыванию
+            .services-VMO__sort-arrow.services-VMO__sort-arrow_ask По возрастанию
+
         span.services-VMO__table-head_place расходы
           span.services-VMO__table-head_sub млн.руб.
+          .services-VMO__sort.services-VMO__sort_desc
+            .services-VMO__sort-arrow.services-VMO__sort-arrow_desc По убыванию
+            .services-VMO__sort-arrow.services-VMO__sort-arrow_ask По возрастанию
+
         span.services-VMO__table-head_defpro дефицит/профицит
           span.services-VMO__table-head_sub млн.руб.
+          .services-VMO__sort.services-VMO__sort_desc
+            .services-VMO__sort-arrow.services-VMO__sort-arrow_desc По убыванию
+            .services-VMO__sort-arrow.services-VMO__sort-arrow_ask По возрастанию
+
         
       .vmoPassport-table.scroll-pane
         .table__row
