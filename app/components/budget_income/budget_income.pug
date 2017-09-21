@@ -14,32 +14,32 @@ mixin budget_income()
     .wrapper
       .analityc-widget.analityc-widget_income.load-anim-fade(data-delay="1500")
         +analityc-widgethead-income()
-        +analityc-graphics-round('income1')._approved.active
-        +analityc-table()._approved
+        +analityc-graphics-round('income1')._approved.active(data-stage='approved')
+        +analityc-table()._approved(data-stage='approved')
           +icon('angle-arrow').section__ar.section__ar_left
           +icon('angle-arrow').section__ar.section__ar_right
           .analityc-table__wrapper
             +table-income(getData('income'))
 
-        +analityc-graphics-column('income1')._changes
+        +analityc-graphics-column('income1')._changes(data-stage='changes')
 
-        +analityc-table()._changes
+        +analityc-table()._changes(data-stage='changes')
           +icon('angle-arrow').section__ar.section__ar_left
           +icon('angle-arrow').section__ar.section__ar_right
           .analityc-table__wrapper
             +table-income(getData('income1'))
 
-        +analityc-graphics-singleround('income2')._done
-        +analityc-table()._done
+        +analityc-graphics-singleround('income2')._done(data-stage='done')
+        +analityc-table()._done(data-stage='done')
           +table-income(getData('income2'))
-        +analityc-graphics-line('Исполнение доходов бюджета на 22.04.2017', getData('graphic-lines-income1'))._date-one
+        +analityc-graphics-line('Исполнение доходов бюджета на 22.04.2017', getData('graphic-lines-income1'))._date-one(data-stage='date')
 
-        +analityc-table('Исполнение доходов бюджета на 22.04.2017')._date
+        +analityc-table('Исполнение доходов бюджета на 22.04.2017')._date(data-stage='date')
           +icon('angle-arrow').section__ar.section__ar_left
           +icon('angle-arrow').section__ar.section__ar_right
           .analityc-table__wrapper
             +table-income(getData('sources'))
 
-        +analityc-graphics-line('Исполнение доходов бюджета на 1 февраля 2017', getData('graphic-lines-income2'))._date-two
+        +analityc-graphics-line('Исполнение доходов бюджета на 1 февраля 2017', getData('graphic-lines-income2'))._date-two(data-stage='dtwo')
         a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
     +dropdown().load-anim-fade(data-delay="1700")

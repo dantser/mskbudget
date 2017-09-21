@@ -56,8 +56,17 @@ export default function selectbox() {
       } else {
 
         if ($(this).attr('data-locked')) {
-          const li = '<li class="locked" data-val=' + vval + '>' + ttext + '</li>';
-          selBox.find('ul').append(li);
+          
+          if ($(this).attr('data-tooltip')) {
+            const title = $(this).attr('title');
+            console.log(title);
+            const li = '<li class="locked js-tooltip" data-val=' + vval + ' title="'+title+'">' + ttext + '</li>';
+            selBox.find('ul').append(li);
+          } else {
+            const li = '<li class="locked" data-val=' + vval + '>' + ttext + '</li>';
+            selBox.find('ul').append(li);
+          }
+          
         } else {
           const li = '<li data-val=' + vval + '>' + ttext + '</li>';
           selBox.find('ul').append(li);
@@ -66,17 +75,25 @@ export default function selectbox() {
       }
     });
   });
-
-
-
-
-
-
-  $(document).on('click', '.selectbox li', function () {
-    var newval = $(this).data('val');
-    $(this).parents('.selectbox').find('select').val(newval);
-    var inputval = $(this).parents('.selectbox').find('select option[value='+newval+']').text();
-    $(this).parents('.selectbox').find('input').val(inputval);
+  
+  
+  
+  $(document).on('click', '.selectbox li', function (e) {
+    
+    if ($(this).hasClass('locked')) {
+      e.stopPropagation();
+    } else {
+      var newval = $(this).data('val');
+      $(this).parents('.selectbox').find('select').val(newval).change();
+      var inputval = $(this).parents('.selectbox').find('select option[value='+newval+']').text();
+      $(this).parents('.selectbox').find('input').val(inputval);
+      $(this).parents('.selectbox').find('.selectbox__val').text(inputval);
+      
+      $(this).parent().removeClass('active');
+      setTimeout(function () {
+        $('body').click();
+      },100)
+    }
   });
 
   $(document).on('mousedown click', '.selectbox select', function (e) {
@@ -100,15 +117,19 @@ export default function selectbox() {
     $(this).parents('.selectbox').addClass('active');
   });
 
-  $(document).on('click', '.selectbox ul', function () {
-    $(this).removeClass('active');
+  //$(document).on('click', '.selectbox ul', function () {
+  //  $(this).removeClass('active');
+  //  
+  //  setTimeout(function () {
+  //    $('body').click();
+  //  },100)
+  //});
 
-    setTimeout(function () {
-      $('body').click();
-    },100)
-  });
-
-  $('body, html').click(() => {
-    $(document).find('.selectbox').removeClass('active');
+  //$('body, html').click(() => {
+  //  $(document).find('.selectbox').removeClass('active');
+  //});
+  
+  $(document).on('click', 'html, body', function(){
+    $('.selectbox').removeClass('active');
   });
 }

@@ -65,6 +65,7 @@ import bluedropdown from '../blocks/blue-dropdown/blue-dropdown';
 import documentsCards from '../components/documents-cards/documentsCards';
 import tablesActive from '../blocks/table1/table1';
 import mrelations from '../components/mrelations/mrelations';
+import budgetIncome from '../components/budget_income/budgetIncome';
 
 $(() => {
 
@@ -143,4 +144,5 @@ $(() => {
   documentsCards();
   tablesActive();
   mrelations();
+  budgetIncome();
 });

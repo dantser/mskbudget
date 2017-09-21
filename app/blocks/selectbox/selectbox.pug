@@ -1,20 +1,47 @@
 mixin selectbox(name, data)
-	+b.selectbox&attributes(attributes) 
-		+e.SELECT.select(name=name)
-			each obj in data
-				if (obj.locked)
-					option(value=obj.val, data-locked, disabled, data-image=obj.img, data-period=obj.period)= obj.text
-				else
-					option(value=obj.val, data-image=obj.img, data-period=obj.period)= obj.text
-		+e.SPAN.arrow
-			span
+  +b.selectbox&attributes(attributes)
+    +e.SELECT.select(name=name)
+      each obj in data
+        if (obj.locked)
+          option(value=obj.val, data-locked, disabled, data-image=obj.img, data-period=obj.period)= obj.text
+        else
+          option(value=obj.val, data-image=obj.img, data-period=obj.period)= obj.text
+    +e.SPAN.arrow
+      span
+      
 mixin selectbox-cities(name, data)
-	+b.selectbox._cities&attributes(attributes) 
-		+e.SELECT.select(name=name)
-			each obj in data
-				if (obj.locked)
-					option(value=obj.val, data-locked, disabled, data-image=obj.img, data-period=obj.period)= obj.text
-				else
-					option(value=obj.val, data-image=obj.img, data-period=obj.period)= obj.text
-		+e.SPAN.arrow
-			span
+  +b.selectbox._cities&attributes(attributes)
+    +e.SELECT.select(name=name)
+      each obj in data
+        if (obj.locked)
+          option(value=obj.val, data-locked, disabled, data-image=obj.img, data-period=obj.period)= obj.text
+        else
+          option(value=obj.val, data-image=obj.img, data-period=obj.period)= obj.text
+    +e.SPAN.arrow
+      span
+
+
+//- Selectbox без json
+mixin selbox(name, value, disabled)
+  +b.selectbox&attributes(attributes)
+    +e.P.val= value
+    +e.SPAN.arrow
+      span
+    if disabled
+      +e.SELECT.select(name=name, disabled)
+        block
+    else
+      +e.SELECT.select(name=name)
+        block
+    
+mixin selbox-opt(value, text, selected)
+  if selected
+    option(value=value, selected)= text
+  else
+    option(value=value)= text
+  
+mixin selbox-opt-locked(value, text, tooltip)
+  if tooltip
+    option(value=value, title=tooltip, data-locked, data-tooltip, disabled)= text
+  else
+    option(value=value, data-locked, disabled)= text
