@@ -371,9 +371,24 @@
   }
   
   .linear-diagrams {
+    position: relative;
+    padding: 10px 0;
+    
+    &__slide-arrows {
+      position: absolute;
+      left: -35px;
+      right: -35px;
+      top: 50%;
+      margin-top: -25px;
+      z-index: 3;
+      display: none;
+    }
+    
+    &__wrapper {
+      overflow-x: auto;
+    }
+    
     @media screen and (max-width: 980px) {
-      position: relative;
-      margin: 0 -20px;
       
       &:before, &:after {
         content: '';
@@ -403,20 +418,24 @@
       
       .linear-diagram {
         min-width: 900px;
+        padding: 0 20px;
+      }
+    }
+    
+    @media screen and (max-width: 960px) {
+      &__slide-arrows {
+        display: block;
       }
     }
     
     @media screen and (max-width: 550px) {
-      margin: 0 -10px;
-      
       .linear-diagram {
-        min-width: 580px;
+        min-width: 600px;
       }
-    }
-    
-    &__wrapper {
-      overflow-x: auto;
-      padding: 10px 20px;
+      &__slide-arrows {
+        left: -17px;
+        right: -17px;
+      }
     }
   }
 
@@ -436,6 +455,7 @@
       display: inline-block;
       vertical-align: middle;
       width: 22.8%;
+      white-space: normal;
       
       @media screen and (max-width: 550px) {
         font-size: 10px;
