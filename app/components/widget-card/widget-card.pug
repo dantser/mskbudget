@@ -20,12 +20,14 @@ mixin widget-card-head(title, subtitle, datepicker, alt)
 				| по состоянию на
 				+e.datepicker
 					INPUT(value='01.10.2016', tabindex="0").datepicker__show.jq-spec-datepicker
+					input(type='hidden', name='selecteddate')
 				| , млрд. руб 
 		if alt
 			+e.P.state
 				| по состоянию на
 				+e.datepicker
 					INPUT(value='01.10.2016', tabindex="0").datepicker__show.jq-spec-datepicker-alt
+					input(type='hidden', name='selecteddate')
 				| , млрд. руб
 		block
 
