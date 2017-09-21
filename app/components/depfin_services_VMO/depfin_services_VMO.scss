@@ -4,6 +4,10 @@
   background-size: cover;
   background-position: center 0;
 
+  .wrapper {
+    overflow: hidden;
+  }
+
   &__tabs-wrapper {
     z-index: 2;
     position: relative;
@@ -39,13 +43,13 @@
         background-color: #26aecb;
       }
       &[data-tab-target="vmoCityDistricts"] {
-        background-color: #f5b326;
+        background-color: #82b345;
         &.active {
           background-color: transparent;
         }
       }
       &[data-tab-target="vmoSettlements"] {
-        background-color: #82b345;
+        background-color: #f5b326;
         &.active {
           background-color: transparent;
         }
@@ -70,18 +74,13 @@
     &[data-tab="vmoAll"] {
       padding-bottom: 100px;
     }
-    &[data-tab="vmoMunicipalDistricts"] {
-      .services-VMO__map-wrapper {
-        margin-top: 0;
-      }
-    }
+
     &[data-tab="vmoSettlements"] {
       .services-VMO__map-wrapper {
-        position: absolute;
-        right: 0;
-        margin-left: 0;
-        margin-right: 0;
+        top: -60%;
+        left: 65%;
       }
+
       .analityc-control-group._search {
         float: right;
       }
@@ -130,7 +129,7 @@
   }
 
   &__title {
-    font-size: 28px;
+    font-size: 24px;
     text-transform: uppercase;
     margin-top: 18px;
     position: relative;
@@ -240,7 +239,6 @@
 
   // таблица
   &__table {
-    margin-top: 40px;
 
     &-head {
       padding-bottom: 25px;
@@ -255,12 +253,17 @@
       //
       // }
       span {
+        position: relative;
         font-size: 16px;
         font-weight: 500;
         text-transform: uppercase;
         color: #898783;
         display: inline-block;
         vertical-align: middle;
+
+        &:hover .services-VMO__sort {
+          display: block;
+        }
       }
       &_null {
         width: 9.5%;
@@ -308,6 +311,7 @@
     &__wrapper {
       overflow-y: scroll;
       border-bottom: 1px solid #e6e6e6;
+      padding-top: 40px!important;
 
 
       // Custom Scrollbar
@@ -485,12 +489,102 @@
       }
     }
   }
+
+  &__sort {
+    display: none;
+    width: 100%;
+    height: 25px;
+    position: absolute;
+    top: -25px;
+    padding-left: 5px;
+    font-family: $PFDinTextPro;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: none;
+    color: $color-link;
+    cursor: pointer;
+    z-index: 1;
+
+    &_desc {
+      .services-VMO__sort-arrow_desc {
+        display: inline-block;
+      }
+    }
+
+    &_ask {
+      .services-VMO__sort-arrow_ask {
+        display: inline-block;
+      }
+    }
+  }
+
+  &__sort-arrow {
+    display: none;
+    position: relative;
+    border-bottom: 1px dashed $color-link;
+
+    &::before {
+      position: absolute;
+      left: -16px;
+    }
+
+    &_desc {
+      &::before {
+        @include triangle($color-link, down, 4px);
+        border-top: 6px solid $color-link;
+        margin-top: 3px;
+      }
+    }
+
+    &_ask {
+      &::before {
+        @include triangle($color-link, up, 4px);
+        border-bottom: 6px solid $color-link;
+        margin-top: 3px;
+      }
+    }
+
+  }
+
   .services-VMO__map-wrapper {
-    img {
+    img, 
+    svg {
       width: 100%;
       height: 100%;
     }
+
+    .svg-map {
+      position: relative;
+      path:hover {
+        fill: #007cab;
+      }
+    }
   }
+
+  .services-VMO__map-popup {
+    display: none;
+    position: absolute;
+    padding: 0 15px;
+    font-size: 14px;
+    line-height: 31px;
+    text-transform: uppercase;
+    background-color: #fff;
+    box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.4);
+    z-index: 2;
+
+    &.active {
+      display: inline-block;
+    }
+
+    &::before {
+      @include triangle(#fff, up, 10px);
+      margin-bottom: 0;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
   .analityc-control-switcher {
     font-size: 0;
     display: table;
@@ -555,16 +649,14 @@
       z-index: 1;
       border-top: 1px solid;
     }
-    &_orange {
-      &::before {
-        width: 149px;
-        left: -154px;
-      }
+    &_orange::before {
+      width: 210px;
+      left: -215px;
     }
 
     &_green::before {
-      width: 210px;
-      left: -215px;
+      width: 149px;
+      left: -154px;
     }
     .services-VMO__descr {
       display: inline-block;
@@ -837,22 +929,21 @@
 
   .services-VMO__content_municipal {
     width: 100%;
-    @include clearfix();
+    min-height: 580px;
+    position: relative;
+
     .services-VMO__map-wrapper {
       float: none;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
       width: 676px;
-      margin-left: -100px;
-      margin-right: -67px;
-      margin-top: -151px;
-      z-index: 0;
+      z-index: 1;
       background-color: $color-white;
-      img {
+      svg {
         width: 100%;
         height: 100%;
-      }
-
-      @media (max-width: 1024px) {
-        margin-top: -153px;
       }
     }
 
@@ -864,8 +955,11 @@
       &::before {
         display: none;
       }
+
       &-wrapper {
-        float: left;
+        position: relative;
+        display: inline-block;
+        z-index: 2;
       }
     }
     .services-VMO__digit {
@@ -878,6 +972,7 @@
     .services-VMO__descr {
       display: block;
       padding-left: 3px;
+      font-size: 14px;
       text-transform: uppercase;
     }
     .services-VMO__subdescr {
@@ -889,7 +984,13 @@
     }
     .analityc-control-group._search {
       width: 227px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 2;
       span {
+        display: inline-block;
+        font-size: 14px;
         margin-bottom: 5px;
       }
       .search__tooltip span {
@@ -1156,6 +1257,10 @@
     }
   }
   .tabs__tab[data-tab="vmoCityDistricts"] {
+    .services-VMO__map-wrapper {
+      top: -30%;
+    }
+
     .analityc-control-group {
       span {
         display: block;
@@ -1306,9 +1411,6 @@
 
 
   @media (max-width: 1024px) {
-    .tabs__tab[data-tab=vmoSettlements] .services-VMO__map-wrapper {
-      right: -50px;
-    }
     .alternative-link {
       clear: both;
       float: left;
@@ -1419,9 +1521,6 @@
     .tabs__tab[data-tab=vmoSettlements] {
       .services-VMO__content_municipal {
         padding-bottom: 0;
-      }
-      .services-VMO__map-wrapper {
-        right: 0;
       }
     }
     &__content_card {
