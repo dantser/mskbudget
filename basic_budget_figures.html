@@ -415,68 +415,110 @@
                 <div class="analityc-widget analityc-widget_figures load-anim-fade" data-delay="1500">
                     <div class="analityc-control-group _year">
                         <span>Год</span>
-                        <select class="analityc-select">
-                            <option selected="selected">2017</option>
-                            <option>2016</option>
-                            <option>2015</option>
-                        </select>
+                        <div class="selectbox selectbox_cgroup analityc-widget__selectbox">
+                            <p class="selectbox__val">2017</p>
+                            <span class="selectbox__arrow">
+                                <span></span>
+                            </span>
+                            <select class="selectbox__select" name="year">
+                                <option value="2017" selected="selected">2017</option>
+                                <option value="2016">2016</option>
+                                <option value="2015">2015</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="analityc-control-group _stage">
                         <span>Этап</span>
-                        <select class="analityc-select">
-                            <option selected="selected">Закон о бюджете первоначальный</option>
-                            <option>Закон о внесении изменений</option>
-                            <option>Закон об исполнении</option>
-                            <option>Исполнение на дату</option>
-                        </select>
+                        <div class="selectbox selectbox_cgroup analityc-widget__selectbox">
+                            <p class="selectbox__val">Закон о бюджете первоначальный</p>
+                            <span class="selectbox__arrow">
+                                <span></span>
+                            </span>
+                            <select class="selectbox__select" name="stage">
+                                <option value="first" selected="selected">Закон о бюджете первоначальный</option>
+                                <option value="changes">Закон о внесении изменений</option>
+                                <option value="done">Закон об исполнении</option>
+                                <option value="date">Исполнение на дату</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="analityc-control-group _level">
                         <span>Уровень</span>
-                        <select class="analityc-select">
-                            <option selected="selected">Бюджет москвы</option>
-                            <option>Консолидированный бюджет</option>
-                            <option>Бюджет региона</option>
-                        </select>
+                        <div class="selectbox selectbox_cgroup analityc-widget__selectbox">
+                            <p class="selectbox__val">Бюджет москвы</p>
+                            <span class="selectbox__arrow">
+                                <span></span>
+                            </span>
+                            <select class="selectbox__select" name="level">
+                                <option value="moscow" selected="selected">Бюджет москвы</option>
+                                <option value="consolidated">Консолидированный бюджет</option>
+                                <option value="region">Бюджет региона</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="analityc-control-group _transfer">
                         <span>Межбюджетные трансферы</span>
-                        <select class="analityc-select">
-                            <option selected="selected">Без межбюджетных трансфертов</option>
-                            <option>с трансфертами</option>
-                        </select>
+                        <div class="selectbox selectbox_cgroup analityc-widget__selectbox">
+                            <p class="selectbox__val">Без межбюджетных трансфертов</p>
+                            <span class="selectbox__arrow">
+                                <span></span>
+                            </span>
+                            <select class="selectbox__select" name="transfer">
+                                <option value="no" selected="selected">Без межбюджетных трансфертов</option>
+                                <option value="yes">с трансфертами</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="analityc-control-group _dp basic-budget__dp">
+                    <div class="analityc-control-group _dp basic-budget__dp" data-stage="date" data-level="moscow, regions">
                         <input class="jq-spec-datepicker-one" placeholder="Выберите дату исполнения" value="Выберите дату исполнения" readonly="readonly" />
                         <input type="hidden" name="selecteddate" />
                     </div>
-                    <div class="analityc-control-group _dp-alt basic-budget__dp">
-                        <select class="analityc-select analityc-select_date analityc-select_disabled" disabled="disabled">
-                            <option>01</option>
-                        </select>
-                        <select class="analityc-select analityc-select_month">
-                            <option>января</option>
-                            <option>февраля</option>
-                            <option>марта</option>
-                            <option>апреля</option>
-                            <option>мая</option>
-                            <option>июня</option>
-                            <option>июля</option>
-                            <option>августа</option>
-                            <option>сентября</option>
-                            <option>октября</option>
-                            <option>ноября</option>
-                            <option>декабря</option>
-                        </select>
-                        <select class="analityc-select analityc-select_year">
-                            <option>2014</option>
-                            <option>2015</option>
-                            <option>2016</option>
-                            <option>2017</option>
-                            <option>2018</option>
-                        </select>
+                    <div class="analityc-control-group _dp analityc-control-group _dp-alt basic-budget__dp" data-stage="date" data-level="consolidated">
+                        <div class="selectbox selectbox_cgroup selectbox_disabled analityc-widget__selectbox analityc-widget__selectbox_alt analityc-widget__selectbox_day">
+                            <p class="selectbox__val">01</p>
+                            <span class="selectbox__arrow">
+                                <span></span>
+                            </span>
+                            <select class="selectbox__select" name="day" disabled="disabled">
+                                <option value="01" selected="selected">01</option>
+                            </select>
+                        </div>
+                        <div class="selectbox selectbox_cgroup analityc-widget__selectbox analityc-widget__selectbox_alt analityc-widget__selectbox_month">
+                            <p class="selectbox__val">января</p>
+                            <span class="selectbox__arrow">
+                                <span></span>
+                            </span>
+                            <select class="selectbox__select" name="month">
+                                <option value="jan" selected="selected">января</option>
+                                <option value="feb">февраля</option>
+                                <option value="mar">марта</option>
+                                <option value="apr">апреля</option>
+                                <option value="may">мая</option>
+                                <option value="jun">июня</option>
+                                <option value="jul">июля</option>
+                                <option value="aug">августа</option>
+                                <option value="sep">сентября</option>
+                                <option value="oct">октября</option>
+                                <option value="nov">ноября</option>
+                                <option value="dec">декабря</option>
+                            </select>
+                        </div>
+                        <div class="selectbox selectbox_cgroup analityc-widget__selectbox analityc-widget__selectbox_alt analityc-widget__selectbox_year">
+                            <p class="selectbox__val">2015</p>
+                            <span class="selectbox__arrow">
+                                <span></span>
+                            </span>
+                            <select class="selectbox__select" name="year">
+                                <option value="2014">2014</option>
+                                <option value="2015" selected="selected">2015</option>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                                <option value="2018">2018</option>
+                            </select>
+                        </div>
                     </div>
                     <span class="analityc-widget-label">млрд. рублей</span>
-                    <div class="analityc-widget-rounds _active">
+                    <div class="analityc-widget-rounds _active" data-stage="first">
                         <div class="legend">
                             <p class="legend__item legend__item_blue">доходы</p>
                             <p class="legend__item legend__item_pink">расходы</p>
@@ -501,7 +543,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="analityc-widget-rounds">
+                    <div class="analityc-widget-rounds" data-stage="done, date">
                         <div class="analityc-widget-item _incoming">
                             <span>
                                 <strong>доходы</strong>
@@ -515,7 +557,7 @@
                             <div class="large-diagram__svg" id="diagram-5"></div>
                         </div>
                     </div>
-                    <div class="analityc-widget-rounds">
+                    <div class="analityc-widget-rounds" data-stage="changes">
                         <div class="legend">
                             <p class="legend__item legend__item_blue">доходы</p>
                             <p class="legend__item legend__item_pink">расходы</p>
