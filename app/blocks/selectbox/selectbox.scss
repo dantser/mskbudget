@@ -133,7 +133,7 @@
     
     ul {
       border-color: #d5d5d5;
-      z-index: 4;
+      z-index: 20;
     }
     
     .selectbox__val, li {
@@ -173,11 +173,16 @@
   }
   
   &_disabled {
-    cursor: auto;
+    cursor: default;
     background-color: #e5e5e5;
     
     .selectbox__select {
-      cursor: auto;
+      width: 0;
+      height: 0;
+    }
+    
+    .selectbox__arrow {
+      cursor: default;
     }
   }
 }

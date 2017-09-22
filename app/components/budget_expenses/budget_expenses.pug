@@ -14,36 +14,36 @@ mixin budget_expenses()
       .analityc-widget.analityc-widget_expenses.load-anim-fade(data-delay="1500")
         +analityc-widgethead-expenses()
 
-        +analityc-graphics-round('expenses1')._approved._targeted.active
-        +analityc-graphics-round2('expenses2')._approved._sections
-        +analityc-graphics-round3('expenses3')._approved._departments
-        +analityc-graphics-round4('expenses4')._approved._kinds
+        +analityc-graphics-round('expenses1')._approved._targeted.active(data-stage='approved', data-class='targeted')
+        +analityc-graphics-round2('expenses2')._approved._sections(data-stage='approved', data-class='sections')
+        +analityc-graphics-round3('expenses3')._approved._departments(data-stage='approved', data-class='departments')
+        +analityc-graphics-round4('expenses4')._approved._kinds(data-stage='approved', data-class='kinds')
 
-        +analityc-table()._approved
+        +analityc-table()._approved(data-stage='approved', data-class='all')
           +icon('angle-arrow').section__ar.section__ar_left
           +icon('angle-arrow').section__ar.section__ar_right
           .analityc-table__wrapper
             +table-expenses(getData('moscow_expenses'))
 
-        +analityc-graphics-column('expenses5', true)._changes
-        +analityc-table()._changes
+        +analityc-graphics-column('expenses5', true)._changes(data-stage='changes', data-class='all')
+        +analityc-table()._changes(data-stage='changes', data-class='all')
           +icon('angle-arrow').section__ar.section__ar_left
           +icon('angle-arrow').section__ar.section__ar_right
           .analityc-table__wrapper
             +table-expenses(getData('expenses1'))
 
-        +analityc-graphics-singleround-alt('expenses5')._done
-        +analityc-table()._done
+        +analityc-graphics-singleround-alt('expenses5')._done(data-stage='done', data-class='all')
+        +analityc-table()._done(data-stage='done', data-class='all')
           +table-expenses(getData('moscow_expenses2'))
 
-        +analityc-graphics-line('Исполнение расходов бюджета на 22.04.2017', getData('graphic-lines-expenses1'))._date-one
-        +analityc-table('Исполнение доходов бюджета на 22.04.2017')._date
+        +analityc-graphics-line('Исполнение расходов бюджета на 22.04.2017', getData('graphic-lines-expenses1'))._date-one(data-stage='date', data-class='all')
+        +analityc-table('Исполнение доходов бюджета на 22.04.2017')._date(data-stage='date', data-class='all')
           +icon('angle-arrow').section__ar.section__ar_left
           +icon('angle-arrow').section__ar.section__ar_right
           .analityc-table__wrapper
             +table-expenses(getData('sources'))
 
-        +analityc-graphics-line('Исполнение расходов бюджета на 01.02.2017', getData('graphic-lines-expenses1'))._date-two
+        +analityc-graphics-line('Исполнение расходов бюджета на 01.02.2017', getData('graphic-lines-expenses1'))._date-two(data-stage='dtwo')
         a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
         p.analityc-bottomtip.active * Кроме того в плановом периоде учитываются 
           span условно утвержденные расходы 

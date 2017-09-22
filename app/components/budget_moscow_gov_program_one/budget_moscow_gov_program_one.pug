@@ -35,13 +35,13 @@ mixin budget_moscow_gov_program_one(header)
 
 
 				// этап Закон о бюджете утв.
-				.analityc-widget-sources.analityc-widget-moscow-gov-program_done._active
+				.analityc-widget-sources.analityc-widget-moscow-gov-program_done.active(data-stage='approved', data-category='subgp')
 					+analityc-graphics-round5()
 
-				.analityc-widget-sources.analityc-widget-moscow-gov-program_expenses.analityc-widget-moscow-gov-program_expenses-done
+				.analityc-widget-sources.analityc-widget-moscow-gov-program_expenses.analityc-widget-moscow-gov-program_expenses-done(data-stage='approved', data-category='expenses')
 					+analityc-graphics-round6()
 
-				+analityc-table().analityc-widget-moscow-gov-program-table_done
+				+analityc-table().analityc-widget-moscow-gov-program-table_done(data-stage='approved', data-category='all')
 					+icon('angle-arrow').section__ar.section__ar_left
 					+icon('angle-arrow').section__ar.section__ar_right
 					.analityc-table__wrapper
@@ -49,13 +49,13 @@ mixin budget_moscow_gov_program_one(header)
 
 
 				// этап Закон о внесении изменений
-				.analityc-widget-sources.analityc-widget-moscow-gov-program_changes
+				.analityc-widget-sources.analityc-widget-moscow-gov-program_changes(data-stage='changes', data-category='subgp')
 					+analityc-graphics-column2()
 
-				.analityc-widget-sources.analityc-widget-moscow-gov-program_expenses.analityc-widget-moscow-gov-program_expenses-changes
+				.analityc-widget-sources.analityc-widget-moscow-gov-program_expenses.analityc-widget-moscow-gov-program_expenses-changes(data-stage='changes', data-category='expenses')
 					+analityc-graphics-column4()
 
-				+analityc-table()._changes.analityc-widget-moscow-gov-program-table_changes
+				+analityc-table()._changes.analityc-widget-moscow-gov-program-table_changes(data-stage='changes', data-category='all')
 					+icon('angle-arrow').section__ar.section__ar_left
 					+icon('angle-arrow').section__ar.section__ar_right
 					.analityc-table__wrapper
@@ -63,21 +63,21 @@ mixin budget_moscow_gov_program_one(header)
 
 
 				// этап Закон об исполнении
-				.analityc-widget-sources.analityc-widget-moscow-gov-program_exec
+				.analityc-widget-sources.analityc-widget-moscow-gov-program_exec(data-stage='done', data-category='subgp')
 					+analityc-graphics-singleround2()._exec
 
-				.analityc-widget-sources.analityc-widget-moscow-gov-program_expenses.analityc-widget-moscow-gov-program_expenses-exec
+				.analityc-widget-sources.analityc-widget-moscow-gov-program_expenses.analityc-widget-moscow-gov-program_expenses-exec(data-stage='done', data-category='expenses')
 					+analityc-graphics-singleround5()
 
-				+analityc-table().analityc-widget-moscow-gov-program-table_exec
+				+analityc-table().analityc-widget-moscow-gov-program-table_exec(data-stage='done', data-category='all')
 					+table-income(getData('income2'))
 
 
 				// этап Исполнение на дату 
-				.analityc-widget-sources.analityc-widget-moscow-gov-program_date
+				.analityc-widget-sources.analityc-widget-moscow-gov-program_date(data-stage='date', data-category='all')
 					+analityc-graphics-js-line('Исполнение доходов бюджета на 22.04.2017', getData('graphic-js-line1')[0])
 
-				+analityc-table('Исполнение доходов бюджета на 22.04.2017').analityc-widget-moscow-gov-program-table_date
+				+analityc-table('Исполнение доходов бюджета на 22.04.2017').analityc-widget-moscow-gov-program-table_date(data-stage='date', data-category='all')
 					+icon('angle-arrow').section__ar.section__ar_left
 					+icon('angle-arrow').section__ar.section__ar_right
 					.analityc-table__wrapper
