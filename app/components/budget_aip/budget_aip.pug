@@ -67,10 +67,10 @@ mixin budget_aip()
               a.govProgram__arr.govProgram__arr_prev
               a.govProgram__arr.govProgram__arr_next
             .govPrograms.active
-              +GpAIP(getData('AIPgovprogram')[0]).active
-              +GpAIP(getData('AIPgovprogram')[1])
-              +GpAIP(getData('AIPgovprogram')[2])
-              +GpAIP(getData('AIPgovprogram')[3])
+              +GpAIP(getData('AIPgovprogram')[0]).active(data-program='transport')
+              +GpAIP(getData('AIPgovprogram')[1])(data-program='medicine')
+              +GpAIP(getData('AIPgovprogram')[2])(data-program='support')
+              +GpAIP(getData('AIPgovprogram')[3])(data-program='education')
             +analityc-table_slider()._changes.analityc-widget-sources-table_date._finData
               +icon('angle-arrow').section__ar.section__ar_left
               +icon('angle-arrow').section__ar.section__ar_right

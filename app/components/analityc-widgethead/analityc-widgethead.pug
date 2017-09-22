@@ -360,9 +360,8 @@ mixin analityc-widgethead-mrelations(type)
         a(href="#").active доля от общей суммы, %
         a(href="#") млрд руб.
 
-//- type - тип шапки доходов бюджета (один из четырех)
-//- используется на странице depfin_budget_moscow_aip
-mixin analityc-widgethead-aip(type)
+//- Бюджет Москвы - Адресная инвестиционная программа
+mixin analityc-widgethead-aip()
   +b.analityc-widgethead._aip&attributes(attributes)
     +e.row
       .analityc-control-switcher.analityc-control-switcher_main.analityc-control-switcher_default.active
@@ -370,24 +369,24 @@ mixin analityc-widgethead-aip(type)
         a(href="#" data-tab-target="AIPresults") ожидаемые конечные результаты
       .analityc-control-group.analityc-control-group_period
         span Период
-        select.analityc-select
-          option(selected) 2016—2019
-          option 2015—2016
-          option 2014—2015
+        +selbox('period', '2016—2019')._cgroup.analityc-widget__selectbox
+          +selbox-opt('2016—2019', '2016—2019', true)
+          +selbox-opt('2015—2016', '2015—2016')
+          +selbox-opt('2014—2015', '2014—2015')
       .analityc-control-group.analityc-control-group_classify
         span Классификация расходов
-        select.analityc-select
-          option(selected) Целевые статьи (программный и непрограммный тип)
-          option Разделы и подразделы
-          option Ведомства
-          option Виды
+        +selbox('classify', 'Целевые статьи (программный и непрограммный тип)')._cgroup.analityc-widget__selectbox
+          +selbox-opt('targeted', 'Целевые статьи (программный и непрограммный тип)', true)
+          +selbox-opt('sections', 'Разделы и подразделы')
+          +selbox-opt('departments', 'Ведомства')
+          +selbox-opt('kinds', 'Виды')
       .analityc-control-group.analityc-control-group_gp
         span Государственная программа
-        select.analityc-select
-          option(selected) Развитие транспортной системы
-          option Столичное здравоохранение
-          option Социальная поддержка жителей Москвы
-          option Столичное образование
+        +selbox('gp', 'Развитие транспортной системы')._cgroup.analityc-widget__selectbox
+          +selbox-opt('transport', 'Развитие транспортной системы', true)
+          +selbox-opt('medicine', 'Столичное здравоохранение')
+          +selbox-opt('support', 'Социальная поддержка жителей Москвы')
+          +selbox-opt('education', 'Столичное образование')
     +e.row._extra
       .analityc-control-buttons.active
         a(href="#").analityc-control-button.analityc-control-button_graphics.active
@@ -397,6 +396,23 @@ mixin analityc-widgethead-aip(type)
       .analityc-control-switcher.analityc-control-switcher_default.active
         a(href="#").active доля от общей суммы, %
         a(href="#") млрд. руб.
+
+//- Бюджет Москвы - Социально-экономическое развитие
+mixin analityc-widgethead-forecast()
+  +b.analityc-widgethead&attributes(attributes)
+    .analityc-control-group._year
+      span Год
+      +selbox('year', '2017')._cgroup.analityc-widget__selectbox
+        +selbox-opt('2017', '2017', true)
+        +selbox-opt('2016', '2016')
+        +selbox-opt('2015', '2015')
+    .analityc-control-group._stage
+      span Этап
+      +selbox('stage', 'Проект закона о бюджете')._cgroup.analityc-widget__selectbox
+        +selbox-opt('project', 'Проект закона о бюджете', true)
+        +selbox-opt('changes', 'Закон о внесении изменений')
+        +selbox-opt('done', 'Закон об исполнении')
+        +selbox-opt('date', 'Исполнение на дату')
 
 //- Основные параметры
 mixin analityc-widgethead-main()
@@ -1135,23 +1151,6 @@ mixin analityc-widgethead-analytics-expenses()
         a(href="#").active Темп роста к пред. периоду, млрд руб.
         a(href="#") Доля в общей суммы,%
         a(href="#") % исполнения
-
-//- Бюджет Москвы - Социально-экономическое развитие
-mixin analityc-widgethead-forecast()
-  +b.analityc-widgethead&attributes(attributes)
-    .analityc-control-group._year
-      span Год
-      select.analityc-select
-        option(selected) 2017
-        option 2016
-        option 2015
-    .analityc-control-group._stage
-      span Этап
-      select.analityc-select
-        option(selected) Проект закона о бюджете
-        option Закон о внесении изменений
-        option Закон об исполнении
-        option Исполнение на дату
 
 //- Аналитика - Государственный долг
 mixin analityc-widgethead-analytics-govdebt()
