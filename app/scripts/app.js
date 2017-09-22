@@ -66,6 +66,7 @@ import documentsCards from '../components/documents-cards/documentsCards';
 import tablesActive from '../blocks/table1/table1';
 import mrelations from '../components/mrelations/mrelations';
 import budgetIncome from '../components/budget_income/budgetIncome';
+import budgetExpenses from '../components/budget_expenses/budgetExpenses';
 
 $(() => {
 
@@ -145,4 +146,5 @@ $(() => {
   tablesActive();
   mrelations();
   budgetIncome();
+  budgetExpenses();
 });

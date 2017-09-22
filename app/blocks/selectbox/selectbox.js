@@ -106,15 +106,19 @@ export default function selectbox() {
   });
 
   $(document).on('click', '.selectbox', function (e) {
-    $(this).find('select').click();
-    e.stopPropagation();
+    if ($(this).parents('.selectbox_disabled').length < 0) {
+      $(this).find('select').click();
+      e.stopPropagation();
+    }
   })
 
   $(document).on('mousedown click', '.selectbox__arrow', function (e) {
-    e.preventDefault();
-    e.stopPropagation();
-    $(document).find('.selectbox').removeClass('active');
-    $(this).parents('.selectbox').addClass('active');
+    if ($(this).parents('.selectbox_disabled').length < 0) {
+      e.preventDefault();
+      e.stopPropagation();
+      $(document).find('.selectbox').removeClass('active');
+      $(this).parents('.selectbox').addClass('active');
+    }
   });
 
   //$(document).on('click', '.selectbox ul', function () {

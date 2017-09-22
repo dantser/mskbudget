@@ -4,6 +4,197 @@ include ../../blocks/checkbox/checkbox
 include ../../blocks/link/link
 include ../../blocks/selectbox/selectbox
 
+//- Бюджет Москвы - Доходы
+mixin analityc-widgethead-income()
+  +b.analityc-widgethead&attributes(attributes)
+    .analityc-control-group._year
+      span Год
+      +selbox('year', '2017')._cgroup.analityc-widget__selectbox
+        +selbox-opt('2017', '2017', true)
+        +selbox-opt('2016', '2016')
+        +selbox-opt('2015', '2015')
+    .analityc-control-group._stage
+      span Этап
+      +selbox('stage', 'Закон о бюджете утвержденный')._cgroup.analityc-widget__selectbox
+        +selbox-opt('approved', 'Закон о бюджете утвержденный', true)
+        +selbox-opt('changes', 'Закон о внесении изменений')
+        +selbox-opt('done', 'Закон об исполнении')
+        +selbox-opt('date', 'Исполнение на дату')
+    .analityc-control-group._level
+      span Уровень
+      +selbox('level', 'Бюджет москвы')._cgroup.analityc-widget__selectbox
+        +selbox-opt('moscow', 'Бюджет москвы', true)
+        +selbox-opt('area', 'Бюджет области')
+        +selbox-opt('region', 'Бюджет региона')
+        +selbox-opt('consolidated', 'Консолидированный бюджет')
+    .analityc-control-group._transfer
+      span Классификация доходов
+      +selbox('transfer', 'Без межбюджетных трансфертов')._cgroup.analityc-widget__selectbox
+        +selbox-opt('no', 'Без межбюджетных трансфертов', true)
+        +selbox-opt-locked('yes', 'с трансфертами', 'Принятие закона о бюджете города Москвы происходит до принятия федерального бюджета, в котором установлены суммы межбюджетных трансфертов, поэтому в&nbsp;первоначальной версии бюджета города Москвы отсутствуют межбюджетные трансферты.')
+    .analityc-control-buttons.active
+      a(href="#", data-type='graphics').analityc-control-button.analityc-control-button_graphics.active
+        +icon('graphic', true)
+      a(href="#", data-type='table').analityc-control-button.analityc-control-button_table
+        +icon('table', true)
+    .analityc-control-group._dp(data-stage='date', data-level='moscow, area, region', data-type='graphics', data-control)
+      input(placeholder="Выберите дату исполнения", value="Выберите дату исполнения", readonly="readonly").datepicker
+    .analityc-control-group._dp.analityc-control-group._dp-alt.expenses__dp(data-stage='date', data-level='consolidated', data-type='graphics', data-control)
+      +selbox('day', '01', 'disabled')._cgroup._disabled.analityc-widget__selectbox._alt._day
+        +selbox-opt('01', '01', true)
+      +selbox('month', 'января')._cgroup.analityc-widget__selectbox._alt._month
+        +selbox-opt('jan', 'января', true)
+        +selbox-opt('feb', 'февраля')
+        +selbox-opt('mar', 'марта')
+        +selbox-opt('apr', 'апреля')
+        +selbox-opt('may', 'мая')
+        +selbox-opt('jun', 'июня')
+        +selbox-opt('jul', 'июля')
+        +selbox-opt('aug', 'августа')
+        +selbox-opt('sep', 'сентября')
+        +selbox-opt('oct', 'октября')
+        +selbox-opt('nov', 'ноября')
+        +selbox-opt('dec', 'декабря')
+      +selbox('year', '2015')._cgroup.analityc-widget__selectbox._alt._year
+        +selbox-opt('2014', '2014')
+        +selbox-opt('2015', '2015', true)
+        +selbox-opt('2016', '2016')
+        +selbox-opt('2017', '2017')
+        +selbox-opt('2018', '2018')
+    .analityc-control-switcher.analityc-control-switcher_large.active(data-stage='approved, changes, done', data-level='all', data-type='graphics', data-control)
+      a(href="#").active доля от общей суммы, %
+      a(href="#") млрд руб.
+    .analityc-control-switcher.analityc-control-switcher_big(data-stage='all', data-level='all', data-type='table', data-control)
+      a(href="#").active млрд руб.
+      a(href="#") млн руб.
+      
+//- Бюджет Москвы - Расходы 
+mixin analityc-widgethead-expenses()
+  +b.analityc-widgethead&attributes(attributes)
+    .analityc-control-group._year
+      span Год
+      +selbox('year', '2017')._cgroup.analityc-widget__selectbox
+        +selbox-opt('2017', '2017', true)
+        +selbox-opt('2016', '2016')
+        +selbox-opt('2015', '2015')
+    .analityc-control-group._stage
+      span Этап
+      +selbox('stage', 'Закон о бюджете утвержденный')._cgroup.analityc-widget__selectbox
+        +selbox-opt('approved', 'Закон о бюджете утвержденный', true)
+        +selbox-opt('changes', 'Закон о внесении изменений')
+        +selbox-opt('done', 'Закон об исполнении')
+        +selbox-opt('date', 'Исполнение на дату')
+    .analityc-control-group._level
+      span Уровень
+      +selbox('level', 'Бюджет москвы')._cgroup.analityc-widget__selectbox
+        +selbox-opt('moscow', 'Бюджет москвы', true)
+        +selbox-opt('area', 'Бюджет области')
+        +selbox-opt('region', 'Бюджет региона')
+        +selbox-opt('consolidated', 'Консолидированный бюджет')
+    .analityc-control-group._transfer
+      span Межбюджетные трансферы
+      +selbox('transfer', 'Без межбюджетных трансфертов')._cgroup.analityc-widget__selectbox
+        +selbox-opt('no', 'Без межбюджетных трансфертов', true)
+        +selbox-opt-locked('yes', 'с трансфертами', 'Принятие закона о бюджете города Москвы происходит до принятия федерального бюджета, в котором установлены суммы межбюджетных трансфертов, поэтому в&nbsp;первоначальной версии бюджета города Москвы отсутствуют межбюджетные трансферты.')
+    .analityc-control-buttons
+      a(href="#", data-type='graphics').analityc-control-button.analityc-control-button_graphics.active
+        +icon('graphic', true)
+      a(href="#", data-type='table').analityc-control-button.analityc-control-button_table
+        +icon('table', true)
+    .analityc-control-group._classify
+      span Классификация доходов
+      +selbox('classify', 'Целевые статьи (программный и непрограммный тип)')._cgroup.analityc-widget__selectbox
+        +selbox-opt('targeted', 'Целевые статьи (программный и непрограммный тип)', true)
+        +selbox-opt('sections', 'Разделы и подразделы')
+        +selbox-opt('departments', 'Ведомства')
+        +selbox-opt('kinds', 'Виды')
+    .analityc-control-group._dp(data-stage='date', data-level='moscow, area, region', data-type='all', data-control)
+      input(value="Выберите дату исполнения", readonly="readonly").datepicker
+    .analityc-control-group._dp-alt.expenses__dp(data-stage='date', data-level='consolidated', data-type='all', data-control)
+      +selbox('day', '01', 'disabled')._cgroup._disabled.analityc-widget__selectbox._alt._day
+        +selbox-opt('01', '01', true)
+      +selbox('month', 'января')._cgroup.analityc-widget__selectbox._alt._month
+        +selbox-opt('jan', 'января', true)
+        +selbox-opt('feb', 'февраля')
+        +selbox-opt('mar', 'марта')
+        +selbox-opt('apr', 'апреля')
+        +selbox-opt('may', 'мая')
+        +selbox-opt('jun', 'июня')
+        +selbox-opt('jul', 'июля')
+        +selbox-opt('aug', 'августа')
+        +selbox-opt('sep', 'сентября')
+        +selbox-opt('oct', 'октября')
+        +selbox-opt('nov', 'ноября')
+        +selbox-opt('dec', 'декабря')
+      +selbox('year', '2015')._cgroup.analityc-widget__selectbox._alt._year
+        +selbox-opt('2014', '2014')
+        +selbox-opt('2015', '2015', true)
+        +selbox-opt('2016', '2016')
+        +selbox-opt('2017', '2017')
+        +selbox-opt('2018', '2018')
+    .analityc-control-switcher.analityc-control-switcher_large.active(data-stage='approved, changes, done', data-level='all', data-type='graphics', data-control)
+      a(href="#").active доля от общей суммы, %
+      a(href="#") млрд руб.
+    .analityc-control-switcher.analityc-control-switcher_big(data-stage='all', data-level='all', data-type='table', data-control)
+      a(href="#").active млрд руб.
+      a(href="#") млн руб.
+      
+//- Бюджет Москвы - Источники финансирования
+mixin analityc-widgethead-sources()
+  +b.analityc-widgethead&attributes(attributes)
+    .analityc-control-group._year
+      span Год
+      +selbox('year', '2017')._cgroup.analityc-widget__selectbox
+        +selbox-opt('2017', '2017', true)
+        +selbox-opt('2016', '2016')
+        +selbox-opt('2015', '2015')
+    .analityc-control-group._stage
+      span Этап
+      +selbox('stage', 'Закон о бюджете утвержденный')._cgroup.analityc-widget__selectbox
+        +selbox-opt('approved', 'Закон о бюджете утвержденный', true)
+        +selbox-opt('changes', 'Закон о внесении изменений')
+        +selbox-opt('done', 'Закон об исполнении')
+        +selbox-opt('date', 'Исполнение на дату')
+    .analityc-control-group._level
+      span Уровень
+      +selbox('level', 'Бюджет москвы')._cgroup.analityc-widget__selectbox
+        +selbox-opt('moscow', 'Бюджет москвы', true)
+        +selbox-opt('area', 'Бюджет области')
+        +selbox-opt('region', 'Бюджет региона')
+        +selbox-opt('consolidated', 'Консолидированный бюджет')
+    .analityc-control-buttons.active
+      a(href="#", data-type='graphics').analityc-control-button.analityc-control-button_graphics.active
+        +icon('graphic', true)
+      a(href="#", data-type='table').analityc-control-button.analityc-control-button_table
+        +icon('table', true)
+    .analityc-control-group._dp(data-stage='date', data-level='moscow, area, region', data-type='all', data-control)
+      input(value="Выберите дату исполнения", readonly="readonly").datepicker
+    .analityc-control-group._dp-alt.expenses__dp(data-stage='date', data-level='consolidated', data-type='all', data-control)
+      +selbox('day', '01', 'disabled')._cgroup._disabled.analityc-widget__selectbox._alt._day
+        +selbox-opt('01', '01', true)
+      +selbox('month', 'января')._cgroup.analityc-widget__selectbox._alt._month
+        +selbox-opt('jan', 'января', true)
+        +selbox-opt('feb', 'февраля')
+        +selbox-opt('mar', 'марта')
+        +selbox-opt('apr', 'апреля')
+        +selbox-opt('may', 'мая')
+        +selbox-opt('jun', 'июня')
+        +selbox-opt('jul', 'июля')
+        +selbox-opt('aug', 'августа')
+        +selbox-opt('sep', 'сентября')
+        +selbox-opt('oct', 'октября')
+        +selbox-opt('nov', 'ноября')
+        +selbox-opt('dec', 'декабря')
+      +selbox('year', '2015')._cgroup.analityc-widget__selectbox._alt._year
+        +selbox-opt('2014', '2014')
+        +selbox-opt('2015', '2015', true)
+        +selbox-opt('2016', '2016')
+        +selbox-opt('2017', '2017')
+        +selbox-opt('2018', '2018')
+    .analityc-control-switcher.analityc-control-switcher_big(data-stage='all', data-level='all', data-type='table', data-control)
+      a(href="#").active млрд руб.
+      a(href="#") млн руб.
+      
 //- type - тип шапки доходов бюджета (один из четырех)
 //- используется на странице depfin_budget_moscow_aip
 mixin analityc-widgethead-aip(type)
@@ -41,148 +232,6 @@ mixin analityc-widgethead-aip(type)
       .analityc-control-switcher.analityc-control-switcher_default.active
         a(href="#").active доля от общей суммы, %
         a(href="#") млрд. руб.
-
-//- type - тип шапки доходов бюджета (один из четырех)
-mixin analityc-widgethead-income(type)
-  +b.analityc-widgethead&attributes(attributes)
-    .analityc-control-group._year
-      span Год
-      +selbox('year', '2017')._cgroup.analityc-widget__selectbox
-        +selbox-opt('2017', '2017', true)
-        +selbox-opt('2016', '2016')
-        +selbox-opt('2015', '2015')
-    .analityc-control-group._stage
-      span Этап
-      +selbox('stage', 'Закон о бюджете утвержденный')._cgroup.analityc-widget__selectbox
-        +selbox-opt('approved', 'Закон о бюджете утвержденный', true)
-        +selbox-opt('changes', 'Закон о внесении изменений')
-        +selbox-opt('done', 'Закон об исполнении')
-        +selbox-opt('date', 'Исполнение на дату')
-    .analityc-control-group._level
-      span Уровень
-      +selbox('level', 'Бюджет москвы')._cgroup.analityc-widget__selectbox
-        +selbox-opt('moscow', 'Бюджет москвы', true)
-        +selbox-opt('area', 'Бюджет области')
-        +selbox-opt('region', 'Бюджет региона')
-        +selbox-opt('consolidated', 'Консолидированный бюджет')
-    .analityc-control-group._transfer
-      span Классификация доходов
-      +selbox('transfer', 'Без межбюджетных трансфертов')._cgroup.analityc-widget__selectbox
-        +selbox-opt('no', 'Без межбюджетных трансфертов', true)
-        +selbox-opt-locked('yes', 'с трансфертами', 'Принятие закона о бюджете города Москвы происходит до принятия федерального бюджета, в котором установлены суммы межбюджетных трансфертов, поэтому в&nbsp;первоначальной версии бюджета города Москвы отсутствуют межбюджетные трансферты.')
-    .analityc-control-buttons.active(data-stage='all', data-level='all', data-type='all', data-control)
-      a(href="#", data-type='graphics').analityc-control-button.analityc-control-button_graphics.active
-        +icon('graphic', true)
-      a(href="#", data-type='table').analityc-control-button.analityc-control-button_table
-        +icon('table', true)
-        
-    .analityc-control-group._dp(data-stage='date', data-level='moscow, area, region', data-type='graphics', data-control)
-      input(placeholder="Выберите дату исполнения", value="Выберите дату исполнения", readonly="readonly").datepicker
-    .analityc-control-group._dp.analityc-control-group._dp-alt.expenses__dp(data-stage='date', data-level='consolidated', data-type='graphics', data-control)
-      +selbox('day', '01', 'disabled')._cgroup._disabled.analityc-widget__selectbox._alt._day
-        +selbox-opt('01', '01', true)
-      +selbox('month', 'января')._cgroup.analityc-widget__selectbox._alt._month
-        +selbox-opt('jan', 'января', true)
-        +selbox-opt('feb', 'февраля')
-        +selbox-opt('mar', 'марта')
-        +selbox-opt('apr', 'апреля')
-        +selbox-opt('may', 'мая')
-        +selbox-opt('jun', 'июня')
-        +selbox-opt('jul', 'июля')
-        +selbox-opt('aug', 'августа')
-        +selbox-opt('sep', 'сентября')
-        +selbox-opt('oct', 'октября')
-        +selbox-opt('nov', 'ноября')
-        +selbox-opt('dec', 'декабря')
-      +selbox('year', '2015')._cgroup.analityc-widget__selectbox._alt._year
-        +selbox-opt('2014', '2014')
-        +selbox-opt('2015', '2015', true)
-        +selbox-opt('2016', '2016')
-        +selbox-opt('2017', '2017')
-        +selbox-opt('2018', '2018')
-
-    .analityc-control-switcher.analityc-control-switcher_large.active(data-stage='approved, changes, done', data-level='all', data-type='graphics', data-control)
-      a(href="#").active доля от общей суммы, %
-      a(href="#") млрд руб.
-    .analityc-control-switcher.analityc-control-switcher_big(data-stage='all', data-level='all', data-type='table', data-control)
-      a(href="#").active млрд руб.
-      a(href="#") млн руб.
-
-//- type - тип шапки расходов бюджета (один из трех)
-mixin analityc-widgethead-expenses(type)
-  +b.analityc-widgethead&attributes(attributes)
-    .analityc-control-group._year
-      span Год
-      select.analityc-select
-        option(selected) 2017
-        option 2016
-        option 2015
-    .analityc-control-group._stage
-      span Этап
-      select.analityc-select
-        option(selected) Закон о бюджете утвержденный
-        option Закон о внесении изменений
-        option Закон об исполнении
-        option Исполнение на дату
-    .analityc-control-group._level
-      span Уровень
-      select.analityc-select
-        option(selected) Бюджет москвы
-        option Бюджет области
-        option Бюджет региона
-        option Консолидированный бюджет
-    .analityc-control-group._transfer
-      span Межбюджетные трансферы
-      select.analityc-select
-        option(selected) Без межбюджетных трансфертов
-        option(disabled) с трансфертами
-      p.analityc-popup Принятие закона о бюджете города Москвы происходит до принятия федерального бюджета, в котором установлены суммы межбюджетных трансфертов, поэтому в&nbsp;первоначальной версии бюджета города Москвы отсутствуют межбюджетные трансферты.
-    .analityc-control-buttons
-      a(href="#").analityc-control-button.analityc-control-button_graphics.active
-        +icon('graphic', true)
-      a(href="#").analityc-control-button.analityc-control-button_table
-        +icon('table', true)
-
-    .analityc-control-group._classify
-      span Классификация доходов
-      select.analityc-select
-        option Целевые статьи (программный и непрограммный тип)
-        option Разделы и подразделы
-        option Ведомства
-        option(selected) Виды
-
-    .analityc-control-group._dp
-      input(value="Выберите дату исполнения", readonly="readonly").datepicker
-
-    .analityc-control-group._dp-alt.expenses__dp
-      select(disabled).analityc-select.analityc-select_date.analityc-select_disabled
-        option 01
-      select.analityc-select.analityc-select_month
-        option(selected=selected) января
-        option февраля
-        option марта
-        option апреля
-        option мая
-        option июня
-        option июля
-        option августа
-        option сентября
-        option октября
-        option ноября
-        option декабря
-      select.analityc-select.analityc-select_year
-        option 2014
-        option(selected=selected) 2015
-        option 2016
-        option 2017
-        option 2018
-
-    .analityc-control-switcher.analityc-control-switcher_large.active
-      a(href="#").active доля от общей суммы, %
-      a(href="#") млрд руб.
-    .analityc-control-switcher.analityc-control-switcher_big
-      a(href="#").active млрд руб.
-      a(href="#") млн руб.
 
 //- Основные параметры
 mixin analityc-widgethead-main()
@@ -260,63 +309,7 @@ mixin analityc-widgethead-main()
 
         +legend(getData('legend-main')).analityc-control-legend
 
-mixin analityc-widgethead-sources(type)
-  +b.analityc-widgethead&attributes(attributes)
-    .analityc-control-group._year
-      span Год
-      select.analityc-select
-        option(selected) 2017
-        option 2016
-        option 2015
-    .analityc-control-group._stage
-      span Этап
-      select.analityc-select
-        option(selected) Закон о бюджете утвержденный
-        option Закон о внесении изменений
-        option Закон об исполнении
-        option Исполнение на дату
-    .analityc-control-group._level
-      span Уровень
-      select.analityc-select
-        option(selected) Бюджет москвы
-        option Бюджет области
-        option Бюджет региона
-        option Консолидированный бюджет
-    .analityc-control-buttons.active
-      a(href="#").analityc-control-button.analityc-control-button_graphics.active
-        +icon('graphic', true)
-      a(href="#").analityc-control-button.analityc-control-button_table
-        +icon('table', true)
 
-    .analityc-control-group._dp
-      input(value="Выберите дату исполнения", readonly="readonly").datepicker
-
-    .analityc-control-group._dp-alt.expenses__dp
-      select(disabled).analityc-select.analityc-select_date.analityc-select_disabled
-        option 01
-      select.analityc-select.analityc-select_month
-        option(selected=selected) января
-        option февраля
-        option марта
-        option апреля
-        option мая
-        option июня
-        option июля
-        option августа
-        option сентября
-        option октября
-        option ноября
-        option декабря
-      select.analityc-select.analityc-select_year
-        option 2014
-        option(selected=selected) 2015
-        option 2016
-        option 2017
-        option 2018
-
-    .analityc-control-switcher.analityc-control-switcher_big
-      a(href="#").active млрд руб.
-      a(href="#") млн руб.
 
 mixin analityc-widgethead-analityc-income()
   +b.analityc-widgethead._income&attributes(attributes)
