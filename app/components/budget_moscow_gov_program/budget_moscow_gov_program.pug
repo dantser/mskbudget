@@ -25,10 +25,10 @@ mixin budget_moscow_gov_program()
         +analityc-widgethead-moscow-gp()
 
         // Этап Закон о бюджете утв.
-        .analityc-widget-sources.analityc-widget-moscow-gov-program_done._active
+        .analityc-widget-sources.analityc-widget-moscow-gov-program_done.active(data-stage='approved', data-category='gp')
           +analityc-graphics-multiline(getData('graphic-multiline'))
 
-        .analityc-widget-sources.analityc-widget-moscow-gov-program_structure.analityc-widget-moscow-gov-program_structure-done
+        .analityc-widget-sources.analityc-widget-moscow-gov-program_structure.analityc-widget-moscow-gov-program_structure-done(data-stage='approved', data-category='structure')
           .analityc-widget-moscow-gov-program__structure-wrapper
             p.analityc-graphics__periodtext
               span Плановый период
@@ -50,14 +50,14 @@ mixin budget_moscow_gov_program()
             span.analityc-graphics_round-prev
             +legend(getData('legend-moscow-gp2')).analityc-graphics__legend
 
-        +analityc-table().analityc-widget-moscow-gov-program-table_done
+        +analityc-table().analityc-widget-moscow-gov-program-table_done(data-stage='approved', data-category='all')
           +icon('angle-arrow').section__ar.section__ar_left
           +icon('angle-arrow').section__ar.section__ar_right
           .analityc-table__wrapper
             +table-income(getData('income'))
 
         // Этап Закон о внесении изменений
-        .analityc-widget-sources.analityc-widget-moscow-gov-program_changes
+        .analityc-widget-sources.analityc-widget-moscow-gov-program_changes(data-stage='changes', data-category='all')
           p.analityc-graphics__periodtext
             span Плановый период
           .graphic__row
@@ -77,7 +77,7 @@ mixin budget_moscow_gov_program()
             +tabs-tab(data-tab-group="analityc-lines", data-tab="line3")
               +analityc-graphics-line-alt(getData('graphic-lines-gp1'))._date-three
 
-        +analityc-table()._changes.analityc-widget-moscow-gov-program-table_changes
+        +analityc-table()._changes.analityc-widget-moscow-gov-program-table_changes(data-stage='changes', data-category='all')
           +icon('angle-arrow').section__ar.section__ar_left
           +icon('angle-arrow').section__ar.section__ar_right
           .analityc-table__wrapper
@@ -85,23 +85,23 @@ mixin budget_moscow_gov_program()
 
 
         // этап Закон об исполнении
-        .analityc-widget-sources.analityc-widget-moscow-gov-program_exec
+        .analityc-widget-sources.analityc-widget-moscow-gov-program_exec(data-stage='done', data-category='gp')
           +analityc-graphics-line-alt(getData('graphic-lines-gp1'))._exec
 
-        .analityc-widget-sources.analityc-widget-moscow-gov-program_structure.analityc-widget-moscow-gov-program_structure-exec
+        .analityc-widget-sources.analityc-widget-moscow-gov-program_structure.analityc-widget-moscow-gov-program_structure-exec(data-stage='done', data-category='structure')
           +analityc-graphics-mix(getData('graphic-lines-mix1')[3])
           +legend(getData('legend-moscow-gp2')).analityc-graphics__legend.analityc-graphics__legend_vert
 
 
-        +analityc-table().analityc-widget-moscow-gov-program-table_exec
+        +analityc-table().analityc-widget-moscow-gov-program-table_exec(data-stage='done', data-category='all')
           +table-income(getData('income2'))
 
 
         // Этап Исполнение на дату 
-        .analityc-widget-sources.analityc-widget-moscow-gov-program_date
+        .analityc-widget-sources.analityc-widget-moscow-gov-program_date(data-stage='date', data-category='all')
           +analityc-graphics-line-alt(getData('graphic-lines-gp2'), 'Исполнение доходов бюджета на 22.04.2017')._gp
 
-        +analityc-table('Исполнение доходов бюджета на 22.04.2017').analityc-widget-moscow-gov-program-table_date
+        +analityc-table('Исполнение доходов бюджета на 22.04.2017').analityc-widget-moscow-gov-program-table_date(data-stage='date', data-category='all')
           +icon('angle-arrow').section__ar.section__ar_left
           +icon('angle-arrow').section__ar.section__ar_right
           .analityc-table__wrapper

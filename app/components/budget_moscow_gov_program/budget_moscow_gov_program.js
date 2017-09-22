@@ -42,92 +42,6 @@ export default () => {
 		})
 	})
 
-	const STAGE = $(".analityc-widget_moscow-gov-program .analityc-control-group._stage .analityc-select");
-
-	const SWITCHER = $('.analityc-widget_moscow-gov-program .analityc-control-switcher_large');
-
-	const GRAPHICDONE = $('.analityc-widget-moscow-gov-program_done');
-	const GRAPHICCHANGES = $('.analityc-widget-moscow-gov-program_changes');
-	const GRAPHICEXEC = $('.analityc-widget-moscow-gov-program_exec');
-
-	const GRAPHICSTRUCTURE_DONE = $('.analityc-widget-moscow-gov-program_structure-done');
-	const GRAPHICSTRUCTURE_EXEC = $('.analityc-widget-moscow-gov-program_structure-exec');
-
-	SWITCHER.on('click', 'a', function(e) {
-		e.preventDefault();
-
-		SWITCHER.children('a').each(function(id, item) {
-			$(item).removeClass('active');
-		});
-
-		$(this).addClass('active');
-
-		if ($(this).attr('data-type') == 'gp') {
-			if (STAGE.val() === "Закон о бюджете утвержденный")
-				GRAPHICDONE.addClass('_active');
-			else if (STAGE.val() === "Закон об исполнении")
-				GRAPHICEXEC.addClass('_active');
-			$('.analityc-widget-moscow-gov-program_structure').removeClass('_active');
-		}
-		if ($(this).attr('data-type') == 'structure') {
-			GRAPHICDONE.removeClass('_active');
-			GRAPHICEXEC.removeClass('_active');
-
-			if (STAGE.val() === "Закон о бюджете утвержденный")
-				GRAPHICSTRUCTURE_DONE.addClass('_active');
-			else if (STAGE.val() === "Закон об исполнении")
-				GRAPHICSTRUCTURE_EXEC.addClass('_active');
-		}
-
-		positionValues();
-	});
-
-	const SWITCHER_SUB = $('.analityc-widget_moscow-gov-program .analityc-control-switcher_sub');
-	const UNITS = $('.analityc-widget_moscow-gov-program .analityc-control-switcher_units');
-	const GRAPHICEXPENSES = $('.analityc-widget-moscow-gov-program_expenses');
-	const GRAPHICEXPENSES_DONE = $('.analityc-widget-moscow-gov-program_expenses-done');
-	const GRAPHICEXPENSES_CHANGES = $('.analityc-widget-moscow-gov-program_expenses-changes');
-	const GRAPHICEXPENSES_EXEC = $('.analityc-widget-moscow-gov-program_expenses-exec');
-
-	SWITCHER_SUB.on('click', 'a', function(e) {
-		e.preventDefault();
-
-		SWITCHER_SUB.children('a').each(function(id, item) {
-			$(item).removeClass('active');
-		});
-
-		$(this).addClass('active');
-
-		if ($(this).attr('data-type') == 'sub-gp') {
-			GRAPHICEXPENSES.removeClass('_active');
-
-			if (STAGE.val() === "Закон о бюджете утвержденный")
-				GRAPHICDONE.addClass('_active');
-			else if (STAGE.val() === "Закон о внесении изменений") {
-				GRAPHICCHANGES.addClass('_active');
-				UNITS.removeClass('active');
-			}
-			else if (STAGE.val() === "Закон об исполнении")
-				GRAPHICEXEC.addClass('_active');
-			else if (STAGE.val() === "Исполнение на дату")
-				UNITS.removeClass('active');
-		}
-		if ($(this).attr('data-type') == 'expenses') {
-			$('.analityc-widget_moscow-gov-program .analityc-widget-sources').removeClass('_active');
-			
-			if (STAGE.val() === "Закон о бюджете утвержденный")
-				GRAPHICEXPENSES_DONE.addClass('_active');
-			else if (STAGE.val() === "Закон о внесении изменений")
-				GRAPHICEXPENSES_CHANGES.addClass('_active');
-			else if (STAGE.val() === "Закон об исполнении")
-				GRAPHICEXPENSES_EXEC.addClass('_active');
-
-			UNITS.addClass('active');
-		}
-
-		positionValues();
-	});
-
 
 	// Формирование графика Закон о бюджете утв. - гп
 	const GRAPHIC_DONE = $('.analityc-widget-moscow-gov-program_done');
@@ -301,5 +215,95 @@ export default () => {
 	$(document).ready(function(){ 
 		grLinePopup(); 
 	});
-	$(document).on('change', '.analityc-widget_moscow-gov-program .analityc-control-group._stage .analityc-select', grLinePopup);
+  
+  
+  
+  // переключение по селектам
+  $('.analityc-widget_moscow-gov-program .analityc-control-group select').on('change', function () {
+    changeContent('select');
+    grLinePopup();
+  });
+  
+  // переключение по кнопкам график/таблица
+  $(".analityc-widget_moscow-gov-program .analityc-control-button").on("click", function(e) {
+    e.preventDefault();
+    $(this).siblings().removeClass('active');
+    $(this).addClass('active');
+    changeContent('button', $(this));
+  });
+  
+  // переключение по свитчеру гп/структура
+  $(".analityc-widget_moscow-gov-program .analityc-control-switcher_large a").on("click", function(e) {
+    changeContent('switcher', $(this));
+  });
+  
+  // переключение по свитчеру подпрограммы/виды расходов
+  $(".analityc-widget_moscow-gov-program .analityc-control-switcher_sub a").on("click", function(e) {
+    changeContent('switcher', $(this));
+  });
+  
+  
+  
+  function changeContent(typeofchange, el) {
+    var graphics = $('.analityc-widget-sources'),
+        table = $('.analityc-table'),
+        controls = $('.analityc-widgethead [data-control]'),
+        stageSelect = $('.analityc-control-group._stage select'),
+        levelSelect = $('.analityc-control-group._level select'),
+        stageVal = stageSelect.val(),
+        levelVal = levelSelect.val(),
+        block;
+    
+    if (typeofchange == 'select') {
+      var activeButton = $('.analityc-control-button.active'),
+          activeSwitcher = $('.analityc-control-switcher_large a.active'),
+          typeVal = activeButton.data('type'),
+          catVal = activeSwitcher.data('category');
+    } else if (typeofchange == 'button') {
+      var typeVal = el.data('type'),
+          activeSwitcher = $('.analityc-control-switcher_large a.active'),
+          catVal = activeSwitcher.data('category');
+    } else {
+      var activeButton = $('.analityc-control-button.active'),
+          typeVal = activeButton.data('type'),
+          catVal = el.data('category');
+    }
+    
+    graphics.removeClass('active');
+    table.removeClass('active');
+    controls.removeClass('active');
+    
+    if (typeVal == 'graphics') {
+      block = graphics;
+    } else {
+      block = table;
+    }
+    
+    changeBlock(block, stageVal, catVal);
+    changeControl(controls, stageVal, levelVal, typeVal);
+    
+    positionValues();
+  }
+  
+  function changeBlock(el, stageVal, catVal) {
+    el.each(function(){
+      var stage = $(this).data('stage'),
+          category = $(this).data('category');
+      if ((stage == 'all' || stage.match(stageVal)) && (category == 'all' || category.match(catVal))) {
+        $(this).addClass('active');
+      }
+    });
+  }
+  
+  function changeControl(el, stageVal, levelVal, typeVal) {
+    el.each(function(){
+      var stage = $(this).data('stage'),
+          level = $(this).data('level'),
+          type = $(this).data('type');
+      if ((stage == 'all' || stage.match(stageVal)) && (level == 'all' || level.match(levelVal)) && (type == 'all' || type.match(typeVal))) {
+        $(this).addClass('active');
+      }
+    });
+  }
+  
 }
