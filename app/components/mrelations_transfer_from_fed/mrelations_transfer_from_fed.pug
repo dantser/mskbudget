@@ -24,33 +24,33 @@ mixin mrelations_transfer_from_fed(header)
 
 				+analityc-widgethead-mrelations()
 
-				+analityc-graphics-round7()._approved.active
+				+analityc-graphics-round7()._approved.active(data-stage='approved', data-class='transkinds')
 				
-				+analityc-table()._approved
+				+analityc-table()._approved(data-stage='approved', data-class='transkinds')
 					+icon('angle-arrow').section__ar.section__ar_left
 					+icon('angle-arrow').section__ar.section__ar_right
 					.analityc-table__wrapper
 						+table-mrelations(getData('income'))
 
 				//- класс-я Направления расходования
-				+analityc-graphics-round8()._domain
+				+analityc-graphics-round8()._domain(data-stage='approved', data-class='directions')
 
-				+analityc-table()._domain
+				+analityc-table()._domain(data-stage='approved', data-class='directions')
 					+icon('angle-arrow').section__ar.section__ar_left
 					+icon('angle-arrow').section__ar.section__ar_right
 					.analityc-table__wrapper
 						+table-mrelations2(getData('income'))
 						
 
-				+analityc-graphics-singleround3()._done
+				+analityc-graphics-singleround3()._done(data-stage='done', data-class='all')
 				
-				+analityc-table()._done
+				+analityc-table()._done(data-stage='done', data-class='all')
 					+table-mrelations(getData('mrelations'))
 
 
-				+analityc-graphics-line('ИСПОЛНЕНИЕ ДОХОДОВ БЮДЖЕТА НА 22.04.2017', getData('graphic-lines-mrelations'))._date
+				+analityc-graphics-line('ИСПОЛНЕНИЕ ДОХОДОВ БЮДЖЕТА НА 22.04.2017', getData('graphic-lines-mrelations'))._date(data-stage='date', data-class='all')
 				
-				+analityc-table('Исполнение доходов бюджета на 22.04.2017')._date
+				+analityc-table('Исполнение доходов бюджета на 22.04.2017')._date(data-stage='date', data-class='all')
 					+icon('angle-arrow').section__ar.section__ar_left
 					+icon('angle-arrow').section__ar.section__ar_right
 					.analityc-table__wrapper

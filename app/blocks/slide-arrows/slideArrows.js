@@ -53,6 +53,8 @@ export default () => {
   slideArrow('.gov-debt .analityc-graphics__graphic-slider_approved', '.gov-debt .analityc-graphics__slide-arrows_approved', 'sliderwidth');
   slideArrow('.gov-debt .analityc-graphics__graphic-slider_changes', '.gov-debt .analityc-graphics__slide-arrows_changes', 'sliderwidth');
   slideArrow('.gov-debt .analityc-graphics__graphic-slider_repayment', '.gov-debt .analityc-graphics__slide-arrows_repayment', 100);
+  slideArrow('.gov-debt .analityc-table__wrapper_approved', '.gov-debt .analityc-table__slide-arrows_approved', 100);
+  slideArrow('.gov-debt .analityc-table__wrapper_changes', '.gov-debt .analityc-table__slide-arrows_changes', 100);
   
   // Бюджет Москвы - Источники финансирования
   slideArrow('.moscow-sources .linear-diagrams__wrapper', '.moscow-sources .linear-diagrams__slide-arrows', 100);

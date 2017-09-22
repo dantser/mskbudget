@@ -3,50 +3,6 @@ import $ from 'jquery';
 export default () => {
 
   $(document).ready(function(){
-    $(".gov-debt__analityc-widget .analityc-control-group._stage select.analityc-select").on("change", function () {
-      var $this = $(this);
-      var govdebt = $(".gov-debt__analityc-widget"),
-          govdebtGraphics = govdebt.find($('.gov-debt__analityc-tab_govdebt .gov-debt__analityc-graphics')),
-          govdebtGraphicsApproved = govdebt.find($('.analityc-graphics_approved')),
-          govdebtGraphicsChanges = govdebt.find($('.analityc-graphics_changes')),
-          govdebtGraphicsDate = govdebt.find($('.analityc-graphics_date')),
-          govdebtTable = govdebt.find($('.gov-debt__analityc-tab_govdebt .analityc-table')),
-          govdebtTableApproved = govdebt.find($('.analityc-table_approved')),
-          govdebtTableChanges = govdebt.find($('.analityc-table_changes')),
-          govdebtTableDate = govdebt.find($('.analityc-table_done'));
-
-      govdebtGraphics.removeClass('active');
-      govdebtTable.removeClass('active');
-
-      if ($this.val() ===  "Закон о бюджете утвержденный") {
-        govdebtGraphicsApproved.addClass('active');
-        govdebtTableApproved.addClass('active');
-        govdebtHead(1);
-      } else if ($this.val() ===  "Закон о внесении изменений") {
-        govdebtGraphicsChanges.addClass('active');
-        govdebtTableChanges.addClass('active');
-        govdebtHead(1);
-      } else if ($this.val() ===  "Исполнение на дату") {
-        govdebtGraphicsDate.addClass('active');
-        govdebtTableDate.addClass('active');
-        govdebtHead(2);
-      }
-
-      positionValues();
-    });
-
-    function govdebtHead(type) {
-      var govdebtSwitcher = $('.gov-debt__analityc-widgethead .analityc-control-switcher'),
-          govdebtDatepicker = $('.gov-debt__analityc-widget .analityc-control-group._dp');
-
-      if (type === 1) {
-        govdebtSwitcher.removeClass('active');
-        govdebtDatepicker.removeClass('active');
-      } else if (type === 2) {
-        govdebtSwitcher.addClass('active');
-        govdebtDatepicker.addClass('active');
-      }
-    }
 
     $('.gov-debt__analityc-tab-link').click(function(e){
       e.preventDefault();
@@ -93,4 +49,45 @@ export default () => {
     // }
     };
   }
+  
+  
+  // переключение по селектам
+  $('.gov-debt__analityc-widget .analityc-control-group select').on('change', function () {
+    changeContent('select');
+  });
+  
+  function changeContent(typeofchange, el) {
+    var stageBlock = $('.analityc-graphics[data-stage], .analityc-table[data-stage]'),
+        controls = $('.analityc-widgethead [data-control]'),
+        stageSelect = $('.analityc-control-group._stage select'),
+        stageVal = stageSelect.val(),
+        block;
+    
+    stageBlock.removeClass('active');
+    controls.removeClass('active');
+    
+    changeBlock(stageBlock, stageVal);
+    changeControl(controls, stageVal);
+    
+    positionValues();
+  }
+  
+  function changeBlock(el, stageVal) {
+    el.each(function(){
+      var stage = $(this).data('stage');
+      if (stage == 'all' || stage.match(stageVal)) {
+        $(this).addClass('active');
+      }
+    });
+  }
+  
+  function changeControl(el, stageVal) {
+    el.each(function(){
+      var stage = $(this).data('stage');
+      if (stage == 'all' || stage.match(stageVal)) {
+        $(this).addClass('active');
+      }
+    });
+  }
+  
 }

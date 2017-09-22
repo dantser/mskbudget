@@ -271,6 +271,95 @@ mixin analityc-widgethead-moscow-gp(program)
       a(href="#").active млрд руб.
       a(href="#") млн руб.
       
+//- Бюджет Москвы - Государственный долг
+mixin analityc-widgethead-govdebt()
+  +b.analityc-widgethead&attributes(attributes)
+    .analityc-control-group._year
+      span Год
+      +selbox('year', '2017')._cgroup.analityc-widget__selectbox
+        +selbox-opt('2017', '2017', true)
+        +selbox-opt('2016', '2016')
+        +selbox-opt('2015', '2015')
+    .analityc-control-group._stage
+      span Этап
+      +selbox('stage', 'Закон о бюджете утвержденный')._cgroup.analityc-widget__selectbox
+        +selbox-opt('approved', 'Закон о бюджете утвержденный', true)
+        +selbox-opt('changes', 'Закон о внесении изменений')
+        +selbox-opt('date', 'Исполнение на дату')
+    .analityc-control-group._dp(data-stage='date', data-control)
+      +selbox('day', '01', 'disabled')._cgroup._disabled.analityc-widget__selectbox._alt._day
+        +selbox-opt('01', '01', true)
+      +selbox('month', 'января')._cgroup.analityc-widget__selectbox._alt._month
+        +selbox-opt('jan', 'января', true)
+        +selbox-opt('feb', 'февраля')
+        +selbox-opt('mar', 'марта')
+        +selbox-opt('apr', 'апреля')
+        +selbox-opt('may', 'мая')
+        +selbox-opt('jun', 'июня')
+        +selbox-opt('jul', 'июля')
+        +selbox-opt('aug', 'августа')
+        +selbox-opt('sep', 'сентября')
+        +selbox-opt('oct', 'октября')
+        +selbox-opt('nov', 'ноября')
+        +selbox-opt('dec', 'декабря')
+      +selbox('year', '2015')._cgroup.analityc-widget__selectbox._alt._year
+        +selbox-opt('2014', '2014')
+        +selbox-opt('2015', '2015', true)
+        +selbox-opt('2016', '2016')
+        +selbox-opt('2017', '2017')
+        +selbox-opt('2018', '2018')
+    .analityc-control-switcher
+        a(href="#").active доля от общей суммы, %
+        a(href="#") млрд. руб.
+
+//- Бюджет Москвы - Межбюджетные отношения
+mixin analityc-widgethead-mrelations(type)
+  +b.analityc-widgethead&attributes(attributes)
+    .analityc-control-group-wrapper
+      .analityc-control-group._year
+        span Год
+        +selbox('year', '2017')._cgroup.analityc-widget__selectbox
+          +selbox-opt('2017', '2017', true)
+          +selbox-opt('2016', '2016')
+          +selbox-opt('2015', '2015')
+
+      if type
+        .analityc-control-group._stage.active
+          span Этап
+          +selbox('stage', 'Закон о бюджете утвержденный')._cgroup.analityc-widget__selectbox
+            +selbox-opt('approved', 'Закон о бюджете утвержденный', true)
+            +selbox-opt('changes', 'Закон о внесении изменений')
+            +selbox-opt('working', 'Закон о бюджете (действующая редакция)')
+            +selbox-opt('done', 'Закон об исполнении')
+            +selbox-opt('date', 'Исполнение на дату')
+      else
+        .analityc-control-group._stage.active
+          span Этап
+          +selbox('stage', 'Закон о бюджете утвержденный')._cgroup.analityc-widget__selectbox
+            +selbox-opt('approved', 'Закон о бюджете утвержденный', true)
+            +selbox-opt('done', 'Закон об исполнении')
+            +selbox-opt('date', 'Исполнение на дату')
+
+      .analityc-control-group._transfer.active
+        span Классификация
+        +selbox('classify', 'Виды трансфертов')._cgroup.analityc-widget__selectbox
+          +selbox-opt('transkinds', 'Виды трансфертов', true)
+          +selbox-opt('directions', 'Направления расходования')
+    .analityc-control-group-wrapper
+      .analityc-control-buttons.active
+        a(href="#", data-type='graphics').analityc-control-button.analityc-control-button_graphics.active
+          +icon('graphic', true)
+        a(href="#", data-type='table').analityc-control-button.analityc-control-button_table
+          +icon('table', true)   
+      .analityc-control-group._dp(data-stage='date', data-type='all', data-control)
+        input(placeholder="Выберите дату исполнения", value="Выберите дату исполнения", readonly="readonly").datepicker
+      .analityc-control-switcher.analityc-control-switcher_big(data-stage='all', data-type='table', data-control)
+        a(href="#").active млрд руб.
+        a(href="#") млн руб.
+      .analityc-control-switcher.analityc-control-switcher_large.active(data-stage='approved, changes, working, done', data-type='graphics', data-control)
+        a(href="#").active доля от общей суммы, %
+        a(href="#") млрд руб.
+
 //- type - тип шапки доходов бюджета (один из четырех)
 //- используется на странице depfin_budget_moscow_aip
 mixin analityc-widgethead-aip(type)
@@ -1047,49 +1136,6 @@ mixin analityc-widgethead-analytics-expenses()
         a(href="#") Доля в общей суммы,%
         a(href="#") % исполнения
 
-
-mixin analityc-widgethead-govdebt()
-  +b.analityc-widgethead&attributes(attributes)
-    .analityc-control-group._year
-      span Год
-      select.analityc-select
-        option(selected) 2017
-        option 2016
-        option 2015
-    .analityc-control-group._stage
-      span Этап
-      select.analityc-select
-        option(selected) Закон о бюджете утвержденный
-        option Закон о внесении изменений
-        option Исполнение на дату
-    .analityc-control-group._dp
-      select(disabled).analityc-select.analityc-select_date.analityc-select_disabled
-        option 01
-      select.analityc-select.analityc-select_month
-        option(selected=selected) января
-        option февраля
-        option марта
-        option апреля
-        option мая
-        option июня
-        option июля
-        option августа
-        option сентября
-        option октября
-        option ноября
-        option декабря
-      select.analityc-select.analityc-select_year
-        option 2014
-        option(selected=selected) 2015
-        option 2016
-        option 2017
-        option 2018
-    .analityc-control-switcher
-        a(href="#").active доля от общей суммы, %
-        a(href="#") млрд. руб.
-
-
-
 //- Бюджет Москвы - Социально-экономическое развитие
 mixin analityc-widgethead-forecast()
   +b.analityc-widgethead&attributes(attributes)
@@ -1255,53 +1301,3 @@ mixin analityc-widgethead-gov-realisation(type)
       .analityc-control-switcher.analityc-control-switcher_big.active(data-switcher='switcher2')
         a(href="#").active млрд руб.
         a(href="#") млн руб.
-
-mixin analityc-widgethead-mrelations(type)
-  +b.analityc-widgethead&attributes(attributes)
-    .analityc-control-group-wrapper
-      .analityc-control-group._year
-        span Год
-        select.analityc-select
-          option(selected) 2017
-          option 2016
-          option 2015
-
-      if type
-        .analityc-control-group._stage.active
-          span Этап
-          select.analityc-select
-            option(selected) Закон о бюджете утвержденный
-            option Закон о внесении изменений
-            option Закон о бюджете (действующая редакция)
-            option Закон об исполнении
-            option Исполнение на дату
-      else
-        .analityc-control-group._stage.active
-          span Этап
-          select.analityc-select
-            option(selected) Закон о бюджете утвержденный
-            option Закон об исполнении
-            option Исполнение на дату
-
-      .analityc-control-group._transfer.active
-        span Классификация
-        select.analityc-select
-          option(selected) Виды трансфертов
-          option Направления расходования
-    .analityc-control-group-wrapper
-      .analityc-control-buttons.active
-        a(href="#").analityc-control-button.analityc-control-button_graphics.active
-          +icon('graphic', true)
-        a(href="#").analityc-control-button.analityc-control-button_table
-          +icon('table', true)   
-
-      .analityc-control-group._dp
-        input(placeholder="Выберите дату исполнения", value="Выберите дату исполнения", readonly="readonly").datepicker
-
-      .analityc-control-switcher.analityc-control-switcher_big
-        a(href="#").active млрд руб.
-        a(href="#") млн руб.
-
-      .analityc-control-switcher.analityc-control-switcher_large.active
-        a(href="#").active доля от общей суммы, %
-        a(href="#") млрд руб.
