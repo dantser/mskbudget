@@ -414,29 +414,47 @@
                             </div>
                             <div class="analityc-control-group analityc-control-group_period">
                                 <span>Период</span>
-                                <select class="analityc-select">
-                                    <option selected="selected">2016—2019</option>
-                                    <option>2015—2016</option>
-                                    <option>2014—2015</option>
-                                </select>
+                                <div class="selectbox selectbox_cgroup analityc-widget__selectbox">
+                                    <p class="selectbox__val">2016—2019</p>
+                                    <span class="selectbox__arrow">
+                                        <span></span>
+                                    </span>
+                                    <select class="selectbox__select" name="period">
+                                        <option value="2016—2019" selected="selected">2016—2019</option>
+                                        <option value="2015—2016">2015—2016</option>
+                                        <option value="2014—2015">2014—2015</option>
+                                    </select>
+                                </div>
                             </div>
                             <div class="analityc-control-group analityc-control-group_classify">
                                 <span>Классификация расходов</span>
-                                <select class="analityc-select">
-                                    <option selected="selected">Целевые статьи (программный и непрограммный тип)</option>
-                                    <option>Разделы и подразделы</option>
-                                    <option>Ведомства</option>
-                                    <option>Виды</option>
-                                </select>
+                                <div class="selectbox selectbox_cgroup analityc-widget__selectbox">
+                                    <p class="selectbox__val">Целевые статьи (программный и непрограммный тип)</p>
+                                    <span class="selectbox__arrow">
+                                        <span></span>
+                                    </span>
+                                    <select class="selectbox__select" name="classify">
+                                        <option value="targeted" selected="selected">Целевые статьи (программный и непрограммный тип)</option>
+                                        <option value="sections">Разделы и подразделы</option>
+                                        <option value="departments">Ведомства</option>
+                                        <option value="kinds">Виды</option>
+                                    </select>
+                                </div>
                             </div>
                             <div class="analityc-control-group analityc-control-group_gp">
                                 <span>Государственная программа</span>
-                                <select class="analityc-select">
-                                    <option selected="selected">Развитие транспортной системы</option>
-                                    <option>Столичное здравоохранение</option>
-                                    <option>Социальная поддержка жителей Москвы</option>
-                                    <option>Столичное образование</option>
-                                </select>
+                                <div class="selectbox selectbox_cgroup analityc-widget__selectbox">
+                                    <p class="selectbox__val">Развитие транспортной системы</p>
+                                    <span class="selectbox__arrow">
+                                        <span></span>
+                                    </span>
+                                    <select class="selectbox__select" name="gp">
+                                        <option value="transport" selected="selected">Развитие транспортной системы</option>
+                                        <option value="medicine">Столичное здравоохранение</option>
+                                        <option value="support">Социальная поддержка жителей Москвы</option>
+                                        <option value="education">Столичное образование</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                         <div class="analityc-widgethead__row analityc-widgethead__row_extra">
@@ -677,7 +695,7 @@
                                 <a class="govProgram__arr govProgram__arr_next"></a>
                             </div>
                             <div class="govPrograms active">
-                                <div class="govProgram active">
+                                <div class="govProgram active" data-program="transport">
                                     <div class="govProgram__heading">
                                         <div class="govProgram__icon">
                                             <img src="assets/images/depfin-analytics-gp/pink-big.png" />
@@ -726,7 +744,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="govProgram">
+                                <div class="govProgram" data-program="medicine">
                                     <div class="govProgram__heading">
                                         <div class="govProgram__icon">
                                             <img src="assets/images/depfin-analytics-gp/pink-big.png" />
@@ -775,7 +793,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="govProgram">
+                                <div class="govProgram" data-program="support">
                                     <div class="govProgram__heading">
                                         <div class="govProgram__icon">
                                             <img src="assets/images/depfin-analytics-gp/pink-big.png" />
@@ -824,7 +842,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="govProgram">
+                                <div class="govProgram" data-program="education">
                                     <div class="govProgram__heading">
                                         <div class="govProgram__icon">
                                             <img src="assets/images/depfin-analytics-gp/pink-big.png" />

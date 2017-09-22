@@ -418,52 +418,82 @@
                         <div class="analityc-widgethead gov-debt__analityc-widgethead">
                             <div class="analityc-control-group _year">
                                 <span>Год</span>
-                                <select class="analityc-select">
-                                    <option selected="selected">2017</option>
-                                    <option>2016</option>
-                                    <option>2015</option>
-                                </select>
+                                <div class="selectbox selectbox_cgroup analityc-widget__selectbox">
+                                    <p class="selectbox__val">2017</p>
+                                    <span class="selectbox__arrow">
+                                        <span></span>
+                                    </span>
+                                    <select class="selectbox__select" name="year">
+                                        <option value="2017" selected="selected">2017</option>
+                                        <option value="2016">2016</option>
+                                        <option value="2015">2015</option>
+                                    </select>
+                                </div>
                             </div>
                             <div class="analityc-control-group _stage">
                                 <span>Этап</span>
-                                <select class="analityc-select">
-                                    <option selected="selected">Закон о бюджете утвержденный</option>
-                                    <option>Закон о внесении изменений</option>
-                                    <option>Исполнение на дату</option>
-                                </select>
+                                <div class="selectbox selectbox_cgroup analityc-widget__selectbox">
+                                    <p class="selectbox__val">Закон о бюджете утвержденный</p>
+                                    <span class="selectbox__arrow">
+                                        <span></span>
+                                    </span>
+                                    <select class="selectbox__select" name="stage">
+                                        <option value="approved" selected="selected">Закон о бюджете утвержденный</option>
+                                        <option value="changes">Закон о внесении изменений</option>
+                                        <option value="date">Исполнение на дату</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="analityc-control-group _dp">
-                                <select class="analityc-select analityc-select_date analityc-select_disabled" disabled="disabled">
-                                    <option>01</option>
-                                </select>
-                                <select class="analityc-select analityc-select_month">
-                                    <option>января</option>
-                                    <option>февраля</option>
-                                    <option>марта</option>
-                                    <option>апреля</option>
-                                    <option>мая</option>
-                                    <option>июня</option>
-                                    <option>июля</option>
-                                    <option>августа</option>
-                                    <option>сентября</option>
-                                    <option>октября</option>
-                                    <option>ноября</option>
-                                    <option>декабря</option>
-                                </select>
-                                <select class="analityc-select analityc-select_year">
-                                    <option>2014</option>
-                                    <option>2015</option>
-                                    <option>2016</option>
-                                    <option>2017</option>
-                                    <option>2018</option>
-                                </select>
+                            <div class="analityc-control-group _dp" data-stage="date" data-control="data-control">
+                                <div class="selectbox selectbox_cgroup selectbox_disabled analityc-widget__selectbox analityc-widget__selectbox_alt analityc-widget__selectbox_day">
+                                    <p class="selectbox__val">01</p>
+                                    <span class="selectbox__arrow">
+                                        <span></span>
+                                    </span>
+                                    <select class="selectbox__select" name="day" disabled="disabled">
+                                        <option value="01" selected="selected">01</option>
+                                    </select>
+                                </div>
+                                <div class="selectbox selectbox_cgroup analityc-widget__selectbox analityc-widget__selectbox_alt analityc-widget__selectbox_month">
+                                    <p class="selectbox__val">января</p>
+                                    <span class="selectbox__arrow">
+                                        <span></span>
+                                    </span>
+                                    <select class="selectbox__select" name="month">
+                                        <option value="jan" selected="selected">января</option>
+                                        <option value="feb">февраля</option>
+                                        <option value="mar">марта</option>
+                                        <option value="apr">апреля</option>
+                                        <option value="may">мая</option>
+                                        <option value="jun">июня</option>
+                                        <option value="jul">июля</option>
+                                        <option value="aug">августа</option>
+                                        <option value="sep">сентября</option>
+                                        <option value="oct">октября</option>
+                                        <option value="nov">ноября</option>
+                                        <option value="dec">декабря</option>
+                                    </select>
+                                </div>
+                                <div class="selectbox selectbox_cgroup analityc-widget__selectbox analityc-widget__selectbox_alt analityc-widget__selectbox_year">
+                                    <p class="selectbox__val">2015</p>
+                                    <span class="selectbox__arrow">
+                                        <span></span>
+                                    </span>
+                                    <select class="selectbox__select" name="year">
+                                        <option value="2014">2014</option>
+                                        <option value="2015" selected="selected">2015</option>
+                                        <option value="2016">2016</option>
+                                        <option value="2017">2017</option>
+                                        <option value="2018">2018</option>
+                                    </select>
+                                </div>
                             </div>
                             <div class="analityc-control-switcher">
                                 <a class="active" href="#">доля от общей суммы, %</a>
                                 <a href="#">млрд. руб.</a>
                             </div>
                         </div>
-                        <div class="analityc-graphics analityc-graphics_approved gov-debt__analityc-graphics active">
+                        <div class="analityc-graphics analityc-graphics_approved gov-debt__analityc-graphics active" data-stage="approved">
                             <p class="analityc-graphics__periodtext">
                                 <span>Плановый период</span>
                             </p>
@@ -553,7 +583,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="analityc-graphics analityc-graphics_changes gov-debt__analityc-graphics">
+                        <div class="analityc-graphics analityc-graphics_changes gov-debt__analityc-graphics" data-stage="changes">
                             <p class="analityc-graphics__periodtext">
                                 <span>Плановый период</span>
                             </p>
@@ -632,7 +662,7 @@
                                 <p class="legend__item legend__item_altgreen">Верхний предел государственного долга, млрд руб.</p>
                             </div>
                         </div>
-                        <div class="analityc-graphics analityc-graphics_date gov-debt__analityc-graphics">
+                        <div class="analityc-graphics analityc-graphics_date gov-debt__analityc-graphics" data-stage="date">
                             <p class="analityc-graphics__graphic-heading">Объем государственного долга на 01.02.2017</p>
                             <div class="analityc-graphics__cols">
                                 <div class="analityc-graphics__col analityc-graphics__col_wide">
@@ -687,14 +717,20 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="analityc-table analityc-table_slider analityc-table_approved analityc-widget-sources-table analityc-widget-sources-table_approved active">
+                        <div class="analityc-table analityc-table_approved active" data-stage="approved">
                             <div class="analityc-control-switcher">
                                 <a class="active" href="#">млн. руб.</a>
                                 <a href="#">млрд. руб.</a>
                             </div>
-                            <svg class="analityc-table__section__ar section__ar section__ar_left"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
-                            <svg class="analityc-table__section__ar section__ar section__ar_right"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
-                            <div class="analityc-table__wrapper">
+                            <div class="slide-arrows analityc-table__slide-arrows analityc-table__slide-arrows_approved">
+                                <div class="slide-arrows__arrow slide-arrows__arrow_left">
+                                    <svg><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
+                                </div>
+                                <div class="slide-arrows__arrow slide-arrows__arrow_right">
+                                    <svg><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
+                                </div>
+                            </div>
+                            <div class="analityc-table__wrapper analityc-table__wrapper_approved">
                                 <div class="table">
                                     <p class="table__periodtext">
                                         <span>Плановый период</span>
@@ -750,14 +786,20 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="analityc-table analityc-table_slider analityc-table_changes analityc-widget-sources-table analityc-widget-sources-table_changes">
+                        <div class="analityc-table analityc-table_changes" data-stage="changes">
                             <div class="analityc-control-switcher">
                                 <a class="active" href="#">млн. руб.</a>
                                 <a href="#">млрд. руб.</a>
                             </div>
-                            <svg class="analityc-table__section__ar section__ar section__ar_left"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
-                            <svg class="analityc-table__section__ar section__ar section__ar_right"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
-                            <div class="analityc-table__wrapper">
+                            <div class="slide-arrows analityc-table__slide-arrows analityc-table__slide-arrows_changes">
+                                <div class="slide-arrows__arrow slide-arrows__arrow_left">
+                                    <svg><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
+                                </div>
+                                <div class="slide-arrows__arrow slide-arrows__arrow_right">
+                                    <svg><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
+                                </div>
+                            </div>
+                            <div class="analityc-table__wrapper analityc-table__wrapper_changes">
                                 <div class="table">
                                     <p class="table__periodtext">
                                         <span>Плановый период</span>
@@ -861,14 +903,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="analityc-table analityc-table_slider analityc-table_done analityc-widget-sources-table analityc-widget-sources-table_done">
+                        <div class="analityc-table analityc-table_done" data-stage="date">
                             <div class="analityc-control-switcher">
                                 <a class="active" href="#">млн. руб.</a>
                                 <a href="#">млрд. руб.</a>
                             </div>
-                            <svg class="analityc-table__section__ar section__ar section__ar_left"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
-                            <svg class="analityc-table__section__ar section__ar section__ar_right"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
-                            <div class="analityc-table__wrapper">
+                            <div class="analityc-table__wrapper analityc-table__wrapper_done">
                                 <div class="table">
                                     <p class="table__periodtext">
                                         <span>Плановый период</span>
