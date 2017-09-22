@@ -74,39 +74,39 @@ mixin vmoPassportContent()
               +icon('caret')
         .services-VMO__content.services-VMO__content_population
           h4.services-VMO__subtitle Население
-          .services-VMO__digit.services-VMO__digit_green 1 200 000 
+          .services-VMO__digit.services-VMO__digit_violet 1 200 000 
             span человек
-          .services-VMO__digit.services-VMO__digit_green
+          .services-VMO__digit.services-VMO__digit_violet
             span 600 000 человек (50%)
             span.services-VMO__subdescr 12,3% территории москвы
-          .services-VMO__digit.services-VMO__digit_green
+          .services-VMO__digit.services-VMO__digit_violet
             span 600 000 человек (50%)
             span.services-VMO__subdescr 12,3% территории москвы
-          .services-VMO__digit.services-VMO__digit_green
+          .services-VMO__digit.services-VMO__digit_violet
             span 600 000 человек (50%)
             span.services-VMO__subdescr 12,3% территории москвы
         .services-VMO__content
           .services-VMO__content.services-VMO__content_small
             h4.services-VMO__subtitle занятость и заработная плата
-            .services-VMO__digit.services-VMO__digit_green 1 200 000 
+            .services-VMO__digit.services-VMO__digit_violet 1 200 000 
               span человек
               span.services-VMO__subdescr среднесписочная численность работников организаций
-            .services-VMO__digit.services-VMO__digit_green
+            .services-VMO__digit.services-VMO__digit_violet
               span 600 000 человек (50%)
               span.services-VMO__subdescr 12,3% территории москвы
           .services-VMO__content.services-VMO__content_small
             h4.services-VMO__subtitle занятость и заработная плата
-            .services-VMO__digit.services-VMO__digit_green 1 200 000 
+            .services-VMO__digit.services-VMO__digit_violet 1 200 000 
               span человек
               span.services-VMO__subdescr среднесписочная численность работников организаций
-            .services-VMO__digit.services-VMO__digit_green
+            .services-VMO__digit.services-VMO__digit_violet
               span 600 000 человек (50%)
               span.services-VMO__subdescr 12,3% территории москвы
           .services-VMO__content.services-VMO__content_small
             h4.services-VMO__subtitle Культура и спорт
-            .services-VMO__digit.services-VMO__digit_green
+            .services-VMO__digit.services-VMO__digit_violet
               span 1000 спортивных сооружений
-            .services-VMO__digit.services-VMO__digit_green.services-VMO__digit_columns
+            .services-VMO__digit.services-VMO__digit_violet.services-VMO__digit_columns
               span.services-VMO__digit_column 10
               span.services-VMO__subdescr
                 | детско-юношеских спортивных школ на 
@@ -114,18 +114,18 @@ mixin vmoPassportContent()
 
           .services-VMO__content.services-VMO__content_small
             h4.services-VMO__subtitle Промышленное производство и строительство
-            .services-VMO__digit.services-VMO__digit_green
+            .services-VMO__digit.services-VMO__digit_violet
               span.services-VMO__subdescr 
                 | Отгружено товаров собственного производства, выполнено работ и услуг собственными силами
                 b на сумму 10 млрд руб.
 
-            .services-VMO__digit.services-VMO__digit_green
+            .services-VMO__digit.services-VMO__digit_violet
               span.services-VMO__subdescr 
                 | Введено в действие жилых домов 
                 b общей площадью 1 млн кв. м
           .services-VMO__content.services-VMO__content_small
             h4.services-VMO__subtitle Розничная торговля
-            .services-VMO__digit.services-VMO__digit_green 
+            .services-VMO__digit.services-VMO__digit_violet 
               span.services-VMO__subdescr 
                 | Функционирует
                 b 1000 объектов 
@@ -211,11 +211,9 @@ mixin vmoPassportContent()
             span.selectbox-year Год
             +selectbox('year', [{"val":"opt1", "text":"2017"}, {"val":"opt2", "text":"2016"}]).selectbox_vmo
           .analityc-control-group._base
-            span База сравнения
-            select.analityc-select
-              option(selected) Объем доходов
-              option Объем расходов
-              option еще один очень длинный пункт
+            span.selectbox-base База сравнения
+            +selectbox('base', [{"val":"opt1", "text":"Объем доходов"}, {"val":"opt2", "text":"Объем расходов"}, {"val":"opt3", "text":"еще один очень длинный пункт"}]).selectbox_vmo
+
         .services-VMO__table.services-VMO__table_comparison
           .services-VMO__table__wrapper
             .services-VMO__table-head

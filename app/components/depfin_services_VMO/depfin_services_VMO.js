@@ -109,10 +109,12 @@ export default () => {
     var coordsX = $(this).offset().left,
         coordsY = $(this).offset().top,
         width = this.getBoundingClientRect().width,
-        height = this.getBoundingClientRect().height;
+        height = this.getBoundingClientRect().height,
+        data = $(this).data('name');
 
     MAP_POPUP.addClass('active');
     MAP_POPUP.offset({top:coordsY + height, left:coordsX - width / 2});
+    MAP_POPUP.text(data);
 
   }, function() {
     MAP_POPUP.removeClass('active');

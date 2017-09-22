@@ -6,6 +6,7 @@
 
   .wrapper {
     overflow: hidden;
+    margin-top: 41px;
   }
 
   &__tabs-wrapper {
@@ -20,7 +21,6 @@
     width: 100%;
     margin: 0;
     padding: 0;
-    margin-top: 41px;
 
     a {
       display: inline-block;
@@ -79,10 +79,6 @@
       .services-VMO__map-wrapper {
         top: -60%;
         left: 65%;
-      }
-
-      .analityc-control-group._search {
-        float: right;
       }
       .services-VMO__content_municipal {
         padding-bottom: 150px;
@@ -143,41 +139,42 @@
     }
   }
 
-  .analityc-control-group._year {
+  .analityc-control-group._year,
+  .analityc-control-group._base {
+    display: inline-block;
     width: auto;
     vertical-align: middle;
     margin-top: 25px;
-    .analityc-select {
-      display: inline-block;
-      vertical-align: middle;
-      width: 72px;
-      margin-top: 0;
-    }
-    .selectbox-year {
+
+    .selectbox-year,
+    .selectbox-base {
       display: inline-block;
       vertical-align: middle;
       margin-right: 10px;
     }
   }
+
+  .analityc-control-group._base {
+    @media (max-width: 900px) {
+      margin-left: 20px;
+    }
+
+    @media (max-width: 570px) {
+      display: block;
+      margin-left: 0;
+      margin-top: 0;
+    }
+  }
+
   .selectbox_vmo {
-    width: 75px;
+    width: auto;
+    min-width: 75px;
     display: inline-block;
     vertical-align: middle;
-  }
-  .analityc-control-group._base {
-    width: auto;
-    vertical-align: middle;
-    margin-top: 25px;
-    .analityc-select {
-      display: inline-block;
-      vertical-align: middle;
-      width: 337px;
-      margin-top: 0;
-    }
-    span {
-      display: inline-block;
-      vertical-align: middle;
-      margin-right: 10px;
+
+    .selectbox__arrow {
+      height: calc(100% + 1px);
+      border-bottom: 1px solid #acacac;
     }
   }
 
@@ -401,6 +398,10 @@
         }
         &_red {
           background-color: rgba(254, 36, 0, .2);
+        }
+
+        &:hover {
+          background-color: #fff9c7;
         }
       }
       .table__col {
@@ -681,6 +682,9 @@
     &_green {
       color: #82b345;
     }
+    &_violet {
+      color: #7809b8;
+    }
   }
 
   &__descr {
@@ -704,6 +708,25 @@
       }
     }
 
+    .services-VMO__graphics-fact,
+    .services-VMO__graphics-plan {
+      display: inline-block;
+      text-align: justify;
+
+      @media (max-width: 768px) {
+        text-align: left;
+        margin: 0 -3%;
+        width: 100%;
+      }
+    }
+
+    .services-VMO__graphics-fact {
+      width: 84.5%;
+
+      @media (max-width: 768px) {
+        width: 100%;
+      }
+    }
 
     .services-VMO__row {
       font-weight: 400;
@@ -756,6 +779,14 @@
         font-family: $PFDinCondensedPro;
         font-weight: 500;
       }
+
+      &_graphics {
+        @media (max-width: 570px) {
+          float: none;
+          display: block;
+          text-align: center;
+        }
+      }
     }
 
     .comp-diagram {
@@ -805,38 +836,28 @@
       }
     }
     .analityc-widget-item {
-      width: 16.5%;
+      width: 19.5%;
       margin-left: 0;
       position: relative;
     }
 
-    .analityc-graphics__period-left, .analityc-graphics__period-right {
-      top: 100%;
-      bottom: inherit;
-      border-bottom: 1px solid #d7d7d7;
-      border-top: none;
-      margin-top: 15px;
-      margin-bottom: 0;
-      z-index: 2;
-      width: 200%;
-    }
-
-    .analityc-graphics__period-right {
-      left: auto;
-    }
     .analityc-graphics__periodtext {
-      width: 84%;
-      bottom: 0;
-      left: 0;
-      right: inherit;
-      margin-top: 0;
-      margin-bottom: -40px;
+      display: block!important;
+      position: relative;
+      width: 100%;
+      margin-top: 40px;
+    }
 
-      &_alt {
-        width: 18.5%;
-        right: 0;
-        left: inherit;
-      }
+    .analityc-graphics__period {
+      position: absolute;
+      padding: 0;
+      bottom: 50%;
+      left: 0;
+      border: 1px solid #d7d7d7;
+      border-top: none;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
     }
   }
 
@@ -932,9 +953,13 @@
     min-height: 580px;
     position: relative;
 
+    @media (max-width: 640px) and (min-width: 571px){
+      min-height: 420px;
+    }
+
     .services-VMO__map-wrapper {
       float: none;
-      position: absolute;
+      position: absolute!important;
       top: 0;
       left: 50%;
       transform: translateX(-50%);
@@ -988,6 +1013,13 @@
       top: 0;
       right: 0;
       z-index: 2;
+      margin-bottom: 0;
+
+      @media (max-width: 570px) {
+        position: relative;
+        margin-top: 20px;
+      }
+
       span {
         display: inline-block;
         font-size: 14px;
@@ -1256,9 +1288,43 @@
       }
     }
   }
+  .tabs__tab[data-tab="vmoMunicipalDistricts"] {
+    .services-VMO__map-wrapper {
+
+      @media (max-width: 768px) {
+        width: 70%;
+        top: 10%;        
+      }
+
+      @media (max-width: 570px) {
+        width: 100%;
+        top: auto;
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+
+  }
+  
   .tabs__tab[data-tab="vmoCityDistricts"] {
     .services-VMO__map-wrapper {
       top: -30%;
+      @media (max-width: 768px) {
+        width: 120%;
+        top: -55%;
+        right: -38%; 
+      }
+
+      @media (max-width: 570px) {
+        width: 170%;
+        top: auto;
+        bottom: -35%;
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);     
+      }
+
     }
 
     .analityc-control-group {
@@ -1276,6 +1342,35 @@
       //   border-bottom: 1px solid #dcdcdc;
       // }
     }
+  }
+
+  .tabs__tab[data-tab="vmoSettlements"] {
+
+    .services-VMO__map-wrapper {
+      top: -60%;
+      left: 65%;
+
+      @media (max-width: 768px) {
+        width: 100%;
+        top: -60%;
+        left: auto;
+        right: -37%;  
+      }
+
+      @media (max-width: 768px) and (min-width: 641px) {
+        top: -50%;
+      }
+
+      @media (max-width: 570px) {
+        width: 120%;
+        top: auto;
+        right: auto;
+        left: 65%;
+        bottom: -5%;  
+        transform: translateX(-50%);    
+      }      
+    }
+
   }
 
 
@@ -1333,6 +1428,11 @@
       width: auto;
       margin-right: 45px;
       display: inline-block;
+
+      @media (max-height: 570px) {
+        margin-right: 0;
+      }
+
       &:last-child {
         margin-top: 0;
       }
@@ -1439,11 +1539,7 @@
     }
 
     .services-VMO__content_municipal {
-      .services-VMO__map-wrapper {
-        margin-left: -168px;
-        margin-right: -75px;
-        // width: 427px;
-      }
+
       &-graphics .services-VMO__content_bottom {
         .services-VMO__subtitle {
           float: none;
@@ -1510,9 +1606,6 @@
   }
 
   @media (max-width: 768px) {
-    .services-VMO__tabs-control a.active {
-      background-color: $color-white !important;
-    }
     &__map-wrapper {
       width: 70%;
       padding-top: 116px;
@@ -1565,10 +1658,13 @@
       text-align: justify;
     }
     .services-VMO__content_graphics .analityc-widget-item {
-      width: auto;
       display: inline-block;
+      width: auto;
       vertical-align: middle;
       margin-bottom: 40px;
+
+      margin-left: 3%!important;
+      margin-right: 3%!important;
     }
 
     &__tabs-control a {
@@ -1578,12 +1674,10 @@
     .services-VMO__content_municipal {
       .services-VMO__map-wrapper {
         width: 100%;
-        padding-top: 0;
-        margin: 0;
-      }
-      .analityc-control-group._search {
-        position: absolute;
+        left: auto;
         right: 0;
+        transform: none;
+        padding-top: 0;
       }
       &-graphics {
         .services-VMO__content_line-bar {
@@ -1602,6 +1696,29 @@
           height: 65px;
         }
 
+      }
+    }
+    .analityc-control-switcher {
+      white-space: nowrap;
+      overflow-y: hidden;
+      overflow-x: scroll;
+      display: block;
+      position: relative;
+
+      &-wrapper {
+        min-width: 673px;
+      }
+      &_default {
+        display: inline-block;
+        overflow: visible;
+        .analityc-control-switcher-wrapper {
+          min-width: 580px;
+        }
+      }
+      &_passport {
+        .analityc-control-switcher-wrapper {
+          min-width: 640px;
+        }
       }
     }
     .analityc-control-switcher a {
@@ -1688,29 +1805,6 @@
         }
       }
     }
-    .analityc-control-switcher {
-      overflow-y: hidden;
-      overflow-x: scroll;
-      display: block;
-      position: relative;
-
-      &-wrapper {
-        min-width: 673px;
-      }
-      &_default {
-        display: inline-block;
-        overflow: visible;
-        .analityc-control-switcher-wrapper {
-          min-width: 580px;
-        }
-      }
-      &_passport {
-        .analityc-control-switcher-wrapper {
-          min-width: 640px;
-        }
-      }
-    }
-
   }
 
   @media (max-width: 640px) {
@@ -1744,17 +1838,6 @@
       }
     }
 
-
-    .services-VMO__content_municipal {
-      .analityc-control-group._search {
-        right: auto;
-        left: 0;
-        margin-top: 15px;
-      }
-      .services-VMO__map-wrapper {
-        padding-top: 65px;
-      }
-    }
     .analityc-control-switcher {
 
       // .analityc-control-switcher_right-lg, .analityc-control-switcher_left-lg {
@@ -1813,6 +1896,12 @@
 
 
   @media (max-width: 570px) {
+    .services-VMO__tabs-control a {
+      &.active {
+        background-color: $color-white!important;
+      }
+    }
+
     .services-VMO__content_passport {
       .services-VMO__right-block {
         width: 100%;
@@ -1822,7 +1911,7 @@
       }
     }
     .analityc-control-switcher a {
-      display: inline;
+      width: auto;
     }
     .services-VMO__map-wrapper {
       width: 100%;
@@ -1850,6 +1939,9 @@
       width: 100%;
     }
 
+    .services-VMO__content_graphics .analityc-widget-item {
+      width: 40%!important;
+    }
   }
 
   @media (max-width: 500px) {
@@ -1899,16 +1991,6 @@
     .services-VMO__content_passport .services-VMO__rate {
       line-height: 30px;
       padding: 10px 20px;
-    }
-    .analityc-control-group._base {
-      width: 100%;
-      span {
-        margin-bottom: 5px;
-      }
-      .analityc-select {
-        width: 100%;
-        box-sizing: border-box;
-      }
     }
     .services-VMO__content_allvmo {
       float: none;
