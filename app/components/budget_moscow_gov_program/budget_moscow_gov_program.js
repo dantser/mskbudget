@@ -39,6 +39,7 @@ export default () => {
 			GR_MIX.siblings().hide();
 			GR_MIX.eq(year).show();
 
+			positionValues();
 		})
 	})
 
@@ -179,7 +180,7 @@ export default () => {
 				$('.analityc-widget-moscow-gov-program__structure-wrapper').addClass('active');
 			}
 
-
+			positionValues();
 		})
 	})
 

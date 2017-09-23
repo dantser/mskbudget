@@ -5,8 +5,50 @@
   background-position: center 0;
 
   .wrapper {
+    position: relative;
     overflow: hidden;
     margin-top: 41px;
+  }
+
+  &__lg {
+    position: absolute;
+    top: calc(0% - 1px);
+    width: 30%;
+    height: calc(100% + 2px);
+    pointer-events: none;
+    z-index: 3;
+
+    &_left-lg {
+      left: calc(0% - 1px);
+      background-image: linear-gradient(to right,rgba(255, 255, 255, 1) 10%,transparent 90%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00ffffff",endColorstr="#ffffff",GradientType=1)
+    }
+
+    &_right-lg {
+      right: calc(0% + 1px);
+      background-image: linear-gradient(to left,rgba(255, 255, 255, 1) 10%,transparent 90%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00ffffff",endColorstr="#ffffff",GradientType=1)
+    }
+
+    /*for page wrapper*/
+    &_color-black {
+      top: 0;
+      width: 15%;
+      height: 52px;
+
+      &.services-VMO__lg_left-lg {
+        left: 0;
+        background-image: linear-gradient(to right, rgba(29,28,31,.8) 10%, transparent 90%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00ffffff",endColorstr="#ffffff",GradientType=1)
+      }
+
+      &.services-VMO__lg_right-lg {
+        right: 0;
+        background-image: linear-gradient(to left, rgba(29,28,31,.8) 10%, transparent 90%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00ffffff",endColorstr="#ffffff",GradientType=1)
+      }
+
+    }
   }
 
   &__tabs-wrapper {
@@ -238,6 +280,7 @@
   &__table {
 
     &-head {
+      padding-top: 40px;
       padding-bottom: 25px;
       border-bottom: 2px solid #e6e6e6;
       position: sticky;
@@ -308,8 +351,6 @@
     &__wrapper {
       overflow-y: scroll;
       border-bottom: 1px solid #e6e6e6;
-      padding-top: 40px!important;
-
 
       // Custom Scrollbar
       > .scroll-element,
@@ -587,6 +628,7 @@
   }
 
   .analityc-control-switcher {
+    position: relative;
     font-size: 0;
     display: table;
     a {
@@ -1839,24 +1881,6 @@
     }
 
     .analityc-control-switcher {
-
-      // .analityc-control-switcher_right-lg, .analityc-control-switcher_left-lg {
-      //   width: 25%;
-      //   height: 100%;
-      //   top: 0;
-      //   position: absolute;
-      //   z-index: 2;
-      // }
-      // .analityc-control-switcher_right-lg {
-      //   right: 0;
-      //   background: linear-gradient(270deg,hsla(0,0%,100%,0) 0,#fff);
-      //   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#00ffffff",GradientType=1);
-      // }
-      // .analityc-control-switcher_left-lg {
-      //   left: 0;
-      //   background: linear-gradient(90deg,hsla(0,0%,100%,0) 0,#fff);
-      //   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00ffffff",endColorstr="#ffffff",GradientType=1)
-      // }
 
       &_passport {
         overflow-y: hidden;
