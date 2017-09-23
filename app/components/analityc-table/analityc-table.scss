@@ -532,13 +532,6 @@
 }
 
 @media screen and (max-width: 760px) {
-  .analityc-table_approved,
-  .analityc-widget_mrelations .analityc-table_work,
-  .analityc-widget_mrelations .analityc-table_domain,
-  .analityc-widget-moscow-gov-program-table_done,
-  .analityc-table_date {
-    overflow-x: scroll;
-  }
   .analityc-table_approved .table,
   .analityc-widget_mrelations .analityc-table_work,
   .analityc-widget_mrelations .analityc-table_domain,
@@ -567,13 +560,55 @@
 }
 
 @media screen and (max-width: 550px) {
-  .analityc-table_done {
-    overflow-x: scroll;
-  }
-  .analityc-table_done .table {
-    min-width: 430px;
-  }
   .analityc-table__heading {
     font-size: 24px;
+  }
+}
+
+
+
+
+
+
+@mixin table-slider($minwidth) {
+  
+  @media screen and (max-width: $minwidth) {
+    .analityc-table__wrapper {
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+    .analityc-table__slide-arrows {
+      display: block;
+    }
+    .table {
+      min-width: $minwidth;
+    }
+  }
+}
+
+
+.analityc-table {
+  position: relative;
+  
+  &__slide-arrows {
+    display: none;
+    position: absolute;
+    left: -38px;
+    right: -38px;
+    top: 50%;
+    margin-top: -25px;
+    
+    @media screen and (max-width: 580px) {
+      left: -23px;
+      right: -23px;
+      margin-top: -15px;
+    }
+  }
+  
+  &_approved, &_date {
+    @include table-slider(580px);
+  }
+  &_changes {
+    @include table-slider(900px);
   }
 }

@@ -4,27 +4,27 @@ export default () => {
   
   function slideArrow(el, arrows, offset) {
     
-    if ($(el).length > 0) {
+    if (el.length > 0) {
       
-      $(arrows).find('.slide-arrows__arrow_left').on('click', function (e) {
-        if (offset === 'sliderwidth') {offset = $(el).outerWidth();}
-        $(el).animate( { scrollLeft: '-='+offset }, 300);
+      arrows.find('.slide-arrows__arrow_left').on('click', function (e) {
+        if (offset === 'sliderwidth') {offset = el.outerWidth();}
+        el.animate( { scrollLeft: '-='+offset }, 300);
       });
     
-      $(arrows).find('.slide-arrows__arrow_right').on('click', function (e) {
-        if (offset === 'sliderwidth') {offset = $(el).outerWidth();}
-        $(el).animate( { scrollLeft: '+='+offset }, 300);
+      arrows.find('.slide-arrows__arrow_right').on('click', function (e) {
+        if (offset === 'sliderwidth') {offset = el.outerWidth();}
+        el.animate( { scrollLeft: '+='+offset }, 300);
       });
       
       function arrowActive(el) {
           
-        var sL = $(el).scrollLeft(),
-            leftArr = $(arrows).find('.slide-arrows__arrow_left'),
-            rightArr = $(arrows).find('.slide-arrows__arrow_right');
+        var sL = el.scrollLeft(),
+            leftArr = arrows.find('.slide-arrows__arrow_left'),
+            rightArr = arrows.find('.slide-arrows__arrow_right');
       
         if (sL === 0) {
           leftArr.addClass('disabled');
-        } else if (sL === ( $(el).prop('scrollWidth') - $(el).width().toFixed(0) ) ) {
+        } else if (sL === ( el.prop('scrollWidth') - el.width().toFixed(0) ) ) {
           rightArr.addClass('disabled');
         } else {
           leftArr.removeClass('disabled');
@@ -33,30 +33,39 @@ export default () => {
       }
       
       arrowActive(el);
-      $(el).scroll(function(){
-        arrowActive(this);
+      el.scroll(function(){
+        arrowActive($(this));
       });
       
     }
   }
   
   // Инициализация
+  if ($('.slide-arrows').length) {
+    $('.slide-arrows').each(function(){
+      var container = $(this).parents('.analityc-table, .linear-diagrams'),
+          wrapper = container.find('.analityc-table__wrapper, .linear-diagrams__wrapper'),
+          arrows = $(this),
+          offset = wrapper.data('offset');
+      slideArrow(wrapper, arrows, offset);
+    });
+  }
   
-  // Бюджет Москвы - Социально-экономическое развитие
-  slideArrow('.budget-forecast__table-wrapper', '.budget-forecast__slide-arrows', 100);
-  
-  // Аналитика - Государственный долг
-  slideArrow('.analytics-gov-debt__graphic-wrapper', '.analytics-gov-debt__slide-arrows_graphics', 100);
-  slideArrow('.analytics-gov-debt__table-wrapper', '.analytics-gov-debt__slide-arrows_table', 100);
-  
-  // Бюджет Москвы - Государственный долг
-  slideArrow('.gov-debt .analityc-graphics__graphic-slider_approved', '.gov-debt .analityc-graphics__slide-arrows_approved', 'sliderwidth');
-  slideArrow('.gov-debt .analityc-graphics__graphic-slider_changes', '.gov-debt .analityc-graphics__slide-arrows_changes', 'sliderwidth');
-  slideArrow('.gov-debt .analityc-graphics__graphic-slider_repayment', '.gov-debt .analityc-graphics__slide-arrows_repayment', 100);
-  slideArrow('.gov-debt .analityc-table__wrapper_approved', '.gov-debt .analityc-table__slide-arrows_approved', 100);
-  slideArrow('.gov-debt .analityc-table__wrapper_changes', '.gov-debt .analityc-table__slide-arrows_changes', 100);
-  
-  // Бюджет Москвы - Источники финансирования
-  slideArrow('.moscow-sources .linear-diagrams__wrapper', '.moscow-sources .linear-diagrams__slide-arrows', 100);
+  //// Бюджет Москвы - Социально-экономическое развитие
+  //slideArrow('.budget-forecast__table-wrapper', '.budget-forecast__slide-arrows', 100);
+  //
+  //// Аналитика - Государственный долг
+  //slideArrow('.analytics-gov-debt__graphic-wrapper', '.analytics-gov-debt__slide-arrows_graphics', 100);
+  //slideArrow('.analytics-gov-debt__table-wrapper', '.analytics-gov-debt__slide-arrows_table', 100);
+  //
+  //// Бюджет Москвы - Государственный долг
+  //slideArrow('.gov-debt .analityc-graphics__graphic-slider_approved', '.gov-debt .analityc-graphics__slide-arrows_approved', 'sliderwidth');
+  //slideArrow('.gov-debt .analityc-graphics__graphic-slider_changes', '.gov-debt .analityc-graphics__slide-arrows_changes', 'sliderwidth');
+  //slideArrow('.gov-debt .analityc-graphics__graphic-slider_repayment', '.gov-debt .analityc-graphics__slide-arrows_repayment', 100);
+  //slideArrow('.gov-debt .analityc-table__wrapper_approved', '.gov-debt .analityc-table__slide-arrows_approved', 100);
+  //slideArrow('.gov-debt .analityc-table__wrapper_changes', '.gov-debt .analityc-table__slide-arrows_changes', 100);
+  //
+  //// Бюджет Москвы - Источники финансирования
+  //slideArrow('.moscow-sources .linear-diagrams__wrapper', '.moscow-sources .linear-diagrams__slide-arrows', 100);
   
 }

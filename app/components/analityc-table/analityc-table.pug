@@ -1,8 +1,19 @@
+include ../../blocks/slide-arrows/slide-arrows
+
 mixin analityc-table(title)
   +b.analityc-table&attributes(attributes)
     if title
       +e.P.heading= title
-    block
+    +e.wrapper
+      block
+      
+mixin analityc-table-slider(offset, title)
+  +b.analityc-table&attributes(attributes)
+    if title
+      +e.P.heading= title
+    +slide-arrows().__slide-arrows
+    +e.wrapper(data-offset=offset)
+      block
       
 mixin analityc-table_slider(title)
   +b.analityc-table._slider&attributes(attributes)

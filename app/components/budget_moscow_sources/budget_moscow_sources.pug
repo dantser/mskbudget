@@ -25,7 +25,7 @@ mixin budget_moscow_sources()
             P.toptext МЛРД РУБ.
             .linear-diagrams
               +slide-arrows.linear-diagrams__slide-arrows
-              .linear-diagrams__wrapper
+              .linear-diagrams__wrapper(data-offset='100')
                 +b.linear-diagram_redblue
                   +e.H4.sources_bold Всего по источникам финансирования дефицита
                   +e.wrapper
@@ -75,11 +75,8 @@ mixin budget_moscow_sources()
                         +e.SPAN.SPAN.value 108,5 (50%)
                       +e.SPAN.value._out 216,9
           
-          +analityc-table('Исполнение доходов бюджета на 22.04.2017')._date(data-stage='date')
-            +icon('angle-arrow').section__ar.section__ar_left
-            +icon('angle-arrow').section__ar.section__ar_right
-            .analityc-table__wrapper
-              +table-sources(getData('sources'))
+          +analityc-table-slider(100, 'Исполнение доходов бюджета на 22.04.2017')._date(data-stage='date')
+            +table-sources(getData('sources'))
           
           .analityc-widget-sources.analityc-widget-sources_approved.active(data-stage='approved')
             .ar.ar-left.ar-left_approved
@@ -212,11 +209,8 @@ mixin budget_moscow_sources()
                     +e.title.linear-diagram__sources Всего по источникам финансирования дефицита
                     +e.SPAN.data_green(data-char='2019') +9,7
           
-          +analityc-table()._approved(data-stage='approved')
-            +icon('angle-arrow').section__ar.section__ar_left
-            +icon('angle-arrow').section__ar.section__ar_right
-            .analityc-table__wrapper
-              +table-sources(getData('income'))
+          +analityc-table-slider(100)._approved(data-stage='approved')
+            +table-sources(getData('income'))
           
           .analityc-widget-sources.analityc-widget-sources_changes(data-stage='changes')
             .ar.ar-left.ar-left_changes
@@ -385,11 +379,8 @@ mixin budget_moscow_sources()
                     +e.title.linear-diagram__sources Всего по источникам финансирования дефицита
                     +e.SPAN.data_green(data-char='2019') +9,7
           
-          +analityc-table()._changes(data-stage='changes')
-            +icon('angle-arrow').section__ar.section__ar_left
-            +icon('angle-arrow').section__ar.section__ar_right
-            .analityc-table__wrapper
-              +table-sources(getData('income1'))
+          +analityc-table-slider(100)._changes(data-stage='changes')
+            +table-sources(getData('income1'))
           
           .analityc-widget-sources.analityc-widget-sources_done(data-stage='done')
             P.toptext МЛРД РУБ.
