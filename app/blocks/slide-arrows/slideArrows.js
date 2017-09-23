@@ -44,16 +44,14 @@ export default () => {
   if ($('.slide-arrows').length) {
     $('.slide-arrows').each(function(){
       var container = $(this).parents('.analityc-table, .linear-diagrams, .analityc-graphics'),
-          wrapper = container.find('.analityc-table__wrapper, .linear-diagrams__wrapper, .analityc-graphics__graphic-slider'),
+          wrapper = container.find('.analityc-table__wrapper, .linear-diagrams__wrapper, .analityc-graphics__graphic-slider, .budget-forecast__table-wrapper'),
           arrows = $(this),
           offset = wrapper.data('offset');
+      console.log(wrapper);
       slideArrow(wrapper, arrows, offset);
     });
   }
   
-  //// Бюджет Москвы - Социально-экономическое развитие
-  //slideArrow('.budget-forecast__table-wrapper', '.budget-forecast__slide-arrows', 100);
-  //
   //// Аналитика - Государственный долг
   //slideArrow('.analytics-gov-debt__graphic-wrapper', '.analytics-gov-debt__slide-arrows_graphics', 100);
   //slideArrow('.analytics-gov-debt__table-wrapper', '.analytics-gov-debt__slide-arrows_table', 100);
