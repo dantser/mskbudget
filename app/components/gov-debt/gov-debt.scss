@@ -604,89 +604,10 @@
     }
   }
 
-  .section__ar {
-    display: none!important;
-    position: absolute;
-    top: 50%;
-    z-index: 3000;
-    width: 21px;
-    height: 26px;
-    padding: 5px;
-
-    &_left {
-      right: 101%;
-      transform: rotate(180deg);
-
-      @media screen and (max-width: 480px) {
-        right: 98%;
-      }
-    }
-
-    &_right {
-      left: 101%;
-
-      @media screen and (max-width: 480px) {
-        left: 98%;
-      }
-    }
-
-    &_disabled {
-      opacity: 0;
-    }
-  }
-
-
-  @mixin debt-table-slider($minWidth) {
-    .table {
-      min-width: $minWidth;
-    }
-    
-    .analityc-table__wrapper {
-      overflow-x: auto;
-      overflow-y: hidden;
-    }
-
-    .section__ar {
-      display: inline!important;
-    }
-  }
-
   .analityc-table {
     display: none;
     &.active {
       display: block;
-    }
-    
-    overflow-x: visible;
-    overflow-y: visible;
-
-    .table {
-      min-width: auto;
-    }
-
-    &_approved {
-      @media screen and (max-width: 580px) {
-        @include debt-table-slider(580px);
-      }
-    }
-
-    &_changes {
-      @media screen and (max-width: 900px) {
-        @include debt-table-slider(980px);
-      }
-    }
-
-    .analityc-control-switcher {
-      margin-top: 0;
-      margin-bottom: 30px;
-
-      @media (max-width: 580px) {
-        margin-bottom: 0;
-      }
-    }
-    
-    &__wrapper {
-      padding-top: 20px;
     }
   }
 
@@ -1012,44 +933,6 @@
 
       &:first-child {
         margin-bottom: 20px;
-      }
-    }
-  }
-    
-  .analityc-table__slide-arrows {
-    display: none;
-    position: absolute;
-    top: 50%;
-    left: -20px;
-    right: -20px;
-    
-    @media screen and (max-width: 550px) {
-      left: -10px;
-      right: -10px;
-      margin-top: -15px;
-    }
-    
-    &_approved {
-      @media screen and (max-width: 580px) {
-        display: block;
-      }
-    }
-    &_changes {
-      @media screen and (max-width: 900px) {
-        display: block;
-      }
-    }
-  }
-    
-  .analityc-table {
-    &_approved {
-      @media screen and (max-width: 580px) {
-        padding: 0 20px;
-      }
-    }
-    &_changes {
-      @media screen and (max-width: 900px) {
-        padding: 0 20px;
       }
     }
   }

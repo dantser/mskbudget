@@ -43,8 +43,8 @@ export default () => {
   // Инициализация
   if ($('.slide-arrows').length) {
     $('.slide-arrows').each(function(){
-      var container = $(this).parents('.analityc-table, .linear-diagrams'),
-          wrapper = container.find('.analityc-table__wrapper, .linear-diagrams__wrapper'),
+      var container = $(this).parents('.analityc-table, .linear-diagrams, .analityc-graphics'),
+          wrapper = container.find('.analityc-table__wrapper, .linear-diagrams__wrapper, .analityc-graphics__graphic-slider'),
           arrows = $(this),
           offset = wrapper.data('offset');
       slideArrow(wrapper, arrows, offset);
@@ -57,15 +57,5 @@ export default () => {
   //// Аналитика - Государственный долг
   //slideArrow('.analytics-gov-debt__graphic-wrapper', '.analytics-gov-debt__slide-arrows_graphics', 100);
   //slideArrow('.analytics-gov-debt__table-wrapper', '.analytics-gov-debt__slide-arrows_table', 100);
-  //
-  //// Бюджет Москвы - Государственный долг
-  //slideArrow('.gov-debt .analityc-graphics__graphic-slider_approved', '.gov-debt .analityc-graphics__slide-arrows_approved', 'sliderwidth');
-  //slideArrow('.gov-debt .analityc-graphics__graphic-slider_changes', '.gov-debt .analityc-graphics__slide-arrows_changes', 'sliderwidth');
-  //slideArrow('.gov-debt .analityc-graphics__graphic-slider_repayment', '.gov-debt .analityc-graphics__slide-arrows_repayment', 100);
-  //slideArrow('.gov-debt .analityc-table__wrapper_approved', '.gov-debt .analityc-table__slide-arrows_approved', 100);
-  //slideArrow('.gov-debt .analityc-table__wrapper_changes', '.gov-debt .analityc-table__slide-arrows_changes', 100);
-  //
-  //// Бюджет Москвы - Источники финансирования
-  //slideArrow('.moscow-sources .linear-diagrams__wrapper', '.moscow-sources .linear-diagrams__slide-arrows', 100);
   
 }

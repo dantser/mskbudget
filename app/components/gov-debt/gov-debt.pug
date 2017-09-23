@@ -17,34 +17,24 @@ mixin gov-debt()
           +e.A(href="#", data-govdebt-tab="govdebt").analityc-tab-link.active Государственный долг г. Москвы
           +e.A(href="#", data-govdebt-tab="repayment").analityc-tab-link график погашения государственного долга
           +e.A(href="#", data-govdebt-tab="govbonds").analityc-tab-link Государственные облигации г. Москвы
+          
         // Государственный долг г. Москвы
         +e.analityc-tab._govdebt.active
           +analityc-widgethead-govdebt().__analityc-widgethead
           +analityc-graphics-govdebt-approved().__analityc-graphics.active(data-stage='approved')
           +analityc-graphics-govdebt-changes().__analityc-graphics(data-stage='changes')
           +analityc-graphics-govdebt-date().__analityc-graphics(data-stage='date')
-          +analityc-table()._approved.active(data-stage='approved')
-            .analityc-control-switcher
-              a(href="#").active млн. руб.
-              a(href="#") млрд. руб.
-            +slide-arrows.__slide-arrows._approved
-            .analityc-table__wrapper.analityc-table__wrapper_approved
-              +table-income(getData('income'))
-          +analityc-table()._changes(data-stage='changes')
-            .analityc-control-switcher
-              a(href="#").active млн. руб.
-              a(href="#") млрд. руб.
-            +slide-arrows.__slide-arrows._changes
-            .analityc-table__wrapper.analityc-table__wrapper_changes
-              +table-income_slider(getData('income1'))
+          .analityc-control-switcher
+            a(href="#").active млн. руб.
+            a(href="#") млрд. руб.
+          +analityc-table-slider(100)._approved.active(data-stage='approved')
+            +table-income(getData('income'))
+          +analityc-table-slider(100)._changes(data-stage='changes')
+            +table-income_slider(getData('income1'))
           +analityc-table()._done(data-stage='date')
-            .analityc-control-switcher
-              a(href="#").active млн. руб.
-              a(href="#") млрд. руб.
-            .analityc-table__wrapper.analityc-table__wrapper_done
-              +table-income(getData('income2'))
-            //- +table-govdebt(getData('govdebt'))
+            +table-income(getData('income2'))
           a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
+          
         // график погашения государственного долга
         +e.analityc-tab._repayment
           +e.H2.analityc-widget-heading График погашения<br> государственного долга
@@ -52,6 +42,7 @@ mixin gov-debt()
             a(href="#").active млн. руб.
             a(href="#") млрд. руб.
           +analityc-graphics-govdebt-repayment().__analityc-graphics.active
+          
         // Государственные облигации г. Москвы
         +e.analityc-tab._govbonds
           +e.H2.analityc-widget-heading Государственные облигации<br> города Москвы
