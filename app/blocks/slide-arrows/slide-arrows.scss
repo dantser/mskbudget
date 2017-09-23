@@ -1,29 +1,36 @@
 .slide-arrows {
   display: block;
   height: 0;
+  
   &__arrow {
     width: 38px;
     height: 50px;
+    cursor: pointer;
+    
     &_left {
       float: left;
       transform: rotate(180deg);
     }
+    
     &_right {
       float: right;
     }
+    
     svg {
       width: 100%;
       height: 100%;
       transition: all .25s ease-in-out;
     }
+    
     &.disabled {
+      
       svg {
         fill: #afb0b0;
       }
     }
   }
   
-  @media screen and (max-width: 550px) {
+  @media screen and (max-width: 580px) {
     &__arrow {
       width: 23px;
       height: 30px;
