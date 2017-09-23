@@ -43,8 +43,8 @@ export default () => {
   // Инициализация
   if ($('.slide-arrows').length) {
     $('.slide-arrows').each(function(){
-      var container = $(this).parents('.analityc-table'),
-          wrapper = container.find('.analityc-table__wrapper'),
+      var container = $(this).parents('.analityc-table, .linear-diagrams'),
+          wrapper = container.find('.analityc-table__wrapper, .linear-diagrams__wrapper'),
           arrows = $(this),
           offset = wrapper.data('offset');
       slideArrow(wrapper, arrows, offset);

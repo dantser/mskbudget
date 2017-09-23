@@ -210,38 +210,6 @@
     display: inline-block !important;
   }
 
-  .section__ar {
-    display: none;
-    position: absolute;
-    top: 50%;
-    z-index: 3000;
-    width: 21px;
-    height: 26px;
-    padding: 5px;
-    transition: all 0.5s ease-in-out;
-
-    &_left {
-      left: -30px;
-      transform: rotate(180deg);
-      
-      @media screen and (max-width: 550px) {
-        left: -20px;
-      }
-    }
-
-    &_right {
-      right: -30px;
-      
-      @media screen and (max-width: 550px) {
-        right: -20px;
-      }
-    }
-
-    &_disabled {
-      opacity: 0;
-    }
-  }
-
   .analityc-widget-sources {
     position: relative;
     margin-top: 40px;
@@ -273,53 +241,12 @@
     width: 100%;
   }
 
-  @mixin sources-table-slider($minWidth) {
-    .table {
-      min-width: $minWidth;
-    }
-    
-    .analityc-table__wrapper {
-      overflow-x: auto;
-      overflow-y: hidden;
-    }
-
-    .section__ar {
-      display: inline!important;
-    }
-  }
-
   .analityc-table {
     display: none;
-    padding-left: 9px;
-    padding-right: 9px;
     margin-bottom: 77px;
-    overflow-x: visible;
-    overflow-y: visible;
-
-    & .table {
-      min-width: auto;
+    &.active {
+      display: block;
     }
-
-    &_approved,
-    &_date {
-      @media screen and (max-width: 580px) {
-        @include sources-table-slider(580px);
-      }
-    }
-
-    &_changes {
-      @media screen and (max-width: 900px) {
-        @include sources-table-slider(980px);
-      }
-    }
-
-    @media screen and (max-width: 1100px) {
-      box-shadow: inset -15px 0px 12px 0px rgba(255,255,255,0.83);
-    }
-  }
-
-  .analityc-table.active {
-    display: block;
   }
 
   &__diagram-title {
@@ -345,17 +272,12 @@
     padding: 10px 0;
     
     &__slide-arrows {
+      display: none;
       position: absolute;
-      left: -35px;
-      right: -35px;
+      left: -38px;
+      right: -38px;
       top: 50%;
       margin-top: -25px;
-      z-index: 3;
-      display: none;
-    }
-    
-    &__wrapper {
-      overflow-x: auto;
     }
     
     @media screen and (max-width: 980px) {
@@ -386,25 +308,32 @@
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=1 );
       }
       
+      &__wrapper {
+        overflow-x: auto;
+        overflow-y: hidden;
+      }
+      
       .linear-diagram {
-        min-width: 900px;
+        min-width: 920px;
         padding: 0 20px;
+      }
+      
+      &__slide-arrows {
+        display: block;
       }
     }
     
-    @media screen and (max-width: 960px) {
+    @media screen and (max-width: 580px) {
       &__slide-arrows {
-        display: block;
+        left: -23px;
+        right: -23px;
+        margin-top: -15px;
       }
     }
     
     @media screen and (max-width: 550px) {
       .linear-diagram {
         min-width: 600px;
-      }
-      &__slide-arrows {
-        left: -17px;
-        right: -17px;
       }
     }
   }
