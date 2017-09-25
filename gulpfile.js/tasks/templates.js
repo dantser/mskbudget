@@ -11,7 +11,7 @@ const getData = require('jade-get-data')('app/data');
 
 gulp.task('templates', () => (
   gulp.src('app/**/*.pug')
-  // gulp.src(['app/pages/depfin_services_VMO/depfin_services_VMO.pug', 'app/pages/depfin_services_VMO/depfin_services_VMO_passport.pug', 'app/pages/depfin_services_VMO/depfin_services_VMO_rate.pug'])
+  // gulp.src(['app/pages/depfin_services_VMO/depfin_services_VMO.pug'])
     .pipe(plumber({ errorHandler: errorHandler('Error in templates task') }))
     .pipe(gulpIf(global.isWatching, pugInheritance({ basedir: 'app' })))
     .pipe(filter(file => /app[\\\/]pages/.test(file.path))) // eslint-disable-line no-useless-escape

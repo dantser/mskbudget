@@ -178,13 +178,19 @@ budget.extend("common", {
         dateFormat: 'dd.mm.yy',
         firstDay: 1,
         isRTL: false,
-        beforeShowDay: DisableSpecificDates
+        beforeShowDay: DisableSpecificDates,
         // beforeShow: function(input, inst) {
         //   convertToLists(inst);
         // },
         // onChangeMonthYear: function (year, month, inst) {
         //   convertToLists(inst);
         // }
+        onSelect: function() {
+          var selecteddate = $(this).val();
+          if ($('.js-dp-output').length)
+            $(document).find('.js-dp-output_others').text(selecteddate); // Бюджет Москвы - вывод даты в заголовке Исполнение на дату
+        }
+
       };
 
       function DisableSpecificDates(date) {

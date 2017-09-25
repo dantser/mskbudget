@@ -1208,6 +1208,8 @@ mixin analityc-graphics-line(title, data)
   +b.analityc-graphics&attributes(attributes)._line
     +e.P.toptext МЛРД РУБ.
     +e.P.heading= title
+      SPAN.js-dp-output.js-dp-output_others.active 22.04.2017
+      SPAN.js-dp-output.js-dp-output_cons 1 февраля 2017
     +e.lines
       each obj in data
         +e.DIV(class="__line_"+obj.color+"")
@@ -1266,6 +1268,8 @@ mixin analityc-graphics-line-alt(data, title)
     P.analityc-graphics__toptext МЛРД РУБ.
     if title
       P.analityc-graphics__heading= title
+        SPAN.js-dp-output.js-dp-output_others.active 22.04.2017
+        SPAN.js-dp-output.js-dp-output_cons 1 февраля 2017
     +e.lines
       each obj in data
         +e.DIV(class="__line_"+obj.class)
@@ -1348,6 +1352,8 @@ mixin analityc-graphics-js-line(title, data)
   +b.analityc-js-line&attributes(attributes)
     P.analityc-graphics__toptext МЛРД РУБ.
     P.analityc-graphics__heading= title
+      SPAN.js-dp-output.js-dp-output_others.active 22.04.2017
+      SPAN.js-dp-output.js-dp-output_cons 1 февраля 2017
     each item in data.item
       if item.strong
         +e.line._big
@@ -1833,7 +1839,8 @@ mixin analityc-graphics-govdebt-changes()
 
 mixin analityc-graphics-govdebt-date()
   +b.analityc-graphics&attributes(attributes)._date
-    +e.P.graphic-heading Объем государственного долга на 01.02.2017
+    +e.P.graphic-heading Объем государственного долга на
+      SPAN.js-dp-output.js-dp-output_cons.active 1 февраля 2017
     +e.cols
       +e.col._wide
         +e.graphic-triangle
