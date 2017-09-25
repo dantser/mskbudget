@@ -48,31 +48,24 @@ export default () => {
 
   //переключение таблица-график
   $(".budget_aip .analityc-widgethead_aip .analityc-control-button").on("click", function (e) {
-   e.preventDefault();
-   var $this = $(this);
-   var aip = $(".analityc-widget_aip"),
-       aipGraphics = aip.find($('.analityc-graphics')),
-       aipTable = aip.find($('.analityc-table')),
-       aipGovPrograms = aip.find('.govPrograms'),
-       aipGraphicsActive = aip.find($('.analityc-graphics.active')),
-       aipTableActive = aip.find($('.analityc-table.active'));
-
-   if ($this.hasClass('analityc-control-button_graphics') && !$this.hasClass('active')) {
-     $this.siblings().removeClass('active');
-     $this.addClass('active');
-     if (aipTableActive.hasClass('analityc-table')) {
-       aipTable.removeClass('active');
-       aipGraphics.addClass('active');
-       aipGovPrograms.addClass('active');
-     }
-   } else if ($this.hasClass('analityc-control-button_table') && !$this.hasClass('active')) {
-     $this.siblings().removeClass('active');
-     $this.addClass('active');
-     if (aipGraphicsActive.hasClass('analityc-graphics')) {
-       aipGraphics.removeClass('active');
-       aipTable.addClass('active');
-       aipGovPrograms.removeClass('active');
-     }
-   }
+    e.preventDefault();
+    
+    var $this = $(this);
+    var aip = $(".analityc-widget_aip"),
+        aipGraphics = aip.find('.analityc-graphics, .govProgram__content'),
+        aipTable = aip.find('.analityc-table'),
+        typeVal = $this.data('type');
+    
+    $this.siblings().removeClass('active');
+    $this.addClass('active');
+    aipGraphics.removeClass('active');
+    aipTable.removeClass('active');
+    
+    if (typeVal == 'graphics') {
+      aipGraphics.addClass('active');
+    } else {
+      aipTable.addClass('active');
+    }
+     
  });
 }
