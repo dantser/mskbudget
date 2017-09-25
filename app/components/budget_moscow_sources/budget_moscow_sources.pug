@@ -21,7 +21,9 @@ mixin budget_moscow_sources()
         .analityc-widget.analityc-widget_sources.load-anim-fade(data-delay="1500")
           +analityc-widgethead-sources()
           .analityc-widget-sources.analityc-widget-sources_date(data-stage='date')
-            H3.moscow-sources__diagram-title Исполнение доходов бюджета на 22.04.2017
+            H3.moscow-sources__diagram-title Исполнение доходов бюджета на
+              SPAN.js-dp-output.js-dp-output_others.active 22.04.2017
+              SPAN.js-dp-output.js-dp-output_cons 1 февраля 2017
             P.toptext МЛРД РУБ.
             .linear-diagrams
               +slide-arrows.linear-diagrams__slide-arrows
@@ -75,7 +77,7 @@ mixin budget_moscow_sources()
                         +e.SPAN.SPAN.value 108,5 (50%)
                       +e.SPAN.value._out 216,9
           
-          +analityc-table-slider(100, 'Исполнение доходов бюджета на 22.04.2017')._date(data-stage='date')
+          +analityc-table-slider(100, 'Исполнение доходов бюджета на')._date(data-stage='date')
             +table-sources(getData('sources'))
           
           .analityc-widget-sources.analityc-widget-sources_approved.active(data-stage='approved')

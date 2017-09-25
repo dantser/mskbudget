@@ -9451,5 +9451,8 @@ function positionValues() {
 });
 }
 
-$(document).ready(function(){ positionValues(); });
+
+$(document).ready(function(){ 
+    positionValues(); 
+});
 $(document).on('click', '.analityc-control-button_graphics, .dropdown__btn', positionValues);
