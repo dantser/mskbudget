@@ -12,7 +12,7 @@ export default () => {
       // @TEST
       // trigger: 'click',
       delay: [10, 100],
-      performance: true,
+      //performance: true,
       animation: 'shift',
 
       position: tooltipPosition,

@@ -8,6 +8,7 @@ export default () => {
       noUiSlider.create(sliderForWidgets, {
         start: start,
         tooltips: true,
+        behaviour: 'drag',
         // format: wNumb({ decimals: 1 }),
         range: {
           'min': min,

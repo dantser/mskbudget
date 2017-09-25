@@ -1,7 +1,10 @@
-import $ from 'jquery';
-import 'jquery-ui-bundle';
+//import $ from 'jquery';
+//import 'jquery-ui-bundle';
 // @DEBUG
-// import 'jquery-ui-touch-punch';
+//import 'jquery-ui-touch-punch';
+
+const $ = window.$;
+const slider = window.slider;
 
 export default () => {
   $('.range-ui').each(function() {
@@ -68,7 +71,7 @@ export default () => {
         $maxCell.text(max.toLocaleString('ru-RU') + ' ' + type);
 
         // @DEBUG
-        // $handle.draggable();
+        //$handle.draggable();
       },
       slide: function(event, ui) {
         setValue(event, ui);
@@ -100,4 +103,6 @@ export default () => {
       }
     });
   });
+
+  //$('.range-ui .ui-slider-handle').draggable();
 }
