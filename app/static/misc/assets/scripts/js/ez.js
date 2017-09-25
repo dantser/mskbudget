@@ -1148,7 +1148,9 @@ function basicBudgetFiguresDiagrams() {
         'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь'
       ],
       dayNamesMin: ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'],
-      beforeShowDay: EnableSpecificDates,
+      beforeShowDay: function(date) {
+        return EnableSpecificDates(date, ["6-6-2017", "6-9-2017", "6-15-2017", "6-23-2017", "10-26-2017", "10-4-2017", "10-12-2017", "1-28-2018"]);
+      },
       onSelect: function() {
         var selecteddate = $(this).val();
         $(this).next().val(selecteddate);
@@ -1188,8 +1190,8 @@ function basicBudgetFiguresDiagrams() {
     }
   }
   
-  function EnableSpecificDates(date) {
-      var enableddates = ["6-6-2017", "6-9-2017", "6-15-2017", "6-23-2017", "10-26-2017", "10-4-2017", "10-12-2017", "1-28-2018"];
+  function EnableSpecificDates(date, dateset) {
+      var enableddates = dateset;
       var m = date.getMonth();
       var d = date.getDate();
       var y = date.getFullYear();

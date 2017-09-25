@@ -114,12 +114,6 @@ export default () => {
     // слайдер
     approvedSliderInit();
     
-    $(".analityc-widget_sources .analityc-control-group._stage .analityc-select").on("change", function() {
-      if ($(this).val() === "Закон о внесении изменений" && $('.analityc-widget-sources_changes').hasClass('active')) {
-        changesSliderInit();
-      }
-    });
-    
     function approvedSliderInit() {
       if ($(window).width() <= 980) {
         var approvedGraphSlider = new Swiper ('.analityc-widget-sources_approved .graphic', {
@@ -141,12 +135,13 @@ export default () => {
     
     
     // переключение по селектам
-    $('.analityc-widget_sources .analityc-control-group select').on('change', function () {
+    $('.moscow-sources .analityc-widget_sources .analityc-control-group select').on('change', function () {
       changeContent('select');
+      changesSliderInit();
     });
     
     // переключение по кнопкам график/таблица
-    $(".analityc-widget_sources .analityc-control-button").on("click", function(e) {
+    $(".moscow-sources .analityc-widget_sources .analityc-control-button").on("click", function(e) {
       e.preventDefault();
       $(this).siblings().removeClass('active');
       $(this).addClass('active');

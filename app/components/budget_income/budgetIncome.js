@@ -3,12 +3,12 @@ import $ from 'jquery';
 export default () => {
   
   // переключение по селектам
-  $('.analityc-widget_income .analityc-control-group select').on('change', function () {
+  $('.budget-income .analityc-widget_income .analityc-control-group select').on('change', function () {
     changeContent('select');
   });
   
   // переключение по кнопкам график/таблица
-  $(".analityc-widget_income .analityc-control-button").on("click", function(e) {
+  $(".budget-income .analityc-widget_income .analityc-control-button").on("click", function(e) {
     e.preventDefault();
     $(this).siblings().removeClass('active');
     $(this).addClass('active');
@@ -16,7 +16,7 @@ export default () => {
   });
   
   // переключение ко второму графику в исполнении на дату
-  $(".analityc-widget_income .analityc-control-group._dp input").on("change", function() {
+  $(".budget-income .analityc-widget_income .analityc-control-group._dp input").on("change", function() {
     var graphics = $('.analityc-graphics'),
         activeButton = $('.analityc-control-button.active'),
         typeVal = activeButton.data('type');

@@ -52,7 +52,7 @@ export default () => {
   
   
   // переключение по селектам
-  $('.gov-debt__analityc-widget .analityc-control-group select').on('change', function () {
+  $('.gov-debt .gov-debt__analityc-widget .analityc-control-group select').on('change', function () {
     changeContent('select');
   });
   
