@@ -220,13 +220,13 @@ export default () => {
   
   
   // переключение по селектам
-  $('.analityc-widget_moscow-gov-program .analityc-control-group select').on('change', function () {
+  $('.moscow-gov-program .analityc-widget_moscow-gov-program .analityc-control-group select').on('change', function () {
     changeContent('select');
     grLinePopup();
   });
   
   // переключение по кнопкам график/таблица
-  $(".analityc-widget_moscow-gov-program .analityc-control-button").on("click", function(e) {
+  $(".moscow-gov-program .analityc-widget_moscow-gov-program .analityc-control-button").on("click", function(e) {
     e.preventDefault();
     $(this).siblings().removeClass('active');
     $(this).addClass('active');
@@ -234,12 +234,12 @@ export default () => {
   });
   
   // переключение по свитчеру гп/структура
-  $(".analityc-widget_moscow-gov-program .analityc-control-switcher_large a").on("click", function(e) {
+  $(".moscow-gov-program .analityc-widget_moscow-gov-program .analityc-control-switcher_large a").on("click", function(e) {
     changeContent('switcher', $(this));
   });
   
   // переключение по свитчеру подпрограммы/виды расходов
-  $(".analityc-widget_moscow-gov-program .analityc-control-switcher_sub a").on("click", function(e) {
+  $(".moscow-gov-program .analityc-widget_moscow-gov-program .analityc-control-switcher_sub a").on("click", function(e) {
     changeContent('switcher', $(this));
   });
   
