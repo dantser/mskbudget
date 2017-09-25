@@ -35,7 +35,7 @@ export default () => {
 
 
 
-  $(".analityc-widget_figures .analityc-control-group select").on("change", function () {
+  $(".basic-budget .analityc-widget_figures .analityc-control-group select").on("change", function () {
     
     var rounds = $(".analityc-widget-rounds"),
         dp = $('.analityc-control-group._dp'),

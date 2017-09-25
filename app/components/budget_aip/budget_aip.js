@@ -5,7 +5,7 @@ export default () => {
   const AIP = $('.analityc-widget_aip');
 
   // стрелочки для госпрограмм
-  const selectGP = $('.analityc-widgethead_aip .analityc-control-group_gp select');
+  const selectGP = $('.budget_aip .analityc-widgethead_aip .analityc-control-group_gp select');
   
   $('.govProgram__arr').on('click', function(e){  
     e.preventDefault();
@@ -47,7 +47,7 @@ export default () => {
 
 
   //переключение таблица-график
-  $(".analityc-widgethead_aip .analityc-control-button").on("click", function (e) {
+  $(".budget_aip .analityc-widgethead_aip .analityc-control-button").on("click", function (e) {
    e.preventDefault();
    var $this = $(this);
    var aip = $(".analityc-widget_aip"),

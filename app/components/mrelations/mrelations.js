@@ -36,12 +36,12 @@ export default () => {
   
   
   // переключение по селектам
-  $('.analityc-widget_mrelations .analityc-control-group select').on('change', function () {
+  $('.mrelations-transfer .analityc-widget_mrelations .analityc-control-group select').on('change', function () {
     changeContent('select');
   });
   
   // переключение по кнопкам график/таблица
-  $(".analityc-widget_mrelations .analityc-control-button").on("click", function(e) {
+  $(".mrelations-transfer .analityc-widget_mrelations .analityc-control-button").on("click", function(e) {
     e.preventDefault();
     $(this).siblings().removeClass('active');
     $(this).addClass('active');
