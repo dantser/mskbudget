@@ -5,6 +5,7 @@ include ../../blocks/button/button
 include ../../components/page-header/page-header
 include ../../blocks/table1/table1
 include ../../blocks/legend/legend
+include ../../blocks/slide-arrows/slide-arrows
 include ../doc-cards/doc-cards
 include ../analityc-widgethead/analityc-widgethead
 include ../analityc-graphics/analityc-graphics
@@ -90,16 +91,20 @@ mixin gov_program-dropdowns()
       a.dropdown__table-download(href="#")
         +icon('download').icon-download
     .dropdown__content.dropdown__content_db
-      .table-wrapper
-        +table1()
+      +slide-arrows
+      .table-scroll-hider
+        .table-wrapper(data-offset="100")
+          +table1()
   .dropdown.gov-program__content-padding.dropdown_b
     a(href="#").dropdown__btn.dropdown__btn_y.dropdown__btn_b Финансовое обеспечение государственной программы
       +icon('delete').icon-close
     .dropdown__content
       +analityc-widgethead-gov-realisation().analityc-widget_income
       .analityc-table.active
-        .table-wrapper
-          +table2()
+        +slide-arrows
+        .table-scroll-hider
+          .table-wrapper(data-offset="100")
+            +table2()
       +analityc-graphics-singleround4()
             
   .dropdown.gov-program__content-padding.dropdown_b
