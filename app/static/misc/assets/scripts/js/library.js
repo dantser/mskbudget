@@ -9449,10 +9449,52 @@ function positionValues() {
     top: dycenter - ynew
   });
 });
+
+// Определяем сегмент диаграммы с маленьким значением
+// ###############################
+$('.segment-diagram').each(function () {
+  var vals = $(this).find('.segment-diagram__val');
+
+  // Ищем сумму
+  var summ = 0;
+
+  vals.each(function () {
+    summ += +parseInt($(this).text());
+  });
+
+  // Ищем маленькое значение
+  vals.each(function () {
+    var val = +parseInt($(this).text()),
+        parent = '.segment-diagram__value';
+
+    if (val/summ < 0.03) {
+      // Добавляем маленький класс
+      $(this).addClass('segment-diagram__val_small');
+
+      // Определяем позицию и добавляем модификатор позиции
+      var left = $(this).position(parent).left,
+          top = $(this).position(parent).top,
+          wdth = $(this).outerWidth(),
+          hght = $(this).outerHeight(),
+          classHor, classVert;
+
+      left < ($(parent).outerWidth() - left - wdth) ? classHor = 'l' : classHor = 'r';
+      top < ($(parent).outerHeight() - top - hght) ? classVert = 't' : classVert = 'b';
+
+      var totalClass = 'segment-diagram__val_small_' + classHor + classVert,
+          text = $(this).text();
+
+      $(this)
+        .removeClass('segment-diagram__val_small_lt segment-diagram__val_small_rt segment-diagram__val_small_lb segment-diagram__val_small_rb')
+        .addClass(totalClass)
+        .html('<span>' + text + '</span>');
+    }
+  });
+});
 }
 
 
-$(document).ready(function(){ 
-    positionValues(); 
+$(document).ready(function(){
+    positionValues();
 });
 $(document).on('click', '.analityc-control-button_graphics, .dropdown__btn', positionValues);

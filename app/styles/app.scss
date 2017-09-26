@@ -316,3 +316,45 @@ input::-ms-reveal {  display: none; width : 0; height: 0; }
 .scroll-wrapper>.scroll-content {
   -webkit-overflow-scrolling: touch !important;
 }
+
+.segment-diagram__val_small {
+  width: 1px;
+  height: 1px;
+  transform: none !important;
+
+  &::before {
+    content: '';
+    height: 44px;
+    width: 1px;
+    background-color: black;
+    position: absolute;
+  }
+
+  >span {
+    position: absolute;
+    color: black;
+    border-bottom: 1px solid black;
+  }
+
+  $lt: 30px;
+
+  &_rt {
+    &::before { transform-origin: left bottom; left: 0; bottom: 0; transform: rotate(45deg); }
+    >span { left: $lt; bottom: $lt; }
+  }
+
+  &_lt {
+    &::before { transform-origin: right bottom; right: 0; bottom: 0; transform: rotate(-45deg); }
+    >span { right: $lt; bottom: $lt; }
+  }
+
+  &_rb {
+    &::before { transform-origin: left top; left: 0; top: 0; transform: rotate(-45deg); }
+    >span { left: $lt; bottom: -$lt; }
+  }
+
+  &_lb {
+    &::before { transform-origin: right top; right: 0; top: 0; transform: rotate(45deg); }
+    >span { right: $lt; bottom: -$lt; }
+  }
+}
