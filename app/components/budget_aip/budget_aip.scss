@@ -111,6 +111,37 @@
 
 
 .budget_aip {
+  
+  .segment-diagram {
+    width: 220px;
+    height: 220px;
+    
+    @media screen and (min-width: 769px) and (max-width: 1020px) {
+      width: 160px;
+      height: 160px;
+    }
+    @media screen and (min-width: 551px) and (max-width: 768px) {
+      width: 270px;
+      height: 270px;
+    }
+    @media screen and (max-width: 550px) {
+      width: 216px;
+      height: 216px;
+    }
+    
+    &__value {
+      @media screen and (min-width: 769px) and (max-width: 1020px) {
+        font-size: 10px;
+      }
+    }
+    
+    &__value-num {
+      @media screen and (min-width: 769px) and (max-width: 1020px) {
+        font-size: 28px;
+      }
+    }
+  }
+  
   &__page-header {
     .page-head__title {
       letter-spacing: 0;
@@ -406,9 +437,6 @@
     .legend-icon__item {
       display: block;
       width: auto;
-    }
-    .analityc-graphics__graphic_round {
-      height: 140px;
     }
     .analityc-control-switcher_main {
       width: 80%;

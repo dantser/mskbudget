@@ -247,18 +247,18 @@
 
 
     &_round {
-      height: 270px;
-      @media screen and (max-width: 1020px) and (min-width: 761px) {
-        height: 140px !important;
-      }
-
-      @media screen and (max-width: 760px) and (min-width: 551px) {
-        height: 140px;
-      }
-
-      @media screen and (max-width: 550px) {
-        width: 100% !important;
-      }
+      //height: 270px;
+      //@media screen and (max-width: 1020px) and (min-width: 761px) {
+      //  height: 140px !important;
+      //}
+      //
+      //@media screen and (max-width: 760px) and (min-width: 551px) {
+      //  height: 140px;
+      //}
+      //
+      //@media screen and (max-width: 550px) {
+      //  width: 100% !important;
+      //}
 
       span.analityc-graphics_round-next, span.analityc-graphics_round-prev {
         @media (max-width: 400px) {
@@ -268,30 +268,12 @@
       }
 
       .segment-diagram {
-        width: 100%;
-        height: 100%;
         bottom: 0;
         font-family: $PFDinCondensedPro;
 
-        @media (max-height: 610px) and (max-width: 900px) {
-          width: 140px;
-          height: 140px;
-        }
-
-        @media (max-width: 768px) {
-          width: 270px;
-          height: 270px;
-        }
-
-        .svg-wrap {
-          .svg {
-            display: inline;
-
-            @media (max-width: 768px) {
-              width: 100%;
-              height: 100%;
-            }
-          }
+        .svg-wrap, svg {
+          width: 100%;
+          height: 100%;
         }
 
         &__val {
@@ -2917,17 +2899,9 @@
           height: 270px!important;
         }
 
-        .svg-wrap {
-          /*transform: scale(-1, 1)  rotate(-40deg);*/
-
-          .svg {
-            display: inline;
-
-            @media (max-width: 768px) {
-              width: 100%;
-              height: 100%;
-            }
-          }
+        .svg-wrap, svg {
+          width: 100%;
+          height: 100%;
         }
 
         &__val {
@@ -3600,20 +3574,12 @@
 }
 
 @media screen and (min-width: 761px) and (max-width: 1020px) {
-  .analityc-graphics__graphic_round {
-    height: 220px;
-  }
   .analityc-graphics__graphic_column {
     height: 245px;
   }
 }
 
 @media screen and (max-width: 900px) {
-  .analityc-graphics_round.analityc-graphics_approved .analityc-graphics__graphic_round,
-  .analityc-graphics_singleround.analityc-graphics_done .analityc-graphics__graphic_round {
-    height: 270px!important;
-  }
-
   .analityc-graphics__legend .legend__item {
     display: block;
   }
@@ -3660,7 +3626,7 @@
     top: -30px;
   }
   .analityc-widget_income .analityc-graphics__graphic, .analityc-widget_expenses .analityc-graphics__graphic {
-    margin: 0 auto;
+    //margin: 0 auto;
     width: 320px;
   }
   .analityc-widget_income .analityc-graphics__bottom, .analityc-widget_expenses .analityc-graphics__bottom {
@@ -3691,9 +3657,6 @@
 }
 
 @media screen and (min-width: 551px) and (max-width: 760px) {
-  // .analityc-graphics__graphic_round {
-  //   height: 400px;
-  // }
   .analityc-graphics__legend .legend__item {
     font-size: 18px;
     margin-bottom: 24px;
@@ -3718,16 +3681,6 @@
     &_limitcolumn {
       width: 100%;
     }
-  }
-  // .analityc-widget_income .analityc-graphics__graphic, .analityc-widget_expenses .analityc-graphics__graphic {
-  //
-  //   width: 430px;
-  // }
-  // .analityc-widget_income .analityc-graphics__bottom, .analityc-widget_expenses .analityc-graphics__bottom {
-  //   width: 430px;
-  // }
-  .analityc-graphics__graphic_round {
-    height: 430px;
   }
   .analityc-graphics__legend .legend__item:before {
     width: 28px;
@@ -3772,9 +3725,6 @@
   .analityc-graphics__bottom p {
     font-size: 12px;
     max-width: 100px;
-  }
-  .analityc-graphics__graphic_round {
-    height: 250px;
   }
   .analityc-graphics_column .analityc-graphics__col {
     width: 250px;
@@ -3829,9 +3779,6 @@
   }
   .analityc-widget_income .analityc-graphics__bottom, .analityc-widget_expenses .analityc-graphics__bottom {
     width: 216px;
-  }
-  .analityc-graphics__graphic_round {
-    height: 216px;
   }
   .analityc-graphics__legend .legend__item:before {
     width: 14px;

@@ -257,12 +257,12 @@ export default () => {
     
     if (typeofchange == 'select') {
       var activeButton = $('.analityc-control-button.active'),
-          activeSwitcher = $('.analityc-control-switcher_large a.active'),
+          activeSwitcher = $('.analityc-control-switcher_large a.active, .analityc-control-switcher_sub a.active'),
           typeVal = activeButton.data('type'),
           catVal = activeSwitcher.data('category');
     } else if (typeofchange == 'button') {
       var typeVal = el.data('type'),
-          activeSwitcher = $('.analityc-control-switcher_large a.active'),
+          activeSwitcher = $('.analityc-control-switcher_large a.active, .analityc-control-switcher_sub a.active'),
           catVal = activeSwitcher.data('category');
     } else {
       var activeButton = $('.analityc-control-button.active'),
