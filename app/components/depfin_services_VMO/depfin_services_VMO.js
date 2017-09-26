@@ -19,6 +19,35 @@ export default () => {
       $this.addClass(ACTIVE_CLASS);
     })
   });
+
+  // Тени при прокрутке табов
+  VMO.find('.services-VMO__tabs-wrapper').scroll(function() {
+    var lg = $(this).siblings('.services-VMO__lg');
+    var lgLeft = $(this).siblings('.services-VMO__lg_left-lg');
+    var lgRight = $(this).siblings('.services-VMO__lg_right-lg');
+
+    lg.removeClass('active');
+    if ($(this).scrollLeft() > 0)
+      lgLeft.addClass('active');
+    else
+      lgRight.addClass('active');
+  })
+
+  // Тени при прокрутке свитчеров
+  VMO.find('.services-VMO__lg-container').scroll(function() {
+    var parent = $(this).parents('.analityc-control-switcher')
+    var lg = parent.find('.services-VMO__lg');
+    var lgLeft = parent.find('.services-VMO__lg_left-lg');
+    var lgRight = parent.find('.services-VMO__lg_right-lg');
+
+    lg.removeClass('active');
+    if ($(this).scrollLeft() > 0)
+      lgLeft.addClass('active');
+    else
+      lgRight.addClass('active');
+  })
+
+
   // кастомный селект для "Муниципальных округов"
   $('.analityc-select_vmo').each(function () {
     $(this).selectmenu().selectmenu( "menuWidget" ).addClass( "ui-vmo" );

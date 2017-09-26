@@ -8,6 +8,8 @@ mixin vmoPassport()
 
     //- Tab 1
     .wrapper.wrapper_widget.load-anim-fade(data-delay="1500")
+      .services-VMO__lg.services-VMO__lg_left-lg.services-VMO__lg_color-black
+      .services-VMO__lg.services-VMO__lg_right-lg.services-VMO__lg_color-black.active
       +e.tabs-wrapper
         +e.tabs-control
           a(href="#", data-tab-target="vmoAll") Все ВМО
@@ -58,12 +60,13 @@ mixin vmoPassportContent()
   .services-VMO__content.services-VMO__content_municipal-graphics
     .analityc-control-switcher.analityc-control-switcher_main.active
       .services-VMO__lg.services-VMO__lg_left-lg
-      .services-VMO__lg.services-VMO__lg_right-lg
+      .services-VMO__lg.services-VMO__lg_right-lg.active
       .analityc-control-switcher-wrapper
-        a(href="#" data-tab-target="VMOpassSocialEc").active Социально-экономические показатели
-        a(href="#" data-tab-target="VMOpassIncome") доходы
-        a(href="#" data-tab-target="VMOpassExpenses") расходы
-        a(href="#" data-tab-target="VMOpassComparison") Сравнение ВМО
+        .services-VMO__lg-container
+          a(href="#" data-tab-target="VMOpassSocialEc").active Социально-экономические показатели
+          a(href="#" data-tab-target="VMOpassIncome") доходы
+          a(href="#" data-tab-target="VMOpassExpenses") расходы
+          a(href="#" data-tab-target="VMOpassComparison") Сравнение ВМО
     +tabs
       +tabs-tab(data-tab-group="vmoPassportContent" data-tab="VMOpassSocialEc").vmosocialEc.active
         H3.services-VMO__title Социально-экономические показатели на конец 

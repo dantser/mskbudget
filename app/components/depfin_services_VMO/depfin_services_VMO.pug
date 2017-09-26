@@ -20,7 +20,7 @@ mixin depfin_services_VMO()
     //- Tab 1
     .wrapper.wrapper_widget.load-anim-fade(data-delay="1500")
       .services-VMO__lg.services-VMO__lg_left-lg.services-VMO__lg_color-black
-      .services-VMO__lg.services-VMO__lg_right-lg.services-VMO__lg_color-black
+      .services-VMO__lg.services-VMO__lg_right-lg.services-VMO__lg_color-black.active
       +e.tabs-wrapper
         +e.tabs-control
           a(href="#", class="active", data-tab-target="vmoAll") Все ВМО
@@ -154,11 +154,12 @@ mixin vmoMunicipalDistricts()
   .services-VMO__content.services-VMO__content_municipal-graphics
     .analityc-control-switcher.analityc-control-switcher_main.analityc-control-switcher_default.active
       .services-VMO__lg.services-VMO__lg_left-lg
-      .services-VMO__lg.services-VMO__lg_right-lg
+      .services-VMO__lg.services-VMO__lg_right-lg.active
       .analityc-control-switcher-wrapper
-        a(href="#" data-tab-target="VMOsocialEc") Социально-экономические показатели
-        a(href="#" data-tab-target="VMOincome") доходы
-        a(href="#" data-tab-target="VMOexpenses").active расходы
+        .services-VMO__lg-container
+          a(href="#" data-tab-target="VMOsocialEc") Социально-экономические показатели
+          a(href="#" data-tab-target="VMOincome") доходы
+          a(href="#" data-tab-target="VMOexpenses").active расходы
     +tabs
       +tabs-tab(data-tab-group="VMOmunicipalDistricts" data-tab="VMOsocialEc").vmosocialEc
         H3.services-VMO__title Социально-экономические показатели на конец 
@@ -334,11 +335,12 @@ mixin vmoCityDistricts()
   .services-VMO__content.services-VMO__content_municipal-graphics
     .analityc-control-switcher.analityc-control-switcher_main.analityc-control-switcher_default.active
       .services-VMO__lg.services-VMO__lg_left-lg
-      .services-VMO__lg.services-VMO__lg_right-lg
+      .services-VMO__lg.services-VMO__lg_right-lg.active
       .analityc-control-switcher-wrapper
-        a(href="#" data-tab-target="VMOsocialEc").active Социально-экономические показатели
-        a(href="#" data-tab-target="VMOincome") доходы
-        a(href="#" data-tab-target="VMOexpenses") расходы
+        .services-VMO__lg-container
+          a(href="#" data-tab-target="VMOsocialEc").active Социально-экономические показатели
+          a(href="#" data-tab-target="VMOincome") доходы
+          a(href="#" data-tab-target="VMOexpenses") расходы
     +tabs
       +tabs-tab(data-tab-group="VMOmunicipalDistricts" data-tab="VMOsocialEc").vmosocialEc.active
         H3.services-VMO__title Социально-экономические показатели на конец 
@@ -513,11 +515,12 @@ mixin vmoSettlements()
   .services-VMO__content.services-VMO__content_municipal-graphics
     .analityc-control-switcher.analityc-control-switcher_main.analityc-control-switcher_default.active
       .services-VMO__lg.services-VMO__lg_left-lg
-      .services-VMO__lg.services-VMO__lg_right-lg
+      .services-VMO__lg.services-VMO__lg_right-lg.active
       .analityc-control-switcher-wrapper
-        a(href="#" data-tab-target="VMOsocialEc").active Социально-экономические показатели
-        a(href="#" data-tab-target="VMOincome") доходы
-        a(href="#" data-tab-target="VMOexpenses") расходы
+        .services-VMO__lg-container
+          a(href="#" data-tab-target="VMOsocialEc").active Социально-экономические показатели
+          a(href="#" data-tab-target="VMOincome") доходы
+          a(href="#" data-tab-target="VMOexpenses") расходы
     +tabs
       +tabs-tab(data-tab-group="VMOmunicipalDistricts" data-tab="VMOsocialEc").vmosocialEc.active
         H3.services-VMO__title Социально-экономические показатели на конец 
@@ -695,12 +698,13 @@ mixin vmoPassportListContent()
   h3.services-VMO__title перечень муниципальных образований города москвы
   .analityc-control-switcher.analityc-control-switcher_main.analityc-control-switcher_default.analityc-control-switcher_passport.active
     .services-VMO__lg.services-VMO__lg_left-lg
-    .services-VMO__lg.services-VMO__lg_right-lg
+    .services-VMO__lg.services-VMO__lg_right-lg.active
     .analityc-control-switcher-wrapper
-      a(href="#" data-tab-target="vmoListMun") Муниципальные округи
-      a(href="#" data-tab-target="vmoListCity") Городские округи
-      a(href="#" data-tab-target="vmoListSettlements") Поселения
-      a(href="#" data-tab-target="vmoListAll").active Все
+      .services-VMO__lg-container
+        a(href="#" data-tab-target="vmoListMun") Муниципальные округи
+        a(href="#" data-tab-target="vmoListCity") Городские округи
+        a(href="#" data-tab-target="vmoListSettlements") Поселения
+        a(href="#" data-tab-target="vmoListAll").active Все
   +tabs
     +tabs-tab(data-tab-group="VMOlist" data-tab="vmoListMun")
       +vmoPassportListTable()

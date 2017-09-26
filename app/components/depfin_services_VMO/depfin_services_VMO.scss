@@ -11,6 +11,7 @@
   }
 
   &__lg {
+    display: none;
     position: absolute;
     top: calc(0% - 1px);
     width: 30%;
@@ -18,16 +19,22 @@
     pointer-events: none;
     z-index: 3;
 
+    &.active {
+      @media (max-width: 768px) {
+        display: block;
+      }
+    }
+
     &_left-lg {
       left: calc(0% - 1px);
       background-image: linear-gradient(to right,rgba(255, 255, 255, 1) 10%,transparent 90%);
-      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00ffffff",endColorstr="#ffffff",GradientType=1)
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00ffffff",endColorstr="#ffffff",GradientType=1);
     }
 
     &_right-lg {
-      right: calc(0% + 1px);
+      right: calc(0% - 1px);
       background-image: linear-gradient(to left,rgba(255, 255, 255, 1) 10%,transparent 90%);
-      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00ffffff",endColorstr="#ffffff",GradientType=1)
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00ffffff",endColorstr="#ffffff",GradientType=1);
     }
 
     /*for page wrapper*/
@@ -39,15 +46,21 @@
       &.services-VMO__lg_left-lg {
         left: 0;
         background-image: linear-gradient(to right, rgba(29,28,31,.8) 10%, transparent 90%);
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00ffffff",endColorstr="#ffffff",GradientType=1)
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00ffffff",endColorstr="#ffffff",GradientType=1);
       }
 
       &.services-VMO__lg_right-lg {
         right: 0;
         background-image: linear-gradient(to left, rgba(29,28,31,.8) 10%, transparent 90%);
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00ffffff",endColorstr="#ffffff",GradientType=1)
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00ffffff",endColorstr="#ffffff",GradientType=1);
       }
+    }
 
+    &-container {
+      @media (max-width: 768px) {
+        overflow-x: scroll;
+        overflow-y: visible;
+      }
     }
   }
 
@@ -628,15 +641,22 @@
   }
 
   .analityc-control-switcher {
+    white-space: nowrap;
+    border: none;
     position: relative;
     font-size: 0;
     display: table;
+
+    &-wrapper {
+      border: 1px solid #0d46a1;
+      overflow: hidden;
+    }
+
     a {
       border-right: 1px solid $color-link;
 
       &:last-child {
         border-right: none;
-        margin-right: -1px;
         padding-right: 31px;
       }
     }
@@ -1571,12 +1591,12 @@
         left: -48px;
       }
       &_orange::before {
-        left: -153px;
-        width: 148px;
-      }
-      &_green::before {
         left: -231px;
         width: 226px;
+      }
+      &_green::before {
+        left: -153px;
+        width: 148px;
       }
     }
 
@@ -1741,26 +1761,14 @@
       }
     }
     .analityc-control-switcher {
-      white-space: nowrap;
-      overflow-y: hidden;
-      overflow-x: scroll;
       display: block;
       position: relative;
 
-      &-wrapper {
-        min-width: 673px;
-      }
       &_default {
         display: inline-block;
-        overflow: visible;
-        .analityc-control-switcher-wrapper {
-          min-width: 580px;
-        }
       }
       &_passport {
-        .analityc-control-switcher-wrapper {
-          min-width: 640px;
-        }
+
       }
     }
     .analityc-control-switcher a {
@@ -1883,12 +1891,7 @@
     .analityc-control-switcher {
 
       &_passport {
-        overflow-y: hidden;
-        overflow-x: scroll;
         display: block;
-        .analityc-control-switcher-wrapper {
-          min-width: 640px;
-        }
       }
     }
 
@@ -1898,21 +1901,11 @@
 
   @media (max-width: 639px) {
     .analityc-control-switcher_default {
-      overflow-y: hidden;
-      overflow-x: scroll;
       display: block;
-      .analityc-control-switcher-wrapper {
-        min-width: 580px;
-      }
     }
 
     .analityc-control-switcher_passport {
-      overflow-y: hidden;
-      overflow-x: scroll;
       display: block;
-      .analityc-control-switcher-wrapper {
-        min-width: 640px;
-      }
     }
 
 
@@ -1991,17 +1984,6 @@
       display: block;
       margin-bottom: 12px;
     }
-    .analityc-control-switcher_default {
-      .analityc-control-switcher-wrapper {
-        min-width: 535px;
-      }
-    }
-    .analityc-control-switcher_passport {
-      .analityc-control-switcher-wrapper {
-        min-width: 577px;
-      }
-    }
-
   }
 
 
