@@ -21,8 +21,11 @@ mixin services_net()
 					+e.H3.col._right= rightCaption
 
 				+e.rows.services-net-table__main
-					- for (var i=0; i<data.length; i++)
-						+row(data[i].id, data[i].colOne, data[i].colTwo, data[i].colThree)
+					+e.wrapper
+						+e.tile
+							- for (var i=0; i<data.length; i++)
+								+row(data[i].id, data[i].colOne, data[i].colTwo, data[i].colThree)
+		A(href="#").services-net-table__show-more.d-si__button.d-si__button_show-more Показать еще
 
 	mixin row(num, colOne, colTwo, colThree)
 		+e.row

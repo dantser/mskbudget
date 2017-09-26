@@ -111,39 +111,51 @@ export default () => {
     TAB_INNER_INSTITUTES.addClass(TAB_INNER_ACTIVE);
   });
 
-if ( $('#net-map').length > 0 ) {
+  if ( $('#net-map').length > 0 ) {
 
 
-  var map;
+    var map;
 
 
 
-  ymaps.load().then(maps => {
-    map = new maps.Map("net-map", {
-        center: [55.755814, 37.617635],
-        zoom: 14,
-        type: "yandex#map",
-        controls: []
+    ymaps.load().then(maps => {
+      map = new maps.Map("net-map", {
+          center: [55.755814, 37.617635],
+          zoom: 14,
+          type: "yandex#map",
+          controls: []
 
-    },
-    {suppressMapOpenBlock: true});
+      },
+      {suppressMapOpenBlock: true});
 
-    var placemark = new maps.Placemark([55.755814, 37.617635]);
-    map.geoObjects.add(placemark);
-  })
+      var placemark = new maps.Placemark([55.755814, 37.617635]);
+      map.geoObjects.add(placemark);
+    })
 
-  const MAP_OPEN = $('.services-net-institute__address-map-open');
-  const MAP_CLOSE = $('.services-net-institute__map-close');
+    const MAP_OPEN = $('.services-net-institute__address-map-open');
+    const MAP_CLOSE = $('.services-net-institute__map-close');
 
-  MAP_OPEN.click(function(e) {
+    MAP_OPEN.click(function(e) {
+      e.preventDefault();
+      $('.services-net-institute__address').addClass('services-net-institute__address_active');
+      map.container.fitToViewport();
+    })
+    MAP_CLOSE.click(function() {
+      $('.services-net-institute__address').removeClass('services-net-institute__address_active');
+      map.container.fitToViewport();
+    })
+  }
+
+  // Показать еще
+  $('.services-net-table__show-more').on('click', function (e) {
     e.preventDefault();
-    $('.services-net-institute__address').addClass('services-net-institute__address_active');
-    map.container.fitToViewport();
-  })
-  MAP_CLOSE.click(function() {
-    $('.services-net-institute__address').removeClass('services-net-institute__address_active');
-    map.container.fitToViewport();
-  })
-}
+    const TABLE = $(this).parents('.services-net-inner');
+    const CONTAINER = TABLE.find('.services-net-table__main');
+    CONTAINER.animate({
+      height: CONTAINER.find('.services-net-table__tile').height()
+    }, 1000, function(){
+      CONTAINER.height('auto');
+    });
+  });
 
 }

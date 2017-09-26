@@ -7,6 +7,25 @@
 		padding-bottom: 80px;
   }
 
+	&__head {
+    max-width: 1100px;
+    margin: 0 auto;
+    @media (max-width: 1140px) {
+      padding-left: 75px;
+      padding-right: 74px;
+    }
+
+    @media (max-width: 900px) {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+
+    @media (max-width: 580px) {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+	}
+
 	&__head-about {
 		font-family: $PFDinTextPro;
 		font-size: 16px;
@@ -80,10 +99,11 @@
 		  	@media (max-width: 900px) and (min-width: 581px) {
 			    font-size: 32px;
 			    line-height: 50px;
+			    padding: 11px 13px;
 		  	}	
 
 		  	@media (max-width: 580px) {
-		  		padding: 11px 10px;
+		  		padding: 11px 9px;
 					font-size: 16px;
 			    line-height: 12px;
 					margin-top: 0;
@@ -197,8 +217,21 @@
 
   }
 
+	&__main {
+    height: 441px;
+    overflow: hidden;
+
+    @media (max-width: 900px) and (min-width: 581px) {
+	    height: 1040px;
+    }
+	}
+
+	&__tile {
+		height: auto;
+	}
+
   &__rows {
-    
+
   }
 
 	&__row {
@@ -328,6 +361,21 @@
     letter-spacing: -.4px;
     white-space: normal;
 	}
+
+  &__show-more.d-si__button {
+    border: 1px solid #959595;
+    color: $color-link;
+    margin: 43px auto 0 auto;
+    max-width: 690px;
+
+    @media (max-width: 580px) {
+      width: 100%;
+    }
+
+    &:hover {
+      color: $color-black;
+    }
+  }
 }
 
 .services-net-table_institute-table {
