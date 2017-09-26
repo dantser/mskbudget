@@ -480,6 +480,18 @@ mixin analityc-graphics-round9()
       span.analityc-graphics_round-prev
       +legend(getData('legend-mrelations3')).analityc-graphics__legend
 
+
+
+//- Графики колонки со сдвигом
+mixin column-area(color, height, value)
+  div(class='column-area column-area_'+color+'', data-height=height)
+    .column-value= value
+
+mixin subcolumn-area(color, value)
+  .subcolumn-area
+    div(class='column-area column-area_'+color+' column-area_sub')
+    .column-value= value
+
 //- legendtype - тип легенды(json файл)
 mixin analityc-graphics-column(legendtype, expenses)
   +b.analityc-graphics&attributes(attributes)._column
@@ -491,53 +503,29 @@ mixin analityc-graphics-column(legendtype, expenses)
         +e.col.swiper-slide
           +e.P.year 2017
           +e.graphic._column
-            .column1
+            .column
               .column__value 1976,5
-              .column-area.column-area1
-                .column-value 495,4
-              .column-area.column-area2
-                .column-value 233
-              .column-area.column-area3
-                .column-value 276,2
-              .column-area.column-area4
-                .column-value 391,2
-              .column-area.column-area5
-                .column-value 434,5
-              .column-area.column-area6
-                .column-value 146,2
+              +column-area('gray', '69', '495,4')
+              +column-area('violet', '35', '233')
+              +column-area('blue', '36', '276,2')
+              +column-area('pink', '48', '391,2')
+              +column-area('green', '59', '434,5')
+              +column-area('orange', '23', '146,2')
             .subcolumn
-              .column-area
-                .column-area1.subcolumn-area
-                .column-value +10,0
-              .column-area
-                .column-area2.subcolumn-area
-                .column-value +10,0
-              .column-area
-                .column-area3.subcolumn-area
-                .column-value +10,0
-              .column-area
-                .column-area4.subcolumn-area
-                .column-value +10,0
-              .column-area
-                .column-area5.subcolumn-area
-                .column-value +10,0
-              .column-area
-                .column-area6.subcolumn-area
-                .column-value +10,0
-            .column2
+              +subcolumn-area('gray', '+10,0')
+              +subcolumn-area('violet', '+10,0')
+              +subcolumn-area('blue', '+10,0')
+              +subcolumn-area('pink', '+10,0')
+              +subcolumn-area('green', '+10,0')
+              +subcolumn-area('orange', '+10,0')
+            .column
               .column__value 2036,5
-              .column-area.column-area1
-                .column-value 505,4
-              .column-area.column-area2
-                .column-value 243
-              .column-area.column-area3
-                .column-value 286,2
-              .column-area.column-area4
-                .column-value 401,2
-              .column-area.column-area5
-                .column-value 444,5
-              .column-area.column-area6
-                .column-value 156,2
+              +column-area('gray', '71', '505,4')
+              +column-area('violet', '35', '243')
+              +column-area('blue', '36', '286,2')
+              +column-area('pink', '54', '401,2')
+              +column-area('green', '59', '444,5')
+              +column-area('orange', '23', '156,2')
           +e.bottom
             if expenses
               p Бюджет дейтсвующий
@@ -548,53 +536,29 @@ mixin analityc-graphics-column(legendtype, expenses)
           +e.SPAN.period-left
           +e.P.year 2018
           +e.graphic._column
-            .column1
+            .column
               .column__value 1976,5
-              .column-area.column-area1
-                .column-value 495,4
-              .column-area.column-area2
-                .column-value 233
-              .column-area.column-area3
-                .column-value 276,2
-              .column-area.column-area4
-                .column-value 391,2
-              .column-area.column-area5
-                .column-value 434,5
-              .column-area.column-area6
-                .column-value 146,2
+              +column-area('gray', '69', '495,4')
+              +column-area('violet', '35', '233')
+              +column-area('blue', '36', '276,2')
+              +column-area('pink', '48', '391,2')
+              +column-area('green', '59', '434,5')
+              +column-area('orange', '23', '146,2')
             .subcolumn
-              .column-area
-                .column-area1.subcolumn-area
-                .column-value +10,0
-              .column-area
-                .column-area2.subcolumn-area
-                .column-value +10,0
-              .column-area
-                .column-area3.subcolumn-area
-                .column-value +10,0
-              .column-area
-                .column-area4.subcolumn-area
-                .column-value +10,0
-              .column-area
-                .column-area5.subcolumn-area
-                .column-value +10,0
-              .column-area
-                .column-area6.subcolumn-area
-                .column-value +10,0
-            .column2
+              +subcolumn-area('gray', '+10,0')
+              +subcolumn-area('violet', '+10,0')
+              +subcolumn-area('blue', '+10,0')
+              +subcolumn-area('pink', '+10,0')
+              +subcolumn-area('green', '+10,0')
+              +subcolumn-area('orange', '+10,0')
+            .column
               .column__value 2036,5
-              .column-area.column-area1
-                .column-value 505,4
-              .column-area.column-area2
-                .column-value 243
-              .column-area.column-area3
-                .column-value 286,2
-              .column-area.column-area4
-                .column-value 401,2
-              .column-area.column-area5
-                .column-value 444,5
-              .column-area.column-area6
-                .column-value 156,2
+              +column-area('gray', '71', '505,4')
+              +column-area('violet', '35', '243')
+              +column-area('blue', '36', '286,2')
+              +column-area('pink', '54', '401,2')
+              +column-area('green', '59', '444,5')
+              +column-area('orange', '23', '156,2')
           +e.bottom
             if expenses
               p Бюджет дейтсвующий
@@ -605,53 +569,29 @@ mixin analityc-graphics-column(legendtype, expenses)
           +e.SPAN.period-right
           +e.P.year 2019
           +e.graphic._column
-            .column1
+            .column
               .column__value 1976,5
-              .column-area.column-area1
-                .column-value 495,4
-              .column-area.column-area2
-                .column-value 233
-              .column-area.column-area3
-                .column-value 276,2
-              .column-area.column-area4
-                .column-value 391,2
-              .column-area.column-area5
-                .column-value 434,5
-              .column-area.column-area6
-                .column-value 146,2
+              +column-area('gray', '69', '495,4')
+              +column-area('violet', '35', '233')
+              +column-area('blue', '36', '276,2')
+              +column-area('pink', '48', '391,2')
+              +column-area('green', '59', '434,5')
+              +column-area('orange', '23', '146,2')
             .subcolumn
-              .column-area
-                .column-area1.subcolumn-area
-                .column-value +10,0
-              .column-area
-                .column-area2.subcolumn-area
-                .column-value +10,0
-              .column-area
-                .column-area3.subcolumn-area
-                .column-value +10,0
-              .column-area
-                .column-area4.subcolumn-area
-                .column-value +10,0
-              .column-area
-                .column-area5.subcolumn-area
-                .column-value +10,0
-              .column-area
-                .column-area6.subcolumn-area
-                .column-value +10,0
-            .column2
+              +subcolumn-area('gray', '+10,0')
+              +subcolumn-area('violet', '+10,0')
+              +subcolumn-area('blue', '+10,0')
+              +subcolumn-area('pink', '+10,0')
+              +subcolumn-area('green', '+10,0')
+              +subcolumn-area('orange', '+10,0')
+            .column
               .column__value 2036,5
-              .column-area.column-area1
-                .column-value 505,4
-              .column-area.column-area2
-                .column-value 243
-              .column-area.column-area3
-                .column-value 286,2
-              .column-area.column-area4
-                .column-value 401,2
-              .column-area.column-area5
-                .column-value 444,5
-              .column-area.column-area6
-                .column-value 156,2
+              +column-area('gray', '71', '505,4')
+              +column-area('violet', '35', '243')
+              +column-area('blue', '36', '286,2')
+              +column-area('pink', '54', '401,2')
+              +column-area('green', '59', '444,5')
+              +column-area('orange', '23', '156,2')
           +e.bottom
             if expenses
               p Бюджет дейтсвующий
@@ -685,39 +625,23 @@ mixin analityc-graphics-column2()
         +e.col.swiper-slide
           +e.P.year 2017
           +e.graphic._column
-            .column1
+            .column
               .column__value 434,5
-              .column-area.column-area3
-                .column-value 227,5
-              .column-area.column-area4
-                .column-value 24,6
-              .column-area.column-area5
-                .column-value 157,4
-              .column-area.column-area6
-                .column-value 25,0
+              +column-area('blue', '127', '227,5')
+              +column-area('pink', '24', '24,6')
+              +column-area('green', '57', '157,4')
+              +column-area('orange', '25', '25,0')
             .subcolumn
-              .column-area
-                .column-area3.subcolumn-area
-                .column-value +10,0
-              .column-area
-                .column-area4.subcolumn-area
-                .column-value +10,0
-              .column-area
-                .column-area5.subcolumn-area
-                .column-value +10,0
-              .column-area
-                .column-area6.subcolumn-area
-                .column-value +10,0
-            .column2
+              +subcolumn-area('blue', '+10,0')
+              +subcolumn-area('pink', '+10,0')
+              +subcolumn-area('green', '+10,0')
+              +subcolumn-area('orange', '+10,0')
+            .column
               .column__value 464,5
-              .column-area.column-area3
-                .column-value 237,5
-              .column-area.column-area4
-                .column-value 34,6
-              .column-area.column-area5
-                .column-value 167,4
-              .column-area.column-area6
-                .column-value 25,0
+              +column-area('blue', '137', '237,5')
+              +column-area('pink', '34', '34,6')
+              +column-area('green', '67', '167,4')
+              +column-area('orange', '25', '25,0')
           +e.bottom
             p Бюджет утвержденный
             p Бюджет с учетом изменений
@@ -725,39 +649,23 @@ mixin analityc-graphics-column2()
           +e.SPAN.period-left
           +e.P.year 2018
           +e.graphic._column
-            .column1
+            .column
               .column__value 437,0
-              .column-area.column-area3
-                .column-value 209,8
-              .column-area.column-area4
-                .column-value 25,2
-              .column-area.column-area5
-                .column-value 176,5
-              .column-area.column-area6
-                .column-value 25,5
+              +column-area('blue', '127', '209,8')
+              +column-area('pink', '24', '25,2')
+              +column-area('green', '57', '176,5')
+              +column-area('orange', '25', '25,5')
             .subcolumn
-              .column-area
-                .column-area3.subcolumn-area
-                .column-value +10,0
-              .column-area
-                .column-area4.subcolumn-area
-                .column-value +10,0
-              .column-area
-                .column-area5.subcolumn-area
-                .column-value +10,0
-              .column-area
-                .column-area6.subcolumn-area
-                .column-value +10,0
-            .column2
+              +subcolumn-area('blue', '+10,0')
+              +subcolumn-area('pink', '+10,0')
+              +subcolumn-area('green', '+10,0')
+              +subcolumn-area('orange', '+10,0')
+            .column
               .column__value 467,0
-              .column-area.column-area3
-                .column-value 219,8
-              .column-area.column-area4
-                .column-value 35,2
-              .column-area.column-area5
-                .column-value 186,5
-              .column-area.column-area6
-                .column-value 25,5
+              +column-area('blue', '137', '219,8')
+              +column-area('pink', '34', '35,2')
+              +column-area('green', '67', '186,5')
+              +column-area('orange', '25', '25,5')
           +e.bottom
             p Бюджет утвержденный
             p Бюджет с учетом изменений
@@ -765,39 +673,23 @@ mixin analityc-graphics-column2()
           +e.SPAN.period-right
           +e.P.year 2019
           +e.graphic._column
-            .column1
+            .column
               .column__value 435,6
-              .column-area.column-area3
-                .column-value 211,1
-              .column-area.column-area4
-                .column-value 24,5
-              .column-area.column-area5
-                .column-value 173,5
-              .column-area.column-area6
-                .column-value 26,5
+              +column-area('blue', '127', '211,1')
+              +column-area('pink', '24', '24,5')
+              +column-area('green', '57', '173,5')
+              +column-area('orange', '25', '26,5')
             .subcolumn
-              .column-area
-                .column-area3.subcolumn-area
-                .column-value +10,0
-              .column-area
-                .column-area4.subcolumn-area
-                .column-value +10,0
-              .column-area
-                .column-area5.subcolumn-area
-                .column-value +10,0
-              .column-area
-                .column-area6.subcolumn-area
-                .column-value +10,0
-            .column2
+              +subcolumn-area('blue', '+10,0')
+              +subcolumn-area('pink', '+10,0')
+              +subcolumn-area('green', '+10,0')
+              +subcolumn-area('orange', '+10,0')
+            .column
               .column__value 465,6
-              .column-area.column-area3
-                .column-value 221,1
-              .column-area.column-area4
-                .column-value 34,5
-              .column-area.column-area5
-                .column-value 183,5
-              .column-area.column-area6
-                .column-value 26,5
+              +column-area('blue', '137', '221,1')
+              +column-area('pink', '34', '34,5')
+              +column-area('green', '67', '183,5')
+              +column-area('orange', '25', '26,5')
           +e.bottom
             p Бюджет утвержденный
             p Бюджет с учетом изменений
@@ -814,39 +706,23 @@ mixin analityc-graphics-column3()
         +e.col.swiper-slide
           +e.P.year 2017
           +e.graphic._column
-            .column1
+            .column
               .column__value 4,1
-              .column-area.column-area3
-                .column-value 0,4
-              .column-area.column-area4
-                .column-value 0,9
-              .column-area.column-area5
-                .column-value 2,6
-              .column-area.column-area6
-                .column-value 0,2
+              +column-area('violet', '30', '0,4')
+              +column-area('green', '50', '0,9')
+              +column-area('pink', '100', '2,6')
+              +column-area('blue', '15', '0,2')
             .subcolumn
-              .column-area
-                .column-area3.subcolumn-area
-                .column-value +0,2
-              .column-area
-                .column-area4.subcolumn-area
-                .column-value +0,1
-              .column-area
-                .column-area5.subcolumn-area
-                .column-value +0,4
-              .column-area
-                .column-area6.subcolumn-area
-                .column-value +0,2
-            .column2
+              +subcolumn-area('violet', '+0,2')
+              +subcolumn-area('green', '+0,1')
+              +subcolumn-area('pink', '+0,4')
+              +subcolumn-area('blue', '+0,2')
+            .column
               .column__value 5,0
-              .column-area.column-area3
-                .column-value 0,6
-              .column-area.column-area4
-                .column-value 1,0
-              .column-area.column-area5
-                .column-value 3,0
-              .column-area.column-area6
-                .column-value 0,4
+              +column-area('violet', '40', '0,6')
+              +column-area('green', '60', '1,0')
+              +column-area('pink', '120', '3,0')
+              +column-area('blue', '30', '0,4')
           +e.bottom
             p Бюджет утвержденный
             p Бюджет с учетом изменений
@@ -854,39 +730,23 @@ mixin analityc-graphics-column3()
           +e.SPAN.period-left
           +e.P.year 2018
           +e.graphic._column
-            .column1
+            .column
               .column__value 4,1
-              .column-area.column-area3
-                .column-value 0,4
-              .column-area.column-area4
-                .column-value 0,9
-              .column-area.column-area5
-                .column-value 2,6
-              .column-area.column-area6
-                .column-value 0,2
+              +column-area('violet', '30', '0,4')
+              +column-area('green', '50', '0,9')
+              +column-area('pink', '100', '2,6')
+              +column-area('blue', '15', '0,2')
             .subcolumn
-              .column-area
-                .column-area3.subcolumn-area
-                .column-value +0,2
-              .column-area
-                .column-area4.subcolumn-area
-                .column-value +0,1
-              .column-area
-                .column-area5.subcolumn-area
-                .column-value +0,4
-              .column-area
-                .column-area6.subcolumn-area
-                .column-value +0,2
-            .column2
+              +subcolumn-area('violet', '+0,2')
+              +subcolumn-area('green', '+0,1')
+              +subcolumn-area('pink', '+0,4')
+              +subcolumn-area('blue', '+0,2')
+            .column
               .column__value 5,0
-              .column-area.column-area3
-                .column-value 0,6
-              .column-area.column-area4
-                .column-value 1,0
-              .column-area.column-area5
-                .column-value 3,0
-              .column-area.column-area6
-                .column-value 0,4
+              +column-area('violet', '40', '0,6')
+              +column-area('green', '60', '1,0')
+              +column-area('pink', '120', '3,0')
+              +column-area('blue', '30', '0,4')
           +e.bottom
             p Бюджет утвержденный
             p Бюджет с учетом изменений
@@ -894,39 +754,23 @@ mixin analityc-graphics-column3()
           +e.SPAN.period-right
           +e.P.year 2019
           +e.graphic._column
-            .column1
+            .column
               .column__value 4,1
-              .column-area.column-area3
-                .column-value 0,4
-              .column-area.column-area4
-                .column-value 0,9
-              .column-area.column-area5
-                .column-value 2,6
-              .column-area.column-area6
-                .column-value 0,2
+              +column-area('violet', '30', '0,4')
+              +column-area('green', '50', '0,9')
+              +column-area('pink', '100', '2,6')
+              +column-area('blue', '15', '0,2')
             .subcolumn
-              .column-area
-                .column-area3.subcolumn-area
-                .column-value +0,2
-              .column-area
-                .column-area4.subcolumn-area
-                .column-value +0,1
-              .column-area
-                .column-area5.subcolumn-area
-                .column-value +0,4
-              .column-area
-                .column-area6.subcolumn-area
-                .column-value +0,2
-            .column2
+              +subcolumn-area('violet', '+0,2')
+              +subcolumn-area('green', '+0,1')
+              +subcolumn-area('pink', '+0,4')
+              +subcolumn-area('blue', '+0,2')
+            .column
               .column__value 5,0
-              .column-area.column-area3
-                .column-value 0,6
-              .column-area.column-area4
-                .column-value 1,0
-              .column-area.column-area5
-                .column-value 3,0
-              .column-area.column-area6
-                .column-value 0,4
+              +column-area('violet', '40', '0,6')
+              +column-area('green', '60', '1,0')
+              +column-area('pink', '120', '3,0')
+              +column-area('blue', '30', '0,4')
           +e.bottom
             p Бюджет утвержденный
             p Бюджет с учетом изменений
@@ -944,39 +788,23 @@ mixin analityc-graphics-column4()
         +e.col.swiper-slide
           +e.P.year 2017
           +e.graphic._column
-            .column1
+            .column
               .column__value 435,5
-              .column-area.column-area3
-                .column-value 227,5
-              .column-area.column-area4
-                .column-value 24,6
-              .column-area.column-area5
-                .column-value 157,4
-              .column-area.column-area6
-                .column-value 26,0
+              +column-area('blue', '127', '227,5')
+              +column-area('pink', '24', '24,6')
+              +column-area('green', '57', '157,4')
+              +column-area('orange', '25', '25,0')
             .subcolumn
-              .column-area
-                .column-area3.subcolumn-area
-                .column-value +10,0
-              .column-area
-                .column-area4.subcolumn-area
-                .column-value +10,0
-              .column-area
-                .column-area5.subcolumn-area
-                .column-value +10,0
-              .column-area
-                .column-area6.subcolumn-area
-                .column-value +10,0
-            .column2
+              +subcolumn-area('blue', '+10,0')
+              +subcolumn-area('pink', '+10,0')
+              +subcolumn-area('green', '+10,0')
+              +subcolumn-area('orange', '+10,0')
+            .column
               .column__value 474,5
-              .column-area.column-area3
-                .column-value 237,5
-              .column-area.column-area4
-                .column-value 34,6
-              .column-area.column-area5
-                .column-value 167,4
-              .column-area.column-area6
-                .column-value 26,0
+              +column-area('blue', '137', '237,5')
+              +column-area('pink', '34', '34,6')
+              +column-area('green', '67', '167,4')
+              +column-area('orange', '25', '25,0')
           +e.bottom
             p Бюджет утвержденный
             p Бюджет с учетом изменений
@@ -984,39 +812,23 @@ mixin analityc-graphics-column4()
           +e.SPAN.period-left
           +e.P.year 2018
           +e.graphic._column
-            .column1
+            .column
               .column__value 438,0
-              .column-area.column-area3
-                .column-value 209,8
-              .column-area.column-area4
-                .column-value 25,2
-              .column-area.column-area5
-                .column-value 176,5
-              .column-area.column-area6
-                .column-value 26,5
+              +column-area('blue', '127', '209,8')
+              +column-area('pink', '24', '25,2')
+              +column-area('green', '57', '176,5')
+              +column-area('orange', '25', '25,5')
             .subcolumn
-              .column-area
-                .column-area3.subcolumn-area
-                .column-value +10,0
-              .column-area
-                .column-area4.subcolumn-area
-                .column-value +10,0
-              .column-area
-                .column-area5.subcolumn-area
-                .column-value +10,0
-              .column-area
-                .column-area6.subcolumn-area
-                .column-value +10,0
-            .column2
+              +subcolumn-area('blue', '+10,0')
+              +subcolumn-area('pink', '+10,0')
+              +subcolumn-area('green', '+10,0')
+              +subcolumn-area('orange', '+10,0')
+            .column
               .column__value 468,0
-              .column-area.column-area3
-                .column-value 219,8
-              .column-area.column-area4
-                .column-value 35,2
-              .column-area.column-area5
-                .column-value 186,5
-              .column-area.column-area6
-                .column-value 26,5
+              +column-area('blue', '137', '219,8')
+              +column-area('pink', '34', '35,2')
+              +column-area('green', '67', '186,5')
+              +column-area('orange', '25', '25,5')
           +e.bottom
             p Бюджет утвержденный
             p Бюджет с учетом изменений
@@ -1024,39 +836,23 @@ mixin analityc-graphics-column4()
           +e.SPAN.period-right
           +e.P.year 2019
           +e.graphic._column
-            .column1
+            .column
               .column__value 436,6
-              .column-area.column-area3
-                .column-value 211,1
-              .column-area.column-area4
-                .column-value 24,5
-              .column-area.column-area5
-                .column-value 173,5
-              .column-area.column-area6
-                .column-value 27,5
+              +column-area('blue', '127', '211,1')
+              +column-area('pink', '24', '24,5')
+              +column-area('green', '57', '173,5')
+              +column-area('orange', '25', '26,5')
             .subcolumn
-              .column-area
-                .column-area3.subcolumn-area
-                .column-value +10,0
-              .column-area
-                .column-area4.subcolumn-area
-                .column-value +10,0
-              .column-area
-                .column-area5.subcolumn-area
-                .column-value +10,0
-              .column-area
-                .column-area6.subcolumn-area
-                .column-value +10,0
-            .column2
+              +subcolumn-area('blue', '+10,0')
+              +subcolumn-area('pink', '+10,0')
+              +subcolumn-area('green', '+10,0')
+              +subcolumn-area('orange', '+10,0')
+            .column
               .column__value 466,6
-              .column-area.column-area3
-                .column-value 221,1
-              .column-area.column-area4
-                .column-value 34,5
-              .column-area.column-area5
-                .column-value 183,5
-              .column-area.column-area6
-                .column-value 27,5
+              +column-area('blue', '137', '221,1')
+              +column-area('pink', '34', '34,5')
+              +column-area('green', '67', '183,5')
+              +column-area('orange', '25', '26,5')
           +e.bottom
             p Бюджет утвержденный
             p Бюджет с учетом изменений

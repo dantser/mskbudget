@@ -47,7 +47,6 @@ export default () => {
           wrapper = container.find('.analityc-table__wrapper, .linear-diagrams__wrapper, .analityc-graphics__graphic-slider, .budget-forecast__table-wrapper, .table-wrapper'),
           arrows = $(this),
           offset = wrapper.data('offset');
-      console.log(wrapper);
       slideArrow(wrapper, arrows, offset);
     });
   }

@@ -62,6 +62,7 @@ export default () => {
     changeControl(controls, stageVal, levelVal, typeVal);
     
     positionValues();
+    $(document).trigger('contentChanged');
   }
   
   function changeBlock(el, stageVal, classVal) {

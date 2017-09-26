@@ -143,5 +143,73 @@ export default () => {
   if ($('.gov-debt .analityc-graphics__growth-rate_limit').length) {
     rateLine('.analityc-graphics__growth-rate_limit', 1.5, 57.1, true);
   }
+  
+  
+  
+  // Графики колонки со сдвигом 
+  $(document).on('contentChanged', function() {
+    if ($('.analityc-graphics__graphic_column').length) {
+      columnAreaHeight();
+    }
+  });
+  
+  function columnAreaHeight() {
+    
+    $('.analityc-graphics__graphic_column').each(function(){ 
+      var graphic = $(this),
+          column = graphic.find('.column'),
+          firstColumn = column.first(),
+          lastColumn = column.last(),
+          subcolumn = graphic.find('.subcolumn'),
+          columnArea = $('.column-area'),
+          columnAreaLength = subcolumn.find('.column-area').length;
+      
+      column.each(function(){
+        var curColumnArea = $(this).find(columnArea);
+        for (var i = (columnAreaLength - 1); i >= 0; i--) {
+          var cheight = curColumnArea.eq(i).data('height');
+          curColumnArea.eq(i).height(cheight);
+        }
+      });
+      
+      subcolumn.each(function(){
+        var firstColumnArea = firstColumn.find(columnArea),
+            lastColumnArea = lastColumn.find(columnArea),
+            subColumnArea = $(this).find($('.subcolumn-area'));
+        
+        var tranPoint = 0;
+        
+        for (var i = (columnAreaLength - 1); i >= 0; i--) {
+          var firstHeight = firstColumnArea.eq(i).data('height'),
+              lastHeight = lastColumnArea.eq(i).data('height'),
+              maxHeight;
+          
+          if (lastHeight >= firstHeight) {
+            maxHeight = lastHeight;
+          } else {
+            maxHeight = firstHeight;
+          }
+          
+          subColumnArea.eq(i).find(columnArea).height(maxHeight);
+          
+          var startPoint = firstColumnArea.eq(i).position().top,
+              endPoint = lastColumnArea.eq(i).position().top,
+              pointDiff = endPoint - startPoint,
+              heightDiff = Math.abs(lastHeight - firstHeight),
+              areaWidth = subColumnArea.width(),
+              angle = Math.atan(pointDiff/areaWidth);
+          
+          if (pointDiff > 0) {
+            tranPoint = tranPoint + heightDiff;
+          }
+          
+          angle = angle*180/Math.PI;
+          subColumnArea.eq(i).css('transform', 'translateY('+tranPoint+'px)');
+          subColumnArea.eq(i).find(columnArea).css('transform', 'skewY('+angle+'deg)');
+          subColumnArea.eq(i).find(columnArea).next().css('top', (pointDiff * -1) / 1.3+'px');
+        }
+      });
+    });
+  }
 
 }
