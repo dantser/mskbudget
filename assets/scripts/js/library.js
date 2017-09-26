@@ -9417,9 +9417,12 @@ function positionValues() {
 
   // Вся диаграмма
   var d = $(this).parents('.segment-diagram'),
+      defW = 270, // стандартная ширина диаграммы
+      defSW = 45, // стандартная толщина линии в диаграмме
+      curSW = d.width() * defSW / defW, // пропорция для нахождения текущей толщины линии в диаграмме
       dxcenter = d.width() / 2,
       dycenter = d.height() / 2,
-      dR = dycenter - 22, // 22 это половина толщины линии в диаграмме
+      dR = dycenter - curSW / 2, // curSW / 2 - это половина толщины линии в диаграмме
       dxoutcenter = d.offset().left + dxcenter,
       dyoutcenter = d.offset().top + dycenter;
 
