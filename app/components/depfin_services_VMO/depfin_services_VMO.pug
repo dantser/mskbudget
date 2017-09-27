@@ -157,11 +157,11 @@ mixin vmoMunicipalDistricts()
       .services-VMO__lg.services-VMO__lg_right-lg.active
       .analityc-control-switcher-wrapper
         .services-VMO__lg-container
-          a(href="#" data-tab-target="VMOsocialEc") Социально-экономические показатели
+          a(href="#" data-tab-target="VMOsocialEc").active Социально-экономические показатели
           a(href="#" data-tab-target="VMOincome") доходы
-          a(href="#" data-tab-target="VMOexpenses").active расходы
+          a(href="#" data-tab-target="VMOexpenses") расходы
     +tabs
-      +tabs-tab(data-tab-group="VMOmunicipalDistricts" data-tab="VMOsocialEc").vmosocialEc
+      +tabs-tab(data-tab-group="VMOmunicipalDistricts" data-tab="VMOsocialEc").vmosocialEc.active
         H3.services-VMO__title Социально-экономические показатели на конец 
           .select-wrapper
             select.analityc-select.analityc-select_year.analityc-select_vmo
@@ -269,7 +269,7 @@ mixin vmoMunicipalDistricts()
                   li.services-VMO__list-item еще пункт
                   li.services-VMO__list-item и еще один
               +button()._kind_white Показать все источники доходов
-      +tabs-tab(data-tab-group="VMOmunicipalDistricts" data-tab="VMOexpenses").active
+      +tabs-tab(data-tab-group="VMOmunicipalDistricts" data-tab="VMOexpenses")
         H3.services-VMO__title расходы муниципальных округов за 
           .select-wrapper
             select.analityc-select.analityc-select_year.analityc-select_vmo

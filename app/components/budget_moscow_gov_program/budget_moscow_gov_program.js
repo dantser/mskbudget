@@ -8,14 +8,20 @@ export default () => {
       prevButton: '.analityc-graphics_round-prev',
       slidesPerView: '1',
       centeredSlides: true,
-      spaceBetween: 30,
+      spaceBetween: 40,
       speed: 500,
       observer: true,
-      observeParents: true
+      observeParents: true,
+      onSlideChangeEnd: function(swiper) {
+				$('.analityc-widget-moscow-gov-program_structure').find('.graphic__data').removeClass('graphic__data_active');
+				$('.analityc-widget-moscow-gov-program_structure').find('.graphic__data[data-year="' + swiper.activeIndex + '"]').addClass('graphic__data_active');
+			},
 		});
 	}
 
 	const TABLINK = $('.moscow-gov-program .js-button');
+
+	var tabCur;
 
 	TABLINK.each( function () { // eslint-disable-line
 		const EL = $(this);
@@ -27,17 +33,24 @@ export default () => {
 			EL.parent().addClass(ACTIVE_CLASS);
 
 			var year = parseInt(EL.parent().data('year'), 10);
-
-			GR_MIX.removeClass('active');
-			GR_MIX.find('path, .analityc-mix__lines').removeClass('active');
-			GR_MIX.find('path').addClass('stroke-white')
+			var grId = GR_MIX.eq(year).index();
 			
-			GR_MIX.eq(year).find('path').eq(0).removeClass('stroke-white');
-			GR_MIX.eq(year).find('path').eq(0).addClass('active');
-			GR_MIX.eq(year).addClass('active');
-			GR_MIX.eq(year).find('.analityc-mix__lines_social-gp').addClass('active');
-			GR_MIX.siblings().hide();
-			GR_MIX.eq(year).show();
+			if ($(document).width() >= 900) {
+				GR_MIX.removeClass('active');
+				GR_MIX.find('path, .analityc-mix__lines').removeClass('active');
+				GR_MIX.find('path').addClass('stroke-white')
+				
+				GR_MIX.eq(year).find('path').eq(0).removeClass('stroke-white');
+				GR_MIX.eq(year).find('path').eq(0).addClass('active');
+
+				GR_MIX.eq(year).addClass('active');
+				GR_MIX.siblings().hide();
+
+				GR_MIX.eq(year).find('.analityc-mix__lines_social-gp').addClass('active');
+				GR_MIX.eq(year).show();
+			} else {
+				GR_MIX_SLIDER.slideTo(grId);
+			}
 
 			positionValues();
 		})
@@ -147,7 +160,8 @@ export default () => {
 
 	GRAPHIC_MIX.each(function() {
 		var $this = $(this);
-		var segmentLines = $this.find('.analityc-mix__lines');
+		var segmentLines = $('.analityc-mix__lines');
+		var segmentLinesCur = $this.find('.analityc-mix__lines');
 
 		$this.find('path').click(function() {
 			
@@ -163,20 +177,25 @@ export default () => {
 
 				$('.analityc-widget-moscow-gov-program__structure-wrapper').removeClass('active');
 			} else {
-
-				$this.siblings().hide();
+				if ($(document).width() >= 900) {
+					$this.siblings().hide();
+				}
+				
 				$this.addClass('active');
 				$(this).siblings('path').removeClass('active');
 				$(this).addClass('active');
 				$(this).removeClass('stroke-white');
 				$(this).siblings('path').addClass('stroke-white');
 
-				segmentLines.removeClass('active');
+				segmentLinesCur.removeClass('active');
 				if (segmentId == '0')
 					$this.find('.analityc-mix__lines_social-gp').addClass('active');
 				else if (segmentId == '1')
 					$this.find('.analityc-mix__lines_other-gp').addClass('active');
 
+				console.log($this.index())
+				$('.analityc-widget-moscow-gov-program_structure').find('.graphic__data').removeClass('graphic__data_active');
+				$('.analityc-widget-moscow-gov-program_structure').find('.graphic__data[data-year="' + $this.index() + '"]').addClass('graphic__data_active');
 				$('.analityc-widget-moscow-gov-program__structure-wrapper').addClass('active');
 			}
 

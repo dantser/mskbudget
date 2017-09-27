@@ -54,17 +54,25 @@
   	}
 	}
 
+	&__title-wrapper {
+		font-size: 0;
+		white-space: nowrap;
+	}
+
   &__title {
+  	white-space: normal;
+  	max-width: 65%;
   	display: inline-block;
   	font-family: $PFDinCondensedPro;
   	font-size: 30px;
-  	line-height: 1em;
+  	line-height: 36px;
   	color: $color-white;
   	text-transform: uppercase;
     letter-spacing: 0.7px;
   	margin-bottom: 40px;
 
   	@media (max-width: 580px) {
+	    max-width: 100%;
   		display: block;
 			line-height: 36px;
 			margin-bottom: 3px;
@@ -138,6 +146,9 @@
 		font-family: $PFDinCondensedPro;
 		font-size: 15px;
 		line-height: 1em;
+		overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 		color: $color-white;
 
 		&_red {

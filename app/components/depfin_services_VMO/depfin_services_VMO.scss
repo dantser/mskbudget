@@ -4,7 +4,7 @@
   background-size: cover;
   background-position: center 0;
 
-  .wrapper {
+  .wrapper_widget {
     position: relative;
     overflow: hidden;
     margin-top: 41px;
@@ -263,26 +263,42 @@
   }
 
   &__cols {
+    vertical-align: top;
     margin-top: 15px;
+    font-size: 0;
+  }
+
+  &__cols-left,
+  &__cols-right {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  &__cols-left {
+    width: 33%;
+
+    .services-VMO__col {
+      width: 100%;
+    }
+  }
+
+  &__cols-right {
+    width: 67%;
+
+    .services-VMO__col {
+      width: calc(100% / 3);
+      margin-bottom: 20px;
+    }
   }
 
   &__col {
-    width: 19%;
     font-size: 16px;
     line-height: 19px;
     font-weight: 400;
     display: inline-block;
     vertical-align: top;
     font-family: $PFDinTextPro;
-    margin-right: 31px;
-
-    &:first-child {
-      width: 33%;
-    }
-
-    &:last-child {
-      margin-right: 0;
-    }
+    padding-right: 31px;
 
     a {
       color: $color-link;
@@ -645,7 +661,6 @@
     border: none;
     position: relative;
     font-size: 0;
-    display: table;
 
     &-wrapper {
       border: 1px solid #0d46a1;
@@ -1815,15 +1830,22 @@
       }
     }
 
-    .services-VMO__col {
-      width: 29%;
-      &:first-child {
-        width: 100%;
+    .services-VMO__cols-left,
+    .services-VMO__cols-right {
+      width: 100%;
+    }
+
+    .services-VMO__cols-left {
+      .services-VMO__col {
         font-weight: 500;
         margin-bottom: 10px;
-        margin-right: 0;
       }
     }
+
+    .services-VMO__col {
+      padding-right: 20px;
+    }
+
     .services-VMO__tabs {
       &-control {
         min-width: 768px;
@@ -1841,9 +1863,6 @@
 
   @media (max-width: 760px) {
 
-    .services-VMO__col {
-      margin-right: 20px;
-    }
     .vmopass {
       .services-VMO__content {
         &_text {
@@ -1969,9 +1988,6 @@
       font-size: 16px;
       line-height: 20px;
     }
-    .services-VMO__col {
-      margin-right: 0;
-    }
     .vmopass {
       .services-VMO__content {
         .services-VMO__text {
@@ -1983,6 +1999,7 @@
       width: 100%;
       display: block;
       margin-bottom: 12px;
+      padding-right: 0;
     }
   }
 

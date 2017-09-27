@@ -16,7 +16,7 @@ mixin depfin-budget-moscow-open()
 				- var text = 'Открытые данные';
 			when 'rating'
 				- var color = '_green';
-				- var text = 'Рейтинг открытости бюджетных данных';
+				- var text = 'Рейтинг открытости бюджетных данных бюджетных данных';
 			when 'budget'
 				- var color = '_grey';
 				- var text = 'Бюджет для граждан';
@@ -40,7 +40,7 @@ mixin depfin-budget-moscow-open()
 		.wrapper.page-content-wrapper
 
 			+e.head
-				+page-header('Открытость', false, true)
+				+page-header('Открытость', false)
 
 			+e.main.load-anim-fade(data-delay="1500")
 
@@ -55,14 +55,15 @@ mixin depfin-budget-moscow-open()
 						+card('openData', 'item3')
 							| Новые наборы открытых данных
 						+card('rating', 'item4')
-							| Методика проведения мониторинга и составления рейтинга субъектов РФ...
+							| Методика проведения мониторинга и составления рейтинга субъектов РФ рейтинга субъектов РФ
 
 				+e.SECTION.open
-					+e.H3.title 
-						| Путеводитель по бюджету
-					+e.A(href='#').page-link
-						| Все брошюры
-						+icon('angle-arrow').page-link-icon
+					+e.title-wrapper
+						+e.H3.title 
+							| Путеводитель по бюджету
+						+e.A(href='#').page-link
+							| Все брошюры
+							+icon('angle-arrow').page-link-icon
 					+e.UL.content
 						+card('budget', 'item1')
 							| Бюджет для граждан на 2017-2019 годы
@@ -74,17 +75,18 @@ mixin depfin-budget-moscow-open()
 							| Итоги исполнения бюджета города Москвы за 2015 год
 
 				+e.SECTION.open
-					+e.H3.title 
-						| федеральный бюджет для граждан
-					+e.A(href='#').page-link
-						| Все брошюры
-						+icon('angle-arrow').page-link-icon
+					+e.title-wrapper
+						+e.H3.title 
+							| федеральный бюджет для граждан
+						+e.A(href='#').page-link
+							| Все брошюры
+							+icon('angle-arrow').page-link-icon
 					+e.UL.content
 						+card('budget', 'item1')
-							| Федеральный бюджет для граждан на 2017 год и на плановый период 2018...
+							| Федеральный бюджет для граждан на 2017 год и на плановый период 2018
 						+card('execution', 'item2')
 							| Итоги исполнения федерального бюджета за 2015 год 
 						+card('present', 'item3')
-							| Доклад о лучшей практике &laquo;Бюджет для граждан&raquo; в субъектах РФ и... 
+							| Доклад о лучшей практике &laquo;Бюджет для граждан&raquo; в субъектах РФ и
 						+card('budget', 'item4')
-							| Федеральный бюджет для граждан на 2017 год и на плановый период 2018...
+							| Федеральный бюджет для граждан на 2017 год и на плановый период 2018
