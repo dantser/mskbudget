@@ -10,35 +10,28 @@ include ../../blocks/tabs/tabs
 include ../../blocks/dropdown-block/dropdown-block
 
 mixin open-con()
-  +b.SECTION.open-con.main._basic.sections__item&attributes(attributes)
-    section.basic-budget
-      .wrapper.wrapper_con
-
-        +e.con
-          +page-header('Конкурсы', ['Открытость'], true)
-
-          +e.control.load-anim-fade(data-delay="1500")
-            +e.P.control-text Выберите конкурс
-            +buttons-set-alt(getData('buttons-set-opencon'))._openCon.__buttons-set
-          .analityc-widget.analityc-widget_con.load-anim-fade(data-delay="1500")
-            +tabs
-              +tabs-tab(data-tab-group="contestTabs", data-tab="contestOne").active
-                +contest(getData('contest')[0])
-              +tabs-tab(data-tab-group="contestTabs", data-tab="contestTwo")
-                +contest(getData('contest')[1])
-
-        +e.popup
-          +page-header('Конкурсы', ['Открытость'])
-
-          +e.control.load-anim-fade(data-delay="1500")
-            +e.P.control-text Заполните данные
-            +buttons-set-alt(getData('buttons-set-opencon-popup'))._openCon.__buttons-set
-          .analityc-widget.analityc-widget_con.load-anim-fade(data-delay="1500")
-            +tabs
-              +tabs-tab(data-tab-group="contestPopupTabs", data-tab="individual").active
-                +contest-popup(getData('contest_popup')[0])
-              +tabs-tab(data-tab-group="contestPopupTabs", data-tab="juridical")
-                +contest-popup(getData('contest_popup')[1])
-
-
-      +dropdown().load-anim-fade(data-delay="1700")
+  +b.SECTION.open-con.main._basic.sections__item.basic-budget&attributes(attributes)
+    .wrap
+      +e.con
+        +page-header('Конкурсы', ['Открытость'])
+        +e.control.load-anim-fade(data-delay="1500")
+          +e.P.control-text Выберите конкурс
+          +buttons-set-alt(getData('buttons-set-opencon'))._openCon.__buttons-set
+        .analityc-widget.analityc-widget_con.load-anim-fade(data-delay="1500")
+          +tabs
+            +tabs-tab(data-tab-group="contestTabs", data-tab="contestOne").active
+              +contest(getData('contest')[0])
+            +tabs-tab(data-tab-group="contestTabs", data-tab="contestTwo")
+              +contest(getData('contest')[1])
+      +e.popup
+        +page-header('Конкурсы', ['Открытость'])
+        +e.control.load-anim-fade(data-delay="1500")
+          +e.P.control-text Заполните данные
+          +buttons-set-alt(getData('buttons-set-opencon-popup'))._openCon.__buttons-set
+        .analityc-widget.analityc-widget_con.load-anim-fade(data-delay="1500")
+          +tabs
+            +tabs-tab(data-tab-group="contestPopupTabs", data-tab="individual").active
+              +contest-popup(getData('contest_popup')[0])
+            +tabs-tab(data-tab-group="contestPopupTabs", data-tab="juridical")
+              +contest-popup(getData('contest_popup')[1])
+    +doc-cards-dropdown(getData('doc-cards-dropdown')).load-anim-fade(data-delay="1700")
