@@ -22,6 +22,7 @@ export default () => {
     spaceBetween: 35,
     slidesPerView: '4',
     touchRatio: 0.2,
+    centeredSlides: true,
     slideToClickedSlide: true,
     breakpoints: {
       1024: {

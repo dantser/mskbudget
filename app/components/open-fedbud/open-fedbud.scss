@@ -10,7 +10,7 @@
     font-size: 18px;
     font-weight: 500;
     line-height: 24px;
-    max-width: 500px;
+    max-width: 720px;
     margin: 23px 0 51px;
     letter-spacing: .1px;
 
@@ -52,7 +52,7 @@
 
       @media (max-width: 640px) {
         display: block;
-        margin-bottom: 55px;
+        margin-bottom: 20px;
       }
     }
 
@@ -89,7 +89,8 @@
       }
     }
 
-    .analityc-select, .ui-button {
+    .ui-button {
+      width: 112px;
       height: 34px;
       font-size: 16px;
       display: inline-block;
@@ -103,28 +104,19 @@
       line-height: 30px;
       border: 1px solid $color-yellow;
       cursor: pointer;
-      width: 112px;
       margin-right: 8px;
-      background-position: 88% 13px;
+      background-position: top 13px right 10px !important;
 
       @media (max-width: 640px) {
-        width: 97% !important;
-        background-position: 97% 13px;
+        width: 100% !important;
       }
 
       option {
         font-size: 16px;
       }
-    }
-
-    .ui-button:nth-of-type(2) {
-      width: 405px !important;
-      letter-spacing: 0.35px;
-      background-position: 97% 13px !important;
-
-      @media (max-width: 640px) {
-        width: 97% !important;
-        background-position: 97% 13px;
+      
+      &:nth-of-type(2) {
+        width: 405px;
       }
     }
   }
@@ -143,13 +135,18 @@
 
       .doc-cards__download {
         float: right;
-        margin: 0;
+        margin-left: 20px;
         color: $color-yellow;
         border-bottom-color: rgba(254, 227, 0, .4);
         transition: color .25s ease-in-out;
+        
+        @media (max-width: 900px) {
+          margin-top: 20px;
+        }
 
         @media (max-width: 640px) {
           float: none;
+          margin: 0;
         }
 
         &:hover {
@@ -162,9 +159,10 @@
   &__title {
     font-size: 21px;
     font-weight: 500;
+    max-width: 80%;
 
     @media (max-width: 1024px) {
-      max-width: 700px;
+      max-width: 650px;
     }
 
     @media (max-width: 640px) {

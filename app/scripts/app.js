@@ -69,6 +69,7 @@ import budgetIncome from '../components/budget_income/budgetIncome';
 import budgetExpenses from '../components/budget_expenses/budgetExpenses';
 import table from '../blocks/table/table';
 import budgetMoscowOpen from '../components/depfin-budget-moscow-open/budgetMoscowOpen';
+import buttonsSet from '../blocks/buttons-set/buttonsSet';
 
 $(() => {
 
@@ -151,4 +152,5 @@ $(() => {
   budgetExpenses();
   table();
   budgetMoscowOpen();
+  buttonsSet();
 });
