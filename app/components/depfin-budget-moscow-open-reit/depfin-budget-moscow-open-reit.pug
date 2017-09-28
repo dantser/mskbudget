@@ -9,7 +9,7 @@ mixin depfin-budget-moscow-open-reit()
 	+b.SECTION.depfin-budget-moscow-open-reit.sections__item&attributes(attributes)
 		.wrap
 			+e.head
-				+page-header('Рейтинг открытости', ['Открытость'], true)
+				+page-header('Рейтинг открытости бюджетных данных', ['Открытость'], true)
 
 			+e.main.load-anim-fade(data-delay="1500")
 				+e.H3.title Рейтинг открытости бюджетных данных
@@ -43,7 +43,22 @@ mixin depfin-budget-moscow-open-reit()
 						+e.article-text
 							P
 								| Результаты рейтинга позволяют оценить уровень прозрачности бюджетов различных субъектов Российской Федерации, увидеть, какая информация и в каком объеме предоставляется для граждан на разных этапах бюджетного процесса, насколько она актуальна и доступна, а также насколько активно жители регионов участвуют в обсуждении бюджетных вопросов.
-					
+					+e.LI.article
+						+e.H5.article-title
+							| Кто составляет рейтинг
+							br
+							| открытости бюджетных данных?
+						+e.article-text
+							P
+								| Рейтинг субъектов Российской Федерации по уровню открытости бюджетных данных составляется Научно-исследовательским финансовым институтом (НИФИ) в сотрудничестве с Центром прикладной экономики по заказу Министерства финансов Российской Федерации.
+					+e.LI.article
+						+e.H5.article-title
+							| Кто составляет рейтинг
+							br
+							| открытости бюджетных данных?
+						+e.article-text
+							P
+								| Рейтинг субъектов Российской Федерации по уровню открытости бюджетных данных составляется Научно-исследовательским финансовым институтом (НИФИ) в сотрудничестве с Центром прикладной экономики по заказу Министерства финансов Российской Федерации.
 					+e.LI.article
 						+e.H5.article-title
 							| Кто составляет рейтинг
@@ -63,9 +78,17 @@ mixin depfin-budget-moscow-open-reit()
 							option(selected='selected') 2016
 						+icon('angle-arrow').select-icon
 
-				+e.list
-					+documents-cards-open-reit()
-
+				.dropdown-block
+					.section-tabs.section-tabs_documents.section-tabs_dropdown.active
+						.section-tabs__nav
+							+e.list
+								.dd-holder.js-drag-scroll-element
+									.section-tabs__content
+										+documents-cards-open-reit()._dropdown
+						.owl-nav
+							.owl-prev.disabled
+							.owl-next
+						
 			+e.documents
 				+e.select
 					+e.select-title Результаты
@@ -75,5 +98,13 @@ mixin depfin-budget-moscow-open-reit()
 							option(selected='selected') 2016
 						+icon('angle-arrow').select-icon
 
-				+e.list
-					+documents-cards-open-reit()
+				.dropdown-block
+					.section-tabs.section-tabs_documents.section-tabs_dropdown.active
+						.section-tabs__nav
+							+e.list
+								.dd-holder.js-drag-scroll-element2
+									.section-tabs__content
+										+documents-cards-open-reit()._dropdown
+						.owl-nav
+							.owl-prev.disabled
+							.owl-next

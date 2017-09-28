@@ -944,52 +944,6 @@
     overflow-y: hidden;
   }
 
-  .section__ar {
-    display: none;
-    position: absolute;
-    top: 50%;
-    z-index: 3000;
-    width: 21px;
-    height: 26px;
-    padding: 5px;
-
-    &_left {
-      right: 101%;
-      transform: rotate(180deg);
-
-      @media screen and (max-width: 480px) {
-        right: 98%;
-      }
-    }
-
-    &_right {
-      left: 101%;
-
-      @media screen and (max-width: 480px) {
-        left: 98%;
-      }
-    }
-
-    &_disabled {
-      opacity: 0;
-    }
-  }
-
-  @mixin income-table-slider($minWidth) {
-    .table {
-      min-width: $minWidth;
-    }
-    
-    .analityc-table__wrapper {
-      overflow-x: auto;
-      overflow-y: hidden;
-    }
-
-    .section__ar {
-      display: inline!important;
-    }
-  }
-
   .analityc-table {
     overflow-x: visible;
     overflow-y: visible;
@@ -997,8 +951,23 @@
     .table {
       min-width: auto;
 
+      @media (max-width: 900px) {
+        min-width: 980px;
+      }
+
+      &__row_caption,
+      &__row_subcaption {
+        .table__col {
+          border: 0!important;
+        }
+      }
+
       &__col {
         text-align: center;
+
+        &:nth-child(2n+4) {
+          border-left: 1px solid #e6e6e6;
+        }
 
         &_four {
           width: calc(75% / 6);
@@ -1012,12 +981,6 @@
         &_one {
           width: calc(75% / 12);
         }
-      }
-    }
-
-    &_vmo {
-      @media screen and (max-width: 900px) {
-        @include income-table-slider(980px);
       }
     }
   }

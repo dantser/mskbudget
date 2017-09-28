@@ -26,21 +26,21 @@
   }
 
   &__main {
-  	padding: 38px 60px 53px 42px;
+  	padding: 38px 60px 23px 42px;
 		background-color: $color-white;
 
     @media (max-width: 1169px) {
-      padding: 38px 18px 89px 35px;
+      padding: 38px 18px 59px 35px;
     }
 
     @media (max-width: 900px) {
-      padding: 38px 25px 100px 28px;
+      padding: 38px 25px 70px 28px;
       margin-left: -20px;
       margin-right: -20px;
     }
 
     @media (max-width: 580px) {
-      padding: 20px 20px 49px 25px;
+      padding: 20px 20px 19px 25px;
     }
   }
 
@@ -115,8 +115,7 @@
   }
 
   &__articles {
-  	text-align: justify;
-  	font-size: 1px;
+  	font-size: 0;
     list-style: none;
     color: black;
     margin-top: 25px;
@@ -145,20 +144,19 @@
 
   &__article {
   	display: inline-block;
-		width: 313px;
+    width: calc(100% / 3);
+    padding-right: 15px;
 		vertical-align: top;
-
-    @media (max-width: 1169px) {
-      width: 260px;
-    }
+    margin-bottom: 30px;
 
     @media (max-width: 900px) {
       width: 100%;
-      margin-top: 85px;
+      padding-right: 0;
+      margin-top: 55px;
     }
 
     @media (max-width: 580px) {
-      margin-top: 41px;
+      margin-top: 11px;
     }
   }
 
@@ -257,6 +255,7 @@
   }
 
   &__documents {
+    overflow: hidden;
   	margin-bottom: 25px;
 
     @media (max-width: 900px) {
@@ -396,16 +395,9 @@
     max-width: 1100px;
     margin: 0 auto;
     margin-top: 20px;
-    
-    @media (max-width: 1169px) {
-      margin-left: 40px;
-      margin-right: 40px;
-    }
 
     @media (max-width: 900px) {
       margin-top: 43px;
-      margin-left: 20px;
-      margin-right: 20px;
     }
 
     @media (max-width: 580px) {
@@ -413,25 +405,24 @@
     }
   }
 
-  .section-tabs_documents {
-    background: none;
-    border-bottom: none;
+  .section-tabs_documents .section-tabs__nav,
+  .section-tabs__content,
+  .owl-nav {
+    display: block;
+  }
+  
+  .documents-cards_dropdown {
+    padding: 0;
+  }
 
-    .section-tabs__nav {
-      display: block;
-    }
+  .dropdown-block,
+  .section-tabs {
+    border: none;
+  }
 
-    .section-tabs__title {
-      font-weight: 500;
-    }
-
-    .owl-nav {
-      display: block;
-    }
-
-    .owl-stage-outer:before,
-    .owl-stage-outer:after {
-      display: none;
+  .documents-cards .tile__item {
+    @media (max-width: 580px) {
+      margin: 0 0 14px!important;
     }
   }
 }
