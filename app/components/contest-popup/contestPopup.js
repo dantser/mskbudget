@@ -27,7 +27,7 @@ export default () => {
   
   $('.contest-popup .js-button-addparticipant').click(function(e){
     e.preventDefault();
-    $('.contest-popup__participant:first-child').insertBefore('.contest-popup .js-button-addparticipant');
+    $('.contest-popup__participant').first().clone(true).insertBefore('.contest-popup .js-button-addparticipant');
     checkParticipantIndex();
   });
   
