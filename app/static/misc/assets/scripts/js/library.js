@@ -9406,54 +9406,56 @@ function positionValues() {
     top: 0
   });
 
+  var thisOffsL = $(this).offset().left,
+      thisOffsT = $(this).offset().top,
+      elW = $(this).width(),
+      elH = $(this).height();
+
   var indexOffset = $(this).parent().find('.segment-diagram__value-num').length > 0 ? -1 : 0,
       index = $(this).index() + indexOffset,
-      id = $(this).parents('.segment-diagram').attr('id'),
-      diagram = $(this).parents('.segment-diagram').find('#' + id + '-' + index);
-    
-  if (typeof diagram[0] !== "undefined") {
-    
-    var thisOffsL = $(this).offset().left,
-        thisOffsT = $(this).offset().top,
-        elW = $(this).width(),
-        elH = $(this).height();
+      id = $(this).parents('.segment-diagram').attr('id');
 
-    // Вся диаграмма
-    var d = $(this).parents('.segment-diagram'),
-        defW = 270, // стандартная ширина диаграммы
-        defSW = 45, // стандартная толщина линии в диаграмме
-        curSW = d.width() * defSW / defW, // пропорция для нахождения текущей толщины линии в диаграмме
-        dxcenter = d.width() / 2,
-        dycenter = d.height() / 2,
-        dR = dycenter - curSW / 2, // curSW / 2 - это половина толщины линии в диаграмме
-        dxoutcenter = d.offset().left + dxcenter,
-        dyoutcenter = d.offset().top + dycenter;
-  
-    // Ищем соответствующий кусок диаграммы
-    var diagOffsL = diagram.offset().left,
-        diagOffsT = diagram.offset().top,
-        dW = diagram.outerWidth(),
-        dH = diagram.outerHeight(),
-        diagelemcenterx = diagOffsL + (dW / 2),
-        diagelemcentery = diagOffsT + (dH / 2);
-  
-    // Расчеты
-    var x1 = dxoutcenter,
-        x2 = diagelemcenterx,
-        x = x1 - x2, // катет1
-        y1 = dyoutcenter,
-        y2 = diagelemcentery,
-        y = y1 - y2, // катет2
-        r = Math.sqrt(x*x + y*y), // гипотенуза
-        delta = dR / r, // коэффициент
-        xnew = x * delta, // новый отступ от центра x
-        ynew = y * delta; // новый отступ от центра y
-  
-    $(this).css({
-      left: dxcenter - xnew,
-      top: dycenter - ynew
-    });
-  }
+  // Вся диаграмма
+  var d = $(this).parents('.segment-diagram'),
+      defW = 270, // стандартная ширина диаграммы
+      defSW = 45, // стандартная толщина линии в диаграмме
+      curSW = d.width() * defSW / defW, // пропорция для нахождения текущей толщины линии в диаграмме
+      dxcenter = d.width() / 2,
+      dycenter = d.height() / 2,
+      dR = dycenter - curSW / 2, // curSW / 2 - это половина толщины линии в диаграмме
+      dxoutcenter = d.offset().left + dxcenter,
+      dyoutcenter = d.offset().top + dycenter;
+
+  try
+  {
+  // Ищем соответствующий кусок диаграммы
+  var diagram = $(this).parents('.segment-diagram').find('#' + id + '-' + index),
+      diagOffsL = diagram.offset().left,
+      diagOffsT = diagram.offset().top,
+      dW = diagram.outerWidth(),
+      dH = diagram.outerHeight(),
+      diagelemcenterx = diagOffsL + (dW / 2),
+      diagelemcentery = diagOffsT + (dH / 2);
+
+  // Расчеты
+  var x1 = dxoutcenter,
+      x2 = diagelemcenterx,
+      x = x1 - x2, // катет1
+      y1 = dyoutcenter,
+      y2 = diagelemcentery,
+      y = y1 - y2, // катет2
+      r = Math.sqrt(x*x + y*y), // гипотенуза
+      delta = dR / r, // коэффициент
+      xnew = x * delta, // новый отступ от центра x
+      ynew = y * delta; // новый отступ от центра y
+
+  $(this).css({
+    left: dxcenter - xnew,
+    top: dycenter - ynew
+  });
+    }
+    catch (e){
+    }
 });
 
 // Определяем сегмент диаграммы с маленьким значением
