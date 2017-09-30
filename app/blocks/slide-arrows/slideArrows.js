@@ -43,8 +43,8 @@ export default () => {
   // Инициализация
   if ($('.slide-arrows').length) {
     $('.slide-arrows').each(function(){
-      var container = $(this).parents('.analityc-table, .linear-diagrams, .analityc-graphics, .dropdown__content, .analytics-gov-debt__graphics'),
-          wrapper = container.find('.analityc-table__wrapper, .linear-diagrams__wrapper, .analityc-graphics__graphic-slider, .budget-forecast__table-wrapper, .table-wrapper, .analytics-gov-debt__graphic-wrapper, .analytics-gov-debt__table-wrapper'),
+      var container = $(this).parents('.analityc-table, .linear-diagrams, .analityc-graphics, .dropdown__content, .analytics-gov-debt__graphics, .analityc-graphics-container'),
+          wrapper = container.find('.analityc-table__wrapper, .linear-diagrams__wrapper, .analityc-graphics__graphic-slider, .budget-forecast__table-wrapper, .table-wrapper, .analytics-gov-debt__graphic-wrapper, .analytics-gov-debt__table-wrapper, .analityc-graphics-wrapper'),
           arrows = $(this),
           offset = wrapper.data('offset');
       console.log(container);

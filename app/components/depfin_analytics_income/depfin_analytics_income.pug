@@ -6,6 +6,7 @@ include ../../blocks/table/table
 include ../../blocks/checkbox/checkbox
 include ../../blocks/legend/legend
 include ../../blocks/dropdown-block/dropdown-block
+include ../../blocks/slide-arrows/slide-arrows
 
 mixin depfin_analytics_income()
 	section.main._basic._analitycs-income.basic-budget.sections__item
@@ -16,25 +17,43 @@ mixin depfin_analytics_income()
 			.analityc-widget.analityc-widget_params-income.load-anim-fade(data-delay="1500")
 				+analityc-widgethead-analityc-income()
 				.analityc-widget-income.analityc-widget-income_pace(data-filter='pace')
-					+analityc-graphics-line-vertical-alt(getData('graphic-lines-analityc-income'))
+					.analityc-graphics-container
+						+slide-arrows().analityc-graphics__slide-arrows
+						.analityc-graphics-wrapper(data-offset='100')
+							+analityc-graphics-line-vertical-alt(getData('graphic-lines-analityc-income'))
 					+legend-checkbox(getData('legend-analityc-income'))
 				.analityc-widget-income.analityc-widget-income_share(data-filter='share')
-					+analityc-graphics-bars(getData('legend-analityc-bar1'))
+					.analityc-graphics-container
+						+slide-arrows().analityc-graphics__slide-arrows
+						.analityc-graphics-wrapper(data-offset='100')
+							+analityc-graphics-bars(getData('legend-analityc-bar1'))
 					+legend-checkbox(getData('legend-analityc-income'))
 				.analityc-widget-income.analityc-widget-income_done(data-filter='done')
-					+analityc-graphics-bars(getData('legend-analityc-bar2'))
+					.analityc-graphics-container
+						+slide-arrows().analityc-graphics__slide-arrows
+						.analityc-graphics-wrapper(data-offset='100')
+							+analityc-graphics-bars(getData('legend-analityc-bar2'))
 					+legend-checkbox(getData('legend-analityc-income'))
 				.analityc-widget-income.analityc-widget-income_year
-					+analityc-graphics-bars-year(getData('legend-analityc-bar3'))
+					.analityc-graphics-container
+						+slide-arrows().analityc-graphics__slide-arrows
+						.analityc-graphics-wrapper(data-offset='100')
+							+analityc-graphics-bars-year(getData('legend-analityc-bar3'))
 					+legend-checkbox(getData('legend-analityc-income'))
 				.analityc-widget-income.analityc-widget-income_bars-full
-					+analityc-graphics-bars-alt(getData('legend-analityc-bar4'))
+					.analityc-graphics-container
+						+slide-arrows().analityc-graphics__slide-arrows
+						.analityc-graphics-wrapper(data-offset='100')
+							+analityc-graphics-bars-alt(getData('legend-analityc-bar4'))
 					+legend-basket(getData('legend-analityc-income-short'))
 				.analityc-widget-income.analityc-widget-income_bars
-					+analityc-graphics-bars2(getData('legend-analityc-bar5'))
+					.analityc-graphics-container
+						+slide-arrows().analityc-graphics__slide-arrows
+						.analityc-graphics-wrapper(data-offset='100')
+							+analityc-graphics-bars2(getData('legend-analityc-bar5'))
 					+legend-basket(getData('legend-analityc-income'))
 				
-				+analityc-table()._params
+				+analityc-table-slider(100)._params
 					+table-aincome(getData('main'))
 				a(href="/").analityc-more Перейти в&nbsp;раздел бюжет москвы
 		+dropdown().load-anim-fade(data-delay="1700")
