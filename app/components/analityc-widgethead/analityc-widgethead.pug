@@ -96,6 +96,22 @@ mixin select-month-analityc()
     +selbox-opt('nov', 'ноябрь')
     +selbox-opt('dec', 'декабрь')
     
+//- Месяц с первым днем (аналитика)
+mixin select-month-firstday()
+  +selbox('month', '1 января')._cgroup.analityc-widget__selectbox._month
+    +selbox-opt('1jan', '1 января', true)
+    +selbox-opt('1feb', '1 февраля')
+    +selbox-opt('1mar', '1 марта')
+    +selbox-opt('1apr', '1 апреля')
+    +selbox-opt('1may', '1 мая')
+    +selbox-opt('1jun', '1 июня')
+    +selbox-opt('1jul', '1 июля')
+    +selbox-opt('1aug', '1 августа')
+    +selbox-opt('1sep', '1 сентября')
+    +selbox-opt('1oct', '1 октября')
+    +selbox-opt('1nov', '1 ноября')
+    +selbox-opt('1dec', '1 декабря')
+    
 //- Этап (Аналитика)
 mixin select-stage-analityc()
   +selbox('stage', 'Фактическое исполнение')._cgroup.analityc-widget__selectbox._stage
@@ -970,127 +986,34 @@ mixin analityc-widgethead-analytics-expenses()
 //- Аналитика - Государственный долг
 mixin analityc-widgethead-analytics-govdebt()
   +b.analityc-widgethead&attributes(attributes)
-
     .analityc-control-frame.analityc-control-frame_left
       span.analityc-control-frame-title Выберите год и месяц
-
       .analityc-control-group
         a(href='#').analityc-remove-group
           +icon('delete', true)
-        select.analityc-select.analityc-select_year
-          option(selected) 2015
-          option 2016
-          option 2017
-          option 2018
-          option 2019
-        select.analityc-select.analityc-select_month
-          option(selected) 1 января
-          option 1 февраля
-          option 1 марта
-          option 1 апреля
-          option 1 мая
-          option 1 июня
-          option 1 июля
-          option 1 августа
-          option 1 сентября
-          option 1 октября
-          option 1 ноября
-          option 1 декабря
-
+        +select-year-analityc()
+        +select-month-firstday()
       .analityc-control-group
         a(href='#').analityc-remove-group
           +icon('delete', true)
-        select.analityc-select.analityc-select_year
-          option 2015
-          option(selected) 2016
-          option 2017
-          option 2018
-          option 2019
-        select.analityc-select.analityc-select_month
-          option(selected) 1 января
-          option 1 февраля
-          option 1 марта
-          option 1 апреля
-          option 1 мая
-          option 1 июня
-          option 1 июля
-          option 1 августа
-          option 1 сентября
-          option 1 октября
-          option 1 ноября
-          option 1 декабря
-
+        +select-year-analityc()
+        +select-month-firstday()
       .analityc-control-group
         a(href='#').analityc-remove-group
           +icon('delete', true)
-        select.analityc-select.analityc-select_year
-          option 2015
-          option 2016
-          option(selected) 2017
-          option 2018
-          option 2019
-        select.analityc-select.analityc-select_month
-          option(selected) 1 января
-          option 1 февраля
-          option 1 марта
-          option 1 апреля
-          option 1 мая
-          option 1 июня
-          option 1 июля
-          option 1 августа
-          option 1 сентября
-          option 1 октября
-          option 1 ноября
-          option 1 декабря
-
+        +select-year-analityc()
+        +select-month-firstday()
       .analityc-control-group
         a(href='#').analityc-remove-group
           +icon('delete', true)
-        select.analityc-select.analityc-select_year
-          option 2015
-          option 2016
-          option 2017
-          option(selected) 2018
-          option 2019
-        select.analityc-select.analityc-select_month
-          option(selected) 1 января
-          option 1 февраля
-          option 1 марта
-          option 1 апреля
-          option 1 мая
-          option 1 июня
-          option 1 июля
-          option 1 августа
-          option 1 сентября
-          option 1 октября
-          option 1 ноября
-          option 1 декабря
-
+        +select-year-analityc()
+        +select-month-firstday()
       .analityc-control-group
         a(href='#').analityc-remove-group
           +icon('delete', true)
-        select.analityc-select.analityc-select_year
-          option 2015
-          option 2016
-          option 2017
-          option 2018
-          option(selected) 2019
-        select.analityc-select.analityc-select_month
-          option(selected) 1 января
-          option 1 февраля
-          option 1 марта
-          option 1 апреля
-          option 1 мая
-          option 1 июня
-          option 1 июля
-          option 1 августа
-          option 1 сентября
-          option 1 октября
-          option 1 ноября
-          option 1 декабря
-
+        +select-year-analityc()
+        +select-month-firstday()
       a(href='#').analityc-add-group + Добавить год и месяц
-
     .analityc-control-frame.analityc-control-frame_right
       .analityc-control-switcher.analityc-control-switcher_expenses.analityc-control-switcher_large.active
         a(href="#").active Темп роста к пред. периоду, млрд руб.
