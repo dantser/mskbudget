@@ -36,6 +36,14 @@
 			.depfin-budget-moscow-media-materials__label {
 				padding: 15px 19px;
 				background-color: transparent;
+
+				@media (max-width: 1140px) and (min-width: 901px) {
+			    bottom: -30px;
+				}
+
+				@media (max-width: 580px) and (min-width: 401px) {
+			    bottom: -30px;
+				}
 			}
 
   		.depfin-budget-moscow-media-materials__container {
@@ -56,6 +64,10 @@
   	}
 
   	&_present {
+
+			.depfin-budget-moscow-media-materials__wrapper {
+				height: 729px;
+			}
 
   		.depfin-budget-moscow-media-materials__item {
   			height: 207px;
@@ -99,13 +111,22 @@
 			}
 
 			.depfin-budget-moscow-media-materials__item {
-				margin-bottom: 0;
+				margin: 0;
 			}
 
 			.depfin-budget-moscow-media-materials__slider-gallery.swiper-container {
 		    position: static;
 		    width: 851px;
 		    height: 531px;
+
+		    @media (max-width: 1140px) {
+		    	width: 100%;
+		    	height: 247px;
+		    }
+
+		    @media (max-width: 580px) and (min-width: 401px) {
+    	    height: 347px;
+		    }
 			}
 
 			.depfin-budget-moscow-media-materials__slider-gallery .swiper-slide {
@@ -113,11 +134,22 @@
 				height: 100%;
 			}
 			
+			.depfin-budget-moscow-media-materials__slider-pagination.swiper-container {
+				@media (max-width: 580px) {
+					display: none;
+				}
+			}
+
 			.depfin-budget-moscow-media-materials__slider-gallery .swiper-button-prev,
 			.depfin-budget-moscow-media-materials__slider-gallery .swiper-button-next {
 				background-image: none;
 				fill: none;
 				stroke: $color-white;
+
+				@media (max-width: 580px) {
+			    width: 20px;
+			    height: 37px;
+				}
 			}
 
 			.depfin-budget-moscow-media-materials__slider-gallery .swiper-button-prev {
@@ -130,11 +162,18 @@
 
 			.depfin-budget-moscow-media-materials__slider-pagination .swiper-wrapper {
 				/*Swiper - gallery thumbs pagination bug fix*/
-				margin-left: calc(-40% + 17.5px); /*17.5px - half width of a spaceBetween*/
+				/*17.5px - half width of a spaceBetween*/
+				margin-left: calc(-40% + 17.5px); 
+
+				@media (max-width: 900px) {
+					margin-left: calc(-29% + 17.5px);
+				}
 			}
 
   		.depfin-budget-moscow-media-materials__paginate {
-  			display: none;
+  			@media (min-width: 901px) {
+  				display: none;
+  			}
   		}
   	}
   }
@@ -148,11 +187,38 @@
   	margin-bottom: 40px;
   }
 
+	&__wrapper {
+		height: 849px;
+		overflow: hidden;
+
+		@media (max-width: 1140px) and (min-width: 901px) {
+			height: 738px;
+		}
+
+		@media (max-width: 900px) and (min-width: 401px) {
+	    height: 945px;
+		}
+
+		@media (max-width: 580px) and (min-width: 401px) {
+			height: 723px;
+		}
+
+	}
+
   &__content {
+  	height: auto;
   	list-style: none;
-  	font-size: 1px;
-  	text-align: justify;
-  	margin-bottom: 41px;
+  	font-size: 0;
+  	margin: 0 calc(12% / 8 * (-1));
+
+		@media (max-width: 900px) and (min-width: 401px) {
+	    margin: 0 calc(12% / 4 * (-1));
+	    margin-bottom: 41px;
+		}
+
+		@media (max-width: 400px) {
+	    margin: 0;
+		}
 
     &:after {
       width: 100%;
@@ -164,10 +230,32 @@
 
   &__item {
   	display: inline-block;
-  	width: 247px;
+  	width: 22%;
   	height: 247px;
+  	margin: 0 calc(12% / 8);
   	margin-bottom: 36px;
   	cursor: pointer;
+
+		@media (max-width: 1140px) and (min-width: 901px) {
+			height: 210px;
+		}
+
+		@media (max-width: 900px) and (min-width: 401px) {
+	    width: 44%;
+	    height: 279px;
+      margin: 0 calc(12% / 4);
+      margin-bottom: 36px;
+		}
+
+		@media (max-width: 580px) and (min-width: 401px) {
+			height: 205px;
+		}
+
+		@media (max-width: 400px) {
+			width: 100%;
+	  	margin: 0;
+	  	margin-bottom: 36px;
+		}
 
 		&:hover .depfin-budget-moscow-media-materials__label {
 			color: $color-white;
@@ -235,6 +323,7 @@
 	&__paginate-bullets {
 		@include center-block;
 		height: 11px;
+		white-space: nowrap;
 
 		.swiper-pagination-bullet {
 			display: inline-block;
@@ -326,21 +415,37 @@
 		background-color: rgba(23, 24, 50, .8);;
 		z-index: 1;
 		transition: all .25s ease-in-out;
+
+		@media (max-width: 900px) and (min-width: 581px) {
+			line-height: 24px;
+		}
 	}
 
 	&__text {
 		font-size: 16px;
 		font-weight: 400;
+
+		@media (max-width: 900px) and (min-width: 581px) {
+			font-size: 20px;
+		}
 	}
 
 	&__date {
 		font-size: 14px;
 		font-weight: 300;
+
+		@media (max-width: 900px) and (min-width: 581px) {
+			font-size: 16px;
+		}
 	}
 
   &__more {
   	width: 692px;
   	margin: 0 auto;
+
+		@media (max-width: 900px) {
+			width: 100%;
+		}
 
   	.button {
   		padding: 14px 14px 11px;
