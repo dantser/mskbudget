@@ -355,7 +355,7 @@
     </header>
     <div class="sections">
         <section class="main _basic basic-budget sections__item">
-            <div class="wrapper wrapper_params">
+            <div class="wrapper-header">
                 <div class="page-header">
                     <div class="page-head">
                         <p class="page-head__breadcrumbs load-anim-fade" data-delay="500">
@@ -405,6 +405,8 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="wrapper">
                 <div class="analityc-widget analityc-widget_params load-anim-fade" data-delay="1500">
                     <div class="analityc-widgethead">
                         <div class="analityc-control-frame analityc-control-frame_left">
@@ -413,61 +415,109 @@
                                 <a class="analityc-remove-group" href="#">
                                     <svg><use xlink:href="assets/images/icon.svg#icon_delete"></use></svg>
                                 </a>
-                                <select class="analityc-select analityc-select_year">
-                                    <option>2018</option>
-                                    <option>2017</option>
-                                    <option>2016</option>
-                                    <option selected="selected">2015</option>
-                                </select>
-                                <select class="analityc-select analityc-select_stage">
-                                    <option selected="selected">Фактическое исполнение</option>
-                                    <option>Закон о бюджете (утвержденный)</option>
-                                </select>
+                                <div class="selectbox selectbox_cgroup analityc-widget__selectbox analityc-widget__selectbox_year">
+                                    <p class="selectbox__val">2015</p>
+                                    <span class="selectbox__arrow">
+                                        <span></span>
+                                    </span>
+                                    <select class="selectbox__select" name="year">
+                                        <option value="2018">2018</option>
+                                        <option value="2017">2017</option>
+                                        <option value="2016">2016</option>
+                                        <option value="2015" selected="selected">2015</option>
+                                    </select>
+                                </div>
+                                <div class="selectbox selectbox_cgroup analityc-widget__selectbox analityc-widget__selectbox_stage">
+                                    <p class="selectbox__val">Фактическое исполнение</p>
+                                    <span class="selectbox__arrow">
+                                        <span></span>
+                                    </span>
+                                    <select class="selectbox__select" name="stage">
+                                        <option value="fact" selected="selected">Фактическое исполнение</option>
+                                        <option value="approved">Закон о бюджете (утвержденный)</option>
+                                    </select>
+                                </div>
                             </div>
                             <div class="analityc-control-group">
                                 <a class="analityc-remove-group" href="#">
                                     <svg><use xlink:href="assets/images/icon.svg#icon_delete"></use></svg>
                                 </a>
-                                <select class="analityc-select analityc-select_year">
-                                    <option>2018</option>
-                                    <option>2017</option>
-                                    <option selected="selected">2016</option>
-                                    <option>2015</option>
-                                </select>
-                                <select class="analityc-select analityc-select_stage">
-                                    <option selected="selected">Фактическое исполнение</option>
-                                    <option>Закон о бюджете (утвержденный)</option>
-                                </select>
+                                <div class="selectbox selectbox_cgroup analityc-widget__selectbox analityc-widget__selectbox_year">
+                                    <p class="selectbox__val">2015</p>
+                                    <span class="selectbox__arrow">
+                                        <span></span>
+                                    </span>
+                                    <select class="selectbox__select" name="year">
+                                        <option value="2018">2018</option>
+                                        <option value="2017">2017</option>
+                                        <option value="2016">2016</option>
+                                        <option value="2015" selected="selected">2015</option>
+                                    </select>
+                                </div>
+                                <div class="selectbox selectbox_cgroup analityc-widget__selectbox analityc-widget__selectbox_stage">
+                                    <p class="selectbox__val">Фактическое исполнение</p>
+                                    <span class="selectbox__arrow">
+                                        <span></span>
+                                    </span>
+                                    <select class="selectbox__select" name="stage">
+                                        <option value="fact" selected="selected">Фактическое исполнение</option>
+                                        <option value="approved">Закон о бюджете (утвержденный)</option>
+                                    </select>
+                                </div>
                             </div>
                             <div class="analityc-control-group">
                                 <a class="analityc-remove-group" href="#">
                                     <svg><use xlink:href="assets/images/icon.svg#icon_delete"></use></svg>
                                 </a>
-                                <select class="analityc-select analityc-select_year">
-                                    <option>2018</option>
-                                    <option selected="selected">2017</option>
-                                    <option>2016</option>
-                                    <option>2015</option>
-                                </select>
-                                <select class="analityc-select analityc-select_stage">
-                                    <option>Фактическое исполнение</option>
-                                    <option selected="selected">Закон о бюджете (утвержденный)</option>
-                                </select>
+                                <div class="selectbox selectbox_cgroup analityc-widget__selectbox analityc-widget__selectbox_year">
+                                    <p class="selectbox__val">2015</p>
+                                    <span class="selectbox__arrow">
+                                        <span></span>
+                                    </span>
+                                    <select class="selectbox__select" name="year">
+                                        <option value="2018">2018</option>
+                                        <option value="2017">2017</option>
+                                        <option value="2016">2016</option>
+                                        <option value="2015" selected="selected">2015</option>
+                                    </select>
+                                </div>
+                                <div class="selectbox selectbox_cgroup analityc-widget__selectbox analityc-widget__selectbox_stage">
+                                    <p class="selectbox__val">Фактическое исполнение</p>
+                                    <span class="selectbox__arrow">
+                                        <span></span>
+                                    </span>
+                                    <select class="selectbox__select" name="stage">
+                                        <option value="fact" selected="selected">Фактическое исполнение</option>
+                                        <option value="approved">Закон о бюджете (утвержденный)</option>
+                                    </select>
+                                </div>
                             </div>
                             <div class="analityc-control-group">
                                 <a class="analityc-remove-group" href="#">
                                     <svg><use xlink:href="assets/images/icon.svg#icon_delete"></use></svg>
                                 </a>
-                                <select class="analityc-select analityc-select_year">
-                                    <option selected="selected">2018</option>
-                                    <option>2017</option>
-                                    <option>2016</option>
-                                    <option>2015</option>
-                                </select>
-                                <select class="analityc-select analityc-select_stage">
-                                    <option>Фактическое исполнение</option>
-                                    <option selected="selected">Закон о бюджете (утвержденный)</option>
-                                </select>
+                                <div class="selectbox selectbox_cgroup analityc-widget__selectbox analityc-widget__selectbox_year">
+                                    <p class="selectbox__val">2015</p>
+                                    <span class="selectbox__arrow">
+                                        <span></span>
+                                    </span>
+                                    <select class="selectbox__select" name="year">
+                                        <option value="2018">2018</option>
+                                        <option value="2017">2017</option>
+                                        <option value="2016">2016</option>
+                                        <option value="2015" selected="selected">2015</option>
+                                    </select>
+                                </div>
+                                <div class="selectbox selectbox_cgroup analityc-widget__selectbox analityc-widget__selectbox_stage">
+                                    <p class="selectbox__val">Фактическое исполнение</p>
+                                    <span class="selectbox__arrow">
+                                        <span></span>
+                                    </span>
+                                    <select class="selectbox__select" name="stage">
+                                        <option value="fact" selected="selected">Фактическое исполнение</option>
+                                        <option value="approved">Закон о бюджете (утвержденный)</option>
+                                    </select>
+                                </div>
                             </div>
                             <a class="analityc-add-group" href="#">+ Добавить год и этап</a>
                         </div>
@@ -475,19 +525,31 @@
                             <div class="frame-wrap">
                                 <div class="analityc-control-group analityc-control-group_level">
                                     <span>Уровень</span>
-                                    <select class="analityc-select">
-                                        <option selected="selected">Бюджет москвы</option>
-                                        <option>Бюджет области</option>
-                                        <option>Бюджет региона</option>
-                                        <option>Консолидированный бюджет</option>
-                                    </select>
+                                    <div class="selectbox selectbox_cgroup analityc-widget__selectbox">
+                                        <p class="selectbox__val">Бюджет москвы</p>
+                                        <span class="selectbox__arrow">
+                                            <span></span>
+                                        </span>
+                                        <select class="selectbox__select" name="level">
+                                            <option value="moscow" selected="selected">Бюджет москвы</option>
+                                            <option value="area">Бюджет области</option>
+                                            <option value="region">Бюджет региона</option>
+                                            <option value="consolidated">Консолидированный бюджет</option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="analityc-control-group analityc-control-group_transfer">
                                     <span>Межбюджетные трансферты</span>
-                                    <select class="analityc-select">
-                                        <option selected="selected">Без межбюджетных трансфертов</option>
-                                        <option>с трансфертами</option>
-                                    </select>
+                                    <div class="selectbox selectbox_cgroup analityc-widget__selectbox">
+                                        <p class="selectbox__val">Без межбюджетных трансфертов</p>
+                                        <span class="selectbox__arrow">
+                                            <span></span>
+                                        </span>
+                                        <select class="selectbox__select" name="transfer">
+                                            <option value="no" selected="selected">Без межбюджетных трансфертов</option>
+                                            <option value="yes">с трансфертами</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <div class="analityc-control-group analityc-control-group_buttons">
