@@ -70,6 +70,7 @@ import budgetExpenses from '../components/budget_expenses/budgetExpenses';
 import table from '../blocks/table/table';
 import budgetMoscowOpen from '../components/depfin-budget-moscow-open/budgetMoscowOpen';
 import buttonsSet from '../blocks/buttons-set/buttonsSet';
+import analyticsGovDebt from '../components/analytics-gov-debt/analyticsGovDebt';
 
 $(() => {
 
@@ -153,4 +154,5 @@ $(() => {
   table();
   budgetMoscowOpen();
   buttonsSet();
+  analyticsGovDebt();
 });

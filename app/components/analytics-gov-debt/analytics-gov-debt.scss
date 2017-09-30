@@ -13,13 +13,12 @@
       text-transform: uppercase;
       font-size: 18px;
       color: #000;
-      margin-bottom: 5px;
     }
     .analityc-control-group {
       display: block;
       position: relative;
       padding-right: 22px;
-      margin-bottom: 8px;
+      margin-bottom: 3px;
       margin-left: 0;
       font-size: 0;
       & + .analityc-control-group {
@@ -29,6 +28,20 @@
         .analityc-remove-group {
           display: block;
         }
+      }
+    }
+    .analityc-widget__selectbox_year {
+      display: inline-block;
+      margin-right: 9px;
+    }
+    .analityc-widget__selectbox_month {
+      display: inline-block;
+      width: 140px;
+      @media screen and (max-width: 900px) {
+        width: calc(100% - 103px);
+      }
+      @media screen and (max-width: 580px) {
+        width: calc(100% - 69px);
       }
     }
     .analityc-remove-group {
@@ -44,26 +57,6 @@
         width: 100%;
         height: 100%;
         fill: #0d46a1;
-      }
-    }
-    .analityc-select {
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      text-indent: 1px;
-      text-overflow: "";
-      display: inline-block;
-      font-size: 14px;
-      margin-right: 10px;
-      margin-top: 0;
-      background-position: top 50% right 11px;
-      &_year {
-        width: 56px;
-      }
-      &_month {
-        width: 126px;  
-      }
-      &:last-child {
-        margin-right: 0;
       }
     }
     .analityc-add-group {
@@ -118,6 +111,7 @@
   }
   .analityc-table {
     margin-top: 67px;
+    overflow: visible !important;
     .analityc-control-switcher {
       margin-top: 0;
     }
@@ -139,6 +133,14 @@
     top: 50%;
     z-index: 2;
     margin-top: -25px;
+    display: none;
+    @media screen and (max-width: 900px) {
+      display: block;
+    }
+    @media screen and (max-width: 580px) {
+      left: -20px;
+      right: -20px;
+    }
   }
   
   @media screen and (max-width: 1140px) {
@@ -176,14 +178,7 @@
     }
   }
   
-  @media screen and (max-width: 850px) {
-    &__analityc-widgethead {
-      .analityc-control-frame_right {
-        float: none;
-        clear: both;
-        margin-left: 0;
-      }
-    }
+  @media screen and (max-width: 900px) {
     &__graphics {
       margin-top: 50px;
     }
@@ -194,39 +189,19 @@
     .analityc-graphics-broken-line,
     .analityc-graphics-bars,
     .analityc-table .table{
-      min-width: 800px;
+      min-width: 900px;
     }
-  }
-  
-  @media screen and (min-width: 768px) and (max-width: 850px) {
     &__analityc-widgethead {
-      .analityc-select {
-        &_year {
-          width: 70px;
-        }
-        &_month {
-          width: 180px;
-        }
+      .analityc-control-frame_right {
+        float: none;
+        clear: both;
+        margin-left: 0;
       }
-    }
-  }
-  
-  @media screen and (max-width: 768px) {
-    &__analityc-widgethead {
       .analityc-control-frame_left {
         float: none;
       }
       .analityc-control-frame_right {
         padding-right: 28px;
-      }
-      .analityc-select {
-        &_year {
-          width: 15% !important;
-          margin-right: 2% !important;
-        }
-        &_month {
-          width: 77% !important;
-        }
       }
       .analityc-add-group {
         font-size: 19px;
@@ -243,6 +218,27 @@
           }
           &:last-child {
             width: 41%;
+          }
+        }
+      }
+    }
+  }
+  
+  @media screen and (max-width: 580px) {
+    &__analityc-widgethead {
+      .analityc-control-frame_right {
+        padding-right: 20px;
+      } 
+      .analityc-control-switcher {
+        a {
+          padding: 0 5px;
+          font-size: 12px;
+          line-height: 26px;
+          &:first-child {
+            width: 100%;
+          }
+          &:last-child {
+            width: 100%;
           }
         }
       }

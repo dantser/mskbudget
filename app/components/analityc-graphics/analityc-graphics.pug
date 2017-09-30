@@ -1897,7 +1897,6 @@ mixin analityc-graphics-analytics-gov-debt-bars(data)
     each item in data
       +e.graphic
         +e.lines
-
           +e.line
             +e.line-bar-value= item.value
             +e.line-fill._yellow
@@ -1908,15 +1907,16 @@ mixin analityc-graphics-analytics-gov-debt-bars(data)
               +e.val= item.values[1]
             +e.line-fill._red
               +e.val= item.values[0]
-          if item.changes
-            if item.negchanges
-              +e.changes._neg
-                +e.abs= item.changes[0]
-                +e.percent= item.changes[1]
-            else
-              +e.changes
-                +e.abs= item.changes[0]
-                +e.percent= item.changes[1]
         +e.caption
           +e.STRONG.caption-year= item.year
           +e.SPAN.caption-text= item.text
+          
+      if item.changes
+        if item.negchanges
+          +e.changes._neg
+            +e.abs= item.changes[0]
+            +e.percent= item.changes[1]
+        else
+          +e.changes
+            +e.abs= item.changes[0]
+            +e.percent= item.changes[1]
