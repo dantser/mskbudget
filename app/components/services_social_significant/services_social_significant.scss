@@ -2,6 +2,21 @@
 	background: #282635 url(../images/bg-news.jpg) top no-repeat;
   background-size: 100%;
   color: #000;
+  
+  .wrapper-header {
+    max-width: 1100px;
+    margin: 0 auto;
+    
+    @media screen and (max-width: 1140px) {
+      padding: 0 75px;
+    }
+    @media screen and (max-width: 900px) {
+      padding: 0 40px;
+    }
+    @media screen and (max-width: 580px) {
+      padding: 0 15px;
+    }
+  }
 
   &__wrapper {
     margin-bottom: 80px;
@@ -18,7 +33,11 @@
 
   &__search {
     padding: 32px 40px 37px;
-    width: 700px;
+    max-width: 700px;
+    
+    @media screen and (max-width: 580px) {
+      padding: 32px 15px 37px;
+    }
 
     .d-si__search {
       height: 32px;
@@ -35,14 +54,18 @@
 
 /*Таб Список*/
 .significant-list {
-	padding: 0 40px 63px;
-
-	&__total {
-		font-family: $PFDinTextPro;
-		font-size: 14px;
-		color: #d5d5d5;
-	}
-
+  padding: 0 40px 63px;
+  
+  @media screen and (max-width: 580px) {
+    padding: 0 15px 63px;
+  }
+  
+  &__total {
+    font-family: $PFDinTextPro;
+    font-size: 14px;
+    color: #d5d5d5;
+  }
+  
   &__table-wrap {
     width: 100%;
     margin-top: 24px;
@@ -54,44 +77,55 @@
   }
 
   &__table {
-    min-width: 560px;
+    min-width: 670px;
     font-size: 0;
   }
-
-  &__rows {
-    
-  }
-
-	&__row {
-		padding: 18px 0 14px;
+  
+  &__row {
+    padding: 18px 0 14px;
     border-bottom: 1px solid #d5d5d5;
-
+    
     & + .open-file__row {
       margin-top: 16px;
     }
-	}
-
-	&__col {
+  }
+  
+  &__col {
     display: inline-block;
     vertical-align: top;
     font-size: 14px;
+    padding-right: 15px;
 
     &_left {
-    	width: 52.5%;
+      width: 52.5%;
       white-space: nowrap;
+      
+      @media screen and (max-width: 1100px) {
+        width: 50%;
+      }
+      @media screen and (max-width: 900px) {
+        width: 45%;
+      }
     }
 
     &_center {
-    	width: 32%;
+      width: 32%;
     }
 
     &_right {
-    	width: 15.5%;
-    }
+      width: 15.5%;
+      
+      @media screen and (max-width: 1100px) {
+        width: 18%;
+      }
+      @media screen and (max-width: 900px) {
+        width: 23%;
+      }
 	}
-
-	&__caption {
-		padding-bottom: 12px;
+  }
+  
+  &__caption {
+    padding-bottom: 12px;
     font-family: $PFDinTextPro;
     border-bottom: 3px solid #d5d5d5;
 
@@ -104,33 +138,35 @@
       letter-spacing: .5px;
       text-transform: uppercase;
       font-weight: 500;
+      padding-right: 15px;
     }
-	}
-
-	&__row-num,
-	&__row-title,
-	&__row-st,
-	&__row-date {
-		font-family: PFDinTextPro;
-		font-size: 16px;
+  }
+  
+  &__row-num,
+  &__row-title,
+  &__row-st,
+  &__row-date {
+    font-family: PFDinTextPro;
+    font-size: 16px;
     font-weight: 500;
-	}
-
-	&__row-num {
-		display: inline-block;
+  }
+  
+  &__row-num {
+    display: inline-block;
     vertical-align: top;
-		color: #d5d5d5;
-		margin-right: 15px;
-	}
-
-	&__row-title {
-		display: inline-block;
+    color: #d5d5d5;
+    margin-right: 15px;
+  }
+  
+  &__row-title {
+    display: inline-block;
     vertical-align: top;
-		color: $color-link;
+    color: $color-link;
     text-decoration: none;
     letter-spacing: -.4px;
     white-space: normal;
-	}
+    padding-right: 20px;
+  }
 
 /*Таб Карта*/
   &__map {

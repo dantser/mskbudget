@@ -112,8 +112,8 @@ export default function selectbox() {
     }
   })
 
-  $(document).on('mousedown click', '.selectbox__arrow', function (e) {
-    if ($(this).parents('.selectbox_disabled').length < 0) {
+  $(document).on('mousedown click', '.selectbox > *', function (e) {
+    if (!$(this).parents('.selectbox_disabled').length && !$(this).is('select')) {
       e.preventDefault();
       e.stopPropagation();
       $(document).find('.selectbox').removeClass('active');
