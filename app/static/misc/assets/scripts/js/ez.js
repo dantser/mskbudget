@@ -189,6 +189,7 @@ budget.extend("common", {
           var selecteddate = $(this).val();
           if ($('.js-dp-output').length)
             $(document).find('.js-dp-output_others').text(selecteddate); // Бюджет Москвы - вывод даты в заголовке Исполнение на дату
+          $(this).trigger("change");
         }
 
       };
