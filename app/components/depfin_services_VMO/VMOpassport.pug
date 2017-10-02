@@ -220,12 +220,12 @@ mixin vmoPassportContent()
             +selectbox('base', [{"val":"opt1", "text":"Объем доходов"}, {"val":"opt2", "text":"Объем расходов"}, {"val":"opt3", "text":"еще один очень длинный пункт"}]).selectbox_vmo
 
         .services-VMO__table.services-VMO__table_comparison
+          .services-VMO__table-head
+            span.services-VMO__table-head_place Место
+            span.services-VMO__table-head_vol Объем доходов
+              span.services-VMO__table-head_sub млн.руб.
+            span.services-VMO__table-head_mun Муниципальный округ
           .services-VMO__table__wrapper
-            .services-VMO__table-head
-              span.services-VMO__table-head_place Место
-              span.services-VMO__table-head_vol Объем доходов
-                span.services-VMO__table-head_sub млн.руб.
-              span.services-VMO__table-head_mun Муниципальный округ
             .vmoPassport-table.scroll-pane
               -for (var i=0; i<6; i++)
                 .table__row
