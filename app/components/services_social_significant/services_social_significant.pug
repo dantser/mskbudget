@@ -36,11 +36,12 @@ mixin services_social_significant(data)
 				+e.row-date= date
 
 	+b.SECTION.significant.section__item&attributes(attributes)
-		.wrapper.significant__wrapper
+		.wrapper-header
 			+e.head
 				+page-header('Общественно значимые проекты', ['Сервисы'])
 				+buttons-set-alt(getData('buttons-set-significant')).significant__buttons-set.load-anim-fade(data-delay="1500")
-
+				
+		.wrapper.significant__wrapper
 			+tabs.significant__content.load-anim-fade(data-delay="1500")
 
 				+searchFormWidget('Поиск').significant__search

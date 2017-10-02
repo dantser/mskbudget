@@ -8,7 +8,6 @@
 
   &__description {
     font-size: 18px;
-    font-weight: 500;
     line-height: 24px;
     max-width: 720px;
     margin: 23px 0 51px;
@@ -60,10 +59,23 @@
       font-weight: 700;
       padding: 13px 26px;
       font-size: 16px;
+      text-align: center;
+      
+      @media screen and (max-width: 630px) {
+        width: 100%;
+      }
     }
 
     .buttons-set {
+      @media screen and (max-width: 630px) {
+        display: block;
+      }
+      
       &__item {
+        @media screen and (max-width: 630px) {
+          width: 50%;
+        }
+        
         &:last-child {
           .button-light {
             padding-right: 46px;

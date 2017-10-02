@@ -139,7 +139,7 @@
         padding-bottom: 150px;
       }
     }
-    &[data-tab="VMOincome"],
+    &[data-tab="VMOincomeMD"], &[data-tab="VMOincomeCD"], &[data-tab="VMOincomeS"],
     &[data-tab="VMOpassIncome"] {
       .services-VMO__figure-big {
         background: -webkit-linear-gradient(0deg,#004ccf,cyan);
@@ -307,6 +307,7 @@
 
   // таблица
   &__table {
+    overflow-x: auto;
 
     &-head {
       padding-top: 40px;
@@ -378,7 +379,8 @@
     }
 
     &__wrapper {
-      overflow-y: scroll;
+      /*overflow-y: scroll;*/
+      min-width: 640px;
       border-bottom: 1px solid #e6e6e6;
 
       // Custom Scrollbar
