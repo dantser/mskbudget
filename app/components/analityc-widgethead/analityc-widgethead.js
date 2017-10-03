@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import 'jquery.scrollbar';
 
 export default () => {
 
@@ -32,5 +33,23 @@ export default () => {
   $(document).on('click', '[data-level="consolidated"] li', function() {
     graphicsDate();
   })
+  
+  
+  
+  if ($('.analityc-widgethead').length) {
+  
+    // Чекбоксы в селекте "Добавить показатель на страницу"
+    $(document).on('change', '.d-smr__add-char-item input', function(){
+      if (this.checked) {
+        $(this).next().next().find('input').prop('checked', true);
+      } else {
+        $(this).next().next().find('input').prop('checked', false);
+      }
+    });
+    
+    // Кастомный скроллбар в селекте "Добавить показатель на страницу"
+    $('.d-smr__add-char-list-wrapper').scrollbar();
+  
+  }
 
 }
