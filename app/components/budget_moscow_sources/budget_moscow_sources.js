@@ -75,8 +75,8 @@ export default () => {
     // переключение по селектам
     $('.moscow-sources .analityc-widget_sources .analityc-control-group select').on('change', function () {
       changeContent('select');
-      approvedGraphSlider.update(true);
-      changesGraphSlider.update(true);
+      approvedGraphSlider.update();
+      changesGraphSlider.update();
     });
     
     // переключение по кнопкам график/таблица
@@ -85,8 +85,8 @@ export default () => {
       $(this).siblings().removeClass('active');
       $(this).addClass('active');
       changeContent('button', $(this));
-      approvedGraphSlider.update(true);
-      changesGraphSlider.update(true);
+      approvedGraphSlider.update();
+      changesGraphSlider.update();
     });
     
     
