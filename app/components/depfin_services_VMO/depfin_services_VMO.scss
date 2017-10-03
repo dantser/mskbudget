@@ -20,7 +20,7 @@
     z-index: 3;
 
     &.active {
-      @media (max-width: 768px) {
+      @media (max-width: 600px) {
         display: block;
       }
     }
@@ -58,7 +58,7 @@
 
     &-container {
       @media (max-width: 768px) {
-        overflow-x: scroll;
+        overflow-x: auto;
         overflow-y: visible;
       }
     }
@@ -173,6 +173,20 @@
         }
       }
     }
+
+    &[data-tab="vmoPassports"] {
+      .analityc-control-switcher_passport .services-VMO__lg.active {
+        @media (max-width: 640px) {
+          display: block;
+        }
+      }
+      .analityc-control-switcher_passport2 .services-VMO__lg.active {
+        @media (max-width: 768px) {
+          display: block;
+        }
+      }
+    }
+
   }
   .analityc-widget {
     margin-top: 0;
