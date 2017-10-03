@@ -47,32 +47,36 @@ export default () => {
     
     
     // слайдер
+    var approvedGraphSlider, changesGraphSlider;
+    
     approvedSliderInit();
+    changesSliderInit();
     
     function approvedSliderInit() {
       if ($(window).width() <= 980) {
-        var approvedGraphSlider = new Swiper ('.analityc-widget-sources_approved .graphic', {
+        approvedGraphSlider = new Swiper ('.swiper-container-approved', {
           prevButton: '.ar-left_approved',
           nextButton: '.ar-right_approved'
         });
+        $('.swiper-container-approved').addClass('inited');
       }
     }
     
     function changesSliderInit() {
       if ($(window).width() <= 980) {
-        var changesGraphSlider = new Swiper ('.analityc-widget-sources_changes .graphic', {
+        changesGraphSlider = new Swiper ('.swiper-container-changes', {
           prevButton: '.ar-left_changes',
           nextButton: '.ar-right_changes'
         });
+        $('.swiper-container-changes').addClass('inited');
       }
     }
-    
-    
     
     // переключение по селектам
     $('.moscow-sources .analityc-widget_sources .analityc-control-group select').on('change', function () {
       changeContent('select');
-      changesSliderInit();
+      approvedGraphSlider.update(true);
+      changesGraphSlider.update(true);
     });
     
     // переключение по кнопкам график/таблица
@@ -81,6 +85,8 @@ export default () => {
       $(this).siblings().removeClass('active');
       $(this).addClass('active');
       changeContent('button', $(this));
+      approvedGraphSlider.update(true);
+      changesGraphSlider.update(true);
     });
     
     
