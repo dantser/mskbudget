@@ -22,8 +22,6 @@ export default () => {
     nextButton: '.analityc-graphics-line-vertical__next',
     prevButton: '.analityc-graphics-line-vertical__prev',
     slidesPerView: 'auto',
-    centeredSlides: true,
-    freeMode: true,
     spaceBetween: 30
 
   });
