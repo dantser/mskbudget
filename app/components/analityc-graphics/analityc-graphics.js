@@ -205,5 +205,30 @@ export default () => {
       });
     });
   }
+  
+  
+  // Графики analityc-graphics-bars
+  if ($('.analityc-graphics-bars').length) {
+    graphicBars();
+  }
+  
+  function graphicBars() {
+    $('.analityc-graphics-bars').each(function(){
+      
+      var line = $(this).find('.analityc-graphics-bars__line'),
+          fill = $(this).find('.analityc-graphics-bars__line-fill');         
+      
+      fill.each(function(){
+        var dheight = $(this).data('height');
+        $(this).height(dheight);
+      });
+      
+      line.each(function(){
+        var lineHeight = $(this).height();
+        $(this).parent().height(lineHeight);
+      });
+      
+    });
+  }
 
 }
