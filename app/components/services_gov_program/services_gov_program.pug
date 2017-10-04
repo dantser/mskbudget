@@ -15,11 +15,12 @@ include ../analityc-table/analityc-table
 
 mixin gov_program-structure()
   +b.SECTION.gov-program.basic-budget.main._basic.section__item&attributes(attributes)
-    .wrap
+    .wrapper-header
       +page-header('Результаты реализации государственных программ', ['сервисы'], true)
+    .wrap
       +e.wrapper.load-anim-fade(data-delay="1500")
         block
-  +doc-cards-dropdown(getData('doc-cards-dropdown'))
+    +doc-cards-dropdown(getData('doc-cards-dropdown'))
       
 mixin gov_program-subhead()
   +e.subhead.__content-padding&attributes(attributes)

@@ -1,6 +1,11 @@
 .gov-program {
   font-family: $PFDinTextPro;
-  padding-bottom: 40px;
+  
+  .section-tabs {
+    margin-top: 40px;
+    border-top: 1px solid #564d2a;
+    border-bottom: 0;
+  }
 
   @media screen and (max-width: 990px) {
     .table-scroll-hider {
@@ -280,6 +285,10 @@
       font-family: $PFDinTextPro;
       padding-left: 30px;
       margin-left: -30px;
+      
+      @media (max-width: 768px) {
+        margin-left: -10px;
+      }
 
       @media (max-width: 570px) {
         font-size: 14px;
@@ -593,7 +602,9 @@
     .analityc-widgethead { margin-top: -10px !important; }
   }
 
-  .analityc-graphics__graphic_round { height: 270px !important; width: 270px !important; }
+  .analityc-graphics__graphic_round {
+    width: 270px;
+  }
 
   .analityc-graphics_singleround { margin-top: 0; padding-top: 0; }
 
@@ -680,6 +691,13 @@
   .link_bottom {
     margin: 30px 0 55px 40px;
     font-size: 12px;
+  }
+  
+  .segment-diagram, .segment-diagram .svg {
+    @media screen and (max-width: 900px) {
+      width: 197px;
+      height: 197px;
+    }
   }
 
 }
