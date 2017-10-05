@@ -56,6 +56,30 @@ export default () => {
 		})
 	})
 
+	const ARROWS = $('.open-file__slide-arrows'),
+				FLOATING = 'open-file__slide-arrows_floating',
+				TABLE = $('.open-file__content .analityc-table');
+
+	if (!ARROWS.length) {
+		return;
+	} else {
+	  var arrPos = ARROWS.offset().top / 2,
+				tablePos = TABLE.offset().top + TABLE.outerHeight() - 200;
+
+	  if ($(document).width() <= 400) {
+		  // плавающие стрелки
+		  $(window).scroll(function() { 
+
+			  var sT = $(document).scrollTop();
+
+			  if (sT > arrPos && sT < tablePos)
+			  	ARROWS.addClass(FLOATING)
+			  else 
+			  	ARROWS.removeClass(FLOATING);
+		  });
+	  }
+	}
+
 	function scrollUp() {
     setTimeout(function() {
       $("html,body").animate({

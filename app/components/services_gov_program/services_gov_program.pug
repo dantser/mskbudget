@@ -15,11 +15,12 @@ include ../analityc-table/analityc-table
 
 mixin gov_program-structure()
   +b.SECTION.gov-program.basic-budget.main._basic.section__item&attributes(attributes)
-    .wrap
+    .wrapper-header
       +page-header('Результаты реализации государственных программ', ['сервисы'], true)
+    .wrap
       +e.wrapper.load-anim-fade(data-delay="1500")
         block
-  +doc-cards-dropdown(getData('doc-cards-dropdown'))
+    +doc-cards-dropdown(getData('doc-cards-dropdown'))
       
 mixin gov_program-subhead()
   +e.subhead.__content-padding&attributes(attributes)
@@ -76,13 +77,17 @@ mixin gov-program-col-three()
     +e.H4.title Этапы реализации
     .analityc-control-group._stages
       select.analityc-select.js-change-table1-col.js-change-table2-col
-        option(selected, value="period1") Этап 1: 01.01.2012-31.12.2012
-        option(value="period2") Этап 2: 01.01.2013-31.12.2013
-        option(value="period3") Этап 3: 01.01.2014-31.12.2014
-        option(value="period4") Этап 4: 01.01.2015-31.12.2015
-        option(value="period5") Этап 5: 01.01.2016-31.12.2016
-        option(value="period6") Этап 6: 01.01.2017-31.12.2017
-        option(value="period7") Этап 7: 01.01.2018-31.12.2018
+        option(selected, value="period1") Этап 1: 01.01.2010-31.12.2010
+        option(value="period2") Этап 2: 01.01.2011-31.12.2011
+        option(value="period3") Этап 3: 01.01.2012-31.12.2012
+        option(value="period4") Этап 4: 01.01.2013-31.12.2013
+        option(value="period5") Этап 5: 01.01.2014-31.12.2014
+        option(value="period6") Этап 6: 01.01.2015-31.12.2015
+        option(value="period7") Этап 7: 01.01.2016-31.12.2016
+        option(value="period8") Этап 8: 01.01.2017-31.12.2017
+        option(value="period9") Этап 9: 01.01.2018-31.12.2018
+        option(value="period10") Этап 10: 01.01.2019-31.12.2019
+        option(value="period11") Этап 11: 01.01.2020-31.12.2020
 
 mixin gov_program-dropdowns()
   .dropdown.gov-program__content-padding.dropdown_b.dropdown_active
@@ -91,10 +96,11 @@ mixin gov_program-dropdowns()
       a.dropdown__table-download(href="#")
         +icon('download').icon-download
     .dropdown__content.dropdown__content_db
-      +slide-arrows
-      .table-scroll-hider
-        .table-wrapper(data-offset="100")
-          +table1()
+      .table-container
+        +slide-arrows
+        .table-scroll-hider
+          .table-wrapper(data-offset="100").js-drag-scroll-element
+            +table1()
   .dropdown.gov-program__content-padding.dropdown_b
     a(href="#").dropdown__btn.dropdown__btn_y.dropdown__btn_b Финансовое обеспечение государственной программы
       +icon('delete').icon-close
@@ -103,7 +109,7 @@ mixin gov_program-dropdowns()
       .analityc-table.active
         +slide-arrows
         .table-scroll-hider
-          .table-wrapper(data-offset="100")
+          .table-wrapper(data-offset="100").js-drag-scroll-element2
             +table2()
       +analityc-graphics-singleround4()
             
@@ -114,7 +120,7 @@ mixin gov_program-dropdowns()
       .table-container
         +slide-arrows
         .table-scroll-hider
-          .table-wrapper(data-offset="100")
+          .table-wrapper(data-offset="100").js-drag-scroll-element3
             +table1()
       +e.OL.list
         li Увеличение числа жителей города Москвы, занимающихся физической культурой и спортом
@@ -126,7 +132,7 @@ mixin gov_program-dropdowns()
       .table-container
         +slide-arrows
         .table-scroll-hider
-          .table-wrapper(data-offset="100")
+          .table-wrapper(data-offset="100").js-drag-scroll-element4
             +table1()
       +e.OL.list
         li Увеличение числа жителей города Москвы, занимающихся физической культурой и спортом
@@ -138,7 +144,7 @@ mixin gov_program-dropdowns()
       .table-container
         +slide-arrows
         .table-scroll-hider
-          .table-wrapper(data-offset="100")
+          .table-wrapper(data-offset="100").js-drag-scroll-element5
             +table1()
       +e.OL.list
         li Увеличение числа жителей города Москвы, занимающихся физической культурой и спортом

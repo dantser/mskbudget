@@ -1,17 +1,67 @@
 .gov-program {
   font-family: $PFDinTextPro;
-  padding-bottom: 40px;
-
-  @media screen and (max-width: 990px) {
-    .table-scroll-hider {
-      overflow: hidden;
-
-      .table-wrapper {
-        padding-bottom: 20px;
-        margin-bottom: -20px;
-      }
+  
+  .section-tabs {
+    margin-top: 40px;
+    border-top: 1px solid #564d2a;
+    border-bottom: 0;
+  }
+  
+  .table-scroll-hider {
+    overflow: hidden;
+    .table-wrapper {
+      overflow-x: auto;
+      padding-bottom: 20px;
+      margin-bottom: -20px;
+      cursor: move !important;
+      cursor: -webkit-grab !important;
+      cursor: -moz-grab !important;
+      cursor: grab !important;
     }
   }
+  
+  .slide-arrows {
+    position: absolute;
+    left: -40px;
+    right: -40px;
+    top: 50%;
+    margin-top: -25px;
+    z-index: 2;
+    
+    @media screen and (max-width: 1024px) {
+      left: -35px;
+      right: -35px;
+    }
+    
+    @media screen and (max-width: 768px) {
+      left: -20px;
+      right: -20px;
+    }
+
+    @media screen and (max-width: 580px) {
+      right: -15px;
+      left: -15px;
+    }
+  }
+
+  .slide-arrows__arrow {
+    opacity: 1;
+    transition: opacity .3s ease;
+    cursor: pointer;
+
+    &:hover { opacity: 0.5; }
+  }
+
+  //@media screen and (max-width: 990px) {
+  //  .table-scroll-hider {
+  //    overflow: hidden;
+  //
+  //    .table-wrapper {
+  //      padding-bottom: 20px;
+  //      margin-bottom: -20px;
+  //    }
+  //  }
+  //}
   
   .table-container {
     position: relative;
@@ -280,6 +330,10 @@
       font-family: $PFDinTextPro;
       padding-left: 30px;
       margin-left: -30px;
+      
+      @media (max-width: 768px) {
+        margin-left: -10px;
+      }
 
       @media (max-width: 570px) {
         font-size: 14px;
@@ -486,7 +540,7 @@
     }
 
     &__content {
-      padding-bottom: 70px;
+      padding-bottom: 50px;
 
       @media screen and (max-width: 990px) {
         padding-bottom: 45px;
@@ -532,18 +586,12 @@
   }
 
   .table1, .table2 {
-    @media screen and (max-width: 990px) {
-      min-width: 1000px;
-    }
+    //@media screen and (max-width: 990px) {
+    //  min-width: 1000px;
+    //}
 
     @media (max-width: 760px) {
       font-size: 14px;
-    }
-  }
-
- .table-wrapper {
-    @media screen and (max-width: 990px) {
-      overflow-x: scroll;
     }
   }
 
@@ -593,7 +641,9 @@
     .analityc-widgethead { margin-top: -10px !important; }
   }
 
-  .analityc-graphics__graphic_round { height: 270px !important; width: 270px !important; }
+  .analityc-graphics__graphic_round {
+    width: 270px;
+  }
 
   .analityc-graphics_singleround { margin-top: 0; padding-top: 0; }
 
@@ -680,6 +730,13 @@
   .link_bottom {
     margin: 30px 0 55px 40px;
     font-size: 12px;
+  }
+  
+  .segment-diagram, .segment-diagram .svg {
+    @media screen and (max-width: 900px) {
+      width: 197px;
+      height: 197px;
+    }
   }
 
 }

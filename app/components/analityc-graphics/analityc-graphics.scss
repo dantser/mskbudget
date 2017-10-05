@@ -1280,9 +1280,8 @@
 
 /*******************************************/
 
-@mixin analityc-graphics-bars($color, $height, $bg, $grad1, $grad2) {
+@mixin analityc-graphics-bars($color, $bg, $grad1, $grad2) {
   &_#{$color} {
-    height: $height;
     background: $bg;
     background-image: -moz-linear-gradient( 90deg, $grad1 0%, $grad2 100%);
     background-image: -webkit-linear-gradient( 90deg, $grad1 0%, $grad2 100%);
@@ -1672,14 +1671,14 @@
   font-size: 0;
   -ms-text-justify: newspaper; /*ie9 inline-blocks justify (text-align: justify; required)*/
 
-  @media (max-width: 1010px) {
-    //display: none;
+  @media (max-width: 900px) {
+    display: none;
   }
 
   &_slider {
     display: none;
 
-    @media (max-width: 1010px) {
+    @media (max-width: 900px) {
       display: block;
     }
   }
@@ -1874,6 +1873,7 @@
 
   .analityc-graphics-line-vertical__lines {
     font-size: 0;
+    text-align: center;
   }
 
   .analityc-graphics-line-vertical__graphic {
@@ -1892,13 +1892,12 @@
   position: relative;
   text-align: justify;
   padding: 0 18px;
-  font-size: 0;
 
   &:before {
     content: '';
     display: block;
     position: absolute;
-    top: 300px;
+    bottom: 50px;
     left: 0;
     width: 100%;
     height: 1px;
@@ -1914,8 +1913,10 @@
 
   &__graphic {
     display: inline-block;
-    vertical-align: top;
-    min-width: 114px;
+    vertical-align: bottom;
+    width: 108px;
+    position: relative;
+    padding-bottom: 50px;
 
     &:last-child {
       .analityc-graphics-bars__changes {
@@ -1926,22 +1927,19 @@
 
   &__lines {
     font-size: 0;
-    height: 320px;
     position: relative;
     text-align: center;
   }
 
   &__line {
     display: inline-block;
-    position: relative;
-    width: 100px;
-    height: 100%;
-    margin-right: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 100%;
     vertical-align: bottom;
-
-    &:last-child {
-      margin-right: 0;
-    }
   }
 
   &__val {
@@ -1952,12 +1950,16 @@
   }
 
   &__caption {
-    margin-top: 19px;
     text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
 
     &-year,
     &-text {
       display: block;
+      white-space: nowrap;
     }
 
     &-year {
@@ -1970,6 +1972,8 @@
       line-height: (16/12)*1em;
       opacity: .4;
       text-transform: uppercase;
+      margin-left: -100%;
+      margin-right: -100%;
     }
   }
 
@@ -2050,21 +2054,21 @@
       }
     }
 
-    @include analityc-graphics-bars(red, 34.9%, #9d308a, rgb(157, 48, 138), rgb(255, 105, 91));
+    @include analityc-graphics-bars(red, #9d308a, rgb(157, 48, 138), rgb(255, 105, 91));
 
-    @include analityc-graphics-bars(green, 27.5%, #32b168, rgb(254,227,0), rgb(48,176,105));
+    @include analityc-graphics-bars(green, #32b168, rgb(254,227,0), rgb(48,176,105));
 
-    @include analityc-graphics-bars(pink, 8.1%, #612292, rgb(97, 34, 146), rgb(189, 132, 233));
+    @include analityc-graphics-bars(pink, #612292, rgb(97, 34, 146), rgb(189, 132, 233));
 
-    @include analityc-graphics-bars(grey, 6.5%, #838a9a, rgb(131, 138, 154), rgb(213, 216, 222));
+    @include analityc-graphics-bars(grey, #838a9a, rgb(131, 138, 154), rgb(213, 216, 222));
 
-    @include analityc-graphics-bars(altblue, 4.4%, #0051d0, rgb(0,76,207), rgb(0,255,255));
+    @include analityc-graphics-bars(altblue, #0051d0, rgb(0,76,207), rgb(0,255,255));
 
-    @include analityc-graphics-bars(lightgreen, 3.1%, #11a360, rgb(17, 163, 96), rgb(50, 209, 151));
+    @include analityc-graphics-bars(lightgreen, #11a360, rgb(17, 163, 96), rgb(50, 209, 151));
 
-    @include analityc-graphics-bars(transparentred, 100%, #9d308a, rgba(157, 48, 138, .7), rgba(255, 105, 91, .7));
+    @include analityc-graphics-bars(transparentred, #9d308a, rgba(157, 48, 138, .7), rgba(255, 105, 91, .7));
 
-    @include analityc-graphics-bars(transparentgreen, 20%, #32b168, rgba(254, 227 ,0 , .7), rgba(48, 176, 105, .7));
+    @include analityc-graphics-bars(transparentgreen, #32b168, rgba(254, 227 ,0 , .7), rgba(48, 176, 105, .7));
   }
 
   .analityc-graphics-bars__line-bar-value{
@@ -2119,10 +2123,10 @@
       bottom: 42px;
     }
     .analityc-graphics-bars__line-fill {
-      @include analityc-graphics-bars(red, 45%, #9d308a, rgb(157,48,138), rgb(255,105,91));
-      @include analityc-graphics-bars(altblue, 33%, #0051d0, rgb(0,76,207), rgb(0,255,255));
-      @include analityc-graphics-bars(green, 13%, #32b168, rgb(254,227,0), rgb(48,176,105));
-      @include analityc-graphics-bars(yellow, 3%, #ffd856, rgb(252,168,5), rgb(255,216,86));
+      @include analityc-graphics-bars(red, #9d308a, rgb(157,48,138), rgb(255,105,91));
+      @include analityc-graphics-bars(altblue, #0051d0, rgb(0,76,207), rgb(0,255,255));
+      @include analityc-graphics-bars(green, #32b168, rgb(254,227,0), rgb(48,176,105));
+      @include analityc-graphics-bars(yellow, #ffd856, rgb(252,168,5), rgb(255,216,86));
     }
     .analityc-graphics-bars__line-fill_yellow {
       cursor: pointer;
@@ -2190,6 +2194,10 @@
       padding: 0;
     }
   }
+  
+  &_entired {
+    text-align: center;
+  }
 }
 
 // MULTILINE
@@ -2197,10 +2205,31 @@
 .analityc-multiline {
 
   .analityc-graphics__periodtext {
+    display: block;
     width: 61%;
 
-    @media (max-width: 1140px) {
-      display: none;
+    @media (max-width: 900px) {
+      width: 73%;
+      font-size: 14px;
+      margin-top: -22px;
+
+      span {
+        padding: 0 5px;
+      }
+    }
+
+    @media (max-width: 580px) {
+      width: 81%;
+      font-size: 12px;
+      margin-top: -19px;
+
+      span {
+        padding: 0;
+      }
+    }
+
+    @media (max-width: 400px) {
+      font-size: 8px;
     }
   }
 
@@ -2239,6 +2268,10 @@
 
       @media (max-width: 580px) {
         width: 8%;
+      }
+
+      @media (max-width: 400px) {
+        width: 5%;
       }
 
     }
@@ -2293,6 +2326,14 @@
           width: 15%;
         }
 
+        @media (max-width: 580px) {
+          width: 10%;
+        }
+
+        @media (max-width: 400px) {
+          width: 8%;
+        }
+
       }
     }
 
@@ -2303,10 +2344,6 @@
       border: 1px solid #d7d7d7;
       border-bottom: 0;
       margin-bottom: 2px;
-
-      @media (max-width: 1140px) {
-        display: none;
-      }
     }
 
     &__period-left {
@@ -2767,7 +2804,6 @@
         height: 230px;
       }
 
-/*диаграмма*/
       .segment-diagram {
         width: 100%;
         height: 100%;
@@ -2808,9 +2844,6 @@
         }
 
       }
-
-/*диаграмма*/
-
 
     }
   }
@@ -3535,12 +3568,19 @@
   }
 }
 
-@media screen and (min-width: 551px) and (max-width: 760px) {
+@media screen and (min-width: 581px) and (max-width: 768px) {
   .analityc-graphics__legend .legend__item {
-    font-size: 18px;
-    margin-bottom: 24px;
-    padding-left: 45px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    padding-left: 35px;
   }
+  .analityc-graphics__legend .legend__item:before {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media screen and (min-width: 551px) and (max-width: 760px) {
   .analityc-graphics__graphic_column {
     width: 470px;
   }
@@ -3560,10 +3600,6 @@
     &_limitcolumn {
       width: 100%;
     }
-  }
-  .analityc-graphics__legend .legend__item:before {
-    width: 28px;
-    height: 28px;
   }
   .analityc-graphics_column .analityc-graphics__year {
     font-size: 45px;
@@ -3699,6 +3735,7 @@
     color: #e85b21;
     border-bottom: 2px solid #e85b21;
     position: relative;
+    text-align: center;
   }
   &__rate-line {
     border-bottom: 2px dashed #e85b21;

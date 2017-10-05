@@ -219,3 +219,13 @@ mixin searchFormNet(placeholder, tooltip)
           +button()._kind_blue Искать
           +e.INPUT.reset(type="reset" value="Сбросить фильтр")
           +icon('icon-cross').close
+
+mixin searchFormVMO(placeholder, tooltip)
+  +b.FORM.search.search_widget.d-si__search-form(action="#")&attributes(attributes)
+    +e.search-line
+      input.d-si__search(type="text", title=tooltip, value=placeholder)
+      input.d-si__submit(type="submit" value="")
+      .search__tooltip
+        i
+        span= tooltip
+      +icon('icon-glass').__submit

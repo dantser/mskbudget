@@ -34,8 +34,11 @@
       }
       &_left {
         float: left;
-        width: 413px;
-        @media (max-width: 1010px) {
+        
+        @media (max-width: 1140px) {
+          width: 458px!important;
+        }
+        @media (max-width: 900px) {
           float: none;
           margin-bottom: 15px;
         }
@@ -84,10 +87,17 @@
         .analityc-remove-group {
           display: none;
           position: absolute;
-          top: 11px;
-          right: 0;
+          top: 60%;
+          transform: translateY(-50%);
+          left: 100%;
+          @media (max-width: 1140px) {
+            left: 96%;
+          }
+          @media (max-width: 900px) {
+            left: calc(100% + 5px);
+          }
           @media (max-width: 580px) {
-            right: -15px;
+            left: 98%;
           }
           & svg {
             width: 15px;
@@ -331,7 +341,7 @@
     width: 33%;
     margin-bottom: 17px;
     &__box {
-      vertical-align: super;
+      margin-top: 3px;
       margin-right: 5px;
     }
     input:checked + .legend__item {
@@ -381,5 +391,13 @@
       left: -20px;
       right: -20px;
     }
+  }
+}
+
+
+
+.analityc-widget-income {
+  & + & {
+    margin-top: 70px;
   }
 }

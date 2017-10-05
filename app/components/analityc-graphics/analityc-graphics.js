@@ -22,8 +22,6 @@ export default () => {
     nextButton: '.analityc-graphics-line-vertical__next',
     prevButton: '.analityc-graphics-line-vertical__prev',
     slidesPerView: 'auto',
-    centeredSlides: true,
-    freeMode: true,
     spaceBetween: 30
 
   });
@@ -57,17 +55,13 @@ export default () => {
   // График analityc-multiline - попапы для коротких линий
   const MULTILINE_BAR = $('.analityc-multiline__line-bar');
 
-  var MULTILINE_BAR_WIDTH = 80;
-
-  $(window).on('load resize', function() {
-    if ($(window).width() <= 900)
-      MULTILINE_BAR_WIDTH = 150;
-    else
-      MULTILINE_BAR_WIDTH = 80;
-  });
-
   MULTILINE_BAR.each(function() {
-    if ($(this).outerWidth() > 80) {
+    var MULTILINE_BAR_WIDTH = 80;
+    
+    if ($(document).width() <= 900 && $(document).width() > 580)
+      MULTILINE_BAR_WIDTH = 200;
+
+    if ($(this).outerWidth() > MULTILINE_BAR_WIDTH) {
       $(this).find('.analityc-multiline__line-abs').remove();
     } else {
       $(this).find('.analityc-multiline__line-value').text('');
@@ -209,6 +203,31 @@ export default () => {
           subColumnArea.eq(i).find(columnArea).next().css('top', (pointDiff * -1) / 1.3+'px');
         }
       });
+    });
+  }
+  
+  
+  // Графики analityc-graphics-bars
+  if ($('.analityc-graphics-bars').length) {
+    graphicBars();
+  }
+  
+  function graphicBars() {
+    $('.analityc-graphics-bars').each(function(){
+      
+      var line = $(this).find('.analityc-graphics-bars__line'),
+          fill = $(this).find('.analityc-graphics-bars__line-fill');         
+      
+      fill.each(function(){
+        var dheight = $(this).data('height');
+        $(this).height(dheight);
+      });
+      
+      line.each(function(){
+        var lineHeight = $(this).height();
+        $(this).parent().height(lineHeight);
+      });
+      
     });
   }
 

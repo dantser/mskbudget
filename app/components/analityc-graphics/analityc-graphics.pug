@@ -1337,25 +1337,25 @@ mixin analityc-graphics-line-vertical-alt(data)
       +e.graphic
         +e.lines
 
-          +e.line._red
+          +e.line._red(data-checkbox=item.names[0])
             +e.line-bar-value= item.values[0]
             +e.line-fill
-          +e.line._green
+          +e.line._green(data-checkbox=item.names[1])
             +e.line-bar-value= item.values[1]
             +e.line-fill
-          +e.line._pink
+          +e.line._pink(data-checkbox=item.names[2])
             +e.line-bar-value= item.values[2]
             +e.line-fill
-          +e.line._grey
+          +e.line._grey(data-checkbox=item.names[3])
             +e.line-bar-value= item.values[3]
             +e.line-fill
-          +e.line._altblue
+          +e.line._altblue(data-checkbox=item.names[4])
             +e.line-bar-value= item.values[4]
             +e.line-fill
-          +e.line._lightgreen
+          +e.line._lightgreen(data-checkbox=item.names[5])
             +e.line-bar-value= item.values[5]
             +e.line-fill
-          +e.line._blue
+          +e.line._blue(data-checkbox=item.names[6])
             +e.line-bar-value= item.values[6]
             +e.line-fill
 
@@ -1429,17 +1429,17 @@ mixin analityc-graphics-bars(data)
 
           +e.line
             +e.line-bar-value= item.value
-            +e.line-fill._lightgreen
+            +e.line-fill._lightgreen(data-height=item.heights[5], data-checkbox=item.names[5])
               +e.val= item.values[5]
-            +e.line-fill._altblue
+            +e.line-fill._altblue(data-height=item.heights[4], data-checkbox=item.names[4])
               +e.val= item.values[4]
-            +e.line-fill._grey
+            +e.line-fill._grey(data-height=item.heights[3], data-checkbox=item.names[3])
               +e.val= item.values[3]
-            +e.line-fill._pink
+            +e.line-fill._pink(data-height=item.heights[2], data-checkbox=item.names[2])
               +e.val= item.values[2]
-            +e.line-fill._green
+            +e.line-fill._green(data-height=item.heights[1], data-checkbox=item.names[1])
               +e.val= item.values[1]
-            +e.line-fill._red
+            +e.line-fill._red(data-height=item.heights[0], data-checkbox=item.names[0])
               +e.val= item.values[0]
           if item.changes
             +e.changes
@@ -1448,6 +1448,7 @@ mixin analityc-graphics-bars(data)
         +e.caption
           +e.STRONG.caption-year= item.year
           +e.SPAN.caption-text= item.text
+          
 mixin analityc-graphics-bars-year(data)
   +b.analityc-graphics-bars&attributes(attributes)
 
@@ -1457,13 +1458,13 @@ mixin analityc-graphics-bars-year(data)
 
           +e.line
             +e.line-bar-value= item.value
-            +e.line-fill._lightgreen
+            +e.line-fill._lightgreen(data-height=item.heights[3], data-checkbox=item.names[3])
               +e.val= item.values[3]
-            +e.line-fill._altblue
+            +e.line-fill._altblue(data-height=item.heights[2], data-checkbox=item.names[2])
               +e.val= item.values[2]
-            +e.line-fill._pink
+            +e.line-fill._pink(data-height=item.heights[1], data-checkbox=item.names[1])
               +e.val= item.values[1]
-            +e.line-fill._red
+            +e.line-fill._red(data-height=item.heights[0], data-checkbox=item.names[0])
               +e.val= item.values[0]
           if item.changes
             +e.changes
@@ -1483,15 +1484,15 @@ mixin analityc-graphics-bars-alt(data)
           +e.line
             if item.value
               +e.line-bar-value= item.value
-              +e.line-fill._green
+              +e.line-fill._green(data-height=item.heights[1])
                 +e.val= item.values[1]
-              +e.line-fill._red
+              +e.line-fill._red(data-height=item.heights[0])
                 +e.val= item.values[0]
             if item.change
-              +e.line-fill._transparentgreen
+              +e.line-fill._transparentgreen(data-height=item.heights[1])
                 +e.val= item.change[3]
                 +e.val= item.change[2]
-              +e.line-fill._transparentred
+              +e.line-fill._transparentred(data-height=item.heights[0])
                 +e.val= item.change[1]
                 +e.val= item.change[0]
           if item.changes
@@ -1501,6 +1502,7 @@ mixin analityc-graphics-bars-alt(data)
         +e.caption
           +e.STRONG.caption-year= item.year
           +e.SPAN.caption-text= item.text
+		  
 mixin analityc-graphics-bars2(data)
   +b.analityc-graphics-bars&attributes(attributes)
 
@@ -1509,14 +1511,14 @@ mixin analityc-graphics-bars2(data)
         +e.lines
 
           +e.line
-            if item.changes
-              +e.line-fill._red
+            if item.values
+              +e.line-fill._red(data-height=item.heights[0])
                 +e.val= item.values[0]
               +e.changes
                 +e.abs= item.changes[0]
                 +e.percent= item.changes[1]
             else
-              +e.line-fill._transparentred
+              +e.line-fill._transparentred(data-height=item.heights[0])
 
         +e.caption
           +e.STRONG.caption-year= item.year

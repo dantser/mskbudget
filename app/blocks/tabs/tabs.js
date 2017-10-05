@@ -37,5 +37,6 @@ export default function tabs() {
     tab.show();
 
     positionValues();
+    grLinePopup();
   });
 }
