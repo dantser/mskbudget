@@ -30,12 +30,18 @@ export default function dragscroll() {
   }
 
   // implementation
-  var elementToScroll = $(".js-drag-scroll-element");
-  clickAndDragScroll(elementToScroll);
-  var elementToScroll2 = $(".js-drag-scroll-element2");
-  clickAndDragScroll(elementToScroll2);
-  var elementToScroll3 = $(".js-drag-scroll-element3");
-  clickAndDragScroll(elementToScroll3);
-  var elementToScroll4 = $(".js-drag-scroll-element4");
-  clickAndDragScroll(elementToScroll4);
+  //var elementToScroll = $(".js-drag-scroll-element");
+  //clickAndDragScroll(elementToScroll);
+  //var elementToScroll2 = $(".js-drag-scroll-element2");
+  //clickAndDragScroll(elementToScroll2);
+  //var elementToScroll3 = $(".js-drag-scroll-element3");
+  //clickAndDragScroll(elementToScroll3);
+  //var elementToScroll4 = $(".js-drag-scroll-element4");
+  //clickAndDragScroll(elementToScroll4);
+  
+  var elScrollLength = $('[class*="js-drag-scroll-element"]').length;
+  for (var i = 0; i < elScrollLength; i++) {
+    var elementToScroll = $('[class*="js-drag-scroll-element"]').eq(i);
+    clickAndDragScroll(elementToScroll);
+  }
 }
