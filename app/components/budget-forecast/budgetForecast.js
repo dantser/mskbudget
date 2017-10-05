@@ -4,7 +4,7 @@ export default () => {
   
   if ($('.budget-forecast').length) {
     
-    if ($(window).width() <= 768) {
+    if ($(window).width() <= 900) {
       $(window).scroll(function(){
         var scrollDistance = $(window).scrollTop() + $(window).height() / 2;
         var blockHeight = $('.analityc-table-forecast').outerHeight();
