@@ -32,23 +32,23 @@ export default function selectbox() {
         if ($(this).attr('data-locked')) {
           if (imgUrl)
           {
-            const li = '<li class="locked" data-val=' + vval + '><img src="' + imgUrl + '"><span>' + ttext + '</span>' + (period ? '<i>' + period +'</i>' : '') + '</li>';
+            const li = '<li class="locked" data-val="' + vval + '"><img src="' + imgUrl + '"><span>' + ttext + '</span>' + (period ? '<i>' + period +'</i>' : '') + '</li>';
             selBox.find('ul').append(li);
           }
           else
           {
-            const li = '<li class="locked" data-val=' + vval + '><img src="assets/images/' + img + '.png"><span>' + ttext + '</span>' + (period ? '<i>' + period +'</i>' : '') + '</li>';
+            const li = '<li class="locked" data-val="' + vval + '"><img src="assets/images/' + img + '.png"><span>' + ttext + '</span>' + (period ? '<i>' + period +'</i>' : '') + '</li>';
             selBox.find('ul').append(li);
           }
         } else {
           if (imgUrl)
           {
-            const li = '<li data-val=' + vval + '><img src="' + imgUrl + '"><span>' + ttext + '</span>' + (period ? '<i>' + period +'</i>' : '') + '</li>';
+            const li = '<li data-val="' + vval + '"><img src="' + imgUrl + '"><span>' + ttext + '</span>' + (period ? '<i>' + period +'</i>' : '') + '</li>';
             selBox.find('ul').append(li);
           }
           else
           {
-            const li = '<li data-val=' + vval + '><img src="assets/images/' + img + '.png"><span>' + ttext + '</span>' + (period ? '<i>' + period +'</i>' : '') + '</li>';
+            const li = '<li data-val="' + vval + '"><img src="assets/images/' + img + '.png"><span>' + ttext + '</span>' + (period ? '<i>' + period +'</i>' : '') + '</li>';
             selBox.find('ul').append(li);
           }
         }
@@ -60,15 +60,15 @@ export default function selectbox() {
           if ($(this).attr('data-tooltip')) {
             const title = $(this).attr('title');
             console.log(title);
-            const li = '<li class="locked js-tooltip" data-val=' + vval + ' title="'+title+'">' + ttext + '</li>';
+            const li = '<li class="locked js-tooltip" data-val="' + vval + '" title="'+title+'">' + ttext + '</li>';
             selBox.find('ul').append(li);
           } else {
-            const li = '<li class="locked" data-val=' + vval + '>' + ttext + '</li>';
+            const li = '<li class="locked" data-val="' + vval + '">' + ttext + '</li>';
             selBox.find('ul').append(li);
           }
           
         } else {
-          const li = '<li data-val=' + vval + '>' + ttext + '</li>';
+          const li = '<li data-val="' + vval + '">' + ttext + '</li>';
           selBox.find('ul').append(li);
         }
 
@@ -85,7 +85,7 @@ export default function selectbox() {
     } else {
       var newval = $(this).data('val');
       $(this).parents('.selectbox').find('select').val(newval).change();
-      var inputval = $(this).parents('.selectbox').find('select option[value='+newval+']').text();
+      var inputval = $(this).parents('.selectbox').find('select option[value="'+newval+'"]').text();
       $(this).parents('.selectbox').find('input').val(inputval);
       $(this).parents('.selectbox').find('.selectbox__val').text(inputval);
       
