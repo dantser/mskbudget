@@ -24,8 +24,8 @@ mixin depfin_services_VMO()
       +e.tabs-wrapper
         +e.tabs-control
           a(href="#", class="active", data-tab-target="vmoAll") Все ВМО
-          a(href="#", data-tab-target="vmoMunicipalDistricts") Муниципальные округи
-          a(href="#", data-tab-target="vmoCityDistricts") Городские округи
+          a(href="#", data-tab-target="vmoMunicipalDistricts") Муниципальные округа
+          a(href="#", data-tab-target="vmoCityDistricts") Городские округа
           a(href="#", data-tab-target="vmoSettlements") Поселения
           a(href="#", data-tab-target="vmoPassports") Паспорта ВМО
       .analityc-widget.analityc-widget_VMO
@@ -123,9 +123,9 @@ mixin vmoAll()
       +analityc-table-slider(100)._vmo
         +table-vmo(getData('vmo1'))
 
-//-таб "Муниципальные округи"
+//-таб "Муниципальные округа"
 mixin vmoMunicipalDistricts()
-  H3.services-VMO__title Муниципальные округи — сводная информация
+  H3.services-VMO__title Муниципальные округа — сводная информация
   .services-VMO__content.services-VMO__content_municipal
     .services-VMO__figure-wrapper
       .services-VMO__figure.services-VMO__figure_blue
@@ -144,8 +144,8 @@ mixin vmoMunicipalDistricts()
           span чел на га
         span.services-VMO__subdescr 12,3% территории москвы
     .analityc-control-group._search
-      span Муниципальные округи
-      +searchFormWidget('замоскворечье', 'Введите название района Москвы')
+      span Муниципальные округа
+      +searchFormVMO('замоскворечье', 'Введите название района Москвы')
     .services-VMO__map-wrapper
       +svg-map-mo()
   .services-VMO__content.services-VMO__content_municipal-graphics
@@ -303,9 +303,9 @@ mixin vmoMunicipalDistricts()
                   li.services-VMO__list-item и еще один
               +button()._kind_white Показать все полномочия
 
-//-таб "Городские округи"
+//-таб "Городские округа"
 mixin vmoCityDistricts()
-  H3.services-VMO__title Городские округи — сводная информация
+  H3.services-VMO__title Городские округа — сводная информация
   .services-VMO__content.services-VMO__content_municipal
     .services-VMO__figure-wrapper
       .services-VMO__figure.services-VMO__figure_green
@@ -324,7 +324,7 @@ mixin vmoCityDistricts()
           span чел на га
         span.services-VMO__subdescr 12,3% территории москвы
     .analityc-control-group._search
-      span Городские округи
+      span Городские округа
       a(href="/").analityc-more.analityc-more_bordered Троицк
       a(href="/").analityc-more Щербинка
     .services-VMO__map-wrapper
@@ -506,7 +506,7 @@ mixin vmoSettlements()
         span.services-VMO__subdescr 12,3% территории москвы
     .analityc-control-group._search
       span Поселения
-      +searchFormWidget('внуковское', 'Введите название поселения')
+      +searchFormVMO('внуковское', 'Введите название поселения')
     .services-VMO__map-wrapper
       +svg-map-setl()
   .services-VMO__content.services-VMO__content_municipal-graphics
@@ -673,8 +673,8 @@ mixin vmoSettlements()
 //-     .wrapper.wrapper_widget.load-anim-fade(data-delay="1500")
 //-       +e.tabs-control
 //-         a(href="#", data-tab-target="vmoAll") Все ВМО
-//-         a(href="#", data-tab-target="vmoMunicipalDistricts") Муниципальные округи
-//-         a(href="#", data-tab-target="vmoCityDistricts") Городские округи
+//-         a(href="#", data-tab-target="vmoMunicipalDistricts") Муниципальные округа
+//-         a(href="#", data-tab-target="vmoCityDistricts") Городские округа
 //-         a(href="#", data-tab-target="vmoSettlements") Поселения
 //-         a(href="#", class="active", data-tab-target="vmoPassports") Паспорта ВМО
 //-       .analityc-widget.analityc-widget_VMO
@@ -698,8 +698,8 @@ mixin vmoPassportListContent()
     .services-VMO__lg.services-VMO__lg_right-lg.active
     .analityc-control-switcher-wrapper
       .services-VMO__lg-container
-        a(href="#" data-tab-target="vmoListMun") Муниципальные округи
-        a(href="#" data-tab-target="vmoListCity") Городские округи
+        a(href="#" data-tab-target="vmoListMun") Муниципальные округа
+        a(href="#" data-tab-target="vmoListCity") Городские округа
         a(href="#" data-tab-target="vmoListSettlements") Поселения
         a(href="#" data-tab-target="vmoListAll").active Все
   +tabs
@@ -718,7 +718,7 @@ mixin vmoPassportListTable()
       span.services-VMO__table-head_null &nbsp;
       span.services-VMO__table-head_search
         .analityc-control-group._search
-          +searchFormWidget('Введите название МО', 'Введите название МО')
+          +searchFormVMO('Введите название МО', 'Введите название МО')
       span.services-VMO__table-head_place доходы
         span.services-VMO__table-head_sub млн.руб.
         .services-VMO__sort.services-VMO__sort_desc

@@ -26,11 +26,19 @@ export default () => {
     var lgLeft = $(this).siblings('.services-VMO__lg_left-lg');
     var lgRight = $(this).siblings('.services-VMO__lg_right-lg');
 
-    lg.removeClass('active');
-    if ($(this).scrollLeft() > 0)
-      lgLeft.addClass('active');
-    else
-      lgRight.addClass('active');
+    var fullW = $(this).find('.services-VMO__tabs-control').outerWidth();
+    var diff = fullW - $(this).outerWidth();
+
+    if (diff != 0) {
+      lg.addClass('active');
+
+      if ($(this).scrollLeft() == 0) {
+        lgLeft.removeClass('active');
+      }
+      if ($(this).scrollLeft() == diff) {
+        lgRight.removeClass('active');
+      }
+    }
   })
 
   // Тени при прокрутке свитчеров
@@ -45,6 +53,8 @@ export default () => {
       lgLeft.addClass('active');
     else
       lgRight.addClass('active');
+
+    console.log($(this).outerWidth())
   })
 
 
@@ -133,7 +143,7 @@ export default () => {
  });
 
   const MAP_POPUP = VMO.find('.services-VMO__map-popup');
-  VMO.find('.svg-map path').hover(function(e) {
+  VMO.find('.svg-map path[data-active]').hover(function(e) {
     
     var coordsX = $(this).offset().left,
         coordsY = $(this).offset().top,
