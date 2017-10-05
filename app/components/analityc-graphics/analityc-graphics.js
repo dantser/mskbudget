@@ -55,17 +55,13 @@ export default () => {
   // График analityc-multiline - попапы для коротких линий
   const MULTILINE_BAR = $('.analityc-multiline__line-bar');
 
-  var MULTILINE_BAR_WIDTH = 80;
-
-  $(window).on('load resize', function() {
-    if ($(window).width() <= 900)
-      MULTILINE_BAR_WIDTH = 150;
-    else
-      MULTILINE_BAR_WIDTH = 80;
-  });
-
   MULTILINE_BAR.each(function() {
-    if ($(this).outerWidth() > 80) {
+    var MULTILINE_BAR_WIDTH = 80;
+    
+    if ($(document).width() <= 900 && $(document).width() > 580)
+      MULTILINE_BAR_WIDTH = 200;
+
+    if ($(this).outerWidth() > MULTILINE_BAR_WIDTH) {
       $(this).find('.analityc-multiline__line-abs').remove();
     } else {
       $(this).find('.analityc-multiline__line-value').text('');
