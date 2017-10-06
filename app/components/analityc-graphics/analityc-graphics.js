@@ -230,5 +230,113 @@ export default () => {
       
     });
   }
+  
+  
+  // Функция, позиционирующая числовые подписи в графиках
+  //////////////////////////////
+  window.positionValues = function() {
+    $(document).find('.segment-diagram__val').each(function(){
+      // Задаем базовое позиционирование
+      $(this).css({
+        left: 0,
+        top: 0
+      });
+      
+      var indexOffset = $(this).parent().find('.segment-diagram__value-num').length > 0 ? -1 : 0,
+          index = $(this).index() + indexOffset,
+          id = $(this).parents('.segment-diagram').attr('id'),
+          diagram = $(this).parents('.segment-diagram').find('#' + id + '-' + index);
+      
+      if (typeof diagram[0] !== "undefined") {
+        
+        var thisOffsL = $(this).offset().left,
+            thisOffsT = $(this).offset().top,
+            elW = $(this).width(),
+            elH = $(this).height();
+        
+        // Вся диаграмма
+        var d = $(this).parents('.segment-diagram').get(0),
+            defW = 270, // стандартная ширина диаграммы
+            defSW = 45, // стандартная толщина линии в диаграмме
+            curW = $(d).width(), // текущая ширина диаграммы
+            dcoef = curW / defW, // коэффициент (зависит от текущей и стандартной ширины)
+            curSW = defSW * dcoef, // текущая толщина линии в диаграмме
+            dxcenter = $(d).width() / 2,
+            dycenter = $(d).height() / 2,
+            dR = dycenter - curSW / 2, // curSW / 2 - это половина толщины линии в диаграмме
+            
+        // Ищем соответствующий кусок диаграммы
+        diagram = diagram.get(0);
+        
+        var diagOffsL = diagram.getBBox().x * dcoef,
+            diagOffsT = diagram.getBBox().y * dcoef,
+            dW = diagram.getBBox().width * dcoef,
+            dH = diagram.getBBox().height * dcoef,
+            diagelemcenterx = diagOffsL + (dW / 2),
+            diagelemcentery = diagOffsT + (dH / 2);
+        
+        // Расчеты
+        var x1 = dxcenter,
+            x2 = diagelemcenterx,
+            x = x1 - x2, // катет1
+            y1 = dycenter,
+            y2 = diagelemcentery,
+            y = y1 - y2, // катет2
+            r = Math.sqrt(x*x + y*y), // гипотенуза
+            delta = dR / r, // коэффициент
+            xnew = x * delta, // новый отступ от центра x
+            ynew = y * delta; // новый отступ от центра y
+        
+        $(this).css({
+          left: dxcenter - xnew,
+          top: dycenter - ynew
+        });
+      }
+    });
+    
+    // Определяем сегмент диаграммы с маленьким значением
+    // ###############################
+    $('.segment-diagram').each(function () {
+      var vals = $(this).find('.segment-diagram__val');
+      
+      // Ищем сумму
+      var summ = 0;
+      
+      vals.each(function () {
+        summ += +parseInt($(this).text());
+      });
+      
+      // Ищем маленькое значение
+      vals.each(function () {
+        var val = +parseInt($(this).text()),
+            parent = '.segment-diagram__value';
+        
+        if (val/summ < 0.03) {
+          // Добавляем маленький класс
+          $(this).addClass('segment-diagram__val_small');
+          
+          // Определяем позицию и добавляем модификатор позиции
+          var left = $(this).position(parent).left,
+              top = $(this).position(parent).top,
+              wdth = $(this).outerWidth(),
+              hght = $(this).outerHeight(),
+              classHor, classVert;
+          
+          left < ($(this).parents(parent).outerWidth() - left - wdth) ? classHor = 'l' : classHor = 'r';
+          top < ($(this).parents(parent).outerHeight() - top - hght) ? classVert = 't' : classVert = 'b';
+          
+          var totalClass = 'segment-diagram__val_small_' + classHor + classVert,
+              text = $(this).text();
+          
+          $(this)
+            .removeClass('segment-diagram__val_small_lt segment-diagram__val_small_rt segment-diagram__val_small_lb segment-diagram__val_small_rb')
+            .addClass(totalClass)
+            .html('<span>' + text + '</span>');
+        }
+      });
+    });
+  }
+  
+  positionValues();
 
 }

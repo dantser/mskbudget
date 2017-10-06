@@ -75,8 +75,10 @@ export default () => {
     // переключение по селектам
     $('.moscow-sources .analityc-widget_sources .analityc-control-group select').on('change', function () {
       changeContent('select');
-      approvedGraphSlider.update();
-      changesGraphSlider.update();
+      if ($(window).width() <= 980) {
+        approvedGraphSlider.update();
+        changesGraphSlider.update();
+      }
     });
     
     // переключение по кнопкам график/таблица
@@ -85,8 +87,10 @@ export default () => {
       $(this).siblings().removeClass('active');
       $(this).addClass('active');
       changeContent('button', $(this));
-      approvedGraphSlider.update();
-      changesGraphSlider.update();
+      if ($(window).width() <= 980) {
+        approvedGraphSlider.update();
+        changesGraphSlider.update();
+      }
     });
     
     
