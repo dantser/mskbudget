@@ -268,29 +268,58 @@ export default () => {
         // Ищем соответствующий кусок диаграммы
         diagram = diagram.get(0);
         
-        var diagOffsL = diagram.getBBox().x * dcoef,
-            diagOffsT = diagram.getBBox().y * dcoef,
-            dW = diagram.getBBox().width * dcoef,
-            dH = diagram.getBBox().height * dcoef,
-            diagelemcenterx = diagOffsL + (dW / 2),
-            diagelemcentery = diagOffsT + (dH / 2);
+        //var diagOffsL = diagram.getBBox().x * dcoef,
+        //    diagOffsT = diagram.getBBox().y * dcoef,
+        //    dW = diagram.getBBox().width * dcoef,
+        //    dH = diagram.getBBox().height * dcoef,
+        //    diagelemcenterx = diagOffsL + (dW / 2),
+        //    diagelemcentery = diagOffsT + (dH / 2);
+        //
+        //// Расчеты
+        //var x1 = dxcenter,
+        //    x2 = diagelemcenterx,
+        //    x = x1 - x2, // катет1
+        //    y1 = dycenter,
+        //    y2 = diagelemcentery,
+        //    y = y1 - y2, // катет2
+        //    r = Math.sqrt(x*x + y*y), // гипотенуза
+        //    delta = dR / r, // коэффициент
+        //    xnew = x * delta, // новый отступ от центра x
+        //    ynew = y * delta; // новый отступ от центра y
+        //
+        //$(this).css({
+        //  left: dxcenter - xnew,
+        //  top: dycenter - ynew
+        //});
         
-        // Расчеты
-        var x1 = dxcenter,
-            x2 = diagelemcenterx,
-            x = x1 - x2, // катет1
-            y1 = dycenter,
-            y2 = diagelemcentery,
-            y = y1 - y2, // катет2
-            r = Math.sqrt(x*x + y*y), // гипотенуза
-            delta = dR / r, // коэффициент
-            xnew = x * delta, // новый отступ от центра x
-            ynew = y * delta; // новый отступ от центра y
+        var diagPath = $(diagram).attr('d').split(' '),
+            diagLong = diagPath[7],
+            diagXa = diagPath[1] * dcoef, // X начальной точки (A)
+            diagYa = diagPath[2] * dcoef, // Y начальной точки (A)
+            diagXb = diagPath[9] * dcoef, // X конечной точки (B)
+            diagYb = diagPath[10] * dcoef, // Y конечной точки (B)
+            OA = {x: diagXa - dxcenter, y: diagYa - dycenter}, // вектор OA (O - центр диаграммы)
+            OB = {x: diagXb - dxcenter, y: diagYb - dycenter}, // вектор OB (O - центр диаграммы)
+            scalar = OA.x * OB.x + OA.y * OB.y, // скалярное произведение векторов
+            OALength = Math.sqrt(OA.x * OA.x + OA.y * OA.y), // длина вектора ОА
+            OBLength = Math.sqrt(OB.x * OB.x + OB.y * OB.y), // длина вектора OB
+            angleCos = scalar / (OALength * OBLength); // косинус угла между векторами
+        
+        if (angleCos < -1) angleCos = -1;
+        if (angleCos > 1) angleCos = 1;
+        
+        var halfAngle = Math.acos(angleCos) / 2; // половина угла между векторами
+        
+        if (diagLong == 1) halfAngle = Math.PI - halfAngle; // если угол сегмента больше 180
+        
+        var diagXc = dxcenter + OA.x * Math.cos(halfAngle) - OA.y * Math.sin(halfAngle),
+            diagYc = dycenter + OA.x * Math.sin(halfAngle) + OA.y * Math.cos(halfAngle);
         
         $(this).css({
-          left: dxcenter - xnew,
-          top: dycenter - ynew
+          left: diagXc,
+          top: diagYc
         });
+        
       }
     });
     
