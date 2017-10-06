@@ -1008,7 +1008,7 @@ mixin analityc-graphics-line(title, data)
       SPAN.js-dp-output.js-dp-output_cons 1 февраля 2017
     +e.lines
       each obj in data
-        +e.DIV(class="__line_"+obj.color+"")
+        +e.DIV(class="__line_"+obj.color+"" data-val1=obj.value1 data-val2=obj.value2 data-barval=obj.barvalue)
           if obj.strong
             +e.P.line-title
               strong= obj.title
@@ -1297,32 +1297,32 @@ mixin analityc-graphics-line-vertical_slider(data, isWide)
 mixin analityc-graphics-line-vertical_vmo(data)
   +b.analityc-graphics-line-vertical._vmo&attributes(attributes)
     each item in data
-      +e.graphic
+      +e.graphic(data-year=item.year data-percent=item.percent data-val1=item.values[0] data-val2=item.values[1])
         +e.lines
           +e.line._transparentpink
-            +e.line-bar-value= item.values[0]
             +e.line-fill
+              +e.line-bar-value= item.values[0]
           +e.line._pink2
-            +e.line-bar-value= item.values[1]
-            +e.line-bar-value._percent= item.percent
             +e.line-fill
+              +e.line-bar-value= item.values[1]
+              +e.line-bar-value._percent= item.percent
         +e.caption
           +e.STRONG.caption-year= item.year
 
 mixin analityc-graphics-line-vertical-vmo_slider(data, isWide)
   +b.analityc-graphics-line-vertical._slider._vmo.swiper-container&attributes(attributes)
 
-    +e.wrapper.swiper-wrapper
+    .swiper-wrapper
       each item in data
-        +e.graphic.swiper-slide
+        +e.graphic.swiper-slide(data-year=item.year data-percent=item.percent data-val1=item.values[0] data-val2=item.values[1])
           +e.lines
             +e.line._transparentpink
-              +e.line-bar-value= item.values[0]
               +e.line-fill
+                +e.line-bar-value= item.values[0]
             +e.line._pink2
-              +e.line-bar-value= item.values[1]
-              +e.line-bar-value._percent= item.percent
               +e.line-fill
+                +e.line-bar-value= item.values[1]
+                +e.line-bar-value._percent= item.percent
           +e.caption
             +e.STRONG.caption-year= item.year
 
