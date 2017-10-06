@@ -55,7 +55,7 @@ export default () => {
     } else {
       block = table;
     }
-    
+	
     changeBlock(block, stageVal);
     changeControl(controls, stageVal, levelVal, typeVal);
     
@@ -83,4 +83,5 @@ export default () => {
     });
   }
   
+  changeContent('select');
 }

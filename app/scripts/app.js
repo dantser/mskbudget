@@ -151,8 +151,10 @@ $(() => {
 	  documentsCards();
 	  tablesActive();
 	  mrelations();
+	  window.budgetIncome = budgetIncome;
 	  budgetIncome();
 	  budgetExpenses();
+    window.table = table;
 	  table();
 	  budgetMoscowOpen();
 	  buttonsSet();
