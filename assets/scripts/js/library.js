@@ -9510,7 +9510,8 @@ function grLinePopup() {
       LINE_BAR.each(function() {
         var line = $(this).find('.analityc-line__line-wrap');
         var fillPers = $(this).find('.analityc-line__line-fill');
-        var isLong = fillPers.outerWidth() > 30 ? true : false;
+        var longLimit = $(window).width() <= 900 && $(window).width() > 580 ? 50 : 30;
+        var isLong = fillPers.outerWidth() > longLimit ? true : false;
         var val = $(this).find('.analityc-line__line-value');
         var abs = $(this).find('.analityc-line__line-abs');
 
