@@ -20,6 +20,19 @@ export default () => {
     })
   });
 
+  VMO.find('.analityc-control-switcher-wrapper a').click(function() {
+    setTimeout(function() {
+      var graphicLineVertical = new Swiper('.analityc-graphics-line-vertical_slider', {
+
+        nextButton: '.analityc-graphics-line-vertical__next',
+        prevButton: '.analityc-graphics-line-vertical__prev',
+        slidesPerView: 'auto',
+        spaceBetween: 30
+
+      });
+    }, 100)
+  })
+
   // Тени при прокрутке табов
   VMO.find('.services-VMO__tabs-wrapper').scroll(function() {
     var lg = $(this).siblings('.services-VMO__lg');
@@ -163,6 +176,50 @@ export default () => {
 
   SORT_BTN.click(function() {
     $(this).toggleClass('services-VMO__sort_desc services-VMO__sort_ask');
+  })
+
+  const GR_LINE = VMO.find('.analityc-graphics_line');
+
+  GR_LINE.each(function() {
+    var lines = $(this).find('.analityc-graphics__line')
+
+    lines.each(function() {
+      var val2 = parseFloat($(this).data('val2').replace(',', '.').replace(' ', '')),
+          total = $(this).find('.analityc-graphics__line-total'),
+          barval = $(this).find('.analityc-graphics__line-bar-value');
+
+      if (val2 <= 0.5 && val2 != 0) val2 = 0.5;  //фикс отображения наименьшего значения
+
+      total.css('width', val2 + '%');
+    
+      if ($(this).index() != lines.last().index())
+        barval.css('left', val2 + '%');
+    })
+  })
+
+  const GR_LINE_VERT = VMO.find('.analityc-graphics-line-vertical_vmo');
+
+  GR_LINE_VERT.each(function() {
+    var items = $(this).find('.analityc-graphics-line-vertical__graphic'),
+        absVal = 0; //макс значение, которое считаем за 100%
+
+    items.each(function() {
+      var val1 = parseFloat($(this).data('val1').replace(',', '.').replace(' ', ''));
+      if (val1 >= absVal) absVal = val1;
+    })
+
+    items.each(function() {
+      var lines = $(this).find('.analityc-graphics-line-vertical__line');
+
+      var val1 = parseFloat($(this).data('val1').replace(',', '.').replace(' ', '')),
+          val2 = parseFloat($(this).data('val2').replace(',', '.').replace(' ', ''));
+
+      var val1perc = val1 / absVal * 100,  // процент от макс значения
+          val2perc = val2 / absVal * 100;
+
+      lines.find('.analityc-graphics-line-vertical__line-fill').eq(0).css('height', val1perc + '%');
+      lines.find('.analityc-graphics-line-vertical__line-fill').eq(1).css('height', val2perc + '%');
+    })
   })
 
 }
