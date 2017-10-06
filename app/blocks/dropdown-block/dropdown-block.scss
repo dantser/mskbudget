@@ -1,8 +1,7 @@
 .dropdown-block {
-
-  // .js-drag-scroll-element {
-  //   display: inline-block;
-  // }
+  position: relative;
+  background: #282635;
+  
   .section-tabs {
     border-bottom: none;
     border-top: 1px solid rgba(254,227,0,.2);
@@ -22,6 +21,13 @@
   .widget-card>:nth-child(n+2) {
     @media screen and (max-width: 580px) {
       display: block;
+    }
+  }
+  
+  &_no-bg {
+    background: none;
+    .section-tabs, .section-tabs.active {
+      background: none;
     }
   }
 }
@@ -288,13 +294,19 @@
         flex: 1;
       }
     }
+    
+    @media screen and (min-width: 1025px) and (max-width: 1100px) {
+      .section-tabs__nav {
+        padding: 0 40px;
+      }
+    }
   }
 
   &_documents {
     .section-tabs__nav-list {
       padding: 0 52px;
     }
-
+    
     .section-tabs__nav-list {
       @media (max-width: 350px)  {
         padding: 0 8px;

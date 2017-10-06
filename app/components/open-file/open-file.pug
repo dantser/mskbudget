@@ -26,12 +26,13 @@ mixin open-file()
 
 
   +b.SECTION.open-file.sections__item&attributes(attributes)
-    .wrapper.page-content-wrapper
+    .wrapper-header
       +e.head
         +page-header('Открытые данные', ['Открытость'])
         +e.search-form.load-anim-fade(data-delay="1500")
           +searchFormOpen('Закон о бюджете. Доходы')
-
+          
+    .wrapper
       // content
       +e.content.load-anim-fade(data-delay="1500")
         .analityc-table

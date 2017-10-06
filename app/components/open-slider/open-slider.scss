@@ -5,7 +5,6 @@
 
   .swiper-container {
     width: 100%;
-    height: 300px;
     margin-left: auto;
     margin-right: auto;
     font-size: 18px;
@@ -18,15 +17,13 @@
 
   .swiper-slide {
     width: 1100px;
-    height: 613px;
     background-color: $color-white;
-
-    @media (min-width: 501px) and (max-width: 800px) {
-      height: 321px;
-    }
-
-    @media (max-width: 500px) {
-      height: 156px;
+    position: relative;
+    
+    &:after {
+      content: '';
+      display: block;
+      padding-top: 56%;
     }
 
     &-prev, &-next {
@@ -102,12 +99,19 @@
   .gallery-thumbs .swiper-slide {
     width: 249px;
     opacity: 0.4;
-    height: 139px;
     cursor: pointer;
   }
 
   .gallery-thumbs .swiper-slide-active {
     opacity: 1;
   }
-
+  
+  &__content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+  
 }
