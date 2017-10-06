@@ -5,19 +5,19 @@ export default () => {
   function slider(item) {
     const parent = $(item);
     const slideCnt = parent.find('.tile__item').length - parent.find('.tile__item.hidden').length;
-    //const slideWidth = parent.find('.tile__item').outerWidth(true);
-    var slideWidth;
-    if ($(window).width() > 1170) {
-      slideWidth = 1110 * 0.25;
-    } else if ($(window).width() <= 1170 && $(window).width() > 880) {
-      slideWidth = ($('.wrap').width() + 10) * 0.333;
-    } else if ($(window).width() <= 880 && $(window).width() > 566) {
-      slideWidth = ($('.wrap').width() + 10) * 0.5;
-    } else {
-      slideWidth = 273;
-    }
-    slideWidth = Math.floor(slideWidth);
-    parent.find('.tile__item').attr('style', 'width: '+slideWidth+'px !important');
+    const slideWidth = parent.find('.tile__item').outerWidth(true);
+    //var slideWidth;
+    //if ($(window).width() > 1170) {
+    //  slideWidth = 1110 * 0.25;
+    //} else if ($(window).width() <= 1170 && $(window).width() > 880) {
+    //  slideWidth = ($('.wrap').width() + 10) * 0.333;
+    //} else if ($(window).width() <= 880 && $(window).width() > 566) {
+    //  slideWidth = ($('.wrap').width() + 10) * 0.5;
+    //} else {
+    //  slideWidth = 273;
+    //}
+    //slideWidth = Math.floor(slideWidth);
+    //parent.find('.tile__item').attr('style', 'width: '+slideWidth+'px !important');
     const wrapperWidth = slideCnt * slideWidth;
 
     parent.find('.section-tabs__content').css('width', wrapperWidth+'px')

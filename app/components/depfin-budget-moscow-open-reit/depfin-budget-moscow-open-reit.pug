@@ -7,10 +7,11 @@ include ../../blocks/select/select
 
 mixin depfin-budget-moscow-open-reit()
 	+b.SECTION.depfin-budget-moscow-open-reit.sections__item&attributes(attributes)
-		.wrap
+		.wrapper-header
 			+e.head
 				+page-header('Рейтинг открытости бюджетных данных', ['Открытость'], true)
-
+				
+		.wrapper
 			+e.main.load-anim-fade(data-delay="1500")
 				+e.H3.title Рейтинг открытости бюджетных данных
 				+e.H4.subtitle Общая информация о рейтинге
@@ -78,7 +79,7 @@ mixin depfin-budget-moscow-open-reit()
 							option(selected='selected') 2016
 						+icon('angle-arrow').select-icon
 
-				.dropdown-block
+				.dropdown-block.dropdown-block_no-bg
 					.section-tabs.section-tabs_documents.section-tabs_dropdown.active
 						.section-tabs__nav
 							+e.list
@@ -98,7 +99,7 @@ mixin depfin-budget-moscow-open-reit()
 							option(selected='selected') 2016
 						+icon('angle-arrow').select-icon
 
-				.dropdown-block
+				.dropdown-block.dropdown-block_no-bg
 					.section-tabs.section-tabs_news.section-tabs_dropdown.active
 						.section-tabs__nav
 							+e.list
