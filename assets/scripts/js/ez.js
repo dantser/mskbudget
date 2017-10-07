@@ -1576,4 +1576,4 @@ var budgetIncomeInitTabs = function() {
     }
   });
 }
-$(document).ready(budgetIncomeInitTabs);
+//$(document).ready(budgetIncomeInitTabs);
