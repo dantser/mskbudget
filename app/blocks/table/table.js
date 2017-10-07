@@ -11,7 +11,8 @@ export default () => {
         EL.parents('.table__row').toggleClass('table__row_opened');
         EL.parents('.table__row').nextAll('.table__row').each(function () {
           if ( !$(this).hasClass('table__row_hassub') ) {
-            $('.table__row_subrow_tax').toggle();
+            $(this).toggle();
+//            $('.table__row_subrow_tax').toggle();
           } else {
             return false;
           }
