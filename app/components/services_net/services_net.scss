@@ -3,27 +3,41 @@
   background-size: 100%;
   color: #000;
 
-  &__wrapper {
-		padding-bottom: 80px;
-  }
+	/*Раскрыта карта*/
+	&_popupMode {
 
-	&__head {
-    max-width: 1100px;
-    margin: 0 auto;
-    @media (max-width: 1140px) {
-      padding-left: 75px;
-      padding-right: 74px;
-    }
+		& > .wrapper {
+			@media (min-width: 901px) {
+				z-index: 99999;
+			}
+		}
 
-    @media (max-width: 900px) {
-      padding-left: 40px;
-      padding-right: 40px;
-    }
+		.services-net-institute {
+			@media (min-width: 901px) {
+		    height: 685px;
+			}
+		}
 
-    @media (max-width: 580px) {
-      padding-left: 15px;
-      padding-right: 15px;
-    }
+		.services-net-institute__address-map {
+			position: absolute;
+			left: 0;
+			height: 560px;
+			z-index: 99999;
+		}
+
+		.services-net-institute__address-map-open {
+			display: none;
+		}
+
+		.services-net-institute__map-close {
+			display: block;
+		}
+
+		.services-net-institute__description {
+			@media (min-width: 901px) {
+				display: none;
+			}
+		}
 	}
 
 	&__head-about {
@@ -33,13 +47,13 @@
 		color: $color-white;
 		margin-top: 20px;
 
-  	@media (max-width: 900px) and (min-width: 581px) {
+  	@media (max-width: 900px) and (min-width: 601px) {
 			font-size: 32px;
 	    line-height: 40px;
 	    margin-top: 33px;
   	}
 
-		@media (max-width: 580px) {
+		@media (max-width: 600px) {
 	    margin-top: 4px;
 		}	
 
@@ -49,11 +63,11 @@
 		margin-top: 24px;
 		font-size: 0;
 
-  	@media (max-width: 900px) and (min-width: 581px) {
+  	@media (max-width: 900px) and (min-width: 601px) {
     	margin-top: 88px;
   	}
 
-		@media (max-width: 580px) {
+		@media (max-width: 600px) {
 	    margin-top: 28px;
 		}	
 		
@@ -76,7 +90,7 @@
     	letter-spacing: .3px;
     	margin-right: 29px;
 
-	  	@media (max-width: 900px) and (min-width: 581px) {
+	  	@media (max-width: 900px) and (min-width: 601px) {
 				font-size: 36px;
 		    line-height: 40px;
 	  	}
@@ -96,18 +110,22 @@
 	  	}
 
 	  	.button-light {
-		  	@media (max-width: 900px) and (min-width: 581px) {
+		  	@media (max-width: 900px) and (min-width: 601px) {
 			    font-size: 32px;
 			    line-height: 50px;
 			    padding: 11px 13px;
 		  	}	
 
-		  	@media (max-width: 580px) {
+		  	@media (max-width: 600px) {
 		  		padding: 11px 9px;
 					font-size: 16px;
 			    line-height: 12px;
 					margin-top: 0;
 		  	}	
+
+		  	@media (max-width: 400px) {
+		  		padding: 11px 6px;
+		  	}
 	  	}
 		}
 	}
@@ -115,6 +133,7 @@
 	&__content {
   	background-color: $color-white;
   	margin-top: 29px;
+		margin-bottom: 109px;
 
   	@media (max-width: 1140px) {
 	    margin-top: 42px;
@@ -124,6 +143,9 @@
 			margin-top: 20px;
   	}
 
+		@media (max-width: 400px) {
+			margin-bottom: 45px;
+		}
 	}
 
 	&__foot {
@@ -156,6 +178,21 @@
 			    border-bottom: 9px solid transparent;
 		  	}			  		
 	  	}
+		}
+	}
+
+	&__mask {
+		display: none;
+		position: fixed; 
+		top: 0; 
+		left: 0; 
+		width: 100%; 
+		bottom: 0;
+		background-color: rgba(0, 0, 0, .5);
+		z-index: 9999;
+
+		&.active {
+			display: block;
 		}
 	}
 }
@@ -505,191 +542,6 @@
 }
 
 .services-net-domain {
-	font-family: $PFDinCondensedPro;
-
-	&__main {
-		padding: 20px 0 20px 26px;
-		overflow: hidden;
-		font-size: 0;
-
-		@media (max-width: 900px) {
-			padding: 12px 0 120px 13px;
-		}
-
-		@media (max-width: 580px) {
-	    position: relative;
-	    padding: 7px 0 237px;
-		}
-	}
-
-	&__list,
-	&__images {
-		display: inline-block;
-		vertical-align: top;
-		list-style: none;
-	}
-
-	&__list {
-		position: relative;
-		width: 22.7%;
-		z-index: 2;
-		margin-top: 76px;
-
-		@media (max-width: 1140px) {
-			width: 25%;
-		}
-
-		@media (max-width: 900px) {
-	    width: 100%;
-	    margin-top: 0;
-		}
-
-	}
-
-	&__list-item {
-		display: block;
-
-    &:hover {
-	    background: $color-link;
-
-	    .services-net-domain__list-title,
-	    .services-net-domain__list-value {
-	    	color: $color-white;
-	    }
-    }
-	}
-
-	&__list-link {
-    display: block;
-    padding: 17.5px 13px;
-    text-decoration: none;
-
-		@media (max-width: 900px) and (min-width: 581px) {
-			padding: 36px 13px;
-		}
-	}
-
-	&__list-title {
-		display: block;
-		text-transform: uppercase;
-    color: $color-link;
-    font-weight: 500;
-    font-size: 24px;
-    margin-bottom: 5px;
-
-		@media (max-width: 900px) and (min-width: 581px) {
-    	font-size: 48px;
-    	margin-bottom: 9px;
-		}
-	}
-
-	&__list-value {
-		font-size: 18px;
-		font-weight: 500;
-		margin-right: 4px;
-
-		@media (max-width: 900px) and (min-width: 581px) {
-	    font-size: 36px;
-		}	
-	}
-
-	&__list-label {
-		font-size: 14px;
-		color: #7f7f7f;
-
-		@media (max-width: 900px) and (min-width: 581px) {
-	    font-size: 28px;
-		}		
-	}
-
-	&__images {
-		position: relative;
-		width: 77.3%;
-		height: 700px;
-
-		@media (max-width: 1140px) {
-			width: 75%;
-		}
-
-		@media (max-width: 900px) {
-			display: none;
-		}
-
-		@media (max-width: 580px) {
-			display: block;
-	    width: 100%;
-	    position: absolute;
-	    top: 0;
-	    left: 0;
-		}
-
-	}
-
-	&__image {
-		display: block;
-		position: absolute;
-
-		@media (max-width: 580px) {
-			display: none;
-		}
-		
-		/*фильтр для всех изображений при наведении на конкретный пункт*/
-		&_active {
-		  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-		  filter: alpha(opacity=50);
-		  filter: grayscale(1);
-		}
-
-		&_health {
-			top: 95px;
-	    left: 198px;
-	    z-index: 2;
-		}
-
-		&_social {
-			top: 61px;
-	    left: 35px;
-	    z-index: 1;
-
-			@media(max-width: 580px) {
-				display: block;
-				top: 208px;
-		    left: 175px;
-			}
-
-		}
-
-		&_edu {
-	    top: 0;
-	    left: 440px;
-		}
-
-		&_others {
-    	top: 354px;
-    	left: -29px;
-    	z-index: 1;
-		}
-
-		&_culture {
-			top: 378px;
-	    left: 142px;
-	    z-index: 2;
-
-			@media(max-width: 580px) {
-				display: block;
-		    top: 381px;
-		    left: 74px;
-			}
-		}
-
-		&_sport {
-	    top: 266px;
-	    left: 450px;
-		}
-	}
-}
-
-.services-net-domain-slider {
 
 	&__banner {
 		position: relative;
@@ -702,6 +554,8 @@
 	}
 
 	&__banner-slide {
+		text-decoration: none;
+
 		img {
 			@media (max-width: 900px) {
 		    display: block;
@@ -715,6 +569,7 @@
 	}
 
 	&__banner-banner {
+		display: block;
 		width: 375px;
 		position: absolute;
 		top: 50%;
@@ -783,7 +638,12 @@
 	}
 
 	&__info {
+		display: none;
     padding: 35px 40px 58px;
+
+		&.active {
+			display: block;
+		}
 
 		@media (max-width: 900px) and (min-width: 581px) {
       padding: 84px 25px 0;
@@ -946,6 +806,7 @@
 }
 
 .services-net-institute {
+	position: relative;
 	padding: 27px 40px 52px;
 
   @media (max-width: 900px) {
@@ -999,7 +860,6 @@
 
 	&__requisites {
 		@include clearfix;
-		position: relative;
 		margin-top: 23px;
 
     @media (max-width: 900px) and (min-width: 581px) {
@@ -1090,28 +950,6 @@
     @media (max-width: 580px) {
 			margin-top: 22px;
     }
-
-
-		&_active {
-			position: absolute;
-			width: 100%;
-
-			.services-net-institute {
-				min-height: 900px;
-			}
-
-			.services-net-institute__address-map {
-				height: 560px;
-			}
-
-			.services-net-institute__address-map-open {
-				display: none;
-			}
-
-			.services-net-institute__map-close {
-				display: block;
-			}
-		}
 	}
 
 	&__address-map {
@@ -1146,7 +984,7 @@
 		fill: $color-yellow;
 		cursor: pointer;
 
-    @media (max-width: 900px) {
+    @media (max-width: 1140px) {
 	    top: -35px;
 	    right: 0;
     }
@@ -1160,6 +998,7 @@
 	}
 
 	.analityc-control-switcher_net {
+		width: auto;
 		font-size: 0;
 		margin-top: 20px;
 
@@ -1172,17 +1011,25 @@
 	    font-weight: 700;
 			text-decoration: none;
 	    
-	    @media (max-width: 900px) and (min-width: 581px) {
+	    @media (max-width: 900px) {
 	     font-size: 28px!important; 
 	     padding: 0 44px!important; 
 	     line-height: 68px!important; 
 	    }
 
+	    @media (max-width: 640px) {
+				padding: 0 35px!important;
+	    }
+			
 	    @media (max-width: 580px) {
 	    	width: auto!important;
   	    padding: 0 22px!important;
 	  		font-size: 14px!important;
 		    line-height: 33px!important;
+	    }
+
+	    @media (max-width: 400px) {
+  	    padding: 0 20px!important;
 	    }
 		}
 

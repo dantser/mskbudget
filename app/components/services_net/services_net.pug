@@ -9,6 +9,48 @@ include ../../blocks/dropdown-block/dropdown-block
 
 mixin services_net()
 
+	mixin slider()
+		+e.banner.swiper-container
+			+e.wrapper.swiper-wrapper
+				+e.A(href='#').banner-slide.swiper-slide(data-tab='health')
+					+e.IMG(src='assets/images/services_net/sport.jpg')
+					+e.banner-banner
+						+e.H3.banner-title Здравоохранение
+						+e.SPAN.banner-value 293
+						+e.SPAN.banner-label учреждения
+				+e.A(href='#').banner-slide.swiper-slide(data-tab='social')
+					+e.IMG(src='assets/images/services_net/sport.jpg')
+					+e.banner-banner
+						+e.H3.banner-title Социальные услуги
+						+e.SPAN.banner-value 190
+						+e.SPAN.banner-label учреждений
+				+e.A(href='#').banner-slide.swiper-slide(data-tab='edu')
+					+e.IMG(src='assets/images/services_net/sport.jpg')
+					+e.banner-banner
+						+e.H3.banner-title Образование
+						+e.SPAN.banner-value 746
+						+e.SPAN.banner-label учреждений
+				+e.A(href='#').banner-slide.swiper-slide(data-tab='others')
+					+e.IMG(src='assets/images/services_net/sport.jpg')
+					+e.banner-banner
+						+e.H3.banner-title Иные сферы
+						+e.SPAN.banner-value 669
+						+e.SPAN.banner-label учреждений
+				+e.A(href='#').banner-slide.swiper-slide(data-tab='culture')
+					+e.IMG(src='assets/images/services_net/sport.jpg')
+					+e.banner-banner
+						+e.H3.banner-title Культура
+						+e.SPAN.banner-value 439
+						+e.SPAN.banner-label учреждений
+				+e.A(href='#').banner-slide.swiper-slide(data-tab='sport')
+					+e.IMG(src='assets/images/services_net/sport.jpg')
+					+e.banner-banner
+						+e.H3.banner-title Спорт
+						+e.SPAN.banner-value 108
+						+e.SPAN.banner-label учреждения
+			+arrow-button()._prev.services-net-domain__arrow._prev.swiper-button-prev
+			+arrow-button().services-net-domain__arrow._next.swiper-button-next
+
 	mixin table(data, leftCaption, centerCaption, rightCaption)
 
 		+b.services-net-table&attributes(attributes)
@@ -38,109 +80,21 @@ mixin services_net()
 				+e.row-three= colThree
 
 
-	+b.SECTION.services-net.section__item&attributes(attributes)
-		.wrapper.services-net__wrapper
-			+e.head
-				+page-header('Бюджетная сеть', ['Сервисы'])
-				+e.P.head-about.load-anim-fade(data-delay="1500") Сводная информация о сети государственных (муниципальных) учреждений города Москвы
-				+e.buttons-set.load-anim-fade(data-delay="1500")
-					+e.SPAN Выберите признак для сортировки
-					+buttons-set-alt(getData('buttons-set-net'))
+	+b.SECTION.services-net.main._basic.basic-budget.section__item&attributes(attributes)
+		.wrapper-header
+			+page-header('Бюджетная сеть', ['Сервисы'])
+			+e.P.head-about.load-anim-fade(data-delay="1500") Сводная информация о сети государственных (муниципальных) учреждений города Москвы
+			+e.buttons-set.load-anim-fade(data-delay="1500")
+				+e.SPAN Выберите признак для сортировки
+				+buttons-set-alt(getData('buttons-set-net'))
 
+		.wrapper
 			+tabs.services-net__content.load-anim-fade(data-delay="1500")
 
 				+tabs-tab(data-tab-group="netTabs", data-tab="netOne").active
 
 					+b.services-net-domain.services-net-inner._active
-						+e.main
-							+e.UL.list
-								+e.LI.list-item._health(data-target='health')
-									+e.A(href='#').list-link
-										+e.SPAN.list-title Здравоохранение
-										+e.SPAN.list-value 293
-										+e.SPAN.list-label учреждения
-								+e.LI.list-item._social(data-target='social')
-									+e.A(href='#').list-link
-										+e.SPAN.list-title Cоциальные услуги
-										+e.SPAN.list-value 190
-										+e.SPAN.list-label учреждения
-								+e.LI.list-item._edu(data-target='edu')
-									+e.A(href='#').list-link
-										+e.SPAN.list-title Образование
-										+e.SPAN.list-value 746
-										+e.SPAN.list-label учреждения
-								+e.LI.list-item._others(data-target='others')
-									+e.A(href='#').list-link
-										+e.SPAN.list-title Иные сферы
-										+e.SPAN.list-value 669
-										+e.SPAN.list-label учреждения
-								+e.LI.list-item._culture(data-target='culture')
-									+e.A(href='#').list-link
-										+e.SPAN.list-title Культура
-										+e.SPAN.list-value 439
-										+e.SPAN.list-label учреждения
-								+e.LI.list-item._sport(data-target='sport')
-									+e.A(href='#').list-link
-										+e.SPAN.list-title Спорт
-										+e.SPAN.list-value 108
-										+e.SPAN.list-label учреждения
-							+e.UL.images
-								+e.LI.image._health
-									+e.IMG(src='assets/images/services_net/health.png')
-								+e.LI.image._social
-									+e.IMG(src='assets/images/services_net/social.png')
-								+e.LI.image._edu
-									+e.IMG(src='assets/images/services_net/edu.png')
-								+e.LI.image._others
-									+e.IMG(src='assets/images/services_net/others.png')
-								+e.LI.image._culture
-									+e.IMG(src='assets/images/services_net/culture.png')
-								+e.LI.image._sport
-									+e.IMG(src='assets/images/services_net/sport.png')
-						.services-net__foot
-							a(href="#").analityc-more Посмотреть весь список
-
-					+b.services-net-domain-slider.services-net-inner
-						+e.banner.swiper-container
-							+e.wrapper.swiper-wrapper
-								+e.banner-slide.swiper-slide(data-tab='health')
-									+e.IMG(src='assets/images/services_net/sport.jpg')
-									+e.banner-banner
-										+e.H3.banner-title Здравоохранение
-										+e.SPAN.banner-value 293
-										+e.SPAN.banner-label учреждения
-								+e.banner-slide.swiper-slide(data-tab='social')
-									+e.IMG(src='assets/images/services_net/sport.jpg')
-									+e.banner-banner
-										+e.H3.banner-title Социальные услуги
-										+e.SPAN.banner-value 190
-										+e.SPAN.banner-label учреждений
-								+e.banner-slide.swiper-slide(data-tab='edu')
-									+e.IMG(src='assets/images/services_net/sport.jpg')
-									+e.banner-banner
-										+e.H3.banner-title Образование
-										+e.SPAN.banner-value 746
-										+e.SPAN.banner-label учреждений
-								+e.banner-slide.swiper-slide(data-tab='others')
-									+e.IMG(src='assets/images/services_net/sport.jpg')
-									+e.banner-banner
-										+e.H3.banner-title Иные сферы
-										+e.SPAN.banner-value 669
-										+e.SPAN.banner-label учреждений
-								+e.banner-slide.swiper-slide(data-tab='culture')
-									+e.IMG(src='assets/images/services_net/sport.jpg')
-									+e.banner-banner
-										+e.H3.banner-title Культура
-										+e.SPAN.banner-value 439
-										+e.SPAN.banner-label учреждений
-								+e.banner-slide.swiper-slide(data-tab='sport')
-									+e.IMG(src='assets/images/services_net/sport.jpg')
-									+e.banner-banner
-										+e.H3.banner-title Спорт
-										+e.SPAN.banner-value 108
-										+e.SPAN.banner-label учреждения
-							+arrow-button()._prev.services-net-domain-slider__arrow._prev.swiper-button-prev
-							+arrow-button().services-net-domain-slider__arrow._next.swiper-button-next
+						+slider()
 
 						+e.info
 							+searchFormNet('Поиск').services-net__search
@@ -149,8 +103,6 @@ mixin services_net()
 						
 						.services-net__foot
 							a(href="#").analityc-more Посмотреть весь список
-
-
 
 				+tabs-tab(data-tab-group="netTabs", data-tab="netTwo")
 
@@ -200,8 +152,9 @@ mixin services_net()
 									+e.P.data-text Врачебная практика
 							+e.address
 								+e.address-map(id='net-map')
+									+icon('close').map-close
 								+link()._dashed.services-net-institute__address-map-open Развернуть карту
-								+icon('close').map-close
+								
 						+e.description
 							.analityc-control-switcher.analityc-control-switcher_net.active
 								a(href="#", data-tab-target="offers").active Услуги
@@ -213,3 +166,5 @@ mixin services_net()
 							+table(getData('net-institute'), 'Наименование услуги', 'Пользователи', 'Объем услуги')._institute-table
 
 		+dropdown().load-anim-fade(data-delay="1700")
+
+		+e.mask

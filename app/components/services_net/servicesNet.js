@@ -4,11 +4,13 @@ import ymaps from 'ymaps';
 
 export default () => {
 
+  const NET = $('.services-net');
+  const MASK = $('.services-net__mask');
+
   const TAB_INNER = $('.services-net-inner');
   const TAB_INNER_ACTIVE = 'services-net-inner_active';
 
   const TAB_INNER_DOMAIN = $('.services-net-domain');
-  const TAB_INNER_DOMAIN_SLIDER = $('.services-net-domain-slider');
   const TAB_INNER_MUNICIPALITY = $('.services-net-municipality');
   const TAB_INNER_INSTITUTES = $('.services-net-institutes');
   const TAB_INNER_INSTITUTE = $('.services-net-institute');
@@ -26,33 +28,17 @@ export default () => {
     })
   })
 
-	// Таб Сфера - фильтры на ховер
-	const LIST_ITEM = $('.services-net-domain__list-item');
-	var IMAGE = $('.services-net-domain__image');
+  // Слайдер
+  var sliderGallery = new Swiper('.services-net-domain__banner', {
+    prevButton: '.services-net-domain__arrow_prev',
+    nextButton: '.services-net-domain__arrow_next',
+    loop: true,
+  });
 
-	LIST_ITEM.hover(function() {
-		IMAGE.addClass('services-net-domain__image_active');
-		$('.services-net-domain__image_' + $(this).data('target')).removeClass('services-net-domain__image_active');
-	}, function() {
-		IMAGE.removeClass('services-net-domain__image_active');
-	})
-
-  // Клик по сфере
-  var sliderGallery;
-  var initialSlide = 0;
-
-  LIST_ITEM.click(function(e) {
+  // Клик по слайду -> таблица
+  TAB_INNER_DOMAIN.find('.services-net-domain__banner-slide').click(function(e) {
     e.preventDefault();
-    TAB_INNER_DOMAIN.removeClass(TAB_INNER_ACTIVE);
-    TAB_INNER_DOMAIN_SLIDER.addClass(TAB_INNER_ACTIVE);
-
-    initialSlide = TAB_INNER_DOMAIN_SLIDER.find('.services-net-domain-slider__banner-slide[data-tab="' + $(this).data('target') + '"]').index();
-
-    sliderGallery = new Swiper('.services-net-domain-slider__banner', {
-      initialSlide: initialSlide,
-      prevButton: '.services-net-domain-slider__arrow_prev',
-      nextButton: '.services-net-domain-slider__arrow_next',
-    });
+    TAB_INNER_DOMAIN.find('.services-net-domain__info').addClass('active');
   })
 
   // Раскрытие фильтра
@@ -65,12 +51,14 @@ export default () => {
     else
       $('.extra-search.modal').hide();
 
+    if ($(document).width() <= 900)
+      MASK.addClass('active');
   })
   FILTER_CLOSE.click(function() {
     $('.extra-search.modal').hide();
     FILTER_LINK.toggleClass('active');
+    MASK.removeClass('active');
   })
-
 
   // Переход на таб Муниц. образование -> Перечень гос. учреждений
   const MORE_LINK = $('.analityc-more');
@@ -89,7 +77,7 @@ export default () => {
   })
 
   // Переход из таблицы гос. учреждений -> Описание гос. учреждения
-  const TABLE_LINK = $('.services-net-institutes .services-net-table__row-one, .services-net-domain-slider .services-net-table__row-one');
+  const TABLE_LINK = $('.services-net-institutes .services-net-table__row-one, .services-net-domain .services-net-table__row-one');
 
   TABLE_LINK.click(function() {
     $('.tabs__tab').removeClass('active');
@@ -101,6 +89,8 @@ export default () => {
 
     TAB_INNER.removeClass(TAB_INNER_ACTIVE);
     TAB_INNER_INSTITUTE.addClass(TAB_INNER_ACTIVE);
+
+    scrollUp();
   })
 
   // Переход из Описание гос. учреждения -> Таблицы гос. учреждений
@@ -113,10 +103,7 @@ export default () => {
 
   if ( $('#net-map').length > 0 ) {
 
-
     var map;
-
-
 
     ymaps.load().then(maps => {
       map = new maps.Map("net-map", {
@@ -124,7 +111,6 @@ export default () => {
           zoom: 14,
           type: "yandex#map",
           controls: []
-
       },
       {suppressMapOpenBlock: true});
 
@@ -137,14 +123,26 @@ export default () => {
 
     MAP_OPEN.click(function(e) {
       e.preventDefault();
-      $('.services-net-institute__address').addClass('services-net-institute__address_active');
+      NET.addClass('services-net_popupMode');
+      MASK.addClass('active');
       map.container.fitToViewport();
     })
-    MAP_CLOSE.click(function() {
-      $('.services-net-institute__address').removeClass('services-net-institute__address_active');
+    MAP_CLOSE.click(function(e) {
+      e.preventDefault();
+      NET.removeClass('services-net_popupMode');
+      MASK.removeClass('active');
       map.container.fitToViewport();
     })
   }
+
+  MASK.click(function(e) {
+    e.preventDefault();
+    $(this).removeClass('active');
+    NET.removeClass('services-net_popupMode');
+    $('.extra-search.modal').hide();
+    FILTER_LINK.toggleClass('active');
+    map.container.fitToViewport();
+  })
 
   // Показать еще
   $('.services-net-table__show-more').on('click', function (e) {
@@ -158,4 +156,11 @@ export default () => {
     });
   });
 
+  function scrollUp() {
+    setTimeout(function() {
+      $("html,body").animate({
+        scrollTop: 0
+      }, 350);
+    }, 25);
+  }
 }
