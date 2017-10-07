@@ -1,6 +1,5 @@
 import $ from 'jquery';
 import ymaps from 'ymaps';
-import ymapsTouchScroll from 'ymaps-touch-scroll';
 
 export default () => {
 
@@ -111,12 +110,6 @@ export default () => {
 
     },
     {suppressMapOpenBlock: true}); // скрыть ссылку на карты
-    
-    if ($(window).width() <= 580) {
-      bigMap.behaviors.disable('scrollZoom');
-      bigMap.behaviors.disable('drag');
-      ymapsTouchScroll(bigMap);
-    }
 
     const PROJECT = $(".significant-list_map .significant-list__row-title");
     var prj_arr = [];
