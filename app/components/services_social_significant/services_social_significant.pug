@@ -7,12 +7,13 @@ include ../../blocks/search-form/search-form
 include ../analityc-table/analityc-table
 include ../../blocks/table/table
 include ../../blocks/dropdown-block/dropdown-block
+include ../../blocks/slide-arrows/slide-arrows
 
 //- data - данные для таблицы
 mixin services_social_significant(data)
 
 	mixin table(data)
-		+e.table-wrap
+		+e.table-wrap(data-offset='100')
 			+e.table&attributes(attributes)
 
 				+e.rows.significant-list__caption
@@ -48,6 +49,7 @@ mixin services_social_significant(data)
 
 				+tabs-tab(data-tab-group="significantTabs", data-tab="significantOne").active.significant-list_list.significant-list__
 					+e.total Всего учреждений 1 226
+					+slide-arrows().__slide-arrows
 					+table(data)
 
 				+tabs-tab(data-tab-group="significantTabs", data-tab="significantTwo").significant-list_map.significant-list__

@@ -2,21 +2,6 @@
 	background: #282635 url(../images/bg-news.jpg) top no-repeat;
   background-size: 100%;
   color: #000;
-  
-  .wrapper-header {
-    max-width: 1100px;
-    margin: 0 auto;
-    
-    @media screen and (max-width: 1140px) {
-      padding: 0 75px;
-    }
-    @media screen and (max-width: 900px) {
-      padding: 0 40px;
-    }
-    @media screen and (max-width: 580px) {
-      padding: 0 15px;
-    }
-  }
 
   &__wrapper {
     margin-bottom: 80px;
@@ -41,7 +26,6 @@
 
     .d-si__search {
       height: 32px;
-      color: #d5d5d5;
       letter-spacing: -.8px;
       text-transform: none;
     }
@@ -57,7 +41,7 @@
   padding: 0 40px 63px;
   
   @media screen and (max-width: 580px) {
-    padding: 0 15px 63px;
+    padding: 0 20px 63px;
   }
   
   &__total {
@@ -66,19 +50,31 @@
     color: #d5d5d5;
   }
   
+  &__slide-arrows {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 50%;
+    margin-top: -25px;
+    display: none;
+  }
+  
   &__table-wrap {
     width: 100%;
     margin-top: 24px;
 
-    @media (max-width: 580px) {
-      overflow-x: scroll;
+    @media (max-width: 750px) {
+      overflow-x: auto;
       overflow-y: hidden;
     }
   }
 
   &__table {
-    min-width: 670px;
     font-size: 0;
+    
+    @media (max-width: 750px) {
+      min-width: 680px;
+    }
   }
   
   &__row {
@@ -174,6 +170,13 @@
     width: 61%;
     height: 100%;
     background: #d5d5d5;
+    
+    @media screen and (max-width: 580px) {
+      float: none;
+      width: 100%;
+      height: 50%;
+      position: relative;
+    }
 
     /*Маркер на карте*/
     .placemark-layout-container {
@@ -247,6 +250,10 @@
     @include clearfix;
     padding: 0 14px 0 0;
     height: 600px;
+    
+    @media screen and (max-width: 900px) {
+      padding: 0;
+    }
 
     .significant-list {
 
@@ -255,6 +262,13 @@
         width: 39%;
         height: 100%;
         margin-top: 0;
+        
+        @media screen and (max-width: 580px) {
+          float: none;
+          width: 100%;
+          height: 50%;
+          padding-top: 24px;
+        }
       }
 
       &__table {
@@ -267,6 +281,10 @@
         padding-left: 27px;
         padding-bottom: 0;
         border-bottom: none;
+        
+        @media screen and (max-width: 580px) {
+          margin-right: 25px;
+        }
 
         .significant-list__col {
           padding: 0 0 14px;

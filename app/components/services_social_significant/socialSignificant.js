@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import ymaps from 'ymaps';
+import ymapsTouchScroll from 'ymaps-touch-scroll';
 
 export default () => {
 
@@ -63,6 +64,7 @@ export default () => {
       TABLINK.removeClass(ACTIVE_CLASS);
       EL.addClass(ACTIVE_CLASS);
       SEARCH.show();
+      $('.significant-list__slide-arrows').hide();
     })
   })
 
@@ -109,6 +111,12 @@ export default () => {
 
     },
     {suppressMapOpenBlock: true}); // скрыть ссылку на карты
+    
+    if ($(window).width() <= 580) {
+      bigMap.behaviors.disable('scrollZoom');
+      bigMap.behaviors.disable('drag');
+      ymapsTouchScroll(bigMap);
+    }
 
     const PROJECT = $(".significant-list_map .significant-list__row-title");
     var prj_arr = [];
@@ -185,6 +193,27 @@ export default () => {
   })
   .catch(error => console.log('Failed to load Yandex Maps', error));
 
+  }
+  
+  
+  if ($('.significant').length && $(window).width() <= 750) {
+    
+    $(window).scroll(function(){
+      
+      var scrollDistance = $(window).scrollTop(),
+          block = $('.significant-list_list'),
+          blockTopDistance = block.offset().top - $(window).height() / 2 + 100,
+          blockHeight = block.height(),
+          blockBottomDistance = block.offset().top + blockHeight - $(window).height() / 2 - 100,
+          arrows = $('.significant-list__slide-arrows');
+      
+      if (scrollDistance >= blockTopDistance && scrollDistance <= blockBottomDistance) {
+        arrows.fadeIn();
+      } else {
+        arrows.fadeOut();
+      }
+    });
+    
   }
 
 }
