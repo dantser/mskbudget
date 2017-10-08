@@ -185,15 +185,21 @@ export default () => {
 
     lines.each(function() {
       var val2 = parseFloat($(this).data('val2').replace(',', '.').replace(' ', '')),
+          barval = parseFloat($(this).data('barval').replace(',', '.').replace(' ', '')),
           total = $(this).find('.analityc-graphics__line-total'),
-          barval = $(this).find('.analityc-graphics__line-bar-value');
+          barline = $(this).find('.analityc-graphics__line-bar-value');
 
-      if (val2 <= 0.5 && val2 != 0) val2 = 0.5;  //фикс отображения наименьшего значения
+      if (val2 <= 0.5 && barval > 0) { //фикс отображения наименьшего значения
+        if ($(document).width() > 400)
+          val2 = 0.5;  
+        else
+          val2 = 1.0;
+      }
 
       total.css('width', val2 + '%');
     
       if ($(this).index() != lines.last().index())
-        barval.css('left', val2 + '%');
+        barline.css('left', val2 + '%');
     })
   })
 
