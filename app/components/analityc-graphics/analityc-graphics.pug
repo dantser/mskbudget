@@ -1537,6 +1537,19 @@ mixin analityc-graphics-custom2()
 
 
 
+//- Темп роста
+mixin growth-rate()
+  +b.growth-rate&attributes(attributes)
+    block
+    
+mixin growth-rate-col(level, text, last)
+  +e.col
+    +e.P.level(data-rate-level=level)= text
+      if !last
+        +e.line
+
+
+
 //- Государственный долг
 mixin analityc-graphics-govdebt-approved()
   +b.analityc-graphics&attributes(attributes)._approved
@@ -1555,24 +1568,14 @@ mixin analityc-graphics-govdebt-approved()
             +e.col
               +e.SPAN.period-right
               +e.P.year 2019
-          +e.growth-rate._level._blue
-            +e.col
-              +e.P.rate-level(data-rate-level="3.5") 3,5%
-                +e.rate-line
-            +e.col
-              +e.P.rate-level(data-rate-level="3.1") 3,1%
-                +e.rate-line
-            +e.col
-              +e.P.rate-level(data-rate-level="2.9") 2,9%
-          +e.growth-rate._limit._pink
-            +e.col
-              +e.P.rate-level(data-rate-level="87.6") 87,6
-                +e.rate-line
-            +e.col
-              +e.P.rate-level(data-rate-level="61.5") 61,5
-                +e.rate-line
-            +e.col
-              +e.P.rate-level(data-rate-level="57.1") 57,1
+          +growth-rate()._blue._columns.__growth-rate._level
+            +growth-rate-col('3.5', '3,5%')
+            +growth-rate-col('3.1', '3,1%')
+            +growth-rate-col('2.9', '2,9%', true)
+          +growth-rate()._pink._columns.__growth-rate._limit
+            +growth-rate-col('87.6', '87,6')
+            +growth-rate-col('61.5', '61,5')
+            +growth-rate-col('57.1', '57,1', true)
           +e.columns
             +e.col
               +e.graphic._limitcolumn
@@ -1785,21 +1788,12 @@ mixin analityc-graphics-aip(legendtype)
 //- Прогноз социально-экономического развития города Москвы (численность населения)
 mixin analityc-graphics-forecast-population()
   +b.analityc-graphics-rate-columns&attributes(attributes)
-    +e.growth-rate
-      +e.col
-        +e.P.rate-level(data-rate-level="100.0") 100,0%
-          +e.rate-line
-      +e.col
-        +e.P.rate-level(data-rate-level="101.1") 101,1%
-          +e.rate-line
-      +e.col
-        +e.P.rate-level(data-rate-level="100.9") 100,9%
-          +e.rate-line
-      +e.col
-        +e.P.rate-level(data-rate-level="100.7") 100,7%
-          +e.rate-line
-      +e.col
-        +e.P.rate-level(data-rate-level="100.7") 100,7%
+    +growth-rate()._orange._columns.__growth-rate
+      +growth-rate-col('100.0', '100,0%')
+      +growth-rate-col('101.1', '101,1%')
+      +growth-rate-col('100.9', '100,9%')
+      +growth-rate-col('100.7', '100,7%')
+      +growth-rate-col('100.7', '100,7%', true)
     +e.population
       +e.col
         +e.graphic-column(data-height="87%")
@@ -1839,21 +1833,12 @@ mixin analityc-graphics-forecast-population()
 //- Прогноз социально-экономического развития города Москвы (индекс промышленного производства)
 mixin analityc-graphics-forecast-industry()
   +b.analityc-graphics-broken-line&attributes(attributes)
-    +e.growth-rate
-      +e.col
-        +e.P.rate-value(data-rate-level="94.9") 94,9%
-          +e.rate-line._orange
-      +e.col
-        +e.P.rate-value(data-rate-level="98.6") 98,6%
-          +e.rate-line._orange
-      +e.col
-        +e.P.rate-value(data-rate-level="98.8") 98,8%
-          +e.rate-line._orange
-      +e.col
-        +e.P.rate-value(data-rate-level="102.6") 102,6%
-          +e.rate-line._orange
-      +e.col
-        +e.P.rate-value(data-rate-level="101.1") 101,1%
+    +growth-rate()._orange._points.__growth-rate
+      +growth-rate-col('94.9', '94,9%')
+      +growth-rate-col('98.6', '98,6%')
+      +growth-rate-col('98.8', '98,8%')
+      +growth-rate-col('102.6', '102,6%')
+      +growth-rate-col('101.1', '101,1%', true)
     +e.captions
       +e.col
         +e.P.caption 2015

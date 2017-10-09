@@ -63,9 +63,6 @@ export default () => {
 
   // Прогноз социально-экономического развития города Москвы (численность населения)
   if ($('.analityc-graphics-rate-columns').length) {
-
-    rateLine('.analityc-graphics-rate-columns__growth-rate', 10, 100, true);
-
     // Тыс.чел
     $('.analityc-graphics-rate-columns__population').each(function(){
       $(this).find('.analityc-graphics-rate-columns__graphic-column').each(function(){
@@ -75,59 +72,66 @@ export default () => {
     });
   }
 
-  // Прогноз социально-экономического развития города Москвы (индекс промышленного производства)
-  if ($('.budget-forecast .analityc-graphics-broken-line').length) {
-    rateLine('.analityc-graphics-broken-line__growth-rate', 5, 94.9);
-  }
-
   // Темп роста
-  function rateLine(el, coef, startrate, columns) {
-    $(el).each(function(){
-
-      var negRateDifference = 0;
-      $(this).find('[data-rate-level]').each(function(){
-        var rateLevel = parseFloat($(this).data('rate-level'));
-        var rateDiffernece = startrate - rateLevel;
-        if (rateDiffernece < negRateDifference) {
-          negRateDifference = rateDiffernece;
-        }
-        $(this).css('top', rateDiffernece*coef+'px');
+  function rateLine(el, coef, startrate) {
+    
+    if ($(el).length) {
+      
+      $(el).each(function(){
+        
+        var graphic = $(this);
+        var negRateDifference = 0;
+        var isColumns = false;
+        if (graphic.hasClass('growth-rate_columns')) isColumns = true;
+        
+        graphic.find('.growth-rate__level').each(function(){
+          var rateLevel = parseFloat($(this).data('rate-level'));
+          var rateDifference = startrate - rateLevel;
+          if (rateDifference < negRateDifference) {
+            negRateDifference = rateDifference;
+          }
+          $(this).css('top', rateDifference*coef+'px');
+        });
+        
+        negRateDifference = Math.abs(negRateDifference);
+        graphic.css('margin-top', negRateDifference*coef+'px');
+  
+        graphic.find('.growth-rate__line').each(function(){
+          var rateCol = $(this).parents('.growth-rate__col');
+          var startPoint = $(this).parent().css('top');
+          var endPoint = rateCol.next().children().css('top');
+          startPoint = parseInt(startPoint);
+          endPoint = parseInt(endPoint);
+          var pointDiff = endPoint - startPoint;
+          var rateColLength = graphic.find('.growth-rate__col').length;
+          var lineLength = graphic.find('.growth-rate__line').length;
+          var lineWidth = (graphic.width() - rateCol.width() * rateColLength) / lineLength;
+          if (!isColumns) {
+            lineWidth += rateCol.width();
+          }
+          var angle = Math.atan(pointDiff/lineWidth);
+          angle = angle*180/Math.PI;
+          $(this).css('transform', 'skewY('+angle+'deg)');
+          $(this).css('width', lineWidth+'px');
+        });
       });
-      negRateDifference = Math.abs(negRateDifference);
-      $(this).css('margin-top', negRateDifference*coef+'px');
-
-      $(this).find('[data-rate-level]').children().each(function(){
-        var rateCol = $(this).parent().parent();
-        var startPoint = $(this).parent().css('top');
-        var endPoint = rateCol.next().children().css('top');
-        startPoint = parseInt(startPoint);
-        endPoint = parseInt(endPoint);
-        var pointDiff = endPoint - startPoint;
-        var lineWidth = rateCol.next().offset().left - rateCol.offset().left;
-        if (columns) {
-          lineWidth -= rateCol.outerWidth();
-        }
-        var angle = Math.atan(pointDiff/lineWidth);
-        angle = angle*180/Math.PI;
-        $(this).css('transform', 'skewY('+angle+'deg)');
-        $(this).css('width', lineWidth+'px');
-      });
-    });
-  }
-
-  // Аналитика - Государственный долг (уровень долговой нагрузки)
-  if ($('.analytics-gov-debt .analityc-graphics-broken-line').length) {
-    rateLine('.analityc-graphics-broken-line__growth-rate', 9, 8);
+    }
   }
 
   // Бюджет Москвы - Государственный долг (уровень долговой нагрузки)
-  if ($('.gov-debt .analityc-graphics__growth-rate_level').length) {
-    rateLine('.analityc-graphics__growth-rate_level', 40, 2.9, true);
-  }
+  rateLine('.gov-debt .analityc-graphics__growth-rate_level', 40, 2.9);
+  
   // Бюджет Москвы - Государственный долг (предельный объем государственного долга)
-  if ($('.gov-debt .analityc-graphics__growth-rate_limit').length) {
-    rateLine('.analityc-graphics__growth-rate_limit', 1.5, 57.1, true);
-  }
+  rateLine('.gov-debt .analityc-graphics__growth-rate_limit', 1.5, 57.1);
+  
+  // Бюджет Москвы - Социально-экономическое развитие (численность населения)
+  rateLine('.budget-forecast .analityc-graphics-rate-columns__growth-rate', 10, 100);
+  
+  // Бюджет Москвы - Социально-экономическое развитие (индекс промышленного производства)
+  rateLine('.budget-forecast .analityc-graphics-broken-line__growth-rate', 5, 94.9);
+  
+  // Аналитика - Государственный долг (уровень долговой нагрузки)
+  rateLine('.analytics-gov-debt .analityc-graphics-broken-line', 9, 8);
   
   
   
