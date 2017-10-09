@@ -9416,6 +9416,9 @@ function grLinePopup() {
 
         if (isLong) {
             val.show();
+            line.hover(function() {
+                abs.hide();
+            })   
         } else {
             val.hide();
             line.hover(function() {
