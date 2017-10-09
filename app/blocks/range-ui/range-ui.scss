@@ -75,6 +75,13 @@ $rangeColorNegative: #f42c1b;
     font-weight: 400;
     color: black;
   }
+  
+  &__min-value, &__max-value {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(50% - 5px);
+  }
 
   &__min-value {
     float: left;
@@ -129,6 +136,10 @@ $rangeColorNegative: #f42c1b;
       border-top-color: #0d46a1;
       border-width: 5px;
       margin-left: -5px;
+    }
+    
+    &_wide {
+      width: 60px;
     }
   }
 }

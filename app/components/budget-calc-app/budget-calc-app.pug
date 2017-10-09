@@ -100,7 +100,7 @@ mixin budget-calc-app()
                 | <span class="visible-xs">Налогоплательщики: </span>Все налогоплательщики
               +e.column
                 .visible-xs Налоговая ставка
-                +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                +range-ui('{"min":"13.5", "max":"18", "optimal": "18", "type": "%", "step": "0.1"}')
               +e.column._value.text-alert
                 SPAN.-num -464 732,0
                 SPAN.-text млн руб.
@@ -113,14 +113,14 @@ mixin budget-calc-app()
                 | <span class="visible-xs">Льготные категории налогоплательщиков: </span>Организации, осуществляющие производство легковых автомобилей на территории города Москвы
               +e.column
                 .visible-xs Налоговая ставка
-                +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                +range-ui('{"min":"13.5", "max":"18", "optimal": "13.5", "type": "%", "step": "0.1"}')
               +e.column
             +b.bc-table-row
               +e.column
                 | <span class="visible-xs">Льготные категории налогоплательщиков: </span>Общественные организации инвалидов и организации, использующие труд инвалидов
               +e.column
                 .visible-xs Налоговая ставка
-                +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                +range-ui('{"min":"13.5", "max":"18", "optimal": "13.5", "type": "%", "step": "0.1"}')
 
           +b.bc-table-row.is-accordeon-row.js-table-row-accordeon
             +e.column._name
@@ -137,7 +137,7 @@ mixin budget-calc-app()
             +b.bc-table-row
               +e.column Коэффициент, отражающий региональные особенности рынка труда
               +e.column
-                +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                +range-ui('{"min":"1", "max":"5", "optimal": "2.3118", "type": "%", "step": "0.0001"}')
 
           +b.bc-table-row.is-accordeon-row.js-table-row-accordeon
             +e.column._name
@@ -161,13 +161,13 @@ mixin budget-calc-app()
                 | <span class="visible-xs">Налоговая база: </span>Среднегодовая стоимость движимого и недвижимого имущества
               +e.column
                 .visible-xs Налоговая ставка
-                +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                +range-ui('{"min":"0", "max":"2.2", "optimal": "2.2", "type": "%", "step": "0.1"}')
             +b.bc-table-row
               +e.column
                 | <span class="visible-xs">Налоговая база: </span>Кадастровая стоимость недвижимого имущества
               +e.column
                 .visible-xs Налоговая ставка
-                +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                +range-ui('{"min":"0", "max":"2", "optimal": "1.3", "type": "%", "step": "0.1"}')
 
           +b.bc-table-row.is-accordeon-row.js-table-row-accordeon
             +e.column._name
@@ -191,49 +191,49 @@ mixin budget-calc-app()
                 | <span class="visible-xs">Объекты налогообложения — легковые автомобили мощностью: </span> до 100 л.с.
               +e.column
                 .visible-xs Налоговая ставка
-                +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1", "changeTo": "16.5"}')
+                +range-ui('{"min":"2.5", "max":"25", "optimal": "12", "type": "руб.", "step": "0.1"}')
             +b.bc-table-row
               +e.column
                 | <span class="visible-xs">Объекты налогообложения — легковые автомобили мощностью: </span> свыше 100 л.с. до 125 л.с.
               +e.column
                 .visible-xs Налоговая ставка
-                +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1", "changeTo": "14.2"}')
+                +range-ui('{"min":"3.5", "max":"35", "optimal": "25", "type": "руб.", "step": "0.1"}')
             +b.bc-table-row
               +e.column
                 | <span class="visible-xs">Объекты налогообложения — легковые автомобили мощностью: </span> свыше 125 л.с. до 150 л.с.
               +e.column
                 .visible-xs Налоговая ставка
-                +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                +range-ui('{"min":"3.5", "max":"35", "optimal": "35", "type": "руб.", "step": "0.1"}')
             +b.bc-table-row
               +e.column
                 | <span class="visible-xs">Объекты налогообложения — легковые автомобили мощностью: </span> свыше 150 л.с. до 175 л.с.
               +e.column
                 .visible-xs Налоговая ставка
-                +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                +range-ui('{"min":"0.5", "max":"50", "optimal": "45", "type": "руб.", "step": "0.1"}')
             +b.bc-table-row
               +e.column
                 | <span class="visible-xs">Объекты налогообложения — легковые автомобили мощностью: </span> свыше 175 л.с. до 200 л.с.
               +e.column
                 .visible-xs Налоговая ставка
-                +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                +range-ui('{"min":"0.5", "max":"50", "optimal": "50", "type": "руб.", "step": "0.1"}')
             +b.bc-table-row
               +e.column
                 | <span class="visible-xs">Объекты налогообложения — легковые автомобили мощностью: </span> свыше 200 л.с. до 225 л.с.
               +e.column
                 .visible-xs Налоговая ставка
-                +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                +range-ui('{"min":"0.75", "max":"75", "optimal": "65", "type": "руб.", "step": "0.05"}')
             +b.bc-table-row
               +e.column
                 | <span class="visible-xs">Объекты налогообложения — легковые автомобили мощностью: </span> свыше 225 л.с. до 250 л.с.
               +e.column
                 .visible-xs Налоговая ставка
-                +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                +range-ui('{"min":"0.75", "max":"75", "optimal": "75", "type": "руб.", "step": "0.05"}')
             +b.bc-table-row
               +e.column
                 | <span class="visible-xs">Объекты налогообложения — легковые автомобили мощностью: </span> свыше 250 л.с.
               +e.column
                 .visible-xs Налоговая ставка
-                +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                +range-ui('{"min":"1.5", "max":"150", "optimal": "150", "type": "руб.", "step": "0.1"}')
             +b.notification.is-active Изменение налоговых ставок в большую или меньшую сторону приведет к увеличению/снижению поступлений в городской бюджет. При изменении ставок необходимо учитывать принцип соизмеримости, согласно которому ставка для автомобиля меньшей мощности не может превышать ставку для автомобиля большей мощности.
 
             +b.bc-table-row._expand
@@ -290,19 +290,19 @@ mixin budget-calc-app()
             +b.bc-table-row
               +e.column Земельные участки, отнесенные к землям в составе зон сельскохозяйственного использования в городе Москве и используемые для сельскохозяйственного производства
               +e.column
-                +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                +range-ui('{"min":"0", "max":"0.30001", "optimal": "0.3", "type": "%", "step": "0.1"}')
             +b.bc-table-row
               +e.column Земельные участки, занятые жилищным фондом и объектами инженерной инфраструктуры жилищно-коммунального комплекса или предоставленные для жилищного строительства
               +e.column
-                +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                +range-ui('{"min":"0", "max":"0.30001", "optimal": "0.1", "type": "%", "step": "0.1"}')
             +b.bc-table-row
               +e.column Земельные участки, предоставленные для ведения личного подсобного хозяйства, садоводства, огородничества или животноводства, а также дачного хозяйства и дачного строительства
               +e.column
-                +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                +range-ui('{"min":"0", "max":"0.3", "optimal": "0.025", "type": "%", "step": "0.005"}')
             +b.bc-table-row
               +e.column Прочие земельные участки
               +e.column
-                +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                +range-ui('{"min":"0", "max":"1.5", "optimal": "1.5", "type": "%", "step": "0.1"}')
 
             +b.bc-table-row
               +e.column Как Вы считаете, для каких категорий организаций следует отменить налоговые льготы?
@@ -370,13 +370,13 @@ mixin budget-calc-app()
               +e.column
                 | Доходы
               +e.column
-                +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                +range-ui('{"min":"1", "max":"6", "optimal": "6", "type": "%", "step": "0.1"}')
 
             +b.bc-table-row
               +e.column
                 | Доходы, уменьшенные на величину расходов
               +e.column
-                +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                +range-ui('{"min":"5", "max":"15", "optimal": "15", "type": "%", "step": "0.1"}')
 
 
           +b.bc-table-row
@@ -422,62 +422,62 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              +range-ui('{"min":"13.5", "max":"18", "optimal": "13.5", "type": "%", "step": "0.1"}')
+              +range-ui('{"min":"0", "max":"742543.8", "optimal": "371271.9", "type": "млн руб.", "step": "0.1"}', true)
             +e.costs-item-expand.js-budget-calc-app__costs-item-expand
               +e.costs-item-expand-inner.js-budget-calc-app_costs-item-expand-inner
                 +b.bc-table-row._expand
                   +e.column Общественный транспорт "Метрополитен"
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "18", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"301722.8", "optimal": "150861.4", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 212 450,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Общественный транспорт "Наземный городской пассажирский транспорт"
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "16", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"28461.6", "optimal": "14230.8", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 212 450,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Общественный транспорт "Железнодорожный транспорт"
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"3359.8", "optimal": "1679.9", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 212 450,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Автомобильные дороги и улично-дорожная сеть
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"349301.8", "optimal": "174650.9", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 212 450,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Автовокзалы и транспортно-пересадочные узлы
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"25569.4", "optimal": "12784.7", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 212 450,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Создание единого парковочного пространства
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"10867.6", "optimal": "5433.8", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 212 450,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Организация движения транспорта в городе Москве. Создание интеллектуальной транспортной системы
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"22964.8", "optimal": "11482.4", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 212 450,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Развитие новых видов транспорта
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"296", "optimal": "148", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 4 212 450,0
                     SPAN.-text млн руб.
@@ -494,62 +494,62 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              +range-ui('{"min":"13.5", "max":"18", "optimal": "18", "type": "%", "step": "0.1"}')
+              +range-ui('{"min":"0", "max":"400760", "optimal": "200380", "type": "млн руб.", "step": "0.1"}', true)
             +e.costs-item-expand.js-budget-calc-app__costs-item-expand
               +e.costs-item-expand-inner.js-budget-calc-app_costs-item-expand-inner
                 +b.bc-table-row._expand
                   +e.column Профилактика заболеваний и формирование здорового образа жизни. Совершенствование первичной медико-санитарной помощи
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"69499.2", "optimal": "34749.6", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Формирование эффективной системы организации медицинской помощи. Совершенствование системы территориального планирования
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"173183.4", "optimal": "86591.7", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Совершенствование оказания специализированной, включая высокотехнологичную, медицинской помощи, скорой, в том числе скорой специализированной, медицинской помощи, а также паллиативной помощи
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"111594.2", "optimal": "55797.1", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Охрана здоровья матери и ребенка
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"21132.2", "optimal": "10566.1", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Развитие медицинской реабилитации и санаторно-курортного лечения
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"4490", "optimal": "2245", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Кадровое обеспечение государственной системы здравоохранения города Москвы
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"6137", "optimal": "3068.5", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Охрана окружающей среды и улучшение экологической ситуации в городе Москве в целях укрепления здоровья населения
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"13604.8", "optimal": "6802.4", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Профилактика зоонозных инфекций, эпизоотическое и ветеринарно-санитарное благополучие в городе Москве
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"1119.2", "optimal": "559.6", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
@@ -566,34 +566,34 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+              +range-ui('{"min":"0", "max":"528881.2", "optimal": "264440.6", "type": "млн руб.", "step": "0.1"}', true)
             +e.costs-item-expand.js-budget-calc-app__costs-item-expand
               +e.costs-item-expand-inner.js-budget-calc-app_costs-item-expand-inner
                 +b.bc-table-row._expand
                   +e.column Общее образование
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"417164.2", "optimal": "208582.1", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Профессиональное образование
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"47557.6", "optimal": "23778.8", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Дополнительное образование и профессиональное обучение
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"33210.4", "optimal": "16605.2", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Развитие системы образования
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"30949", "optimal": "15474.5", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
@@ -610,34 +610,34 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+              +range-ui('{"min":"0", "max":"720868.8", "optimal": "360434.4", "type": "млн руб.", "step": "0.1"}', true)
             +e.costs-item-expand.js-budget-calc-app__costs-item-expand
               +e.costs-item-expand-inner.js-budget-calc-app_costs-item-expand-inner
                 +b.bc-table-row._expand
                   +e.column Социальная поддержка семей с детьми. Профилактика социального сиротства и защита прав детей-сирот и детей, оставшихся без попечения родителей
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"95248.4", "optimal": "47624.2", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Социальная поддержка старшего поколения, ветеранов Великой Отечественной войны, ветеранов боевых действий и членов их семей
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"524308.6", "optimal": "262154.3", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Социальная интеграция инвалидов и формирование безбарьерной среды для инвалидов и других маломобильных групп населения
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"9966.6", "optimal": "4983.3", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Модернизация и развитие системы социальной защиты населения города Москвы
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"91345.2", "optimal": "45672.6", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
@@ -654,41 +654,41 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+              +range-ui('{"min":"0", "max":"227217.8", "optimal": "113608.9", "type": "млн руб.", "step": "0.1"}', true)
             +e.costs-item-expand.js-budget-calc-app__costs-item-expand
               +e.costs-item-expand-inner.js-budget-calc-app_costs-item-expand-inner
                 +b.bc-table-row._expand
                   +e.column Строительство нового жилья в городе Москве и реновация существующей жилой застройки
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"76916", "optimal": "38458", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Выполнение государственных обязательств
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"21441", "optimal": "10720.5", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Капитальный ремонт и модернизация жилищного фонда
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"31429.4", "optimal": "15714.7", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Управление жилищным фондом в городе Москве
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"18384", "optimal": "9192", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Содержание и благоустройство территории жилой застройки и иные мероприятия в сфере жилищного хозяйства
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"79047.4", "optimal": "39523.7", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
@@ -705,83 +705,83 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+              +range-ui('{"min":"0", "max":"120744.2", "optimal": "60372.1", "type": "млн руб.", "step": "0.1"}', true)
             +e.costs-item-expand.js-budget-calc-app__costs-item-expand
               +e.costs-item-expand-inner.js-budget-calc-app_costs-item-expand-inner
                 +b.bc-table-row._expand
                   +e.column Развитие электроснабжения города Москвы
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"10775", "optimal": "5387.5", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Развитие теплоснабжения города Москвы
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"1213.2", "optimal": "606.6", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Развитие газоснабжения в городе Москве
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"165.2", "optimal": "82.6", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Развитие и модернизация объектов коллекторного хозяйства города Москвы
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"1114.4", "optimal": "557.2", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Развитие и модернизация водопроводно-канализационного хозяйства города Москвы и систем технического водоснабжения
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"21690.6", "optimal": "10845.3", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Развитие и модернизация объектов водоотведения поверхностного стока
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"16663.4", "optimal": "8331.7", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Развитие единой светоцветовой среды города Москвы
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"21399.8", "optimal": "10699.9", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Развитие сети общественных туалетов
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"1706.4", "optimal": "853.2", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Развитие инженерных коммуникаций города Москвы
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"23273.8", "optimal": "11636.9", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Энергосбережение и повышение энергоэффективности
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"627", "optimal": "313.5", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Мероприятия в области обращения с отходами и противооползневые работы
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"22115.4", "optimal": "11057.7", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
@@ -798,55 +798,55 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+              +range-ui('{"min":"0", "max":"74488.2", "optimal": "37244.1", "type": "млн руб.", "step": "0.1"}', true)
             +e.costs-item-expand.js-budget-calc-app__costs-item-expand
               +e.costs-item-expand-inner.js-budget-calc-app_costs-item-expand-inner
                 +b.bc-table-row._expand
                   +e.column Музеи и выставочные залы
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"17306.6", "optimal": "8653.3", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Театры, концертные организации и учреждения кинофикации
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"26244.2", "optimal": "13122.1", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Библиотеки
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"7346.2", "optimal": "3673.1", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Культурные центры, дома культуры, клубы и молодежные центры
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"11995", "optimal": "5997.5", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Развитие межрегиональных и международных культурных связей
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"4114.8", "optimal": "2057.4", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Развитие кадрового потенциала и научно-методическое обеспечение в сфере культуры
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"977", "optimal": "488.5", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Государственная охрана, сохранение и популяризация объектов культурного наследия
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"6504.4", "optimal": "3252.2", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
@@ -863,20 +863,20 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+              +range-ui('{"min":"0", "max":"97652", "optimal": "48826", "type": "млн руб.", "step": "0.1"}', true)
             +e.costs-item-expand.js-budget-calc-app__costs-item-expand
               +e.costs-item-expand-inner.js-budget-calc-app_costs-item-expand-inner
                 +b.bc-table-row._expand
                   +e.column Массовая физкультурно-спортивная работа
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"6877.2", "optimal": "3438.6", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Подготовка спортивного резерва, развитие спорта высших достижений
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"90774.8", "optimal": "45387.4", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
@@ -893,20 +893,20 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+              +range-ui('{"min":"0", "max":"17950.2", "optimal": "8975.1", "type": "млн руб.", "step": "0.1"}', true)
             +e.costs-item-expand.js-budget-calc-app__costs-item-expand
               +e.costs-item-expand-inner.js-budget-calc-app_costs-item-expand-inner
                 +b.bc-table-row._expand
                   +e.column Создание и развитие сети многофункциональных центров предоставления государственных услуг
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"17301.2", "optimal": "8650.6", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Повышение открытости и совершенствование административно-управленческих процессов органов исполнительной власти города
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"649", "optimal": "324.5", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
@@ -923,27 +923,27 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+              +range-ui('{"min":"0", "max":"125302.8", "optimal": "62651.4", "type": "млн руб.", "step": "0.1"}', true)
             +e.costs-item-expand.js-budget-calc-app__costs-item-expand
               +e.costs-item-expand-inner.js-budget-calc-app_costs-item-expand-inner
                 +b.bc-table-row._expand
                   +e.column Индустрия отдыха и туризма на территориях парков культуры и отдыха, музеев-заповедников и музеев-усадеб
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"29500.8", "optimal": "14750.4", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Индустрия отдыха на территориях общего пользования
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"95188.4", "optimal": "47594.2", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Развитие туризма
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"613.6", "optimal": "306.8", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
@@ -952,7 +952,7 @@ mixin budget-calc-app()
             +e.costs-item-icon.js-budget-calc-app__costs-item-link
               +icon('safe-shield').icon.costs-safe-shield
             +e.A.costs-item-link.js-budget-calc-app__costs-item-link(href="#").js-bc-match-height-1
-              +e.costs-item-link-text безопастный город
+              +e.costs-item-link-text безопасный город
             +e.costs-item-value.js-bc-match-height-3
               span 464 732,0
               |  млн руб.
@@ -960,27 +960,27 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+              +range-ui('{"min":"0", "max":"39725.4", "optimal": "19862.7", "type": "млн руб.", "step": "0.1"}', true)
             +e.costs-item-expand.js-budget-calc-app__costs-item-expand
               +e.costs-item-expand-inner.js-budget-calc-app_costs-item-expand-inner
                 +b.bc-table-row._expand
                   +e.column Мобилизационная подготовка экономики
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"666", "optimal": "333", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Обеспечение правопорядка и профилактика правонарушений
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"18200.8", "optimal": "9100.4", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Предупреждение чрезвычайных ситуаций, развитие гражданской обороны, защита населения и территорий города Москвы от чрезвычайных ситуаций природного и техногенного характера, обеспечение пожарной безопасности и безопасности людей на водных объектах
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"20858.6", "optimal": "10429.3", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
@@ -997,62 +997,62 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+              +range-ui('{"min":"0", "max":"96759.2", "optimal": "48379.6", "type": "млн руб.", "step": "0.1"}', true)
             +e.costs-item-expand.js-budget-calc-app__costs-item-expand
               +e.costs-item-expand-inner.js-budget-calc-app_costs-item-expand-inner
                 +b.bc-table-row._expand
                   +e.column Развитие рекламы, праздничного и тематического оформления города Москвы
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"3420.4", "optimal": "1710.2", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Проведение Московского фестиваля света
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"856", "optimal": "428", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Обеспечение предоставления государственных услуг в электронной форме гражданам и юридическим лицам и развитие открытой и безопасной городской среды за счет внедрения информационно-коммуникационных технологий
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"19266.4", "optimal": "9633.2", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Повышение эффективности реализации функций органами исполнительной власти города Москвы за счет внедрения информационно-коммуникационных технологий
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"28885", "optimal": "14442.5", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Развитие отрасли информационных технологий и связи и формирование общедоступной информационно-коммуникационной среды в городе Москве
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"20039", "optimal": "10019.5", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Развитие печатных средств массовой информации и популяризация книгоиздания
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"2658", "optimal": "1329", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Развитие электронных средств массовой информации и производство телевизионных программ
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"20106.4", "optimal": "10053.2", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Управление реализацией программы
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"1528", "optimal": "764", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
@@ -1069,41 +1069,41 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+              +range-ui('{"min":"0", "max":"53552.6", "optimal": "26776.3", "type": "млн руб.", "step": "0.1"}', true)
             +e.costs-item-expand.js-budget-calc-app__costs-item-expand
               +e.costs-item-expand-inner.js-budget-calc-app_costs-item-expand-inner
                 +b.bc-table-row._expand
                   +e.column Обеспечение эффективности и качества потребительских услуг для населения
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"4687", "optimal": "2343.5", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Формирование благоприятной деловой среды
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"2671.4", "optimal": "1335.7", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Москва - город для бизнеса и инноваций
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"14422.6", "optimal": "7211.3", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Обеспечение эффективного управления имуществом города Москвы и вовлечение его в хозяйственный оборот
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"22475.6", "optimal": "11237.8", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Развитие рынка труда и содействие занятости населения
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"9296", "optimal": "4648", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
@@ -1120,62 +1120,62 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+              +range-ui('{"min":"0", "max":"28793", "optimal": "14396.5", "type": "млн руб.", "step": "0.1"}', true)
             +e.costs-item-expand.js-budget-calc-app__costs-item-expand
               +e.costs-item-expand-inner.js-budget-calc-app_costs-item-expand-inner
                 +b.bc-table-row._expand
                   +e.column Развитие и реорганизация территорий
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"10010", "optimal": "5005", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Подготовка основных документов и решений по градостроительному развитию города Москвы
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"770", "optimal": "385", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Координация реализации основных направлений градостроительной политики и строительства в городе Москве
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"8138.4", "optimal": "4069.2", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Градостроительное проектирование и развитие единого геоинформационного пространства
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"7076.8", "optimal": "3538.4", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Разработка экономических механизмов реализации градостроительной политики для создания благоприятного инвестиционного климата
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"137.2", "optimal": "68.6", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Обеспечение инновационного развития строительной отрасли
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"369", "optimal": "184.5", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Нормативно-правовое и сметно-нормативное обеспечение градостроительной деятельности
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"161.6", "optimal": "80.8", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
                 +b.bc-table-row._expand
                   +e.column Научно-методическое и информационно-аналитическое обеспечение градостроительной деятельности
                   +e.column
-                    +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+                    +range-ui('{"min":"0", "max":"2130", "optimal": "1065", "type": "млн руб.", "step": "0.1"}', true)
                   +e.column._costs-value
                     SPAN.-num 999 234,0
                     SPAN.-text млн руб.
@@ -1192,7 +1192,7 @@ mixin budget-calc-app()
               | Исходное значение:
               span 71 271,9
             +e.costs-item-range
-              +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+              +range-ui('{"min":"102075.6", "max":"124759.1", "optimal": "113417.4", "type": "млн руб.", "step": "0.1"}', true)
 
         +e.text
           +budget-calc-btn('в начало').-triangle-left.js-budget-calc__tab-control(href="#" data-target="#budget-calc__tab_intro")
@@ -1207,7 +1207,7 @@ mixin budget-calc-app()
                 +tooltip-icon("Текст тултипа может быть как длинным, так и неприлично коротким. Но в целях предотвращения непредсказуемого поведения этих вспылвающих подсказок, а так же побочных эффектов, связанных с хаотичными изменениями в этой прекрасной системе дизайна, мы вынуждены и просто обязаны использовать такой длинный текст для тестирования вёрстки.")
                 SPAN.-text ГОСУДАРСТВЕННЫЕ ЦЕННЫЕ БУМАГИ
             +e.column._value
-              +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+              +range-ui('{"min":"-36204", "max":"239835", "optimal": "3796.4", "type": "млн руб.", "step": "0.1"}', true)
             +e.column._value.text-alert
               SPAN.-num -12,0
               SPAN.-text млн руб.
@@ -1221,7 +1221,7 @@ mixin budget-calc-app()
                 +tooltip-icon("Текст тултипа может быть как длинным, так и неприлично коротким. Но в целях предотвращения непредсказуемого поведения этих вспылвающих подсказок, а так же побочных эффектов, связанных с хаотичными изменениями в этой прекрасной системе дизайна, мы вынуждены и просто обязаны использовать такой длинный текст для тестирования вёрстки.")
                 SPAN.-text КОММЕРЧЕСКИЕ КРЕДИТы
             +e.column._value
-              +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+              +range-ui('{"min":"-40700", "max":"239835", "optimal": "-40700", "type": "млн руб.", "step": "0.1"}', true)
             +e.column._value.text-success
               SPAN.-num +79 952,0
               SPAN.-text млн руб.
@@ -1235,7 +1235,7 @@ mixin budget-calc-app()
                 +tooltip-icon("Текст тултипа может быть как длинным, так и неприлично коротким. Но в целях предотвращения непредсказуемого поведения этих вспылвающих подсказок, а так же побочных эффектов, связанных с хаотичными изменениями в этой прекрасной системе дизайна, мы вынуждены и просто обязаны использовать такой длинный текст для тестирования вёрстки.")
                 SPAN.-text БЮДЖЕТНЫЕ КРЕДИТЫ
             +e.column._value
-              +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+              +range-ui('{"min":"-8000", "max":"10000", "optimal": "-8000", "type": "млн руб.", "step": "0.1"}', true)
             +e.column._value
               SPAN.-num +79 952,0
               SPAN.-text млн руб.
@@ -1248,7 +1248,7 @@ mixin budget-calc-app()
                 +tooltip-icon("Текст тултипа может быть как длинным, так и неприлично коротким. Но в целях предотвращения непредсказуемого поведения этих вспылвающих подсказок, а так же побочных эффектов, связанных с хаотичными изменениями в этой прекрасной системе дизайна, мы вынуждены и просто обязаны использовать такой длинный текст для тестирования вёрстки.")
                 SPAN.-text СРЕДСТВА ОТ ПРОДАЖИ АКЦИЙ И ПР.
             +e.column._value
-              +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+              +range-ui('{"min":"0", "max":"5000", "optimal": "1000", "type": "млн руб.", "step": "0.1"}', true)
             +e.column._value
               SPAN.-num +79 952,0
               SPAN.-text млн руб.
@@ -1262,7 +1262,7 @@ mixin budget-calc-app()
                 +tooltip-icon("Текст тултипа может быть как длинным, так и неприлично коротким. Но в целях предотвращения непредсказуемого поведения этих вспылвающих подсказок, а так же побочных эффектов, связанных с хаотичными изменениями в этой прекрасной системе дизайна, мы вынуждены и просто обязаны использовать такой длинный текст для тестирования вёрстки.")
                 SPAN.-text ИЗМЕНЕНИЕ ОСТАТКОВ СРЕДСТВ НА СЧЕТАХ ПО УЧЕТУ СРЕДСТВ БЮДЖЕТОВ
             +e.column._value
-              +range-ui('{"min":"13.5", "max":"18", "optimal": "15", "type": "%", "step": "0.1"}')
+              +range-ui('{"min":"96065.9", "max":"296065.9", "optimal": "196065.9", "type": "млн руб.", "step": "0.1"}', true)
             +e.column._value
               SPAN.-num +79 952,0
               SPAN.-text млн руб.
