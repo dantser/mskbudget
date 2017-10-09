@@ -67,8 +67,8 @@ export default () => {
         const $handle = $this.find('.ui-slider-handle');
         $tooltip.appendTo($handle);
         $input.val(optimal);
-        $minCell.text(min.toLocaleString('ru-RU') + ' ' + type);
-        $maxCell.text(max.toLocaleString('ru-RU') + ' ' + type);
+        $minCell.text(min.toLocaleString('ru-RU') + ' ' + type).attr('title', min.toLocaleString('ru-RU') + ' ' + type);
+        $maxCell.text(max.toLocaleString('ru-RU') + ' ' + type).attr('title', max.toLocaleString('ru-RU') + ' ' + type);
 
         // @DEBUG
         //$handle.draggable();

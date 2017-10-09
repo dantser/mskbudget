@@ -1,9 +1,13 @@
-mixin range-ui(data)
+mixin range-ui(data, widetooltip)
   +b.range-ui&attributes(attributes)
     +e.slider(data-slider=data)
       +e.line
-    +e.tooltip
-      +e.INPUT.input(type="text")
+    if widetooltip
+      +e.tooltip._wide
+        +e.INPUT.input(type="text")
+    else
+      +e.tooltip
+        +e.INPUT.input(type="text")
     +e.A.refresh(href="#")
       +icon('refresh').icon
     +e.output
