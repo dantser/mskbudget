@@ -69,33 +69,36 @@ mixin vmoRateContent()
           | III степень качества, ненадлежащее качество управления финансами – 
           a(href="#") 40 ВМО (27,4 %)
 
-  .services-VMO__table
-    .services-VMO__table-head
-      span.services-VMO__table-head_place Место
-      span.services-VMO__table-head_mun Муниципальный округ
-      span.services-VMO__table-head_quality Уровень качества
+  .analityc-table
+    +slide-arrows().__slide-arrows
+    .analityc-table__wrapper(data-offset='100')
+      .services-VMO__table
+        .services-VMO__table-head
+          span.services-VMO__table-head_place Место
+          span.services-VMO__table-head_mun Муниципальный округ
+          span.services-VMO__table-head_quality Уровень качества
 
-    .services-VMO__table__wrapper
-      .vmoPassport-table.scroll-pane
+        .services-VMO__table__wrapper
+          .vmoPassport-table.scroll-pane
 
-        -for (var i=0; i<6; i++)
-          .table__row.table__row_green
-            .table__col.table__col_one= i+1
-            .table__col.table__col_two
-              img(src="assets/images/VMO/gerb_ivan.jpg")
-              span Муниципальный округ Ивановское
-            .table__col.table__col_three Высокое качество
-        -for (var i=0; i<100; i++)
-          .table__row.table__row_yellow
-            .table__col.table__col_one= i+7
-            .table__col.table__col_two
-              img(src="assets/images/VMO/gerb_ivan.jpg")
-              span Муниципальный округ Ивановское
-            .table__col.table__col_three Удовлетворительный уровень
-        -for (var i=0; i<40; i++)
-          .table__row.table__row_red
-            .table__col.table__col_one= i+107
-            .table__col.table__col_two
-              img(src="assets/images/VMO/gerb_ivan.jpg")
-              span Муниципальный округ Ивановское
-            .table__col.table__col_three Ненадлежащее качество
+            -for (var i=0; i<6; i++)
+              .table__row.table__row_green
+                .table__col.table__col_one= i+1
+                .table__col.table__col_two
+                  img(src="assets/images/VMO/gerb_ivan.jpg")
+                  span Муниципальный округ Ивановское
+                .table__col.table__col_three Высокое качество
+            -for (var i=0; i<100; i++)
+              .table__row.table__row_yellow
+                .table__col.table__col_one= i+7
+                .table__col.table__col_two
+                  img(src="assets/images/VMO/gerb_ivan.jpg")
+                  span Муниципальный округ Ивановское
+                .table__col.table__col_three Удовлетворительный уровень
+            -for (var i=0; i<40; i++)
+              .table__row.table__row_red
+                .table__col.table__col_one= i+107
+                .table__col.table__col_two
+                  img(src="assets/images/VMO/gerb_ivan.jpg")
+                  span Муниципальный округ Ивановское
+                .table__col.table__col_three Ненадлежащее качество

@@ -20,16 +20,23 @@ export default () => {
     })
   });
 
+  VMO.find('.services-VMO__map-hover').hover(function() {
+    $('img[data-hover="' + $(this).data('hover-target') + '"]').show();
+  }, function() {
+    $('img[data-hover="' + $(this).data('hover-target') + '"]').hide();
+  })
+
+  VMO.find('.services-VMO__map-hover').click(function() {
+    TABLINK.removeClass('active');
+    VMO.find('.services-VMO__tabs-control a[data-tab-target="' + $(this).data('tab-target') + '"]').addClass('active');
+  })
+
+  // обновление графиков при отрисовке (массив window.grLineVert)
   VMO.find('.analityc-control-switcher-wrapper a').click(function() {
     setTimeout(function() {
-      var graphicLineVertical = new Swiper('.analityc-graphics-line-vertical_slider', {
-
-        nextButton: '.analityc-graphics-line-vertical__next',
-        prevButton: '.analityc-graphics-line-vertical__prev',
-        slidesPerView: 'auto',
-        spaceBetween: 30
-
-      });
+      grLineVert.forEach(function(item, i, arr) {
+        item.update();
+      })
     }, 100)
   })
 
@@ -43,6 +50,7 @@ export default () => {
     var diff = fullW - $(this).outerWidth();
 
     if (diff != 0) {
+
       lg.addClass('active');
 
       if ($(this).scrollLeft() == 0) {

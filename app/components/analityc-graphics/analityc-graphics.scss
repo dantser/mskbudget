@@ -1725,11 +1725,22 @@
 
   &__next,
   &__prev {
-    display: block!important;
+    display: none;
+    top: 60%;
+    background-image: none;
     fill: #000!important;
+
+    @media (max-width: 900px) {
+      display: block!important;
+    }
+  }
+
+  &__next {
+    right: -25px;
   }
 
   &__prev {
+    left: -25px;
     transform: rotate(180deg);
   }
 
@@ -1846,18 +1857,6 @@
       @include analityc-graphics-lines(green, 11%, #32b168, rgb(17,163,96), rgb(50,209,151));
       @include analityc-graphics-lines(red, 12%, #9d308a, rgb(2,19,152), rgb(255,0,54));
     }
-  }
-
-  &_slider {
-    .analityc-graphics-line-vertical__next {
-      background-image: none;
-      right: 0;
-    }
-    .analityc-graphics-line-vertical__prev {
-      background-image: none;
-      left: 0;
-    }
-
   }
 }
 

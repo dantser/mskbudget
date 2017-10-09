@@ -156,7 +156,7 @@ mixin vmoPassportContent()
               p.legend__item.legend__item_blue Исполнение, млн руб.
           .analityc-graphics-line-vertical__wrapper
             +analityc-graphics-line-vertical_vmo(getData('graphic-lines-vertical-vmo'))
-          +analityc-graphics-line-vertical-vmo_slider(getData('graphic-lines-vertical-vmo'))
+            +analityc-graphics-line-vertical-vmo_slider(getData('graphic-lines-vertical-vmo'))
         .services-VMO__content.services-VMO__content_bottom.js-rules
             h4.services-VMO__subtitle Источники доходов
             .services-VMO__right-block
@@ -196,7 +196,7 @@ mixin vmoPassportContent()
               p.legend__item.legend__item_pink Исполнение, млн руб.
           .analityc-graphics-line-vertical__wrapper
             +analityc-graphics-line-vertical_vmo(getData('graphic-lines-vertical-vmo'))
-          +analityc-graphics-line-vertical-vmo_slider(getData('graphic-lines-vertical-vmo'))
+            +analityc-graphics-line-vertical-vmo_slider(getData('graphic-lines-vertical-vmo'))
         .services-VMO__content.services-VMO__content_bottom.js-rules
             h4.services-VMO__subtitle Полномочия
             .services-VMO__right-block
@@ -221,33 +221,36 @@ mixin vmoPassportContent()
             span.selectbox-base База сравнения
             +selectbox('base', [{"val":"opt1", "text":"Объем доходов"}, {"val":"opt2", "text":"Объем расходов"}, {"val":"opt3", "text":"еще один очень длинный пункт"}]).selectbox_vmo
 
-        .services-VMO__table.services-VMO__table_comparison
-          .services-VMO__table-head
-            span.services-VMO__table-head_place Место
-            span.services-VMO__table-head_vol Объем доходов
-              span.services-VMO__table-head_sub млн.руб.
-            span.services-VMO__table-head_mun Муниципальный округ
-          .services-VMO__table__wrapper
-            .vmoPassport-table.scroll-pane
-              -for (var i=0; i<6; i++)
-                .table__row
-                  .table__col.table__col_one= i+1
-                  .table__col.table__col_four 21,0
-                  .table__col.table__col_two
-                    img(src="assets/images/VMO/gerb_ivan.jpg")
-                    span Муниципальный округ Ивановское
-              -for (var i=0; i<100; i++)
-                .table__row
-                  .table__col.table__col_one= i+7
-                  .table__col.table__col_four 21,0
-                  .table__col.table__col_two
-                    img(src="assets/images/VMO/gerb_ivan.jpg")
-                    span Муниципальный округ Ивановское
-              -for (var i=0; i<40; i++)
-                .table__row
-                  .table__col.table__col_one= i+107
-                  .table__col.table__col_four 21,0
-                  .table__col.table__col_two
-                    img(src="assets/images/VMO/gerb_ivan.jpg")
-                    span Муниципальный округ Ивановское
-          
+        .analityc-table
+          +slide-arrows().__slide-arrows
+          .analityc-table__wrapper(data-offset='100')
+            .services-VMO__table.services-VMO__table_comparison
+              .services-VMO__table-head
+                span.services-VMO__table-head_place Место
+                span.services-VMO__table-head_vol Объем доходов
+                  span.services-VMO__table-head_sub млн.руб.
+                span.services-VMO__table-head_mun Муниципальный округ
+              .services-VMO__table__wrapper
+                .vmoPassport-table.scroll-pane
+                  -for (var i=0; i<6; i++)
+                    .table__row
+                      .table__col.table__col_one= i+1
+                      .table__col.table__col_four 21,0
+                      .table__col.table__col_two
+                        img(src="assets/images/VMO/gerb_ivan.jpg")
+                        span Муниципальный округ Ивановское
+                  -for (var i=0; i<100; i++)
+                    .table__row
+                      .table__col.table__col_one= i+7
+                      .table__col.table__col_four 21,0
+                      .table__col.table__col_two
+                        img(src="assets/images/VMO/gerb_ivan.jpg")
+                        span Муниципальный округ Ивановское
+                  -for (var i=0; i<40; i++)
+                    .table__row
+                      .table__col.table__col_one= i+107
+                      .table__col.table__col_four 21,0
+                      .table__col.table__col_two
+                        img(src="assets/images/VMO/gerb_ivan.jpg")
+                        span Муниципальный округ Ивановское
+              

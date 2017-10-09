@@ -17,15 +17,6 @@ export default () => {
     })
   })
 
-  const graphicLineVertical = new Swiper('.analityc-graphics-line-vertical_slider', {
-
-    nextButton: '.analityc-graphics-line-vertical__next',
-    prevButton: '.analityc-graphics-line-vertical__prev',
-    slidesPerView: 'auto',
-    spaceBetween: 30
-
-  });
-
   if ($(window).width() < 769) {
     var SliderSettings = {
       nextButton: '.analityc-graphics_round-next',
@@ -366,6 +357,20 @@ export default () => {
     });
   }
   
-  positionValues();
+  // Инициализация графиков analityc-graphics-line-vertical_slider
+  window.grLineVert = [];
 
+  $('.analityc-graphics-line-vertical_slider').each(function() {
+    grLineVert.push(new Swiper($(this), {
+
+      nextButton: $(this).siblings('.analityc-graphics-line-vertical__next'),
+      prevButton: $(this).siblings('.analityc-graphics-line-vertical__prev'),
+      slidesPerView: 'auto',
+      spaceBetween: 30
+
+    })
+    );
+  })
+
+  positionValues();
 }
