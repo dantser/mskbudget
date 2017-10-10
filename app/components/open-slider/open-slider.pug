@@ -1,19 +1,27 @@
 include ../../blocks/icon/icons
 
-mixin open-slide()
+mixin open-slide(img, fancybox)
   .swiper-slide
     .open-slider__content
+    if fancybox
+      +e.A(href='assets/images/presentation/'+img+'', data-fancybox).image-link
+        +e.IMG(src='assets/images/presentation/'+img+'').image
+    else
+      +e.IMG(src='assets/images/presentation/'+img+'').image
+
+mixin open-slider-gallery()
+  .swiper-slider
+    .swiper-container.gallery-top
+      .swiper-wrapper
+        block
+    +icon('icon-next').swiper-icon.swiper-button-next
+    +icon('icon-prev').swiper-icon.swiper-button-prev
+  
+mixin open-slider-thumbs()
+  .swiper-container.gallery-thumbs
+    .swiper-wrapper
       block
 
 mixin open-slider()
-  .open-slider
-    .swiper-slider
-      .swiper-container.gallery-top
-        .swiper-wrapper
-          block
-      
-      +icon('icon-next').swiper-icon.swiper-button-next
-      +icon('icon-prev').swiper-icon.swiper-button-prev
-    .swiper-container.gallery-thumbs
-      .swiper-wrapper
-        block
+  +b.open-slider&attributes(attributes)
+    block

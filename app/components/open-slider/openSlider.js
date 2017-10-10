@@ -1,7 +1,11 @@
-import $ from 'jquery';
+//import $ from 'jquery';
 import Swiper from 'swiper';
+import fancybox from '@fancyapps/fancybox'
+
+const $ = window.$;
 
 export default () => {
+  
   const galleryTop = new Swiper('.gallery-top', {
     nextButton: '.swiper-button-next',
     prevButton: '.swiper-button-prev',
@@ -32,4 +36,11 @@ export default () => {
   });
   galleryTop.params.control = galleryThumbs;
   galleryThumbs.params.control = galleryTop;
+  
+  // fancybox
+  $('.open-slider [data-fancybox]').fancybox({
+    animationEffect: "fade",
+    clickContent: false,
+    buttons: ['close']
+  });
 }
