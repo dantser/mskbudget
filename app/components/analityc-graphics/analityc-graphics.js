@@ -105,9 +105,9 @@ export default () => {
           var pointDiff = endPoint - startPoint;
           var rateColLength = graphic.find('.growth-rate__col').length;
           var lineLength = graphic.find('.growth-rate__line').length;
-          var lineWidth = (graphic.width() - rateCol.width() * rateColLength) / lineLength;
-          if (!isColumns) {
-            lineWidth += rateCol.width();
+          var lineWidth = rateCol.next().offset().left - rateCol.offset().left;
+          if (isColumns) {
+            lineWidth -= rateCol.width();
           }
           var angle = Math.atan(pointDiff/lineWidth);
           angle = angle*180/Math.PI;
