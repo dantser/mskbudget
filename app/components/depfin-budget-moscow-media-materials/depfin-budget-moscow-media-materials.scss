@@ -26,88 +26,44 @@
   	}
 
   	&_video {
+			.depfin-budget-moscow-media-materials__play {
+				display: block;
+			}
+  	}
 
-			.depfin-budget-moscow-media-materials__link {
-		  	&:before {
-		  		background-color: transparent;
-		  	}
+		&_video-one {
+			.depfin-budget-moscow-media-materials__slider-wrap {
+				width: 100%;
+				height: 531px;
+
+				.depfin-budget-moscow-media-materials__item {
+					width: 100%;
+					height: 100%;
+					margin-left: 0;
+					margin-right: 0;
+				}
 			}
 
 			.depfin-budget-moscow-media-materials__label {
-				padding: 15px 19px;
-				background-color: transparent;
-
-				@media (max-width: 1140px) and (min-width: 901px) {
-			    bottom: -30px;
-				}
-
-				@media (max-width: 580px) and (min-width: 401px) {
-			    bottom: -30px;
-				}
+				display: none;
 			}
 
-  		.depfin-budget-moscow-media-materials__container {
-  			height: 153px;
+			.depfin-budget-moscow-media-materials__play {
+				display: block;
+				top: 50%;
+			}
 
-		  	&:before {
-		  		@include ghost;
-		  		background-color: rgba(0, 0, 0, .6);
-		  		z-index: 1;
-  		    transition: all 0.25s ease-in-out;
-		  	}
-  		}
-
-  		.depfin-budget-moscow-media-materials__img {
-  			margin: 0 auto;
-		    min-height: calc(100% + 153px);
-  		}
-  	}
+		}
 
   	&_present {
 
-			.depfin-budget-moscow-media-materials__wrapper {
-				height: 729px;
-			}
-
-  		.depfin-budget-moscow-media-materials__item {
-  			height: 207px;
-  		}
-
-			.depfin-budget-moscow-media-materials__link {
-		  	&:before {
-		  		background-color: rgba(0, 0, 0, .6);
-		  	}
-			}
-
-			.depfin-budget-moscow-media-materials__container {
-				/*swiper reset*/
-				z-index: auto;
-			}
-
-			.depfin-budget-moscow-media-materials__label {
-				position: relative;
-				padding: 47px 19px 34px;
-				color: rgba(255, 255, 255, 1);
-				background-color: transparent;
-			}
-
-			.depfin-budget-moscow-media-materials__img {
-				margin: 0 auto;
-				min-height: calc(100% + 40px);
-			}
-
-			.swiper-button-next.swiper-button-disabled, 
-			.swiper-button-prev.swiper-button-disabled {
-				fill: #a5a5a5;
-				stroke: #a5a5a5;
-			}
   	}
 
   	&_slider {
 
 			.depfin-budget-moscow-media-materials__slider-wrap {
 				position: relative;
-		    margin-bottom: 39px;
+        margin-bottom: 29px;
 			}
 
 			.depfin-budget-moscow-media-materials__item {
@@ -116,7 +72,7 @@
 
 			.depfin-budget-moscow-media-materials__slider-gallery.swiper-container {
 		    position: static;
-		    width: 851px;
+        width: 920px;
 		    height: 531px;
 
 		    @media (max-width: 1140px) {
@@ -126,6 +82,14 @@
 
 		    @media (max-width: 580px) and (min-width: 401px) {
     	    height: 347px;
+		    }
+
+	  		.depfin-budget-moscow-media-materials__label {
+			    padding: 15px 19px 35px;
+	  		}
+
+		    .depfin-budget-moscow-media-materials__date {
+		    	display: none;
 		    }
 			}
 
@@ -160,13 +124,44 @@
 				right: 0;
 			}
 
+			.depfin-budget-moscow-media-materials__slider-pagination {
+				.depfin-budget-moscow-media-materials__item {
+			    height: 88px;
+	        opacity: .5;
+
+	        &:hover {
+	        	opacity: 1;
+	        }
+				}
+
+	  		.depfin-budget-moscow-media-materials__label {
+	  			display: none;
+	  		}
+
+	  		.swiper-slide-active {
+					opacity: 1;
+
+	  			.depfin-budget-moscow-media-materials__num {
+	  				display: block;
+	  			}
+	  		}
+			}
+
+			.depfin-budget-moscow-media-materials__slider-pagination.swiper-container {
+		    width: 920px;
+
+		    @media (max-width: 1140px) {
+		    	width: 100%;
+		    }
+			}
+
 			.depfin-budget-moscow-media-materials__slider-pagination .swiper-wrapper {
 				/*Swiper - gallery thumbs pagination bug fix*/
 				/*17.5px - half width of a spaceBetween*/
-				margin-left: calc(-40% + 17.5px); 
+				/*margin-left: calc(-40% + 17.5px); */
 
 				@media (max-width: 900px) {
-					margin-left: calc(-29% + 17.5px);
+					/*margin-left: calc(-29% + 17.5px);*/
 				}
 			}
 
@@ -185,6 +180,11 @@
   	color: $color-white;
   	text-transform: uppercase;
   	margin-bottom: 40px;
+
+  	&_one {
+  		max-width: 420px;
+  		margin-bottom: 0;
+  	}
   }
 
 	&__wrapper {
@@ -257,19 +257,10 @@
 	  	margin-bottom: 36px;
 		}
 
-		&:hover .depfin-budget-moscow-media-materials__label {
-			color: $color-white;
-		}
-
-		&:hover .depfin-budget-moscow-media-materials__link:before,
-		&:hover .depfin-budget-moscow-media-materials__container:before {
-			background-color: rgba(0,0,0,0);
-		}	
-
-		&:hover .depfin-budget-moscow-media-materials__play svg {
+/*		&:hover .depfin-budget-moscow-media-materials__play svg {
 			width: 20px;
 	    height: 31px;
-		}
+		}*/
 	
   }
 
@@ -279,13 +270,6 @@
   	width: 100%;
   	height: 100%;
   	text-decoration: none;
-
-  	&:before {
-  		@include ghost;
-  		background-color: rgba(0, 0, 0, .2);
-  		z-index: 1;
-  		transition: all .25s ease-in-out;
-  	}
 	}
 
 	&__container {
@@ -346,73 +330,38 @@
 
 	&__play {
 		@include center-block;
+		display: none;
+		top: 30%;
 		width: 53px;
 		height: 53px;
 		border: 1px solid rgba(255, 255, 255, .15);
 		border-radius: 50%;
-		background-color: rgba(255, 255, 255, .15);
+		background-color: $color-white;
 		z-index: 1;
 		
 
 		& svg {
 			@include center-block;
-			width: 14px;
-			height: 25px;
+			width: 26px;
+	    height: 37px;
+	    left: 55%;
 			stroke: #fff;
-    	fill: transparent;
+    	fill: #4c4cc3;
     	transition: all .25s ease-in-out;
 		}
-	}
-
-	&__slide {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 100%;
-		height: 49px;
-		background-color: $color-white;
-		z-index: 2;
-	}
-
-	&__slide-arrows {
-		@include center-block;
-		width: 50px;
-    height: 18px;
-	}
-	
-	&__prev,
-	&__next {
-		position: absolute;
-		top: 0;
-		width: 9px;
-		height: 18px;
-		fill: $color-black;
-		stroke: $color-black;
-		/*swiper reset*/
-		margin: 0;
-		background: none;
-	}
-
-	&__prev {
-		left: 0;
-		transform: rotate(180deg);
-	}
-
-	&__next {
-		right: 0;
 	}
 
 	&__label {
 		display: block;
 		width: 100%;
 		position: absolute;
-		padding: 15px 19px 34px;
+		padding: 15px 19px 25px;
 		bottom: 0;
 		left: 0;
 		font-family: $PFDinCondensedPro;
 		line-height: 20px;
-		color: rgba(255, 255, 255, .5);
-		background-color: rgba(23, 24, 50, .8);;
+		color: $color-black;
+		background-color: $color-white;
 		z-index: 1;
 		transition: all .25s ease-in-out;
 
@@ -431,11 +380,36 @@
 	}
 
 	&__date {
+		display: block;
 		font-size: 14px;
 		font-weight: 300;
+		opacity: .5;
+		margin-top: 5px;
+
+		&_one {
+			font-size: 18px;
+			margin-top: 15px;
+			margin-bottom: 50px;
+		}
 
 		@media (max-width: 900px) and (min-width: 581px) {
 			font-size: 16px;
+		}
+	}
+
+	&__num {
+		display: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+		font-size: 16px;
+		font-weight: 500;
+		color: $color-black;
+		padding: 5px;
+    background-color: $color-yellow;
+
+		&-current {
+			margin-right: 3px;
 		}
 	}
 

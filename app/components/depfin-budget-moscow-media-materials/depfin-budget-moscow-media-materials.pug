@@ -1,63 +1,24 @@
 include ../page-header/page-header
 include ../../blocks/button/button
 
-mixin photo(images, text, date)
+mixin card(img, text, date)
 	+e.item&attributes(attributes)
 		+e.A.link
 			+e.container
 				+e.DIV.slider-wrapper
-					each img in images
-						+e.IMG(src= 'assets/images/depfin-budget-moscow-media-materials/' + img + '.jpg').img
+					+e.IMG(src= 'assets/images/depfin-budget-moscow-media-materials/' + img + '.jpg').img
 
-				+e.label
-					+e.P.text= text
-					+e.SPAN.date= date
-
-mixin photo-slider(images, text, date)
-	+e.item&attributes(attributes)
-		+e.A(href='#').link
-			+e.container.swiper-container
-				+e.DIV.slider-wrapper.swiper-wrapper
-					each img in images
-						+e.IMG(src= 'assets/images/depfin-budget-moscow-media-materials/' + img + '.jpg').img.swiper-slide
-
-				+e.paginate
-					+e.paginate-bullets.swiper-pagination
-
-				+e.label
-					+e.P.text= text
-					+e.SPAN.date= date
-
-mixin video(image, text, date)
-	+e.item&attributes(attributes)
-		+e.A(href='#').link
-			+e.container
-				+e.IMG(src= 'assets/images/depfin-budget-moscow-media-materials/' + image + '.jpg').img
-						
 				+e.BUTTON.play
-					+icon('angle-arrow-slim')
+					+icon('angle-arrow')
 
-			+e.label
-				+e.P.text= text
-				+e.SPAN.date= date
+				+e.label
+					+e.P.text= text
+					+e.SPAN.date= date
 
-mixin present(images, text, date)
-	+e.item&attributes(attributes)
-		+e.A(href='#').link
-			+e.container.swiper-container
-				+e.DIV.slider-wrapper.swiper-wrapper
-					each img in images
-						+e.IMG(src= 'assets/images/depfin-budget-moscow-media-materials/' + img + '.jpg').img.swiper-slide
-
-				+e.slide
-					+e.slide-arrows
-						+icon('triangle-arrow').prev.swiper-button-prev
-						+icon('triangle-arrow').next.swiper-button-next
-
-			+e.label
-				+e.P.text= text
-				+e.SPAN.date= date
-
+				+e.num
+					+e.num-current 1
+					| /
+					+e.num-total 0
 //- Шапка
 
 mixin depfin-budget-moscow-media-materials()

@@ -1,0 +1,47 @@
+include depfin-budget-moscow-media-materials
+
+//- Отдельное фото - слайдер
+mixin materials-present-one()
+	+depfin-budget-moscow-media-materials()
+		+e.title._one Возле лужников появится кафе с фонтаном-принтером
+		+e.date._one 1 апреля 2016
+
+		+e.SECTION.materials._slider
+
+			+e.slider-wrap
+				+e.slider-gallery.swiper-container
+					+e.slider-wrapper.swiper-wrapper
+						+card('guide_01', 'Возле лужников появится кафе с фонтаном-принтером.', '1 апреля 2016').swiper-slide
+						+card('guide_02', 'Русский Монмартр и акунинская Москва: бесплатные экскурсии.', '1 апреля 2016').swiper-slide
+						+card('guide_03', 'Возле лужников появится кафе с фонтаном-принтером.', '1 апреля 2016').swiper-slide
+						+card('guide_04', 'Русский Монмартр и акунинская Москва: бесплатные экскурсии.', '1 апреля 2016').swiper-slide
+						+card('guide_05', 'Возле лужников появится кафе с фонтаном-принтером.', '1 апреля 2016').swiper-slide
+						+card('guide_06', 'Русский Монмартр и акунинская Москва: бесплатные экскурсии.', '1 апреля 2016').swiper-slide
+						+card('guide_07', 'Возле лужников появится кафе с фонтаном-принтером.', '1 апреля 2016').swiper-slide
+						+card('guide_01', 'Русский Монмартр и акунинская Москва: бесплатные экскурсии.', '1 апреля 2016').swiper-slide
+					+e.paginate
+						+e.paginate-bullets.swiper-pagination
+					+icon('icon-prev').slider-prev.swiper-button-prev
+					+icon('icon-next').slider-next.swiper-button-next
+
+			+e.slider-pagination.swiper-container
+				+e.slider-wrapper.swiper-wrapper
+					+card('guide_01', 'Возле лужников появится кафе с фонтаном-принтером.', '1 апреля 2016').swiper-slide
+					+card('guide_02', 'Русский Монмартр и акунинская Москва: бесплатные экскурсии.', '1 апреля 2016').swiper-slide
+					+card('guide_03', 'Возле лужников появится кафе с фонтаном-принтером.', '1 апреля 2016').swiper-slide
+					+card('guide_04', 'Русский Монмартр и акунинская Москва: бесплатные экскурсии.', '1 апреля 2016').swiper-slide
+					+card('guide_05', 'Возле лужников появится кафе с фонтаном-принтером.', '1 апреля 2016').swiper-slide
+					+card('guide_06', 'Русский Монмартр и акунинская Москва: бесплатные экскурсии.', '1 апреля 2016').swiper-slide
+					+card('guide_07', 'Возле лужников появится кафе с фонтаном-принтером.', '1 апреля 2016').swiper-slide
+					+card('guide_01', 'Русский Монмартр и акунинская Москва: бесплатные экскурсии.', '1 апреля 2016').swiper-slide
+
+		+e.SECTION.materials._present
+			+e.H3.title Другие презентации
+			+e.content
+				+card('item1', 'Возле лужников появится кафе с фонтаном-принтером.', '1 апреля 2016')
+				+card('item2', 'Русский Монмартр и акунинская Москва: бесплатные экскурсии.', '1 апреля 2016')
+				+card('item3', 'Возле лужников появится кафе с фонтаном-принтером.', '1 апреля 2016')
+				+card('item4', 'Русский Монмартр и акунинская Москва: бесплатные экскурсии.', '1 апреля 2016')
+			+e.more
+				+button()._kind_transparent
+					| Показать еще

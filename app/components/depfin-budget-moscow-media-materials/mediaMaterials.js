@@ -4,15 +4,6 @@ import Swiper from 'swiper';
 export default () => {
   var page = '.depfin-budget-moscow-media-materials';
 
-  const photo = new Swiper(page+ '__materials_photo ' +page+ '__container', {
-    pagination: page+ '__paginate-bullets',
-    paginationClickable: true
-  });
-  const present = new Swiper(page+ '__materials_present '+page+ '__container', {
-    nextButton: page+ '__next',
-    prevButton: page+ '__prev',
-  });
-
   const sliderGallery = new Swiper(page+ '__materials_slider ' +page+ '__slider-gallery', {
     nextButton: page+ '__slider-next',
     prevButton: page+ '__slider-prev',
@@ -20,8 +11,7 @@ export default () => {
     paginationClickable: true
   });
   const sliderPagination = new Swiper(page+ '__materials_slider ' +page+ '__slider-pagination', {
-    spaceBetween: 35,
-    slidesPerView: '4',
+    slidesPerView: '6',
     centeredSlides: true,
     touchRatio: 0.2,
     slideToClickedSlide: true,
@@ -29,7 +19,14 @@ export default () => {
       900: {
         slidesPerView: '2',
       }
-    }
+    },
+    onInit: function(swiper) {
+      var slides = $(page + '__materials_slider ' + page + '__slider-pagination .swiper-slide').length;
+      $(page + '__materials_slider ' + page + '__slider-pagination .swiper-slide ' + page + '__num-total').text(slides);
+    },
+    onSlideChangeEnd: function(swiper) {
+      $(page + '__materials_slider ' + page + '__slider-pagination .swiper-slide ' + page + '__num-current').text(swiper.activeIndex + 1);
+    },
   });
   sliderGallery.params.control = sliderPagination;
   sliderPagination.params.control = sliderGallery;

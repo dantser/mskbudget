@@ -6,6 +6,8 @@ include ../../blocks/arrow-button/arrow-button
 include ../../blocks/link/link
 include ../../blocks/selectbox/selectbox
 include ../../blocks/dropdown-block/dropdown-block
+include ../analityc-table/analityc-table
+include ../../blocks/slide-arrows/slide-arrows
 
 mixin services_net()
 
@@ -52,21 +54,23 @@ mixin services_net()
 			+arrow-button().services-net-domain__arrow._next.swiper-button-next
 
 	mixin table(data, leftCaption, centerCaption, rightCaption)
+		.analityc-table
+			+slide-arrows().__slide-arrows
 
-		+b.services-net-table&attributes(attributes)
-			+e.table
+			+b.services-net-table.analityc-table__wrapper(data-offset='100')&attributes(attributes)
+				+e.table
 
-				+e.rows.services-net-table__caption
-				
-					+e.H3.col._left= leftCaption
-					+e.H3.col._center= centerCaption
-					+e.H3.col._right= rightCaption
+					+e.rows.services-net-table__caption
+					
+						+e.H3.col._left= leftCaption
+						+e.H3.col._center= centerCaption
+						+e.H3.col._right= rightCaption
 
-				+e.rows.services-net-table__main
-					+e.wrapper
-						+e.tile
-							- for (var i=0; i<data.length; i++)
-								+row(data[i].id, data[i].colOne, data[i].colTwo, data[i].colThree)
+					+e.rows.services-net-table__main
+						+e.wrapper
+							+e.tile
+								- for (var i=0; i<data.length; i++)
+									+row(data[i].id, data[i].colOne, data[i].colTwo, data[i].colThree)
 		A(href="#").services-net-table__show-more.d-si__button.d-si__button_show-more Показать еще
 
 	mixin row(num, colOne, colTwo, colThree)
@@ -163,7 +167,7 @@ mixin services_net()
 							+e.year
 								+e.SPAN.year-label Год
 								+selectbox('year', [{"val":"opt1", "text":"2017"}, {"val":"opt2", "text":"2016"}]).services-net-institute__year-select
-							+table(getData('net-institute'), 'Наименование услуги', 'Пользователи', 'Объем услуги')._institute-table
+							+table(getData('net-institute'), 'Наименование услуги', 'Пользователи', 'Объем услуги').services-net-table_institute-table
 
 		+dropdown().load-anim-fade(data-delay="1700")
 
