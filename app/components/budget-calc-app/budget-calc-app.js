@@ -149,12 +149,5 @@ export default () => {
     window.addEventListener('load', moveAroundThoseWidgets);
     window.addEventListener('resize', moveAroundThoseWidgets);
   }
-  
-  
-  
-  $('.budget-calc-app .range-ui__input').click(function(e){
-    e.preventDefault();
-    e.stopPropagation();
-    $(this).focus();
-  });
+
 }
