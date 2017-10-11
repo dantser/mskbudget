@@ -22,6 +22,7 @@ export default () => {
       }
     }
   });
+  
   const galleryThumbs = new Swiper('.gallery-thumbs', {
     spaceBetween: 35,
     slidesPerView: '4',
@@ -32,8 +33,18 @@ export default () => {
       1024: {
         spaceBetween: 28
       }
+    },
+    roundLengths: true,
+    onInit: function(swiper) {
+      $('.gallery-thumbs .swiper-slide').each(function(){
+        var slideIndex = $(this).index() + 1;
+        $(this).find('.open-slider__num-current').text(slideIndex);
+      });
+      var slidesLength = swiper.slides.length;
+      $('.gallery-thumbs').find('.open-slider__num-total').text(slidesLength);
     }
   });
+  
   galleryTop.params.control = galleryThumbs;
   galleryThumbs.params.control = galleryTop;
   

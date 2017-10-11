@@ -1,12 +1,19 @@
 include ../../blocks/icon/icons
 
-mixin open-slide(img, fancybox)
+mixin open-slide-gallery(img)
   .swiper-slide
-    .open-slider__content
-    if fancybox
+    +e.content
       +e.A(href='assets/images/presentation/'+img+'', data-fancybox).image-link
         +e.IMG(src='assets/images/presentation/'+img+'').image
-    else
+      
+mixin open-slide-thumbs(img)
+  .swiper-slide
+    +e.content
+      +e.pagination
+        +e.num
+          +e.SPAN.num-current
+          |  /
+          +e.SPAN.num-total
       +e.IMG(src='assets/images/presentation/'+img+'').image
 
 mixin open-slider-gallery()
