@@ -91,16 +91,17 @@ export default () => {
     });
 
     $input.on('change', () => {
+      const currentValue = $slider.slider('value');
       const valueWithCorrectFloat = $input.val().replace(',','.');
       const newValue = parseFloat(valueWithCorrectFloat);
 
-      if (newValue > min && newValue < max) {
+      if (newValue >= min && newValue <= max) {
         $slider.slider('value', newValue);
-      } else if (newValue <= min) {
-        $slider.slider('value', min);
-      } else if (newValue >= max) {
-        $slider.slider('value', max);
+      } else {
+        $slider.slider('value', currentValue);
       }
+      
+      $input.blur();
     });
   });
 
