@@ -1,5 +1,8 @@
-import $ from 'jquery';
+// import $ from 'jquery';
 import Swiper from 'swiper';
+import fancybox from '@fancyapps/fancybox';
+
+const $ = window.$;
 
 export default () => {
   var page = '.depfin-budget-moscow-media-materials';
@@ -33,6 +36,13 @@ export default () => {
   });
   sliderGallery.params.control = sliderPagination;
   sliderPagination.params.control = sliderGallery;
+
+  // fancybox
+  $(page + '__materials_slide [data-fancybox]').fancybox({
+    animationEffect: "fade",
+    clickContent: false,
+    buttons: ['close']
+  });
 
   var video = $(page + '__materials_video .media-card');
   var popup = $('.popup-video');

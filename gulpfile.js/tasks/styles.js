@@ -16,7 +16,7 @@ const isDebug = process.env.NODE_ENV !== 'production';
 gulp.task('styles', () => {
   gulp.src('app/styles/*.scss')
   .pipe(plumber({ errorHandler: errorHandler('Error in styles task') }))
-    .pipe(gulpIf(isDebug, sourcemaps.init()))
+    // .pipe(gulpIf(isDebug, sourcemaps.init()))
     .pipe(bulkSass())
     .pipe(sass())
     .pipe(postcss([
@@ -28,20 +28,20 @@ gulp.task('styles', () => {
     ]))
     .pipe(cssimport())
     .pipe(cssnano({ zIndex: false }))
-    .pipe(gulpIf(isDebug, sourcemaps.write()))
+    // .pipe(gulpIf(isDebug, sourcemaps.write()))
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest('dist/assets/styles'));
 
   //gulp.start('styles:lint');
 });
 
-gulp.task('styles:lint', () => (
-  gulp.src('app/**/*.scss')
-    .pipe(postcss([
-      stylelint(),
-      require('postcss-reporter')({
-        clearAllMessages: true,
-      }),
-    ], { syntax: require('postcss-scss') }))
-));
+// gulp.task('styles:lint', () => (
+//   gulp.src('app/**/*.scss')
+//     .pipe(postcss([
+//       stylelint(),
+//       require('postcss-reporter')({
+//         clearAllMessages: true,
+//       }),
+//     ], { syntax: require('postcss-scss') }))
+// ));
 /* eslint-enable global-require */
