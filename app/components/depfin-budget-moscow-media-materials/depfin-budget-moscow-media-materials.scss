@@ -18,126 +18,11 @@
 
   }
 
-  &__materials {
-  	margin-bottom: 100px;
-
-  	&_photo {
-  		//by default
-  	}
-
-  	&_video {
-
-  	}
-
-		&_video-one {
-
+	&__materials {
+		& + .depfin-budget-moscow-media-materials__materials {
+			margin-top: 100px;
 		}
-
-  	&_present {
-
-  	}
-
-  	&_slider {
-
-			.depfin-budget-moscow-media-materials__slider-wrap {
-				position: relative;
-        margin-bottom: 29px;
-			}
-
-			.depfin-budget-moscow-media-materials__slider-gallery.swiper-container {
-		    position: static;
-        width: 920px;
-		    height: 531px;
-
-		    @media (max-width: 1140px) {
-		    	width: 100%;
-		    	height: 247px;
-		    }
-
-		    @media (max-width: 580px) and (min-width: 401px) {
-    	    height: 347px;
-		    }
-			}
-
-			.depfin-budget-moscow-media-materials__slider-gallery .swiper-slide {
-				width: 100%;
-				height: 100%;
-			}
-			
-			.depfin-budget-moscow-media-materials__slider-pagination.swiper-container {
-/*				&::before,
-				&::after {
-					content: '';
-			    position: absolute;
-			    top: 0;
-			    width: 15%;
-			    height: 100%;
-			    pointer-events: none;
-			    z-index: 3;
-				}
-
-				&::before {
-	        left: 0;
-	        background-image: linear-gradient(to right, rgba(29,28,31,.8) 10%, transparent 90%);
-	        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00ffffff",endColorstr="#ffffff",GradientType=1);
-				}
-
-				&::after {
-	        right: 0;
-	        background-image: linear-gradient(to left, rgba(29,28,31,.8) 10%, transparent 90%);
-	        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00ffffff",endColorstr="#ffffff",GradientType=1);
-				}*/
-
-				@media (max-width: 580px) {
-					display: none;
-				}
-			}
-
-			.depfin-budget-moscow-media-materials__slider-gallery .swiper-button-prev,
-			.depfin-budget-moscow-media-materials__slider-gallery .swiper-button-next {
-				background-image: none;
-				fill: none;
-				stroke: $color-white;
-
-				@media (max-width: 580px) {
-			    width: 20px;
-			    height: 37px;
-				}
-			}
-
-			.depfin-budget-moscow-media-materials__slider-gallery .swiper-button-prev {
-				left: 0;
-			}
-
-			.depfin-budget-moscow-media-materials__slider-gallery .swiper-button-next {
-				right: 0;
-			}
-
-			.depfin-budget-moscow-media-materials__slider-pagination.swiper-container {
-		    width: 920px;
-
-		    @media (max-width: 1140px) {
-		    	width: 100%;
-		    }
-			}
-
-			.depfin-budget-moscow-media-materials__slider-pagination .swiper-wrapper {
-				/*Swiper - gallery thumbs pagination bug fix*/
-				/*17.5px - half width of a spaceBetween*/
-				/*margin-left: calc(-40% + 17.5px); */
-
-				@media (max-width: 900px) {
-					/*margin-left: calc(-29% + 17.5px);*/
-				}
-			}
-
-  		.depfin-budget-moscow-media-materials__paginate {
-  			@media (min-width: 901px) {
-  				display: none;
-  			}
-  		}
-  	}
-  }
+	}
 
   &__title {
   	max-width: 420px;
@@ -197,39 +82,6 @@
       display: inline-block;
     }
   }
-
-	&__paginate {
-		position: absolute;
-		left: 0;
-		bottom: 0;
-		width: 100%;
-		height: 37px;
-		z-index: 2;
-	}
-
-	&__paginate-bullets {
-		@include center-block;
-		height: 11px;
-		white-space: nowrap;
-
-		.swiper-pagination-bullet {
-			display: inline-block;
-			width: 11px;
-			height: 11px;
-			border-radius: 50%;
-			background: #fff;
-			opacity: .5;
-			margin-right: 9px;
-
-			&:last-child {
-				margin-right: 0;
-			}
-		}
-
-		.swiper-pagination-bullet-active {
-			opacity: 1;
-		}
-	}
 
   &__more {
   	width: 692px;

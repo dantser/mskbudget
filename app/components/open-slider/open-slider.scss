@@ -1,6 +1,15 @@
 @import "../../node_modules/@fancyapps/fancybox/dist/jquery.fancybox.css";
 
 .open-slider {
+
+  /*cover эффект для фото слайдов*/
+  &_img-cover {
+
+    .open-slider__image {
+      @include fill-img;
+    }
+  }
+
   .swiper-slider {
     position: relative;
   }
@@ -145,6 +154,18 @@
     max-height: 100%;
   }
   
+  &__label {
+    width: 100%;
+    min-height: 80px;
+    position: absolute;
+    bottom: 0;
+    padding: 19px 23px 25px;
+    color: $color-black;
+    text-align: left;
+    background-color: $color-white;
+    font-size: 16px;
+  }
+
   &__pagination {
     position: absolute;
     left: 0;

@@ -67,21 +67,7 @@
 	}
 
 	&__img {
-		
-		&_img-cover {
-			@include fill-img;
-		}
-
-		&_img-contain {
-	    position: absolute;
-	    left: 0;
-	    right: 0;
-	    top: 0;
-	    bottom: 0;
-	    margin: auto;
-	    max-width: 100%;
-	    max-height: 100%;
-		}
+		@include fill-img;
 	}
 
 	&__play {
@@ -146,30 +132,6 @@
 			font-size: 16px;
 		}
 	}
-
-	&__num {
-		display: none;
-		position: absolute;
-		top: 0;
-		left: 0;
-		font-size: 16px;
-		font-weight: 500;
-		color: $color-black;
-		padding: 5px;
-    background-color: $color-yellow;
-
-		&-current {
-			margin-right: 3px;
-		}
-	}
-}
-
-.media-card.media-card_img-cover {
-	@include fill-img;
-}
-
-.media-card.media-card_photo {
-	//by default
 }
 
 .media-card.media-card_video {
@@ -191,50 +153,5 @@
 	.media-card__play {
 		display: block;
 		top: 50%;
-	}
-}
-
-/*в режиме отдельной фотографии или презентации*/
-.media-card.media-card_slider {
-	width: 100%;
-	height: 100%;
-	margin: 0;
-	background: $color-white;
-
-	.media-card__label {
-    padding: 15px 19px 35px;
-	}
-
-  .media-card__date {
-  	display: none;
-  }
-
-  .media-card__img {
-    cursor: -moz-zoom-in; 
-    cursor: -webkit-zoom-in; 
-    cursor: zoom-in;
-  }
-}
-
-/*в режиме пагинатора*/
-.media-card.media-card_thumbnail {
-  height: 88px;
-  opacity: .5;
-  margin: 0;
-
-  &:hover {
-  	opacity: 1;
-  }
-
-	.media-card__label {
-		display: none;
-	}
-}
-
-.media-card.media-card_thumbnail-active { 
-	opacity: 1;
-
-	.media-card__num {
-		display: block;
 	}
 }

@@ -156,6 +156,34 @@ export default () => {
     });
   });
 
+  NET.find('.services-net-municipality__map-hover').hover(function() {
+    $('img[data-hover="' + $(this).data('hover-target') + '"]').show();
+  }, function() {
+    $('img[data-hover="' + $(this).data('hover-target') + '"]').hide();
+  })
+
+  NET.find('.services-net-municipality__map-hover').click(function(e) {
+    e.preventDefault();
+    $('.services-net-municipality__map-full').hide();
+  })
+
+  const MAP_POPUP = NET.find('.services-net__map-popup');
+  NET.find('.svg-map path[data-active]').hover(function(e) {
+    
+    var coordsX = $(this).offset().left,
+        coordsY = $(this).offset().top,
+        width = this.getBoundingClientRect().width,
+        height = this.getBoundingClientRect().height,
+        data = $(this).data('name');
+
+    MAP_POPUP.addClass('active');
+    MAP_POPUP.offset({top:coordsY + height, left:coordsX - width / 2});
+    MAP_POPUP.text(data);
+
+  }, function() {
+    MAP_POPUP.removeClass('active');
+  })
+
   function scrollUp() {
     setTimeout(function() {
       $("html,body").animate({

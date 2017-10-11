@@ -8,6 +8,7 @@ include ../../blocks/selectbox/selectbox
 include ../../blocks/dropdown-block/dropdown-block
 include ../analityc-table/analityc-table
 include ../../blocks/slide-arrows/slide-arrows
+include ../../blocks/svg-map/svg-map
 
 mixin services_net()
 
@@ -95,7 +96,7 @@ mixin services_net()
 		.wrapper
 			+tabs.services-net__content.load-anim-fade(data-delay="1500")
 
-				+tabs-tab(data-tab-group="netTabs", data-tab="netOne").active
+				+tabs-tab(data-tab-group="netTabs", data-tab="netOne")
 
 					+b.services-net-domain.services-net-inner._active
 						+slider()
@@ -108,7 +109,7 @@ mixin services_net()
 						.services-net__foot
 							a(href="#").analityc-more Посмотреть весь список
 
-				+tabs-tab(data-tab-group="netTabs", data-tab="netTwo")
+				+tabs-tab(data-tab-group="netTabs", data-tab="netTwo").active
 
 					+b.services-net-municipality.services-net-inner._active
 						+e.main
@@ -121,7 +122,27 @@ mixin services_net()
 								br
 								| ГОРОДА МОСКВЫ
 							+e.map
-								+e.IMG(src='assets/images/VMO/full-map.png')
+								+e.map-full
+									+e.IMG(src='assets/images/VMO/full-map.png')
+
+									//- каркас для контейнера
+									+e.IMG(src="assets/images/VMO/full-map.png").frame
+									
+									+e.map-hover(data-hover-target='md-map' data-tab-target="md-map")
+									+e.IMG(src="assets/images/VMO/md-hover-map.png" data-hover='md-map')
+									+e.map-hover(data-hover-target='cd-map' data-tab-target="cd-map")
+									+e.IMG(src="assets/images/VMO/cd-hover-map.png" data-hover='cd-map')
+									+e.map-hover(data-hover-target='sm-map' data-tab-target="sm-map")
+									+e.IMG(src="assets/images/VMO/sm-hover-map.png" data-hover='sm-map')
+								+tabs.services-net-municipality__map-parts
+									+tabs-tab.services-net-municipality__map-part(data-tab-group="servicesNet" data-tab='md-map')
+										+svg-map-mo()
+									+tabs-tab.services-net-municipality__map-part(data-tab-group="servicesNet" data-tab='cd-map')
+										+svg-map-go()
+									+tabs-tab.services-net-municipality__map-part(data-tab-group="servicesNet" data-tab='sm-map')
+										+svg-map-setl()
+
+
 						.services-net__foot
 							a(href="#").analityc-more Посмотреть весь список
 
@@ -172,3 +193,4 @@ mixin services_net()
 		+dropdown().load-anim-fade(data-delay="1700")
 
 		+e.mask
+		+e.map-popup Замоскворечье

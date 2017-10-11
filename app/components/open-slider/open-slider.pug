@@ -1,10 +1,12 @@
 include ../../blocks/icon/icons
 
-mixin open-slide-gallery(img)
+mixin open-slide-gallery(img, label)
   .swiper-slide
     +e.content
       +e.A(href='assets/images/presentation/'+img+'', data-fancybox).image-link
         +e.IMG(src='assets/images/presentation/'+img+'').image
+      if label
+        +e.label= label
       
 mixin open-slide-thumbs(img)
   .swiper-slide
