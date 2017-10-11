@@ -1,0 +1,212 @@
+.media-card {
+	display: inline-block;
+	width: 22%;
+	height: 247px;
+	margin: 0 calc(12% / 8);
+	margin-bottom: 36px;
+	cursor: pointer;
+
+	@media (max-width: 1140px) and (min-width: 901px) {
+		height: 210px;
+	}
+
+	@media (max-width: 900px) and (min-width: 401px) {
+    width: 44%;
+    height: 279px;
+    margin: 0 calc(12% / 4);
+    margin-bottom: 36px;
+	}
+
+	@media (max-width: 580px) and (min-width: 401px) {
+		height: 205px;
+	}
+
+	@media (max-width: 400px) {
+		width: 100%;
+  	margin: 0;
+  	margin-bottom: 36px;
+	}
+
+/*
+	&:hover .depfin-budget-moscow-media-materials__play svg {
+		width: 20px;
+    height: 31px;
+	}
+*/
+
+	&__link {
+		display: block;
+		position: relative;
+  	width: 100%;
+  	height: 100%;
+  	text-decoration: none;
+	}
+
+	&__container {
+		display: block;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+
+	&__slider-wrapper {
+		height: 100%;
+		z-index: auto;
+    white-space: nowrap;
+
+    > * {
+      white-space: normal;
+    }
+	}
+
+	&__img {
+		@include fill-img;
+		position: relative;
+	}
+
+	&__play {
+		@include center-block;
+		display: none;
+		top: 30%;
+		width: 53px;
+		height: 53px;
+		border: 1px solid rgba(255, 255, 255, .15);
+		border-radius: 50%;
+		background-color: $color-white;
+		z-index: 1;
+		
+
+		& svg {
+			@include center-block;
+			width: 26px;
+	    height: 37px;
+	    left: 55%;
+			stroke: #fff;
+    	fill: #4c4cc3;
+    	transition: all .25s ease-in-out;
+		}
+	}
+
+	&__label {
+		display: block;
+		width: 100%;
+		position: absolute;
+		padding: 15px 19px 25px;
+		bottom: 0;
+		left: 0;
+		font-family: $PFDinCondensedPro;
+		line-height: 20px;
+		color: $color-black;
+		background-color: $color-white;
+		z-index: 1;
+		transition: all .25s ease-in-out;
+
+		@media (max-width: 900px) and (min-width: 581px) {
+			line-height: 24px;
+		}
+	}
+
+	&__text {
+		font-size: 16px;
+		font-weight: 400;
+
+		@media (max-width: 900px) and (min-width: 581px) {
+			font-size: 20px;
+		}
+	}
+
+	&__date {
+		display: block;
+		font-size: 14px;
+		font-weight: 300;
+		opacity: .5;
+		margin-top: 5px;
+
+		@media (max-width: 900px) and (min-width: 581px) {
+			font-size: 16px;
+		}
+	}
+
+	&__num {
+		display: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+		font-size: 16px;
+		font-weight: 500;
+		color: $color-black;
+		padding: 5px;
+    background-color: $color-yellow;
+
+		&-current {
+			margin-right: 3px;
+		}
+	}
+}
+
+
+.media-card.media-card_photo {
+	//by default
+}
+
+.media-card.media-card_video {
+	.media-card__play {
+		display: block;
+	}
+}
+
+/*в режиме отдельного видео*/
+.media-card.media-card_video-one {
+	width: 100%;
+	height: 531px;
+	margin: 0;
+
+	.media-card__label {
+		display: none;
+	}
+
+	.media-card__play {
+		display: block;
+		top: 50%;
+	}
+}
+
+/*в режиме отдельной фотографии или презентации*/
+.media-card.media-card_slider {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+
+	.media-card__label {
+    padding: 15px 19px 35px;
+	}
+
+  .media-card__date {
+  	display: none;
+  }
+}
+
+/*в режиме пагинатора*/
+.media-card.media-card_thumbnail {
+  height: 88px;
+  opacity: .5;
+  margin: 0;
+
+  &:hover {
+  	opacity: 1;
+  }
+
+	.media-card__label {
+		display: none;
+	}
+	/*вешать на 1ый слайд в начале и на js при смене слайдов*/
+}
+
+.media-card.media-card_thumbnail-active { 
+	opacity: 1;
+
+	.media-card__num {
+		display: block;
+	}
+}

@@ -1,0 +1,20 @@
+include ../icon/icons
+
+mixin media-card(img, text, date)
+	+b.media-card&attributes(attributes)
+		+e.A.link
+			+e.container
+				+e.DIV.slider-wrapper
+					+e.IMG(src= 'assets/images/depfin-budget-moscow-media-materials/' + img + '.jpg').img
+
+				+e.BUTTON.play
+					+icon('angle-arrow')
+
+				+e.label
+					+e.P.text= text
+					+e.SPAN.date= date
+
+				+e.num
+					+e.num-current 1
+					| /
+					+e.num-total 0
