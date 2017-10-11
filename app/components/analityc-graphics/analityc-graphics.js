@@ -102,17 +102,16 @@ export default () => {
           var endPoint = rateCol.next().children().css('top');
           startPoint = parseInt(startPoint);
           endPoint = parseInt(endPoint);
-          var pointDiff = endPoint - startPoint;
-          var rateColLength = graphic.find('.growth-rate__col').length;
-          var lineLength = graphic.find('.growth-rate__line').length;
-          var lineWidth = rateCol.next().offset().left - rateCol.offset().left;
+          var pointDiffX = rateCol.next().offset().left - rateCol.offset().left;
+          var pointDiffY = endPoint - startPoint;
           if (isColumns) {
-            lineWidth -= rateCol.width();
+            pointDiffX -= rateCol.width();
           }
-          var angle = Math.atan(pointDiff/lineWidth);
+          var lineWidth = Math.sqrt(pointDiffX * pointDiffX + pointDiffY * pointDiffY);
+          var angle = Math.atan(pointDiffY/pointDiffX);
           angle = angle*180/Math.PI;
-          $(this).css('transform', 'skewY('+angle+'deg)');
           $(this).css('width', lineWidth+'px');
+          $(this).css('transform', 'rotate('+angle+'deg)');
         });
       });
     }
