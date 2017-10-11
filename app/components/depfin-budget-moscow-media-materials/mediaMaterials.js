@@ -21,17 +21,20 @@ export default () => {
       }
     },
     onInit: function(swiper) {
-      var slides = $(page + '__materials_slider ' + page + '__slider-pagination .swiper-slide').length;
-      $(page + '__materials_slider ' + page + '__slider-pagination .swiper-slide ' + page + '__num-total').text(slides);
+      var slides = $(page + '__materials_slider ' + page + '__slider-pagination .swiper-slide');
+      slides.find('.media-card__num-total').text(slides.length);
     },
     onSlideChangeEnd: function(swiper) {
-      $(page + '__materials_slider ' + page + '__slider-pagination .swiper-slide ' + page + '__num-current').text(swiper.activeIndex + 1);
+      var slides = $(page + '__materials_slider ' + page + '__slider-pagination .swiper-slide');
+      slides.find('.media-card__num-current').text(swiper.activeIndex + 1);
+      slides.removeClass('media-card_thumbnail-active');
+      slides.eq(swiper.activeIndex).addClass('media-card_thumbnail-active');
     },
   });
   sliderGallery.params.control = sliderPagination;
   sliderPagination.params.control = sliderGallery;
 
-  var video = $(page + '__materials_video ' +page+ '__item');
+  var video = $(page + '__materials_video .media-card');
   var popup = $('.popup-video');
   video.on('click', function(e) {
     e.preventDefault();
@@ -52,11 +55,11 @@ export default () => {
   const containerWidth = $(document).width();
 
   if (containerWidth < 1140 && containerWidth >= 401)
-    overflowDotts(42, page + '__text'); 
+    overflowDotts(42, '.media-card__text'); 
   else if (containerWidth < 400)
-    overflowDotts(80, page + '__text'); 
+    overflowDotts(80, '.media-card__text'); 
   else
-    overflowDotts(60, page + '__text'); 
+    overflowDotts(60, '.media-card__text'); 
 
 
   const moreBtn = $(page + '__more button');
