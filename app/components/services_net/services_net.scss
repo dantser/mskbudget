@@ -19,10 +19,20 @@
 		}
 
 		.services-net-institute__address-map {
-			position: absolute;
+			position: fixed;
+			top: 50%;
 			left: 0;
-			height: 560px;
+			transform: translateY(-50%);
 			z-index: 99999;
+
+			@media (max-width: 901px) and (min-width: 641px) {
+		    height: 560px;
+			}
+
+			@media (max-width: 600px) and (min-width: 400px) {
+				height: 560px;
+			}
+
 		}
 
 		.services-net-institute__address-map-open {
@@ -48,8 +58,8 @@
 		margin-top: 20px;
 
   	@media (max-width: 900px) and (min-width: 601px) {
-			font-size: 32px;
-	    line-height: 40px;
+			font-size: 26px;
+	    line-height: 34px;
 	    margin-top: 33px;
   	}
 
@@ -91,8 +101,8 @@
     	margin-right: 29px;
 
 	  	@media (max-width: 900px) and (min-width: 601px) {
-				font-size: 36px;
-		    line-height: 40px;
+				font-size: 30px;
+		    line-height: 34px;
 	  	}
 			
 	  	@media (max-width: 900px) {
@@ -111,9 +121,9 @@
 
 	  	.button-light {
 		  	@media (max-width: 900px) and (min-width: 601px) {
-			    font-size: 32px;
-			    line-height: 50px;
-			    padding: 11px 13px;
+			    font-size: 26px;
+			    line-height: 44px;
+			    padding: 11px 37px;
 		  	}	
 
 		  	@media (max-width: 600px) {
@@ -182,10 +192,6 @@
 	&__foot {
 		padding: 22px 39px;
     border-top: 1px solid #c5d8e4;
-    
-  	@media (max-width: 900px) and (min-width: 601px) {
-  		padding: 43px 30px;
-  	}	
 
   	@media (max-width: 580px) {
 			padding: 22px 15px;
@@ -197,7 +203,7 @@
 			margin: 0;
 
 	  	@media (max-width: 900px) and (min-width: 601px) {
-    		font-size: 36px;
+    		font-size: 30px;
 	  	}		
 
 	  	&::before {
@@ -285,7 +291,7 @@
     margin-top: 40px;
 
 	  @media (max-width: 900px) and (min-width: 601px) {
-			font-size: 32px;
+			font-size: 24px;
 			margin-top: 62px;
 	  }
 
@@ -406,7 +412,7 @@
       font-weight: 500;
 
       @media (max-width: 900px) and (min-width: 601px) {
-				font-size: 32px;
+				font-size: 28px;
 		    line-height: 32px;
       }
 		
@@ -427,7 +433,7 @@
     font-weight: 500;
 
     @media (max-width: 900px) and (min-width: 601px) {
-			font-size: 32px;
+			font-size: 26px;
 	    line-height: 38px;
     }
 
@@ -460,6 +466,10 @@
     margin: 43px auto 0 auto;
     max-width: 690px;
 
+    @media (max-width: 900px) and (min-width: 601px) {
+			font-size: 24px;
+    }
+		
     @media (max-width: 580px) {
       width: 100%;
     }
@@ -669,11 +679,6 @@
     text-transform: uppercase;
     margin-bottom: 10px;
 
-		@media (max-width: 900px) {
-			font-size: 60px;
-			margin-bottom: 21px;
-		}
-
 		@media (max-width: 600px) and (min-width: 581px) {
 			font-size: 26px;
 	    margin-bottom: 14px;
@@ -687,10 +692,6 @@
 
 	&__banner-value {
 		font-size: 30px;
-
-		@media (max-width: 900px) {
-	    font-size: 60px;
-		}
 
 		@media (max-width: 600px) {
 			font-size: 26px;
@@ -708,7 +709,7 @@
 		margin-left: 4px;
 
 		@media (max-width: 900px) {
-      font-size: 32px;
+      font-size: 18px;
 		}
 
 		@media (max-width: 600px) {
@@ -809,7 +810,8 @@
 		margin-top: 50px;
 
 		@media (max-width: 900px) and (min-width: 601px) {
-			font-size: 48px;
+			font-size: 34px;
+	    line-height: 40px;
 		}
 
 		@media (max-width: 900px) {
@@ -908,13 +910,11 @@
       &:nth-of-type(1) {
         top: 0;
         height: 50%;
-        background-color: blue;
       }
 
       &:nth-of-type(2) {
         top: 55%;
         height: 10%;
-        background-color: green;
         z-index: 2;
         width: 30%;
         transform: translateX(-50%);
@@ -936,7 +936,6 @@
       &:nth-of-type(3) {
         bottom: 0;
         height: 50%;
-        background-color: orange;
       }
 
     }
@@ -961,8 +960,8 @@
 		margin-bottom: 20px;
 
 		@media (max-width: 900px) and (min-width: 601px) {
-			font-size: 48px;
-	    line-height: 60px;
+			font-size: 34px;
+	    line-height: 40px;
 		}
 
 		@media (max-width: 580px) {
@@ -994,7 +993,7 @@
     cursor: pointer;
 
     @media (max-width: 900px) and (min-width: 601px) {
-	    font-size: 28px;
+	    font-size: 20px;
     }
 
     @media (max-width: 580px) {
@@ -1012,8 +1011,8 @@
     margin-top: 10px;
 
     @media (max-width: 900px) and (min-width: 601px) {
-	    font-size: 36px;
-	    line-height: 48px;
+			font-size: 34px;
+	    line-height: 40px;
 	    margin-top: 15px;
     }
 
@@ -1059,7 +1058,7 @@
 			margin-top: 16px;
 
 	    @media (max-width: 900px) and (min-width: 601px) {
-		    margin-top: 46px;
+		    margin-top: 30px;
 	    }
 
 	    @media (max-width: 580px) {
@@ -1075,7 +1074,7 @@
 		font-size: 14px;
 
     @media (max-width: 900px) and (min-width: 601px) {
-			font-size: 32px;
+			font-size: 24px;
     }
 		
 
@@ -1136,7 +1135,7 @@
 
     @media (max-width: 900px) and (min-width: 601px) {
 	    margin-top: 13px;
-	    font-size: 32px;
+      font-size: 24px;
     }
 
 	}
@@ -1152,7 +1151,7 @@
 		cursor: pointer;
 
     @media (max-width: 1140px) {
-	    top: -35px;
+	    top: -25px;
 	    right: 0;
     }
 
@@ -1178,7 +1177,7 @@
 			text-decoration: none;
 	    
 	    @media (max-width: 900px) {
-	     font-size: 28px!important; 
+	     font-size: 24px!important; 
 	     padding: 0 44px!important; 
 	     line-height: 68px!important; 
 	    }
@@ -1228,7 +1227,7 @@
     margin-right: 13px;
 
     @media (max-width: 900px) and (min-width: 601px) {
-			font-size: 36px;
+			font-size: 28px;
 	    margin-right: 28px;
     }
 
@@ -1242,7 +1241,7 @@
     @media (max-width: 900px) and (min-width: 601px) {
 	    width: 145px;
     	height: 68px;
-    	font-size: 32px;
+    	font-size: 26px;
     }
 		
     .selectbox__select {
@@ -1250,7 +1249,8 @@
 
 	    @media (max-width: 900px) and (min-width: 601px) {
 		    padding: 0 20px;
-		    font-size: 32px;
+		    font-size: 26px;
+		    line-height: 36px;
 	    }			
 
     }

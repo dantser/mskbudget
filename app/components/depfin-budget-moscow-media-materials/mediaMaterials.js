@@ -1,50 +1,10 @@
-// import $ from 'jquery';
+import $ from 'jquery';
 import Swiper from 'swiper';
-import fancybox from '@fancyapps/fancybox';
-
-const $ = window.$;
 
 export default () => {
-  var page = '.depfin-budget-moscow-media-materials';
+  var page = $('.depfin-budget-moscow-media-materials');
 
-  const sliderGallery = new Swiper(page+ '__materials_slider ' +page+ '__slider-gallery', {
-    nextButton: page+ '__slider-next',
-    prevButton: page+ '__slider-prev',
-    pagination: page+ '__paginate-bullets',
-    paginationClickable: true
-  });
-  const sliderPagination = new Swiper(page+ '__materials_slider ' +page+ '__slider-pagination', {
-    slidesPerView: '6',
-    centeredSlides: true,
-    touchRatio: 0.2,
-    slideToClickedSlide: true,
-    breakpoints: {
-      900: {
-        slidesPerView: '2',
-      }
-    },
-    onInit: function(swiper) {
-      var slides = $(page + '__materials_slider ' + page + '__slider-pagination .swiper-slide');
-      slides.find('.media-card__num-total').text(slides.length);
-    },
-    onSlideChangeEnd: function(swiper) {
-      var slides = $(page + '__materials_slider ' + page + '__slider-pagination .swiper-slide');
-      slides.find('.media-card__num-current').text(swiper.activeIndex + 1);
-      slides.removeClass('media-card_thumbnail-active');
-      slides.eq(swiper.activeIndex).addClass('media-card_thumbnail-active');
-    },
-  });
-  sliderGallery.params.control = sliderPagination;
-  sliderPagination.params.control = sliderGallery;
-
-  // fancybox
-  $(page + '__materials_slide [data-fancybox]').fancybox({
-    animationEffect: "fade",
-    clickContent: false,
-    buttons: ['close']
-  });
-
-  var video = $(page + '__materials_video .media-card');
+  var video = page.find('.media-card_video');
   var popup = $('.popup-video');
   video.on('click', function(e) {
     e.preventDefault();
@@ -72,13 +32,13 @@ export default () => {
     overflowDotts(60, '.media-card__text'); 
 
 
-  const moreBtn = $(page + '__more button');
-  const contentWrapper = $(page + '__wrapper');
+  const moreBtn = page.find('.depfin-budget-moscow-media-materials__more button');
+  const contentWrapper = page.find('.depfin-budget-moscow-media-materials__wrapper');
 
   moreBtn.on('click', function(e) {
     e.preventDefault();
     contentWrapper.animate({
-      height: contentWrapper.find(page + '__content').height()
+      height: contentWrapper.find('.depfin-budget-moscow-media-materials__content').height()
     }, 1000, function(){
       contentWrapper.height('auto');
     });

@@ -2,14 +2,15 @@ include depfin-budget-moscow-media-materials
 
 //- Отдельное фото - слайдер
 mixin materials-video-one()
-	+depfin-budget-moscow-media-materials()
+	+depfin-budget-moscow-media-materials('Видео')
 		+e.title Возле лужников появится кафе с фонтаном-принтером
 		+e.date 1 апреля 2016
 
 		+e.SECTION.materials
 
-			+e.slider-wrap
-				+media-card('item1', 'Возле лужников появится кафе с фонтаном-принтером.', '1 апреля 2016')._video-one
+			//- +media-card('item1', 'Возле лужников появится кафе с фонтаном-принтером.', '1 апреля 2016')._video-one
+			+e.video-wrap
+				iframe(src="https://www.youtube.com/embed/lw2uB24Wncc?ecver=2" style="position:absolute;width:100%;height:100%;left:0" width="630" height="360" frameborder="0" allowfullscreen)
 
 		+e.SECTION.materials
 			+e.H3.title Другие видеоматериалы

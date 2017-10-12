@@ -47,16 +47,16 @@ export default () => {
 
   FILTER_LINK.click(function() {
     if ($(this).hasClass('active'))
-      $('.extra-search.modal').show();
+      $(this).parents('.search_net').find('.search__filter').show();
     else
-      $('.extra-search.modal').hide();
+      $(this).parents('.search_net').find('.search__filter').hide();
 
     if ($(document).width() <= 900)
       MASK.addClass('active');
   })
   FILTER_CLOSE.click(function() {
-    $('.extra-search.modal').hide();
-    FILTER_LINK.toggleClass('active');
+    $(this).parents('.search_net').find('.search__filter').hide();
+    $(this).parents('.search_net').find('.filter-link').toggleClass('active');
     MASK.removeClass('active');
   })
 
@@ -123,12 +123,14 @@ export default () => {
 
     MAP_OPEN.click(function(e) {
       e.preventDefault();
+      $("html,body").css("overflow","hidden");  // запрет скролла страницы
       NET.addClass('services-net_popupMode');
       MASK.addClass('active');
       map.container.fitToViewport();
     })
     MAP_CLOSE.click(function(e) {
       e.preventDefault();
+      $("html,body").css("overflow","auto");
       NET.removeClass('services-net_popupMode');
       MASK.removeClass('active');
       map.container.fitToViewport();
@@ -137,6 +139,7 @@ export default () => {
 
   MASK.click(function(e) {
     e.preventDefault();
+    $("html,body").css("overflow","auto");
     $(this).removeClass('active');
     NET.removeClass('services-net_popupMode');
     $('.extra-search.modal').hide();
