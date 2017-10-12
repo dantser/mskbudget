@@ -63,7 +63,6 @@ export default () => {
       TABLINK.removeClass(ACTIVE_CLASS);
       EL.addClass(ACTIVE_CLASS);
       SEARCH.show();
-      $('.significant-list__slide-arrows').hide();
     })
   })
 
@@ -193,18 +192,25 @@ export default () => {
     
     $(window).scroll(function(){
       
-      var scrollDistance = $(window).scrollTop(),
-          block = $('.significant-list_list'),
-          blockTopDistance = block.offset().top - $(window).height() / 2 + 100,
-          blockHeight = block.height(),
-          blockBottomDistance = block.offset().top + blockHeight - $(window).height() / 2 - 100,
-          arrows = $('.significant-list__slide-arrows');
+      if ($('.significant-list_list').is(':visible')) {
       
-      if (scrollDistance >= blockTopDistance && scrollDistance <= blockBottomDistance) {
-        arrows.fadeIn();
+        var scrollDistance = $(window).scrollTop(),
+            block = $('.significant-list_list'),
+            blockTopDistance = block.offset().top - $(window).height() / 2 + 100,
+            blockHeight = block.height(),
+            blockBottomDistance = block.offset().top + blockHeight - $(window).height() / 2 - 100,
+            arrows = $('.significant-list__slide-arrows');
+        
+        if (scrollDistance >= blockTopDistance && scrollDistance <= blockBottomDistance) {
+          arrows.fadeIn();
+        } else {
+          arrows.fadeOut();
+        }
+        
       } else {
-        arrows.fadeOut();
+        $('.significant-list__slide-arrows').hide();
       }
+      
     });
     
   }
