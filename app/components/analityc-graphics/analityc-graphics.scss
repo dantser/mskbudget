@@ -1939,6 +1939,9 @@
     left: 0;
     right: 0;
     bottom: 0;
+    height: 50px;
+    padding-top: 19px;
+    background-color: #fff;
 
     &-year,
     &-text {
@@ -1958,6 +1961,8 @@
       text-transform: uppercase;
       margin-left: -100%;
       margin-right: -100%;
+      position: relative;
+      z-index: 2;
     }
   }
 
@@ -2053,6 +2058,40 @@
     @include analityc-graphics-bars(transparentred, #9d308a, rgba(157, 48, 138, .7), rgba(255, 105, 91, .7));
 
     @include analityc-graphics-bars(transparentgreen, #32b168, rgba(254, 227 ,0 , .7), rgba(48, 176, 105, .7));
+  }
+  
+  &__line-fill-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    position: relative;
+    
+    .analityc-graphics-bars__line-fill {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      transform-origin: right;
+      
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: -1px;
+        right: 0;
+        bottom: 0;
+        background-color: #fff;
+        opacity: .5;
+      }
+    }
+    
+    .analityc-graphics-bars__val {
+      position: relative;
+      color: #000;
+    }
   }
 
   .analityc-graphics-bars__line-bar-value{

@@ -213,14 +213,13 @@ export default () => {
           fill = $(this).find('.analityc-graphics-bars__line-fill'),
           rateLine = $(this).find('.analityc-graphics-bars__rate-line');
       
+      $(this).find('.analityc-graphics-bars__line-fill-area').parent().addClass('analityc-graphics-bars__line_area');
+      
+      var fillAreaLine = $(this).find('.analityc-graphics-bars__line_area')
+      
       fill.each(function(){
         var dheight = $(this).data('height');
         $(this).height(dheight);
-      });
-      
-      line.each(function(){
-        var lineHeight = $(this).height();
-        $(this).parent().height(lineHeight);
       });
       
       rateLine.each(function(){
@@ -246,8 +245,56 @@ export default () => {
         $(this).css('width', lineWidth+'px');
         $(this).css('transform', 'rotate('+angle+'deg)');
       });
+      
+      fillAreaLine.each(function(){
+        
+        var fillArea = $(this).find('.analityc-graphics-bars__line-fill-area'),
+            tranPoint = 0;
+        
+        for (var i = (fillArea.length - 1); i >= 0; i--) {
+        
+          var barGraphic = '.analityc-graphics-bars__graphic',
+              lineFill = '.analityc-graphics-bars__line-fill',
+              fillAreaName = fillArea.eq(i).data('checkbox'),
+              prevLineFill = $(this).parents(barGraphic).prev().find(lineFill+'[data-checkbox="'+fillAreaName+'"]'),
+              nextLineFill = $(this).parents(barGraphic).next().find(lineFill+'[data-checkbox="'+fillAreaName+'"]'),
+              prevLineFillHeight = prevLineFill.height(),
+              nextLineFillHeight = nextLineFill.height(),
+              maxLineFillHeight;
+          
+          if (nextLineFillHeight >= prevLineFillHeight) {
+            maxLineFillHeight = nextLineFillHeight;
+          } else {
+            maxLineFillHeight = prevLineFillHeight;
+          }
+          
+          fillArea.eq(i).height(maxLineFillHeight);
+          
+          var startPoint = prevLineFill.offset().top,
+              endPoint = nextLineFill.offset().top,
+              pointDiff = endPoint - startPoint,
+              heightDiff = nextLineFillHeight - prevLineFillHeight,
+              areaWidth = $(this).width(),
+              angle = Math.atan(pointDiff/areaWidth);
+          
+          if (heightDiff < 0) {
+            tranPoint += heightDiff * -1;
+          }
+          
+          angle = angle*180/Math.PI;
+          fillArea.eq(i).css('transform', 'translateY('+tranPoint+'px)');
+          fillArea.eq(i).find(lineFill).css('transform', 'skewY('+angle+'deg)');
+          fillArea.eq(i).find(lineFill).next().css('top', (pointDiff/2 * -1)+'px');
+        }
+      });
+      
+      line.each(function(){
+        var lineHeight = $(this).height();
+        $(this).parent().height(lineHeight);
+      });
     });
   }
+  
   
   
   // Функция, позиционирующая числовые подписи в графиках

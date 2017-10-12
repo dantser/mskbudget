@@ -1426,7 +1426,6 @@ mixin analityc-graphics-bars(data)
     each item in data
       +e.graphic
         +e.lines
-
           +e.line
             +e.line-bar-value= item.value
             
@@ -1456,25 +1455,34 @@ mixin analityc-graphics-bars-alt(data)
     each item in data
       +e.graphic
         +e.lines
-
           +e.line
+          
             if item.value
               +e.line-bar-value= item.value
-              +e.line-fill._green(data-height=item.heights[1])
-                +e.val= item.values[1]
-              +e.line-fill._red(data-height=item.heights[0])
-                +e.val= item.values[0]
-            if item.change
-              +e.line-fill._transparentgreen(data-height=item.heights[1])
-                +e.val= item.change[3]
-                +e.val= item.change[2]
-              +e.line-fill._transparentred(data-height=item.heights[0])
-                +e.val= item.change[1]
-                +e.val= item.change[0]
+              
+              - for (var i = item.bars.length - 1; i > -1; i--)
+                +e.line-fill(class='_'+item.bars[i].color+'', data-height=item.bars[i].height, data-checkbox=item.bars[i].name)
+                  +e.val= item.bars[i].barvalue
+                  
+            if item.rate
+            
+              - for (var i = item.bars.length - 1; i > -1; i--)
+                +e.line-fill-area(data-checkbox=item.bars[i].name)
+                  +e.line-fill(class='_'+item.bars[i].color+'')
+                  +e.val= item.bars[i].change[0]
+                    br
+                    = item.bars[i].change[1]
+
           if item.changes
-            +e.changes
-              +e.abs= item.changes[0]
-              +e.percent= item.changes[1]
+            if item.changes[2]
+              +e.changes._neg
+                +e.abs= item.changes[0]
+                +e.percent= item.changes[1]
+            else
+              +e.changes
+                +e.abs= item.changes[0]
+                +e.percent= item.changes[1]
+                
         +e.caption
           +e.STRONG.caption-year= item.year
           +e.SPAN.caption-text= item.text
