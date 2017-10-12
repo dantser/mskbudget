@@ -28,29 +28,4 @@ export default () => {
       EL.parent('.legend__item').hide();
     });
   });
-  
-  
-  // Отображение графиков по чекбоксам
-  function checkLegendBoxes() {
-    $('.legend_checkbox .checkbox').each(function(){
-      var checkBox = $(this).find('.checkbox__control'),
-          checkStatus = checkBox.is(':checked'),
-          name = checkBox.attr('name'),
-          graphic = $(this).parent().siblings('.analityc-graphics-container');
-      
-      if (checkStatus == true) {
-        graphic.find('[data-checkbox="'+name+'"]').show();
-      } else {
-        graphic.find('[data-checkbox="'+name+'"]').hide();
-      }
-      
-    });
-  }
-  
-  if ($('.legend_checkbox').length) {
-    checkLegendBoxes();
-    $(document).on('change', '.legend_checkbox .checkbox__control', function(){
-      checkLegendBoxes();
-    });
-  }
 }
