@@ -210,7 +210,8 @@ export default () => {
     $('.analityc-graphics-bars').each(function(){
       
       var line = $(this).find('.analityc-graphics-bars__line'),
-          fill = $(this).find('.analityc-graphics-bars__line-fill');         
+          fill = $(this).find('.analityc-graphics-bars__line-fill'),
+          rateLine = $(this).find('.analityc-graphics-bars__rate-line');
       
       fill.each(function(){
         var dheight = $(this).data('height');
@@ -222,6 +223,29 @@ export default () => {
         $(this).parent().height(lineHeight);
       });
       
+      rateLine.each(function(){
+        var barGraphic = '.analityc-graphics-bars__graphic',
+            lineFill = '.analityc-graphics-bars__line-fill',
+            curLineFill = $(this).parents(lineFill),
+            curLineFillName = curLineFill.data('checkbox'),
+            nextLineFill = $(this).parents(barGraphic).next().find(lineFill+'[data-checkbox="'+curLineFillName+'"]'),
+            startPoint = curLineFill.offset().top,
+            endPoint = nextLineFill.offset().top;
+            
+        startPoint = parseInt(startPoint);
+        endPoint = parseInt(endPoint);
+        
+        var pointDiffX = nextLineFill.offset().left - curLineFill.offset().left;
+        var pointDiffY = endPoint - startPoint;
+        
+        pointDiffX -= curLineFill.width();
+        
+        var lineWidth = Math.sqrt(pointDiffX * pointDiffX + pointDiffY * pointDiffY);
+        var angle = Math.atan(pointDiffY/pointDiffX);
+        angle = angle*180/Math.PI;
+        $(this).css('width', lineWidth+'px');
+        $(this).css('transform', 'rotate('+angle+'deg)');
+      });
     });
   }
   
@@ -376,4 +400,50 @@ export default () => {
   })
 
   positionValues();
+  
+  
+  
+  // Графики analityc-graphics-line-vertical-alt
+  if ($('.analityc-graphics-line-vertical_alt').length) {
+    graphicLineVertAlt();
+  }
+  
+  function graphicLineVertAlt() {
+    $('.analityc-graphics-line-vertical_alt').each(function(){
+      var line = $(this).find('.analityc-graphics-line-vertical__line');
+      line.each(function(){
+        var barValue = $(this).find('.analityc-graphics-line-vertical__line-bar-value'),
+            lineFill = $(this).find('.analityc-graphics-line-vertical__line-fill'),
+            value = parseFloat(barValue.text().replace(',','.'));
+        barValue.css('bottom', value + '%');
+        lineFill.css('height', value + '%');
+      });
+    });
+  }
+  
+  
+  // Отображение графиков по чекбоксам
+  function checkLegendBoxes() {
+    $('.legend_checkbox .checkbox').each(function(){
+      var checkBox = $(this).find('.checkbox__control'),
+          checkStatus = checkBox.is(':checked'),
+          name = checkBox.attr('name'),
+          graphic = $(this).parent().siblings('.analityc-graphics-container');
+      
+      if (checkStatus == true) {
+        graphic.find('[data-checkbox="'+name+'"]').show();
+      } else {
+        graphic.find('[data-checkbox="'+name+'"]').hide();
+      }
+      
+    });
+  }
+  
+  if ($('.legend_checkbox').length) {
+    checkLegendBoxes();
+    $(document).on('change', '.legend_checkbox .checkbox__control', function(){
+      checkLegendBoxes();
+      graphicBars();
+    });
+  }
 }
