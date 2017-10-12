@@ -123,7 +123,8 @@ export default () => {
 
     MAP_OPEN.click(function(e) {
       e.preventDefault();
-      $("html,body").css("overflow","hidden");  // запрет скролла страницы
+      if ($(document).width() <= 900)
+        $("html,body").css("overflow","hidden");  // запрет скролла страницы
       NET.addClass('services-net_popupMode');
       MASK.addClass('active');
       map.container.fitToViewport();
