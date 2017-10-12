@@ -169,6 +169,14 @@ export default () => {
   NET.find('.services-net-municipality__map-hover').click(function(e) {
     e.preventDefault();
     $('.services-net-municipality__map-full').hide();
+    $('.services-net-municipality__back').addClass('active');
+  })
+
+  NET.find('.services-net-municipality__back').click(function(e) {
+    e.preventDefault();
+    $(this).removeClass('active');
+    $('.services-net-municipality__map-full').show();
+    $('.services-net-municipality__map-part').hide();
   })
 
   const MAP_POPUP = NET.find('.services-net__map-popup');

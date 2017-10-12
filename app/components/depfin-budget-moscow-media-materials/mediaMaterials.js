@@ -4,13 +4,15 @@ import Swiper from 'swiper';
 export default () => {
   var page = $('.depfin-budget-moscow-media-materials');
 
-  var video = page.find('.media-card_video');
+  var video = $('.media-card_video');
   var popup = $('.popup-video');
-  video.on('click', function(e) {
-    e.preventDefault();
-    $("#popup-wrapper").fadeIn(321);
-    popup.fadeIn(321);
-  });
+
+  if (video.length)
+    video.on('click', function(e) {
+      e.preventDefault();
+      $("#popup-wrapper").fadeIn(321);
+      popup.fadeIn(321);
+    });
 
   function overflowDotts(size, element) {
     var content = $(element);
