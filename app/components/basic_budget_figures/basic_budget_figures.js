@@ -34,9 +34,8 @@ export default () => {
   });
 
 
-
-  $(".basic-budget .analityc-widget_figures .analityc-control-group select").on("change", function () {
-    
+  function changeSelect()
+  {
     var rounds = $(".analityc-widget-rounds"),
         dp = $('.analityc-control-group._dp'),
         stageSelect = $('.analityc-control-group._stage select'),
@@ -49,8 +48,9 @@ export default () => {
     
     changeRounds(rounds, stageVal);
     changeDP(dp, stageVal, levelVal);
-    
-  });
+  }
+
+  $(".basic-budget .analityc-widget_figures .analityc-control-group select").on("change", changeSelect);
   
   function changeRounds(el, stageVal) {
     el.each(function(){
@@ -71,4 +71,5 @@ export default () => {
     });
   }
   
+  changeSelect();
 }

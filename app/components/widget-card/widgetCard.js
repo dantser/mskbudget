@@ -185,7 +185,7 @@ export default () => {
   $(document).on('click', '.widget-card-social-support li', function () {
     var newval = $(this).data('val');
     var widgetCard = $(this).parents('.widget-card');
-    widgetCard.find('.widget-card__info-block-items').hide();
+    widgetCard.find('.widget-card__info-block-items').removeClass('widget-card__info-block-items_active').hide();
     widgetCard.find('.widget-card__info-block-items[data-option="'+newval+'"]').show(321).addClass('widget-card__info-block-items_active');
   });
   
