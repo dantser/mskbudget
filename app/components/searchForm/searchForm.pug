@@ -4,6 +4,7 @@ include ../../blocks/icon/icons
 include ../../blocks/link/link
 include ../../blocks/button/button
 include ../../blocks/selectbox/selectbox
+include ../../blocks/radio/radio
 
 mixin searchForm(placeholder)
   +b.FORM.search.d-si__search-form(action="#")
@@ -32,9 +33,12 @@ mixin searchForm(placeholder)
                 SPAN.form__date-range-sep —
                 INPUT(type='text', value='дд.мм.гг', readonly='true').form__date-range-input.jq-f-datepicker.input-max
                 SPAN.form__date-range-icon
-              +checkbox() искать только в заголовках страниц
-              +checkbox() искать только в разделе Документы
-              +checkbox() искать только в разделе Новости
+              //+checkbox() искать только в заголовках страниц
+              //+checkbox() искать только в разделе Документы
+              //+checkbox() искать только в разделе Новости
+              +radio-alt('searchplace', 'headings', true) искать только в заголовках страниц
+              +radio-alt('searchplace', 'documents') искать только в разделе Документы
+              +radio-alt('searchplace', 'news') искать только в разделе Новости
             +e.col_two
               +e.title Раздел
               +e.checkbox
