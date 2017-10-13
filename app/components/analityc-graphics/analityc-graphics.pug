@@ -1420,6 +1420,37 @@ mixin analityc-graphics-line-gorizontal(data)
       +legend(getData('legend-moscow'))
 
 
+mixin analityc-graphics-classic(data)
+  .analityc-table._gr-classic
+    +slide-arrows().__slide-arrows
+    +b.analityc-graphics-classic.analityc-table__wrapper(data-offset='100')&attributes(attributes)
+      +e.wrapper
+        +e.clipper
+          +e.part._lines
+            each item in data
+              +e.item
+                +e.item-wrapper._income(data-val=item.income)
+                  +e.val= item.income + '%'
+                  +e.line
+                +e.item-wrapper._expenses(data-val=item.expenses) 
+                  +e.val= item.expenses + '%'
+                  +e.line
+
+        +e.part._captions
+          each year in data
+            +e.item 
+              +e.item-wrapper-bottom
+                +e.val= year.year
+                +e.stage= year.stage
+
+mixin analityc-graphics-custom1()
+  +b.analityc-graphics-custom&attributes(attributes)
+    //- реализация на js
+
+mixin analityc-graphics-custom2()
+  +b.analityc-graphics-custom&attributes(attributes)
+    //- реализация на js
+
 mixin analityc-graphics-bars(data)
   +b.analityc-graphics-bars&attributes(attributes)
 
@@ -1507,18 +1538,6 @@ mixin analityc-graphics-bars2(data)
         +e.caption
           +e.STRONG.caption-year= item.year
           +e.SPAN.caption-text= item.text
-mixin analityc-graphics-classic()
-  +b.analityc-graphics-classic&attributes(attributes)
-    //- реализация на js
-
-mixin analityc-graphics-custom1()
-  +b.analityc-graphics-custom&attributes(attributes)
-    //- реализация на js
-
-mixin analityc-graphics-custom2()
-  +b.analityc-graphics-custom&attributes(attributes)
-    //- реализация на js
-
 
 
 //- Темп роста
