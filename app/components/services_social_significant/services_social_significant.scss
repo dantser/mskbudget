@@ -473,6 +473,17 @@
     font-size: 0;
     margin-top: 19px;
   }
+  
+  &__map-mask {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,.5);
+    z-index: 2001;
+  }
 
   &__map {
     display: inline-block;
@@ -512,15 +523,32 @@
       height: 20px;
       fill: $color-yellow;
       cursor: pointer;
+      
+      @media screen and (max-width: 900px) {
+        position: fixed;
+        right: 5px;
+        top: 75px;
+      }
     }
 
     /*карта раскрыта*/
     &_active {
-      @include center-block;
-      position: fixed;
+      position: absolute;
+      left: 0;
       width: 1100px;
-      height: 500px;
-      z-index: 1;
+      z-index: 2002;
+      
+      @media screen and (max-width: 900px) {
+        position: fixed;
+        width: auto;
+        right: 0;
+        top: 100px;
+        bottom: 100px;
+        
+        &:after {
+          display: none;
+        }
+      }
     }
   }
 

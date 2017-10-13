@@ -424,6 +424,7 @@
           @media (max-width: 450px) {
             display: inline-block;
             width: 47%;
+            vertical-align: top;
           }
         }
       }
@@ -431,7 +432,7 @@
 
     &__icon {
       position: absolute;
-      left: 108%;
+      right: -15px;
       top: 5px;
       width: 10px;
       height: 6px;
@@ -523,6 +524,10 @@
         position: relative;
         letter-spacing: 0.1px;
         max-width: none;
+        
+        @media screen and (max-width: 450px) {
+          padding-right: 25px;
+        }
       }
     }
 
@@ -559,6 +564,11 @@
         color: #1e90ff;
       }
     }
+  }
+  
+  .radio-alt {
+    margin: 10px 0;
+    font-family: $PFDinTextPro;
   }
 }
 

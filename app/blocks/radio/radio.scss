@@ -41,3 +41,50 @@
     }
   }
 }
+
+.radio-alt {
+  display: block;
+  cursor: pointer;
+  padding-left: 20px;
+  font-size: 14px;
+  line-height: 1em;
+  position: relative;
+
+  &__control {
+    display: none;
+
+    &:checked + .radio-alt__box {
+      background-color: $color-link;
+      border-color: $color-link;
+      
+      .radio-alt__box-dot {
+        display: block;
+      }
+    }
+  }
+
+  &__box {
+    display: block;
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    left: 0;
+    top: 1px;
+    border: 1px solid #d7d7d7;
+    border-radius: 50%;
+  }
+  
+  &__box-dot {
+    display: none;
+    width: 4px;
+    height: 4px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 50%;
+    background-color: #fff;
+  }
+}

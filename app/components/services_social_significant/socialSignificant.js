@@ -168,18 +168,31 @@ export default () => {
     {suppressMapOpenBlock: true});
 
     const mapOpen = $('.significant-about__map-open');
+    
     mapOpen.click(function(e) {
       e.preventDefault();
       $('.significant-about__map').addClass('significant-about__map_active');
+      $('.significant-about__map-mask').show();
       smallMap.container.fitToViewport();
       // не активируется
       drowMarker(maps, smallMap, '1', 'СТАНЦИЯ МЕТРО «ХОВРИНО»', 'Улица Дыбенко, вблизи строений 34-38', smallCoord);
       $('.significant-about__map-close').show();
+      if ($(window).width() <= 900) {
+        var pageST = $(window).scrollTop();
+        $('body').addClass('noscroll').css('margin-top', '-'+pageST+'px');
+      }
     })
-    $('.significant-about__map-close').click(function(e) {
+    
+    $('.significant-about__map-close, .significant-about__map-mask').click(function(e) {
       e.preventDefault();
       $('.significant-about__map-close').hide();
+      $('.significant-about__map-mask').hide();
       $('.significant-about__map').removeClass('significant-about__map_active');
+      if ($(window).width() <= 900) {
+        var pageST = parseInt($('body').css('margin-top'));
+        $('body').removeClass('noscroll').css('margin-top', '');
+        $(window).scrollTop(pageST * -1);
+      }
       smallMap.container.fitToViewport();
     })
   })
