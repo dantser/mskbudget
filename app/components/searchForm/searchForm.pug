@@ -33,10 +33,10 @@ mixin searchForm(placeholder)
                 SPAN.form__date-range-sep —
                 INPUT(type='text', value='дд.мм.гг', readonly='true').form__date-range-input.jq-f-datepicker.input-max
                 SPAN.form__date-range-icon
-              //+checkbox() искать только в заголовках страниц
+              +checkbox() искать только в заголовках страниц
               //+checkbox() искать только в разделе Документы
               //+checkbox() искать только в разделе Новости
-              +radio-alt('searchplace', 'headings', true) искать только в заголовках страниц
+              +radio-alt('searchplace', 'all', true) искать по всему порталу
               +radio-alt('searchplace', 'documents') искать только в разделе Документы
               +radio-alt('searchplace', 'news') искать только в разделе Новости
             +e.col_two
@@ -45,16 +45,16 @@ mixin searchForm(placeholder)
                 +checkbox-all(true) О бюджете
                 +icon('caret').icon.js-icon
                 +e.checkbox-group
-                  +checkbox(true) один
-                  +checkbox(true) два
+                  +checkbox(true) Что такое бюджет?
+                  +checkbox(true) Бюджетная система
                   +checkbox(true) три
                   +checkbox(true) четыре
               +e.checkbox
                 +checkbox-all(true) Бюджет Москвы
                 +icon('caret').icon.js-icon
                 +e.checkbox-group
-                  +checkbox(true) один
-                  +checkbox(true) два
+                  +checkbox(true) Основные параметры бюджета
+                  +checkbox(true) Доходы бюджета
                   +checkbox(true) три
                   +checkbox(true) четыре
               +e.checkbox
