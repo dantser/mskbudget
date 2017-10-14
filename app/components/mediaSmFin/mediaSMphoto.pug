@@ -1,0 +1,38 @@
+include mediaSmFin
+
+mixin mediaSMphoto()
+	+b.SECTION.mediaSmFin.sections__item&attributes(attributes)
+		.wrapper.page-content-wrapper
+			+page-header('Фотографии официальных лиц', ['Открытость', 'Материалы для СМИ'], true)
+			+e.content.load-anim-fade(data-delay="1500")
+
+				+e.photos-group
+					+open-slider()._sm
+						+open-slider-gallery()
+							+sm-slide-gallery()
+								+photo-card(1, 'ЗЯББАРОВА', 'Елена Юрьевна', 'Министр Правительства Москвы, руководитель Департамента финансов города Москвы')._photo-slide.tile__inner
+							+sm-slide-gallery()
+								+photo-card(2, 'МЕНЬШОВ', 'Евгений Нариманович', 'Первый заместитель руководителя Департамента финансов города Москвы, начальник Московского городского казначейства')._photo-slide.tile__inner 
+							+sm-slide-gallery()
+								+photo-card(3, 'БУТАХИНА', 'Елена Анатольевна', 'Первый заместитель руководителя Департамента финансов города Москвы')._photo-slide.tile__inner 
+							+sm-slide-gallery()
+								+photo-card(4, 'ГУБАНОВА', 'Светлана Александровна', 'Заместитель руководителя Департамента финансов города Москвы')._photo-slide.tile__inner 
+
+						+open-slider-thumbs()
+							+open-slide-thumbs('smi_01.jpg')
+							+open-slide-thumbs('smi_02.jpg')
+							+open-slide-thumbs('smi_03.jpg')
+							+open-slide-thumbs('smi_04.jpg')
+
+				+e.materials-group
+					+e.H3.title Другие фотографии
+					+e.card-wrapper
+						.tile__item
+							+photo-card(1, 'ЗЯББАРОВА', 'Елена Юрьевна', 'Министр Правительства Москвы, руководитель Департамента финансов города Москвы').tile__inner 
+						.tile__item
+							+photo-card(2, 'МЕНЬШОВ', 'Евгений Нариманович', 'Первый заместитель руководителя Департамента финансов города Москвы, начальник Московского городского казначейства').tile__inner 
+						.tile__item
+							+photo-card(3, 'БУТАХИНА', 'Елена Анатольевна', 'Первый заместитель руководителя Департамента финансов города Москвы').tile__inner 
+						.tile__item
+							+photo-card(4, 'ГУБАНОВА', 'Светлана Александровна', 'Заместитель руководителя Департамента финансов города Москвы').tile__inner 
+					+e.A(href="#").show-more.d-si__button_show-more Показать еще

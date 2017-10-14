@@ -6,6 +6,27 @@
   padding-top: 207px;
   padding-bottom: 119px;
 
+  .doc-cards__download {
+    color: $color-yellow;
+    border-bottom-color: rgba(254, 227, 0, .4);
+    transition: color .25s ease-in-out;
+    position: absolute;
+    top: -55px;
+    right: 0;
+
+    @media (max-width: 900px) {
+      margin-top: 20px;
+    }
+
+    @media (max-width: 640px) {
+      margin: 0;
+    }
+
+    &:hover {
+      color: $color-white;
+    }
+  }
+
   &__card-wrapper {
     margin-top: 35px;
     text-align: justify;
@@ -107,11 +128,12 @@
   }
 
   &__materials-group {
-    margin-top: 46px;
+    margin-top: 97px;
   }
 
   &__photos-group {
-    margin-top: 97px;
+    position: relative;
+    margin-top: 46px;
 
     .mediaSmFin__title {
       letter-spacing: -.22px;

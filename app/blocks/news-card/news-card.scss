@@ -93,12 +93,29 @@
   }
 
   &_photo {
-    min-height: 497px;
+    min-height: 530px;
     padding-bottom: 50px;
+
 
     @media (max-width: 900px) {
       min-height: 497px;
       height: 497px;
+    }
+
+    &-slide {
+      min-height: 750px!important;
+      margin: 0 auto!important;
+      top: 0;
+      width: 440px;
+      padding-bottom: 0;
+
+      .news__thumb {
+        height: 527px!important;
+      }
+
+      .news__surname {
+        margin: 36px 75px 0 20px!important;
+      }
     }
 
     .news__thumb {
@@ -109,20 +126,61 @@
       }
     }
 
-    .news__name {
+    .news__surname {
       font-size: 20px;
+      text-align: left;
       margin: 13px 75px 0 20px;
+    }
+
+    .news__initials {
+      font-size: 20px;
+      text-align: left;
+      margin: 0 20px;
     }
 
     .news__position {
       font-size: 14px;
+      text-align: left;
       font-weight: 300;
-      margin: 3px 5px 0 20px;
+      margin: 24px 5px 0 20px;
       line-height: 20px;
     }
 
-    .news__bottom {
-      padding: 0 0 22px 19px;
+    .document__bottom {
+      padding: 0 0 22px 20px;
+    }
+
+    .document__dwnl {
+      margin: 11px 0 0;
+    }
+  }
+
+  &_logo {
+    min-height: auto;
+
+    .news__title {
+      font-size: 17px;
+      margin: 14px 20px 0;
+    }
+
+    .news__logo-img {
+      height: 90px;
+      margin-top: 23px;
+
+      img {
+        margin: 0 auto;
+        display: block;
+        width: auto;
+        height: 100%;
+      }
+    }
+
+    .document__bottom {
+      padding: 0 0 22px 20px;
+    }
+
+    .document__dwnl {
+      margin: 11px 0 0;
     }
   }
 
