@@ -82,17 +82,9 @@ export default () => {
   			else
   				$(this).removeClass('active');
   		})
+      
+      scrollUp();
   	})
-  })
-
-  const BACKBTN = $('.significant-about__back');
-  BACKBTN.click(function() {
-  	const ACTIVE_CLASS = 'button-light--fill';
-		TABLINK.removeClass(ACTIVE_CLASS);
-		$('.significant .button-light[data-tab-target="significantOne"]').addClass(ACTIVE_CLASS);
-		$('.significant .tabs__tab[data-tab="significantThree"]').hide();
-		SEARCH.show();
-		$('.significant .tabs__tab[data-tab="significantOne"]').show();
   })
 
   if ( $('#significant-bigmap').length > 0 ) {
@@ -171,35 +163,43 @@ export default () => {
     
     mapOpen.click(function(e) {
       e.preventDefault();
-      $('.significant-about__map').addClass('significant-about__map_active');
-      $('.significant-about__map-mask').show();
+      if ($(document).width() <= 900) $("html,body").css("overflow-y","hidden");
+      $('.significant').addClass('popupMode');
       smallMap.container.fitToViewport();
       // не активируется
       drowMarker(maps, smallMap, '1', 'СТАНЦИЯ МЕТРО «ХОВРИНО»', 'Улица Дыбенко, вблизи строений 34-38', smallCoord);
-      $('.significant-about__map-close').show();
-      if ($(window).width() <= 900) {
-        var pageST = $(window).scrollTop();
-        $('body').addClass('noscroll').css('margin-top', '-'+pageST+'px');
-      }
-    })
+    });
     
-    $('.significant-about__map-close, .significant-about__map-mask').click(function(e) {
+    $('.significant-about__map-close, .significant__mask, .significant-about__back').click(function(e) {
       e.preventDefault();
-      $('.significant-about__map-close').hide();
-      $('.significant-about__map-mask').hide();
-      $('.significant-about__map').removeClass('significant-about__map_active');
-      if ($(window).width() <= 900) {
-        var pageST = parseInt($('body').css('margin-top'));
-        $('body').removeClass('noscroll').css('margin-top', '');
-        $(window).scrollTop(pageST * -1);
-      }
+      if ($(document).width() <= 900) $("html,body").css("overflow-y","auto");
+      $('.significant').removeClass('popupMode');
       smallMap.container.fitToViewport();
-    })
+    });
   })
   .catch(error => console.log('Failed to load Yandex Maps', error));
 
   }
   
+  const BACKBTN = $('.significant-about__back');
+  BACKBTN.click(function() {
+    setTimeout(function(){
+      const ACTIVE_CLASS = 'button-light--fill';
+      TABLINK.removeClass(ACTIVE_CLASS);
+      $('.significant .button-light[data-tab-target="significantOne"]').addClass(ACTIVE_CLASS);
+      $('.significant .tabs__tab[data-tab="significantThree"]').hide();
+      SEARCH.show();
+      $('.significant .tabs__tab[data-tab="significantOne"]').show();
+    }, 1);
+  });
+  
+  function scrollUp() {
+    setTimeout(function() {
+      $("html,body").animate({
+        scrollTop: 0
+      }, 350);
+    }, 25);
+  }
   
   if ($('.significant').length && $(window).width() <= 750) {
     
