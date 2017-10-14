@@ -211,7 +211,8 @@ export default () => {
       
       var line = $(this).find('.analityc-graphics-bars__line'),
           fill = $(this).find('.analityc-graphics-bars__line-fill'),
-          rateLine = $(this).find('.analityc-graphics-bars__rate-line');
+          rateLine = $(this).find('.analityc-graphics-bars__rate-line'),
+          barVal = $(this).find('.analityc-graphics-bars__val');
       
       $(this).find('.analityc-graphics-bars__line-fill-area').parent().addClass('analityc-graphics-bars__line_area');
       
@@ -248,7 +249,7 @@ export default () => {
       
       fillAreaLine.each(function(){
         
-        var fillArea = $(this).find('.analityc-graphics-bars__line-fill-area'),
+        var fillArea = $(this).find('.analityc-graphics-bars__line-fill-area:visible'),
             tranPoint = 0;
         
         for (var i = (fillArea.length - 1); i >= 0; i--) {
@@ -284,13 +285,19 @@ export default () => {
           angle = angle*180/Math.PI;
           fillArea.eq(i).css('transform', 'translateY('+tranPoint+'px)');
           fillArea.eq(i).find(lineFill).css('transform', 'skewY('+angle+'deg)');
-          fillArea.eq(i).find(lineFill).next().css('top', (pointDiff/2 * -1)+'px');
+          fillArea.eq(i).find(lineFill).next().css('transform', 'translateY('+(pointDiff/2 * -1)+'px)');
         }
       });
       
       line.each(function(){
         var lineHeight = $(this).height();
         $(this).parent().height(lineHeight);
+      });
+      
+      barVal.each(function(){
+        var barValHeight = $(this).outerHeight(),
+            barHeight = $(this).parent().height();
+        if (barValHeight >= barHeight) $(this).addClass('analityc-graphics-bars__val_out');
       });
     });
   }
@@ -493,4 +500,11 @@ export default () => {
       graphicBars();
     });
   }
+  
+  $(document).on('click', '.legend_basket .legend__remove', function(){
+    var name = $(this).data('name'),
+        graphic = $(this).parents('.legend').siblings('.analityc-graphics-container');
+    graphic.find('[data-checkbox="'+name+'"]').hide();
+    graphicBars();
+  });
 }

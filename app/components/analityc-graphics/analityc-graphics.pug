@@ -1488,7 +1488,7 @@ mixin analityc-graphics-bars-alt(data)
         +e.lines
           +e.line
           
-            if item.value
+            if item.year
               +e.line-bar-value= item.value
               
               - for (var i = item.bars.length - 1; i > -1; i--)
@@ -1500,9 +1500,11 @@ mixin analityc-graphics-bars-alt(data)
               - for (var i = item.bars.length - 1; i > -1; i--)
                 +e.line-fill-area(data-checkbox=item.bars[i].name)
                   +e.line-fill(class='_'+item.bars[i].color+'')
-                  +e.val= item.bars[i].change[0]
-                    br
-                    = item.bars[i].change[1]
+                  
+                  if item.bars[i].change
+                    +e.val= item.bars[i].change[0]
+                      br
+                      = item.bars[i].change[1]
 
           if item.changes
             if item.changes[2]
@@ -1517,27 +1519,7 @@ mixin analityc-graphics-bars-alt(data)
         +e.caption
           +e.STRONG.caption-year= item.year
           +e.SPAN.caption-text= item.text
-		  
-mixin analityc-graphics-bars2(data)
-  +b.analityc-graphics-bars&attributes(attributes)
 
-    each item in data
-      +e.graphic
-        +e.lines
-
-          +e.line
-            if item.values
-              +e.line-fill._red(data-height=item.heights[0])
-                +e.val= item.values[0]
-              +e.changes
-                +e.abs= item.changes[0]
-                +e.percent= item.changes[1]
-            else
-              +e.line-fill._transparentred(data-height=item.heights[0])
-
-        +e.caption
-          +e.STRONG.caption-year= item.year
-          +e.SPAN.caption-text= item.text
 
 
 //- Темп роста

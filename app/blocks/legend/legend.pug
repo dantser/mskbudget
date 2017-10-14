@@ -21,7 +21,7 @@ mixin legend-basket(data)
   +b.legend._basket&attributes(attributes)
     each obj in data
       +e.P(class="__item_"+obj.color+"")= obj.title
-        +e.A(href="#").remove
+        +e.A(href="#", data-name=obj.name).remove
           +icon('basket').icon
       
 mixin legend-icon()
