@@ -10,8 +10,8 @@ export default () => {
   // переключение по кнопкам график/таблица
   $(".budget-expenses .analityc-widget_expenses .analityc-control-button").on("click", function(e) {
     e.preventDefault();
-    $(this).siblings().removeClass('active');
-    $(this).addClass('active');
+    //$(this).siblings().removeClass('active');
+    //$(this).addClass('active');
     changeContent('button', $(this));
   });
   
@@ -23,7 +23,7 @@ export default () => {
     
     if (typeVal == 'graphics') {
       graphics.removeClass('active');
-      graphics.has('[data-stage="dtwo"]').addClass('active');
+      //graphics.has('[data-stage="dtwo"]').addClass('active');
     }
   });
   
@@ -33,12 +33,12 @@ export default () => {
     var graphics = $('.analityc-graphics'),
         table = $('.analityc-table'),
         controls = $('.analityc-widgethead [data-control]'),
-        stageSelect = $('.analityc-control-group._stage select'),
-        levelSelect = $('.analityc-control-group._level select'),
-        classSelect = $('.analityc-control-group._classify select'),
-        stageVal = stageSelect.val(),
-        levelVal = levelSelect.val(),
-        classVal = classSelect.val(),
+        //stageSelect = $('.analityc-control-group._stage select'),
+        //levelSelect = $('.analityc-control-group._level select'),
+        //classSelect = $('.analityc-control-group._classify select'),
+        //stageVal = stageSelect.val(),
+        //levelVal = levelSelect.val(),
+        //classVal = classSelect.val(),
         block;
     
     if (typeofchange == 'select') {
@@ -48,9 +48,9 @@ export default () => {
       var typeVal = el.data('type');
     }
     
-    graphics.removeClass('active');
-    table.removeClass('active');
-    controls.removeClass('active');
+    //graphics.removeClass('active');
+    //table.removeClass('active');
+    //controls.removeClass('active');
     
     if (typeVal == 'graphics') {
       block = graphics;
@@ -58,32 +58,32 @@ export default () => {
       block = table;
     }
     
-    changeBlock(block, stageVal, classVal);
-    changeControl(controls, stageVal, levelVal, typeVal);
+    //changeBlock(block, stageVal, classVal);
+    //changeControl(controls, stageVal, levelVal, typeVal);
     
-    positionValues();
-    $(document).trigger('contentChanged');
+    //positionValues();
+    //$(document).trigger('contentChanged');
   }
   
   function changeBlock(el, stageVal, classVal) {
-    el.each(function(){
+    /*el.each(function(){
       var stage = $(this).data('stage'),
           dclass = $(this).data('class');
       if ((stage == 'all' || stage.match(stageVal)) && (dclass == 'all' || dclass.match(classVal))) {
         $(this).addClass('active');
       }
-    });
+    });*/
   }
   
   function changeControl(el, stageVal, levelVal, typeVal) {
-    el.each(function(){
+    /*el.each(function(){
       var stage = $(this).data('stage'),
           level = $(this).data('level'),
           type = $(this).data('type');
       if ((stage == 'all' || stage.match(stageVal)) && (level == 'all' || level.match(levelVal)) && (type == 'all' || type.match(typeVal))) {
         $(this).addClass('active');
       }
-    });
+    });*/
   }
 
 }
