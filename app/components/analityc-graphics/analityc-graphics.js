@@ -202,17 +202,14 @@ export default () => {
   
   
   // Графики analityc-graphics-bars
-  if ($('.analityc-graphics-bars').length) {
-    graphicBars();
-  }
-  
-  function graphicBars() {
+  window.graphicBars = function() {
     $('.analityc-graphics-bars').each(function(){
       
       var line = $(this).find('.analityc-graphics-bars__line'),
           fill = $(this).find('.analityc-graphics-bars__line-fill'),
           rateLine = $(this).find('.analityc-graphics-bars__rate-line'),
-          barVal = $(this).find('.analityc-graphics-bars__val');
+          barVal = $(this).find('.analityc-graphics-bars__val'),
+          changes = $(this).find('.analityc-graphics-bars__changes');
       
       $(this).find('.analityc-graphics-bars__line-fill-area').parent().addClass('analityc-graphics-bars__line_area');
       
@@ -295,11 +292,31 @@ export default () => {
       });
       
       barVal.each(function(){
+        $(this).removeClass('analityc-graphics-bars__val_out');
         var barValHeight = $(this).outerHeight(),
             barHeight = $(this).parent().height();
         if (barValHeight >= barHeight) $(this).addClass('analityc-graphics-bars__val_out');
       });
+      
+      changes.each(function(){
+        var graphic = $(this).parents('.analityc-graphics-bars__graphic'),
+            firstLineHeight = graphic.find('.analityc-graphics-bars__lines').height(),
+            lastLineHeight = graphic.next().find('.analityc-graphics-bars__lines').height(),
+            averageLineHeight;
+        
+        if (lastLineHeight >= firstLineHeight) {
+          averageLineHeight = (lastLineHeight - firstLineHeight) / 2 + firstLineHeight;
+        } else {
+          averageLineHeight = (firstLineHeight - lastLineHeight) / 2 + lastLineHeight;
+        }
+        
+        $(this).css('bottom', averageLineHeight+'px');
+      });
     });
+  }
+  
+  if ($('.analityc-graphics-bars').length) {
+    graphicBars();
   }
   
   
