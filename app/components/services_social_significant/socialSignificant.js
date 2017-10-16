@@ -163,7 +163,7 @@ export default () => {
     
     mapOpen.click(function(e) {
       e.preventDefault();
-      if ($(document).width() <= 900) $("html,body").css("overflow-y","hidden");
+      if ($(document).width() <= 1024) $("html,body").css("overflow-y","hidden");
       $('.significant').addClass('popupMode');
       smallMap.container.fitToViewport();
       // не активируется
@@ -172,7 +172,7 @@ export default () => {
     
     $('.significant-about__map-close, .significant__mask, .significant-about__back').click(function(e) {
       e.preventDefault();
-      if ($(document).width() <= 900) $("html,body").css("overflow-y","auto");
+      if ($(document).width() <= 1024) $("html,body").css("overflow-y","auto");
       $('.significant').removeClass('popupMode');
       smallMap.container.fitToViewport();
     });

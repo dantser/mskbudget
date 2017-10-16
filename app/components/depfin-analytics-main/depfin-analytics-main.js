@@ -68,7 +68,7 @@ export default() => {
 
 	function grClassic() {
 		
-		if ($('.analityc-graphics-classic').legth == 0)
+		if ($('.analityc-graphics-classic').length == 0)
 			return
 
 		const gr = $('.analityc-graphics-classic');
