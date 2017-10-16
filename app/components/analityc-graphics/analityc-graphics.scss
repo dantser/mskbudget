@@ -1914,8 +1914,9 @@
       top: 0;
       left: 0;
       width: 100px;
-      height: 1px;
+      height: 2px;
       transform-origin: 0 0; // точка поворота
+      overflow: hidden;
     }
 
     .analityc-graphics-classic__val {
@@ -1957,6 +1958,58 @@
         text-align: right;   
       }
     }
+
+    &:nth-child(3n+2) {
+      .analityc-graphics-classic__item-wrapper_income {
+        .analityc-graphics-classic__line {
+          background-image: -moz-linear-gradient(270deg,#00fdfe,#006ed8);
+          background-image: -webkit-linear-gradient(270deg,#00fdfe,#006ed8);
+          background-image: -o-linear-gradient(270deg,#00fdfe,#006ed8);
+          background-image: -ms-linear-gradient(270deg,#00fdfe,#006ed8);
+          background-image: linear-gradient(270deg,#00fdfe,#006ed8);
+          filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr="#00fdfe",endColorstr="#006ed8");
+        }
+      }
+    }
+
+    &:nth-child(3n+3) {
+      .analityc-graphics-classic__item-wrapper_income {
+        .analityc-graphics-classic__line {
+          background-image: -moz-linear-gradient(270deg,#006ed8,#00fdfe);
+          background-image: -webkit-linear-gradient(270deg,#006ed8,#00fdfe);
+          background-image: -o-linear-gradient(270deg,#006ed8,#00fdfe);
+          background-image: -ms-linear-gradient(270deg,#006ed8,#00fdfe);
+          background-image: linear-gradient(270deg,#006ed8,#00fdfe);
+          filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr="#006ed8",endColorstr="#00fdfe");
+        }
+      }
+    }
+
+    &:nth-child(3n+3) {
+      .analityc-graphics-classic__item-wrapper_expenses {
+        .analityc-graphics-classic__line {
+          background-image: -moz-linear-gradient(270deg,#fd685b,#c04479);
+          background-image: -webkit-linear-gradient(270deg,#fd685b,#c04479);
+          background-image: -o-linear-gradient(270deg,#fd685b,#c04479);
+          background-image: -ms-linear-gradient(270deg,#fd685b,#c04479);
+          background-image: linear-gradient(270deg,#fd685b,#c04479);
+          filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr="#006ed8",endColorstr="#01daf3");
+        }
+      }
+    }
+
+    &:nth-child(3n+4) {
+      .analityc-graphics-classic__item-wrapper_expenses {
+        .analityc-graphics-classic__line {
+          background-image: -moz-linear-gradient(270deg,#c04479,#fd685b);
+          background-image: -webkit-linear-gradient(270deg,#c04479,#fd685b);
+          background-image: -o-linear-gradient(270deg,#c04479,#fd685b);
+          background-image: -ms-linear-gradient(270deg,#c04479,#fd685b);
+          background-image: linear-gradient(270deg,#c04479,#fd685b);
+          filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr="#01daf3",endColorstr="#006ed8");
+        }
+      }
+    }
   }
 
   &__item-wrapper  {
@@ -1968,34 +2021,22 @@
     &_income {
 
       .analityc-graphics-classic__val {
-        color: blue
+        color: #006ed8;
       }
 
       .analityc-graphics-classic__line {
-        background: #00a7e7;
-        background-image: -moz-linear-gradient(270deg,#006ed8,#01daf3);
-        background-image: -webkit-linear-gradient(270deg,#006ed8,#01daf3);
-        background-image: -o-linear-gradient(270deg,#006ed8,#01daf3);
-        background-image: -ms-linear-gradient(270deg,#006ed8,#01daf3);
-        background-image: linear-gradient(270deg,#006ed8,#01daf3);
-        filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr="#006ed8",endColorstr="#01daf3");
+        background: #006ed8;
       }
     } 
 
     &_expenses  {
 
       .analityc-graphics-classic__val {
-        color: red;
+        color: #c04479;
       }
 
       .analityc-graphics-classic__line {
-        background: #ce4c72;
-        background-image: -moz-linear-gradient(270deg,#b63e7e,#e55c66);
-        background-image: -webkit-linear-gradient(270deg,#b63e7e,#e55c66);
-        background-image: -o-linear-gradient(270deg,#b63e7e,#e55c66);
-        background-image: -ms-linear-gradient(270deg,#b63e7e,#e55c66);
-        background-image: linear-gradient(270deg,#b63e7e,#e55c66);
-        filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr="#b63e7e",endColorstr="#e55c66");
+        background: #c04479;
       }
     }
   }
