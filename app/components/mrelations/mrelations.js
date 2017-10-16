@@ -6,7 +6,6 @@ export default () => {
 	})
 
   const GR_LINE = $('.mrelations-transfer .analityc-graphics_line');
-  console.log(GR_LINE)
 
   GR_LINE.each(function() {
 	  var LINE_BAR = $(this).find('.analityc-graphics__line');
