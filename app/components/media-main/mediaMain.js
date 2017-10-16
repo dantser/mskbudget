@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import Swiper from 'swiper';
 
 export default () => {
 
@@ -26,6 +27,24 @@ export default () => {
       $('.media-main__materials').removeClass('active');
       $('.media-main__materials[data-filter="'+mfilter+'"]').addClass('active');
     });
+
+    var newsSlider = new Swiper('.media-main .swiper-container', {
+      prevButton: '.swiper-button-prev',
+      nextButton: '.swiper-button-next',
+      slidesPerView: 1
+    })
+
+    // var mediaSlider = [];
+
+    // $('.media-main__card-wrapper_slider').each(function() {
+    //   mediaSlider.push(new Swiper($(this).find('.swiper-wrapper'), {
+    //     prevButton: $(this).find('.swiper-button-prev'),
+    //     nextButton: $(this).find('.swiper-button-next'),
+    //     slidesPerView: 1,
+    //     spaceBetween: 46
+    //   })
+    //   )
+    // })
 
     // if ($(".media-main__datepicker" ).length) {
 		// $( ".media-main__datepicker" ).datepicker({

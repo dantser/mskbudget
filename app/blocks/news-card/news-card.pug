@@ -76,7 +76,11 @@ mixin short-newscard(category, date, title)
     +e.P.date= date
     +e.A(href="#").title= title
 
-mixin news-cards()
+mixin news-cards(isSlider)
   +b.news-cards&attributes(attributes)
-    .tile
-      block
+    if isSlider
+      .tile.swiper-wrapper
+        block
+    else
+      .tile
+        block      
