@@ -71,6 +71,7 @@ import table from '../blocks/table/table';
 import budgetMoscowOpen from '../components/depfin-budget-moscow-open/budgetMoscowOpen';
 import buttonsSet from '../blocks/buttons-set/buttonsSet';
 import analyticsGovDebt from '../components/analytics-gov-debt/analyticsGovDebt';
+import depfin_analytics_income from '../components/depfin_analytics_income/depfin_analytics_income';
 
 $(() => {
 	  // перезагрузка страниц при изменении разрешения
@@ -159,4 +160,5 @@ $(() => {
 	  budgetMoscowOpen();
 	  buttonsSet();
 	  analyticsGovDebt();
+  depfin_analytics_income();
 });

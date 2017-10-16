@@ -448,7 +448,7 @@ mixin analityc-widgethead-analityc-income()
         +selbox('comparison', 'Общий анализ основных видов доходов')._cgroup.analityc-widget__selectbox
           +selbox-opt('overall', 'Общий анализ основных видов доходов', true)
           +selbox-opt('comparative', 'Сравнительный анализ доходов по выбору')
-      .d-smr__add-char
+      .d-smr__add-char(data-control, data-comparison='comparative')
         p.d-smr__add-char-label Добавить показатель на страницу
         .d-smr__add-char-block
           .d-smr__add-char-list-wrapper
@@ -458,10 +458,10 @@ mixin analityc-widgethead-analityc-income()
                 label(for='a') НАЛОГОВЫЕ ДОХОДЫ - всего в том числе:
                 ul.d-smr__char-sublist
                   li.d-smr__add-char-item
-                    input(type='checkbox', name='aa', value='aa')#aa
+                    input(type='checkbox', name='aa', value='aa', checked='checked')#aa
                     label(for='aa') Налог на прибыль
                   li.d-smr__add-char-item
-                    input(type='checkbox', name='ab', value='ab')#ab
+                    input(type='checkbox', name='ab', value='ab', checked='checked')#ab
                     label(for='ab') Налог на доходы физ.лиц
                   li.d-smr__add-char-item
                     input(type='checkbox', name='ac', value='ac')#ac
@@ -508,9 +508,9 @@ mixin analityc-widgethead-analityc-income()
                     label(for='bc') Общегосударственные вопросы
       .analityc-control-group.analityc-control-group_buttons
         .analityc-control-switcher.analityc-control-switcher_xl.active
-          a(href="#" data-type='pace').active темп роста к предыдущему периоду, %
-          a(href="#" data-type='share') доля в общей сумме, %
-          a(href="#" data-type='done') % исполнения
+          a(href="#" data-type='g2').active темп роста к предыдущему периоду, %
+          a(href="#" data-type='g3') доля в общей сумме, %
+          a(href="#" data-type='g1') % исполнения
 
 //- Аналитика - Расходы
 mixin analityc-widgethead-analytics-expenses()
