@@ -109,6 +109,14 @@
   .gallery-top {
     height: 80%;
     width: 100%;
+    
+    @media screen and (max-width: 800px) {
+      .swiper-slide-active {
+        .open-slider__pagination {
+          display: block;
+        }
+      }
+    }
   }
 
   .gallery-thumbs {
@@ -194,6 +202,7 @@
     text-align: left;
     z-index: 2;
     display: none;
+    pointer-events: none;
   }
   
   &__num {

@@ -205,6 +205,12 @@ export default () => {
   window.graphicBars = function() {
     $('.analityc-graphics-bars').each(function(){
       
+      if ($(this).find('[data-checkbox]:visible').siblings('[data-checkbox]:visible').length < 1) {
+        $(this).addClass('analityc-graphics-bars_singlebar');
+      } else {
+        $(this).removeClass('analityc-graphics-bars_singlebar');
+      }
+      
       var line = $(this).find('.analityc-graphics-bars__line'),
           fill = $(this).find('.analityc-graphics-bars__line-fill'),
           rateLine = $(this).find('.analityc-graphics-bars__rate-line'),
@@ -213,10 +219,13 @@ export default () => {
       
       $(this).find('.analityc-graphics-bars__line-fill-area').parent().addClass('analityc-graphics-bars__line_area');
       
-      var fillAreaLine = $(this).find('.analityc-graphics-bars__line_area')
+      var fillAreaLine = $(this).find('.analityc-graphics-bars__line_area');
       
       fill.each(function(){
         var dheight = $(this).data('height');
+        if ($(this).parents('.analityc-graphics-bars').hasClass('analityc-graphics-bars_singlebar')) {
+          dheight *= 2;
+        }
         $(this).height(dheight);
       });
       
@@ -308,6 +317,10 @@ export default () => {
           averageLineHeight = (lastLineHeight - firstLineHeight) / 2 + firstLineHeight;
         } else {
           averageLineHeight = (firstLineHeight - lastLineHeight) / 2 + lastLineHeight;
+        }
+        
+        if ($(this).parents('.analityc-graphics-bars').hasClass('analityc-graphics-bars_singlebar')) {
+          averageLineHeight += 20;
         }
         
         $(this).css('bottom', averageLineHeight+'px');
@@ -519,9 +532,12 @@ export default () => {
   }
   
   $(document).on('click', '.legend_basket .legend__remove', function(){
-    var name = $(this).data('name'),
-        graphic = $(this).parents('.legend').siblings('.analityc-graphics-container');
-    graphic.find('[data-checkbox="'+name+'"]').hide();
-    graphicBars();
+    if ($(this).parents('.legend__item').siblings(':visible').length) {
+      var name = $(this).data('name'),
+          graphic = $(this).parents('.legend').siblings('.analityc-graphics-container');
+      graphic.find('[data-checkbox="'+name+'"]').hide();    
+      $(this).parents('.legend__item').hide();
+      graphicBars();
+    }
   });
 }

@@ -1,13 +1,22 @@
 include ../../blocks/icon/icons
 include ../../blocks/news-card/news-card
 
+mixin open-slide-pagination()
+  +e.pagination
+    +e.num
+      +e.SPAN.num-current
+      |  /
+      +e.SPAN.num-total
+
 mixin open-slide-gallery(img, label)
   .swiper-slide
     +e.content
+      +open-slide-pagination()
       +e.A(href='assets/images/presentation/'+img+'', data-fancybox).image-link
         +e.IMG(src='assets/images/presentation/'+img+'').image
       if label
         +e.label= label
+
 //- модификатор для СМИ
 mixin sm-slide-gallery()
   .swiper-slide
@@ -17,11 +26,7 @@ mixin sm-slide-gallery()
 mixin open-slide-thumbs(img)
   .swiper-slide
     +e.content
-      +e.pagination
-        +e.num
-          +e.SPAN.num-current
-          |  /
-          +e.SPAN.num-total
+      +open-slide-pagination()
       +e.IMG(src='assets/images/presentation/'+img+'').image
 
 mixin open-slider-gallery()

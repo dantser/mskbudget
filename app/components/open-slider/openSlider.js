@@ -20,6 +20,14 @@ export default () => {
       500: {
         spaceBetween: 7
       }
+    },
+    onInit: function(swiper) {
+      $('.gallery-top .swiper-slide').each(function(){
+        var slideIndex = $(this).index() + 1;
+        $(this).find('.open-slider__num-current').text(slideIndex);
+      });
+      var slidesLength = swiper.slides.length;
+      $('.gallery-top').find('.open-slider__num-total').text(slidesLength);
     }
   });
   

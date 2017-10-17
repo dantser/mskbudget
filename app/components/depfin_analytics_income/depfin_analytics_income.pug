@@ -10,10 +10,9 @@ include ../../blocks/slide-arrows/slide-arrows
 
 mixin depfin_analytics_income()
 	section.main._basic._analitycs-income.basic-budget.sections__item
-		.wrapper.wrapper_params-income
+		.wrapper-header
 			+page-header('Доходы бюджета', ['Аналитика'], true)
-
-			// Tab 1
+		.wrapper.wrapper_params-income
 			.analityc-widget.analityc-widget_params-income.load-anim-fade(data-delay="1500")
 				+analityc-widgethead-analityc-income()
 				.analityc-widget-income.analityc-widget-income_pace(data-type='g1', data-comparison='overall')
@@ -37,13 +36,6 @@ mixin depfin_analytics_income()
 							.analityc-graphics-wrapper(data-offset='100')
 								+analityc-graphics-bars(getData('legend-analityc-bar2'))
 					+legend-checkbox(getData('legend-analityc-income'))
-				//.analityc-widget-income.analityc-widget-income_year(data-type='g4')
-					.analityc-graphics-container.analityc-graphics-container_bars
-						+slide-arrows().analityc-graphics__slide-arrows
-						.analityc-graphics-scroll-hider
-							.analityc-graphics-wrapper(data-offset='100')
-								+analityc-graphics-bars(getData('legend-analityc-bar3'))
-					+legend-checkbox(getData('legend-analityc-income'))
 				.analityc-widget-income.analityc-widget-income_bars-full(data-type='g1, g2, g3', data-comparison='comparative')
 					.analityc-graphics-container.analityc-graphics-container_bars-entired
 						+slide-arrows().analityc-graphics__slide-arrows
@@ -51,14 +43,13 @@ mixin depfin_analytics_income()
 							.analityc-graphics-wrapper(data-offset='100')
 								+analityc-graphics-bars-alt(getData('legend-analityc-bar4'))._entired
 					+legend-basket(getData('legend-analityc-income-short')[0])
-				.analityc-widget-income.analityc-widget-income_bars(data-type='g1, g2, g3', data-comparison='comparative')
+				//.analityc-widget-income.analityc-widget-income_bars(data-type='g1, g2, g3', data-comparison='comparative')
 					.analityc-graphics-container.analityc-graphics-container_bars-entired
 						+slide-arrows().analityc-graphics__slide-arrows
 						.analityc-graphics-scroll-hider
 							.analityc-graphics-wrapper(data-offset='100')
 								+analityc-graphics-bars-alt(getData('legend-analityc-bar5'))._entired
 					+legend-basket(getData('legend-analityc-income-short')[1])
-				
 				+analityc-table-slider(100)._params
 					+table-aincome(getData('main'))
 				a(href="/").analityc-more Перейти в&nbsp;раздел бюжет москвы
