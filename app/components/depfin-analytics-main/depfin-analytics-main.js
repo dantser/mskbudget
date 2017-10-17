@@ -54,18 +54,6 @@ export default() => {
 
 	});
 
-	addStage.on('click', function(e) {
-		e.preventDefault();
-		frameStage.clone().insertBefore(addStage);
-	});
-
-	FRAME.on('click', '.analityc-remove-group', function(e) {
-		e.preventDefault();
-		if (FRAME.children('.analityc-control-group').length > 1) {
-			$(this).parent('.analityc-control-group').remove();
-		}
-	});
-
 	function grClassic() {
 		
 		if ($('.analityc-graphics-classic').length == 0)
