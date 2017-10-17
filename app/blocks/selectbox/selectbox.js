@@ -34,11 +34,6 @@ export default function selectbox() {
         if ($(this).attr('data-locked')) {
           if (imgUrl)
           {
-                                <svg>
-                                    <use xlink:href="<?=$imgsocicons ?>/<?= $category->icon['ICON_ID'] ?>/<?= $category->icon['ICON_FILE'] ?>#<?= $category->icon['ICON_LAYER'] ?>"></use>
-                                </svg>
-
-            
             if (imgLayer)
             {
               var svg = "<svg><use xlink:href='"+imgUrl+"#"+imgLayer+"'</use></svg>";
