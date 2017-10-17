@@ -1265,7 +1265,7 @@
     }
     .analityc-graphics-line-vertical__line-bar-value {
       bottom: $height;
-      color: $color;
+      color: $grad2;
       // background: linear-gradient(90deg, $grad1 0%, $grad2 100%);
       // -webkit-background-clip: text;
       // -webkit-text-fill-color: transparent;
@@ -1836,19 +1836,14 @@
     width: 15px;
     height: 100%;
     margin-right: 0px;
+    transform: translate3d(0,0,0);
 
     @include analityc-graphics-lines(red, 6.7%, #9d308a, rgb(157, 48, 138), rgb(255, 105, 91));
-
-    @include analityc-graphics-lines(green, 7.4%, #32b168, rgb(254,227,0), rgb(48,176,105));
-
+    @include analityc-graphics-lines(green, 7.4%, #32b168, rgb(48,176,105), rgb(254,227,0));
     @include analityc-graphics-lines(pink, 8.1%, #612292, rgb(97, 34, 146), rgb(189, 132, 233));
-
     @include analityc-graphics-lines(grey, 10%, #838a9a, rgb(131, 138, 154), rgb(213, 216, 222));
-
     @include analityc-graphics-lines(altblue, 6.7%, #0051d0, rgb(0,76,207), rgb(0,255,255));
-
     @include analityc-graphics-lines(lightgreen, 7.4%, #11a360, rgb(17, 163, 96), rgb(50, 209, 151));
-
     @include analityc-graphics-lines(blue, 8.1%, #021398, rgb(2, 19, 152), rgb(255, 0, 54));
 
   }
@@ -2074,7 +2069,10 @@
   text-align: justify;
   text-justify: distribute;
   padding: 50px 18px 0;
-  overflow-x: hidden;
+  
+  @media screen and (max-width: 1100px) {
+    padding: 50px 50px 0;
+  }
 
   &:before {
     content: '';
@@ -2177,8 +2175,6 @@
       line-height: (16/12)*1em;
       opacity: .4;
       text-transform: uppercase;
-      margin-left: -100%;
-      margin-right: -100%;
       position: relative;
       z-index: 2;
     }
@@ -2392,6 +2388,13 @@
   
   &_entired {
     text-align: center;
+  }
+  
+  &_singlebar {
+    .analityc-graphics-bars__line-bar-value,
+    .analityc-graphics-bars__line-fill-area .analityc-graphics-bars__val {
+      display: none;
+    }
   }
 }
 

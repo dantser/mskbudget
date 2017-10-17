@@ -125,23 +125,36 @@
   cursor: pointer;
 
   .legend__item {
-    padding-right: 35px;
+    padding-right: 10px;
     position: relative;
     width: 33%;
     display: inline-block;
     color: $color-black;
+    text-align: left;
+    padding-left: 28px;
+    
+    &:before {
+      position: absolute;
+      left: 0;
+    }
 
     &:hover {
       .legend__icon {
         display: inline-block;
       }
     }
+    
+    span {
+      position: relative;
+      padding-right: 20px;
+      display: inline-block;
+    }
   }
 
   .legend__remove {
     position: absolute;
-    top: 2px;
-    right: 10px;
+    top: 0;
+    right: -10px;
   }
 
   .legend__icon {
