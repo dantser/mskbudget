@@ -26,14 +26,30 @@ export default function selectbox() {
       if (selBox.hasClass('selectbox-for-widgets')) {
 
         const imgUrl = $(this).data('imageurl');
+        const imgLayer = $(this).data('imagelayer');
+        
         const img = $(this).data('image');
         const period = $(this).data('period');
 
         if ($(this).attr('data-locked')) {
           if (imgUrl)
           {
-            const li = '<li class="locked" data-val="' + vval + '"><img src="' + imgUrl + '"><span>' + ttext + '</span>' + (period ? '<i>' + period +'</i>' : '') + '</li>';
-            selBox.find('ul').append(li);
+                                <svg>
+                                    <use xlink:href="<?=$imgsocicons ?>/<?= $category->icon['ICON_ID'] ?>/<?= $category->icon['ICON_FILE'] ?>#<?= $category->icon['ICON_LAYER'] ?>"></use>
+                                </svg>
+
+            
+            if (imgLayer)
+            {
+              var svg = "<svg><use xlink:href='"+imgUrl+"#"+imgLayer+"'</use></svg>";
+              const li = '<li class="locked" data-val="' + vval + '">' + svg + '<span>' + ttext + '</span>' + (period ? '<i>' + period +'</i>' : '') + '</li>';
+              selBox.find('ul').append(li);
+            }
+            else
+            {
+              const li = '<li class="locked" data-val="' + vval + '"><img src="' + imgUrl + '"><span>' + ttext + '</span>' + (period ? '<i>' + period +'</i>' : '') + '</li>';
+              selBox.find('ul').append(li);
+            }
           }
           else
           {
