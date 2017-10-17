@@ -6,6 +6,24 @@
   padding-top: 207px;
   padding-bottom: 119px;
 
+  &__content {
+    &_bio {
+      padding: 42px 41px;
+      background: $color-white;
+      margin-top: 46px;
+
+      @media(max-width: 580px) {
+        padding: 20px 17px;
+        margin-top: 22px;
+      }
+
+      @media (max-width: 400px) {
+        margin-left: -20px;
+        margin-right: -20px;
+      }
+    }
+  }
+
   .doc-cards__download {
     color: $color-yellow;
     border-bottom-color: rgba(254, 227, 0, .4);
@@ -72,7 +90,6 @@
   .news__thumb img {
       min-height: inherit;
   }
-
 
   .news {
     position: relative;
@@ -147,4 +164,187 @@
       margin-top: 24px;
     }
   }
+
+  /*Страница отдельной биографии*/
+
+  &__info-position,
+  &__info-item,
+  &__bio-text {
+    font-family: $PFDinTextPro;
+    font-size: 18px;
+    color: $color-black;
+  }
+
+  &__bio-info {
+    padding: 32px;
+    background-color: #f7f7f7;
+    margin-bottom: 26px;
+
+    @media (max-width: 400px) {
+      margin-left: -17px;
+      margin-right: -17px;
+    }
+  }
+
+  &__info-photo,
+  &__info-requisites {
+    display: inline-block;
+    vertical-align: top;
+
+    @media(max-width: 900px) {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+  &__info-photo {
+    width: 164px;
+    height: 200px;
+    overflow: hidden;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__info-requisites {
+    margin-left: 32px;
+
+    @media (max-width: 1140px) and (min-width: 901px) {
+      max-width: 74%;
+    }
+
+    @media(max-width: 900px) {
+      text-align: center;
+      margin-top: 30px;
+      margin-left: 0
+    }
+  }
+
+  &__info-name {
+    font-family: $PFDinCondensedPro;
+    font-size: 30px;
+    font-weight: 500;
+    color: $color-black;
+
+    @media(max-width: 400px) {
+      font-size: 20px;
+      line-height: 24px;
+    }
+  }
+
+  &__info-position {
+    color: #666;
+    margin-top: 10px;
+
+    @media(max-width: 400px) {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+  }
+
+  &__info-wrap {
+    margin-top: 20px;
+    font-size: 0;
+
+    @media (max-width: 900px) {
+      display: inline-block;
+      border: 1px solid $color-link;
+    }
+  }
+
+  &__info-item {
+    display: inline-block;
+    transition: all .25s ease-in-out;
+    text-decoration: none;
+    margin-right: 40px;
+
+    @media(max-width: 900px) {
+      padding: 10px;
+      font-size: 0;
+      margin: 0;
+
+      & + .mediaSmFin__info-item {
+        border-left: 1px solid $color-link;
+      }
+    }
+
+    &:hover {
+      color: $color-link;
+    }
+
+    span {
+      @media (max-width: 900px) {
+        display: none;
+      }
+    }
+
+    i {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      margin-right: 11px;
+      background-color: #615c5c;
+
+      @media (max-width: 900px) {
+        display: inline-block!important;
+        margin: 0;
+      }
+    }
+  }
+
+  &__info-item_link {
+    display: block;
+    color: $color-link;
+    margin-top: 10px;
+
+    @media(max-width: 900px) {
+      display: inline-block;
+      margin-top: 0;
+    }
+
+    &:hover {
+      svg {
+        margin-left: 10px;
+      }
+    }
+
+    svg {
+      width: 10px;
+      height: 10px;
+      fill: $color-link;
+      margin-left: 5px;
+      transition: all .25s ease-in-out;
+
+      @media(max-width: 900px) {
+        display: none;
+      }
+    }
+
+    i {
+      display: none;
+    }
+  }
+
+  &__bio-title {
+    font-family: $PFDinCondensedPro;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: $color-black;
+    margin-bottom: 20px;
+  }
+
+  &__bio-text {
+    font-size: 18px;
+    letter-spacing: .1px;
+    line-height: 21px;
+
+    & + .mediaSmFin__bio-text {
+      margin-top: 20px;
+    }
+  }
+
 }
