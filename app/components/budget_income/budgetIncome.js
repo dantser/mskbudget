@@ -32,6 +32,8 @@ export default () => {
     
     
     function changeContent(typeofchange, el) {
+      console.log("Changing content");
+      
       var graphics = $('.analityc-graphics'),
           table = $('.analityc-table'),
           controls = $('.analityc-widgethead [data-control]'),
@@ -59,6 +61,7 @@ export default () => {
       }
 	 
       changeBlock(block, stageVal);
+      console.log("Changing controls");
       changeControl(controls, stageVal, levelVal, typeVal);
       
       positionValues();
@@ -76,10 +79,13 @@ export default () => {
     
     function changeControl(el, stageVal, levelVal, typeVal) {
       el.each(function(){
+        console.log("Changing control: " + stageVal + ", " + levelVal + ", " + typeVal);
         var stage = $(this).data('stage'),
             level = $(this).data('level'),
             type = $(this).data('type');
+		console.log("Found control: " + stage + ", " + level + ", " + type);
         if ((stage == 'all' || stage.match(stageVal)) && (level == 'all' || level.match(levelVal)) && (type == 'all' || type.match(typeVal))) {
+			console.log("Adding active");
           $(this).addClass('active');
         }
       });
