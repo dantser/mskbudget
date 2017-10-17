@@ -1420,6 +1420,37 @@ mixin analityc-graphics-line-gorizontal(data)
       +legend(getData('legend-moscow'))
 
 
+mixin analityc-graphics-classic(data)
+  .analityc-table._gr-classic
+    +slide-arrows().__slide-arrows
+    +b.analityc-graphics-classic.analityc-table__wrapper(data-offset='100')&attributes(attributes)
+      +e.wrapper
+        +e.clipper
+          +e.part._lines
+            each item in data
+              +e.item
+                +e.item-wrapper._income(data-val=item.income)
+                  +e.val= item.income + '%'
+                  +e.line
+                +e.item-wrapper._expenses(data-val=item.expenses) 
+                  +e.val= item.expenses + '%'
+                  +e.line
+
+        +e.part._captions
+          each year in data
+            +e.item 
+              +e.item-wrapper-bottom
+                +e.val= year.year
+                +e.stage= year.stage
+
+mixin analityc-graphics-custom1()
+  +b.analityc-graphics-custom&attributes(attributes)
+    //- реализация на js
+
+mixin analityc-graphics-custom2()
+  +b.analityc-graphics-custom&attributes(attributes)
+    //- реализация на js
+
 mixin analityc-graphics-bars(data)
   +b.analityc-graphics-bars&attributes(attributes)
 
@@ -1457,7 +1488,7 @@ mixin analityc-graphics-bars-alt(data)
         +e.lines
           +e.line
           
-            if item.value
+            if item.year
               +e.line-bar-value= item.value
               
               - for (var i = item.bars.length - 1; i > -1; i--)
@@ -1469,9 +1500,11 @@ mixin analityc-graphics-bars-alt(data)
               - for (var i = item.bars.length - 1; i > -1; i--)
                 +e.line-fill-area(data-checkbox=item.bars[i].name)
                   +e.line-fill(class='_'+item.bars[i].color+'')
-                  +e.val= item.bars[i].change[0]
-                    br
-                    = item.bars[i].change[1]
+                  
+                  if item.bars[i].change
+                    +e.val= item.bars[i].change[0]
+                      br
+                      = item.bars[i].change[1]
 
           if item.changes
             if item.changes[2]
@@ -1486,38 +1519,6 @@ mixin analityc-graphics-bars-alt(data)
         +e.caption
           +e.STRONG.caption-year= item.year
           +e.SPAN.caption-text= item.text
-		  
-mixin analityc-graphics-bars2(data)
-  +b.analityc-graphics-bars&attributes(attributes)
-
-    each item in data
-      +e.graphic
-        +e.lines
-
-          +e.line
-            if item.values
-              +e.line-fill._red(data-height=item.heights[0])
-                +e.val= item.values[0]
-              +e.changes
-                +e.abs= item.changes[0]
-                +e.percent= item.changes[1]
-            else
-              +e.line-fill._transparentred(data-height=item.heights[0])
-
-        +e.caption
-          +e.STRONG.caption-year= item.year
-          +e.SPAN.caption-text= item.text
-mixin analityc-graphics-classic()
-  +b.analityc-graphics-classic&attributes(attributes)
-    //- реализация на js
-
-mixin analityc-graphics-custom1()
-  +b.analityc-graphics-custom&attributes(attributes)
-    //- реализация на js
-
-mixin analityc-graphics-custom2()
-  +b.analityc-graphics-custom&attributes(attributes)
-    //- реализация на js
 
 
 

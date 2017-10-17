@@ -34,6 +34,67 @@
       display: none!important;
     }
   }
+  
+  &__mask {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,.5);
+    z-index: 9000;
+  }
+  
+  &.popupMode {
+    
+    @media screen and (min-width: 1025px) {
+      > .wrapper {
+        z-index: 9100;
+      }
+      .significant-about {
+        height: 685px;
+      }
+      .significant-about__wrap {
+        overflow-y: hidden;
+        max-height: 100%;
+      }
+      .significant-about .analityc-table_gp {
+        display: none;
+      }
+    }
+    
+    .significant-about__map {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      z-index: 9100;
+      height: 570px;
+      &:after {
+        display: none;
+      }
+      @media screen and (max-width: 1024px) {
+        position: fixed;
+        height: 560px;
+        top: 0;
+        right: 0;
+        margin: auto;
+      }
+      @media screen and (max-width: 640px) and (min-width: 601px) {
+        height: 360px;
+      }
+      @media screen and (max-width: 400px) {
+        height: 210px;
+      }
+    }
+    .significant-about__map-close {
+      display: block;
+    }
+    .significant__mask {
+      display: block;
+    }
+  }
 }
 
 /*Таб Список*/
@@ -456,6 +517,7 @@
     width: 100%;
     background-color: #d5d5d5;
     position: relative;
+    overflow: hidden;
     
     &:after {
       content: '';
@@ -472,17 +534,6 @@
     min-height: 121px;
     font-size: 0;
     margin-top: 19px;
-  }
-  
-  &__map-mask {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,.5);
-    z-index: 2001;
   }
 
   &__map {
@@ -524,30 +575,9 @@
       fill: $color-yellow;
       cursor: pointer;
       
-      @media screen and (max-width: 900px) {
-        position: fixed;
-        right: 5px;
-        top: 75px;
-      }
-    }
-
-    /*карта раскрыта*/
-    &_active {
-      position: absolute;
-      left: 0;
-      width: 1100px;
-      z-index: 2002;
-      
-      @media screen and (max-width: 900px) {
-        position: fixed;
-        width: auto;
+      @media screen and (max-width: 1180px) {
         right: 0;
-        top: 100px;
-        bottom: 100px;
-        
-        &:after {
-          display: none;
-        }
+        top: -25px;
       }
     }
   }

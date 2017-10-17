@@ -14,10 +14,10 @@ mixin depfin-analytics-main()
     .wrapper
       .analityc-widget.analityc-widget_params.load-anim-fade(data-delay="1500")
         +analityc-widgethead-main()
-        +analityc-graphics-line-vertical(getData('graphic-lines-main'))
+        +analityc-graphics-line-vertical(getData('graphic-lines-main'))._params
         +analityc-graphics-line-vertical_slider(getData('graphic-lines-main'))
-        +analityc-graphics-classic()
-        +analityc-table()._params
+        +analityc-graphics-classic(getData('graphic-classic'))
+        +analityc-table-slider(100)._params
           +table-main(getData('main'))
         a(href="/").analityc-more Перейти в&nbsp;раздел бюджет москвы
     +dropdown().load-anim-fade(data-delay="1700")

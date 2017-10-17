@@ -28,15 +28,24 @@ mixin event-card(image, title, date)
     .news__bottom
       p.news__date= date
 
-mixin photo-card(image, name, position, date)
+mixin photo-card(image, surname, initials, position)
   +b.news._photo&attributes(attributes)
     a(href="#").news__thumb
       img(src="assets/images/smi-fin/"+image+".jpg", alt="thumb")
-    +e.name= name
+    +e.surname= surname
+    +e.initials= initials
     +e.position= position
-    .news__bottom
-      p.news__date= date
+    .document__bottom
+      A(href='#').document__dwnl Скачать (DOCX 957,55 Кб)
       
+mixin logo-card(title, img)
+  +b.news._logo&attributes(attributes)
+    +e.title= title
+    +e.logo-img
+      img(src='assets/images/' + img + '.png', alt='thumb')
+    .document__bottom
+      A(href='#').document__dwnl Скачать (EPS 957,55 Кб)
+
 mixin material-card(image, title, date)
   +b.news._material&attributes(attributes)
     a(href="#").news__thumb
@@ -67,7 +76,11 @@ mixin short-newscard(category, date, title)
     +e.P.date= date
     +e.A(href="#").title= title
 
-mixin news-cards()
+mixin news-cards(isSlider)
   +b.news-cards&attributes(attributes)
-    .tile
-      block
+    if isSlider
+      .tile.swiper-wrapper
+        block
+    else
+      .tile
+        block      

@@ -202,16 +202,14 @@ export default () => {
   
   
   // Графики analityc-graphics-bars
-  if ($('.analityc-graphics-bars').length) {
-    graphicBars();
-  }
-  
-  function graphicBars() {
+  window.graphicBars = function() {
     $('.analityc-graphics-bars').each(function(){
       
       var line = $(this).find('.analityc-graphics-bars__line'),
           fill = $(this).find('.analityc-graphics-bars__line-fill'),
-          rateLine = $(this).find('.analityc-graphics-bars__rate-line');
+          rateLine = $(this).find('.analityc-graphics-bars__rate-line'),
+          barVal = $(this).find('.analityc-graphics-bars__val'),
+          changes = $(this).find('.analityc-graphics-bars__changes');
       
       $(this).find('.analityc-graphics-bars__line-fill-area').parent().addClass('analityc-graphics-bars__line_area');
       
@@ -248,7 +246,7 @@ export default () => {
       
       fillAreaLine.each(function(){
         
-        var fillArea = $(this).find('.analityc-graphics-bars__line-fill-area'),
+        var fillArea = $(this).find('.analityc-graphics-bars__line-fill-area:visible'),
             tranPoint = 0;
         
         for (var i = (fillArea.length - 1); i >= 0; i--) {
@@ -284,7 +282,7 @@ export default () => {
           angle = angle*180/Math.PI;
           fillArea.eq(i).css('transform', 'translateY('+tranPoint+'px)');
           fillArea.eq(i).find(lineFill).css('transform', 'skewY('+angle+'deg)');
-          fillArea.eq(i).find(lineFill).next().css('top', (pointDiff/2 * -1)+'px');
+          fillArea.eq(i).find(lineFill).next().css('transform', 'translateY('+(pointDiff/2 * -1)+'px)');
         }
       });
       
@@ -292,7 +290,33 @@ export default () => {
         var lineHeight = $(this).height();
         $(this).parent().height(lineHeight);
       });
+      
+      barVal.each(function(){
+        $(this).removeClass('analityc-graphics-bars__val_out');
+        var barValHeight = $(this).outerHeight(),
+            barHeight = $(this).parent().height();
+        if (barValHeight >= barHeight) $(this).addClass('analityc-graphics-bars__val_out');
+      });
+      
+      changes.each(function(){
+        var graphic = $(this).parents('.analityc-graphics-bars__graphic'),
+            firstLineHeight = graphic.find('.analityc-graphics-bars__lines').height(),
+            lastLineHeight = graphic.next().find('.analityc-graphics-bars__lines').height(),
+            averageLineHeight;
+        
+        if (lastLineHeight >= firstLineHeight) {
+          averageLineHeight = (lastLineHeight - firstLineHeight) / 2 + firstLineHeight;
+        } else {
+          averageLineHeight = (firstLineHeight - lastLineHeight) / 2 + lastLineHeight;
+        }
+        
+        $(this).css('bottom', averageLineHeight+'px');
+      });
     });
+  }
+  
+  if ($('.analityc-graphics-bars').length) {
+    graphicBars();
   }
   
   
@@ -493,4 +517,11 @@ export default () => {
       graphicBars();
     });
   }
+  
+  $(document).on('click', '.legend_basket .legend__remove', function(){
+    var name = $(this).data('name'),
+        graphic = $(this).parents('.legend').siblings('.analityc-graphics-container');
+    graphic.find('[data-checkbox="'+name+'"]').hide();
+    graphicBars();
+  });
 }

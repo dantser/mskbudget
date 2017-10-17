@@ -14,3 +14,13 @@ mixin radio(data)
     +e('input')(type='radio' name=name value=value checked=checked).control
     +e.box
     block
+
+mixin radio-alt(name, value, checked)
+  +b.LABEL.radio-alt&attributes(attributes)
+    if checked
+      +e.INPUT.control(type='radio', name=name, value=value, checked='checked')
+    else
+      +e.INPUT.control(type='radio', name=name, value=value)
+    +e.box
+      +e.box-dot
+    block

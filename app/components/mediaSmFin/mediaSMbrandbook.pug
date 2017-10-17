@@ -1,0 +1,27 @@
+include mediaSmFin
+
+mixin mediaSMbrandbook()
+	+b.SECTION.mediaSmFin.sections__item&attributes(attributes)
+		.wrapper.page-content-wrapper
+			+page-header('Брендбук', ['Открытость', 'Материалы для СМИ'], true)
+			+e.content.load-anim-fade(data-delay="1500")
+
+				+e.photos-group
+					a(href="#").doc-cards__download Скачать (PDF 957,55 Кб)
+					+open-slider()
+						+open-slider-gallery()
+							+open-slide-gallery('guide_01.jpg')
+							+open-slide-gallery('guide_02.jpg')
+							+open-slide-gallery('guide_03.jpg')
+							+open-slide-gallery('guide_04.jpg')
+							+open-slide-gallery('guide_05.jpg')
+							+open-slide-gallery('guide_06.jpg')
+							+open-slide-gallery('guide_07.jpg')
+						+open-slider-thumbs()
+							+open-slide-thumbs('guide_01.jpg')
+							+open-slide-thumbs('guide_02.jpg')
+							+open-slide-thumbs('guide_03.jpg')
+							+open-slide-thumbs('guide_04.jpg')
+							+open-slide-thumbs('guide_05.jpg')
+							+open-slide-thumbs('guide_06.jpg')
+							+open-slide-thumbs('guide_07.jpg')
