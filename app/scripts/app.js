@@ -155,7 +155,7 @@ $(() => {
 	  window.budgetIncome = budgetIncome;
 	  budgetIncome();
 	  budgetExpenses();
-    window.table = table;
+      window.table = table;
 	  table();
 	  budgetMoscowOpen();
 	  buttonsSet();
