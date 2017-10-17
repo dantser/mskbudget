@@ -175,7 +175,7 @@ budget.extend("common", {
         dayNames: ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'],
         dayNamesShort: ['вск', 'пнд', 'втр', 'срд', 'чтв', 'птн', 'сбт'],
         dayNamesMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
-        dateFormat: 'dd.mm.yy',
+        dateFormat: 'dd MM yy',
         firstDay: 1,
         isRTL: false,
         beforeShowDay: DisableSpecificDates,
@@ -187,8 +187,20 @@ budget.extend("common", {
         // }
         onSelect: function() {
           var selecteddate = $(this).val();
+          
+          var fmt = function(v)
+          {
+            if (v >= 10) return v;
+            return "0"+v;
+          }
+          
           if ($('.js-dp-output').length)
+          {
             $(document).find('.js-dp-output_others').text(selecteddate); // Бюджет Москвы - вывод даты в заголовке Исполнение на дату
+          }
+          var dt = new Date($(this).datepicker('getDate'));
+          var strDate = fmt(dt.getDate()) + "." + fmt(dt.getMonth()+1) + "." + dt.getFullYear();
+          $(document).find('.js-dp-output_others_unixtime').val(strDate);
           $(this).trigger("change");
         }
 
