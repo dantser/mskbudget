@@ -45,26 +45,7 @@
         @media (max-width: 900px) {
           width: 100% !important;
         }
-        .analityc-control-group {
-          position: relative;
-          width: 100%;
-          padding-right: 27px;
-          margin-left: 0;
-          margin-bottom: 0;
-          @include clearfix;
-          @media (max-width: 1140px) {
-            margin-bottom: 0;
-            padding-right: 0;
-          }
-          @media (max-width: 580px) {
-            padding-right: 0;
-          }
-          &:hover {
-            & .analityc-remove-group {
-              display: block;
-            }
-          }
-        }
+        
         .analityc-widget__selectbox_year {
           margin-right: 9px;
           display: inline-block;
@@ -74,37 +55,17 @@
           display: inline-block;
         }
         .analityc-widget__selectbox_stage {
-          min-width: 258px;
+          width: 253px;
           display: inline-block;
           @media screen and (max-width: 900px) {
             min-width: 0;
             width: calc(100% - 262px);
           }
           @media screen and (max-width: 580px) {
-            width: calc(100% - 178px);
+            width: calc(100% - 163px);
           }
         }
-        .analityc-remove-group {
-          display: none;
-          position: absolute;
-          top: 60%;
-          transform: translateY(-50%);
-          left: 100%;
-          @media (max-width: 1140px) {
-            left: 96%;
-          }
-          @media (max-width: 900px) {
-            left: calc(100% + 5px);
-          }
-          @media (max-width: 580px) {
-            left: 98%;
-          }
-          & svg {
-            width: 15px;
-            height: 17px;
-            fill: $color-link;
-          }
-        }
+        
         & .analityc-add-group {
           display: block;
           width: 100%;
@@ -119,13 +80,24 @@
         position: relative;
         float: right;
         width: 530px;
+        
         @media (max-width: 1140px) {
           width: 469px !important;
         }
+        
         @media (max-width: 1010px) {
           float: none;
           width: 100% !important;
         }
+        
+        @media screen and (max-width: 900px) {
+          padding-right: 27px;
+        }
+        
+        @media screen and (max-width: 580px) {
+          padding-right: 17px;
+        }
+        
         & .frame-wrap {
           @include clearfix;
           @media (max-width: 1010px) {

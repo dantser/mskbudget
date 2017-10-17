@@ -49,6 +49,18 @@ export default () => {
     
     // Кастомный скроллбар в селекте "Добавить показатель на страницу"
     $('.d-smr__add-char-list-wrapper').scrollbar();
+    
+    // Добавить год и этап
+    $(document).on('click', '.analityc-add-group', function(e){
+      e.preventDefault();
+      $(this).siblings('.analityc-control-group').first().clone().insertBefore($(this));
+    });
+    
+    // Удалить год и этап
+    $(document).on('click', '.analityc-remove-group', function(e){
+      e.preventDefault();
+      if ($(this).parent().siblings('.analityc-control-group').length) $(this).parent().remove();
+    });
   
   }
 
