@@ -7,7 +7,7 @@ include ../searchForm/searchForm
 
 mixin news()
   +b.SECTION.news-page.sections__item&attributes(attributes)
-    .wrap
+    .wrapper-header
       +e.header
         // page-header
         +page-header('Новости', ['Медиацентр'])
@@ -16,7 +16,8 @@ mixin news()
         // search-form
         +e.search-form.load-anim-fade(data-delay="1500")
           +searchFormNews('Поиск')
-                  
+          
+    .wrapper.page-content-wrapper              
       +e.content.load-anim-fade(data-delay="1500")
         // filter
         +e.buttons-set-wrapper

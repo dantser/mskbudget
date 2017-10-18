@@ -27,10 +27,17 @@
   	margin-bottom: 36px;
 	}
 
-	&:hover .media-card__play {
-		width: 63px;
-    height: 63px;
-    opacity: .8;
+	&:hover {
+		.media-card__img,
+	  .media-card__text {
+			opacity: 1;
+		}
+
+		.media-card__play {
+			width: 63px;
+	    height: 63px;
+	    opacity: .8;
+  	}
 	}
 
 	&__link {
@@ -67,6 +74,8 @@
 
 	&__img {
 		@include fill-img;
+		opacity: .8;
+		transition: .5s;
 	}
 
 	&__play {
@@ -115,6 +124,8 @@
 	&__text {
 		font-size: 16px;
 		font-weight: 400;
+		opacity: .8;
+		transition: .5s;
 
 		@media (max-width: 900px) and (min-width: 581px) {
 			font-size: 20px;

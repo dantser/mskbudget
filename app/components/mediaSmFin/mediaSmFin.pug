@@ -3,11 +3,14 @@ include ../../blocks/icon/icons
 include ../page-header/page-header
 include ../../blocks/button/button
 include ../open-slider/open-slider
+include ../../blocks/media-card/media-card
 
 mixin mediaSmFin()
 	+b.SECTION.mediaSmFin.sections__item&attributes(attributes)
-		.wrapper.page-content-wrapper
+		.wrapper-header
 			+page-header('Материалы для СМИ', ['Открытость'], true)
+
+		.wrapper.page-content-wrapper
 			+e.content.load-anim-fade(data-delay="1500")
 			
 				+e.photos-group
@@ -25,13 +28,9 @@ mixin mediaSmFin()
 
 				+e.materials-group
 					+e.H3.title Материалы портала Открытый бюджет города Москвы
-					+e.card-wrapper
-						.tile__item
-							+material-card(5, 'Расходы в разрезе государственных программ', '1 апреля 2016')
-						.tile__item
-							+material-card(6, 'Расходы в разрезе государственных программ', '1 апреля 2016')
-						.tile__item
-							+material-card(7, 'Расходы в разрезе государственных программ', '1 апреля 2016')
-						.tile__item
-							+material-card(8, 'Расходы в разрезе государственных программ', '1 апреля 2016')
+					+e.media-wrapper
+						+media-card('item1', 'Возле лужников появится кафе с фонтаном-принтером.', '1 апреля 2016')
+						+media-card('item2', 'Русский Монмартр и акунинская Москва: бесплатные экскурсии.', '1 апреля 2016')
+						+media-card('item3', 'Возле лужников появится кафе с фонтаном-принтером.', '1 апреля 2016')
+						+media-card('item4', 'Русский Монмартр и акунинская Москва: бесплатные экскурсии.', '1 апреля 2016')
 					+e.A(href="#").show-more.d-si__button_show-more Показать еще

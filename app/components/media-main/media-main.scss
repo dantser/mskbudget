@@ -81,8 +81,15 @@
     display: table;
     border-collapse: collapse;
     border: 1px solid $color-yellow;
+
     @media(max-width: 900px) {
+      width: 100%;
+      min-height: 70px;
       margin-bottom: 20px;
+    }
+
+    @media(max-width: 400px) {
+      min-height: 40px;
     }
 
     & + .media-main__card-wrapper {
@@ -109,14 +116,18 @@
       text-decoration: none;
       transition: all .25s ease-in-out;
 
-      @media (max-width: 640px) {
-        max-width: 150px;
-        padding: 10px 20px;
+      @media (max-width: 900px) {
+        padding: 0 20px;
+        width: 28%;
+
+        &:first-child {
+          width: 16%;
+        }
       }
       
       @media (max-width: 400px) {
+        padding: 0;
         font-size: 12px;
-        padding: 7px 10px;
       }
 
       & + .media-main__buttons-set-button {
@@ -127,6 +138,14 @@
       &.active {
         background-color: $color-yellow;
         color: $color-black;
+      }
+    }
+
+    &_materials {
+      .media-main__buttons-set-button {
+        @media (max-width: 900px) {
+          width: calc(100% / 3);
+        }
       }
     }
   }
@@ -230,7 +249,7 @@
     }
 
     &_next {
-      right: 135px;
+      right: 115px;
       @media(max-width: 640px) {
         right: 80px;
       }
@@ -241,7 +260,7 @@
         right: 0;
       }
       @media(max-width: 400px) {
-        right: -15px;
+        right: -20px;
       }
      
       &::after {
@@ -252,7 +271,7 @@
     }
 
     &_prev {
-      left: 135px;
+      left: 115px;
       @media(max-width: 640px) {
         left: 80px;
       }
@@ -263,7 +282,7 @@
         left: 0;
       }
       @media(max-width: 400px) {
-        left: -15px;
+        left: -20px;
       }
       &::after {
         left: 8px;
@@ -324,7 +343,7 @@
     }
   }
   
-  &__news-card, &__event-card {
+  &__news-card {
     position: relative;
     top: 0;
     left: 0;
@@ -347,7 +366,7 @@
 
   &__subscribe {
     &.subscribe {
-      margin-top: 48px;
+      margin-top: 66px;
       & > .wrap {
         padding: 0;
       }
@@ -407,94 +426,8 @@
     .form__date-range-icon {
       height: 30px;
     }
-
-    // .ui-datepicker {
-    //   position: relative;
-    //   margin: 0 -5px;
-    //   border: 0;
-    //   background: none;
-    //   padding: 0;
-    //   color: #fff;
-    // }
-    // .ui-datepicker-header {
-    //   padding: 0 5px;
-    // }
-    // .ui-datepicker-next, .ui-datepicker-prev {
-    //   display: none;
-    // }
-    // .ui-datepicker-month, .ui-datepicker-year {
-    //   margin: 0;
-    //   width: 48%;
-    //   font-weight: 500;
-    //   cursor: pointer;
-    //   &:hover {
-    //     background: none;
-    //   }
-    //   option {
-    //     color: #000;
-    //   }
-    // }
-    // .ui-datepicker-month {
-    //   margin-right: 4%;
-    // }
-    // .ui-datepicker th {
-    //   font-weight: 500;
-    //   font-size: 13px;
-    //   padding-bottom: 14px;
-    // }
-    // .ui-datepicker td a, .ui-datepicker td span {
-    //   font-size: 15px;
-    //   font-weight: 700;
-    //   height: 1.85em;
-    //   line-height: 1.85em;
-    //   margin: 0 0.2em;
-    //   color: #fff;
-    // }
-    // .ui-datepicker .ui-datepicker-current-day a {
-    //   background: #fff;
-    //   color: #000 !important;
-    // }
-    // .ui-datepicker-week-end a {
-    //   color: #e14154!important;
-    // }
   }
 
-  &__event-card {
-    width: 248px;
-
-    @media (max-width: 1140px) and (min-width: 901px) {
-      width: 213px;
-      min-height: 220px;
-      .news__thumb {
-        height: 114px;
-      }
-      .news__title {
-        font-size: 14px;
-        margin: 19px 16px 0;
-      }
-      .news__date {
-        font-size: 12px;
-      }
-    }
-
-    @media (max-width: 900px) and (min-width: 401px) {
-      min-height: 300px;
-    }
-  }
-
-  .news_events {
-
-    .news__thumb {
-      @media (max-width: 900px) {
-        height: 190px;
-      }
-
-      @media (max-width: 400px) {
-        height: 150px;
-      }
-    }
-  }
-  
   &__infographic-card {
     width: 248px;
     display: inline-block;

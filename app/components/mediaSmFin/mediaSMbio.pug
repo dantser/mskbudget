@@ -2,8 +2,10 @@ include mediaSmFin
 
 mixin mediaSMbio()
 	+b.SECTION.mediaSmFin.sections__item&attributes(attributes)
-		.wrapper.page-content-wrapper
+		.wrapper-header
 			+page-header('Биография', ['Открытость', 'Материалы для СМИ'], true)
+		
+		.wrapper.page-content-wrapper
 			+e.content.load-anim-fade(data-delay="1500")
 
 				+e.photos-group
