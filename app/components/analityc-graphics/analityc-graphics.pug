@@ -1030,16 +1030,17 @@ mixin analityc-graphics-line(title, data)
               +e.SPAN.line-bar-value= obj.barvalue
               +e.line-abs= obj.barvalue
               +e.line-fill
+
 mixin analityc-graphics-multiline(data)
   +b.analityc-multiline&attributes(attributes)
     p.analityc-graphics__periodtext
       span Плановый период
     .graphic__row
       .graphic__title
-      span.graphic__data(data-char='2017') 2017
-      span.graphic__data(data-char='2018') 2018
+      span.graphic__data.graphic__data_green(data-char='2017') 2017
+      span.graphic__data.graphic__data_red(data-char='2018') 2018
         span.graphic__period-left
-      span.graphic__data(data-char='2019') 2019
+      span.graphic__data.graphic__data_blue(data-char='2019') 2019
         span.graphic__period-right
       span.graphic__data
     each obj in data
