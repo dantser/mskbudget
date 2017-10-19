@@ -7,37 +7,34 @@
   padding-bottom: 135px;
   
   &__card-wrapper {
-    text-align: justify;
+    height: 1080px;
+    overflow: hidden;
     margin-top: 24px;
-    &:after {
-      content: '';
-      display: inline-block;
-      width: 100%;
-      height: 0.0000000001px;
+
+    @media (max-width: 900px) {
+      height: 2328px;
+    }
+
+    @media (max-width: 600px) {
+      height: 1185px;
     }
   }
   
-  &__col {
+  &__content {
+    height: auto;
     text-align: justify;
-    display: inline-block;
     vertical-align: top;
+
     &:after {
       content: '';
       display: inline-block;
       width: 100%;
       height: 0.0000000001px;
-    }
-    &_main {
-      width: 74.2%;
-    }
-    &_add {
-      width: 22.5%;
     }
   }
   
   &__card {
-    width: 100%;
-    max-width: 247px;
+    width: 23%;
     height: 318px;
     display: inline-block;
     vertical-align: top;
@@ -56,53 +53,27 @@
   
   @media screen and (max-width: 1179px) {
     padding-bottom: 67px;
-    &__col {
-      &_main, &_add {
-        width: 100%;
-        max-width: 990px;
-      }
-      &_add {
-        margin-top: -22px;
-      }
-    }
   }
   
   @media screen and (min-width: 801px) and (max-width: 1179px) {
     padding-top: 274px;
-  }
-  
-  @media screen and (max-width: 950px) {
-    &__col {
-      &_main{
-        .media-infographic__card:nth-child(n+9) {
-          display: none;
-        }
-      }
-      &_add {
-        .media-infographic__card:nth-child(n+3) {
-          display: none;
-        }
-      }
+
+    &__card {
+      width: 27%;
     }
   }
   
   @media screen and (max-width: 800px) {
     &__card {
       display: block;
-      max-width: 560px;
+      width: 560px;
       height: 718px;
       margin-left: auto;
       margin-right: auto;
       margin-bottom: 58px;
-      &:nth-child(n+4) {
-        display: none;
-      }
     }
-    &__col {
+    &__content {
       text-align: center;
-    }
-    &__col_add {
-      display: none;
     }
   }
   
@@ -123,7 +94,7 @@
       margin-top: 7px;
     }
     &__card {
-      max-width: 280px;
+      width: 280px;
       height: 366px;
       margin-bottom: 29px;
     }
