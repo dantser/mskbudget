@@ -88,154 +88,38 @@ export default () => {
   })
 
   if ( $('#significant-bigmap').length > 0 ) {
-
-  //ymaps.load().then(maps => {
-//
-  //  var zoom = 12;
-//
-  //  var bigMap = new maps.Map("significant-bigmap", {
-  //      center: [55.753215, 37.622504],
-  //      zoom: zoom,
-  //      type: "yandex#map",
-  //      controls: []
-//
-  //  },
-  //  {suppressMapOpenBlock: true}); // скрыть ссылку на карты
-//
-  //  const PROJECT = $(".significant-list_map .significant-list__row-title");
-  //  var prj_arr = [];
-  //  var prj_cnt = 0;
-//
-  //  PROJECT.each(function() {
-  //    var elem = $(this);
-  //    var parent = elem.parents('.significant-list__row');
-//
-  //    prj_arr[prj_cnt] = getCoords(elem.attr('value'));
-//
-  //    var elem_num = prj_cnt + 1;
-//
-  //    drowMarker(maps, bigMap, elem.data('target'), elem.text(), parent.find('.significant-list__row-st').text(), elem.attr('value'));
-//
-  //    prj_cnt++;
-  //  })
-//
-//
-  //  $(".significant-list_map .significant-list__row-title").on("click", function(e) {
-//
-  //    if (zoom != 14) {
-  //      zoom = 14;
-  //      bigMap.setZoom(zoom);
-  //    }
-//
-  //    var elem = $(this);
-  //    // таблица
-  //    $('.significant-list__row').removeClass('significant-list__row_active');
-  //    elem.parents('.significant-list__row').addClass('significant-list__row_active')
-  //    // маркер
-  //    var LAYOUT = $('.circle-layout');
-  //    LAYOUT.removeClass('locate-layout');
-  //    // смена маркера
-  //    var target = $('.circle-layout[data-object="'+ elem.data('target') +'"]');
-  //    target.addClass('locate-layout');
-  //    // сообщение
-  //    $('.balloon-layout').hide();
-  //    target.siblings('.balloon-layout').show();
-//
-  //    // переход
-  //    bigMap.panTo( [getCoords(elem.attr('value')).x, getCoords(elem.attr('value')).y], { flying: true } );
-//
-  //    return false;
-//
-  //  });
-//
-//
-  //  // карта во вкладке отдельного проекта
-  //  smallMap = new maps.Map("significant-smallmap", {
-  //      center: [55.753215, 37.622504],
-  //      zoom: 14,
-  //      type: "yandex#map",
-  //      controls: []
-//
-  //  },
-  //  {suppressMapOpenBlock: true});
-//
-  //  const mapOpen = $('.significant-about__map-open');
-  //  
-  //  mapOpen.click(function(e) {
-  //    e.preventDefault();
-  //    if ($(document).width() <= 1024) $("html,body").css("overflow-y","hidden");
-  //    $('.significant').addClass('popupMode');
-  //    smallMap.container.fitToViewport();
-  //    // не активируется
-  //    drowMarker(maps, smallMap, '1', 'СТАНЦИЯ МЕТРО «ХОВРИНО»', 'Улица Дыбенко, вблизи строений 34-38', smallCoord);
-  //  });
-  //  
-  //  $('.significant-about__map-close, .significant__mask, .significant-about__back').click(function(e) {
-  //    e.preventDefault();
-  //    if ($(document).width() <= 1024) $("html,body").css("overflow-y","auto");
-  //    $('.significant').removeClass('popupMode');
-  //    smallMap.container.fitToViewport();
-  //  });
-  //})
-  //.catch(error => console.log('Failed to load Yandex Maps', error));
         
     ymaps.load().then(maps => {
       var bigMap = new maps.Map("significant-bigmap", {
         center: [55.751574, 37.573856],
         zoom: 10,
-        behaviors: ['default', 'scrollZoom']
+        behaviors: ['default', 'scrollZoom'],
+        controls: []
       }, {
-        searchControlProvider: 'yandex#search'
+        suppressMapOpenBlock: true
       }),
-          /**
-          * Создадим кластеризатор, вызвав функцию-конструктор.
-          * Список всех опций доступен в документации.
-          * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/Clusterer.xml#constructor-summary
-          */
+          
+          // Создадим кластеризатор, вызвав функцию-конструктор.
           clusterer = new maps.Clusterer({
-            /**
-            * Через кластеризатор можно указать только стили кластеров,
-            * стили для меток нужно назначать каждой метке отдельно.
-            * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/option.presetStorage.xml
-            */
             preset: 'islands#blueClusterIcons',
-            /**
-            * Ставим true, если хотим кластеризовать только точки с одинаковыми координатами.
-            */
-            groupByCoordinates: false,
-            /**
-            * Опции кластеров указываем в кластеризаторе с префиксом "cluster".
-            * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/ClusterPlacemark.xml
-            */
-            //clusterDisableClickZoom: true,
-            //clusterHideIconOnBalloonOpen: false,
-            //geoObjectHideIconOnBalloonOpen: false
+            groupByCoordinates: false
           }),
-          /**
-          * Функция возвращает объект, содержащий данные метки.
-          * Поле данных clusterCaption будет отображено в списке геообъектов в балуне кластера.
-          * Поле balloonContentBody - источник данных для контента балуна.
-          * Оба поля поддерживают HTML-разметку.
-          * Список полей данных, которые используют стандартные макеты содержимого иконки метки
-          * и балуна геообъектов, можно посмотреть в документации.
-          * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/GeoObject.xml
-          */
+          
+          // Функция возвращает объект, содержащий данные метки.
           getPointData = function (index) {
             var pointText = $('.significant-list_map .significant-list__row-title').eq(index).text();
             return {
               balloonContentBody: '<p>'+pointText+'</p>'
             };
           },
-          /**
-          * Функция возвращает объект, содержащий опции метки.
-          * Все опции, которые поддерживают геообъекты, можно посмотреть в документации.
-          * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/GeoObject.xml
-          */
+          
+          // Функция возвращает объект, содержащий опции метки.
           getPointOptions = function () {
             return {
               preset: 'islands#blueIcon'
             };
           },
+          
           points = [],
           geoObjects = [];
       
@@ -247,18 +131,12 @@ export default () => {
         points.push(pointArr);
       });
       
-      /**
-      * Данные передаются вторым параметром в конструктор метки, опции - третьим.
-      * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/Placemark.xml#constructor-summary
-      */
+      // Данные передаются вторым параметром в конструктор метки, опции - третьим.
       for(var i = 0, len = points.length; i < len; i++) {
         geoObjects[i] = new maps.Placemark(points[i], getPointData(i), getPointOptions());
       }
       
-      /**
-      * В кластеризатор можно добавить javascript-массив меток (не геоколлекцию) или одну метку.
-      * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/Clusterer.xml#add
-      */
+      // В кластеризатор можно добавить javascript-массив меток (не геоколлекцию) или одну метку.
       clusterer.add(geoObjects);
       bigMap.geoObjects.add(clusterer);
       
@@ -275,6 +153,56 @@ export default () => {
         
         return false;
         
+      });
+      
+      // карта во вкладке отдельного проекта
+      smallMap = new maps.Map("significant-smallmap", {
+          center: [55.753215, 37.622504],
+          zoom: 14,
+          type: "yandex#map",
+          controls: []
+      },
+      {
+        suppressMapOpenBlock: true
+      });
+      
+      $(".significant-list_list .significant-list__row-title").on("click", function(e) {
+        
+        smallMap.geoObjects.removeAll();
+        
+        smallMap.setZoom(14);
+        
+        var elem = $(this),
+            smallMapCoords = [getCoords(elem.attr('value')).x, getCoords(elem.attr('value')).y],
+            elemText = elem.text();
+        
+        // переход
+        smallMap.panTo( smallMapCoords, { flying: true } );
+        
+        var smplacemark = new maps.Placemark(smallMapCoords, {
+          balloonContentBody: '<p>'+elemText+'</p>'
+        }, {
+          preset: 'islands#blueIcon'
+        });
+        smallMap.geoObjects.add(smplacemark);
+        
+      });
+  
+      const mapOpen = $('.significant-about__map-open');
+      
+      mapOpen.click(function(e) {
+        e.preventDefault();
+        if ($(document).width() <= 1024) $("html,body").css("overflow-y","hidden");
+        $('.significant').addClass('popupMode');
+        smallMap.container.fitToViewport();
+        
+      });
+      
+      $('.significant-about__map-close, .significant__mask, .significant-about__back').click(function(e) {
+        e.preventDefault();
+        if ($(document).width() <= 1024) $("html,body").css("overflow-y","auto");
+        $('.significant').removeClass('popupMode');
+        smallMap.container.fitToViewport();
       });
       
     })
