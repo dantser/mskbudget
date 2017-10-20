@@ -147,7 +147,7 @@ export default () => {
 						$(this).find('.analityc-line__line-total').addClass('analityc-line__line-total_negative');
 				}
 				else
-					var sum = num + barNum;
+					var sum = barNum;
 
 				if (cnt == 0) {
 					full = sum;
