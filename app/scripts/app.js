@@ -74,6 +74,8 @@ import analyticsGovDebt from '../components/analytics-gov-debt/analyticsGovDebt'
 import depfin_analytics_income from '../components/depfin_analytics_income/depfin_analytics_income';
 import mediaInfographic from '../components/media-infographic/mediaInfographic';
 import mediaEvents from '../components/mediaEvents/mediaEvents';
+import mediaSM from '../components/mediaSmFin/mediaSM';
+import pressReleases from '../components/press-releases/pressReleases';
 
 $(() => {
 	  // перезагрузка страниц при изменении разрешения
@@ -165,4 +167,6 @@ $(() => {
   depfin_analytics_income();
   	mediaInfographic();
   	mediaEvents();
+  	mediaSM();
+  	pressReleases();
 });

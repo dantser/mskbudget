@@ -4,6 +4,13 @@ export default () => {
 
   $(document).ready(function(){
 
+    $('.news-page__buttons-set').each(function() {
+      $(this).find('.news-page__buttons-set-button').click(function(e) {
+        e.preventDefault();
+        $(this).addClass('active').siblings('.news-page__buttons-set-button').removeClass('active');
+      })
+    })
+
     var currentFilter = 'all';
 
     newsMargins();
@@ -46,25 +53,6 @@ export default () => {
     //     }
     //   }, 500);
     // });
-
-    $('.news-page__buttons-set-selected').click(function(e){
-      e.stopPropagation();
-      $('.news-page__buttons-set-wrapper').addClass('active');
-      $('.news-page__buttons-set').slideDown();
-
-      const activeText = $(this).find('.output');
-      $('.button-light').on('click', function () {
-        const newText = $(this).html();
-        activeText.text(newText);
-      })
-    });
-
-    $('html').click(function(){
-      if ($(window).width() < 639) {
-        $('.news-page__buttons-set').slideUp();
-        $('.news-page__buttons-set-wrapper').removeClass('active');
-      }
-    });
 
     $('.news-page__show-more').on('click', function (e) {
       e.preventDefault();

@@ -8,18 +8,18 @@ mixin mediaEvents()
 	+b.SECTION.mediaEvents.sections__item&attributes(attributes)
 		.wrapper-header
 			+page-header('События', ['Медиацентр'], true)
+			+e.FORM.search-group
+				+e.search-title Поиск по дате
+				// datepicker
+				.form__date-range(id='rid-0')
+					INPUT(type='text', value='дд.мм.гг', readonly).form__date-range-input.jq-f-datepicker.input-min
+					SPAN.form__date-range-sep —
+					INPUT(type='text', value='дд.мм.гг', readonly).form__date-range-input.jq-f-datepicker.input-max
+					SPAN.form__date-range-icon
+				+button(true)._kind_yellow Искать
 
 		.wrapper.page-content-wrapper
 			+e.content.load-anim-fade(data-delay="1500")
-				+e.FORM.search-group
-					+e.search-title Поиск по дате
-					// datepicker
-					.form__date-range(id='rid-0')
-						INPUT(type='text', value='дд.мм.гг', readonly).form__date-range-input.jq-f-datepicker.input-min
-						SPAN.form__date-range-sep —
-						INPUT(type='text', value='дд.мм.гг', readonly).form__date-range-input.jq-f-datepicker.input-max
-						SPAN.form__date-range-icon
-					+button(true)._kind_yellow Искать
 				+e.announcement
 					+e.H3.title Анонсы
 					+e.outer

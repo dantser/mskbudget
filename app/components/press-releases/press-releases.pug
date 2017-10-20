@@ -1,8 +1,16 @@
-include depfin-budget-moscow-media-materials
+include ../page-header/page-header
+include ../../blocks/media-card/media-card
+include ../../blocks/button/button
 
-mixin materials-present()
-	+depfin-budget-moscow-media-materials('Презентации')
-		+e.SECTION.materials
+mixin press-releases()
+	+b.SECTION.press-releases.sections__item&attributes(attributes)
+		.wrapper-header
+
+			+e.head
+				+page-header('Пресс-релизы', ['Медиацентр', 'Медиаматериалы'], true)
+
+		.wrapper.page-content-wrapper.load-anim-fade(data-delay="1500")
+			
 			+e.wrapper._three
 				+e.content
 					+media-card('item1', 'Возле лужников появится кафе с фонтаном-принтером.', '1 апреля 2016')

@@ -20,13 +20,12 @@ mixin news()
     .wrapper.page-content-wrapper              
       +e.content.load-anim-fade(data-delay="1500")
         // filter
-        +e.buttons-set-wrapper
-          +e.P.buttons-set-selected 
-            span.output Все
-            +e.buttons-set-icon
-              +icon('caret')
-          +buttons-set(getData('buttons-set-news'))._news.__buttons-set
-        
+        +e.buttons-set
+          +e.A(href="#", data-filter="all").buttons-set-button.active все
+          +e.A(href="#", data-filter="budget").buttons-set-button новости бюджета
+          +e.A(href="#", data-filter="moscow").buttons-set-button новости Москвы
+          +e.A(href="#", data-filter="federal").buttons-set-button федеральные новости
+
         // news
         +e.card-wrapper
           +news-cards().__news-cards

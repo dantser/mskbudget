@@ -40,6 +40,73 @@
     }
   }
 
+  &__wrapper {
+    height: auto;
+  }
+
+  &__outer {
+    height: 283px;
+    overflow: hidden;
+
+    @media (max-width: 1140px) {
+      height: 246px;
+    }
+
+    @media (max-width: 900px) {
+      height: 303px;
+    }
+
+    @media (max-width: 580px) {
+      height: 241px;
+    }
+
+    @media (max-width: 400px) {
+      height: 283px;
+    }
+
+    &_bio {
+      height: 590px;
+
+      @media (max-width: 1140px) {
+        height: 510px;
+      }
+
+      @media (max-width: 900px) {
+        height: 593px;
+      }
+
+      @media (max-width: 640px) {
+        height: 566px;
+      }
+
+      @media (max-width: 580px) {
+        height: 526px;
+      }
+
+      @media (max-width: 400px) {
+        height: 538px;
+      }
+    }
+
+    &_logo {
+      height: 297px;
+
+      @media (max-width: 900px) {
+        height: 253px;
+      }
+
+      @media (max-width: 640px) {
+        height: 281px;
+      }
+
+      @media (max-width: 400px) {
+        height: 233px;
+      }
+
+    }
+
+  }
+
   &__card-wrapper {
     margin-top: 35px;
     text-align: justify;
@@ -68,6 +135,18 @@
 
     & + .media-main__page-link {
       margin-top: 19px;
+    }
+
+    .media-card__text {
+      text-transform: uppercase;
+
+      @media (max-width: 580px) and (min-width: 401px) {
+        font-size: 14px;
+      }
+    }
+
+    .media-card__date {
+      display: none;
     }
   }
 
@@ -145,6 +224,18 @@
   }
 
   /*Страница отдельной биографии*/
+
+  &__bio-list {
+    display: block;
+    font-family: PFDinCondensedPro,sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #0d46a1;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 12px;
+  }
 
   &__info-position,
   &__info-item,

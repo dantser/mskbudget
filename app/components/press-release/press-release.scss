@@ -337,34 +337,28 @@
 		}
 	}
 
-	&__tag {
-		display: inline-block;
+  &__tag {
+    display: inline-block;
+    box-sizing: border-box;
     border: 1px solid #ddd;
     margin-right: 6px;
-    font-family: PFDinTextPro,sans-serif;
+    font-family: $PFDinTextPro;
     color: #000;
-	}
 
-	&__tag-link {
-		display: block;
-    text-decoration: none;
-    font-size: 14px;
-    padding: 4px 15px;
-    transition: all .25s ease-in-out;
-
-		@media (max-width: 900px) and (min-width: 581px) {
-			font-size: 24px;
-	    padding: 8px 24px;
-		}
-
-		@media (max-width: 580px) {
-			padding: 4px 11px;
-	    font-size: 11px;
-		}
-		
-
-    &:hover {
-	    opacity: .7;
+    @media (max-width: 580px) {
+      margin-bottom: 10px;
     }
-	}
+
+    &-link {
+      display: block;
+      text-decoration: none;
+      font-size: 14px;
+      line-height: 14px;
+      padding: 4px 15px;
+      transition: all .25s ease-in-out;
+      &:hover {
+        opacity: .7;
+      }
+    }
+  }
 }
