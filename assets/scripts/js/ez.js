@@ -1589,3 +1589,10 @@ var budgetIncomeInitTabs = function() {
   });
 }
 //$(document).ready(budgetIncomeInitTabs);
+
+// Change event for selectbox
+$(document).on('click', '.selectbox li', function (e) {
+  if (!$(this).hasClass('locked')) {
+    $(this).parents('.selectbox').find('select').change();
+  }
+});
