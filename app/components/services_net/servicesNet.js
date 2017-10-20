@@ -63,6 +63,11 @@ export default () => {
     MASK.removeClass('active');
   })
 
+  // Стандартный цвет шрифта при фокусе в форме
+  NET.find('.d-si__search').focus(function() {
+    $(this).addClass('d-si__search_focused');
+  })
+
   // Переход на таб Муниц. образование -> Перечень гос. учреждений
   const MORE_LINK = $('.analityc-more');
   MORE_LINK.click(function(e) {
