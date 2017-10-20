@@ -414,7 +414,8 @@ export default () => {
     // Определяем сегмент диаграммы с маленьким значением
     // ###############################
     $('.segment-diagram').each(function () {
-      var vals = $(this).find('.segment-diagram__val');
+      var vals = $(this).find('.segment-diagram__val'),
+          smallVals = $(this).find('.segment-diagram__val_small');
       
       // Ищем сумму
       var summ = 0;
@@ -449,31 +450,21 @@ export default () => {
             .removeClass('segment-diagram__val_small_lt segment-diagram__val_small_rt segment-diagram__val_small_lb segment-diagram__val_small_rb')
             .addClass(totalClass)
             .html('<span>' + text + '</span>');
-          
-          // Корректируем склеивание
-          //if ($(this).prev().hasClass(totalClass)) {
-          //  
-          //  var valSpan = $(this).find('span'),
-          //      valLength = $(this).prevAll('.'+totalClass).length,
-          //      valHeight = valSpan.height(),
-          //      valPosition = {
-          //        left: parseFloat(valSpan.css('left')),
-          //        top: parseFloat(valSpan.css('top')),
-          //        right: parseFloat(valSpan.css('right')),
-          //        bottom: parseFloat(valSpan.css('bottom'))
-          //      },
-          //      lineAngle, lineWidth,
-          //      direction = totalClass.substr(-2, 2);
-          //  
-          //  if (direction == 'lt') {
-          //    valPosition.bottom += (valHeight * valLength);
-          //    valSpan.css('bottom', valPosition.bottom);
-          //    lineAngle = Math.atan(valPosition.right / valPosition.bottom);
-          //    lineWidth = Math.sqrt(valPosition.right * valPosition.right + valPosition.bottom * valPosition.bottom);
-          //  }
-          //  
-          //}
-          
+        }
+      });
+      
+      // Корректируем склеивание
+      smallVals.each(function(){
+        $(this).removeClass('segment-diagram__val_small_lt-before segment-diagram__val_small_rt-before segment-diagram__val_small_lb-before segment-diagram__val_small_rb-before segment-diagram__val_small_lt-after segment-diagram__val_small_rt-after segment-diagram__val_small_lb-after segment-diagram__val_small_rb-after');
+        var smallClass = $(this).attr('class');
+        if ($(this).next().hasClass(smallClass) && !$(this).prev().hasClass(smallClass)) {
+          var position = smallClass.substr(-2, 2);
+          $(this).addClass('segment-diagram__val_small_'+position+'-before');
+        }
+        
+        if (!$(this).next().hasClass(smallClass) && $(this).prev().hasClass(smallClass) && $(this).prev().prev().hasClass(smallClass)) {
+          var position = smallClass.substr(-2, 2);
+          $(this).addClass('segment-diagram__val_small_'+position+'-after');
         }
       });
     });

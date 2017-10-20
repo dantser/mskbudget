@@ -31,7 +31,9 @@ export default () => {
       $('.js-dp-output_others').addClass('active');
   })
   $(document).on('click', '[data-level="consolidated"] li', function() {
-    graphicsDate();
+    if ($('.gov-debt').length == 0) {
+      graphicsDate();
+    }
   })
   
   

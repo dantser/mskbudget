@@ -91,16 +91,16 @@ export default () => {
   }
 
     // вывод даты в заголовке Исполнение на дату
-  function graphicsDate() {
+  /*function graphicsDate() {
     const DP_OUTPUT = $(document).find('.js-dp-output_cons');
     const DP = $(document).find('[data-level="consolidated"]');
     var val = '1 ' + DP.find('.analityc-widget__selectbox_month .selectbox__val').text() + ' ' + DP.find('.analityc-widget__selectbox_year .selectbox__val').text();
     DP_OUTPUT.text(val);
-  }
+  }*/
 
-  $(document).on('click', '.analityc-control-group._stage li', function() {
+  /*$(document).on('click', '.analityc-control-group._stage li', function() {
     graphicsDate();
-  })
+  })*/
 
   
 }
