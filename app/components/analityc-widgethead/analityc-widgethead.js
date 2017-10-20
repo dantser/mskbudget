@@ -3,7 +3,7 @@ import 'jquery.scrollbar';
 
 export default () => {
 
-  $('.analityc-control-switcher a').on('click', function (e) {
+  $(document).on('click', '.analityc-control-switcher a', function (e) {
     e.preventDefault();
     $(this).siblings('a').removeClass('active');
     $(this).addClass('active');

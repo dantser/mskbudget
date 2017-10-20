@@ -73,35 +73,35 @@ export default () => {
   }
 
   // Темп роста
-  function rateLine(el, coef, startrate) {
+  window.rateLine = function() {
     
-    if ($(el).length) {
+    if ($('.growth-rate').length) {
       
-      $(el).each(function(){
+      $('.growth-rate').each(function(){
         
         var graphic = $(this);
-        var negRateDifference = 0;
+        var minRate = parseFloat($(this).data('minrate'));
+        var maxRate = parseFloat($(this).data('maxrate'));
+        var fullRate = maxRate - minRate;
+        var graphicHeight = $(this).data('height');
         var isColumns = false;
         if (graphic.hasClass('growth-rate_columns')) isColumns = true;
+        var coef = graphicHeight / fullRate;
+        
+        graphic.height(graphicHeight);
         
         graphic.find('.growth-rate__level').each(function(){
           var rateLevel = parseFloat($(this).data('rate-level'));
-          var rateDifference = startrate - rateLevel;
-          if (rateDifference < negRateDifference) {
-            negRateDifference = rateDifference;
-          }
+          var rateDifference = maxRate - rateLevel;
           $(this).css('top', rateDifference*coef+'px');
         });
-        
-        negRateDifference = Math.abs(negRateDifference);
-        graphic.css('margin-top', negRateDifference*coef+'px');
   
         graphic.find('.growth-rate__line').each(function(){
           var rateCol = $(this).parents('.growth-rate__col');
           var startPoint = $(this).parent().css('top');
           var endPoint = rateCol.next().children().css('top');
-          startPoint = parseInt(startPoint);
-          endPoint = parseInt(endPoint);
+          startPoint = parseFloat(startPoint);
+          endPoint = parseFloat(endPoint);
           var pointDiffX = rateCol.next().offset().left - rateCol.offset().left;
           var pointDiffY = endPoint - startPoint;
           if (isColumns) {
@@ -116,22 +116,8 @@ export default () => {
       });
     }
   }
-
-  // Бюджет Москвы - Государственный долг (уровень долговой нагрузки)
-  rateLine('.gov-debt .analityc-graphics__growth-rate_level', 40, 2.9);
   
-  // Бюджет Москвы - Государственный долг (предельный объем государственного долга)
-  rateLine('.gov-debt .analityc-graphics__growth-rate_limit', 1.5, 57.1);
-  
-  // Бюджет Москвы - Социально-экономическое развитие (численность населения)
-  rateLine('.budget-forecast .analityc-graphics-rate-columns__growth-rate', 10, 100);
-  
-  // Бюджет Москвы - Социально-экономическое развитие (индекс промышленного производства)
-  rateLine('.budget-forecast .analityc-graphics-broken-line__growth-rate', 5, 94.9);
-  
-  // Аналитика - Государственный долг (уровень долговой нагрузки)
-  rateLine('.analytics-gov-debt .analityc-graphics-broken-line', 9, 8);
-  
+  rateLine();
   
   
   // Графики колонки со сдвигом 
@@ -463,6 +449,31 @@ export default () => {
             .removeClass('segment-diagram__val_small_lt segment-diagram__val_small_rt segment-diagram__val_small_lb segment-diagram__val_small_rb')
             .addClass(totalClass)
             .html('<span>' + text + '</span>');
+          
+          // Корректируем склеивание
+          //if ($(this).prev().hasClass(totalClass)) {
+          //  
+          //  var valSpan = $(this).find('span'),
+          //      valLength = $(this).prevAll('.'+totalClass).length,
+          //      valHeight = valSpan.height(),
+          //      valPosition = {
+          //        left: parseFloat(valSpan.css('left')),
+          //        top: parseFloat(valSpan.css('top')),
+          //        right: parseFloat(valSpan.css('right')),
+          //        bottom: parseFloat(valSpan.css('bottom'))
+          //      },
+          //      lineAngle, lineWidth,
+          //      direction = totalClass.substr(-2, 2);
+          //  
+          //  if (direction == 'lt') {
+          //    valPosition.bottom += (valHeight * valLength);
+          //    valSpan.css('bottom', valPosition.bottom);
+          //    lineAngle = Math.atan(valPosition.right / valPosition.bottom);
+          //    lineWidth = Math.sqrt(valPosition.right * valPosition.right + valPosition.bottom * valPosition.bottom);
+          //  }
+          //  
+          //}
+          
         }
       });
     });
