@@ -309,6 +309,12 @@ export default () => {
           averageLineHeight += 20;
         }
         
+        if (graphic.next().find('[data-checkbox]:visible').length < 1) {
+          $(this).hide();
+        } else {
+          $(this).show();
+        }
+        
         $(this).css('bottom', averageLineHeight+'px');
       });
     });
