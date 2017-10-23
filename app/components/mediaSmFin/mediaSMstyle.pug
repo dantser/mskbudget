@@ -1,0 +1,54 @@
+include mediaSmFin
+
+mixin mediaSMstyle()
+	+b.SECTION.mediaSmFin.sections__item&attributes(attributes)
+		.wrapper-header
+			+page-header('Фирменный стиль', ['Открытость', 'Материалы для СМИ'], true)
+		
+		.wrapper.page-content-wrapper
+			+e.content.load-anim-fade(data-delay="1500")
+
+				+e.H3.title._brand Брендбук
+				+e.photos-group
+					+e.slider
+						a(href="#").doc-cards__download Скачать (PDF 957,55 Кб)
+						+open-slider()
+							+open-slider-gallery()
+								+open-slide-gallery('guide_01.jpg')
+								+open-slide-gallery('guide_02.jpg')
+								+open-slide-gallery('guide_03.jpg')
+								+open-slide-gallery('guide_04.jpg')
+								+open-slide-gallery('guide_05.jpg')
+								+open-slide-gallery('guide_06.jpg')
+								+open-slide-gallery('guide_07.jpg')
+							+open-slider-thumbs()
+								+open-slide-thumbs('guide_01.jpg')
+								+open-slide-thumbs('guide_02.jpg')
+								+open-slide-thumbs('guide_03.jpg')
+								+open-slide-thumbs('guide_04.jpg')
+								+open-slide-thumbs('guide_05.jpg')
+								+open-slide-thumbs('guide_06.jpg')
+								+open-slide-thumbs('guide_07.jpg')
+
+				+e.photos-group
+					+e.H3.title Логотипы
+					+e.outer._logo
+						+e.card-wrapper.mediaSmFin__wrapper
+							.tile__item
+								+logo-card('Открытый бюджет города Москвы', 'logo-depfin').tile__inner 
+							.tile__item
+								+logo-card('Открытый бюджет города Москвы', 'logo-depfin').tile__inner 
+							.tile__item
+								+logo-card('Открытый бюджет города Москвы', 'logo-depfin').tile__inner 
+							.tile__item
+								+logo-card('Открытый бюджет города Москвы', 'logo-depfin').tile__inner 
+							//- hidden
+							.tile__item
+								+logo-card('Открытый бюджет города Москвы', 'logo-depfin').tile__inner 
+							.tile__item
+								+logo-card('Открытый бюджет города Москвы', 'logo-depfin').tile__inner 
+							.tile__item
+								+logo-card('Открытый бюджет города Москвы', 'logo-depfin').tile__inner 
+							.tile__item
+								+logo-card('Открытый бюджет города Москвы', 'logo-depfin').tile__inner 
+					+e.A(href="#").show-more.d-si__button_show-more Показать еще
