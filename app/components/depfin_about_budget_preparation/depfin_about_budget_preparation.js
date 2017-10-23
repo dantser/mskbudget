@@ -72,11 +72,11 @@ export default function aboutBudgetPreparation() {
         prepTab = '.sections_budget-preparation .tabs__tab';
       
     // переключение таба бюджет мск/федеральный
-    $(document).on('click', prepTabLink, function(e){
+   /* $(document).on('click', prepTabLink, function(e){
       e.preventDefault();
       $(prepTabLink).removeClass('button-light--fill');
       $(this).addClass('button-light--fill');
-      var filter = $(this).data('tab-filter');
+      var filter = $(this).data('tab-filter');\
       $(prepTab).removeClass('active');
       $(prepTab+'[data-tab="'+filter+'"]').addClass('active');
       loadTableToMiddle();
@@ -91,7 +91,7 @@ export default function aboutBudgetPreparation() {
       if ($(window).width() > 800) {
         $('.steps').css('height', 'auto');
       }
-    });
+    });*/
     
     
     /*
