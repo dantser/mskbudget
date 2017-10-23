@@ -34,15 +34,18 @@ export default () => {
     overflowDotts(60, '.media-card__text'); 
 
 
-  const moreBtn = page.find('.depfin-budget-moscow-media-materials__more button');
-  const contentWrapper = page.find('.depfin-budget-moscow-media-materials__wrapper');
+  const content = page.find('.depfin-budget-moscow-media-materials__materials');
 
-  moreBtn.on('click', function(e) {
-    e.preventDefault();
-    contentWrapper.animate({
-      height: contentWrapper.find('.depfin-budget-moscow-media-materials__content').height()
-    }, 1000, function(){
-      contentWrapper.height('auto');
-    });
+  content.each(function() {
+    var $this = $(this);
+    $this.find('.depfin-budget-moscow-media-materials__more button').on('click', function(e) {
+      var contentWrapper = $this.find('.depfin-budget-moscow-media-materials__wrapper');
+      e.preventDefault();
+      contentWrapper.animate({
+        height: contentWrapper.find('.depfin-budget-moscow-media-materials__content').height()
+      }, 1000, function(){
+        contentWrapper.height('auto');
+      });
+    })
   })
 }

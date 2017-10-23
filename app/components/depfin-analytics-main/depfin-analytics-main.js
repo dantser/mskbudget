@@ -87,18 +87,28 @@ export default() => {
 					hypotenuse1 = Math.sqrt(lineW*lineW + cathetV1*cathetV1),
 					hypotenuse2 = Math.sqrt(lineW*lineW + cathetV2*cathetV2),
 					angle1 = 180/Math.PI*Math.atan(cathetV1/lineW),
-					angle2 = 180/Math.PI*Math.atan(cathetV2/lineW);
+					angle2 = 180/Math.PI*Math.atan(cathetV2/lineW),
+					d = 0.005;	// + величина для сглаживания стыков
 			
-			if (val1 < val1next)
-				angle1 *= -1.0;
-			if (val2 < val2next)
-				angle2 *= -1.0;
+			var docW = $(document).width();
+			
+			if (docW <= 1140 && docW > 900) 
+				d = 0.006;
+			else if(docW <= 900 && docW > 640) 
+				d = 0.007;
+			else if(docW <= 640) 
+				d = 0.009;
+
+			if (val1 < val1next) angle1 *= -1.0;
+				
+			if (val2 < val2next) angle2 *= -1.0;
+				
 
 			item1.height(val1 + '%');
 			item2.height(val2 + '%');
 
-			line1.width(hypotenuse1);
-			line2.width(hypotenuse2);
+			line1.width(hypotenuse1 + hypotenuse1 * d);
+			line2.width(hypotenuse2 + hypotenuse2 * d);
 
 			line1.css('transform', 'rotate('+angle1+'deg)');
 			line2.css('transform', 'rotate('+angle2+'deg)');

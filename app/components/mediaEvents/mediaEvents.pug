@@ -2,51 +2,57 @@ include ../../blocks/news-card/news-card
 include ../../blocks/icon/icons
 include ../page-header/page-header
 include ../../blocks/button/button
+include ../../blocks/media-card/media-card
 
 mixin mediaEvents()
-  +b.SECTION.mediaEvents.sections__item&attributes(attributes)
-    .wrapper.page-content-wrapper
-      +page-header('События', ['Медиацентр'], true)
-      +e.content.load-anim-fade(data-delay="1500")
-        +e.FORM.search-group
-          +e.search-title Поиск по дате
-          // datepicker
-          .form__date-range(id='rid-0')
-            INPUT(type='text', value='дд.мм.гг', readonly).form__date-range-input.jq-f-datepicker.input-min
-            SPAN.form__date-range-sep —
-            INPUT(type='text', value='дд.мм.гг', readonly).form__date-range-input.jq-f-datepicker.input-max
-            SPAN.form__date-range-icon
-          +button(true)._kind_yellow Искать
-        +e.announcement
-          +e.H3.title Анонсы
-          +e.card-wrapper
-            .tile__item
-              +event-card(1, 'Русский Монмартр и акунинская Москва: бесплатные экскурсии ко дню города!', '1 апреля 2016')._big.tile__inner
-            .tile__item
-              +event-card(2, 'Русский Монмартр и акунинская Москва: бесплатные экскурсии ко дню города!', '1 апреля 2016')._big.tile__inner
-            .tile__item
-              +event-card(3, 'Возле лужников появится кафе с фонтаном-принтером', '1 апреля 2016')._big.tile__inner
-            .tile__item
-              +event-card(1, 'Русский Монмартр и акунинская Москва: бесплатные экскурсии ко дню города!', '1 апреля 2016')._big.tile__inner
-            .tile__item
-              +event-card(1, 'Русский Монмартр и акунинская Москва: бесплатные экскурсии ко дню города!', '1 апреля 2016')._big.tile__inner
-            .tile__item
-              +event-card(2, 'Русский Монмартр и акунинская Москва: бесплатные экскурсии ко дню города!', '1 апреля 2016')._big.tile__inner
-            .tile__item
-              +event-card(3, 'Возле лужников появится кафе  с фонтаном-принтером', '1 апреля 2016')._big.tile__inner
-            .tile__item
-              +event-card(1, 'Русский Монмартр и акунинская Москва: бесплатные экскурсии ко дню города!', '1 апреля 2016')._big.tile__inner
-        +e.A(href="#").show-more._announcement.d-si__button_show-more Показать еще
-        +e.previous
-          +e.H3.title Прошедшие события
-          +e.card-wrapper
-            .tile__item
-              +event-card(1, 'Русский Монмартр и акунинская Москва: бесплатные экскурсии ко дню города!', '1 апреля 2016')._big.tile__inner
-            .tile__item
-              +event-card(2, 'Русский Монмартр и акунинская Москва: бесплатные экскурсии ко дню города!', '1 апреля 2016')._big.tile__inner
-            .tile__item
-              +event-card(3, 'Возле лужников появится кафе  с фонтаном-принтером', '1 апреля 2016')._big.tile__inner
-            .tile__item
-              +event-card(1, 'Русский Монмартр и акунинская Москва: бесплатные экскурсии ко дню города!', '1 апреля 2016')._big.tile__inner
-        +e.A(href="#").show-more._previous.d-si__button_show-more Показать еще
-        
+	+b.SECTION.mediaEvents.sections__item&attributes(attributes)
+		.wrapper-header
+			+page-header('События', ['Медиацентр'], true)
+			+e.FORM.search-group
+				+e.search-title Поиск по дате
+				// datepicker
+				.form__date-range(id='rid-0')
+					INPUT(type='text', value='дд.мм.гг', readonly).form__date-range-input.jq-f-datepicker.input-min
+					SPAN.form__date-range-sep —
+					INPUT(type='text', value='дд.мм.гг', readonly).form__date-range-input.jq-f-datepicker.input-max
+					SPAN.form__date-range-icon
+				+button(true)._kind_yellow Искать
+
+		.wrapper.page-content-wrapper
+			+e.content.load-anim-fade(data-delay="1500")
+				+e.announcement
+					+e.H3.title Анонсы
+					+e.outer
+						+e.card-wrapper
+							+media-card('item1', 'Возле лужников появится кафе с фонтаном-принтером.', '1 апреля 2016')
+							+media-card('item2', 'Русский Монмартр и акунинская Москва: бесплатные экскурсии.', '1 апреля 2016')
+							+media-card('item3', 'Возле лужников появится кафе с фонтаном-принтером.', '1 апреля 2016')
+							+media-card('item4', 'Русский Монмартр и акунинская Москва: бесплатные экскурсии.', '1 апреля 2016')
+							+media-card('item1', 'Возле лужников появится кафе с фонтаном-принтером.', '1 апреля 2016')
+							+media-card('item2', 'Русский Монмартр и акунинская Москва: бесплатные экскурсии.', '1 апреля 2016')
+							+media-card('item3', 'Возле лужников появится кафе с фонтаном-принтером.', '1 апреля 2016')
+							+media-card('item4', 'Русский Монмартр и акунинская Москва: бесплатные экскурсии.', '1 апреля 2016')
+							//- hidden
+							+media-card('item1', 'Возле лужников появится кафе с фонтаном-принтером.', '1 апреля 2016')
+							+media-card('item2', 'Русский Монмартр и акунинская Москва: бесплатные экскурсии.', '1 апреля 2016')
+							+media-card('item3', 'Возле лужников появится кафе с фонтаном-принтером.', '1 апреля 2016')
+							+media-card('item4', 'Русский Монмартр и акунинская Москва: бесплатные экскурсии.', '1 апреля 2016')
+
+					+e.A(href="#").show-more._announcement.d-si__button_show-more Показать еще
+
+				+e.previous
+					+e.H3.title Прошедшие события
+					+e.outer
+						+e.card-wrapper
+							+media-card('item1', 'Возле лужников появится кафе с фонтаном-принтером.', '1 апреля 2016')
+							+media-card('item2', 'Русский Монмартр и акунинская Москва: бесплатные экскурсии.', '1 апреля 2016')
+							+media-card('item3', 'Возле лужников появится кафе с фонтаном-принтером.', '1 апреля 2016')
+							+media-card('item4', 'Русский Монмартр и акунинская Москва: бесплатные экскурсии.', '1 апреля 2016')
+							//- hidden
+							+media-card('item1', 'Возле лужников появится кафе с фонтаном-принтером.', '1 апреля 2016')
+							+media-card('item2', 'Русский Монмартр и акунинская Москва: бесплатные экскурсии.', '1 апреля 2016')
+							+media-card('item3', 'Возле лужников появится кафе с фонтаном-принтером.', '1 апреля 2016')
+							+media-card('item4', 'Русский Монмартр и акунинская Москва: бесплатные экскурсии.', '1 апреля 2016')
+
+					+e.A(href="#").show-more._previous.d-si__button_show-more Показать еще
+				

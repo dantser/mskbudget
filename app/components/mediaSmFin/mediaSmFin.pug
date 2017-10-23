@@ -3,35 +3,56 @@ include ../../blocks/icon/icons
 include ../page-header/page-header
 include ../../blocks/button/button
 include ../open-slider/open-slider
+include ../../blocks/media-card/media-card
+include ../../blocks/link/link
 
 mixin mediaSmFin()
 	+b.SECTION.mediaSmFin.sections__item&attributes(attributes)
-		.wrapper.page-content-wrapper
+		.wrapper-header
 			+page-header('Материалы для СМИ', ['Открытость'], true)
+
+		.wrapper.page-content-wrapper
 			+e.content.load-anim-fade(data-delay="1500")
 			
 				+e.photos-group
-					+e.H3.title Фотографии официальных лиц
-					+e.card-wrapper
-						.tile__item
-							+photo-card(1, 'ЗЯББАРОВА', 'Елена Юрьевна', 'Министр Правительства Москвы, руководитель Департамента финансов города Москвы').tile__inner 
-						.tile__item
-							+photo-card(2, 'МЕНЬШОВ', 'Евгений Нариманович', 'Первый заместитель руководителя Департамента финансов города Москвы, начальник Московского городского казначейства').tile__inner 
-						.tile__item
-							+photo-card(3, 'БУТАХИНА', 'Елена Анатольевна', 'Первый заместитель руководителя Департамента финансов города Москвы').tile__inner 
-						.tile__item
-							+photo-card(4, 'ГУБАНОВА', 'Светлана Александровна', 'Заместитель руководителя Департамента финансов города Москвы').tile__inner 
+					+e.H3.title Официальные лица
+					+e.outer._bio
+						+e.card-wrapper.mediaSmFin__wrapper
+							.tile__item
+								+photo-card(1, 'ЗЯББАРОВА', 'Елена Юрьевна', 'Министр Правительства Москвы, руководитель Департамента финансов города Москвы').tile__inner 
+							.tile__item
+								+photo-card(2, 'МЕНЬШОВ', 'Евгений Нариманович', 'Первый заместитель руководителя Департамента финансов города Москвы, начальник Московского городского казначейства').tile__inner 
+							.tile__item
+								+photo-card(3, 'БУТАХИНА', 'Елена Анатольевна', 'Первый заместитель руководителя Департамента финансов города Москвы').tile__inner 
+							.tile__item
+								+photo-card(4, 'ГУБАНОВА', 'Светлана Александровна', 'Заместитель руководителя Департамента финансов города Москвы').tile__inner 
+							//- hidden
+							.tile__item
+								+photo-card(1, 'ЗЯББАРОВА', 'Елена Юрьевна', 'Министр Правительства Москвы, руководитель Департамента финансов города Москвы').tile__inner 
+							.tile__item
+								+photo-card(2, 'МЕНЬШОВ', 'Евгений Нариманович', 'Первый заместитель руководителя Департамента финансов города Москвы, начальник Московского городского казначейства').tile__inner 
+							.tile__item
+								+photo-card(3, 'БУТАХИНА', 'Елена Анатольевна', 'Первый заместитель руководителя Департамента финансов города Москвы').tile__inner 
+							.tile__item
+								+photo-card(4, 'ГУБАНОВА', 'Светлана Александровна', 'Заместитель руководителя Департамента финансов города Москвы').tile__inner 
 					+e.A(href="#").show-more.d-si__button_show-more Показать еще
 
 				+e.materials-group
-					+e.H3.title Материалы портала Открытый бюджет города Москвы
-					+e.card-wrapper
-						.tile__item
-							+material-card(5, 'Расходы в разрезе государственных программ', '1 апреля 2016')
-						.tile__item
-							+material-card(6, 'Расходы в разрезе государственных программ', '1 апреля 2016')
-						.tile__item
-							+material-card(7, 'Расходы в разрезе государственных программ', '1 апреля 2016')
-						.tile__item
-							+material-card(8, 'Расходы в разрезе государственных программ', '1 апреля 2016')
+					+e.H3.title Пресс-релизы
+					+e.outer
+						+e.media-wrapper.mediaSmFin__wrapper
+							+media-card('item1', 'Биографии сотрудников', '1 апреля 2016')
+							+media-card('item2', 'Пресс-релизы', '1 апреля 2016')
+							+media-card('item3', 'Логотипы', '1 апреля 2016')
+							+media-card('item4', 'Брендбук', '1 апреля 2016')
+							//- hidden
+							+media-card('item1', 'Биографии сотрудников', '1 апреля 2016')
+							+media-card('item2', 'Пресс-релизы', '1 апреля 2016')
+							+media-card('item3', 'Логотипы', '1 апреля 2016')
+							+media-card('item4', 'Брендбук', '1 апреля 2016')
 					+e.A(href="#").show-more.d-si__button_show-more Показать еще
+
+				+e.materials-group
+					+e.H3.title Фирменный стиль
+					+link()
+						| Брендбук, логотипы, гайдлайны

@@ -2,32 +2,6 @@
 
 .open-slider {
 
-  /*cover эффект для фото слайдов*/
-  &_img-cover {
-
-    .open-slider__image {
-      @include fill-img;
-    }
-  }
-  /*модификатор для СМИ*/
-  &_sm {
-    .gallery-top {
-      height: 750px!important;
-
-      .swiper-slide {
-        background-color: transparent;
-      }
-    }
-
-    .swiper-button-next {
-      right: 120px!important;
-    }
-
-    .swiper-button-prev {
-      left: 120px!important;
-    }
-  }
-
   .swiper-slider {
     position: relative;
   }
@@ -212,5 +186,73 @@
     font-size: 16px;
     font-weight: 500;
     color: #000;
+  }
+  
+  /*cover эффект для фото слайдов*/
+  &_img-cover {
+
+    .open-slider__image {
+      @include fill-img;
+    }
+    
+    .swiper-slide:after {
+      @media screen and (max-width: 580px) {
+        padding-top: 70%;
+      }
+    }
+  }
+  
+  /*модификатор для СМИ*/
+  &_sm {
+    .gallery-top {
+      height: 750px!important;
+
+      .swiper-slide {
+        background-color: transparent;
+      }
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      @media (max-width: 400px) {
+        top: 40%!important;
+      }  
+    }
+
+    .swiper-button-next {
+      right: 120px!important;
+
+      @media (max-width: 900px) {
+        right: 60px!important;
+      }
+
+      @media (max-width: 640px) {
+        right: 40px!important;
+      }     
+
+      @media (max-width: 580px) {
+        right: -20px!important;
+      }         
+    }
+
+    .swiper-button-prev {
+      left: 120px!important;
+
+      @media (max-width: 640px) {
+        left: 60px!important;
+      }
+
+      @media (max-width: 640px) {
+        left: 40px!important;
+      } 
+
+      @media (max-width: 580px) {
+        left: -20px!important;
+      }   
+    }
+
+    .document__bottom {
+      display: block;
+    }
   }
 }

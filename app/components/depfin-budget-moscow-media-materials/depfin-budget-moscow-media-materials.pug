@@ -8,10 +8,11 @@ include ../open-slider/open-slider
 mixin depfin-budget-moscow-media-materials(title, breadcrumbs=['Медиацентр', 'Медиаматериалы'])
 
 	+b.SECTION.depfin-budget-moscow-media-materials.sections__item&attributes(attributes)
-		.wrapper.page-content-wrapper
+		.wrapper-header
 
 			+e.head
 				+page-header(title, breadcrumbs, true)
 
+		.wrapper.page-content-wrapper
 			+e.main.load-anim-fade(data-delay="1500")
 				block

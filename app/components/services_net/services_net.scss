@@ -936,7 +936,8 @@
     .services-net-municipality__map-hover {
       position: absolute;
       width: 100%;
-      opacity: .5;
+      opacity: 0;
+      background: white;
       z-index: 1;
       cursor: pointer;
 
@@ -1289,6 +1290,10 @@
     }
 
     .selectbox__arrow {
+    	/*ie default select hide*/
+      height: calc(100% + 1px);
+      border-bottom: 1px solid #acacac;
+    	
 	    @media (max-width: 900px) and (min-width: 601px) {
 				width: 64px;
 	    }			

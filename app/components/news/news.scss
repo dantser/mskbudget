@@ -6,26 +6,10 @@
   padding-top: 207px;
   padding-bottom: 130px;
 
-  .tile { margin: 0 -10px !important; height: auto !important; }
-
   &__card-wrapper {
-    /*height: 1040px;*/
-    height: 1100px;
+    height: 950px;
     overflow: hidden;
-
-    @media (max-width: 1180px) {
-      margin: 0 !important;
-    }
-
-    @media (max-width: 900px) {
-      height: 1560px;
-      margin: 0;
-    }
-
-    @media (max-width: 540px) {
-      height: 2090px;
-      margin: 0;
-    }
+    margin-top: 34px;
   }
 
   &__header {
@@ -61,47 +45,84 @@
     margin-top: 71px;
   }
 
-  &__card-wrapper {
-    margin-top: 34px;
-    font-size: 0;
-
-    &:after {
-      content: '';
-      display: inline-block;
-      width: 100%;
-      height: 0.000000001px;
-    }
+  .tile {
+    margin: 0 -5px!important;
   }
 
   .tile__item {
-    /*margin-bottom: 20px;*/
-    margin-bottom: 40px;
-    //width: 33.3333%;
-    //margin-right: 2%;
-    text-align: left;
-    float: none;
-    display: inline-block;
-    vertical-align: top;
-    opacity: 0;
-    pointer-events: none;
-    transition: all .25s ease-in-out;
+    width: 25%;
+    min-width: auto;
+    margin-bottom: 55px;
 
-    &.active {
-      opacity: 1;
-      pointer-events: all;
+    @media (max-width: 1140px) {
+      width: calc(100%/3);
+    }
+
+    @media (max-width: 900px) {
+      width: 50%;
+    }
+
+    @media (max-width: 400px) {
+      width: 100%;
     }
   }
 
   .news {
-    position: relative;
-    top: 0;
-    left: 0;
-    right: 0;
-    margin: 0;
-    min-height: 485px;
-    max-width: 100%;
-    margin: 10px;
-    width: auto !important;
+    height: 420px;
+    margin: 0 5px;
+  }
+
+  .news__thumb {
+    @media (max-width: 640px) {
+      height: 150px;
+    }
+  }
+
+  .news__category {
+    @media (max-width: 640px) {
+      padding: 0 7px;
+      font-size: 13px;
+      height: 20px;
+      line-height: 22px;
+      margin: 0 0 20px 20px;
+    }
+  }
+
+  .news__title {
+    @media (max-width: 640px) {
+      font-size: 18px;
+      margin: 0 19px;
+    }
+  }
+
+  .news__bottom {
+    @media (max-width: 640px) {
+      padding: 0 0 15px 19px;
+    }
+  }
+
+  .news__date,
+  .news__tags {
+    @media (max-width: 640px) {
+      font-size: 13px;
+    }
+  }
+
+  .news__tags {
+    white-space: nowrap;
+    overflow: hidden;
+
+    a {
+      margin-right: 15px;
+    }
+  }
+
+  .share__panel {
+    line-height: 50px;
+
+    @media (max-width: 640px) {
+      line-height: 30px;
+    }
   }
 
   &__show-more {
@@ -109,37 +130,66 @@
     max-width: 690px;
   }
 
-  &__buttons-set-wrapper {
-    position: relative;
-  }
-
-  &__buttons-set-selected {
-    display: none;
-    font-size: 16px;
-    font-weight: 500;
-    color: #000;
-    text-transform: uppercase;
-    line-height: 36px;
-    padding: 0 12px;
-    position: relative;
-  }
-
-  &__buttons-set-icon {
-    width: 10px;
-    height: 10px;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 10px;
-    margin: auto;
-    transition: all .25s ease-in-out;
-    svg {
-      stroke: #000;
+  &__buttons-set {
+    display: table;
+    border-collapse: collapse;
+    border: 1px solid $color-yellow;
+    
+    @media(max-width: 900px) {
       width: 100%;
-      height: 100%;
-      position: absolute;
+      min-height: 70px;
+    }
+
+    @media(max-width: 400px) {
+      min-height: 40px;
+    }
+
+    & + .news-page__card-wrapper {
+      margin-top: 34px;
+    }
+
+    &-button {
+      display: table-cell;
+      padding: 10px 40px;
+      vertical-align: middle;
+      font-size: 18px;
+      line-height: 1em;
+      font-weight: 500;
+      text-transform: uppercase;
+      white-space: normal;
+      background: none;
+      text-align: center;
+      border: none;
+      color: $color-white;
+      text-decoration: none;
+      transition: all .25s ease-in-out;
+
+      @media (max-width: 900px) {
+        padding: 0 20px;
+        width: 28%;
+
+        &:first-child {
+          width: 16%;
+        }
+      }
+      
+      @media (max-width: 400px) {
+        padding: 0;
+        font-size: 12px;
+      }
+
+      & + .news-page__buttons-set-button {
+        border-left: 1px solid $color-yellow;
+      }
+
+      &:hover,
+      &.active {
+        background-color: $color-yellow;
+        color: $color-black;
+      }
     }
   }
+
 
   @media screen and (max-width: 1280px) {
     &__search-form {
@@ -178,17 +228,10 @@
     &__card-wrapper {
       margin-top: 47px;
     }
-    .tile__item {
-
-    }
   }
 
   @media screen and (max-width: 900px) {
     padding-bottom: 90px;
-    .tile__item {
-      //width: 50%;
-      margin-bottom: 16px;
-    }
     &__show-more {
       margin: 13px auto 0;
     }
@@ -204,10 +247,6 @@
   }
 
   @media screen and (max-width: 700px) {
-    .page-content-wrapper {
-      margin-left: 40px !important;
-      margin-right: 40px !important;
-    }
     &__subscribe {
       .wrap {
         margin: 0 !important;
@@ -215,19 +254,9 @@
     }
   }
 
-  @media screen and (max-width: 650px) {
-    .news {
-      max-width: 100%;
-    }
-  }
-
   @media screen and (max-width: 639px) {
     padding-top: 85px;
     padding-bottom: 70px;
-    .page-content-wrapper {
-      margin-left: 15px !important;
-      margin-right: 15px !important;
-    }
     .page-head__title {
       font-size: 52px;
     }
@@ -240,29 +269,6 @@
     }
     &__content {
       margin-top: 36px;
-    }
-    &__buttons-set-wrapper {
-      margin-right: 63px;
-      background-color: #fee300;
-      border-radius: 2px;
-      transition: all .25s ease-in-out;
-      &.active {
-        border-radius: 2px 2px 0 0;
-        .news-page__buttons-set-icon {
-          transform: rotate(180deg);
-        }
-      }
-    }
-    &__buttons-set-selected {
-      display: block;
-    }
-    &__buttons-set {
-      position: absolute;
-      width: 100%;
-      left: 0;
-      top: 100%;
-      z-index: 2;
-      background-color: $color-white;
     }
     &__card-wrapper {
       margin-top: 35px;
@@ -287,10 +293,6 @@
 
     &__content {
       margin-top: 12px;
-    }
-
-    &__buttons-set-wrapper {
-      margin-right: 0;
     }
   }
 }

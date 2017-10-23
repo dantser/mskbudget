@@ -73,35 +73,35 @@ export default () => {
   }
 
   // Темп роста
-  function rateLine(el, coef, startrate) {
+  window.rateLine = function() {
     
-    if ($(el).length) {
+    if ($('.growth-rate').length) {
       
-      $(el).each(function(){
+      $('.growth-rate').each(function(){
         
         var graphic = $(this);
-        var negRateDifference = 0;
+        var minRate = parseFloat($(this).data('minrate'));
+        var maxRate = parseFloat($(this).data('maxrate'));
+        var fullRate = maxRate - minRate;
+        var graphicHeight = $(this).data('height');
         var isColumns = false;
         if (graphic.hasClass('growth-rate_columns')) isColumns = true;
+        var coef = graphicHeight / fullRate;
+        
+        graphic.height(graphicHeight);
         
         graphic.find('.growth-rate__level').each(function(){
           var rateLevel = parseFloat($(this).data('rate-level'));
-          var rateDifference = startrate - rateLevel;
-          if (rateDifference < negRateDifference) {
-            negRateDifference = rateDifference;
-          }
+          var rateDifference = maxRate - rateLevel;
           $(this).css('top', rateDifference*coef+'px');
         });
-        
-        negRateDifference = Math.abs(negRateDifference);
-        graphic.css('margin-top', negRateDifference*coef+'px');
   
         graphic.find('.growth-rate__line').each(function(){
           var rateCol = $(this).parents('.growth-rate__col');
           var startPoint = $(this).parent().css('top');
           var endPoint = rateCol.next().children().css('top');
-          startPoint = parseInt(startPoint);
-          endPoint = parseInt(endPoint);
+          startPoint = parseFloat(startPoint);
+          endPoint = parseFloat(endPoint);
           var pointDiffX = rateCol.next().offset().left - rateCol.offset().left;
           var pointDiffY = endPoint - startPoint;
           if (isColumns) {
@@ -116,22 +116,8 @@ export default () => {
       });
     }
   }
-
-  // Бюджет Москвы - Государственный долг (уровень долговой нагрузки)
-  rateLine('.gov-debt .analityc-graphics__growth-rate_level', 40, 2.9);
   
-  // Бюджет Москвы - Государственный долг (предельный объем государственного долга)
-  rateLine('.gov-debt .analityc-graphics__growth-rate_limit', 1.5, 57.1);
-  
-  // Бюджет Москвы - Социально-экономическое развитие (численность населения)
-  rateLine('.budget-forecast .analityc-graphics-rate-columns__growth-rate', 10, 100);
-  
-  // Бюджет Москвы - Социально-экономическое развитие (индекс промышленного производства)
-  rateLine('.budget-forecast .analityc-graphics-broken-line__growth-rate', 5, 94.9);
-  
-  // Аналитика - Государственный долг (уровень долговой нагрузки)
-  rateLine('.analytics-gov-debt .analityc-graphics-broken-line', 9, 8);
-  
+  rateLine();
   
   
   // Графики колонки со сдвигом 
@@ -323,6 +309,12 @@ export default () => {
           averageLineHeight += 20;
         }
         
+        if (graphic.next().find('[data-checkbox]:visible').length < 1) {
+          $(this).hide();
+        } else {
+          $(this).show();
+        }
+        
         $(this).css('bottom', averageLineHeight+'px');
       });
     });
@@ -428,7 +420,8 @@ export default () => {
     // Определяем сегмент диаграммы с маленьким значением
     // ###############################
     $('.segment-diagram').each(function () {
-      var vals = $(this).find('.segment-diagram__val');
+      var vals = $(this).find('.segment-diagram__val'),
+          smallVals = $(this).find('.segment-diagram__val_small');
       
       // Ищем сумму
       var summ = 0;
@@ -463,6 +456,21 @@ export default () => {
             .removeClass('segment-diagram__val_small_lt segment-diagram__val_small_rt segment-diagram__val_small_lb segment-diagram__val_small_rb')
             .addClass(totalClass)
             .html('<span>' + text + '</span>');
+        }
+      });
+      
+      // Корректируем склеивание
+      smallVals.each(function(){
+        $(this).removeClass('segment-diagram__val_small_lt-before segment-diagram__val_small_rt-before segment-diagram__val_small_lb-before segment-diagram__val_small_rb-before segment-diagram__val_small_lt-after segment-diagram__val_small_rt-after segment-diagram__val_small_lb-after segment-diagram__val_small_rb-after');
+        var smallClass = $(this).attr('class');
+        if ($(this).next().hasClass(smallClass) && !$(this).prev().hasClass(smallClass)) {
+          var position = smallClass.substr(-2, 2);
+          $(this).addClass('segment-diagram__val_small_'+position+'-before');
+        }
+        
+        if (!$(this).next().hasClass(smallClass) && $(this).prev().hasClass(smallClass) && $(this).prev().prev().hasClass(smallClass)) {
+          var position = smallClass.substr(-2, 2);
+          $(this).addClass('segment-diagram__val_small_'+position+'-after');
         }
       });
     });
@@ -540,4 +548,40 @@ export default () => {
       graphicBars();
     }
   });
+  
+  
+  
+  // График analityc-line - попапы для коротких линий (вызов при отрисовке)
+  window.grLinePopup = function() {
+    
+    const GR_LINE = $('.analityc-widget_moscow-gov-program .analityc-line_line');
+    
+    GR_LINE.each(function() {
+      var LINE_BAR = $(this).find('.analityc-line__line');
+      
+      LINE_BAR.each(function() {
+        var line = $(this).find('.analityc-line__line-wrap');
+        var fillPers = $(this).find('.analityc-line__line-fill');
+        var longLimit = $(window).width() <= 900 && $(window).width() > 580 ? 50 : 30;
+        var isLong = fillPers.outerWidth() > longLimit ? true : false;
+        var val = $(this).find('.analityc-line__line-value');
+        var abs = $(this).find('.analityc-line__line-abs');
+        
+        if (isLong) {
+          val.show();
+          line.hover(function() {
+            abs.hide();
+          })   
+        } else {
+          val.hide();
+          line.hover(function() {
+            abs.show();
+          }, function() {
+            abs.hide();
+          })            
+        }
+      })
+      
+    })
+  }
 }

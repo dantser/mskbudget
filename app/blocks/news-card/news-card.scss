@@ -64,45 +64,22 @@
     }
   }
 
-  &_events {
-    min-height: 248px;
-    padding-bottom: 30px;
-
-    @media screen and (max-width: 640px) {
-      padding-bottom: 40px;
-      min-height: 269px;
-      max-width: none !important;
-    }
-
-    .news__thumb {
-      height: 134px;
-    }
-
-    .news__title {
-      font-size: 16px;
-      margin: 19px 20px 0;
-    }
-
-    .news__bottom {
-      padding: 0 0 10px 19px;
-    }
-
-    .news__date {
-      font-size: 14px;
-    }
-  }
-
   &_photo {
+    max-width: 100%;
     height: 530px;
     padding-bottom: 50px;
 
-    @media (max-width: 1140px) {
+    @media (max-width: 1140px) and (min-width: 901px) {
       height: 450px;
     }
 
-    @media (max-width: 900px) {
-      height: 497px;
+    @media (max-width: 900px) and (min-width: 641px) {
+      height: 557px;
     }
+
+    @media (max-width: 580px) and (min-width: 401px) {
+      height: 490px;
+    }    
 
     &-slide {
       height: 750px!important;
@@ -111,8 +88,16 @@
       width: 440px;
       padding-bottom: 0;
 
+      @media screen and (max-width: 400px) {
+        height: 560px!important;
+      }   
+      
       .news__thumb {
         height: 527px!important;
+
+        @media screen and (max-width: 400px) {
+          height: 335px!important;
+        }   
       }
 
       .news__surname {
@@ -127,8 +112,20 @@
         height: 258px;
       }      
 
-      @media screen and (max-width: 900px) {
-        height: 296px;
+      @media screen and (max-width: 900px) and (min-width: 641px) {
+        height: 374px;
+      }
+
+      @media (max-width: 640px) {
+        height: 335px;
+      }
+
+      @media (max-width: 600px) and (min-width: 581px) {
+        height: 310px;
+      }
+
+      @media (max-width: 580px) and (min-width: 401px) {
+        height: 240px;
       }
     }
 
@@ -153,6 +150,7 @@
     }
 
     .document__bottom {
+      display: none;
       padding: 0 0 22px 20px;
     }
 
@@ -162,6 +160,7 @@
   }
 
   &_logo {
+    max-width: 100%;
     min-height: auto;
 
     .news__title {
@@ -190,42 +189,7 @@
     }
   }
 
-  &_material {
-    min-height: 247px;
-    padding-bottom: 0;
-
-    @media (max-width: 1140px) {
-      min-height: 212px;
-    }
-
-    .news__thumb {
-      height: 100%;
-    }
-
-    .news__bottom {
-      background-color: rgba(23, 24, 50, .8);
-      padding: 13px 17px 16px 19px;
-    }
-
-    .news__title, .news__date {
-      opacity: .5;
-      color: $color-white;
-    }
-
-    .news__title {
-      margin: 0;
-      font-weight: 400;
-      margin-bottom: 6px;
-      font-size: 16px;
-    }
-
-    .news__date {
-      margin-bottom: 3px;
-    }
-  }
-
   &_dropdown {
-
 
     .news {
 

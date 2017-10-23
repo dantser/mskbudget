@@ -2,18 +2,30 @@ include mediaSmFin
 
 mixin mediaSMlogo()
 	+b.SECTION.mediaSmFin.sections__item&attributes(attributes)
-		.wrapper.page-content-wrapper
+		.wrapper-header
 			+page-header('Логотипы', ['Открытость', 'Материалы для СМИ'], true)
+		
+		.wrapper.page-content-wrapper
 			+e.content.load-anim-fade(data-delay="1500")
 			
 				+e.photos-group
-					+e.card-wrapper
-						.tile__item
-							+logo-card('Открытый бюджет города Москвы', 'logo-depfin').tile__inner 
-						.tile__item
-							+logo-card('Открытый бюджет города Москвы', 'logo-depfin').tile__inner 
-						.tile__item
-							+logo-card('Открытый бюджет города Москвы', 'logo-depfin').tile__inner 
-						.tile__item
-							+logo-card('Открытый бюджет города Москвы', 'logo-depfin').tile__inner 
+					+e.outer._logo
+						+e.card-wrapper.mediaSmFin__wrapper
+							.tile__item
+								+logo-card('Открытый бюджет города Москвы', 'logo-depfin').tile__inner 
+							.tile__item
+								+logo-card('Открытый бюджет города Москвы', 'logo-depfin').tile__inner 
+							.tile__item
+								+logo-card('Открытый бюджет города Москвы', 'logo-depfin').tile__inner 
+							.tile__item
+								+logo-card('Открытый бюджет города Москвы', 'logo-depfin').tile__inner 
+							//- hidden
+							.tile__item
+								+logo-card('Открытый бюджет города Москвы', 'logo-depfin').tile__inner 
+							.tile__item
+								+logo-card('Открытый бюджет города Москвы', 'logo-depfin').tile__inner 
+							.tile__item
+								+logo-card('Открытый бюджет города Москвы', 'logo-depfin').tile__inner 
+							.tile__item
+								+logo-card('Открытый бюджет города Москвы', 'logo-depfin').tile__inner 
 					+e.A(href="#").show-more.d-si__button_show-more Показать еще

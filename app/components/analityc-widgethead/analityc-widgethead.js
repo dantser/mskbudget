@@ -3,7 +3,7 @@ import 'jquery.scrollbar';
 
 export default () => {
 
-  $('.analityc-control-switcher a').on('click', function (e) {
+  $(document).on('click', '.analityc-control-switcher a', function (e) {
     e.preventDefault();
     $(this).siblings('a').removeClass('active');
     $(this).addClass('active');
@@ -31,7 +31,9 @@ export default () => {
       $('.js-dp-output_others').addClass('active');
   })
   $(document).on('click', '[data-level="consolidated"] li', function() {
-    graphicsDate();
+    if ($('.gov-debt').length == 0) {
+      graphicsDate();
+    }
   })
   
   

@@ -33,6 +33,9 @@ export default () => {
     prevButton: '.services-net-domain__arrow_prev',
     nextButton: '.services-net-domain__arrow_next',
     loop: true,
+    centeredSlides: true,
+    observer: true,
+    observeParents: true
   });
 
   // Клик по слайду -> таблица
@@ -56,8 +59,13 @@ export default () => {
   })
   FILTER_CLOSE.click(function() {
     $(this).parents('.search_net').find('.search__filter').hide();
-    $(this).parents('.search_net').find('.filter-link').toggleClass('active');
+    $(this).parents('.search_net').find('.filter-link').removeClass('active');
     MASK.removeClass('active');
+  })
+
+  // Стандартный цвет шрифта при фокусе в форме
+  NET.find('.d-si__search').focus(function() {
+    $(this).addClass('d-si__search_focused');
   })
 
   // Переход на таб Муниц. образование -> Перечень гос. учреждений
@@ -143,8 +151,6 @@ export default () => {
     $("html,body").css("overflow","auto");
     $(this).removeClass('active');
     NET.removeClass('services-net_popupMode');
-    $('.extra-search.modal').hide();
-    FILTER_LINK.toggleClass('active');
     map.container.fitToViewport();
   })
 
@@ -160,11 +166,14 @@ export default () => {
     });
   });
 
-  NET.find('.services-net-municipality__map-hover').hover(function() {
-    $('img[data-hover="' + $(this).data('hover-target') + '"]').show();
-  }, function() {
-    $('img[data-hover="' + $(this).data('hover-target') + '"]').hide();
-  })
+  $(document).on({
+    mouseenter: function () {
+      $('img[data-hover="' + $(this).data('hover-target') + '"]').show();
+    },
+    mouseleave: function () {
+      $('img[data-hover="' + $(this).data('hover-target') + '"]').hide();
+    }
+  }, '.services-net-municipality__map-hover');
 
   NET.find('.services-net-municipality__map-hover').click(function(e) {
     e.preventDefault();

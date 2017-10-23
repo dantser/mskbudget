@@ -1,0 +1,364 @@
+.press-release {
+  display: block;
+  background-image: url(../images/bg-news.jpg);
+  background-size: cover;
+  background-position: center 0;
+  padding-top: 207px;
+  padding-bottom: 149px;
+
+	@media (max-width: 900px) {
+    padding-bottom: 46px;
+	}
+
+	@media (max-width: 580px) {
+  	padding-bottom: 0;
+	}
+
+	&__content {
+		padding: 42px 41px;
+		font-family: $PFDinTextPro;
+		color: $color-black;
+		background-color: $color-white;
+		margin-top: 46px;
+
+  	@media (max-width: 900px) and (min-width: 581px) {
+			padding: 40px 0;
+  	}
+
+  	@media (max-width: 580px) {
+  		padding: 20px 17px;
+    	margin-top: 22px;
+  	}
+
+	}
+
+	&__title {
+		font-family: $PFDinCondensedPro;
+		font-size: 30px;
+    font-weight: 500;
+    text-transform: uppercase;
+
+  	@media (max-width: 900px) and (min-width: 581px) {
+	    padding: 0 20px;
+  	}
+
+  	@media (max-width: 580px) {
+  		font-size: 15px;
+  	}	
+
+	}
+
+  &__events-list {
+    display: block;
+    font-family: PFDinCondensedPro,sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #0d46a1;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 12px;
+
+  	@media (max-width: 900px) and (min-width: 581px) {
+	    padding: 0 20px;
+  	}
+  }
+
+	&__date {
+		display: block;
+		font-size: 14px;
+    margin-top: 12px;
+
+  	@media (max-width: 900px) and (min-width: 581px) {
+	    padding: 0 20px;
+			font-size: 24px;
+    	margin-top: 17px;
+  	}
+
+  	@media (max-width: 580px) {
+	    font-size: 12px;
+	    margin-top: 8px;
+  	}	
+
+	}
+
+	&__img {
+    margin-top: 48px;
+
+  	@media (max-width: 900px) and (min-width: 581px) {
+			margin-top: 21px;
+  	}
+		
+		@media (max-width: 900px) {
+			border-bottom: 1px solid #e1e1e1;
+			padding-bottom: 14px;
+		}
+
+  	@media (max-width: 580px) {
+    	margin-top: 11px;
+    	margin-left: -20px;
+    	margin-right: -20px;
+  	}	
+		
+  	@media (max-width: 580px) {
+			padding-bottom: 9px;
+  	}	
+
+
+		&-wrap {
+			position: relative;
+			height: 420px;
+			overflow: hidden;
+
+			@media (max-width: 900px) {
+		    height: 388px;
+			}	
+
+	  	@media (max-width: 580px) {
+				height: 198px;
+	  	}	
+
+		}
+
+    img {
+			@include fill-img;
+			bottom: auto;
+    }
+
+
+    span {
+    	display: block;
+    	font-family: $PFDinCondensedPro;
+    	font-size: 14px;
+			font-style: italic;
+			color: #6e6e6e;
+			margin-top: 14px;
+
+			@media (max-width: 1140px) and (min-width: 901px) {
+		    padding: 0 37px;
+			}
+
+	  	@media (max-width: 900px) and (min-width: 581px) {
+	    	font-size: 24px;
+	    	padding: 0 20px;
+	  	}
+
+	  	@media (max-width: 580px) {
+				padding: 0 20px;
+				margin-top: 9px;
+	  	}	
+
+
+    }
+	}
+
+	&__paragraph {
+    margin-top: 40px;
+
+		@media (max-width: 1140px) and (min-width: 901px) {
+	    padding: 0 37px;
+		}		
+
+		@media (max-width: 1140px) {
+	    margin-top: 48px;
+		}
+
+  	@media (max-width: 900px) and (min-width: 581px) {
+	    padding: 0 20px;
+      margin-top: 10px;
+  	}
+
+  	@media (max-width: 580px) {
+  		margin-top: 4px;
+  	}	
+		
+
+    &_two {
+    	margin-top: 43px;
+
+			@media (max-width: 1140px) {
+				margin-top: 37px;
+			}
+
+	  	@media (max-width: 580px) {
+	  		margin-top: 30px;
+	  	}	
+
+    }
+
+    &_three {
+	    margin-top: 35px;
+
+	  	@media (max-width: 580px) {
+    		margin-top: 20px;
+	  	}	
+
+    }
+
+
+	}
+
+	&__text {
+		font-family: $PFDinTextPro;
+		font-size: 18px;
+    letter-spacing: .1px;
+    line-height: 21px;
+
+		@media (max-width: 1140px) {
+			line-height: 26px;
+		}
+
+		@media (max-width: 900px) and (min-width: 581px) {
+	    line-height: 30px;
+	    font-size: 24px;
+	    margin-top: 10px;
+		}
+
+		@media (max-width: 580px) {
+			font-size: 15px;
+			line-height: 20px;
+		}
+
+
+    & + .press-release__text {
+    	margin-top: 24px;
+
+			@media (max-width: 1140px) {
+				margin-top: 10px;
+			}	
+
+			@media (max-width: 580px) {
+		    margin-top: 8px;
+			}	
+
+    }
+	}
+
+	&__text-small {
+		font-family: $PFDinTextPro;
+		font-size: 14px;
+		line-height: 17px;
+		letter-spacing: .1px;
+
+		@media (max-width: 1140px) {
+			font-size: 16px;
+			line-height: 22px;
+		}	
+
+		@media (max-width: 900px) and (min-width: 581px) {
+	    font-size: 24px;
+	    line-height: 30px;
+		}
+		
+		@media (max-width: 580px) {
+			font-size: 15px;
+	    line-height: 20px;
+		}	
+
+
+		& + .press-release__text-small {
+	    margin-top: 16px;
+
+			@media (max-width: 1140px) {
+				margin-top: 10px;
+			}	
+
+			@media (max-width: 580px) {
+				margin-top: 8px;
+			}	
+
+		}
+	}
+
+	&__subtitle {
+		max-width: 750px;
+		font-family: $PFDinCondensedPro;
+		font-size: 18px;
+		line-height: 22px;
+		font-weight: 500;
+		text-transform: uppercase;
+    margin-bottom: 20px;
+
+		@media (max-width: 1140px) {
+	    margin-bottom: 12px;
+		}
+
+		@media (max-width: 900px) and (min-width: 581px) {
+	    font-size: 24px;
+	    line-height: 28px;
+		}
+
+		@media (max-width: 580px) {
+	    font-size: 15px;
+    	line-height: 20px;
+	    margin-bottom: 9px;
+		}
+
+
+    &:nth-child(2) {
+	    margin-bottom: 25px;
+    }
+	}
+
+	&__org {
+		margin-top: 26px;
+
+		@media (max-width: 1140px) {
+	    margin-top: 10px;
+		}
+
+	}
+
+	&__termin {
+		font-size: 17px;
+		letter-spacing: .3px;
+    font-weight: 500;
+
+		@media (max-width: 900px) and (min-width: 581px) {
+			font-size: 24px;
+		}
+
+	}
+
+	&__tags {
+		margin-top: 89px;
+
+		@media (max-width: 1140px) and (min-width: 901px) {
+	    padding: 0 37px;
+		}
+
+		@media (max-width: 1140px) {
+	    margin-top: 22px;
+		}
+
+		@media (max-width: 900px) and (min-width: 581px) {
+			padding: 0 20px;
+	    margin-top: 28px;
+		}
+	}
+
+  &__tag {
+    display: inline-block;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    margin-right: 6px;
+    font-family: $PFDinTextPro;
+    color: #000;
+
+    @media (max-width: 580px) {
+      margin-bottom: 10px;
+    }
+
+    &-link {
+      display: block;
+      text-decoration: none;
+      font-size: 14px;
+      line-height: 14px;
+      padding: 4px 15px;
+      transition: all .25s ease-in-out;
+      &:hover {
+        opacity: .7;
+      }
+    }
+  }
+}

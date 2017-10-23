@@ -3,7 +3,7 @@ include ../../blocks/button/button
 
 mixin mediaEvent()
 	+b.SECTION.mediaEvent.sections__item&attributes(attributes)
-		.wrapper.page-content-wrapper
+		.wrapper-header
 			+e.header
 				+page-header('События', ['Медиацентр'])
 				+e.FORM.search-group.load-anim-fade(data-delay="1500")
@@ -16,6 +16,7 @@ mixin mediaEvent()
 						SPAN.form__date-range-icon
 					+button(true)._kind_yellow Искать
 
+		.wrapper
 			+e.content.load-anim-fade(data-delay="1500")
 				+e.A(href='#').events-list К списку событий
 				+e.H3.title В Москве пройдет финансовый форум
