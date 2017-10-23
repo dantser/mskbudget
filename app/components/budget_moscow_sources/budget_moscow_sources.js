@@ -73,7 +73,7 @@ export default () => {
     }
     
     // переключение по селектам
-    /*$('.moscow-sources .analityc-widget_sources .analityc-control-group select').on('change', function () {
+    $('.moscow-sources .analityc-widget_sources .analityc-control-group select').on('change', function () {
       changeContent('select');
       if ($(window).width() <= 980) {
         approvedGraphSlider.update();
@@ -91,12 +91,12 @@ export default () => {
         approvedGraphSlider.update();
         changesGraphSlider.update();
       }
-    });*/
+    });
     
     
     
     function changeContent(typeofchange, el) {
-      /*var graphics = $('.analityc-widget-sources'),
+      var graphics = $('.analityc-widget-sources'),
           table = $('.analityc-table'),
           controls = $('.analityc-widgethead [data-control]'),
           stageSelect = $('.analityc-control-group._stage select'),
@@ -125,27 +125,27 @@ export default () => {
       changeBlock(block, stageVal);
       changeControl(controls, stageVal, levelVal, typeVal);
       
-      positionValues();*/
+      positionValues();
     }
     
     function changeBlock(el, stageVal) {
-      /*el.each(function(){
+      el.each(function(){
         var stage = $(this).data('stage');
         if (stage == 'all' || stage.match(stageVal)) {
           $(this).addClass('active');
         }
-      });*/
+      });
     }
     
     function changeControl(el, stageVal, levelVal, typeVal) {
-      /*el.each(function(){
+      el.each(function(){
         var stage = $(this).data('stage'),
             level = $(this).data('level'),
             type = $(this).data('type');
         if ((stage == 'all' || stage.match(stageVal)) && (level == 'all' || level.match(levelVal)) && (type == 'all' || type.match(typeVal))) {
           $(this).addClass('active');
         }
-      });*/
+      });
     }
     
   }

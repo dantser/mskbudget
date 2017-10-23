@@ -44,7 +44,7 @@ export default () => {
         levelVal = levelSelect.val();
     
     rounds.removeClass("_active");
-    dp.hide();
+    dp.removeClass("_active");
     
     changeRounds(rounds, stageVal);
     changeDP(dp, stageVal, levelVal);
@@ -66,7 +66,7 @@ export default () => {
       var stage = $(this).data('stage'),
           level = $(this).data('level');
       if (stage.match(stageVal) && level.match(levelVal)) {
-        $(this).show();
+        $(this).addClass('_active');
       }
     });
   }
