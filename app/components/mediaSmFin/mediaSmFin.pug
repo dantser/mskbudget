@@ -4,6 +4,7 @@ include ../page-header/page-header
 include ../../blocks/button/button
 include ../open-slider/open-slider
 include ../../blocks/media-card/media-card
+include ../../blocks/link/link
 
 mixin mediaSmFin()
 	+b.SECTION.mediaSmFin.sections__item&attributes(attributes)
@@ -14,7 +15,7 @@ mixin mediaSmFin()
 			+e.content.load-anim-fade(data-delay="1500")
 			
 				+e.photos-group
-					+e.H3.title Фотографии официальных лиц
+					+e.H3.title Официальные лица
 					+e.outer._bio
 						+e.card-wrapper.mediaSmFin__wrapper
 							.tile__item
@@ -37,7 +38,7 @@ mixin mediaSmFin()
 					+e.A(href="#").show-more.d-si__button_show-more Показать еще
 
 				+e.materials-group
-					+e.H3.title Материалы портала Открытый бюджет города Москвы
+					+e.H3.title Пресс-релизы
 					+e.outer
 						+e.media-wrapper.mediaSmFin__wrapper
 							+media-card('item1', 'Биографии сотрудников', '1 апреля 2016')
@@ -50,3 +51,8 @@ mixin mediaSmFin()
 							+media-card('item3', 'Логотипы', '1 апреля 2016')
 							+media-card('item4', 'Брендбук', '1 апреля 2016')
 					+e.A(href="#").show-more.d-si__button_show-more Показать еще
+
+				+e.materials-group
+					+e.H3.title Фирменный стиль
+					+link()
+						| Брендбук, логотипы, гайдлайны
