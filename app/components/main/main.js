@@ -141,7 +141,7 @@ export default () => {
     
     
     // Инициализация календарей
-    if ($(".jq-spec-datepicker").length > 0) {
+    /*if ($(".jq-spec-datepicker").length > 0) {
       if ($('.wrapper_main').length) {
         setTimeout(function(){
           initSpecDP();
@@ -159,7 +159,7 @@ export default () => {
       } else {
         initSpecDPalt();
       }
-    }
+    }*/
 
     $(document).on('click', function() {
       $('.jq-spec-datepicker').blur().removeClass('hasDatepicker');
