@@ -1,23 +1,11 @@
 ._analitycs-income {
   
-  .wrapper_params-income {
-    @media (max-width: 1280px) {
-      margin: 0 auto !important;
-      padding: 0 !important;
-    }
-  }
-  
   .analityc-widget_params-income {
     padding-top: 22px;
     padding-bottom: 35px;
     
     .analityc-widgethead {
-      padding-right: 24px;
       min-height: 299px;
-      
-      @media (max-width: 1140px) {
-        padding-right: 0;
-      }
     }
     
     .analityc-control-frame {
@@ -46,10 +34,6 @@
         @media screen and (max-width: 1010px) {
           float: none;
           width: 50%;
-        }
-        
-        @media (max-width: 900px) {
-          float: none;
         }
         
         @media (max-width: 900px) {
@@ -105,11 +89,11 @@
         
         @media (max-width: 1010px) {
           float: none;
-          width: 100%;
           margin-top: 30px;
         }
         
         @media screen and (max-width: 900px) {
+          width: 100%;
           padding-right: 27px;
           margin-top: 50px;
         }
@@ -146,53 +130,23 @@
           
           &_level {
             float: left;
-            width: 233px;
-            @media (max-width: 1140px) {
-              float: none;
-              width: 45%;
-              margin-right: 10px;
-            }
-            @media (max-width: 640px) {
-              width: 356px;
-            }
-            @media (max-width: 580px) {
-              width: 235px;
-              margin-bottom: 24px;
-            }
-          }
-          &_transfer {
-            float: right;
-            width: 265px;
-            @media (max-width: 1140px) {
-              float: none;
-              width: 45%;
-            }
-            @media (max-width: 1010px) {
-              width: 235px;
-            }
+            width: 235px;
+            
             @media (max-width: 900px) {
               width: 100%;
             }
           }
-          &_buttons {
-            position: absolute;
-            right: 0;
-            max-width: 100%;
-            top: 100%;
-            @media (max-width: 1140px) {
-              right: auto;
-              left: 0;
-            }
-            @media (max-width: 1010px) {
-              position: relative;
-              top: auto;
-            }
+          
+          &_transfer {
+            float: right;
+            width: 265px;
             
-            @media screen and (max-width: 900px) {
-              margin-bottom: 0;
+            @media (max-width: 900px) {
+              width: 100%;
             }
           }
         }
+        
         .d-smr__add-char {
           z-index: 15;
           margin-top: 0;
@@ -217,11 +171,20 @@
         .analityc-control-switcher {
           margin-top: 0;
           
-          @media (max-width: 760px) {
-            position: relative;
-          }
-          
           a {
+            font-size: 13px;
+            padding: 0 12px;
+            border-right: 1px solid #0d46a1;
+            
+            &:last-child {
+              border-right: none;
+            }
+            
+            @media screen and (max-width: 900px) {
+              font-size: 18px;
+              line-height: 52px;
+            }
+            
             @media screen and (max-width: 800px) {
               width: 100%;
               border-right: 0;

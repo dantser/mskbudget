@@ -191,7 +191,7 @@ export default () => {
   window.graphicBars = function() {
     $('.analityc-graphics-bars').each(function(){
       
-      if ($(this).find('[data-checkbox]:visible').siblings('[data-checkbox]:visible').length < 1) {
+      if ($(this).find('[data-name]:visible').siblings('[data-name]:visible').length < 1) {
         $(this).addClass('analityc-graphics-bars_singlebar');
       } else {
         $(this).removeClass('analityc-graphics-bars_singlebar');
@@ -219,8 +219,8 @@ export default () => {
         var barGraphic = '.analityc-graphics-bars__graphic',
             lineFill = '.analityc-graphics-bars__line-fill',
             curLineFill = $(this).parents(lineFill),
-            curLineFillName = curLineFill.data('checkbox'),
-            nextLineFill = $(this).parents(barGraphic).next().find(lineFill+'[data-checkbox="'+curLineFillName+'"]'),
+            curLineFillName = curLineFill.data('name'),
+            nextLineFill = $(this).parents(barGraphic).next().find(lineFill+'[data-name="'+curLineFillName+'"]'),
             startPoint = curLineFill.offset().top,
             endPoint = nextLineFill.offset().top;
             
@@ -248,9 +248,9 @@ export default () => {
         
           var barGraphic = '.analityc-graphics-bars__graphic',
               lineFill = '.analityc-graphics-bars__line-fill',
-              fillAreaName = fillArea.eq(i).data('checkbox'),
-              prevLineFill = $(this).parents(barGraphic).prev().find(lineFill+'[data-checkbox="'+fillAreaName+'"]'),
-              nextLineFill = $(this).parents(barGraphic).next().find(lineFill+'[data-checkbox="'+fillAreaName+'"]'),
+              fillAreaName = fillArea.eq(i).data('name'),
+              prevLineFill = $(this).parents(barGraphic).prev().find(lineFill+'[data-name="'+fillAreaName+'"]'),
+              nextLineFill = $(this).parents(barGraphic).next().find(lineFill+'[data-name="'+fillAreaName+'"]'),
               prevLineFillHeight = prevLineFill.height(),
               nextLineFillHeight = nextLineFill.height(),
               maxLineFillHeight;
@@ -309,7 +309,7 @@ export default () => {
           averageLineHeight += 20;
         }
         
-        if (graphic.next().find('[data-checkbox]:visible').length < 1) {
+        if (graphic.next().find('[data-name]:visible').length < 1) {
           $(this).hide();
         } else {
           $(this).show();
@@ -519,13 +519,27 @@ export default () => {
     $('.legend_checkbox .checkbox').each(function(){
       var checkBox = $(this).find('.checkbox__control'),
           checkStatus = checkBox.is(':checked'),
-          name = checkBox.attr('name'),
+          name = $(this).data('name'),
           graphic = $(this).parent().siblings('.analityc-graphics-container');
       
       if (checkStatus == true) {
-        graphic.find('[data-checkbox="'+name+'"]').show();
+        graphic.find('[data-name="'+name+'"]').show();
       } else {
-        graphic.find('[data-checkbox="'+name+'"]').hide();
+        graphic.find('[data-name="'+name+'"]').hide();
+      }
+      
+    });
+    
+    $('.legend-icon .checkbox').each(function(){
+      var checkBox = $(this).find('.checkbox__control'),
+          checkStatus = checkBox.is(':checked'),
+          name = $(this).data('name'),
+          graphic = $(this).parent().siblings('.analityc-graphics-container');
+      
+      if (checkStatus == true) {
+        graphic.find('[data-name="'+name+'"]').show();
+      } else {
+        graphic.find('[data-name="'+name+'"]').hide();
       }
       
     });
@@ -539,11 +553,19 @@ export default () => {
     });
   }
   
+  if ($('.legend-icon .checkbox').length) {
+    checkLegendBoxes();
+    $(document).on('change', '.legend-icon .checkbox__control', function(){
+      checkLegendBoxes();
+      graphicBars();
+    });
+  }
+  
   $(document).on('click', '.legend_basket .legend__remove', function(){
     if ($(this).parents('.legend__item').siblings(':visible').length) {
       var name = $(this).data('name'),
           graphic = $(this).parents('.legend').siblings('.analityc-graphics-container');
-      graphic.find('[data-checkbox="'+name+'"]').hide();    
+      graphic.find('[data-name="'+name+'"]').hide();    
       $(this).parents('.legend__item').hide();
       graphicBars();
     }

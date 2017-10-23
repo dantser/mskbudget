@@ -139,7 +139,7 @@
     }
 
     &:hover {
-      .legend__icon {
+      .legend__remove-icon {
         display: inline-block;
       }
     }
@@ -157,11 +157,47 @@
     right: -10px;
   }
 
-  .legend__icon {
+  .legend__remove-icon {
     width: 15px;
     height: 17px;
     fill: $color-link;
     display: none;
+  }
+  
+  .legend__icon {
+    display: inline-block;
+    width: 21px;
+    height: 21px;
+    vertical-align: middle;
+    margin-right: 7px;
+
+    @media (max-width: 1010px) {
+      width: 33px;
+      height: 33px;
+      margin-right: 17px;
+    }   
+
+    @media (max-width: 580px) {
+      margin-right: 6px !important;
+    }
+    
+    @media (max-width: 580px) {
+      width: 27px;
+      height: 17px;
+    }   
+
+    &_red {
+      background: url(../images/depfin-analytics-gp/pink.png) 50% 50% no-repeat;
+    }
+    &_violet {
+      background: url(../images/depfin-analytics-gp/violet.png) 50% 50% no-repeat;
+    }
+    &_blue {
+      background: url(../images/depfin-analytics-gp/blue.png) 50% 50% no-repeat;
+    }
+    &_green {
+      background: url(../images/depfin-analytics-gp/greenyellow.png) 50% 50% no-repeat;
+    }
   }
 }
 
@@ -190,17 +226,7 @@
     }   
 
     .checkbox__box {
-      vertical-align: middle;
-
-      @media (max-width: 1010px) {
-        width: 22px;
-        height: 22px;
-      }  
-
-      @media (max-width: 580px) {
-        width: 12px !important;
-        height: 12px !important;
-      }              
+      vertical-align: middle;             
     }
 
     .checkbox__text {
@@ -227,21 +253,7 @@
     width: 21px;
     height: 21px;
     vertical-align: middle;
-    margin-right: 14px;
-
-    @media (max-width: 1140px) {
-      margin-right: 6px;
-    }
-
-    @media (max-width: 1010px) {
-      width: 33px;
-      height: 33px;
-      margin-right: 17px;
-    }   
-
-    @media (max-width: 580px) {
-      margin-right: 6px !important;
-    }         
+    margin-right: 7px;         
   }
 
   &__circle {
@@ -270,7 +282,7 @@
       background-image: linear-gradient(90deg,rgb(50,209,151),rgb(17,163,96) 65%);
     }
 
-    &_pink {
+    &_red {
       background: #612292;
       background-image: -webkit-linear-gradient(top,rgb(255,105,91),rgb(157,48,138) 65%);
       background-image: linear-gradient(180deg, rgb(255,105,91),rgb(157,48,138) 65%);
@@ -302,7 +314,7 @@
       height: 17px;
     }   
 
-    &_pink {
+    &_red {
       background: url(../images/depfin-analytics-gp/pink.png) 50% 50% no-repeat;
     }
     &_violet {
@@ -329,7 +341,7 @@
 
   &__label {
     font-size: 14px;
-    color: $color-black;
+    color: #d1d1d1;
     vertical-align: middle;
 
     @media (max-width: 1010px) {
@@ -339,6 +351,18 @@
     @media (max-width: 580px) {
       font-size: 11px !important;
     } 
+  }
+  
+  .checkbox {
+    opacity: .7;
+    
+    &.checkbox_active {
+      opacity: 1;
+      
+      .legend-icon__label {
+        color: #000;
+      }
+    }
   }
 }
 

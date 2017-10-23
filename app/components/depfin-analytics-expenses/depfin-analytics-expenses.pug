@@ -8,18 +8,40 @@ include ../../blocks/dropdown-block/dropdown-block
 
 
 mixin depfin-analytics-expenses()
-	section.main._basic.basic-budget.sections__item
-		.wrapper.wrapper_analytics-expenses
+	section.main._basic.analitycs-expenses.basic-budget.sections__item
+		.wrapper-header
 			+page-header('Расходы бюджета', ['Аналитика'], true)
-
-
+		.wrapper.wrapper_analytics-expenses
 			.analityc-widget.analityc-widget_analytics-expenses.load-anim-fade(data-delay="1500")
 				+analityc-widgethead-analytics-expenses()
-
-				+analityc-graphics-line-vertical(getData('graphic-lines-analytics-expenses'), true)._gp
-				+analityc-graphics-line-vertical_slider(getData('graphic-lines-main'), true).analityc-graphics-line-vertical_gp
-				
-				+legend-icon()
+				.analityc-graphics(data-type='g1', data-comparison='overall')
+					.analityc-graphics-container.analityc-graphics-container_vert-lines
+						+slide-arrows().analityc-graphics__slide-arrows
+						.analityc-graphics-scroll-hider
+							.analityc-graphics-wrapper(data-offset='100')
+								+analityc-graphics-line-vertical-alt(getData('graphic-lines-analityc-income'))
+					+legend-icon()
+				.analityc-graphics(data-type='g2', data-comparison='overall').active
+					.analityc-graphics-container.analityc-graphics-container_bars
+						+slide-arrows().analityc-graphics__slide-arrows
+						.analityc-graphics-scroll-hider
+							.analityc-graphics-wrapper(data-offset='100')
+								+analityc-graphics-bars(getData('legend-analityc-bar1'))
+					+legend-icon()
+				.analityc-graphics(data-type='g3', data-comparison='overall')
+					.analityc-graphics-container.analityc-graphics-container_bars
+						+slide-arrows().analityc-graphics__slide-arrows
+						.analityc-graphics-scroll-hider
+							.analityc-graphics-wrapper(data-offset='100')
+								+analityc-graphics-bars(getData('legend-analityc-bar2'))
+					+legend-icon()
+				.analityc-graphics(data-type='g1, g2, g3', data-comparison='comparative')
+					.analityc-graphics-container.analityc-graphics-container_bars-entired
+						+slide-arrows().analityc-graphics__slide-arrows
+						.analityc-graphics-scroll-hider
+							.analityc-graphics-wrapper(data-offset='100')
+								+analityc-graphics-bars-alt(getData('legend-analityc-bar4'))._entired
+					+legend-basket(getData('legend-analityc-income-short')[1])
 
 				+analityc-table()._gp
 					+table-gp(getData('analytics-expenses'))

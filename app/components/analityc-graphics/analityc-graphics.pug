@@ -1338,25 +1338,25 @@ mixin analityc-graphics-line-vertical-alt(data)
       +e.graphic
         +e.lines
 
-          +e.line._red(data-checkbox=item.names[0])
+          +e.line._red(data-name=item.names[0])
             +e.line-bar-value= item.values[0]
             +e.line-fill
-          +e.line._green(data-checkbox=item.names[1])
+          +e.line._green(data-name=item.names[1])
             +e.line-bar-value= item.values[1]
             +e.line-fill
-          +e.line._pink(data-checkbox=item.names[2])
+          +e.line._pink(data-name=item.names[2])
             +e.line-bar-value= item.values[2]
             +e.line-fill
-          +e.line._grey(data-checkbox=item.names[3])
+          +e.line._grey(data-name=item.names[3])
             +e.line-bar-value= item.values[3]
             +e.line-fill
-          +e.line._altblue(data-checkbox=item.names[4])
+          +e.line._altblue(data-name=item.names[4])
             +e.line-bar-value= item.values[4]
             +e.line-fill
-          +e.line._lightgreen(data-checkbox=item.names[5])
+          +e.line._lightgreen(data-name=item.names[5])
             +e.line-bar-value= item.values[5]
             +e.line-fill
-          +e.line._blue(data-checkbox=item.names[6])
+          +e.line._blue(data-name=item.names[6])
             +e.line-bar-value= item.values[6]
             +e.line-fill
 
@@ -1462,7 +1462,7 @@ mixin analityc-graphics-bars(data)
             +e.line-bar-value= item.value
             
             - for (var i = item.bars.length - 1; i > -1; i--)
-              +e.line-fill(class='_'+item.bars[i].color+'', data-height=item.bars[i].height, data-checkbox=item.bars[i].name)
+              +e.line-fill(class='_'+item.bars[i].color+'', data-height=item.bars[i].height, data-name=item.bars[i].name)
                 +e.val= item.bars[i].barvalue
                 if !item.bars[i].last
                   +e.rate-line
@@ -1493,13 +1493,13 @@ mixin analityc-graphics-bars-alt(data)
               +e.line-bar-value= item.value
               
               - for (var i = item.bars.length - 1; i > -1; i--)
-                +e.line-fill(class='_'+item.bars[i].color+'', data-height=item.bars[i].height, data-checkbox=item.bars[i].name)
+                +e.line-fill(class='_'+item.bars[i].color+'', data-height=item.bars[i].height, data-name=item.bars[i].name)
                   +e.val= item.bars[i].barvalue
                   
             if item.rate
             
               - for (var i = item.bars.length - 1; i > -1; i--)
-                +e.line-fill-area(data-checkbox=item.bars[i].name)
+                +e.line-fill-area(data-name=item.bars[i].name)
                   +e.line-fill(class='_'+item.bars[i].color+'')
                   
                   if item.bars[i].change

@@ -11,7 +11,7 @@ mixin legend(data)
 mixin legend-checkbox(data)
   +b.legend._checkbox&attributes(attributes)
     each obj in data
-      +b.LABEL.checkbox._active&attributes(attributes)
+      +b.LABEL.checkbox._active&attributes(attributes)(data-name=obj.name)
         +e.INPUT(type='checkbox', name=obj.name, value='yes', checked).control
         +e.box
           +icon('icon-ok-ch').mark
@@ -21,32 +21,34 @@ mixin legend-basket(data)
   +b.legend._basket&attributes(attributes)
     each obj in data
       +e.P(class="__item_"+obj.color+"")
+        if obj.icon
+          +e.icon(class="_"+obj.color+"")
         span= obj.title
           +e.A(href="#", data-name=obj.name).remove
-            +icon('basket').icon
+            +icon('basket').remove-icon
       
 mixin legend-icon()
   .legend-icon
-    +checkbox().legend-icon__item
-      .legend-icon__circle.legend-icon__circle_pink
-      .legend-icon__icon.legend-icon__icon_pink
+    +checkbox(true)._active.legend-icon__item(data-name='g1-l1')
+      .legend-icon__circle.legend-icon__circle_red
+      .legend-icon__icon.legend-icon__icon_red
       SPAN.legend-icon__label Развитие транспортной системы
-    +checkbox().legend-icon__item
+    +checkbox(true)._active.legend-icon__item(data-name='g1-l2')
       .legend-icon__circle.legend-icon__circle_violet
       .legend-icon__icon.legend-icon__icon_violet
       SPAN.legend-icon__label Социальная поддержка жителей Москвы
-    +checkbox().legend-icon__item
+    +checkbox(true)._active.legend-icon__item(data-name='g1-l3')
       .legend-icon__circle.legend-icon__circle_blue
       .legend-icon__icon.legend-icon__icon_blue
       SPAN.legend-icon__label Столичное здравоохранение
-    +checkbox().legend-icon__item
+    +checkbox(true)._active.legend-icon__item(data-name='g1-l4')
       .legend-icon__circle.legend-icon__circle_greenyellow
       .legend-icon__icon.legend-icon__icon_greenyellow
       SPAN.legend-icon__label Прочие государственные программы
-    +checkbox().legend-icon__item
+    +checkbox(true)._active.legend-icon__item(data-name='g1-l5')
       .legend-icon__circle.legend-icon__circle_gray
       SPAN.legend-icon__label Развитие транспортной системы
-    +checkbox().legend-icon__item
+    +checkbox(true)._active.legend-icon__item(data-name='g1-l6')
       .legend-icon__circle.legend-icon__circle_green
       SPAN.legend-icon__label Непрограммные направления деятельности
 

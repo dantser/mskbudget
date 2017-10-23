@@ -28,4 +28,12 @@ export default () => {
       EL.parent('.legend__item').hide();
     });
   });
+  
+  $(document).on('change', '.legend-icon .checkbox__control', function(){
+    if (this.checked) {
+      $(this).parents('.checkbox').addClass('checkbox_active');
+    } else {
+      $(this).parents('.checkbox').removeClass('checkbox_active');
+    }
+  });
 }

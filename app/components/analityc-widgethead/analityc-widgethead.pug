@@ -508,9 +508,9 @@ mixin analityc-widgethead-analityc-income()
                     label(for='bc') Общегосударственные вопросы
       .analityc-control-group.analityc-control-group_buttons
         .analityc-control-switcher.analityc-control-switcher_xl.active
-          a(href="#" data-type='g2').active темп роста к предыдущему периоду, %
-          a(href="#" data-type='g3') доля в общей сумме, %
-          a(href="#" data-type='g1') % исполнения
+          a(href="#", data-type='g2').active темп роста к предыдущему периоду, %
+          a(href="#", data-type='g3') доля в общей сумме, %
+          a(href="#", data-type='g1') % исполнения
 
 //- Аналитика - Расходы
 mixin analityc-widgethead-analytics-expenses()
@@ -564,7 +564,7 @@ mixin analityc-widgethead-analytics-expenses()
         +selbox('comparison', 'Общий анализ основных видов расходов')._cgroup.analityc-widget__selectbox
           +selbox-opt('overall', 'Общий анализ основных видов расходов', true)
           +selbox-opt('comparative', 'Сравнительный анализ расходов по выбору')
-      .d-smr__add-char
+      .d-smr__add-char(data-control, data-comparison='comparative')
         p.d-smr__add-char-label Добавить показатель на страницу
         .d-smr__add-char-block
           .d-smr__add-char-list-wrapper
@@ -623,10 +623,11 @@ mixin analityc-widgethead-analytics-expenses()
                     input(type='checkbox', name='bc', value='bc')#bc
                     label(for='bc') Общегосударственные вопросы
 
-      .analityc-control-switcher.analityc-control-switcher_expenses.analityc-control-switcher_large.active
-        a(href="#").active Темп роста к пред. периоду, млрд руб.
-        a(href="#") Доля в общей суммы,%
-        a(href="#") % исполнения
+      .analityc-control-group.analityc-control-group_buttons
+        .analityc-control-switcher.analityc-control-switcher_xl.active
+          a(href="#", data-type='g2').active темп роста к предыдущему периоду, %
+          a(href="#", data-type='g3') доля в общей сумме, %
+          a(href="#", data-type='g1') % исполнения
 
 //- Аналитика - Государственный долг
 mixin analityc-widgethead-analytics-govdebt()
@@ -667,156 +668,48 @@ mixin analityc-widgethead-analytics-govdebt()
 //- Гос. программы
 mixin analityc-widgethead-gp()
   +b.analityc-widgethead&attributes(attributes)
-
     .analityc-control-frame.analityc-control-frame_left
       span.analityc-control-frame-title Выберите год и этап
-
       .analityc-control-group
         a(href='#').analityc-remove-group
           +icon('delete', true)
-        select.analityc-select.analityc-select_year
-          option 2018
-          option 2017
-          option 2016
-          option(selected) 2015
-        select.analityc-select.analityc-select_month
-          option(selected) Год
-          option январь
-          option февраль
-          option март
-          option апрель
-          option май
-          option июнь
-          option июль
-          option август
-          option сентябрь
-          option октябрь
-          option ноябрь
-          option декабрь
-        select.analityc-select.analityc-select_stage
-          option(selected) Фактическое исполнение
-          option Закон о бюджете (утвержденный)
-
+        +select-year-analityc()
+        +select-month-analityc()
+        +select-stage-analityc()
       .analityc-control-group
         a(href='#').analityc-remove-group
           +icon('delete', true)
-        select.analityc-select.analityc-select_year
-          option 2018
-          option 2017
-          option 2016
-          option(selected) 2015
-        select.analityc-select.analityc-select_month
-          option(selected) Год
-          option январь
-          option февраль
-          option март
-          option апрель
-          option май
-          option июнь
-          option июль
-          option август
-          option сентябрь
-          option октябрь
-          option ноябрь
-          option декабрь
-        select.analityc-select.analityc-select_stage
-          option(selected) Фактическое исполнение
-          option Закон о бюджете (утвержденный)
-
+        +select-year-analityc()
+        +select-month-analityc()
+        +select-stage-analityc()
       .analityc-control-group
         a(href='#').analityc-remove-group
           +icon('delete', true)
-        select.analityc-select.analityc-select_year
-          option 2018
-          option 2017
-          option 2016
-          option(selected) 2015
-        select.analityc-select.analityc-select_month
-          option(selected) Год
-          option январь
-          option февраль
-          option март
-          option апрель
-          option май
-          option июнь
-          option июль
-          option август
-          option сентябрь
-          option октябрь
-          option ноябрь
-          option декабрь
-        select.analityc-select.analityc-select_stage
-          option(selected) Фактическое исполнение
-          option Закон о бюджете (утвержденный)
-
+        +select-year-analityc()
+        +select-month-analityc()
+        +select-stage-analityc()
       .analityc-control-group
         a(href='#').analityc-remove-group
           +icon('delete', true)
-        select.analityc-select.analityc-select_year
-          option 2018
-          option 2017
-          option 2016
-          option(selected) 2015
-        select.analityc-select.analityc-select_month
-          option(selected) Год
-          option январь
-          option февраль
-          option март
-          option апрель
-          option май
-          option июнь
-          option июль
-          option август
-          option сентябрь
-          option октябрь
-          option ноябрь
-          option декабрь
-        select.analityc-select.analityc-select_stage
-          option(selected) Фактическое исполнение
-          option Закон о бюджете (утвержденный)
-
+        +select-year-analityc()
+        +select-month-analityc()
+        +select-stage-analityc()
       .analityc-control-group
         a(href='#').analityc-remove-group
           +icon('delete', true)
-        select.analityc-select.analityc-select_year
-          option 2018
-          option 2017
-          option 2016
-          option(selected) 2015
-        select.analityc-select.analityc-select_month
-          option(selected) Год
-          option январь
-          option февраль
-          option март
-          option апрель
-          option май
-          option июнь
-          option июль
-          option август
-          option сентябрь
-          option октябрь
-          option ноябрь
-          option декабрь
-        select.analityc-select.analityc-select_stage
-          option(selected) Фактическое исполнение
-          option Закон о бюджете (утвержденный)
-
+        +select-year-analityc()
+        +select-month-analityc()
+        +select-stage-analityc()
       a(href='#').analityc-add-group + Добавить год и этап
-
     .analityc-control-frame.analityc-control-frame_right
-
         span.analityc-control-frame-title Межбюджетные трансферты
-
         select.analityc-select.analityc-select_transfer
           option(selected) Без межбюджетных трансфертов
           option с трансфертами
-
         span.analityc-control-frame-title Режим сравнения
-
         select.analityc-select.analityc-select_compare
           option(selected) Сравнительный анализ программ по выбору
           option Option#1
-
         .analityc-select.analityc-select_add
           .option Добавить государственную программу на страницу
           .checklist
@@ -828,7 +721,6 @@ mixin analityc-widgethead-gp()
                 | Социальная поддержка жителей Москвы
               +checkbox().checklist-item
                 | Столичное образование
-
         .analityc-control-switcher.analityc-control-switcher_graphic.analityc-control-switcher_large.active
           a(href="#").active Темп роста к пред. периоду, млрд руб.
           a(href="#") Доля в общей суммы,%
