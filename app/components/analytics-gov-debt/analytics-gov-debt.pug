@@ -15,17 +15,16 @@ mixin analytics-gov-debt()
         +analityc-widgethead-analytics-govdebt().__analityc-widgethead
         +e.graphics
           +slide-arrows().__slide-arrows._graphics
-          +e.graphic-wrapper(data-offset='100')
-            +analityc-graphics-analytics-gov-debt-line()(data-name='g1-l3')
-            +analityc-graphics-bars(getData('analytics-govdebt')).__analityc-graphics-bars
+          +e.graphics-scroll-hider
+            +e.graphics-wrapper(data-offset='100')
+              +analityc-graphics-analytics-gov-debt-line()(data-name='g1-l3')
+              +analityc-graphics-bars(getData('analytics-govdebt')).__analityc-graphics-bars
         +legend-icon-analytics-gov-debt()
-        +analityc-table()._gp
-          .table-switcher
-            .analityc-control-switcher.analityc-control-switcher_table.analityc-control-switcher_large.active
-              a(href="#").active млн руб.
-              a(href="#") млрд руб.
-          +slide-arrows().analytics-gov-debt__slide-arrows._table
-          .analytics-gov-debt__table-wrapper(data-offset='100')
-            +table-analytics-gov-debt(getData('main'))
+        .table-switcher
+          .analityc-control-switcher.analityc-control-switcher_table.analityc-control-switcher_large.active
+            a(href="#").active млн руб.
+            a(href="#") млрд руб.
+        +analityc-table-slider()._gp
+          +table-analytics-gov-debt(getData('main'))
         a(href="/").analityc-more Перейти в&nbsp;раздел бюджет москвы
     +dropdown().load-anim-fade(data-delay="1700")

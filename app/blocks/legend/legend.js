@@ -29,7 +29,7 @@ export default () => {
     });
   });
   
-  $(document).on('change', '.legend-icon .checkbox__control', function(){
+  $(document).on('change', '.legend-icon-a .checkbox__control', function(){
     if (this.checked) {
       $(this).parents('.checkbox').addClass('checkbox_active');
     } else {
