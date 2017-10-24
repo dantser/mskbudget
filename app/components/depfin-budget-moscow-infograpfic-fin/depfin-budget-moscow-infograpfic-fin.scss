@@ -144,19 +144,22 @@
     }  
 
     &_big {
-      font-size: 18px;
+      font-size: 16px;
       line-height: 22px;
 
-      @include respond-to('mobile'){
-        font-size: 28px;
-        line-height: 34px;
-        letter-spacing: 0.4px;
+      @media (max-width: 1140px) {
+        line-height: 26px;
+      }
+
+      @media (max-width: 900px) and (min-width: 581px) {
+        line-height: 40px;
+        font-size: 32px;
         margin-bottom: 16px;
-      }    
+      }
 
       @media (max-width: 580px) {
-        font-size: 14px;
-        line-height: 17px;
+        font-size: 16px;
+        line-height: 22px;
         margin-bottom: 9px;
       }            
     }

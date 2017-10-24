@@ -422,12 +422,32 @@
     text-transform: uppercase;
     color: $color-black;
     margin-bottom: 20px;
+
+    @media (max-width: 1140px) {
+      font-size: 26px;
+      line-height: 30px;
+    }
+
+    @media (max-width: 900px) and (min-width: 581px) {
+      font-size: 35px;
+      line-height: 44px;
+    }
+
+    @media (max-width: 580px) {
+      font-size: 18px;
+      line-height: 26px;
+    }
   }
 
   &__bio-text {
-    font-size: 18px;
+    font-size: 16px;
     letter-spacing: .1px;
-    line-height: 21px;
+    line-height: 22px;
+
+    @media (max-width: 900px) and (min-width: 581px) {
+      font-size: 32px;
+      line-height: 40px;
+    }
 
     & + .mediaSmFin__bio-text {
       margin-top: 20px;

@@ -495,11 +495,19 @@
     line-height: 26px;
     letter-spacing: -.3px;
 
+    @media (max-width: 900px) {
+      font-size: 16px;
+      line-height: 22px;
+    }
+
+    & + .open-file__popup-text {
+      margin-top: 18px;
+    }
+
     &_bold {
       line-height: 20px;
       font-weight: 900;
       letter-spacing: 0px;
-      margin-top: 18px;
     }
 
     &_small {
@@ -510,13 +518,21 @@
 
   &__popup-list {
     padding-left: 34px;
-    font-size: 16px;
-    line-height: 20px;
+    font-size: 18px;
+    line-height: 26px;
     margin-top: 20px;
+
+    & + .open-file__popup-text {
+      margin-top: 18px;
+    }
+
+    @media (max-width: 900px) {
+      font-size: 16px;
+      line-height: 22px;
+    }
   }
 
   &__popup-item {
-    line-height: 20px;
 
     & + .open-file__popup-item {
       margin-top: 10px;

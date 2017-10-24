@@ -455,17 +455,20 @@
   &__subtitle {
     display: block;
     font-family: $PFDinCondensedPro;
-    font-size: 14px;
+    font-size: 14.5px;
     text-transform: uppercase;
     font-weight: 500;
     margin-top: 5px;
+
+    @media (max-width: 640px) and (min-width: 401px) {
+      font-size: 15px;
+    }
   }
 
   &__text {
     font-family: $PFDinTextPro;
     font-size: 16px;
     line-height: 26px;
-    letter-spacing: .9px;
     margin-top: 20px;
   }
 
@@ -486,7 +489,8 @@
 
     li {
       list-style: none;
-      font-size: 14px;
+      font-size: 16px;
+      line-height: 20px;
       text-transform: none;
       font-weight: 400;
       margin-top: 8px;
@@ -584,7 +588,7 @@
 
   &__addr {
     display: inline-block;
-    font-size: 14px;
+    font-size: 16px;
     vertical-align: bottom;
     padding-left: 20px;
     width: 43%;
@@ -595,7 +599,7 @@
     }
     
     p {
-      line-height: 16px;
+      line-height: 20px;
       letter-spacing: .8px;
     }
   }
