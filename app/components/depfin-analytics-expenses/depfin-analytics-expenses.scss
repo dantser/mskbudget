@@ -21,11 +21,8 @@
     }
   }
   
-  .legend {
+  .legend, .legend-icon {
     margin-top: 35px;
-  }
-  .legend-icon__item .checkbox__text {
-    margin-left: 7px;
   }
   .legend-icon__label, .legend__item {
     font-family: $PFDinTextPro;
@@ -35,6 +32,25 @@
   .legend-icon__item {
     margin-top: 0;
     margin-bottom: 17px;
+    width: 33.3333%;
+    
+    @media screen and (max-width: 900px) {
+      width: 50%;
+    }
+    @media screen and (max-width: 580px) {
+      width: 100%;
+    }
+  }
+  .legend_basket .legend__item {
+    width: 33.3333%;
+    margin-bottom: 17px;
+    
+    @media screen and (max-width: 900px) {
+      width: 50%;
+    }
+    @media screen and (max-width: 580px) {
+      width: 100%;
+    }
   }
   
   .analityc-widgethead [data-control] {
@@ -354,43 +370,20 @@
   .table-switcher {
     text-align: left;
     margin-top: 40px;
-    @media (max-width: 1010px) {
-      text-align: left;
-    }
     
     .analityc-control-switcher_table {
       margin-top: 0;
+      
       @media (max-width: 580px) {
         width: auto !important;
       }
-      @media (max-width: 550px) {
-        width: auto !important;
-      }
       
-      & a {
-        @media (max-width: 1010px) {
-          font-size: 22px;
-          padding: 0 50px;
-          line-height: 49px;
-        }
-        @media (max-width: 760px) {
-          font-size: 22px;
-          padding: 0 50px;
-          line-height: 49px;
-        }
+      a {
         @media (max-width: 580px) {
-          font-size: 10px !important;
-          line-height: 24px !important;
           padding: 0 30px !important;
           width: auto !important;
         }
       }
-    }
-  }
-  
-  .analityc-table_gp {
-    .table {
-      min-width: 945px;
     }
   }
 }
