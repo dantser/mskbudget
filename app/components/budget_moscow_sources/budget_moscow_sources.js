@@ -131,8 +131,10 @@ export default () => {
     function changeBlock(el, stageVal) {
       el.each(function(){
         var stage = $(this).data('stage');
-        if (stage == 'all' || stage.match(stageVal)) {
-          $(this).addClass('active');
+        if (stage && stage.length){
+          if (stage == 'all' || stage.match(stageVal)) {
+            $(this).addClass('active');
+          }
         }
       });
     }
@@ -142,9 +144,11 @@ export default () => {
         var stage = $(this).data('stage'),
             level = $(this).data('level'),
             type = $(this).data('type');
-        if ((stage == 'all' || stage.match(stageVal)) && (level == 'all' || level.match(levelVal)) && (type == 'all' || type.match(typeVal))) {
+       if (stage && level && type && stage.length && level.length && type.length){
+         if ((stage == 'all' || stage.match(stageVal)) && (level == 'all' || level.match(levelVal)) && (type == 'all' || type.match(typeVal))) {
           $(this).addClass('active');
         }
+       }
       });
     }
     
