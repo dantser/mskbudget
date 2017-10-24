@@ -1464,7 +1464,7 @@ mixin analityc-graphics-bars(data)
             - for (var i = item.bars.length - 1; i > -1; i--)
               +e.line-fill(class='_'+item.bars[i].color+'', data-height=item.bars[i].height, data-name=item.bars[i].name)
                 +e.val= item.bars[i].barvalue
-                if !item.bars[i].last
+                if item.bars[i].rateline
                   +e.rate-line
                 
           if item.changes
@@ -1847,49 +1847,9 @@ mixin analityc-graphics-forecast-industry()
 //- Аналитика - Государственный долг (уровень долговой нагрузки)
 mixin analityc-graphics-analytics-gov-debt-line()
   +b.analityc-graphics-broken-line&attributes(attributes)
-    +e.growth-rate
-      +e.col
-        +e.P.rate-value(data-rate-level="10.0") 10,0%
-          +e.rate-line_grey
-      +e.col
-        +e.P.rate-value(data-rate-level="12.0") 12,0%
-          +e.rate-line_grey
-      +e.col
-        +e.P.rate-value(data-rate-level="15.0") 15,0%
-          +e.rate-line_grey
-      +e.col
-        +e.P.rate-value(data-rate-level="10.0") 10,0%
-          +e.rate-line_grey
-      +e.col
-        +e.P.rate-value(data-rate-level="8.0") 8,0%
-
-//- Аналитика - Государственный долг (уровень долговой нагрузки)
-mixin analityc-graphics-analytics-gov-debt-bars(data)
-  +b.analityc-graphics-bars&attributes(attributes)
-
-    each item in data
-      +e.graphic
-        +e.lines
-          +e.line
-            +e.line-bar-value= item.value
-            +e.line-fill._yellow
-              +e.val= item.values[3]
-            +e.line-fill._green
-              +e.val= item.values[2]
-            +e.line-fill._altblue
-              +e.val= item.values[1]
-            +e.line-fill._red
-              +e.val= item.values[0]
-        +e.caption
-          +e.STRONG.caption-year= item.year
-          +e.SPAN.caption-text= item.text
-          
-      if item.changes
-        if item.negchanges
-          +e.changes._neg
-            +e.abs= item.changes[0]
-            +e.percent= item.changes[1]
-        else
-          +e.changes
-            +e.abs= item.changes[0]
-            +e.percent= item.changes[1]
+    +growth-rate(8, 15, 70)._grey._points.__growth-rate
+      +growth-rate-col('10.0', '10,0%')
+      +growth-rate-col('12.0', '12,0%')
+      +growth-rate-col('15.0', '15,0%')
+      +growth-rate-col('10.0', '10,0%')
+      +growth-rate-col('8.0', '8,0%', true)

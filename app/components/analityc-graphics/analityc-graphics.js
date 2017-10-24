@@ -530,11 +530,11 @@ export default () => {
       
     });
     
-    $('.legend-icon .checkbox').each(function(){
+    $('.legend-icon-a .checkbox').each(function(){
       var checkBox = $(this).find('.checkbox__control'),
           checkStatus = checkBox.is(':checked'),
           name = $(this).data('name'),
-          graphic = $(this).parent().siblings('.analityc-graphics-container');
+          graphic = $(this).parent().siblings('.analityc-graphics-container, .analytics-gov-debt__graphics');
       
       if (checkStatus == true) {
         graphic.find('[data-name="'+name+'"]').show();
@@ -553,11 +553,12 @@ export default () => {
     });
   }
   
-  if ($('.legend-icon .checkbox').length) {
+  if ($('.legend-icon-a .checkbox').length) {
     checkLegendBoxes();
-    $(document).on('change', '.legend-icon .checkbox__control', function(){
+    $(document).on('change', '.legend-icon-a .checkbox__control', function(){
       checkLegendBoxes();
       graphicBars();
+      rateLine();
     });
   }
   
