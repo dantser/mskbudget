@@ -147,7 +147,7 @@ export default () => {
 						$(this).find('.analityc-line__line-total').addClass('analityc-line__line-total_negative');
 				}
 				else
-					var sum = num + barNum;
+					var sum = barNum;
 
 				if (cnt == 0) {
 					full = sum;
@@ -224,13 +224,10 @@ export default () => {
 
 
 
-	$(document).ready(function(){ 
 		grMix('.analityc-widget-moscow-gov-program_structure-done');
 		grMix('.analityc-widget-moscow-gov-program_structure-exec');
 		grChanges();
 		grLinePopup(); 
-	});
-  
   // переключение по селектам
   $('.moscow-gov-program .analityc-widget_moscow-gov-program .analityc-control-group select').on('change', function () {
     changeContent('select');

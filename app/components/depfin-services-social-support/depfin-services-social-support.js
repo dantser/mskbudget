@@ -135,7 +135,8 @@ export default () => {
         article = '.depfin-services-social-support__article',
         articleContent = '.depfin-services-social-support__content',
         burgerList = '.depfin-services-social-support__burger-list',
-        burgerLink = '.depfin-services-social-support__burger-link';
+        burgerLink = '.depfin-services-social-support__burger-link',
+        startLinkHeader = '.page-head__title';
     
     // Анимация появления
     function animFadeOn(el) {
@@ -212,6 +213,22 @@ export default () => {
     // Сброс класса для перехода в подкатегории
     $(document).on('click', 'html, body', function(e){
       $(startLink).removeClass('mobile-active');
+    });
+    
+    // Переход на стартовую
+    $(document).on('click', startLinkHeader, function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      
+      $(navSlider).find('[data-category]').removeClass('active');
+      $(navSlider).find('[data-subcategory]').addClass('active');
+      $(navSlider).removeClass('load-anim-fade active');
+      $(cardsHeading).find('[data-category]').removeClass('active');
+      $(cardsHeading).find('[data-subcategory]').removeClass('active');
+      $(cardsHeading).removeClass('load-anim-fade active');
+      $(cardsList).removeClass('load-anim-fade active');
+      $(article).removeClass('load-anim-fade active');
+      $(startList).addClass('active');
     });
     
     // Переход со стартовой в подкатегории

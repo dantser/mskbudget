@@ -123,6 +123,7 @@
 
 .legend_basket {
   cursor: pointer;
+  height: auto !important;
 
   .legend__item {
     padding-right: 10px;
@@ -132,10 +133,15 @@
     color: $color-black;
     text-align: left;
     padding-left: 28px;
+    vertical-align: top;
+    height: auto;
+    line-height: normal;
     
     &:before {
       position: absolute;
       left: 0;
+      width: 21px;
+      height: 21px;
     }
 
     &:hover {
@@ -146,8 +152,18 @@
     
     span {
       position: relative;
-      padding-right: 20px;
+      padding-right: 15px;
       display: inline-block;
+      margin-top: 3px;
+      
+      &.legend__icon {
+        padding: 0;
+        margin-top: 0;
+      }
+    }
+    
+    &_icon {
+      padding-left: 56px;
     }
   }
 
@@ -168,23 +184,9 @@
     display: inline-block;
     width: 21px;
     height: 21px;
-    vertical-align: middle;
-    margin-right: 7px;
-
-    @media (max-width: 1010px) {
-      width: 33px;
-      height: 33px;
-      margin-right: 17px;
-    }   
-
-    @media (max-width: 580px) {
-      margin-right: 6px !important;
-    }
-    
-    @media (max-width: 580px) {
-      width: 27px;
-      height: 17px;
-    }   
+    position: absolute !important;
+    left: 28px;
+    top: 0;
 
     &_red {
       background: url(../images/depfin-analytics-gp/pink.png) 50% 50% no-repeat;
@@ -200,6 +202,8 @@
     }
   }
 }
+
+
 
 .legend-icon {
   font-size: 0;
@@ -226,16 +230,26 @@
     }   
 
     .checkbox__box {
-      vertical-align: middle;             
-    }
+      vertical-align: middle;
 
+      @media (max-width: 1010px) {
+        width: 22px;
+        height: 22px;
+      }  
+
+      @media (max-width: 580px) {
+        width: 12px !important;
+        height: 12px !important;
+      }             
+    }
+    
     .checkbox__text {
       white-space: nowrap;
 
       @media (max-width: 1140px) {
         margin-right: 10px;
       }
-
+      
       @media (max-width: 1010px) {
         margin-left: 16px;
         margin-right: 0;
@@ -243,7 +257,7 @@
 
       @media (max-width: 580px) {
         margin-left: 8px !important;
-      }           
+      }
     }
   }
 
@@ -253,16 +267,163 @@
     width: 21px;
     height: 21px;
     vertical-align: middle;
-    margin-right: 7px;         
+    margin-right: 14px;
+
+    @media (max-width: 1140px) {
+      margin-right: 6px;
+    }
+
+    @media (max-width: 1010px) {
+      width: 33px;
+      height: 33px;
+      margin-right: 17px;
+    }   
+
+    @media (max-width: 580px) {
+      margin-right: 6px !important;
+    }
   }
 
   &__circle {
     border-radius: 50%;
-
+    
     @media (max-width: 580px) {
       width: 16px !important;
       height: 16px !important;
-    }         
+    } 
+
+    &_violet {
+      background: #0051d0;
+      background-image: -webkit-linear-gradient(right,rgb(97,34,146),rgb(189,132,233), 65%);
+      background-image: linear-gradient(-90deg,rgb(97,34,146),rgb(189,132,233) 65%);
+    }
+
+    &_gray {
+      background: #838a9a;
+      background-image: -webkit-linear-gradient(left,rgb(213,216,222),rgb(131,138,154) 65%);
+      background-image: linear-gradient(90deg,rgb(213,216,222),rgb(131,138,154) 65%);
+    }
+
+    &_green {
+      background: #32b168;
+      background-image: -webkit-linear-gradient(left,rgb(50,209,151),rgb(17,163,96) 65%);
+      background-image: linear-gradient(90deg,rgb(50,209,151),rgb(17,163,96) 65%);
+    }
+
+    &_pink {
+      background: #612292;
+      background-image: -webkit-linear-gradient(top,rgb(255,105,91),rgb(157,48,138) 65%);
+      background-image: linear-gradient(180deg, rgb(255,105,91),rgb(157,48,138) 65%);
+    }
+
+    &_greenyellow {
+      background: #11a360;
+      background-image: -webkit-linear-gradient(top,rgb(254,227,0),rgb(48,176,105) 65%);
+      background-image: linear-gradient(180deg, rgb(254,227,0),rgb(48,176,105) 65%);
+    }
+
+    &_blue {
+      background: #021398;
+      background-image: -webkit-linear-gradient(right,rgb(0,255,255),rgb(0,76,207) 65%);
+      background-image: linear-gradient(270deg, rgb(0,255,255),rgb(0,76,207) 65%);
+    }
+    
+    &_yellow {
+      background: #ffd856;
+      background-image: -webkit-linear-gradient(right,#fca805,#ffd856 65%);
+      background-image: linear-gradient(270deg,#fca805,#ffd856 65%);
+    }
+  }
+
+  &__icon {
+    
+    @media (max-width: 580px) {
+      width: 27px;
+      height: 17px;
+    }
+
+    &_pink {
+      background: url(../images/depfin-analytics-gp/pink.png) 50% 50% no-repeat;
+    }
+    &_violet {
+      background: url(../images/depfin-analytics-gp/violet.png) 50% 50% no-repeat;
+    }
+    &_blue {
+      background: url(../images/depfin-analytics-gp/blue.png) 50% 50% no-repeat;
+    }
+    &_greenyellow {
+      background: url(../images/depfin-analytics-gp/greenyellow.png) 50% 50% no-repeat;
+    }
+  }
+  
+  &__line {
+    display: inline-block;
+    width: 21px;
+    height: 2px;
+    vertical-align: middle;
+    margin-right: 14px;
+    
+    &_grey {
+      background-color: #9aa1ad;
+    }
+  }
+
+  &__label {
+    font-size: 14px;
+    color: $color-black;
+    vertical-align: middle;
+
+    @media (max-width: 1010px) {
+      font-size: 21px;
+    } 
+
+    @media (max-width: 580px) {
+      font-size: 11px !important;
+    } 
+  }
+}
+
+
+
+.legend-icon-a {
+  font-size: 0;
+
+  &__item {
+    display: inline-block;
+    vertical-align: top;
+    
+    .checkbox__text {
+      padding-left: 56px;
+    }
+    
+    &_noicon {
+      .checkbox__text {
+        padding-left: 28px;
+      }
+    }
+  }
+  
+  .checkbox__text {
+    position: relative;
+    margin-left: 7px;
+  }
+  
+  .checkbox__box {
+    margin-top: 3px;
+  }
+
+  &__circle,
+  &__icon {
+    display: inline-block;
+    width: 21px;
+    height: 21px;
+    position: absolute;
+    top: 0;
+  }
+
+  &__circle {
+    border-radius: 50%;
+    left: 0;
 
     &_violet {
       background: #0051d0;
@@ -308,11 +469,7 @@
   }
 
   &__icon {
-
-    @media (max-width: 580px) {
-      width: 27px;
-      height: 17px;
-    }   
+    left: 28px;
 
     &_red {
       background: url(../images/depfin-analytics-gp/pink.png) 50% 50% no-repeat;
@@ -325,15 +482,34 @@
     }
     &_greenyellow {
       background: url(../images/depfin-analytics-gp/greenyellow.png) 50% 50% no-repeat;
-    }   
+    }
+    
+    &_svg {
+      background: none;
+      
+      &.legend-icon-a__icon_red {
+        fill: #ce4c72;
+      }
+      &.legend-icon-a__icon_greenyellow {
+        fill: #34ad67;
+      }
+      &.legend-icon-a__icon_blue {
+        fill: #00a7e7;
+      }
+      &.legend-icon-a__icon_yellow {
+        fill: #fca805;
+      }
+    }
   }
   
   &__line {
     display: inline-block;
     width: 21px;
     height: 2px;
-    vertical-align: middle;
-    margin-right: 14px;
+    position: absolute;
+    left: 0;
+    top: 9px;
+    
     &_grey {
       background-color: #9aa1ad;
     }
@@ -342,24 +518,19 @@
   &__label {
     font-size: 14px;
     color: #d1d1d1;
-    vertical-align: middle;
-
-    @media (max-width: 1010px) {
-      font-size: 21px;
-    } 
-
-    @media (max-width: 580px) {
-      font-size: 11px !important;
-    } 
+    vertical-align: top;
+    margin-top: 3px;
+    display: inline-block; 
   }
   
   .checkbox {
     opacity: .7;
+    line-height: normal;
     
     &.checkbox_active {
       opacity: 1;
       
-      .legend-icon__label {
+      .legend-icon-a__label {
         color: #000;
       }
     }

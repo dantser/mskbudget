@@ -20,37 +20,42 @@ mixin legend-checkbox(data)
 mixin legend-basket(data)
   +b.legend._basket&attributes(attributes)
     each obj in data
-      +e.P(class="__item_"+obj.color+"")
-        if obj.icon
+      if obj.icon
+        +e.P(class="__item_icon _"+obj.color+"")
           +e.icon(class="_"+obj.color+"")
-        span= obj.title
-          +e.A(href="#", data-name=obj.name).remove
-            +icon('basket').remove-icon
+          span= obj.title
+            +e.A(href="#", data-name=obj.name).remove
+              +icon('basket').remove-icon
+      else
+        +e.P(class="__item_"+obj.color+"")
+          span= obj.title
+            +e.A(href="#", data-name=obj.name).remove
+              +icon('basket').remove-icon
       
 mixin legend-icon()
-  .legend-icon
-    +checkbox(true)._active.legend-icon__item(data-name='g1-l1')
-      .legend-icon__circle.legend-icon__circle_red
-      .legend-icon__icon.legend-icon__icon_red
-      SPAN.legend-icon__label Развитие транспортной системы
-    +checkbox(true)._active.legend-icon__item(data-name='g1-l2')
-      .legend-icon__circle.legend-icon__circle_violet
-      .legend-icon__icon.legend-icon__icon_violet
-      SPAN.legend-icon__label Социальная поддержка жителей Москвы
-    +checkbox(true)._active.legend-icon__item(data-name='g1-l3')
-      .legend-icon__circle.legend-icon__circle_blue
-      .legend-icon__icon.legend-icon__icon_blue
-      SPAN.legend-icon__label Столичное здравоохранение
-    +checkbox(true)._active.legend-icon__item(data-name='g1-l4')
-      .legend-icon__circle.legend-icon__circle_greenyellow
-      .legend-icon__icon.legend-icon__icon_greenyellow
-      SPAN.legend-icon__label Прочие государственные программы
-    +checkbox(true)._active.legend-icon__item(data-name='g1-l5')
-      .legend-icon__circle.legend-icon__circle_gray
-      SPAN.legend-icon__label Развитие транспортной системы
-    +checkbox(true)._active.legend-icon__item(data-name='g1-l6')
-      .legend-icon__circle.legend-icon__circle_green
-      SPAN.legend-icon__label Непрограммные направления деятельности
+  .legend-icon-a
+    +checkbox(true)._active.legend-icon-a__item(data-name='g1-l1')
+      .legend-icon-a__circle.legend-icon-a__circle_red
+      .legend-icon-a__icon.legend-icon-a__icon_red
+      SPAN.legend-icon-a__label Развитие транспортной системы
+    +checkbox(true)._active.legend-icon-a__item(data-name='g1-l2')
+      .legend-icon-a__circle.legend-icon-a__circle_violet
+      .legend-icon-a__icon.legend-icon-a__icon_violet
+      SPAN.legend-icon-a__label Социальная поддержка жителей Москвы
+    +checkbox(true)._active.legend-icon-a__item(data-name='g1-l3')
+      .legend-icon-a__circle.legend-icon-a__circle_blue
+      .legend-icon-a__icon.legend-icon-a__icon_blue
+      SPAN.legend-icon-a__label Столичное здравоохранение
+    +checkbox(true)._active.legend-icon-a__item(data-name='g1-l4')
+      .legend-icon-a__circle.legend-icon-a__circle_greenyellow
+      .legend-icon-a__icon.legend-icon-a__icon_greenyellow
+      SPAN.legend-icon-a__label Прочие государственные программы
+    +checkbox(true)._active.legend-icon-a__item._noicon(data-name='g1-l5')
+      .legend-icon-a__circle.legend-icon-a__circle_gray
+      SPAN.legend-icon-a__label Развитие транспортной системы
+    +checkbox(true)._active.legend-icon-a__item._noicon(data-name='g1-l6')
+      .legend-icon-a__circle.legend-icon-a__circle_green
+      SPAN.legend-icon-a__label Непрограммные направления деятельности
 
 mixin legend-icon-woch()
   .legend-icon
@@ -78,23 +83,23 @@ mixin legend-icon-woch()
       SPAN.legend-icon__label Непрограммные направления деятельности
 
 mixin legend-icon-analytics-gov-debt()
-  .legend-icon
-    +checkbox(true).legend-icon__item
-      .legend-icon__circle.legend-icon__circle_pink
-      +icon('depfin-icons-28').icon.legend__icon._pink
-      SPAN.legend-icon__label Государственные ценные бумаги
-    +checkbox(true).legend-icon__item
-      .legend-icon__circle.legend-icon__circle_greenyellow
-      +icon('depfin-icons-30').icon.legend__icon._green
-      SPAN.legend-icon__label Бюджетные кредиты
-    +checkbox(true).legend-icon__item
-      .legend-icon__line.legend-icon__line_grey
-      SPAN.legend-icon__label Уровень долговой нагрузки
-    +checkbox(true).legend-icon__item
-      .legend-icon__circle.legend-icon__circle_blue
-      +icon('depfin-icons-29').icon.legend__icon._blue
-      SPAN.legend-icon__label Банковские кредиты
-    +checkbox(true).legend-icon__item
-      .legend-icon__circle.legend-icon__circle_yellow
-      +icon('depfin-icons-27').icon.legend__icon._yellow
-      SPAN.legend-icon__label Государственные гарантии
+  .legend-icon-a
+    +checkbox(true)._active.legend-icon-a__item(data-name='g1-l1')
+      .legend-icon-a__circle.legend-icon-a__circle_red
+      +icon('depfin-icons-28').legend-icon-a__icon.legend-icon-a__icon_svg.legend-icon-a__icon_red
+      SPAN.legend-icon-a__label Государственные ценные бумаги
+    +checkbox(true)._active.legend-icon-a__item(data-name='g1-l2')
+      .legend-icon-a__circle.legend-icon-a__circle_greenyellow
+      +icon('depfin-icons-30').legend-icon-a__icon.legend-icon-a__icon_svg.legend-icon-a__icon_greenyellow
+      SPAN.legend-icon-a__label Бюджетные кредиты
+    +checkbox(true)._active.legend-icon-a__item._noicon(data-name='g1-l3')
+      .legend-icon-a__line.legend-icon-a__line_grey
+      SPAN.legend-icon-a__label Уровень долговой нагрузки
+    +checkbox(true)._active.legend-icon-a__item(data-name='g1-l4')
+      .legend-icon-a__circle.legend-icon-a__circle_blue
+      +icon('depfin-icons-29').legend-icon-a__icon.legend-icon-a__icon_svg.legend-icon-a__icon_blue
+      SPAN.legend-icon-a__label Банковские кредиты
+    +checkbox(true)._active.legend-icon-a__item(data-name='g1-l5')
+      .legend-icon-a__circle.legend-icon-a__circle_yellow
+      +icon('depfin-icons-27').legend-icon-a__icon.legend-icon-a__icon_svg.legend-icon-a__icon_yellow
+      SPAN.legend-icon-a__label Государственные гарантии

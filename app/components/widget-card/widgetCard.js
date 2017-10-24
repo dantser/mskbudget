@@ -49,9 +49,9 @@ export default () => {
       
       if ( !$(this).parents('.tile__item').hasClass('tile__item_pinned') ) {
         var block = $(this).parents('.tile__item');
-        $(this).parents('.sortable').find('.tile__item.tile__item_pinned').last().after(block);
+        $(this).parents('.serv').find('.tile__item.tile__item_pinned').last().after(block);
       } else {
-        $(this).parents('.tile__item').prependTo( $(this).parents('.sortable') );
+        $(this).parents('.tile__item').prependTo( $(this).parents('.serv') );
       }
       
     }

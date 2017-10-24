@@ -1596,3 +1596,37 @@ $(document).on('click', '.selectbox li', function (e) {
     $(this).parents('.selectbox').find('select').change();
   }
 });
+
+// График analityc-line - попапы для коротких линий (вызов при отрисовке)
+function grLinePopup() {
+  
+  const GR_LINE = $('.analityc-widget_moscow-gov-program .analityc-line_line');
+
+  GR_LINE.each(function() {
+      var LINE_BAR = $(this).find('.analityc-line__line');
+
+      LINE_BAR.each(function() {
+        var line = $(this).find('.analityc-line__line-wrap');
+        var fillPers = $(this).find('.analityc-line__line-fill');
+        var longLimit = $(window).width() <= 900 && $(window).width() > 580 ? 50 : 30;
+        var isLong = fillPers.outerWidth() > longLimit ? true : false;
+        var val = $(this).find('.analityc-line__line-value');
+        var abs = $(this).find('.analityc-line__line-abs');
+
+        if (isLong) {
+            val.show();
+            line.hover(function() {
+                abs.hide();
+            })   
+        } else {
+            val.hide();
+            line.hover(function() {
+                abs.show();
+            }, function() {
+                abs.hide();
+            })            
+        }
+      })
+
+  })
+}

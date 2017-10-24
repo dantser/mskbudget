@@ -107,9 +107,11 @@ export default () => {
           
           // Функция возвращает объект, содержащий данные метки.
           getPointData = function (index) {
-            var pointText = $('.significant-list_map .significant-list__row-title').eq(index).text();
+            var pointText = $('.significant-list_map .significant-list__row-title').eq(index).text(),
+                pointHref = $('.significant-list_map .significant-list__row-title').eq(index).attr('href');
             return {
-              balloonContentBody: '<p>'+pointText+'</p>'
+              balloonContentBody: '<p>'+pointText+'</p>',
+              balloonContentFooter: '<a href="'+pointHref+'">Подробнее</a>'
             };
           },
           
@@ -142,14 +144,25 @@ export default () => {
       
       $(".significant-list_map .significant-list__row-title").on("click", function(e) {
         
-        bigMap.setZoom(14);
+        bigMap.setZoom(15);
         
-        var elem = $(this);
+        var elem = $(this),
+            elemIndex = $(this).parents('.significant-list__row').index();
         // таблица
         $('.significant-list__row').removeClass('significant-list__row_active');
         elem.parents('.significant-list__row').addClass('significant-list__row_active');        
         // переход
-        bigMap.panTo( [getCoords(elem.attr('value')).x, getCoords(elem.attr('value')).y], { flying: true } );
+        var marks = clusterer.getGeoObjects(),
+            currMark = marks[elemIndex],
+            markCoords = currMark.geometry.getCoordinates();
+        
+        bigMap.panTo( markCoords, {
+          flying: true
+        }).then(function () {
+          currMark.balloon.open();
+        }, function (err) {
+          console.log('Произошла ошибка ' + err);
+        }, this);
         
         return false;
         
