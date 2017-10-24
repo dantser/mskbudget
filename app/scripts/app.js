@@ -130,7 +130,9 @@ $(() => {
 	  profileEdit();
 	  budgetaryPolicy();
 	  modal();
+	  window.budget_moscow_gov_program = budget_moscow_gov_program;
 	  budget_moscow_gov_program();
+	  window.analitycGraphics = analitycGraphics;
 	  analitycGraphics();
 	  reset();
 	  profile();
@@ -138,6 +140,7 @@ $(() => {
 	  searchNavbar();
 	  header();
 	  toppanel();
+	  window.tooltips = tooltips;
 	  tooltips();
 	  aboutBudget();
 	  openFile();
