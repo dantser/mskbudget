@@ -203,8 +203,18 @@
     width: 25%;
     min-width: auto;
 
+    @media(max-width: 1140px) and (min-width: 901px) {
+      width: calc(100% / 3);
+    }
+
     @media (max-width: 900px) {
       margin-bottom: 55px;
+    }
+
+    &_hidden {
+      @media(max-width: 1140px) and (min-width: 901px) {
+        display: none;
+      }
     }
   }
 

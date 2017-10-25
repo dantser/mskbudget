@@ -95,7 +95,7 @@ export default() => {
 			if (docW <= 1140 && docW > 900) 
 				d = 0.006;
 			else if(docW <= 900 && docW > 640) 
-				d = 0.007;
+				d = 0.008;
 			else if(docW <= 640) 
 				d = 0.009;
 
