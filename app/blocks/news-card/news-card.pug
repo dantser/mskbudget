@@ -20,10 +20,15 @@ mixin news-card(image, category, title, date, tags)
       .share__panel
         +social('facebook-box', 'vk', 'tw', 'odnokl').__social
 
-mixin photo-card(image, surname, initials, position)
+mixin photo-card(image, surname, initials, position, isSlide)
   +b.news._photo&attributes(attributes)
-    a(href="#").news__thumb
-      img(src="assets/images/smi-fin/"+image+".jpg", alt="thumb")
+    if isSlide
+      a(href="assets/images/smi-fin/"+image+".jpg", data-fancybox).news__thumb
+        img(src="assets/images/smi-fin/"+image+".jpg", alt="thumb")
+    else
+      a(href="#").news__thumb
+        img(src="assets/images/smi-fin/"+image+".jpg", alt="thumb")
+
     +e.surname= surname
     +e.initials= initials
     +e.position= position
