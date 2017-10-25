@@ -9,7 +9,7 @@ export default () => {
       changeContent('select');
     });
     
-    $('.analitycs-gp .analityc-control-switcher a').on('click', function () {
+    $('.analitycs-gp .analityc-widgethead .analityc-control-switcher a').on('click', function () {
       changeContent('switcher', $(this));
     });
     
@@ -21,7 +21,7 @@ export default () => {
           typeVal;
       
       if (typeofchange == 'select') {
-        typeVal = $('.analitycs-gp .analityc-control-switcher a.active').data('type');
+        typeVal = $('.analitycs-gp .analityc-widgethead .analityc-control-switcher a.active').data('type');
       } else {
         typeVal = el.data('type');
       }
