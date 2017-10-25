@@ -7,23 +7,41 @@ include ../../blocks/legend/legend
 include ../../blocks/dropdown-block/dropdown-block
 
 mixin depfin-analytics-gp()
-	section.main._basic.basic-budget.sections__item
-		.wrapper.wrapper_gp
+	section.main._basic.analitycs-gp.basic-budget.sections__item
+		.wrapper-header
 			+page-header('Государственнные программы', ['Аналитика'], true)
-
-			//- Tab 1
+		.wrapper.wrapper_gp
 			.analityc-widget.analityc-widget_gp.load-anim-fade(data-delay="1500")
 				+analityc-widgethead-gp()
-
-				+analityc-graphics-custom1()
-
-				+analityc-graphics-custom2()
-
-				+analityc-graphics-line-vertical(getData('graphic-lines-gp'), true)._gp
-				+analityc-graphics-line-vertical_slider(getData('graphic-lines-gp'), true).analityc-graphics-line-vertical_gp
-
-				+legend-icon()
+				.analityc-graphics(data-type='g1', data-comparison='overall')
+					.analityc-graphics-container.analityc-graphics-container_vert-lines
+						+slide-arrows().analityc-graphics__slide-arrows
+						.analityc-graphics-scroll-hider
+							.analityc-graphics-wrapper(data-offset='100')
+								+analityc-graphics-line-vertical-alt(getData('graphic-lines-analityc-income'))
+					+legend-icon()
+				.analityc-graphics(data-type='g2', data-comparison='overall').active
+					.analityc-graphics-container.analityc-graphics-container_bars
+						+slide-arrows().analityc-graphics__slide-arrows
+						.analityc-graphics-scroll-hider
+							.analityc-graphics-wrapper(data-offset='100')
+								+analityc-graphics-bars(getData('legend-analityc-bar1'))
+					+legend-icon()
+				.analityc-graphics(data-type='g3', data-comparison='overall')
+					.analityc-graphics-container.analityc-graphics-container_bars
+						+slide-arrows().analityc-graphics__slide-arrows
+						.analityc-graphics-scroll-hider
+							.analityc-graphics-wrapper(data-offset='100')
+								+analityc-graphics-bars(getData('legend-analityc-bar2'))
+					+legend-icon()
+				.analityc-graphics(data-type='g1, g2, g3', data-comparison='comparative')
+					.analityc-graphics-container.analityc-graphics-container_bars-entired
+						+slide-arrows().analityc-graphics__slide-arrows
+						.analityc-graphics-scroll-hider
+							.analityc-graphics-wrapper(data-offset='100')
+								+analityc-graphics-bars-alt(getData('legend-analityc-bar4'))._entired
+					+legend-basket(getData('legend-analityc-income-short')[1])
 				
-				+analityc-table()._gp
+				+analityc-table-slider(100)._gp
 					+table-gp(getData('gp'))
 		+dropdown().load-anim-fade(data-delay="1700")

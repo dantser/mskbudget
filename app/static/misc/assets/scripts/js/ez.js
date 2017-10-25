@@ -1600,7 +1600,7 @@ $(document).on('click', '.selectbox li', function (e) {
 // График analityc-line - попапы для коротких линий (вызов при отрисовке)
 function grLinePopup() {
   
-  const GR_LINE = $('.analityc-widget_moscow-gov-program .analityc-line_line');
+  var GR_LINE = $('.analityc-widget_moscow-gov-program .analityc-line_line');
 
   GR_LINE.each(function() {
       var LINE_BAR = $(this).find('.analityc-line__line');

@@ -82,7 +82,7 @@ mixin legend-icon-woch()
       .legend-icon__circle.legend-icon__circle_green
       SPAN.legend-icon__label Непрограммные направления деятельности
 
-mixin legend-icon-analytics-gov-debt()
+mixin legend-icon-analytics-gov-debt(short)
   .legend-icon-a
     +checkbox(true)._active.legend-icon-a__item(data-name='g1-l1')
       .legend-icon-a__circle.legend-icon-a__circle_red
@@ -92,9 +92,10 @@ mixin legend-icon-analytics-gov-debt()
       .legend-icon-a__circle.legend-icon-a__circle_greenyellow
       +icon('depfin-icons-30').legend-icon-a__icon.legend-icon-a__icon_svg.legend-icon-a__icon_greenyellow
       SPAN.legend-icon-a__label Бюджетные кредиты
-    +checkbox(true)._active.legend-icon-a__item._noicon(data-name='g1-l3')
-      .legend-icon-a__line.legend-icon-a__line_grey
-      SPAN.legend-icon-a__label Уровень долговой нагрузки
+    if !short
+      +checkbox(true)._active.legend-icon-a__item._noicon(data-name='g1-l3')
+        .legend-icon-a__line.legend-icon-a__line_grey
+        SPAN.legend-icon-a__label Уровень долговой нагрузки
     +checkbox(true)._active.legend-icon-a__item(data-name='g1-l4')
       .legend-icon-a__circle.legend-icon-a__circle_blue
       +icon('depfin-icons-29').legend-icon-a__icon.legend-icon-a__icon_svg.legend-icon-a__icon_blue
