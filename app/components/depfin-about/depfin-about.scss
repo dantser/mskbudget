@@ -2,7 +2,7 @@
   display: block;
   font-family: $PFDinTextPro;
   font-size: 16px;
-  line-height: 20px;
+  line-height: 22px;
   font-weight: 400;
   color: $color-white;
   background-image: url(../images/bg-depfin-about.png);
@@ -12,13 +12,16 @@
 
   @include respond-to('mobile'){
     padding: 100px 0 20px;
+  }
+
+  @media (max-width: 900px) and (min-width: 581px) {
+    line-height: 40px;
     font-size: 32px;
-    line-height: 48px;
   }
 
   @media (max-width: 580px) {
     font-size: 16px;
-    line-height: 24px;
+    line-height: 22px;
   }
 
   &__head {
@@ -73,14 +76,20 @@
   }
 
   &__subtitle {
+    font-size: 18px;
     line-height: 22px;
     font-weight: 500;
     text-transform: uppercase;
     margin-bottom: 17px;
 
-    @include respond-to('mobile'){
-      font-size: 36px;
-      line-height: 52px;
+    @media (max-width: 1140px) {
+        font-size: 26px;
+        line-height: 30px;
+    }
+
+    @media (max-width: 900px) and (min-width: 581px) {
+      font-size: 35px;
+      line-height: 44px;
     }
 
     @media (max-width: 580px) {

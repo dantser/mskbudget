@@ -639,6 +639,7 @@
 
 	&__banner-slide {
 		text-decoration: none;
+		display: inline-block;
 
 		img {
 			@media (max-width: 900px) {
@@ -838,7 +839,7 @@
   &__back {
     display: none;
     font-family: PFDinCondensedPro,sans-serif;
-    font-size: 12px;
+    font-size: 12.5px;
     text-transform: uppercase;
     text-decoration: none;
     color: #0d46a1;
@@ -851,8 +852,13 @@
 		}
 
 		@media (max-width: 580px) {
+			font-size: 15px;
       margin-left: 13px;
 		}
+
+		@media (max-width: 400px) {
+			font-size: 14.5px;
+		}		
 
 		&.active {
 			display: block;
@@ -1020,7 +1026,7 @@
 
 	&__back {
 		font-family: PFDinCondensedPro,sans-serif;
-    font-size: 12px;
+    font-size: 12.5px;
     text-transform: uppercase;
     color: #0d46a1;
     font-weight: 500;
@@ -1031,8 +1037,12 @@
     }
 
     @media (max-width: 580px) {
-			font-size: 14px;
+			font-size: 15px;
     }
+
+		@media (max-width: 400px) {
+			font-size: 14.5px;
+		}	
 
 	}
 
@@ -1105,15 +1115,18 @@
 	&__data-text {
 		display: inline-block;
 		vertical-align: top;
-		font-size: 14px;
+		font-size: 16px;
 
     @media (max-width: 900px) and (min-width: 601px) {
 			font-size: 24px;
     }
 		
-
     @media (max-width: 900px) {
 			display: block;
+    }
+
+    @media (max-width: 600px) and (min-width: 401px) {
+    	font-size: 17px;
     }
 
 	}
@@ -1270,7 +1283,7 @@
 	&__year-select {
 		display: inline-block;
 		vertical-align: middle;
-    width: 70px;
+    width: 75px;
 
     @media (max-width: 900px) and (min-width: 601px) {
 	    width: 145px;

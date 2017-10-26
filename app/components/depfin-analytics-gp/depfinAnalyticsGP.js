@@ -2,26 +2,26 @@ import $ from 'jquery';
 
 export default () => {
   
-  if ($('._analitycs-income').length) {
+  if ($('.analitycs-gp').length) {
     
     // переключение по селектам
-    $('._analitycs-income .analityc-widgethead select[name="comparison"]').on('change', function () {
+    $('.analitycs-gp .analityc-widgethead select[name="comparison"]').on('change', function () {
       changeContent('select');
     });
     
-    $('._analitycs-income .analityc-widgethead .analityc-control-switcher a').on('click', function () {
+    $('.analitycs-gp .analityc-widgethead .analityc-control-switcher a').on('click', function () {
       changeContent('switcher', $(this));
     });
     
     function changeContent(typeofchange, el) {
       
-      var graphics = $('.analityc-widget-income'),
-          controls = $('._analitycs-income .analityc-widgethead [data-control]'),
-          comparVal = $('._analitycs-income .analityc-widgethead select[name="comparison"]').val(),
+      var graphics = $('.analityc-graphics'),
+          controls = $('.analitycs-gp .analityc-widgethead [data-control]'),
+          comparVal = $('.analitycs-gp .analityc-widgethead select[name="comparison"]').val(),
           typeVal;
       
       if (typeofchange == 'select') {
-        typeVal = $('._analitycs-income .analityc-widgethead .analityc-control-switcher a.active').data('type');
+        typeVal = $('.analitycs-gp .analityc-widgethead .analityc-control-switcher a.active').data('type');
       } else {
         typeVal = el.data('type');
       }

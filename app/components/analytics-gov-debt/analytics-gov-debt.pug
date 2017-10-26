@@ -13,19 +13,26 @@ mixin analytics-gov-debt()
     .wrapper.wrapper_widget.wrapper_analytics-gov-debt
       +e.analityc-widget.analityc-widget.load-anim-fade(data-delay="1500")
         +analityc-widgethead-analytics-govdebt().__analityc-widgethead
-        +e.graphics
-          +slide-arrows().__slide-arrows._graphics
-          +e.graphic-wrapper(data-offset='100')
-            +analityc-graphics-analytics-gov-debt-line()(data-name='g1-l3')
-            +analityc-graphics-bars(getData('analytics-govdebt')).__analityc-graphics-bars
-        +legend-icon-analytics-gov-debt()
-        +analityc-table()._gp
-          .table-switcher
-            .analityc-control-switcher.analityc-control-switcher_table.analityc-control-switcher_large.active
-              a(href="#").active млн руб.
-              a(href="#") млрд руб.
-          +slide-arrows().analytics-gov-debt__slide-arrows._table
-          .analytics-gov-debt__table-wrapper(data-offset='100')
-            +table-analytics-gov-debt(getData('main'))
+        +e.graphics.active(data-type='rate')
+          +e.graphics-container
+            +slide-arrows().__slide-arrows._graphics
+            +e.graphics-scroll-hider
+              +e.graphics-wrapper(data-offset='100')
+                +analityc-graphics-analytics-gov-debt-line()(data-name='g1-l3')
+                +analityc-graphics-bars(getData('analytics-govdebt')).__analityc-graphics-bars
+          +legend-icon-analytics-gov-debt()
+        +e.graphics(data-type='percentage')
+          +e.graphics-container
+            +slide-arrows().__slide-arrows._graphics
+            +e.graphics-scroll-hider
+              +e.graphics-wrapper(data-offset='100')
+                +analityc-graphics-bars(getData('analytics-govdebt')).__analityc-graphics-bars
+          +legend-icon-analytics-gov-debt(true)
+        .table-switcher
+          .analityc-control-switcher.analityc-control-switcher_table.analityc-control-switcher_large.active
+            a(href="#").active млн руб.
+            a(href="#") млрд руб.
+        +analityc-table-slider(100)._gp
+          +table-analytics-gov-debt(getData('main'))
         a(href="/").analityc-more Перейти в&nbsp;раздел бюджет москвы
     +dropdown().load-anim-fade(data-delay="1700")
