@@ -156,6 +156,7 @@ $(() => {
 	  dropTable();
 	  slideArrows();
 	  budgetForecast();
+	  window.servicesMoscow = servicesMoscow;
 	  servicesMoscow();
 	  bluedropdown();
 	  documentsCards();

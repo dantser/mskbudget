@@ -169,8 +169,23 @@ export default () => {
     var widgetCard = $(this).parents('.widget-card');
     widgetCard.find('.widget-card__results').slideUp();
     widgetCard.find('.widget-card__logo img').removeClass('active');
-    widgetCard.find('.widget-card__results[data-option="'+newval+'"]').slideDown(321);
     widgetCard.find('.widget-card__logo img[data-option="'+newval+'"]').addClass('active');
+    widgetCard.find('.selectbox-indexes select').each(function() {
+      newval += "%" + $(this).val();
+    });
+    console.log("Newval is " + newval);
+    widgetCard.find('.widget-card__results[data-option="'+newval+'"]').slideDown(321);
+  });
+
+  $(document).on('click', '.widget-card-cities .selectbox-indexes li', function () {
+    var newval = $(this).data('val');
+    var widgetCard = $(this).parents('.widget-card');
+    widgetCard.find('.widget-card__results').slideUp();
+    widgetCard.find('.selectbox_cities select').each(function() {
+      newval = $(this).val() + "%" + newval;
+    });
+    console.log("Newval is " + newval);
+    widgetCard.find('.widget-card__results[data-option="'+newval+'"]').slideDown(321);
   });
 
   // виджет результаты реализации гос.программ
