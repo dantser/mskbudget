@@ -41,7 +41,9 @@
 	$(document).ready(function() {
 
 		if( $(w).width() < 1100 ){
-			$(document).on('click', '.share__btn', function() {
+			$(document).on('click', '.share__btn', function(e) {
+				
+				e.stopPropagation();
 
 				var _ = $(this);
 
@@ -61,6 +63,13 @@
 
 				}
 				return false;
+			});
+			
+			$(document).on('click', 'html, body', function() {
+				
+				$(document).find('.share__panel').slideUp(321);
+				$(document).find('.share__btn').removeClass('share__btn_act');
+				$(document).find('.sections__subscribe').css('zIndex', 3);
 			});
 
 		} else {
