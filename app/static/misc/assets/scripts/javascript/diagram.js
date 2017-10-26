@@ -183,7 +183,7 @@ var diagram;
         _.calculatePath(degrees, radius);
         path.Gradient[1] = _.drawGradient( _.options.gradient, 1);
 
-        val = (_.options.data[0]/_.options.maxValue)*100;
+        val = (_.options.maxValue > 0) ? (_.options.data[0]/_.options.maxValue)*100 : 0;
         path.percVal = val.toFixed(1).replace('.', ',');
 
         val = _.options.data[0]+'';

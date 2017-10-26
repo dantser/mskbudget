@@ -19,6 +19,36 @@ export default () => {
           }
         })
       });
+      
+      $(document).on('click', '.table__arrow_root', function(e) {
+        e.preventDefault();
+        // EL.closest('.table__row').nextAll('.table__row_subrow').slideToggle();
+        $(this).parents('.table__row').toggleClass('table__row_opened');
+        var isOpened = $(this).parents('.table__row').hasClass('table__row_opened');
+        $(this).parents('.table__row').nextAll('.table__row').each(function () {
+          if ( !$(this).hasClass('table__row_rootsub') ) {
+            if (isOpened)
+            {
+              $(this).show();
+              if ($(this).hasClass('table__row_hassub'))
+              {
+                $(this).addClass('table__row_opened');
+              }
+            }
+            else
+            {
+              $(this).hide();
+              if ($(this).hasClass('table__row_hassub'))
+              {
+                $(this).removeClass('table__row_opened');
+              }
+            }
+          } else {
+            return false;
+          }
+        })
+      });
+
     //})
     
 	//});
