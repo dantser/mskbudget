@@ -349,8 +349,16 @@
       margin-top: 0;
 
       a {
-        padding: 3px 5px;
+        height: 17px;
+        width: 17px;
+        max-height: 17px;
+        max-width: 17px;
+        padding: 0 5px;
         line-height: 1em;
+
+        @media (max-width: 900px) {
+          padding: 1px 5px;
+        }
       }
     }
     .d-sr__social_txt {
@@ -359,10 +367,20 @@
       font-size: 16px;
       color: #000;
       vertical-align: bottom;
+      margin-bottom: 0!important;
+
+      @media (max-width: 400px) {
+        max-width: 100%!important;
+      }
     }
     .d-si-content__social {
       display: inline-block;
       vertical-align: bottom;
+    }
+    .social__icon {
+      display: block;
+      width: 17px;
+      height: 17px;
     }
   }
 
