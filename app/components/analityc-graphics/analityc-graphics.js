@@ -534,7 +534,7 @@ export default () => {
       var checkBox = $(this).find('.checkbox__control'),
           checkStatus = checkBox.is(':checked'),
           name = $(this).data('name'),
-          graphic = $(this).parent().siblings('.analityc-graphics-container, .analytics-gov-debt__graphics');
+          graphic = $(this).parent().siblings('.analityc-graphics-container, .analytics-gov-debt__graphics-container');
       
       if (checkStatus == true) {
         graphic.find('[data-name="'+name+'"]').show();

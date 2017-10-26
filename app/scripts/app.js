@@ -77,6 +77,7 @@ import mediaEvents from '../components/mediaEvents/mediaEvents';
 import mediaSM from '../components/mediaSmFin/mediaSM';
 import pressReleases from '../components/press-releases/pressReleases';
 import depfinAnalyticsExpenses from '../components/depfin-analytics-expenses/depfinAnalyticsExpenses';
+import depfinAnalyticsGP from '../components/depfin-analytics-gp/depfinAnalyticsGP';
 
 $(() => {
 	  // перезагрузка страниц при изменении разрешения
@@ -174,4 +175,5 @@ $(() => {
   	mediaSM();
   	pressReleases();
     depfinAnalyticsExpenses();
+    depfinAnalyticsGP();
 });
