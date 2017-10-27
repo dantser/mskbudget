@@ -443,6 +443,7 @@ if($( ".range-datepicker__item" ).length > 0){
 				$('.range-datepicker').fadeOut(321);
 				$( ".range-datepicker__item_min, .range-datepicker__item_max" ).removeAttr('style');
 				$('.form__date-range').removeClass('form__date-range_focus');
+                $('.range-datepicker__item_min').datepicker('option', {maxDate: value});
 
 			} else if(range == 'min') {
 
