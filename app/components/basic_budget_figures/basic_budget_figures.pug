@@ -81,14 +81,18 @@ mixin basic_budget_figures()
               a(href="#" title="Диаграмма 2019 год")
               p.comp-diagram__year 2019
         .analityc-widget-rounds(data-stage='done, date')
-          .analityc-widget-item._incoming
-            span
+          .analityc-widget-item._incoming.large-diagram_income
+            span.large-diagram__caption
               strong доходы
             .large-diagram__svg(id="diagram-4")
-          .analityc-widget-item._outlay
-            span
+          .analityc-widget-item._outlay.large-diagram_expenses
+            span.large-diagram__caption
               strong расходы
+                span.yellow *
             .large-diagram__svg(id="diagram-5")
+            p.large-diagram__note
+              span.yellow *
+              | без учета возвратов неиспользованных средств
         .analityc-widget-rounds(data-stage='changes')
           .legend
             p.legend__item.legend__item_blue доходы
