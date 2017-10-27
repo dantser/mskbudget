@@ -100,35 +100,40 @@ export default function selectbox() {
       $(this).parents('.selectbox').find('input').val(inputval);
       $(this).parents('.selectbox').find('.selectbox__val').text(inputval);
       
-      $(this).parent().removeClass('active');
-      setTimeout(function () {
-        $('body').click();
-      },100)
+      //$(this).parent().removeClass('active');
+      //setTimeout(function () {
+      //  $('body').click();
+      //},100)
     }
   });
 
-  $(document).on('mousedown click', '.selectbox select', function (e) {
+  $(document).on('mousedown', '.selectbox select', function (e) {
     e.preventDefault();
-    $(document).find('.selectbox').removeClass('active');
     e.stopPropagation();
     this.blur();
     window.focus();
-    $(this).parents('.selectbox').addClass('active');
+    $(document).find('.selectbox').not($(this).parents('.selectbox')).removeClass('active');
+    $(this).parents('.selectbox').toggleClass('active');
+  });
+  
+  $(document).on('click', '.selectbox select', function (e) {
+    e.stopPropagation();
   });
 
   $(document).on('click', '.selectbox', function (e) {
-    if ($(this).parents('.selectbox_disabled').length < 0) {
-      $(this).find('select').click();
+    if (!$(this).hasClass('selectbox_disabled')) {
       e.stopPropagation();
+      $(document).find('.selectbox').not($(this)).removeClass('active');
+      $(this).toggleClass('active');
     }
   })
 
-  $(document).on('mousedown click', '.selectbox > *', function (e) {
+  $(document).on('click', '.selectbox > *', function (e) {
     if (!$(this).parents('.selectbox_disabled').length && !$(this).is('select')) {
       e.preventDefault();
       e.stopPropagation();
-      $(document).find('.selectbox').removeClass('active');
-      $(this).parents('.selectbox').addClass('active');
+      $(document).find('.selectbox').not($(this).parents('.selectbox')).removeClass('active');
+      $(this).parents('.selectbox').toggleClass('active');
     }
   });
 
