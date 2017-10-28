@@ -3407,31 +3407,22 @@
         @media (max-width: 900px) {
           border: none;
         }
-        
-        &::before,
-        &::after {
+
+        &::before {
           content: "";
           display: block;
           position: absolute;
-          width: 1px;
-          height: 59%;
-          left: 102%;
-          background-color: #d3d3d3;
+          width: 25px;
+          height: 100%;
+          top: 0;
+          left: 100%;
+          background: url(../images/triangle.png) 0 no-repeat;
+          background-size: 100% 100%;
 
           @media (max-width: 900px) {
             display: none;
           }
         }
-
-        &::before {
-          transform: rotate(-30deg);
-          top: -5%;
-        }
-        &::after {
-          transform: rotate(30deg);
-          bottom: -5%;
-        }
-
       }
 
       .analityc-js-line__title {

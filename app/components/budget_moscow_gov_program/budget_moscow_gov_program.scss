@@ -180,11 +180,12 @@
   }
 
   &__header {
-    display: inline-block;
+    display: block;
     position: relative;
     margin-top: 12px;
     margin-bottom: 34px;
-    max-width: 90%;
+    max-width: 85%;
+    white-space: nowrap;
 
     @media (max-width: 1140px) {
       max-width: 100%;
@@ -202,6 +203,7 @@
     display: inline-block;
     margin-left: 11px;
     letter-spacing: -0.012em;
+    white-space: normal;
 
     @media (max-width: 900px) {
       display: inline;
@@ -210,6 +212,10 @@
     @media (max-width: 900px) and (min-width: 601px) {
       font-size: 36px;
       line-height: 40px;
+    }
+
+    @media (max-width: 600px) {
+      font-size: 29px;
     }
 
     @media (max-width: 580px) {
