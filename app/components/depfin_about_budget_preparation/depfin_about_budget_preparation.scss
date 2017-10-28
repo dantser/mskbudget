@@ -313,9 +313,11 @@
     width:240px;
 }
 .graphic-table__table-td:first-child{
-    position:sticky;
+    //position:sticky;
+    position:absolute;
     left:0;
     background:#322a40;
+	border-top: 1px solid #322a40;
     border-bottom:1px solid #463c3a;
     border-left:none;
     height:75px;
@@ -324,6 +326,14 @@
     /*cursor:default;*/
 	z-index: 2;
 }
+@-moz-document url-prefix() { // Firefox
+    .graphic-table__table-td:first-child {margin-top: 0;}
+}
+@media screen\0 { // IE9-10
+  .graphic-table__table-td:first-child {margin-top: 0;}
+}
+_:-ms-fullscreen, :root .graphic-table__table-td:first-child {margin-top: 0;} // IE11
+
 .graphic-table__head{
     font-size:18px;
     line-height:20px;
