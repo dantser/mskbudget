@@ -85,6 +85,12 @@ export default function selectbox() {
 
       }
     });
+    
+    if (!$(this).find('.selectbox__val').length) {
+      var selectVal = $(this).find('option:selected').text();
+      var valText = '<p class="selectbox__val">'+selectVal+'</p>';
+      $(this).find('select').after(valText);
+    }
   });
   
   

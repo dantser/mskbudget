@@ -313,8 +313,7 @@
     width:240px;
 }
 .graphic-table__table-td:first-child{
-    //position:sticky;
-    position:absolute;
+    position:sticky;
     left:0;
     background:#322a40;
 	border-top: 1px solid #322a40;
@@ -327,12 +326,8 @@
 	z-index: 2;
 }
 @-moz-document url-prefix() { // Firefox
-    .graphic-table__table-td:first-child {margin-top: 0;}
+    .graphic-table__table-td:first-child {position: absolute; margin-top: 0;}
 }
-@media screen\0 { // IE9-10
-  .graphic-table__table-td:first-child {margin-top: 0;}
-}
-_:-ms-fullscreen, :root .graphic-table__table-td:first-child {margin-top: 0;} // IE11
 
 .graphic-table__head{
     font-size:18px;
