@@ -131,10 +131,10 @@ $(() => {
 	  profileEdit();
 	  budgetaryPolicy();
 	  modal();
-      window.analitycGraphics = analitycGraphics;
-	  analitycGraphics();
 	  window.budget_moscow_gov_program = budget_moscow_gov_program;
 	  budget_moscow_gov_program();
+      window.analitycGraphics = analitycGraphics;
+	  analitycGraphics();
 	  reset();
 	  profile();
 	  menu();

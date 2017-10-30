@@ -26,6 +26,12 @@
     line-height: 32px;
     padding: 0 12px 2px;
     height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 0;
   }
 
   ul {
@@ -41,7 +47,7 @@
     background-color: #ebebeb;
     box-shadow: 0 15px 15px rgba(0, 0, 0, .4);
     transition: all .25s ease-in-out;
-    z-index: 2;
+    z-index: 6;
     list-style: none;
   }
 
@@ -49,6 +55,9 @@
     cursor: pointer;
     padding: 0 12px;
     transition: all .25s ease-in-out;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     &:hover {
       background-color: #c9c9c9;
@@ -99,6 +108,13 @@
     width: 0;
     height: 0;
     opacity: 0;
+  }
+  
+  &__val {
+    padding: 0 30px 2px 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &.active {
@@ -219,11 +235,11 @@
     font-size: 16px;
   }
 
-  .selectbox__select {
+  .selectbox__select, .selectbox__val {
     display: block;
     padding: 0 12px 0 0;
     line-height: 1em;
-    white-space: normal;
+    //white-space: normal;
   }
 
   ul {
