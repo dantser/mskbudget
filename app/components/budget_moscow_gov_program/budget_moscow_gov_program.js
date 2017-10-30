@@ -234,7 +234,7 @@ export default () => {
     grChanges();
     grLinePopup();
 
-	  if ($(document).width() >= 900) {
+	  if ($(document).width() >= 900 && $('.analityc-js-line').length) {
 	    $('.analityc-js-line').css('min-height', $('.analityc-js-line__line_active').find('.analityc-js-line__right-block').outerHeight() + Math.abs($('.analityc-js-line__line_active').position().top));
 	  }
 

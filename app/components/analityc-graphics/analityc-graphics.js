@@ -9,7 +9,7 @@ export default () => {
   var ACTIVE_LINE = $('.analityc-js-line__line_active');
   var ACTIVE_BLOCK = ACTIVE_LINE.find('.analityc-js-line__right-block');
 
-  if ($(document).width() >= 900) {
+  if ($(document).width() >= 900 && $('.analityc-js-line').length) {
     GR_JS_LINE.css('min-height', ACTIVE_BLOCK.outerHeight() + Math.abs(ACTIVE_LINE.position().top));
   }
 
@@ -23,7 +23,7 @@ export default () => {
       $('.analityc-js-line__right-block').hide();
       EL.find('.analityc-js-line__right-block').fadeIn('fast');
 
-      if ($(document).width() >= 900) {
+      if ($(document).width() >= 900 && $('.analityc-js-line').length) {
         GR_JS_LINE.css('min-height', EL.find('.analityc-js-line__right-block').outerHeight() + Math.abs(EL.position().top));
       }
     })
