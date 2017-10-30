@@ -233,6 +233,11 @@ export default () => {
     changeContent('select');
     grChanges();
     grLinePopup();
+
+	  if ($(document).width() >= 900) {
+	    $('.analityc-js-line').css('min-height', $('.analityc-js-line__line_active').find('.analityc-js-line__right-block').outerHeight() + Math.abs($('.analityc-js-line__line_active').position().top));
+	  }
+
   });
   
   // переключение по кнопкам график/таблица

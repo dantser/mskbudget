@@ -2,18 +2,30 @@ import $ from 'jquery';
 import Swiper from 'swiper';
 
 export default () => {
+  const GR_JS_LINE = $(' .analityc-js-line');
   const LINE = $(' .analityc-js-line__line');
   const ACTIVE_CLASS = 'analityc-js-line__line_active';
   $('.analityc-js-line__line:nth-child(3)').addClass(ACTIVE_CLASS).find('.analityc-js-line__right-block').show();
+  var ACTIVE_LINE = $('.analityc-js-line__line_active');
+  var ACTIVE_BLOCK = ACTIVE_LINE.find('.analityc-js-line__right-block');
+
+  if ($(document).width() >= 900) {
+    GR_JS_LINE.css('min-height', ACTIVE_BLOCK.outerHeight() + Math.abs(ACTIVE_LINE.position().top));
+  }
 
   LINE.each( function () { // eslint-disable-line
     const EL = $(this);
     EL.on('click', (e) => {
+
       e.preventDefault();
       EL.siblings().removeClass(ACTIVE_CLASS);
       EL.addClass(ACTIVE_CLASS);
       $('.analityc-js-line__right-block').hide();
       EL.find('.analityc-js-line__right-block').fadeIn('fast');
+
+      if ($(document).width() >= 900) {
+        GR_JS_LINE.css('min-height', EL.find('.analityc-js-line__right-block').outerHeight() + Math.abs(EL.position().top));
+      }
     })
   })
 
