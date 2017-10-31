@@ -22,9 +22,9 @@ mixin mediaSMbio-one()
 							+e.A(href='mailto:Info@fin.dep.mos.ru').info-item._email
 								//- i
 								span Info@fin.dep.mos.ru
-							+e.A(href='#').info-item._link
+							+e.A(href='#' data-scrollto='#mediasm-page__howto').info-item._link.js-mediasm-page__scrollToLink
 								//- i
-								span Фотобанк
+								span Фотографии
 								+icon('angle-arrow')
 				+e.P.bio-title Биография
 				+e.P.bio-text Зяббарова Елена Юрьевна родилась 4 сентября в г. Казани
@@ -41,7 +41,7 @@ mixin mediaSMbio-one()
 		.wrapper.page-content-wrapper
 			+e.content.load-anim-fade(data-delay="1500")
 				+e.materials-group
-					+e.H3.title Фотографии
+					+e.H3(id='mediasm-page__howto').title Фотографии
 
 					+e.slider
 						+open-slider()._sm

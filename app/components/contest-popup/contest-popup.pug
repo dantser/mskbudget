@@ -1,10 +1,10 @@
 include ../../blocks/icon/icons
 include ../../blocks/button/button
 
-mixin contest-popup()
+mixin contest-popup(isJuridical)
 
 	mixin participant(number)
-		+e.participant
+		+e.DIV(data-type='text').participant.js-opencon-question
 			+e.P.hide
 				+icon('close').hide-icon
 				| скрыть
@@ -13,20 +13,28 @@ mixin contest-popup()
 				| Участник №
 				+e.SPAN.js-participant-number 
 
-			+participant-field('text', 'ФИО', 'fio')
-			+participant-field('text', 'Дата рождения', 'birth')
-			+participant-field('text', 'Должность', 'position')
-			+participant-field('tel', 'Контактный телефон', 'phone')
-			+participant-field('email', 'Электронная почта', 'email')
-			+participant-field('text', 'Адрес', 'address')
+			if isJuridical
+				+participant-field('text', 'Наименование организации', 'name')
+				+participant-field('text', 'Наименование деятельности', 'kind')
+				+participant-field('tel', 'Адрес местонахождения', 'address')
+				+participant-field('email', 'Контактное лицо', 'fio')
+				+participant-field('email', 'Контактный телефон', 'phone')
+				+participant-field('text', 'Адрес электронной почты', 'email')
+			else
+				+participant-field('text', 'ФИО', 'fio')
+				+participant-field('text', 'Дата рождения', 'birth')
+				+participant-field('text', 'Должность', 'position')
+				+participant-field('tel', 'Контактный телефон', 'phone')
+				+participant-field('email', 'Электронная почта', 'email')
+				+participant-field('text', 'Адрес', 'address')
 
 	mixin participant-field(type, label, name)
-		+e.participant-field
+		+e.participant-field.js-opencon-field
 			+e.LABEL(for='').label= label
 			+e.INPUT(type=''+type+'' name='p-'+name id='p-'+name).fio
 
 	mixin option(type, label, name, isOther)
-		+e.option-field
+		+e.option-field.js-opencon-field
 			+e.LABEL(for=type+'-'+name).option-label= label
 				+e.INPUT(type='checkbox' name=type+'-'+name id=type+'-'+name)
 				+e.chbox
@@ -43,11 +51,12 @@ mixin contest-popup()
 
 			+e.participants
 				+participant()
-
-				+button()._kind_yellow.js-button-addparticipant Добавить участника
+				
+				if !isJuridical
+					+button()._kind_yellow.js-button-addparticipant Добавить участника
 
 			+e.options
-				+e.option
+				+e.DIV(data-type='checkbox').option.js-opencon-question
 					
 					+e.option-title Номинация конкурса:
 
@@ -58,7 +67,7 @@ mixin contest-popup()
 					+option('n', '«Проекты инициативного бюджетирования в городе Москве»', 'f5')
 					+option('n', '«Бюджет города Москвы: просто о сложном»', 'f6')
 				
-				+e.option
+				+e.DIV(data-type='checkbox').option.js-opencon-question
 					+e.option-title Приложением к заявке является проект, представленный в формате:
 
 					+option('f', 'Презентация', 'f1')
@@ -68,7 +77,7 @@ mixin contest-popup()
 					+option('f', 'Фото-коллаж', 'f5')
 					+option('f', 'Иное (указать)', 'f6', true)
 						
-				+e.option
+				+e.DIV(data-type='checkbox').option.js-opencon-question
 					+e.option-title Приложением представлено на:
 
 					+option('t', 'Бумажном носителе информации на __ листах', 'f1')

@@ -18,4 +18,20 @@ export default () => {
       });
     })
   })
+
+  // скролл-ссылки
+  const $scrollToLinks = $('.js-mediasm-page__scrollToLink');
+
+  if ($scrollToLinks) {
+    $scrollToLinks.on({
+      click: function(event) {
+        if ( $(this).attr('data-scrollto').length > 1 ) {
+          event.preventDefault();
+          $('html, body').animate({
+            scrollTop: $($(this).attr('data-scrollto')).offset().top - 95
+          });
+        }
+      }
+    });
+  }
 }

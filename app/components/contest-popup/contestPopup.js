@@ -35,4 +35,33 @@ export default () => {
     $(this).parent().remove();
   });
   
+
+  $('.open-con .tabs__tab.active .contest-popup form').submit(function(e) {
+
+    const form = $(this);
+    const fieldset = form.find('.js-opencon-question');
+
+    form.find('.contest-popup__err').removeClass('contest-popup__err');
+
+    fieldset.each(function() {
+      var fieldset = $(this);
+      fieldset.find('.js-opencon-field').each(function() {
+        var input = $(this).find('input');
+        var label = $(this).find('label');
+
+        if (fieldset.data('type') === 'text' && input.val() === '')
+          label.addClass('contest-popup__err');
+
+        if ((fieldset.data('type') === 'radio' || fieldset.data('type') === 'checkbox') && !fieldset.find('input:checked').length)
+          fieldset.find('.contest-popup__option-title').addClass('contest-popup__err');
+
+      })
+    })
+
+    if (form.find('.contest-popup__err').length > 0) {
+      return false;
+    }
+
+  })
+
 }

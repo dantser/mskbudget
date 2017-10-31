@@ -123,7 +123,7 @@ mixin open-file()
             
             form(action='#', id='d-sii__form').d-sii__form
 
-              fieldset.d-sii__form_question
+              fieldset(data-type='text').d-sii__form_question
                 +e.LEGEND Пожалуйста, представьтесь
                 +e.field
                   +e.LABEL ФИО
@@ -132,7 +132,7 @@ mixin open-file()
                   +e.LABEL Электронная почта
                   +e.INPUT(type='text' name='')
 
-              fieldset.d-sii__form_question
+              fieldset(data-type='text').d-sii__form_question
                 +e.LEGEND Ваша деятельность
                 +e.field
                   +e.LABEL Категория
@@ -144,7 +144,7 @@ mixin open-file()
                   +e.LABEL Должность
                   +e.INPUT(type='text' name='')
 
-              fieldset.d-sii__form_question
+              fieldset(data-type='text').d-sii__form_question
                 +e.LEGEND Какие данные вы хотели бы получить?
                 +e.field
                   +e.LABEL Наименование
@@ -153,7 +153,7 @@ mixin open-file()
                   +e.LABEL Описание
                   +e.INPUT(type='text' name='')
 
-              fieldset.d-sii__form_question.d-sii__form_nowrap
+              fieldset(data-type='radio').d-sii__form_question.d-sii__form_nowrap
                 legend Сталкивались ли вы ранее с проблемой доступа к этим данным?
                 +e.field
                   input(name='d-sq_radio', type='radio', id='d-rad-f').d-sq_radio
@@ -162,7 +162,7 @@ mixin open-file()
                   input(name='d-sq_radio', type='radio', id='d-rad-s').d-sq_radio
                   label(for='d-rad-s') Нет
               
-              fieldset.d-sii__form_question.d-sii__form_nowrap
+              fieldset(data-type='checkbox').d-sii__form_question.d-sii__form_nowrap
                 legend В каких целях вы хотели бы использовать данные?
                 +e.field
                   input(type='checkbox', id='d-sii__chbox-s-first').d-sii__chbox

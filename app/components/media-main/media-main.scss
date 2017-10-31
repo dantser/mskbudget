@@ -65,14 +65,22 @@
       white-space: normal;
     }
 
-    &_slider {
-      max-width: 100%;
-    }
-
     &:hover {
       .media-main__page-link-icon {
         margin-left: 10px;
       }
+    }
+
+    &_slider {
+      display: none;
+      @media (max-width: 400px) {
+        max-width: 100%;
+        margin-left: 0!important;
+      }
+    }
+
+    &.active {
+      display: inline-block;
     }
   }
 

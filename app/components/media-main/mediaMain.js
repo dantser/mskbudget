@@ -30,6 +30,9 @@ export default () => {
       var mfilter = $(this).data('filter');
       $('.media-main__materials').removeClass('active');
       $('.media-main__materials[data-filter="'+mfilter+'"]').addClass('active');
+
+      $('.media-main__page-link_slider').removeClass('active');
+      $('.media-main__page-link_slider[data-filter="'+mfilter+'"]').addClass('active');
     });
 
     $('.media-main .swiper-container').each(function() {

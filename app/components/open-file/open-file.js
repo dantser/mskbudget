@@ -2,6 +2,9 @@ import $ from 'jquery';
 
 export default () => {
 
+	$('.open-file__content').hide();
+	$('.open-file__popup_request').show();
+
 	const ROWS = $('.open-file__row');
 	const DESC_BTN = $('.open-file__row-description');
 	const MORE_BTN = $('.open-file__show-more');
@@ -78,6 +81,37 @@ export default () => {
 			  	ARROWS.removeClass(FLOATING);
 		  });
 	  }
+	}
+
+	if ($('.open-file__popup_request form').length) {
+
+		$('.open-file__popup_request form').submit(function(e) {
+
+			const form = $(this);
+			const fieldset = form.find('fieldset');
+
+			form.find('.open-file__err').removeClass('open-file__err');
+
+			fieldset.each(function() {
+				var fieldset = $(this);
+				fieldset.find('.open-file__field').each(function() {
+					var input = $(this).find('input');
+					var label = $(this).find('label');
+
+					if (fieldset.data('type') === 'text' && input.val() === '')
+						label.addClass('open-file__err');
+
+					if ((fieldset.data('type') === 'radio' || fieldset.data('type') === 'checkbox') && !fieldset.find('input:checked').length)
+						fieldset.find('legend').addClass('open-file__err');
+
+				})
+			})
+
+			if (form.find('.open-file__err').length > 0) {
+				return false;
+			}
+
+		})
 	}
 
 	function scrollUp() {
