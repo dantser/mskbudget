@@ -1240,7 +1240,8 @@
       border-bottom-color: $grad2;
     }
     
-    .analityc-graphics-bars__val_out {
+    .analityc-graphics-bars__val_out,
+    + .analityc-graphics-bars__val_out {
       background: $bg;
       background-image: -moz-linear-gradient( 180deg, $grad1 0%, $grad2 100%);
       background-image: -webkit-linear-gradient( 180deg, $grad1 0%, $grad2 100%);
@@ -1830,9 +1831,31 @@
       @include analityc-graphics-lines(red, 12%, #9d308a, rgb(2,19,152), rgb(255,0,54));
     }
   }
+  
+  &_params {
+    text-align: center;
+    
+    @media (max-width: 900px) {
+      display: block;
+    }
+    
+    .analityc-graphics-line-vertical__graphic {
+      margin-right: 109px;
+      
+      &_last {
+        margin-right: 0;
+      }
+    }
+    
+    .analityc-graphics-line-vertical__line {
+      transform: translateZ(0);
+    }
+  }
 }
 
 .analityc-graphics-line-vertical_alt {
+  text-align: center;
+  
   .analityc-graphics-line-vertical__line {
     display: inline-block;
     position: relative;
@@ -1858,6 +1881,11 @@
 
   .analityc-graphics-line-vertical__graphic {
     max-width: none;
+    margin-right: 35px;
+    
+    &_last {
+      margin-right: 0;
+    }
   }
   
   .analityc-graphics-line-vertical__line-bar-value {
@@ -1872,11 +1900,6 @@
 
 .analityc-graphics-classic {
 
-  @media (max-width: 600px) {
-    overflow-x: scroll;
-    overflow-y: hidden;
-  }
-
   &__wrapper {
     font-size: 0;
 
@@ -1887,6 +1910,7 @@
 
   &__part {
     text-align: justify;
+    text-justify: distribute;
 
     &::after {
       content: '';
@@ -1910,7 +1934,9 @@
   &__part_lines {
     height: 460px;
     
-    .analityc-graphics-classic__item:last-child {
+    //.analityc-graphics-classic__item:last-child {
+    .analityc-graphics-classic__item_last,
+    .analityc-graphics-classic__item_single {
       .analityc-graphics-classic__line {
         display: none;
       }
@@ -1951,7 +1977,8 @@
     height: 100%;
     width: 0.02px;
 
-    &:first-child {
+    //&:first-child {
+    &_first, &_single {
 
       .analityc-graphics-classic__val,
       .analityc-graphics-classic__item-wrapper-bottom {
@@ -1961,7 +1988,8 @@
       }
     }
 
-    &:last-child {
+    //&:last-child {
+    &_last {
       .analityc-graphics-classic__val,
       .analityc-graphics-classic__item-wrapper-bottom {
         right: 0;
@@ -2005,7 +2033,7 @@
           background-image: -o-linear-gradient(270deg,#fd685b,#c04479);
           background-image: -ms-linear-gradient(270deg,#fd685b,#c04479);
           background-image: linear-gradient(270deg,#fd685b,#c04479);
-          filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr="#006ed8",endColorstr="#01daf3");
+          filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr="#fd685b",endColorstr="#c04479");
         }
       }
     }
@@ -2018,7 +2046,7 @@
           background-image: -o-linear-gradient(270deg,#c04479,#fd685b);
           background-image: -ms-linear-gradient(270deg,#c04479,#fd685b);
           background-image: linear-gradient(270deg,#c04479,#fd685b);
-          filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr="#01daf3",endColorstr="#006ed8");
+          filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr="#c04479",endColorstr="#fd685b");
         }
       }
     }
@@ -2083,8 +2111,9 @@
 
 .analityc-graphics-bars {
   position: relative;
-  text-align: justify;
-  text-justify: distribute;
+  //text-align: justify;
+  //text-justify: distribute;
+  text-align: center;
   padding: 80px 18px 0;
   
   @media screen and (max-width: 1100px) {
@@ -2115,6 +2144,15 @@
     width: 109px;
     position: relative;
     padding-bottom: 50px;
+    margin-right: 109px;
+    
+    &_last {
+      margin-right: 0;
+      
+      .analityc-graphics-bars__rate-line, .analityc-graphics-bars__changes {
+        display: none;
+      }
+    }
   }
 
   &__lines {
@@ -2214,55 +2252,66 @@
     }
 
     @include analityc-graphics-bars(red, #9d308a, rgb(157, 48, 138), rgb(255, 105, 91));
-
     @include analityc-graphics-bars(green, #32b168, rgb(254,227,0), rgb(48,176,105));
-
     @include analityc-graphics-bars(pink, #612292, rgb(97, 34, 146), rgb(189, 132, 233));
-
     @include analityc-graphics-bars(grey, #838a9a, rgb(131, 138, 154), rgb(213, 216, 222));
-
     @include analityc-graphics-bars(altblue, #0051d0, rgb(0,76,207), rgb(0,255,255));
-
-    @include analityc-graphics-bars(lightgreen, #11a360, rgb(17, 163, 96), rgb(50, 209, 151));
-
-    @include analityc-graphics-bars(transparentred, #9d308a, rgba(157, 48, 138, .7), rgba(255, 105, 91, .7));
-
-    @include analityc-graphics-bars(transparentgreen, #32b168, rgba(254, 227 ,0 , .7), rgba(48, 176, 105, .7));
-    
+    @include analityc-graphics-bars(lightgreen, #11a360, rgb(17, 163, 96), rgb(50, 209, 151));    
     @include analityc-graphics-bars(yellow, #ffd856, rgb(252,168,5), rgb(255,216,86));
   }
   
   &__line-fill-area {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
     position: relative;
+    pointer-events: none;
     
     .analityc-graphics-bars__line-fill {
       position: absolute;
+      width: auto;
       left: 0;
-      right: 0;
+      right: -1px;
       top: 0;
       bottom: 0;
       transform-origin: right;
+      pointer-events: all;
       
-      &:after {
-        content: '';
-        display: block;
-        position: absolute;
-        left: 0;
-        top: -1px;
-        right: 0;
-        bottom: 0;
-        background-color: #fff;
-        opacity: .5;
+      //&:after {
+      //  content: '';
+      //  display: block;
+      //  position: absolute;
+      //  left: 0;
+      //  top: -1px;
+      //  right: 0;
+      //  bottom: 0;
+      //  background-color: #fff;
+      //  opacity: .5;
+      //}
+      
+      &:hover {
+        & + .analityc-graphics-bars__val_out {
+          display: block;
+        }
       }
+      
+      @include analityc-graphics-bars(red, #9d308a, rgb(206, 151, 196), rgb(254, 179, 173));
+      @include analityc-graphics-bars(green, #32b168, rgb(251, 240, 129), rgb(152, 215, 179));  
+      @include analityc-graphics-bars(pink, #612292, rgb(180, 149, 204), rgb(219, 191, 242));  
+      @include analityc-graphics-bars(grey, #838a9a, rgb(197, 200, 208), rgb(230, 232, 235));  
+      @include analityc-graphics-bars(altblue, #0051d0, rgb(127, 126, 234), rgb(127, 247, 253));  
+      @include analityc-graphics-bars(lightgreen, #11a360, rgb(138, 212, 180), rgb(150, 229, 199));
     }
     
     .analityc-graphics-bars__val {
       height: 2em;
       color: #000;
+      white-space: nowrap;
+      
+      &_out {
+        width: auto;
+        height: 44px;
+        right: auto;
+        z-index: 2;
+        transform: none !important;
+      }
     }
   }
 
@@ -2407,6 +2456,10 @@
   
   &_entired {
     text-align: center;
+    
+    .analityc-graphics-bars__graphic {
+      margin-right: 0;
+    }
   }
   
   &_singlebar {

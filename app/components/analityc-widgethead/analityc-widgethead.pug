@@ -73,50 +73,55 @@ mixin select-altdp()
     +selbox-opt('2018', '2018')
 
 //- Год (Аналитика)
-mixin select-year-analityc()
-  +selbox('year', '2015')._cgroup.analityc-widget__selectbox._year
-    +selbox-opt('2018', '2018')
-    +selbox-opt('2017', '2017')
-    +selbox-opt('2016', '2016')
-    +selbox-opt('2015', '2015', true)
+mixin select-year-analityc(selectedText, selectedIndex)
+  +selbox('year', selectedText)._cgroup.analityc-widget__selectbox._year
+    - var optArray = [['2015', '2015'], ['2016', '2016'], ['2017', '2017'], ['2018', '2018'], ['2019', '2019']]
+    - for (var i = 0; i < optArray.length; i++)
+      if i == selectedIndex
+        +selbox-opt(optArray[i][0], optArray[i][1], true)
+      else
+        +selbox-opt(optArray[i][0], optArray[i][1])
     
 //- Месяц (Аналитика)
-mixin select-month-analityc()
-  +selbox('month', 'январь')._cgroup.analityc-widget__selectbox._month
-    +selbox-opt('jan', 'январь', true)
-    +selbox-opt('feb', 'февраль')
-    +selbox-opt('mar', 'март')
-    +selbox-opt('apr', 'апрель')
-    +selbox-opt('may', 'май')
-    +selbox-opt('jun', 'июнь')
-    +selbox-opt('jul', 'июль')
-    +selbox-opt('aug', 'август')
-    +selbox-opt('sep', 'сентябрь')
-    +selbox-opt('oct', 'октябрь')
-    +selbox-opt('nov', 'ноябрь')
-    +selbox-opt('dec', 'декабрь')
+mixin select-month-analityc(selectedText, selectedIndex)
+  +selbox('month', selectedText)._cgroup.analityc-widget__selectbox._month
+    - var optArray = [['jan', 'январь'], ['feb', 'февраль'], ['mar', 'март'], ['apr', 'апрель'], ['may', 'май'], ['jun', 'июнь'], ['jul', 'июль'], ['aug', 'август'], ['sep', 'сентябрь'], ['oct', 'октябрь'], ['nov', 'ноябрь'], ['dec', 'декабрь'], ['all', 'год']]
+    - for (var i = 0; i < optArray.length; i++)
+      if i == selectedIndex
+        +selbox-opt(optArray[i][0], optArray[i][1], true)
+      else
+        +selbox-opt(optArray[i][0], optArray[i][1])
+    
+//- Все месяцы (Аналитика)
+mixin select-allmonths-analityc()
+  +selbox('month', 'год')._cgroup.analityc-widget__selectbox._month
+    +selbox-opt('all', 'год', true)
     
 //- Месяц с первым днем (аналитика)
 mixin select-month-firstday()
   +selbox('month', '1 января')._cgroup.analityc-widget__selectbox._month
-    +selbox-opt('1jan', '1 января', true)
-    +selbox-opt('1feb', '1 февраля')
-    +selbox-opt('1mar', '1 марта')
-    +selbox-opt('1apr', '1 апреля')
-    +selbox-opt('1may', '1 мая')
-    +selbox-opt('1jun', '1 июня')
-    +selbox-opt('1jul', '1 июля')
-    +selbox-opt('1aug', '1 августа')
-    +selbox-opt('1sep', '1 сентября')
-    +selbox-opt('1oct', '1 октября')
-    +selbox-opt('1nov', '1 ноября')
-    +selbox-opt('1dec', '1 декабря')
+    +selbox-opt('jan', '1 января', true)
+    +selbox-opt('feb', '1 февраля')
+    +selbox-opt('mar', '1 марта')
+    +selbox-opt('apr', '1 апреля')
+    +selbox-opt('may', '1 мая')
+    +selbox-opt('jun', '1 июня')
+    +selbox-opt('jul', '1 июля')
+    +selbox-opt('aug', '1 августа')
+    +selbox-opt('sep', '1 сентября')
+    +selbox-opt('oct', '1 октября')
+    +selbox-opt('nov', '1 ноября')
+    +selbox-opt('dec', '1 декабря')
     
 //- Этап (Аналитика)
-mixin select-stage-analityc()
-  +selbox('stage', 'Фактическое исполнение')._cgroup.analityc-widget__selectbox._stage
-    +selbox-opt('fact', 'Фактическое исполнение', true)
-    +selbox-opt('approved', 'Закон о бюджете (утвержденный)')
+mixin select-stage-analityc(selectedText, selectedIndex)
+  +selbox('stage', selectedText)._cgroup.analityc-widget__selectbox._stage
+    - var optArray = [['fact', 'Фактическое исполнение'], ['approved', 'Закон о бюджете (утвержденный)']]
+    - for (var i = 0; i < optArray.length; i++)
+      if i == selectedIndex
+        +selbox-opt(optArray[i][0], optArray[i][1], true)
+      else
+        +selbox-opt(optArray[i][0], optArray[i][1])
 
 
 
@@ -366,29 +371,36 @@ mixin analityc-widgethead-forecast()
 //- Аналитика - Основные параметры
 mixin analityc-widgethead-main()
   +b.analityc-widgethead&attributes(attributes)
-    .analityc-control-frame.analityc-control-frame_left
+  
+    .analityc-control-frame.analityc-control-frame_left.active(data-type='line, classic' data-comparison='none' data-control)
       span.analityc-control-frame-title Выберите год и этап
-      .analityc-control-group
+      .analityc-control-group(data-year='2015' data-month='none' data-stage='fact')
         a(href='#').analityc-remove-group
           +icon('delete', true)
-        +select-year-analityc()
-        +select-stage-analityc()
-      .analityc-control-group
+        +select-year-analityc('2015', 0)
+        +select-stage-analityc('Фактическое исполнение', 0)
+      .analityc-control-group(data-year='2016' data-month='none' data-stage='fact')
         a(href='#').analityc-remove-group
           +icon('delete', true)
-        +select-year-analityc()
-        +select-stage-analityc()
-      .analityc-control-group
+        +select-year-analityc('2016', 1)
+        +select-stage-analityc('Фактическое исполнение', 0)
+      .analityc-control-group(data-year='2017' data-month='none' data-stage='approved')
         a(href='#').analityc-remove-group
           +icon('delete', true)
-        +select-year-analityc()
-        +select-stage-analityc()
-      .analityc-control-group
+        +select-year-analityc('2017', 2)
+        +select-stage-analityc('Закон о бюджете (утвержденный)', 1)
+      .analityc-control-group(data-year='2018' data-month='none' data-stage='approved')
         a(href='#').analityc-remove-group
           +icon('delete', true)
-        +select-year-analityc()
-        +select-stage-analityc()
+        +select-year-analityc('2018', 3)
+        +select-stage-analityc('Закон о бюджете (утвержденный)', 1)
+      .analityc-control-group(data-year='2019' data-month='none' data-stage='approved')
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        +select-year-analityc('2019', 4)
+        +select-stage-analityc('Закон о бюджете (утвержденный)', 1)
       a(href='#').analityc-add-group + Добавить год и этап
+      
     .analityc-control-frame.analityc-control-frame_right
       .frame-wrap
         .analityc-control-group.analityc-control-group_level
@@ -406,33 +418,121 @@ mixin analityc-widgethead-main()
 //- Аналитика - Доходы
 mixin analityc-widgethead-analityc-income()
   +b.analityc-widgethead._income&attributes(attributes)
-    .analityc-control-frame.analityc-control-frame_left
+  
+    .analityc-control-frame.analityc-control-frame_left.active(data-type='g2, g3' data-comparison='overall' data-control)
       span.analityc-control-frame-title Выберите год и этап
-      .analityc-control-group
+      .analityc-control-group(data-year='2015' data-month='all' data-stage='fact')
         a(href='#').analityc-remove-group
           +icon('delete', true)
-        +select-year-analityc()
-        +select-month-analityc()
-        +select-stage-analityc()
-      .analityc-control-group
+        +select-year-analityc('2015', 0)
+        +select-allmonths-analityc()
+        +select-stage-analityc('Фактическое исполнение', 0)
+      .analityc-control-group(data-year='2016' data-month='all' data-stage='fact')
         a(href='#').analityc-remove-group
           +icon('delete', true)
-        +select-year-analityc()
-        +select-month-analityc()
-        +select-stage-analityc()
-      .analityc-control-group
+        +select-year-analityc('2016', 1)
+        +select-allmonths-analityc()
+        +select-stage-analityc('Фактическое исполнение', 0)
+      .analityc-control-group(data-year='2017' data-month='all' data-stage='approved')
         a(href='#').analityc-remove-group
           +icon('delete', true)
-        +select-year-analityc()
-        +select-month-analityc()
-        +select-stage-analityc()
-      .analityc-control-group
+        +select-year-analityc('2017', 2)
+        +select-allmonths-analityc()
+        +select-stage-analityc('Закон о бюджете (утвержденный)', 1)
+      .analityc-control-group(data-year='2018' data-month='all' data-stage='approved')
         a(href='#').analityc-remove-group
           +icon('delete', true)
-        +select-year-analityc()
-        +select-month-analityc()
-        +select-stage-analityc()
+        +select-year-analityc('2018', 3)
+        +select-allmonths-analityc()
+        +select-stage-analityc('Закон о бюджете (утвержденный)', 1)
+      .analityc-control-group(data-year='2019' data-month='all' data-stage='approved')
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        +select-year-analityc('2019', 4)
+        +select-allmonths-analityc()
+        +select-stage-analityc('Закон о бюджете (утвержденный)', 1)
       a(href='#').analityc-add-group + Добавить год и этап
+      
+    .analityc-control-frame.analityc-control-frame_left(data-type='g1' data-comparison='overall' data-control)
+      span.analityc-control-frame-title Выберите год и этап
+      .analityc-control-group(data-year='2015' data-month='mar' data-stage='fact')
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        +select-year-analityc('2015', 0)
+        +select-month-analityc('март', 2)
+        +select-stage-analityc('Фактическое исполнение', 0)
+      .analityc-control-group(data-year='2015' data-month='apr' data-stage='fact')
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        +select-year-analityc('2015', 0)
+        +select-month-analityc('апрель', 3)
+        +select-stage-analityc('Фактическое исполнение', 0)
+      .analityc-control-group(data-year='2015' data-month='may' data-stage='fact')
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        +select-year-analityc('2015', 0)
+        +select-month-analityc('май', 4)
+        +select-stage-analityc('Фактическое исполнение', 0)
+      .analityc-control-group(data-year='2015' data-month='jun' data-stage='fact')
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        +select-year-analityc('2015', 0)
+        +select-month-analityc('июнь', 5)
+        +select-stage-analityc('Фактическое исполнение', 0)
+      .analityc-control-group(data-year='2015' data-month='jul' data-stage='fact')
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        +select-year-analityc('2015', 0)
+        +select-month-analityc('июль', 6)
+        +select-stage-analityc('Фактическое исполнение', 0)
+      .analityc-control-group(data-year='2015' data-month='aug' data-stage='fact')
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        +select-year-analityc('2015', 0)
+        +select-month-analityc('август', 6)
+        +select-stage-analityc('Фактическое исполнение', 0)
+      .analityc-control-group(data-year='2015' data-month='all' data-stage='fact')
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        +select-year-analityc('2015', 0)
+        +select-month-analityc('год', 12)
+        +select-stage-analityc('Фактическое исполнение', 0)
+      a(href='#').analityc-add-group + Добавить год и этап
+      
+    .analityc-control-frame.analityc-control-frame_left(data-type='g1, g2, g3' data-comparison='comparative' data-control)
+      span.analityc-control-frame-title Выберите год и этап
+      .analityc-control-group(data-year='2015' data-month='all' data-stage='fact')
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        +select-year-analityc('2015', 0)
+        +select-allmonths-analityc()
+        +select-stage-analityc('Фактическое исполнение', 0)
+      .analityc-control-group(data-year='2016' data-month='all' data-stage='fact')
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        +select-year-analityc('2016', 1)
+        +select-allmonths-analityc()
+        +select-stage-analityc('Фактическое исполнение', 0)
+      .analityc-control-group(data-year='2017' data-month='all' data-stage='approved')
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        +select-year-analityc('2017', 2)
+        +select-allmonths-analityc()
+        +select-stage-analityc('Закон о бюджете (утвержденный)', 1)
+      .analityc-control-group(data-year='2018' data-month='all' data-stage='approved')
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        +select-year-analityc('2018', 3)
+        +select-allmonths-analityc()
+        +select-stage-analityc('Закон о бюджете (утвержденный)', 1)
+      .analityc-control-group(data-year='2019' data-month='all' data-stage='approved')
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        +select-year-analityc('2019', 4)
+        +select-allmonths-analityc()
+        +select-stage-analityc('Закон о бюджете (утвержденный)', 1)
+      a(href='#').analityc-add-group + Добавить год и этап
+	  
     .analityc-control-frame.analityc-control-frame_right
       .frame-wrap
         .analityc-control-group.analityc-control-group_level
@@ -448,7 +548,7 @@ mixin analityc-widgethead-analityc-income()
         +selbox('comparison', 'Общий анализ основных видов доходов')._cgroup.analityc-widget__selectbox
           +selbox-opt('overall', 'Общий анализ основных видов доходов', true)
           +selbox-opt('comparative', 'Сравнительный анализ доходов по выбору')
-      .d-smr__add-char(data-control, data-comparison='comparative')
+      .d-smr__add-char.analityc-control-checkboxes(data-control data-comparison='comparative' data-type='all')
         p.d-smr__add-char-label Добавить показатель на страницу
         .d-smr__add-char-block
           .d-smr__add-char-list-wrapper
@@ -458,54 +558,39 @@ mixin analityc-widgethead-analityc-income()
                 label(for='a') НАЛОГОВЫЕ ДОХОДЫ - всего в том числе:
                 ul.d-smr__char-sublist
                   li.d-smr__add-char-item
-                    input(type='checkbox', name='aa', value='aa', checked='checked')#aa
+                    input(type='checkbox', name='aa', value='aa', checked='checked', data-name='g1-l1')#aa
                     label(for='aa') Налог на прибыль
                   li.d-smr__add-char-item
-                    input(type='checkbox', name='ab', value='ab', checked='checked')#ab
+                    input(type='checkbox', name='ab', value='ab', checked='checked', data-name='g1-l4')#ab
                     label(for='ab') Налог на доходы физ.лиц
                   li.d-smr__add-char-item
-                    input(type='checkbox', name='ac', value='ac')#ac
-                    label(for='ac') Акцизы
+                    input(type='checkbox', name='ac', value='ac', data-name='g1-l2')#ac
+                    label(for='ac') Налог на имущество организаций
                   li.d-smr__add-char-item
-                    input(type='checkbox', name='ad', value='ad')#ad
-                    label(for='ad') из них: нефтепродукты
+                    input(type='checkbox', name='ad', value='ad', data-name='g1-l5')#ad
+                    label(for='ad') Прочие налоговые доходы
                   li.d-smr__add-char-item
                     input(type='checkbox', name='ae', value='ae')#ae
-                    label(for='ae') Единый упрощенный доход
+                    label(for='ae') Доходы
                   li.d-smr__add-char-item
                     input(type='checkbox', name='af', value='af')#af
-                    label(for='af') Единый вмененный доход
-                  li.d-smr__add-char-item
-                    input(type='checkbox', name='ag', value='ag')#ag
-                    label(for='ag') Налог на имущество организаций
-                  li.d-smr__add-char-item
-                    input(type='checkbox', name='ah', value='ah')#ah
-                    label(for='ah') Транспортный налог
-                  li.d-smr__add-char-item
-                    input(type='checkbox', name='ai', value='ai')#ai
-                    label(for='ai') Налог на игорный бизнес
-                  li.d-smr__add-char-item
-                    input(type='checkbox', name='aj', value='aj')#aj
-                    label(for='aj') Госпошлина
-                  li.d-smr__add-char-item
-                    input(type='checkbox', name='ak', value='ak')#ak
-                    label(for='ak') Прочие налоги
-                  li.d-smr__add-char-item
-                    input(type='checkbox', name='al', value='al')#al
-                    label(for='al') Задолженность по отмененным налогам
+                    label(for='af') Доходы
               li.d-smr__add-char-item
                 input(type='checkbox', name='b', value)#b
                 label(for='b') НЕНАЛОГОВЫЕ ДОХОДЫ - всего в том числе:
                 ul.d-smr__char-sublist
                   li.d-smr__add-char-item
-                    input(type='checkbox', name='ba', value='ba')#ba
-                    label(for='ba') Дивиденды
+                    input(type='checkbox', name='ba', value='ba', data-name='g1-l3')#ba
+                    label(for='ba') Неналоговые доходы
                   li.d-smr__add-char-item
-                    input(type='checkbox', name='bb', value='bb')#bb
-                    label(for='bb') Расходы в расчёте на 1 жителя
+                    input(type='checkbox', name='bb', value='bb', data-name='g1-l6')#bb
+                    label(for='bb') Безвозмездные поступления
                   li.d-smr__add-char-item
                     input(type='checkbox', name='bc', value='bc')#bc
-                    label(for='bc') Общегосударственные вопросы
+                    label(for='bc') Доходы
+                  li.d-smr__add-char-item
+                    input(type='checkbox', name='bd', value='bd')#bd
+                    label(for='bd') Доходы
       .analityc-control-group.analityc-control-group_buttons
         .analityc-control-switcher.analityc-control-switcher_xl.active
           a(href="#", data-type='g2').active темп роста к предыдущему периоду, %
@@ -515,39 +600,121 @@ mixin analityc-widgethead-analityc-income()
 //- Аналитика - Расходы
 mixin analityc-widgethead-analytics-expenses()
   +b.analityc-widgethead&attributes(attributes)
-    .analityc-control-frame.analityc-control-frame_left
+  
+    .analityc-control-frame.analityc-control-frame_left.active(data-type='g2, g3' data-comparison='overall' data-control)
       span.analityc-control-frame-title Выберите год и этап
-      .analityc-control-group
+      .analityc-control-group(data-year='2015' data-month='all' data-stage='fact')
         a(href='#').analityc-remove-group
           +icon('delete', true)
-        +select-year-analityc()
-        +select-month-analityc()
-        +select-stage-analityc()
-      .analityc-control-group
+        +select-year-analityc('2015', 0)
+        +select-allmonths-analityc()
+        +select-stage-analityc('Фактическое исполнение', 0)
+      .analityc-control-group(data-year='2016' data-month='all' data-stage='fact')
         a(href='#').analityc-remove-group
           +icon('delete', true)
-        +select-year-analityc()
-        +select-month-analityc()
-        +select-stage-analityc()
-      .analityc-control-group
+        +select-year-analityc('2016', 1)
+        +select-allmonths-analityc()
+        +select-stage-analityc('Фактическое исполнение', 0)
+      .analityc-control-group(data-year='2017' data-month='all' data-stage='approved')
         a(href='#').analityc-remove-group
           +icon('delete', true)
-        +select-year-analityc()
-        +select-month-analityc()
-        +select-stage-analityc()
-      .analityc-control-group
+        +select-year-analityc('2017', 2)
+        +select-allmonths-analityc()
+        +select-stage-analityc('Закон о бюджете (утвержденный)', 1)
+      .analityc-control-group(data-year='2018' data-month='all' data-stage='approved')
         a(href='#').analityc-remove-group
           +icon('delete', true)
-        +select-year-analityc()
-        +select-month-analityc()
-        +select-stage-analityc()
-      .analityc-control-group
+        +select-year-analityc('2018', 3)
+        +select-allmonths-analityc()
+        +select-stage-analityc('Закон о бюджете (утвержденный)', 1)
+      .analityc-control-group(data-year='2019' data-month='all' data-stage='approved')
         a(href='#').analityc-remove-group
           +icon('delete', true)
-        +select-year-analityc()
-        +select-month-analityc()
-        +select-stage-analityc()
+        +select-year-analityc('2019', 4)
+        +select-allmonths-analityc()
+        +select-stage-analityc('Закон о бюджете (утвержденный)', 1)
       a(href='#').analityc-add-group + Добавить год и этап
+      
+    .analityc-control-frame.analityc-control-frame_left(data-type='g1' data-comparison='overall' data-control)
+      span.analityc-control-frame-title Выберите год и этап
+      .analityc-control-group(data-year='2015' data-month='mar' data-stage='fact')
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        +select-year-analityc('2015', 0)
+        +select-month-analityc('март', 2)
+        +select-stage-analityc('Фактическое исполнение', 0)
+      .analityc-control-group(data-year='2015' data-month='apr' data-stage='fact')
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        +select-year-analityc('2015', 0)
+        +select-month-analityc('апрель', 3)
+        +select-stage-analityc('Фактическое исполнение', 0)
+      .analityc-control-group(data-year='2015' data-month='may' data-stage='fact')
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        +select-year-analityc('2015', 0)
+        +select-month-analityc('май', 4)
+        +select-stage-analityc('Фактическое исполнение', 0)
+      .analityc-control-group(data-year='2015' data-month='jun' data-stage='fact')
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        +select-year-analityc('2015', 0)
+        +select-month-analityc('июнь', 5)
+        +select-stage-analityc('Фактическое исполнение', 0)
+      .analityc-control-group(data-year='2015' data-month='jul' data-stage='fact')
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        +select-year-analityc('2015', 0)
+        +select-month-analityc('июль', 6)
+        +select-stage-analityc('Фактическое исполнение', 0)
+      .analityc-control-group(data-year='2015' data-month='aug' data-stage='fact')
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        +select-year-analityc('2015', 0)
+        +select-month-analityc('август', 6)
+        +select-stage-analityc('Фактическое исполнение', 0)
+      .analityc-control-group(data-year='2015' data-month='all' data-stage='fact')
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        +select-year-analityc('2015', 0)
+        +select-month-analityc('год', 12)
+        +select-stage-analityc('Фактическое исполнение', 0)
+      a(href='#').analityc-add-group + Добавить год и этап
+      
+    .analityc-control-frame.analityc-control-frame_left(data-type='g1, g2, g3' data-comparison='comparative' data-control)
+      span.analityc-control-frame-title Выберите год и этап
+      .analityc-control-group(data-year='2015' data-month='all' data-stage='fact')
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        +select-year-analityc('2015', 0)
+        +select-allmonths-analityc()
+        +select-stage-analityc('Фактическое исполнение', 0)
+      .analityc-control-group(data-year='2016' data-month='all' data-stage='fact')
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        +select-year-analityc('2016', 1)
+        +select-allmonths-analityc()
+        +select-stage-analityc('Фактическое исполнение', 0)
+      .analityc-control-group(data-year='2017' data-month='all' data-stage='approved')
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        +select-year-analityc('2017', 2)
+        +select-allmonths-analityc()
+        +select-stage-analityc('Закон о бюджете (утвержденный)', 1)
+      .analityc-control-group(data-year='2018' data-month='all' data-stage='approved')
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        +select-year-analityc('2018', 3)
+        +select-allmonths-analityc()
+        +select-stage-analityc('Закон о бюджете (утвержденный)', 1)
+      .analityc-control-group(data-year='2019' data-month='all' data-stage='approved')
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        +select-year-analityc('2019', 4)
+        +select-allmonths-analityc()
+        +select-stage-analityc('Закон о бюджете (утвержденный)', 1)
+      a(href='#').analityc-add-group + Добавить год и этап
+      
     .analityc-control-frame.analityc-control-frame_right
       .frame-wrap
         .analityc-control-group.analityc-control-group_level
@@ -564,7 +731,7 @@ mixin analityc-widgethead-analytics-expenses()
         +selbox('comparison', 'Общий анализ основных видов расходов')._cgroup.analityc-widget__selectbox
           +selbox-opt('overall', 'Общий анализ основных видов расходов', true)
           +selbox-opt('comparative', 'Сравнительный анализ расходов по выбору')
-      .d-smr__add-char(data-control, data-comparison='comparative')
+      .d-smr__add-char.analityc-control-checkboxes(data-control data-comparison='comparative' data-type='all')
         p.d-smr__add-char-label Добавить показатель на страницу
         .d-smr__add-char-block
           .d-smr__add-char-list-wrapper
@@ -574,55 +741,39 @@ mixin analityc-widgethead-analytics-expenses()
                 label(for='a') НАЛОГОВЫЕ РАСХОДЫ - всего в том числе:
                 ul.d-smr__char-sublist
                   li.d-smr__add-char-item
-                    input(type='checkbox', name='aa', value='aa')#aa
-                    label(for='aa') Налог на прибыль
+                    input(type='checkbox', name='aa', value='aa', checked='checked', data-name='g1-l1')#aa
+                    label(for='aa') Развитие транспортной системы
                   li.d-smr__add-char-item
-                    input(type='checkbox', name='ab', value='ab')#ab
-                    label(for='ab') Налог на доходы физ.лиц
+                    input(type='checkbox', name='ab', value='ab', checked='checked', data-name='g1-l4')#ab
+                    label(for='ab') Прочие государственные программы
                   li.d-smr__add-char-item
-                    input(type='checkbox', name='ac', value='ac')#ac
-                    label(for='ac') Акцизы
+                    input(type='checkbox', name='ac', value='ac', data-name='g1-l2')#ac
+                    label(for='ac') Социальная поддержка жителей Москвы
                   li.d-smr__add-char-item
-                    input(type='checkbox', name='ad', value='ad')#ad
-                    label(for='ad') из них: нефтепродукты
+                    input(type='checkbox', name='ad', value='ad', data-name='g1-l5')#ad
+                    label(for='ad') Развитие транспортной системы
                   li.d-smr__add-char-item
                     input(type='checkbox', name='ae', value='ae')#ae
-                    label(for='ae') Единый упрощенный доход
+                    label(for='ae') Расходы
                   li.d-smr__add-char-item
                     input(type='checkbox', name='af', value='af')#af
-                    label(for='af') Единый вмененный доход
-                  li.d-smr__add-char-item
-                    input(type='checkbox', name='ag', value='ag')#ag
-                    label(for='ag') Налог на имущество организаций
-                  li.d-smr__add-char-item
-                    input(type='checkbox', name='ah', value='ah')#ah
-                    label(for='ah') Транспортный налог
-                  li.d-smr__add-char-item
-                    input(type='checkbox', name='ai', value='ai')#ai
-                    label(for='ai') Налог на игорный бизнес
-                  li.d-smr__add-char-item
-                    input(type='checkbox', name='aj', value='aj')#aj
-                    label(for='aj') Госпошлина
-                  li.d-smr__add-char-item
-                    input(type='checkbox', name='ak', value='ak')#ak
-                    label(for='ak') Прочие налоги
-                  li.d-smr__add-char-item
-                    input(type='checkbox', name='al', value='al')#al
-                    label(for='al') Задолженность по отмененным налогам
+                    label(for='af') Расходы
               li.d-smr__add-char-item
                 input(type='checkbox', name='b', value)#b
                 label(for='b') НЕНАЛОГОВЫЕ РАСХОДЫ - всего в том числе:
                 ul.d-smr__char-sublist
                   li.d-smr__add-char-item
-                    input(type='checkbox', name='ba', value='ba')#ba
-                    label(for='ba') Дивиденды
+                    input(type='checkbox', name='ba', value='ba', data-name='g1-l3')#ba
+                    label(for='ba') Столичное здравоохранение
                   li.d-smr__add-char-item
-                    input(type='checkbox', name='bb', value='bb')#bb
-                    label(for='bb') Расходы в расчёте на 1 жителя
+                    input(type='checkbox', name='bb', value='bb', data-name='g1-l6')#bb
+                    label(for='bb') Непрограммные направления деятельности
                   li.d-smr__add-char-item
                     input(type='checkbox', name='bc', value='bc')#bc
-                    label(for='bc') Общегосударственные вопросы
-
+                    label(for='bc') Расходы
+                  li.d-smr__add-char-item
+                    input(type='checkbox', name='bd', value='bd')#bd
+                    label(for='bd') Расходы
       .analityc-control-group.analityc-control-group_buttons
         .analityc-control-switcher.analityc-control-switcher_xl.active
           a(href="#", data-type='g2').active темп роста к предыдущему периоду, %
@@ -632,32 +783,33 @@ mixin analityc-widgethead-analytics-expenses()
 //- Аналитика - Государственный долг
 mixin analityc-widgethead-analytics-govdebt()
   +b.analityc-widgethead&attributes(attributes)
-    .analityc-control-frame.analityc-control-frame_left
+  
+    .analityc-control-frame.analityc-control-frame_left(data-type='rate, percentage' data-comparison='none')
       span.analityc-control-frame-title Выберите год и месяц
-      .analityc-control-group
+      .analityc-control-group(data-year='2015' data-month='jan' data-stage='none')
         a(href='#').analityc-remove-group
           +icon('delete', true)
-        +select-year-analityc()
+        +select-year-analityc('2015', 0)
         +select-month-firstday()
-      .analityc-control-group
+      .analityc-control-group(data-year='2016' data-month='jan' data-stage='none')
         a(href='#').analityc-remove-group
           +icon('delete', true)
-        +select-year-analityc()
+        +select-year-analityc('2016', 1)
         +select-month-firstday()
-      .analityc-control-group
+      .analityc-control-group(data-year='2017' data-month='jan' data-stage='none')
         a(href='#').analityc-remove-group
           +icon('delete', true)
-        +select-year-analityc()
+        +select-year-analityc('2017', 2)
         +select-month-firstday()
-      .analityc-control-group
+      .analityc-control-group(data-year='2018' data-month='jan' data-stage='none')
         a(href='#').analityc-remove-group
           +icon('delete', true)
-        +select-year-analityc()
+        +select-year-analityc('2018', 3)
         +select-month-firstday()
-      .analityc-control-group
+      .analityc-control-group(data-year='2019' data-month='jan' data-stage='none')
         a(href='#').analityc-remove-group
           +icon('delete', true)
-        +select-year-analityc()
+        +select-year-analityc('2019', 4)
         +select-month-firstday()
       a(href='#').analityc-add-group + Добавить год и месяц
     .analityc-control-frame.analityc-control-frame_right
@@ -668,39 +820,121 @@ mixin analityc-widgethead-analytics-govdebt()
 //- Гос. программы
 mixin analityc-widgethead-gp()
   +b.analityc-widgethead&attributes(attributes)
-    .analityc-control-frame.analityc-control-frame_left
+  
+    .analityc-control-frame.analityc-control-frame_left.active(data-type='g2, g3' data-comparison='overall' data-control)
       span.analityc-control-frame-title Выберите год и этап
-      .analityc-control-group
+      .analityc-control-group(data-year='2015' data-month='all' data-stage='fact')
         a(href='#').analityc-remove-group
           +icon('delete', true)
-        +select-year-analityc()
-        +select-month-analityc()
-        +select-stage-analityc()
-      .analityc-control-group
+        +select-year-analityc('2015', 0)
+        +select-allmonths-analityc()
+        +select-stage-analityc('Фактическое исполнение', 0)
+      .analityc-control-group(data-year='2016' data-month='all' data-stage='fact')
         a(href='#').analityc-remove-group
           +icon('delete', true)
-        +select-year-analityc()
-        +select-month-analityc()
-        +select-stage-analityc()
-      .analityc-control-group
+        +select-year-analityc('2016', 1)
+        +select-allmonths-analityc()
+        +select-stage-analityc('Фактическое исполнение', 0)
+      .analityc-control-group(data-year='2017' data-month='all' data-stage='approved')
         a(href='#').analityc-remove-group
           +icon('delete', true)
-        +select-year-analityc()
-        +select-month-analityc()
-        +select-stage-analityc()
-      .analityc-control-group
+        +select-year-analityc('2017', 2)
+        +select-allmonths-analityc()
+        +select-stage-analityc('Закон о бюджете (утвержденный)', 1)
+      .analityc-control-group(data-year='2018' data-month='all' data-stage='approved')
         a(href='#').analityc-remove-group
           +icon('delete', true)
-        +select-year-analityc()
-        +select-month-analityc()
-        +select-stage-analityc()
-      .analityc-control-group
+        +select-year-analityc('2018', 3)
+        +select-allmonths-analityc()
+        +select-stage-analityc('Закон о бюджете (утвержденный)', 1)
+      .analityc-control-group(data-year='2019' data-month='all' data-stage='approved')
         a(href='#').analityc-remove-group
           +icon('delete', true)
-        +select-year-analityc()
-        +select-month-analityc()
-        +select-stage-analityc()
+        +select-year-analityc('2019', 4)
+        +select-allmonths-analityc()
+        +select-stage-analityc('Закон о бюджете (утвержденный)', 1)
       a(href='#').analityc-add-group + Добавить год и этап
+      
+    .analityc-control-frame.analityc-control-frame_left(data-type='g1' data-comparison='overall' data-control)
+      span.analityc-control-frame-title Выберите год и этап
+      .analityc-control-group(data-year='2015' data-month='mar' data-stage='fact')
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        +select-year-analityc('2015', 0)
+        +select-month-analityc('март', 2)
+        +select-stage-analityc('Фактическое исполнение', 0)
+      .analityc-control-group(data-year='2015' data-month='apr' data-stage='fact')
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        +select-year-analityc('2015', 0)
+        +select-month-analityc('апрель', 3)
+        +select-stage-analityc('Фактическое исполнение', 0)
+      .analityc-control-group(data-year='2015' data-month='may' data-stage='fact')
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        +select-year-analityc('2015', 0)
+        +select-month-analityc('май', 4)
+        +select-stage-analityc('Фактическое исполнение', 0)
+      .analityc-control-group(data-year='2015' data-month='jun' data-stage='fact')
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        +select-year-analityc('2015', 0)
+        +select-month-analityc('июнь', 5)
+        +select-stage-analityc('Фактическое исполнение', 0)
+      .analityc-control-group(data-year='2015' data-month='jul' data-stage='fact')
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        +select-year-analityc('2015', 0)
+        +select-month-analityc('июль', 6)
+        +select-stage-analityc('Фактическое исполнение', 0)
+      .analityc-control-group(data-year='2015' data-month='aug' data-stage='fact')
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        +select-year-analityc('2015', 0)
+        +select-month-analityc('август', 6)
+        +select-stage-analityc('Фактическое исполнение', 0)
+      .analityc-control-group(data-year='2015' data-month='all' data-stage='fact')
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        +select-year-analityc('2015', 0)
+        +select-month-analityc('год', 12)
+        +select-stage-analityc('Фактическое исполнение', 0)
+      a(href='#').analityc-add-group + Добавить год и этап
+      
+    .analityc-control-frame.analityc-control-frame_left(data-type='g1, g2, g3' data-comparison='comparative' data-control)
+      span.analityc-control-frame-title Выберите год и этап
+      .analityc-control-group(data-year='2015' data-month='all' data-stage='fact')
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        +select-year-analityc('2015', 0)
+        +select-allmonths-analityc()
+        +select-stage-analityc('Фактическое исполнение', 0)
+      .analityc-control-group(data-year='2016' data-month='all' data-stage='fact')
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        +select-year-analityc('2016', 1)
+        +select-allmonths-analityc()
+        +select-stage-analityc('Фактическое исполнение', 0)
+      .analityc-control-group(data-year='2017' data-month='all' data-stage='approved')
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        +select-year-analityc('2017', 2)
+        +select-allmonths-analityc()
+        +select-stage-analityc('Закон о бюджете (утвержденный)', 1)
+      .analityc-control-group(data-year='2018' data-month='all' data-stage='approved')
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        +select-year-analityc('2018', 3)
+        +select-allmonths-analityc()
+        +select-stage-analityc('Закон о бюджете (утвержденный)', 1)
+      .analityc-control-group(data-year='2019' data-month='all' data-stage='approved')
+        a(href='#').analityc-remove-group
+          +icon('delete', true)
+        +select-year-analityc('2019', 4)
+        +select-allmonths-analityc()
+        +select-stage-analityc('Закон о бюджете (утвержденный)', 1)
+      a(href='#').analityc-add-group + Добавить год и этап
+      
     .analityc-control-frame.analityc-control-frame_right
       .analityc-control-group.analityc-control-group_transfer
         span Межбюджетные трансферты
@@ -710,38 +944,29 @@ mixin analityc-widgethead-gp()
         +selbox('comparison', 'Общий анализ основных видов расходов')._cgroup.analityc-widget__selectbox
           +selbox-opt('overall', 'Общий анализ основных видов расходов', true)
           +selbox-opt('comparative', 'Сравнительный анализ расходов по выбору')
-      .d-smr__add-char(data-control, data-comparison='comparative')
+      .d-smr__add-char.analityc-control-checkboxes(data-control data-comparison='comparative' data-type='all')
         p.d-smr__add-char-label Добавить государственную программу на страницу
         .d-smr__add-char-block
           .d-smr__add-char-list-wrapper
             ul.d-smr__add-char-list.scroll-pane
               li.d-smr__add-char-item
-                input(type='checkbox', name='a', value)#a
+                input(type='checkbox', name='a', value='a', data-name='g1-l1', checked='checked')#a
                 label(for='a') Развитие транспортной системы
               li.d-smr__add-char-item
-                input(type='checkbox', name='b', value)#b
+                input(type='checkbox', name='b', value='b', data-name='g1-l2')#b
                 label(for='b') Социальная поддержка жителей Москвы
               li.d-smr__add-char-item
-                input(type='checkbox', name='c', value)#c
-                label(for='c') Столичное образование
+                input(type='checkbox', name='c', value='c', data-name='g1-l3')#c
+                label(for='c') Столичное здравоохранение
               li.d-smr__add-char-item
-                input(type='checkbox', name='d', value)#d
-                label(for='d') Развитие транспортной системы
+                input(type='checkbox', name='d', value='d', data-name='g1-l4', checked='checked')#d
+                label(for='d') Прочие государственные программы
               li.d-smr__add-char-item
-                input(type='checkbox', name='e', value)#e
-                label(for='e') Социальная поддержка жителей Москвы
+                input(type='checkbox', name='e', value='e', data-name='g1-l5')#e
+                label(for='e') Развитие транспортной системы
               li.d-smr__add-char-item
-                input(type='checkbox', name='f', value)#f
-                label(for='f') Столичное образование
-              li.d-smr__add-char-item
-                input(type='checkbox', name='g', value)#g
-                label(for='g') Развитие транспортной системы
-              li.d-smr__add-char-item
-                input(type='checkbox', name='h', value)#h
-                label(for='h') Социальная поддержка жителей Москвы
-              li.d-smr__add-char-item
-                input(type='checkbox', name='i', value)#i
-                label(for='i') Столичное образование
+                input(type='checkbox', name='f', value='f', data-name='g1-l6')#f
+                label(for='f') Непрограммные направления деятельности
       .analityc-control-group.analityc-control-group_buttons
         .analityc-control-switcher.analityc-control-switcher_xl.active
           a(href="#", data-type='g2').active темп роста к предыдущему периоду, %

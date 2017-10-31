@@ -30,8 +30,9 @@ export default () => {
       controls.removeClass('active');
 	 
       changeBlock(graphics, comparVal, typeVal);
-      changeControl(controls, comparVal);
+      changeControl(controls, comparVal, typeVal);
       graphicBars();
+      graphicLineVertAlt();
     }
     
     function changeBlock(el, comparVal, typeVal) {
@@ -44,10 +45,11 @@ export default () => {
       });
     }
     
-    function changeControl(el, comparVal) {
+    function changeControl(el, comparVal, typeVal) {
       el.each(function(){
         var comparison = $(this).data('comparison');
-        if (comparison == 'all' || comparison.match(comparVal)) {
+        var type = $(this).data('type');
+        if ((type == 'all' || type.match(typeVal)) && (comparison == 'all' || comparison.match(comparVal))) {
           $(this).addClass('active');
         }
       });

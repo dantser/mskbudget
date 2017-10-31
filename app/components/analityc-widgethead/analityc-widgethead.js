@@ -43,9 +43,9 @@ export default () => {
     // Чекбоксы в селекте "Добавить показатель на страницу"
     $(document).on('change', '.d-smr__add-char-item input', function(){
       if (this.checked) {
-        $(this).next().next().find('input').prop('checked', true);
+        $(this).next().next().find('input').prop('checked', true).change();
       } else {
-        $(this).next().next().find('input').prop('checked', false);
+        $(this).next().next().find('input').prop('checked', false).change();
       }
     });
     
@@ -55,13 +55,17 @@ export default () => {
     // Добавить год и этап
     $(document).on('click', '.analityc-add-group', function(e){
       e.preventDefault();
-      $(this).siblings('.analityc-control-group').first().clone().insertBefore($(this));
+      $(this).siblings('.analityc-control-group').not(':visible').first().show();
+      $('.analityc-remove-group').show();
     });
     
     // Удалить год и этап
     $(document).on('click', '.analityc-remove-group', function(e){
       e.preventDefault();
-      if ($(this).parent().siblings('.analityc-control-group').length) $(this).parent().remove();
+      $(this).parent().hide();
+      if ($(this).parent().siblings('.analityc-control-group:visible').length == 1) {
+        $('.analityc-remove-group').hide();
+      }
     });
   
   }
