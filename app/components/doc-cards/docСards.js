@@ -16,11 +16,10 @@ export default function docCards() {
       const DIRNAMETEXT = $(this).find('.directory__title').text();
       $('.section-tabs__current-dir').text(DIRNAMETEXT);
       $('.tile__item').addClass('hidden');
-      console.log(DIRNAME);
       $('.documents-cards__document[data-directory="'+DIRNAME+'"]').each(function(){
         $(this).parents('.tile__item').removeClass('hidden');
-        slider('.section-tabs_documents');
       });
+      slider('.section-tabs_documents');
       NAV.show();
     })
   });
@@ -32,8 +31,8 @@ export default function docCards() {
     $('.tile__item').removeClass('hidden');
     $('.documents-cards__document[data-directory]').each(function(){
       $(this).parents('.tile__item').addClass('hidden');
-      slider('.section-tabs_documents');
     });
+    slider('.section-tabs_documents');
   })
 
   FAVOR.each( function() {
@@ -55,7 +54,15 @@ export default function docCards() {
     const slideWidth = parent.find('.tile__item').outerWidth(true);
     const wrapperWidth = slideCnt * slideWidth;
 
-    parent.find('.section-tabs__content').css('width', wrapperWidth+'px')
+    parent.find('.section-tabs__content').css('width', wrapperWidth+'px');
+    
+    var holderWidth = parent.find('.dd-holder').width();
+    
+    if (wrapperWidth <= holderWidth) {
+      parent.find($('.owl-nav')).hide();
+    } else {
+      parent.find($('.owl-nav')).show();
+    }
   };
 
   $('.section-tabs__card[data-directory]').each(function(){
