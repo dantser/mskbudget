@@ -13,7 +13,7 @@ mixin analytics-gov-debt()
     .wrapper.wrapper_widget.wrapper_analytics-gov-debt
       +e.analityc-widget.analityc-widget.load-anim-fade(data-delay="1500")
         +analityc-widgethead-analytics-govdebt().__analityc-widgethead
-        +e.graphics.active(data-type='rate')
+        +e.graphics.active(data-type='rate' data-comparison='none')
           +e.graphics-container
             +slide-arrows().__slide-arrows._graphics
             +e.graphics-scroll-hider
@@ -21,7 +21,7 @@ mixin analytics-gov-debt()
                 +analityc-graphics-analytics-gov-debt-line()(data-name='g1-l3')
                 +analityc-graphics-bars(getData('analytics-govdebt')).__analityc-graphics-bars
           +legend-icon-analytics-gov-debt()
-        +e.graphics(data-type='percentage')
+        +e.graphics(data-type='percentage' data-comparison='none')
           +e.graphics-container
             +slide-arrows().__slide-arrows._graphics
             +e.graphics-scroll-hider

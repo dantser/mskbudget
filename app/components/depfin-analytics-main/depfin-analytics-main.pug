@@ -14,9 +14,19 @@ mixin depfin-analytics-main()
     .wrapper
       .analityc-widget.analityc-widget_params.load-anim-fade(data-delay="1500")
         +analityc-widgethead-main()
-        +analityc-graphics-line-vertical(getData('graphic-lines-main'))._params
-        +analityc-graphics-line-vertical_slider(getData('graphic-lines-main'))
-        +analityc-graphics-classic(getData('graphic-classic'))
+        .analityc-graphics(data-type='line' data-comparison='none').active
+          .analityc-graphics-container.analityc-graphics-container_vert-lines
+            +slide-arrows().analityc-graphics__slide-arrows
+            .analityc-graphics-scroll-hider
+              .analityc-graphics-wrapper(data-offset='100')
+                +analityc-graphics-line-vertical(getData('graphic-lines-main'))._params
+        //+analityc-graphics-line-vertical_slider(getData('graphic-lines-main'))
+        .analityc-graphics(data-type='classic' data-comparison='none')
+          .analityc-graphics-container.analityc-graphics-container_classic
+            +slide-arrows().analityc-graphics__slide-arrows
+            .analityc-graphics-scroll-hider
+              .analityc-graphics-wrapper(data-offset='100')
+                +analityc-graphics-classic(getData('graphic-classic'))
         +analityc-table-slider(100)._params
           +table-main(getData('main'))
         a(href="/").analityc-more Перейти в&nbsp;раздел бюджет москвы

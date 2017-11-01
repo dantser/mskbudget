@@ -1207,7 +1207,7 @@ mixin analityc-graphics-line-vertical(data, isWide)
   +b.analityc-graphics-line-vertical&attributes(attributes)
 
     each item in data
-      +e.graphic
+      +e.graphic(data-year=item.yearval data-month='none' data-stage=item.stage)
         +e.lines
 
           if isWide
@@ -1335,7 +1335,7 @@ mixin analityc-graphics-line-vertical-alt(data)
   +b.analityc-graphics-line-vertical._alt&attributes(attributes)
 
     each item in data
-      +e.graphic
+      +e.graphic(data-year=item.yearval data-month=item.month data-stage=item.stage)
         +e.lines
 
           +e.line._red(data-name=item.names[0])
@@ -1422,27 +1422,27 @@ mixin analityc-graphics-line-gorizontal(data)
 
 
 mixin analityc-graphics-classic(data)
-  .analityc-table._gr-classic
+  //.analityc-table._gr-classic
     +slide-arrows().__slide-arrows
     +b.analityc-graphics-classic.analityc-table__wrapper(data-offset='100')&attributes(attributes)
-      +e.wrapper
-        +e.clipper
-          +e.part._lines
-            each item in data
-              +e.item
-                +e.item-wrapper._income(data-val=item.income)
-                  +e.val= item.income + '%'
-                  +e.line
-                +e.item-wrapper._expenses(data-val=item.expenses) 
-                  +e.val= item.expenses + '%'
-                  +e.line
-
-        +e.part._captions
-          each year in data
-            +e.item 
-              +e.item-wrapper-bottom
-                +e.val= year.year
-                +e.stage= year.stage
+  +b.analityc-graphics-classic&attributes(attributes)
+    +e.wrapper
+      +e.clipper
+        +e.part._lines
+          each item in data
+            +e.item(data-year=item.yearval data-month='none' data-stage=item.stageval)
+              +e.item-wrapper._income(data-val=item.income)
+                +e.val= item.income + '%'
+                +e.line
+              +e.item-wrapper._expenses(data-val=item.expenses) 
+                +e.val= item.expenses + '%'
+                +e.line
+      +e.part._captions
+        each year in data
+          +e.item(data-year=year.yearval data-month='none' data-stage=year.stageval)
+            +e.item-wrapper-bottom
+              +e.val= year.year
+              +e.stage= year.stage
 
 mixin analityc-graphics-custom1()
   +b.analityc-graphics-custom&attributes(attributes)
@@ -1456,7 +1456,7 @@ mixin analityc-graphics-bars(data)
   +b.analityc-graphics-bars&attributes(attributes)
 
     each item in data
-      +e.graphic
+      +e.graphic(data-year=item.yearval data-month=item.month data-stage=item.stage)
         +e.lines
           +e.line
             +e.line-bar-value= item.value
@@ -1464,8 +1464,7 @@ mixin analityc-graphics-bars(data)
             - for (var i = item.bars.length - 1; i > -1; i--)
               +e.line-fill(class='_'+item.bars[i].color+'', data-height=item.bars[i].height, data-name=item.bars[i].name)
                 +e.val= item.bars[i].barvalue
-                if item.bars[i].rateline
-                  +e.rate-line
+                +e.rate-line
                 
           if item.changes
             if item.changes[2]
@@ -1485,7 +1484,7 @@ mixin analityc-graphics-bars-alt(data)
   +b.analityc-graphics-bars&attributes(attributes)
 
     each item in data
-      +e.graphic
+      +e.graphic(data-year=item.yearval data-month=item.month data-stage=item.stage data-rate=item.rate)
         +e.lines
           +e.line
           
@@ -1529,7 +1528,7 @@ mixin growth-rate(minrate, maxrate, height)
     block
     
 mixin growth-rate-col(level, text, last)
-  +e.col
+  +e.col&attributes(attributes)
     +e.P.level(data-rate-level=level)= text
       if !last
         +e.line
@@ -1848,8 +1847,8 @@ mixin analityc-graphics-forecast-industry()
 mixin analityc-graphics-analytics-gov-debt-line()
   +b.analityc-graphics-broken-line&attributes(attributes)
     +growth-rate(8, 15, 70)._grey._points.__growth-rate
-      +growth-rate-col('10.0', '10,0%')
-      +growth-rate-col('12.0', '12,0%')
-      +growth-rate-col('15.0', '15,0%')
-      +growth-rate-col('10.0', '10,0%')
-      +growth-rate-col('8.0', '8,0%', true)
+      +growth-rate-col('10.0', '10,0%')(data-year='2015' data-month='jan' data-stage='none')
+      +growth-rate-col('12.0', '12,0%')(data-year='2016' data-month='jan' data-stage='none')
+      +growth-rate-col('15.0', '15,0%')(data-year='2017' data-month='jan' data-stage='none')
+      +growth-rate-col('10.0', '10,0%')(data-year='2018' data-month='jan' data-stage='none')
+      +growth-rate-col('8.0', '8,0%', true)(data-year='2019' data-month='jan' data-stage='none')

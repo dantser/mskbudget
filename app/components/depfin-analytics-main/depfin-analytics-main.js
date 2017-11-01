@@ -23,26 +23,30 @@ export default() => {
 
 		$(this).addClass('active');
 
-		$('.analityc-widget_params .analityc-graphics-line-vertical').hide();
+		//$('.analityc-widget_params .analityc-graphics-line-vertical').hide();
+		$('.analityc-widget_params .analityc-graphics').removeClass('active');
 
 		if ($(this).attr('data-type') == 'line') {
-			if ($(document).width() <= 900) {
-				GRAPHICLINE_SLIDER.show();
-				GRAPHICLINE_ARRNEXT.removeClass('disable');
-				GRAPHICLINE_ARRPREV.removeClass('disable');
-			}
-			else {
-				GRAPHICLINE.show();
-			}
-			GRAPHICCLASSIC.hide();
+			//if ($(document).width() <= 900) {
+			//	GRAPHICLINE_SLIDER.show();
+			//	GRAPHICLINE_ARRNEXT.removeClass('disable');
+			//	GRAPHICLINE_ARRPREV.removeClass('disable');
+			//}
+			//else {
+			//	GRAPHICLINE.show();
+			//}
+			//GRAPHICCLASSIC.hide();
+			$('.analityc-widget_params .analityc-graphics[data-type="line"]').addClass('active');
 			LEGEND.children('.legend__item_green').show();
 		}
 		if ($(this).attr('data-type') == 'classic') {
-			GRAPHICLINE_ARRNEXT.addClass('disable');
-			GRAPHICLINE_ARRPREV.addClass('disable');
-			GRAPHICCLASSIC.show();
-			grClassic();
+			//GRAPHICLINE_ARRNEXT.addClass('disable');
+			//GRAPHICLINE_ARRPREV.addClass('disable');
+			//GRAPHICCLASSIC.show();
+			//grClassic();
+			$('.analityc-widget_params .analityc-graphics[data-type="classic"]').addClass('active');
 			LEGEND.children('.legend__item_green').hide();
+			grClassic();
 		}
 
   	// обновление графиков при отрисовке (массив window.grLineVert)
@@ -54,7 +58,7 @@ export default() => {
 
 	});
 
-	function grClassic() {
+	window.grClassic = function() {
 		
 		if ($('.analityc-graphics-classic').length == 0)
 			return
@@ -64,15 +68,30 @@ export default() => {
 		const clipper = gr.find('.analityc-graphics-classic__clipper');
 		const lines = gr.find('.analityc-graphics-classic__part_lines');
 		const linesH = lines.height();
-		const items = lines.find('.analityc-graphics-classic__item');	
+		const items = lines.find('.analityc-graphics-classic__item:visible');	
 		var itemsCnt = items.length;
 		var lineW = wrapper.width() / (itemsCnt - 1.0);
 		// высшая/низшая точка графика (для вычисления высоты графика)
 		var grHigherPoint = gr.find('.analityc-graphics-classic__item-wrapper').eq(0); 
 		var grLowerPoint = gr.find('.analityc-graphics-classic__item-wrapper').eq(0);
-
+		var visibleLineItem = gr.find('.analityc-graphics-classic__part_lines .analityc-graphics-classic__item:visible');
+		var visibleCaptItem = gr.find('.analityc-graphics-classic__part_captions .analityc-graphics-classic__item:visible');
+		
+		visibleLineItem.removeClass('analityc-graphics-classic__item_first analityc-graphics-classic__item_last analityc-graphics-classic__item_single');
+		visibleCaptItem.removeClass('analityc-graphics-classic__item_first analityc-graphics-classic__item_last analityc-graphics-classic__item_single');
+		
+		if (visibleCaptItem.length > 1 && visibleLineItem.length > 1) {
+			visibleLineItem.first().addClass('analityc-graphics-classic__item_first');
+			visibleCaptItem.first().addClass('analityc-graphics-classic__item_first');
+			visibleLineItem.last().addClass('analityc-graphics-classic__item_last');
+			visibleCaptItem.last().addClass('analityc-graphics-classic__item_last');
+		} else {
+			visibleLineItem.addClass('analityc-graphics-classic__item_single');
+			visibleCaptItem.addClass('analityc-graphics-classic__item_single');
+		}
+		
 		items.each(function() {
-			var itemNext = $(this).next(this),
+			var itemNext = $(this).nextAll(':visible').first(),
 					val1next = itemNext.find('.analityc-graphics-classic__item-wrapper_income').data('val'),
 					val2next = itemNext.find('.analityc-graphics-classic__item-wrapper_expenses').data('val');
 
@@ -112,6 +131,9 @@ export default() => {
 
 			line1.css('transform', 'rotate('+angle1+'deg)');
 			line2.css('transform', 'rotate('+angle2+'deg)');
+			
+			item1.find('.analityc-graphics-classic__val').removeClass('analityc-graphics-classic__val_pos analityc-graphics-classic__val_neg');
+			item2.find('.analityc-graphics-classic__val').removeClass('analityc-graphics-classic__val_pos analityc-graphics-classic__val_neg');
 			
 			if (val1 > val2) {
 				item1.find('.analityc-graphics-classic__val').addClass('analityc-graphics-classic__val_pos');

@@ -99,6 +99,10 @@ export default () => {
         var isColumns = false;
         if (graphic.hasClass('growth-rate_columns')) isColumns = true;
         var coef = graphicHeight / fullRate;
+        var visiblegraphCol = graphic.find('.growth-rate__col:visible');
+        
+        visiblegraphCol.removeClass('growth-rate__col_last');
+        visiblegraphCol.last().addClass('growth-rate__col_last');
         
         graphic.height(graphicHeight);
         
@@ -110,21 +114,29 @@ export default () => {
   
         graphic.find('.growth-rate__line').each(function(){
           var rateCol = $(this).parents('.growth-rate__col');
-          var startPoint = $(this).parent().css('top');
-          var endPoint = rateCol.next().children().css('top');
-          startPoint = parseFloat(startPoint);
-          endPoint = parseFloat(endPoint);
-          var pointDiffX = rateCol.next().offset().left - rateCol.offset().left;
-          var pointDiffY = endPoint - startPoint;
-          if (isColumns) {
-            pointDiffX -= rateCol.width();
+          
+          if (rateCol.nextAll(':visible').length) {
+            var startPoint = $(this).parent().css('top');
+            var endPoint = rateCol.nextAll(':visible').first().children().css('top');
+            startPoint = parseFloat(startPoint);
+            endPoint = parseFloat(endPoint);
+            var pointDiffX = rateCol.nextAll(':visible').first().offset().left - rateCol.offset().left;
+            var pointDiffY = endPoint - startPoint;
+            if (isColumns) {
+              pointDiffX -= rateCol.width();
+            }
+            var lineWidth = Math.sqrt(pointDiffX * pointDiffX + pointDiffY * pointDiffY) + 1.5;
+            var angle = Math.atan(pointDiffY/pointDiffX);
+            angle = angle*180/Math.PI;
+            $(this).css('width', lineWidth+'px');
+            $(this).css('transform', 'rotate('+angle+'deg)');
           }
-          var lineWidth = Math.sqrt(pointDiffX * pointDiffX + pointDiffY * pointDiffY);
-          var angle = Math.atan(pointDiffY/pointDiffX);
-          angle = angle*180/Math.PI;
-          $(this).css('width', lineWidth+'px');
-          $(this).css('transform', 'rotate('+angle+'deg)');
+          
         });
+        
+        if (visiblegraphCol.length == 1) {
+          $(this).find('.growth-rate__line').show().width(3);
+        }
       });
     }
   }
@@ -213,11 +225,15 @@ export default () => {
           fill = $(this).find('.analityc-graphics-bars__line-fill'),
           rateLine = $(this).find('.analityc-graphics-bars__rate-line'),
           barVal = $(this).find('.analityc-graphics-bars__val'),
-          changes = $(this).find('.analityc-graphics-bars__changes');
+          changes = $(this).find('.analityc-graphics-bars__changes'),
+          visibleGraphic = $(this).find('.analityc-graphics-bars__graphic:visible');
       
       $(this).find('.analityc-graphics-bars__line-fill-area').parent().addClass('analityc-graphics-bars__line_area');
       
       var fillAreaLine = $(this).find('.analityc-graphics-bars__line_area');
+      
+      visibleGraphic.removeClass('analityc-graphics-bars__graphic_last');
+      visibleGraphic.last().addClass('analityc-graphics-bars__graphic_last');
       
       fill.each(function(){
         var dheight = $(this).data('height');
@@ -232,23 +248,28 @@ export default () => {
             lineFill = '.analityc-graphics-bars__line-fill',
             curLineFill = $(this).parents(lineFill),
             curLineFillName = curLineFill.data('name'),
-            nextLineFill = $(this).parents(barGraphic).next().find(lineFill+'[data-name="'+curLineFillName+'"]'),
-            startPoint = curLineFill.offset().top,
-            endPoint = nextLineFill.offset().top;
-            
-        startPoint = parseInt(startPoint);
-        endPoint = parseInt(endPoint);
+            nextLineFill = $(this).parents(barGraphic).nextAll(':visible').first().find(lineFill+'[data-name="'+curLineFillName+'"]');
         
-        var pointDiffX = nextLineFill.offset().left - curLineFill.offset().left;
-        var pointDiffY = endPoint - startPoint;
-        
-        pointDiffX -= curLineFill.width();
-        
-        var lineWidth = Math.sqrt(pointDiffX * pointDiffX + pointDiffY * pointDiffY);
-        var angle = Math.atan(pointDiffY/pointDiffX);
-        angle = angle*180/Math.PI;
-        $(this).css('width', lineWidth+'px');
-        $(this).css('transform', 'rotate('+angle+'deg)');
+        if (nextLineFill.length) {
+          var startPoint = curLineFill.offset().top,
+              endPoint = nextLineFill.offset().top;
+          
+          startPoint = parseInt(startPoint);
+          endPoint = parseInt(endPoint);
+          
+          var pointDiffX = nextLineFill.offset().left - curLineFill.offset().left;
+          var pointDiffY = endPoint - startPoint;
+          
+          pointDiffX -= curLineFill.width();
+          
+          var lineWidth = Math.sqrt(pointDiffX * pointDiffX + pointDiffY * pointDiffY);
+          var angle = Math.atan(pointDiffY/pointDiffX);
+          angle = angle*180/Math.PI;
+          $(this).css('width', lineWidth+'px');
+          $(this).css('transform', 'rotate('+angle+'deg)');
+        } else {
+          $(this).css('width', 0);
+        }
       });
       
       fillAreaLine.each(function(){
@@ -261,35 +282,38 @@ export default () => {
           var barGraphic = '.analityc-graphics-bars__graphic',
               lineFill = '.analityc-graphics-bars__line-fill',
               fillAreaName = fillArea.eq(i).data('name'),
-              prevLineFill = $(this).parents(barGraphic).prev().find(lineFill+'[data-name="'+fillAreaName+'"]'),
-              nextLineFill = $(this).parents(barGraphic).next().find(lineFill+'[data-name="'+fillAreaName+'"]'),
-              prevLineFillHeight = prevLineFill.height(),
-              nextLineFillHeight = nextLineFill.height(),
-              maxLineFillHeight;
+              prevLineFill = $(this).parents(barGraphic).prevAll(':visible').first().find(lineFill+'[data-name="'+fillAreaName+'"]'),
+              nextLineFill = $(this).parents(barGraphic).nextAll(':visible').first().find(lineFill+'[data-name="'+fillAreaName+'"]')
           
-          if (nextLineFillHeight >= prevLineFillHeight) {
-            maxLineFillHeight = nextLineFillHeight;
-          } else {
-            maxLineFillHeight = prevLineFillHeight;
+          if (nextLineFill.length) {
+            var prevLineFillHeight = prevLineFill.height(),
+                nextLineFillHeight = nextLineFill.height(),
+                maxLineFillHeight;
+            
+            if (nextLineFillHeight >= prevLineFillHeight) {
+              maxLineFillHeight = nextLineFillHeight;
+            } else {
+              maxLineFillHeight = prevLineFillHeight;
+            }
+            
+            fillArea.eq(i).height(maxLineFillHeight);
+            
+            var startPoint = prevLineFill.offset().top,
+                endPoint = nextLineFill.offset().top,
+                pointDiff = endPoint - startPoint,
+                heightDiff = nextLineFillHeight - prevLineFillHeight,
+                areaWidth = $(this).width(),
+                angle = Math.atan(pointDiff/areaWidth);
+            
+            if (heightDiff < 0) {
+              tranPoint += heightDiff * -1;
+            }
+            
+            angle = angle*180/Math.PI;
+            fillArea.eq(i).css('top', tranPoint+'px');
+            fillArea.eq(i).find(lineFill).css('transform', 'skewY('+angle+'deg)');
+            fillArea.eq(i).find(lineFill).next().css('transform', 'translateY('+(pointDiff/2 * -1)+'px)');
           }
-          
-          fillArea.eq(i).height(maxLineFillHeight);
-          
-          var startPoint = prevLineFill.offset().top,
-              endPoint = nextLineFill.offset().top,
-              pointDiff = endPoint - startPoint,
-              heightDiff = nextLineFillHeight - prevLineFillHeight,
-              areaWidth = $(this).width(),
-              angle = Math.atan(pointDiff/areaWidth);
-          
-          if (heightDiff < 0) {
-            tranPoint += heightDiff * -1;
-          }
-          
-          angle = angle*180/Math.PI;
-          fillArea.eq(i).css('transform', 'translateY('+tranPoint+'px)');
-          fillArea.eq(i).find(lineFill).css('transform', 'skewY('+angle+'deg)');
-          fillArea.eq(i).find(lineFill).next().css('transform', 'translateY('+(pointDiff/2 * -1)+'px)');
         }
       });
       
@@ -302,13 +326,16 @@ export default () => {
         $(this).removeClass('analityc-graphics-bars__val_out');
         var barValHeight = $(this).outerHeight(),
             barHeight = $(this).parent().height();
+        if ($(this).parents('.analityc-graphics-bars__line-fill-area').length) {
+          barHeight -= 10;
+        }
         if (barValHeight >= barHeight) $(this).addClass('analityc-graphics-bars__val_out');
       });
       
       changes.each(function(){
         var graphic = $(this).parents('.analityc-graphics-bars__graphic'),
             firstLineHeight = graphic.find('.analityc-graphics-bars__lines').height(),
-            lastLineHeight = graphic.next().find('.analityc-graphics-bars__lines').height(),
+            lastLineHeight = graphic.nextAll(':visible').first().find('.analityc-graphics-bars__lines').height(),
             averageLineHeight;
         
         if (lastLineHeight >= firstLineHeight) {
@@ -319,12 +346,6 @@ export default () => {
         
         if ($(this).parents('.analityc-graphics-bars').hasClass('analityc-graphics-bars_singlebar')) {
           averageLineHeight += 20;
-        }
-        
-        if (graphic.next().find('[data-name]:visible').length < 1) {
-          $(this).hide();
-        } else {
-          $(this).show();
         }
         
         $(this).css('bottom', averageLineHeight+'px');
@@ -507,14 +528,25 @@ export default () => {
   
   
   
-  // Графики analityc-graphics-line-vertical-alt
-  if ($('.analityc-graphics-line-vertical_alt').length) {
-    graphicLineVertAlt();
+  //analityc-graphics-line-vertical()
+  function grLineVertParams() {
+    $('.analityc-graphics-line-vertical_params').each(function(){
+      var visibleGraphic = $(this).find('.analityc-graphics-line-vertical__graphic:visible');
+      visibleGraphic.removeClass('analityc-graphics-line-vertical__graphic_last');
+      visibleGraphic.last().addClass('analityc-graphics-line-vertical__graphic_last');
+    });
   }
   
-  function graphicLineVertAlt() {
+  if ($('.analityc-graphics-line-vertical_params').length) {
+    grLineVertParams();
+  }
+  
+  // Графики analityc-graphics-line-vertical-alt
+  window.graphicLineVertAlt = function() {
     $('.analityc-graphics-line-vertical_alt').each(function(){
-      var line = $(this).find('.analityc-graphics-line-vertical__line');
+      var line = $(this).find('.analityc-graphics-line-vertical__line'),
+          visibleGraphic = $(this).find('.analityc-graphics-line-vertical__graphic:visible');
+      
       line.each(function(){
         var barValue = $(this).find('.analityc-graphics-line-vertical__line-bar-value'),
             lineFill = $(this).find('.analityc-graphics-line-vertical__line-fill'),
@@ -522,7 +554,14 @@ export default () => {
         barValue.css('bottom', value + '%');
         lineFill.css('height', value + '%');
       });
+      
+      visibleGraphic.removeClass('analityc-graphics-line-vertical__graphic_last');
+      visibleGraphic.last().addClass('analityc-graphics-line-vertical__graphic_last');
     });
+  }
+  
+  if ($('.analityc-graphics-line-vertical_alt').length) {
+    graphicLineVertAlt();
   }
   
   
@@ -555,6 +594,21 @@ export default () => {
       }
       
     });
+    
+    $('.analityc-control-checkboxes .d-smr__add-char-item').each(function(){
+      var checkBox = $(this).find('input[data-name]'),
+          checkStatus = checkBox.is(':checked'),
+          name = checkBox.data('name'),
+          graphic = $(this).parents('.analityc-widgethead').siblings('.analityc-widget-income[data-comparison="comparative"], .analityc-graphics[data-comparison="comparative"]').find('.analityc-graphics-container'),
+          legend = graphic.next('.legend_basket');
+      if (checkStatus == true) {
+        graphic.find('[data-name="'+name+'"]').show();
+        legend.find('[data-name="'+name+'"]').show();
+      } else {
+        graphic.find('[data-name="'+name+'"]').hide();
+        legend.find('[data-name="'+name+'"]').hide();
+      }
+    });
   }
   
   if ($('.legend_checkbox').length) {
@@ -574,14 +628,59 @@ export default () => {
     });
   }
   
-  $(document).on('click', '.legend_basket .legend__remove', function(){
-    if ($(this).parents('.legend__item').siblings(':visible').length) {
-      var name = $(this).data('name'),
-          graphic = $(this).parents('.legend').siblings('.analityc-graphics-container');
-      graphic.find('[data-name="'+name+'"]').hide();    
-      $(this).parents('.legend__item').hide();
+  if ($('.analityc-control-checkboxes').length) {
+    checkLegendBoxes();
+    $(document).on('change', '.analityc-control-checkboxes input[data-name]', function(){
+      checkLegendBoxes();
       graphicBars();
-    }
+    });
+  }
+  
+  $(document).on('click', '.legend_basket .legend__remove', function(){
+    var name = $(this).parents('.legend__item').data('name'),
+        checkboxes = $(this).parents('.analityc-widget-income, .analityc-graphics').siblings('.analityc-widgethead').find('.analityc-control-checkboxes');
+    checkboxes.find('[data-name="'+name+'"]').prop('checked', false).change();
+  });
+  
+  
+  
+  // Отображение графиков при добавлении/удалении года/этапа
+  $(document).on('click', '.analityc-add-group, .analityc-remove-group', function(e){
+    var cgroup = $(this).parents('.analityc-control-frame_left').find('.analityc-control-group');
+    
+    cgroup.each(function(){
+      var year = $(this).data('year'),
+          month = $(this).data('month'),
+          stage = $(this).data('stage'),
+		  type = $(this).parents('[data-type]').data('type'),
+		  comparison = $(this).parents('[data-comparison]').data('comparison');
+		
+      if ($(this).is(':visible')) {
+        $('.analityc-widget-income, .analityc-graphics, .analytics-gov-debt__graphics').each(function(){
+          var gtype = $(this).data('type'),
+			  gcomparison = $(this).data('comparison');
+          if (type.match(gtype) && comparison.match(gcomparison)) {
+            console.log('ttt');
+            $(this).find('[data-year="'+year+'"][data-month="'+month+'"][data-stage="'+stage+'"]').show().prev('[data-rate]').show();
+          }
+        });
+      } else {
+        $('.analityc-widget-income, .analityc-graphics, .analytics-gov-debt__graphics').each(function(){
+          var gtype = $(this).data('type'),
+			  gcomparison = $(this).data('comparison');
+          if (type.match(gtype) && comparison.match(gcomparison)) {
+            console.log('fff');
+            $(this).find('[data-year="'+year+'"][data-month="'+month+'"][data-stage="'+stage+'"]').hide().prev('[data-rate]').hide();
+          }
+        });
+      }
+    });
+    
+    graphicBars();
+    graphicLineVertAlt();
+    rateLine();
+    grLineVertParams();
+    grClassic();
   });
   
   

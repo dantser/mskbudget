@@ -21,15 +21,15 @@ mixin legend-basket(data)
   +b.legend._basket&attributes(attributes)
     each obj in data
       if obj.icon
-        +e.P(class="__item_icon _"+obj.color+"")
+        +e.P(class="__item_icon _"+obj.color+"", data-name=obj.name)
           +e.icon(class="_"+obj.color+"")
           span= obj.title
-            +e.A(href="#", data-name=obj.name).remove
+            +e.A(href="#").remove
               +icon('basket').remove-icon
       else
-        +e.P(class="__item_"+obj.color+"")
+        +e.P(class="__item_"+obj.color+"", data-name=obj.name)
           span= obj.title
-            +e.A(href="#", data-name=obj.name).remove
+            +e.A(href="#").remove
               +icon('basket').remove-icon
       
 mixin legend-icon()
