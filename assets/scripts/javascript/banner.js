@@ -2,7 +2,8 @@
 
 	$(document).ready(function() {
 
-		$('.banner__title').each(function() {
+		//$('.banner__title').each(function() {
+		$('.banner__title_b').each(function() {
 			var _ = $(this),
 			txt = _.text(),
 			words = txt.split(' '),
@@ -34,7 +35,7 @@
 			}
 		});
 
-		$('.banner__title_b').each(function() {
+		/*$('.banner__title_b').each(function() {
 			var _ = $(this),
 			txt = _.text(),
 			words = txt.split(' '),
@@ -94,7 +95,7 @@
 				_.append('<span class="banner__row banner__row_v10 load-anim-fade" data-delay="900">'+ snt +'</span>');
 			}
 
-		});
+		});*/
 
 	});
 
