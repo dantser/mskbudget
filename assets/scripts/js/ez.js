@@ -632,7 +632,27 @@ function tabsLine() {
     }, 500)
 
     sectionTabs.find($('.section-tabs__nav')).slideToggle();
-    sectionTabs.find($('.owl-nav')).toggle();
+    
+    var holder = sectionTabs.find('.dd-holder'),
+        holderWidth = holder.width(),
+        itemsWidth = 0;
+    
+    holder.children().each(function(){
+      var width = $(this).outerWidth(true);
+      itemsWidth += width;
+    });
+    
+    if ($(this).hasClass('js-label-button-closed')) {
+      if (itemsWidth <= holderWidth) {
+        sectionTabs.find($('.owl-nav')).hide();
+      } else {
+        sectionTabs.find($('.owl-nav')).show();
+      }
+    } else {
+      sectionTabs.find($('.owl-nav')).hide();
+    }
+    
+    //sectionTabs.find($('.owl-nav')).toggle();
 
     $(this).toggleClass('js-label-button-closed');
     sectionTabs.toggleClass('active');
