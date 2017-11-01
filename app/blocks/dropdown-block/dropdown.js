@@ -20,7 +20,17 @@ export default () => {
     //parent.find('.tile__item').attr('style', 'width: '+slideWidth+'px !important');
     const wrapperWidth = slideCnt * slideWidth;
 
-    parent.find('.section-tabs__content').css('width', wrapperWidth+'px')
+    parent.find('.section-tabs__content').css('width', wrapperWidth+'px');
+    
+    if (parent.find('.dd-holder').is(':visible')) {
+      var holderWidth = parent.find('.dd-holder').width();
+      
+      if (wrapperWidth <= holderWidth) {
+        parent.find($('.owl-nav')).hide();
+      } else {
+        parent.find($('.owl-nav')).show();
+      }
+    }
   }
 
   slider('.section-tabs_documents');
