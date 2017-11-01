@@ -95,7 +95,7 @@ export default function selectbox() {
   
   
   
-  $(document).on('click', '.selectbox li', function (e) {
+  /*$(document).on('click', '.selectbox li', function (e) {
     
     if ($(this).hasClass('locked')) {
       e.stopPropagation();
@@ -159,5 +159,14 @@ export default function selectbox() {
   
   $(document).on('click', 'html, body', function(){
     $('.selectbox').removeClass('active');
+  });*/
+  
+  
+  
+  $(document).on('click', '.selectbox li', function (e) {
+    if (!$(this).hasClass('locked')) {
+      $(this).parents('.selectbox').find('select').change();
+    }
   });
+  
 }
