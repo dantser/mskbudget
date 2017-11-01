@@ -103,6 +103,8 @@ export default function selectbox() {
       var newval = $(this).data('val');
       $(this).parents('.selectbox').find('select').val(newval).change();
       var inputval = $(this).parents('.selectbox').find('select option[value="'+newval+'"]').text();
+      $(this).parents('.selectbox').find('select option').removeAttr('selected');
+      $(this).parents('.selectbox').find('select option[value="'+newval+'"]').attr('selected', 'selected');
       $(this).parents('.selectbox').find('input').val(inputval);
       $(this).parents('.selectbox').find('.selectbox__val').text(inputval);
       
