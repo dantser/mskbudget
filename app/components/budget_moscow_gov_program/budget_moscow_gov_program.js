@@ -147,7 +147,7 @@ export default () => {
 						$(this).find('.analityc-line__line-total').addClass('analityc-line__line-total_negative');
 				}
 				else {
-					if ($this.hasClass('.analityc-widget-moscow-gov-program_exec'))
+					if ($this.hasClass('.analityc-widget-moscow-gov-program_date'))
 						var sum = barNum;
 					else
 						var sum = num + barNum;
