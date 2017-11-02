@@ -6,7 +6,7 @@ export default () => {
     
     $('.drop-table__drop-content').hide();
     
-    $('.drop-table__drop-text').click(function(e){
+    $('body').on('click','.drop-table__drop-text', function(e){
       e.preventDefault();
       if ($(this).parents('.drop-table__row').hasClass('active')) {
         $(this).parents('.drop-table__row').removeClass('active');
