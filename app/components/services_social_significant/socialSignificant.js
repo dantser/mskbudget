@@ -76,6 +76,7 @@ export default () => {
       smallCoord = $(this).attr('value');
 
   		SEARCH.hide();
+      $('.significant__buttons-set').hide();
   		TABS.each(function() {
   			if ($(this).data('tab-target') == 'significantThree')
   				$(this).addClass('active');
@@ -99,31 +100,33 @@ export default () => {
         suppressMapOpenBlock: true
       }),
           
-          // Создадим кластеризатор, вызвав функцию-конструктор.
-          clusterer = new maps.Clusterer({
-            preset: 'islands#blueClusterIcons',
-            groupByCoordinates: false
-          }),
-          
-          // Функция возвращает объект, содержащий данные метки.
-          getPointData = function (index) {
-            var pointText = $('.significant-list_map .significant-list__row-title').eq(index).text(),
-                pointHref = $('.significant-list_map .significant-list__row-title').eq(index).attr('href');
-            return {
-              balloonContentBody: '<p>'+pointText+'</p>',
-              balloonContentFooter: '<a href="'+pointHref+'">Подробнее</a>'
-            };
-          },
-          
-          // Функция возвращает объект, содержащий опции метки.
-          getPointOptions = function () {
-            return {
-              preset: 'islands#blueIcon'
-            };
-          },
-          
-          points = [],
-          geoObjects = [];
+      // Создадим кластеризатор, вызвав функцию-конструктор.
+      clusterer = new maps.Clusterer({
+        preset: 'islands#blueClusterIcons',
+        groupByCoordinates: false
+      }),
+      
+      // Функция возвращает объект, содержащий данные метки.
+      getPointData = function (index) {
+        var pointText = $('.significant-list_map .significant-list__row-title').eq(index).text(),
+            pointHref = $('.significant-list_map .significant-list__row-title').eq(index).attr('href'),
+            pointStreet = $('.significant-list_map .significant-list__row-st').eq(index).text(),
+            pointDate = $('.significant-list_map .significant-list__row-date').eq(index).text();
+        return {
+          balloonContentBody: '<p>'+pointText+'</p><p>'+pointStreet+'</p><p>Предполагаемый срок ввода в эксплуатацию: '+pointDate+'</p>',
+          balloonContentFooter: '<a href="'+pointHref+'">Подробнее</a>'
+        };
+      },
+      
+      // Функция возвращает объект, содержащий опции метки.
+      getPointOptions = function () {
+        return {
+          preset: 'islands#blueIcon'
+        };
+      },
+      
+      points = [],
+      geoObjects = [];
       
       $('.significant-list_map .significant-list__row-title').each(function(){
         var point = $(this).attr('value').split(','),
@@ -187,13 +190,15 @@ export default () => {
         
         var elem = $(this),
             smallMapCoords = [getCoords(elem.attr('value')).x, getCoords(elem.attr('value')).y],
-            elemText = elem.text();
+            elemText = elem.text(),
+            elemStreet = elem.parents('.significant-list__row').find('.significant-list__row-st').text(),
+            elemDate = elem.parents('.significant-list__row').find('.significant-list__row-date').text();
         
         // переход
         smallMap.panTo( smallMapCoords, { flying: true } );
         
         var smplacemark = new maps.Placemark(smallMapCoords, {
-          balloonContentBody: '<p>'+elemText+'</p>'
+          balloonContentBody: '<p>'+elemText+'</p><p>'+elemStreet+'</p><p>Предполагаемый срок ввода в эксплуатацию: '+elemDate+'</p>'
         }, {
           preset: 'islands#blueIcon'
         });
@@ -230,6 +235,7 @@ export default () => {
       $('.significant .button-light[data-tab-target="significantOne"]').addClass(ACTIVE_CLASS);
       $('.significant .tabs__tab[data-tab="significantThree"]').hide();
       SEARCH.show();
+      $('.significant__buttons-set').show();
       $('.significant .tabs__tab[data-tab="significantOne"]').show();
     }, 1);
   });
