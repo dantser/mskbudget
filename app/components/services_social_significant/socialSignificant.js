@@ -13,40 +13,18 @@ export default () => {
     return prj_coords;
   }
 
-  var drowMarker = function(maps, myMap, num, title, text, coords) {
-
-        // Создание метки с круглой активной областью.
-        var circleLayout = maps.templateLayoutFactory.createClass(
-          '<div class="placemark-layout-container">' +
-            '<div class="circle-layout" data-object="' + num + '">' + num + '</div>' +
-            '<div class="balloon-layout">' +
-              '<div class="balloon-layout__title">' + title  + '</div>' +
-              '<div class="balloon-layout__text">' + text + '</div>' +
-              '<a href="#" class="balloon-layout__link">подробнее</div>' +
-            '</div>' +
-          '</div>'
-        );
-
-        var myPlacemark = new maps.Placemark([getCoords(coords).x, getCoords(coords).y], {
-        //     balloonContent: 'Торговый зал в Алматы'
-        // }, {
-        //     iconImageHref: '/upload/map_marker.png', // картинка иконки
-        //     iconImageSize: [44, 35], // размеры картинки
-        //     iconImageOffset: [0, 0] // смещение картинки
-        //   }
-              balloonContent: 'Станция метро Хорвино'
-          }, {
-              iconLayout: circleLayout,
-              iconShape: {
-                type: 'Circle',
-                // Круг описывается в виде центра и радиуса
-                coordinates: [0, 0],
-                radius: 25
-              }
-          }
-        );
-
-        myMap.geoObjects.add(myPlacemark);
+  // Функция возвращает объект, содержащий данные метки.
+  var getPointData = function (index) {
+    var pointText = $('.significant-list_map .significant-list__row-title').eq(index).text(),
+        pointHref = $('.significant-list_map .significant-list__row-title').eq(index).attr('href'),
+        pointStreet = $('.significant-list_map .significant-list__row-st').eq(index).text(),
+        pointDate = $('.significant-list_map .significant-list__row-date').eq(index).text();
+    return {
+      balloonHeader: pointText,
+      balloonStreet: pointStreet,
+      balloonDate: pointDate,
+      balloonHref: pointHref
+    };
   }
 
 	const TABLINK = $('.significant .button-light');
@@ -106,25 +84,6 @@ export default () => {
         groupByCoordinates: false
       }),
       
-      // Функция возвращает объект, содержащий данные метки.
-      getPointData = function (index) {
-        var pointText = $('.significant-list_map .significant-list__row-title').eq(index).text(),
-            pointHref = $('.significant-list_map .significant-list__row-title').eq(index).attr('href'),
-            pointStreet = $('.significant-list_map .significant-list__row-st').eq(index).text(),
-            pointDate = $('.significant-list_map .significant-list__row-date').eq(index).text();
-        return {
-          balloonContentBody: '<p>'+pointText+'</p><p>'+pointStreet+'</p><p>Предполагаемый срок ввода в эксплуатацию: '+pointDate+'</p>',
-          balloonContentFooter: '<a href="'+pointHref+'">Подробнее</a>'
-        };
-      },
-      
-      // Функция возвращает объект, содержащий опции метки.
-      getPointOptions = function () {
-        return {
-          preset: 'islands#blueIcon'
-        };
-      },
-      
       points = [],
       geoObjects = [];
       
@@ -136,9 +95,36 @@ export default () => {
         points.push(pointArr);
       });
       
+      // Создание макета содержимого балуна.
+      var BalloonLayout = maps.templateLayoutFactory.createClass(
+          '<div class="placemark-layout-container">' +
+              // '<a class="close" href="#">&times;</a>' +
+              '<div class="placemark-layout-inner">' +
+                '$[[options.contentLayout observeSize minWidth=235 maxWidth=235 maxHeight=350]]' +
+              '</div>' +
+          '</div>'
+      )
+
+      // Создание вложенного макета содержимого балуна.
+      var BalloonContentLayout = maps.templateLayoutFactory.createClass(
+          '<h3 class="placemark-layout-header">$[properties.balloonHeader]</h3>' +
+          '<p class="placemark-layout-street">$[properties.balloonStreet]</p>' +
+          '<p class="placemark-layout-date">Предполагаемый срок ввода в эксплуатацию: $[properties.balloonDate]</p>' +
+          '<a href="$[properties.balloonHref]" class="placemark-layout-link">подробнее</p>'
+      )
+
+      // Опции балуна
+      var balloonPresets = {
+        balloonShadow: false,
+        balloonLayout: BalloonLayout,
+        balloonContentLayout: BalloonContentLayout,
+        balloonPanelMaxMapArea: 0,
+        hideIconOnBalloonOpen: false
+      }
+
       // Данные передаются вторым параметром в конструктор метки, опции - третьим.
       for(var i = 0, len = points.length; i < len; i++) {
-        geoObjects[i] = new maps.Placemark(points[i], getPointData(i), getPointOptions());
+        geoObjects[i] = new maps.Placemark(points[i], getPointData(i), balloonPresets);
       }
       
       // В кластеризатор можно добавить javascript-массив меток (не геоколлекцию) или одну метку.
@@ -197,12 +183,15 @@ export default () => {
         // переход
         smallMap.panTo( smallMapCoords, { flying: true } );
         
-        var smplacemark = new maps.Placemark(smallMapCoords, {
-          balloonContentBody: '<p>'+elemText+'</p><p>'+elemStreet+'</p><p>Предполагаемый срок ввода в эксплуатацию: '+elemDate+'</p>'
-        }, {
-          preset: 'islands#blueIcon'
+        var smallMapPlacemark = new maps.Placemark(smallMapCoords, {
+
+          balloonContentBody:
+            '<h3>'+elemText+'</h3>' +
+            '<p>'+elemStreet+'</p>' +
+            '<p>Предполагаемый срок ввода в эксплуатацию: '+elemDate+'</p>'
         });
-        smallMap.geoObjects.add(smplacemark);
+
+        smallMap.geoObjects.add(smallMapPlacemark);
         
       });
   
