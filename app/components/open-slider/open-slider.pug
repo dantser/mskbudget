@@ -45,3 +45,20 @@ mixin open-slider-thumbs()
 mixin open-slider()
   +b.open-slider&attributes(attributes)
     block
+
+
+//- PDF
+mixin pdf-slide-gallery()
+  .swiper-slide
+    +e.content
+      +open-slide-pagination()
+      +e.A(href='#pdf-hidden-0', data-fancybox).image-link
+        +e.CANVAS.content-canvas#pdf-slide-0
+    +e.hidden#pdf-hidden-0
+      +e.CANVAS.hidden-canvas#pdf-hidden-slide-0
+        
+mixin pdf-slide-thumbs(img)
+  .swiper-slide
+    +e.content
+      +open-slide-pagination()
+      +e.CANVAS.content-canvas#pdf-thumbs-0

@@ -12,7 +12,7 @@ mixin mediaSMstyle()
 				+e.photos-group
 					+e.slider
 						a(href="#").doc-cards__download Скачать (PDF 957,55 Кб)
-						+open-slider()
+						//+open-slider()
 							+open-slider-gallery()
 								+open-slide-gallery('guide_01.jpg')
 								+open-slide-gallery('guide_02.jpg')
@@ -29,6 +29,12 @@ mixin mediaSMstyle()
 								+open-slide-thumbs('guide_05.jpg')
 								+open-slide-thumbs('guide_06.jpg')
 								+open-slide-thumbs('guide_07.jpg')
+								
+						+open-slider()._pdf(data-file='//cdn.mozilla.net/pdfjs/tracemonkey.pdf')
+							+open-slider-gallery()
+								+pdf-slide-gallery()
+							+open-slider-thumbs()
+								+pdf-slide-thumbs()
 
 				+e.photos-group
 					+e.H3.title Логотипы
