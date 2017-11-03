@@ -48,4 +48,22 @@ export default () => {
       });
     })
   })
+
+  const slider = page.find('.depfin-budget-moscow-media-materials__content_slider .swiper-container');
+
+ slider.each(function() {
+    var newsSlider = new Swiper($(this)[0], {
+      prevButton: $(this).parents('.depfin-budget-moscow-media-materials__content_slider').find('.swiper-button-prev'),
+      nextButton: $(this).parents('.depfin-budget-moscow-media-materials__content_slider').find('.swiper-button-next'),
+      slidesPerView: 1,
+      spaceBetween: 46,
+      pagination: $(this).parents('.depfin-budget-moscow-media-materials__content_slider').find('.swiper-pagination'),
+      paginationClickable: true,
+      loop: true,
+      observer: true,
+      observeParents: true
+    })
+
+  })
+
 }

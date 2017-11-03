@@ -592,11 +592,32 @@
     padding: 10px 10px 20px;
   }
 
+  .extra-search .form__date-range-input {
+    @media (max-width: 400px) {
+      width: 66px;
+      padding: 8px 11px 0 3px!important;
+    }
+  }
+
+  .extra-search .form__date-range-icon {
+    @media (max-width: 400px) {
+      right: 0;
+      height: 30px;
+      &::before {
+        right: 11px;
+      }
+    }
+  }
+
   .extra-search__icon {
     display: inline-block;
     position: relative;
     top: 0px;
     left: 4px;
+
+    @media (max-width: 400px) {
+      top: 6px;
+    }
   }
 
   .extra-search__cols {
@@ -636,6 +657,8 @@
     top: 10px;
     right: 10px;
   }
+
+  
 
   @media screen and (max-width: 1280px) {
     .search__filter {
@@ -716,11 +739,6 @@
         content: "";
         display: inline-block;
       }
-    }
-
-    .link {
-      padding: 10px 0 20px;
-      font-size: 18px;
     }
 
     .link_extra {

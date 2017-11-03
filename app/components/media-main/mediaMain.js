@@ -43,6 +43,7 @@ export default () => {
         spaceBetween: 46,
         pagination: $(this).parents('.media-main__card-wrapper_slider').find('.swiper-pagination'),
         paginationClickable: true,
+        loop: true,
         observer: true,
         observeParents: true
       })

@@ -4,10 +4,12 @@ mixin mediaSMbio-one()
 	+b.SECTION.mediaSmFin.sections__item&attributes(attributes)
 		.wrapper-header
 			+page-header('Официальные лица', ['Открытость', 'Материалы для СМИ'], true)
+			A(href="#").media-main__page-link Все официальные лица
+				+icon('angle-arrow', true).media-main__page-link-icon
 			
 		.wrapper
 			+e.content._bio.load-anim-fade(data-delay="1500")
-				+e.A(href='#').bio-list К списку всех биографий
+				//- +e.A(href='#').bio-list К списку всех биографий
 				+e.bio-info
 					+e.info-photo
 						img(src='assets/images/smi-fin/1.jpg')

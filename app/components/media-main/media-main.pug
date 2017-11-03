@@ -93,17 +93,18 @@ mixin media-main()
 			// Mediamaterials
 			+e.SECTION.section._mediamaterials
 				+e.H2.heading Медиаматериалы
-					+e.A(href="#", data-filter="photos").page-link._slider.active Все фотографии
-						+icon('angle-arrow').__page-link-icon
-					+e.A(href="#", data-filter="video").page-link._slider Все видео
-						+icon('angle-arrow').__page-link-icon
-					+e.A(href="#", data-filter="presentations").page-link._slider Все презентации
-						+icon('angle-arrow').__page-link-icon
 
 				+e.buttons-set._materials
 					+e.A(href="#", data-filter="photos").buttons-set-button.active фотографии
 					+e.A(href="#", data-filter="video").buttons-set-button видео
 					+e.A(href="#", data-filter="presentations").buttons-set-button презентации
+
+				+e.A(href="#", data-filter="photos").page-link._slider.active Все фотографии
+					+icon('angle-arrow').__page-link-icon
+				+e.A(href="#", data-filter="video").page-link._slider Все видео
+					+icon('angle-arrow').__page-link-icon
+				+e.A(href="#", data-filter="presentations").page-link._slider Все презентации
+					+icon('angle-arrow').__page-link-icon
 
 				+e.materials(data-filter="photos").active
 					+e.media-wrapper

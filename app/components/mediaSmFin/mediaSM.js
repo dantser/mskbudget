@@ -34,4 +34,22 @@ export default () => {
       }
     });
   }
+
+  const slider = page.find('.mediaSmFin__card-wrapper_slider .swiper-container');
+
+  slider.each(function() {
+    var newsSlider = new Swiper($(this)[0], {
+      prevButton: $(this).parents('.mediaSmFin__card-wrapper_slider').find('.swiper-button-prev'),
+      nextButton: $(this).parents('.mediaSmFin__card-wrapper_slider').find('.swiper-button-next'),
+      slidesPerView: 1,
+      spaceBetween: 46,
+      pagination: $(this).parents('.mediaSmFin__card-wrapper_slider').find('.swiper-pagination'),
+      paginationClickable: true,
+      loop: true,
+      observer: true,
+      observeParents: true
+    })
+
+  })
+
 }

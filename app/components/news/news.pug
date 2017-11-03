@@ -11,8 +11,6 @@ mixin news()
       +e.header
         // page-header
         +page-header('Новости', ['Медиацентр'])
-        // subscribe
-        +subscribe()._big.__subscribe.load-anim-fade(data-delay="1500")
         // search-form
         +e.search-form.load-anim-fade(data-delay="1500")
           +searchFormNews('Поиск')
@@ -54,3 +52,6 @@ mixin news()
             .tile__item(data-filter="federal")
               +news-card(3, 'Федеральные новости', 'Итоги исполнения бюджета города Москвы за первое полугодие 2016 года', '1 августа 2016', ['итоги', 'апробация', 'старшеклассники'])._green.tile__inner
         +e.A(href="#").show-more.d-si__button_show-more Показать еще
+
+        // subscribe
+        +subscribe()._big.__subscribe.load-anim-fade(data-delay="1500")

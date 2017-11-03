@@ -73,6 +73,7 @@
 
     &_slider {
       display: none;
+      margin-top: 10px;
       @media (max-width: 400px) {
         max-width: 100%;
         margin-left: 0!important;
@@ -146,7 +147,7 @@
       }
       
       @media (max-width: 400px) {
-        padding: 0;
+        padding: 0 5px;
         font-size: 12px;
       }
 
@@ -195,6 +196,10 @@
         background: $color-yellow;
       }
     }
+
+    @media (max-width: 400px) {
+      display: none
+    }
   }
   
   .tile {
@@ -210,13 +215,10 @@
   .tile__item {
     width: 25%;
     min-width: auto;
+    margin-bottom: 0;
 
     @media(max-width: 1140px) and (min-width: 901px) {
       width: calc(100% / 3);
-    }
-
-    @media (max-width: 900px) {
-      margin-bottom: 55px;
     }
 
     &_hidden {
@@ -415,7 +417,7 @@
 
   &__subscribe {
     &.subscribe {
-      margin-top: 66px;
+      margin-top: 20px;
       & > .wrap {
         padding: 0;
       }
@@ -521,6 +523,9 @@
     &__play {
       @media(max-width: 900px) {
         top: 40%;
+      }
+      @media(max-width: 400px) {
+        top: 30%;
       }
     }
   }

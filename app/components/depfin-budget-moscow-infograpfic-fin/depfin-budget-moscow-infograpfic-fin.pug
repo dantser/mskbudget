@@ -5,10 +5,12 @@ mixin depfin-budget-moscow-infograpfic-fin()
     .wrapper-header
       +e.head
         +page-header('Инфографика', ['Медиацентр'])
+        A(href="#").media-main__page-link Вся инфографика
+          +icon('angle-arrow', true).media-main__page-link-icon
 
     .wrapper
       +e.main.load-anim-fade(data-delay="1500")
-        +e.A(href='#').infographics-list К списку инфографик
+        //- +e.A(href='#').infographics-list К списку инфографик
         +e.H3.title Расходы бюджета города Москвы
         +e.SPAN.date 06.10.2016
 

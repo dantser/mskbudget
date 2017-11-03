@@ -6,13 +6,16 @@ include ../google-presentation/google-presentation
 
 //- Шапка
 
-mixin depfin-budget-moscow-media-materials(title, breadcrumbs=['Медиацентр', 'Медиаматериалы'])
+mixin depfin-budget-moscow-media-materials(title, breadcrumbs=['Медиацентр', 'Медиаматериалы'], subtitle)
 
 	+b.SECTION.depfin-budget-moscow-media-materials.sections__item&attributes(attributes)
 		.wrapper-header
 
 			+e.head
 				+page-header(title, breadcrumbs, true)
+				if subtitle
+					A(href="#").media-main__page-link= subtitle
+						+icon('angle-arrow', true).media-main__page-link-icon
 
 		.wrapper.page-content-wrapper
 			+e.main.load-anim-fade(data-delay="1500")

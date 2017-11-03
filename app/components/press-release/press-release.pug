@@ -5,10 +5,12 @@ mixin press-release()
 		.wrapper-header
 			+e.header
 				+page-header('Пресс-релиз', ['Медиацентр'])
+				A(href="#").media-main__page-link Все пресс-релизы
+					+icon('angle-arrow', true).media-main__page-link-icon
 
 		.wrapper
 			+e.content.load-anim-fade(data-delay="1500")
-				+e.A(href='#').events-list К списку всех пресс-релизов
+				//- +e.A(href='#').events-list К списку всех пресс-релизов
 				+e.H3.title В Москве пройдет финансовый форум
 				+e.SPAN.date 16.03.2017
 				+e.img
@@ -52,3 +54,8 @@ mixin press-release()
 						+e.A(href='#').tag-link События
 					+e.LI.tag
 						+e.A(href='#').tag-link Москва
+
+				.news-one__social
+					.d-sr__social
+						span.d-sr__social_txt Версия для печати:
+						+social('printer').__social.d-si-content__social

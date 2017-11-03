@@ -3,6 +3,7 @@ include ../../blocks/link/link
 include ../../blocks/button/button
 include ../page-header/page-header
 include ../../blocks/news-card/news-card
+include ../../blocks/icon/icons
 
 mixin news-one()
   +b.SECTION.news-one.sections__item&attributes(attributes)
@@ -10,7 +11,8 @@ mixin news-one()
       +e.header
         // page-header
         +page-header('Новости', ['Медиацентр'], true)
-        
+        A(href="#").media-main__page-link Все новости
+          +icon('angle-arrow', true).media-main__page-link-icon
         //+e.FORM(action='', method='POST', data-delay="1500").form.form.load-anim-fade
           .form__field.form__field_d3
             LABEL.form__label.form__label_w1 Другие новости

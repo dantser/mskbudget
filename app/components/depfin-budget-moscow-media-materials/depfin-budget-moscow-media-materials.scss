@@ -21,6 +21,10 @@
 	&__materials {
 		& + .depfin-budget-moscow-media-materials__materials {
 			margin-top: 100px;
+
+      @media (max-width: 400px) {
+        margin-top: 50px;
+      }
 		}
 	}
 
@@ -31,6 +35,7 @@
   }
 
   &__title {
+    display: inline-block;
   	max-width: 420px;
   	font-family: $PFDinCondensedPro;
   	font-size: 30px;
@@ -38,6 +43,16 @@
   	color: $color-white;
   	text-transform: uppercase;
   	margin-bottom: 15px;
+
+    .media-main__page-link {
+      white-space: nowrap;
+      margin-left: 8px;
+      margin-top: 2px;
+
+      @media (max-width: 400px) {
+        margin-top: 4px;
+      }
+    }
   }
 
 	&__date {
@@ -88,13 +103,19 @@
       }
     }
 
+    &_slider {
+      @media (max-width: 900px) {
+        display: none;
+      }
+    }
+
 	}
 
   &__content {
   	height: auto;
   	list-style: none;
   	font-size: 0;
-  	margin: 0 calc(12% / 8 * (-1));
+  	margin: 0 calc(12% / 8 * (-1));  
 
 		@media (max-width: 900px) and (min-width: 401px) {
 	    margin: 0 calc(12% / 4 * (-1));
@@ -111,6 +132,163 @@
       content: '';
       display: inline-block;
     }
+
+    &_slider {
+      display: none;
+      position: relative;
+      @media (max-width: 900px) {
+        display: block;
+      }
+
+      .swiper-container {
+        width: 344px;
+
+        @media (max-width: 400px) {
+          width: 252px;
+        }
+      }
+
+      .swiper-pagination {
+        width: 100%;
+        top: 105%;
+        &-bullet {
+          width: 15px;
+          height: 15px;
+          background: transparent;
+          opacity: 1;
+          border: 2px solid $color-yellow;
+          & + .swiper-pagination-bullet {
+            margin-left: 10px;
+          }
+
+          &-active {
+            background: $color-yellow;
+          }
+        }
+
+        @media (max-width: 400px) {
+          display: none
+        }
+      }
+
+      .news-arrow {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        z-index: 4;
+        width: 46px;
+        height: 46px;
+        background: #fee300;
+        color: #000;
+        text-indent: -9999px;
+        overflow: hidden;
+        box-shadow: -2px 0 5px 0 rgba(0,0,0,.39);
+        transition: opacity .3s ease;
+
+        @media (max-width: 400px) {
+          width: 31px;
+          height: 31px;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          margin: auto;
+          z-index: 2;
+          width: 14px;
+          height: 14px;
+          border-bottom: 2px solid currentColor;
+        }
+
+        &_next {
+          right: 115px;
+          @media(max-width: 640px) {
+            right: 80px;
+          }
+          @media(max-width: 600px) {
+            right: 60px;
+          }
+          @media (max-width: 580px) {
+            right: 0;
+          }
+          @media(max-width: 400px) {
+            right: -20px;
+          }
+         
+          &::after {
+            right: 8px;
+            border-right: 2px solid currentColor;
+            transform: rotate(-45deg);
+          }    
+        }
+
+        &_prev {
+          left: 115px;
+          @media(max-width: 640px) {
+            left: 80px;
+          }
+          @media(max-width: 600px) {
+            left: 60px;
+          }
+          @media (max-width: 580px) {
+            left: 0;
+          }
+          @media(max-width: 400px) {
+            left: -20px;
+          }
+          &::after {
+            left: 8px;
+            border-left: 2px solid currentColor;
+            transform: rotate(45deg);
+          }
+        }
+      }
+
+      .media-card {
+        @media(max-width: 900px) {
+          margin: 0;
+        }
+
+        @media(max-width: 900px) and (min-width: 401px) {
+          height: 320px;
+        }
+        
+        &__img-wrapper {
+          @media(max-width: 900px) and (min-width: 581px) {
+            height: 203px;
+          }
+          @media(max-width: 580px) and (min-width: 401px) {
+            height: 235px;
+          }
+          @media(max-width: 400px) {
+            height: 142px;
+          }
+        }
+        
+        &__label {
+          @media(max-width: 580px) and (min-width: 401px) {
+            min-height: 85px;
+          }
+          @media (max-width: 400px) {
+            min-height: 105px;
+          }
+        }
+
+        &__play {
+          @media(max-width: 900px) {
+            top: 40%;
+          }
+          @media(max-width: 400px) {
+            top: 30%;
+          }
+        }
+      }
+    }
   }
 
   &__more {
@@ -121,6 +299,12 @@
 		@media (max-width: 900px) {
 			width: 100%;
 		}
+
+    &_slider {
+      @media (max-width: 900px) {
+        display: none;
+      }
+    }
 
   	.button {
   		padding: 14px 14px 11px;
