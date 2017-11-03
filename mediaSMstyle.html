@@ -413,7 +413,24 @@
                     <div class="mediaSmFin__photos-group">
                         <div class="mediaSmFin__slider">
                             <a class="doc-cards__download" href="#">Скачать (PDF 957,55 Кб)</a>
-                            <div class="open-slider">
+                            <!--+open-slider()+open-slider-gallery()
+	+open-slide-gallery('guide_01.jpg')
+	+open-slide-gallery('guide_02.jpg')
+	+open-slide-gallery('guide_03.jpg')
+	+open-slide-gallery('guide_04.jpg')
+	+open-slide-gallery('guide_05.jpg')
+	+open-slide-gallery('guide_06.jpg')
+	+open-slide-gallery('guide_07.jpg')
++open-slider-thumbs()
+	+open-slide-thumbs('guide_01.jpg')
+	+open-slide-thumbs('guide_02.jpg')
+	+open-slide-thumbs('guide_03.jpg')
+	+open-slide-thumbs('guide_04.jpg')
+	+open-slide-thumbs('guide_05.jpg')
+	+open-slide-thumbs('guide_06.jpg')
+	+open-slide-thumbs('guide_07.jpg')
+	-->
+                            <div class="open-slider open-slider_pdf" data-file="//cdn.mozilla.net/pdfjs/tracemonkey.pdf">
                                 <div class="swiper-slider">
                                     <div class="swiper-container gallery-top">
                                         <div class="swiper-wrapper">
@@ -425,87 +442,12 @@
                                                             <span class="open-slider__num-total"></span>
                                                         </div>
                                                     </div>
-                                                    <a class="open-slider__image-link" href="assets/images/presentation/guide_01.jpg" data-fancybox="data-fancybox">
-                                                        <img class="open-slider__image" src="assets/images/presentation/guide_01.jpg" alt="" role="presentation" />
+                                                    <a class="open-slider__image-link" href="#pdf-hidden-0" data-fancybox="data-fancybox">
+                                                        <canvas class="open-slider__content-canvas" id="pdf-slide-0"></canvas>
                                                     </a>
                                                 </div>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <div class="open-slider__content">
-                                                    <div class="open-slider__pagination">
-                                                        <div class="open-slider__num">
-                                                            <span class="open-slider__num-current"></span> /
-                                                            <span class="open-slider__num-total"></span>
-                                                        </div>
-                                                    </div>
-                                                    <a class="open-slider__image-link" href="assets/images/presentation/guide_02.jpg" data-fancybox="data-fancybox">
-                                                        <img class="open-slider__image" src="assets/images/presentation/guide_02.jpg" alt="" role="presentation" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <div class="open-slider__content">
-                                                    <div class="open-slider__pagination">
-                                                        <div class="open-slider__num">
-                                                            <span class="open-slider__num-current"></span> /
-                                                            <span class="open-slider__num-total"></span>
-                                                        </div>
-                                                    </div>
-                                                    <a class="open-slider__image-link" href="assets/images/presentation/guide_03.jpg" data-fancybox="data-fancybox">
-                                                        <img class="open-slider__image" src="assets/images/presentation/guide_03.jpg" alt="" role="presentation" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <div class="open-slider__content">
-                                                    <div class="open-slider__pagination">
-                                                        <div class="open-slider__num">
-                                                            <span class="open-slider__num-current"></span> /
-                                                            <span class="open-slider__num-total"></span>
-                                                        </div>
-                                                    </div>
-                                                    <a class="open-slider__image-link" href="assets/images/presentation/guide_04.jpg" data-fancybox="data-fancybox">
-                                                        <img class="open-slider__image" src="assets/images/presentation/guide_04.jpg" alt="" role="presentation" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <div class="open-slider__content">
-                                                    <div class="open-slider__pagination">
-                                                        <div class="open-slider__num">
-                                                            <span class="open-slider__num-current"></span> /
-                                                            <span class="open-slider__num-total"></span>
-                                                        </div>
-                                                    </div>
-                                                    <a class="open-slider__image-link" href="assets/images/presentation/guide_05.jpg" data-fancybox="data-fancybox">
-                                                        <img class="open-slider__image" src="assets/images/presentation/guide_05.jpg" alt="" role="presentation" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <div class="open-slider__content">
-                                                    <div class="open-slider__pagination">
-                                                        <div class="open-slider__num">
-                                                            <span class="open-slider__num-current"></span> /
-                                                            <span class="open-slider__num-total"></span>
-                                                        </div>
-                                                    </div>
-                                                    <a class="open-slider__image-link" href="assets/images/presentation/guide_06.jpg" data-fancybox="data-fancybox">
-                                                        <img class="open-slider__image" src="assets/images/presentation/guide_06.jpg" alt="" role="presentation" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <div class="open-slider__content">
-                                                    <div class="open-slider__pagination">
-                                                        <div class="open-slider__num">
-                                                            <span class="open-slider__num-current"></span> /
-                                                            <span class="open-slider__num-total"></span>
-                                                        </div>
-                                                    </div>
-                                                    <a class="open-slider__image-link" href="assets/images/presentation/guide_07.jpg" data-fancybox="data-fancybox">
-                                                        <img class="open-slider__image" src="assets/images/presentation/guide_07.jpg" alt="" role="presentation" />
-                                                    </a>
+                                                <div class="open-slider__hidden" id="pdf-hidden-0">
+                                                    <canvas class="open-slider__hidden-canvas" id="pdf-hidden-slide-0"></canvas>
                                                 </div>
                                             </div>
                                         </div>
@@ -523,73 +465,7 @@
                                                         <span class="open-slider__num-total"></span>
                                                     </div>
                                                 </div>
-                                                <img class="open-slider__image" src="assets/images/presentation/guide_01.jpg" alt="" role="presentation" />
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="open-slider__content">
-                                                <div class="open-slider__pagination">
-                                                    <div class="open-slider__num">
-                                                        <span class="open-slider__num-current"></span> /
-                                                        <span class="open-slider__num-total"></span>
-                                                    </div>
-                                                </div>
-                                                <img class="open-slider__image" src="assets/images/presentation/guide_02.jpg" alt="" role="presentation" />
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="open-slider__content">
-                                                <div class="open-slider__pagination">
-                                                    <div class="open-slider__num">
-                                                        <span class="open-slider__num-current"></span> /
-                                                        <span class="open-slider__num-total"></span>
-                                                    </div>
-                                                </div>
-                                                <img class="open-slider__image" src="assets/images/presentation/guide_03.jpg" alt="" role="presentation" />
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="open-slider__content">
-                                                <div class="open-slider__pagination">
-                                                    <div class="open-slider__num">
-                                                        <span class="open-slider__num-current"></span> /
-                                                        <span class="open-slider__num-total"></span>
-                                                    </div>
-                                                </div>
-                                                <img class="open-slider__image" src="assets/images/presentation/guide_04.jpg" alt="" role="presentation" />
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="open-slider__content">
-                                                <div class="open-slider__pagination">
-                                                    <div class="open-slider__num">
-                                                        <span class="open-slider__num-current"></span> /
-                                                        <span class="open-slider__num-total"></span>
-                                                    </div>
-                                                </div>
-                                                <img class="open-slider__image" src="assets/images/presentation/guide_05.jpg" alt="" role="presentation" />
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="open-slider__content">
-                                                <div class="open-slider__pagination">
-                                                    <div class="open-slider__num">
-                                                        <span class="open-slider__num-current"></span> /
-                                                        <span class="open-slider__num-total"></span>
-                                                    </div>
-                                                </div>
-                                                <img class="open-slider__image" src="assets/images/presentation/guide_06.jpg" alt="" role="presentation" />
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="open-slider__content">
-                                                <div class="open-slider__pagination">
-                                                    <div class="open-slider__num">
-                                                        <span class="open-slider__num-current"></span> /
-                                                        <span class="open-slider__num-total"></span>
-                                                    </div>
-                                                </div>
-                                                <img class="open-slider__image" src="assets/images/presentation/guide_07.jpg" alt="" role="presentation" />
+                                                <canvas class="open-slider__content-canvas" id="pdf-thumbs-0"></canvas>
                                             </div>
                                         </div>
                                     </div>
@@ -1096,6 +972,7 @@
     <script src="assets/scripts/js/owl.carousel.min.js"></script>
     <script src="assets/scripts/js/script.js"></script>
     <script src="assets/scripts/js/ez.js"></script>
+    <script src="//mozilla.github.io/pdf.js/build/pdf.js"></script>
     <script src="assets/scripts/jquery-ui.min.js"></script>
     <script src="assets/scripts/jquery.ui.touch-punch.js"></script>
     <script src="assets/scripts/add.js"></script>
