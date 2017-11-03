@@ -16,7 +16,7 @@ export default () => {
     function changeContent(typeofchange, el) {
       
       var graphics = $('.analityc-widget-income'),
-          controls = $('._analitycs-income .analityc-widgethead [data-control]'),
+          controls = $('._analitycs-income [data-control]'),
           comparVal = $('._analitycs-income .analityc-widgethead select[name="comparison"]').val(),
           typeVal;
       
@@ -27,7 +27,7 @@ export default () => {
       }
       
       graphics.removeClass('active');
-      controls.removeClass('active');
+      controls.hide();
 	 
       changeBlock(graphics, comparVal, typeVal);
       changeControl(controls, comparVal, typeVal);
@@ -50,7 +50,7 @@ export default () => {
         var comparison = $(this).data('comparison');
         var type = $(this).data('type');
         if ((type == 'all' || type.match(typeVal)) && (comparison == 'all' || comparison.match(comparVal))) {
-          $(this).addClass('active');
+          $(this).show();
         }
       });
     }

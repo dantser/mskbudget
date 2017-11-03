@@ -454,8 +454,8 @@ mixin table-main(data)
 
     each item in data
       if (typeof data[0].total === "object")
-        +e.col._one= item[type].initial
-        +e.col._one= item[type].change
+        +e.col._one(data-set=item.set)= item[type].initial
+        +e.col._one(data-set=item.set)= item[type].change
       else
         +e(class= 'col_'+cells)= item.total
 
@@ -467,7 +467,7 @@ mixin table-main(data)
 
       if (data[0].year)
         each item in data
-          +e.col._four= item.year
+          +e.col._four(data-set=item.set data-set-year)= item.year
       else
         +e.col._four МЛРД РУБ.
         +e.col._four %
@@ -476,20 +476,20 @@ mixin table-main(data)
       +e.row._subcaption
         +e.col._four &nbsp;
 
-        +e.col._one факт
-        +e.col._one &nbsp;
+        +e.col._one(data-set='gt1' data-set-stage) факт
+        +e.col._one(data-set='gt1') &nbsp;
 
-        +e.col._one факт
-        +e.col._one темп
+        +e.col._one(data-set='gt2' data-set-stage) факт
+        +e.col._one(data-set='gt2') темп
 
-        +e.col._one факт
-        +e.col._one темп
+        +e.col._one(data-set='gt3' data-set-stage) закон утвержденный
+        +e.col._one(data-set='gt3') темп
 
-        +e.col._one факт
-        +e.col._one темп
+        +e.col._one(data-set='gt4' data-set-stage) закон утвержденный
+        +e.col._one(data-set='gt4') темп
 
-        +e.col._one факт
-        +e.col._one темп
+        +e.col._one(data-set='gt5' data-set-stage) закон утвержденный
+        +e.col._one(data-set='gt5') темп
 
     +e.row
       +e.col._four Доходы
@@ -531,9 +531,9 @@ mixin table-aincome(data)
 
     each item in data
       if (typeof data[0].total === "object")
-        +e.col._one= item[type].initial
-        +e.col._one= item[type].change
-        +e.col._one= item[type].final
+        +e.col._one(data-set=item.set)= item[type].initial
+        +e.col._one(data-set=item.set)= item[type].change
+        //+e.col._one= item[type].final
       else
         +e(class= 'col_'+cells)= item.total
 
@@ -545,7 +545,7 @@ mixin table-aincome(data)
 
       if (data[0].year)
         each item in data
-          +e.col._four= item.year
+          +e.col._four(data-set=item.set data-set-year)= item.year
       else
         +e.col._four МЛРД РУБ.
         +e.col._four %
@@ -554,20 +554,20 @@ mixin table-aincome(data)
       +e.row._subcaption
         +e.col._four &nbsp;
 
-        +e.col._one факт
-        +e.col._one &nbsp;
+        +e.col._one(data-set='gt1' data-set-stage) факт
+        +e.col._one(data-set='gt1') &nbsp;
 
-        +e.col._one факт
-        +e.col._one темп
+        +e.col._one(data-set='gt2' data-set-stage) факт
+        +e.col._one(data-set='gt2') темп
 
-        +e.col._one факт
-        +e.col._one темп
+        +e.col._one(data-set='gt3' data-set-stage) закон утвержденный
+        +e.col._one(data-set='gt3') темп
 
-        +e.col._one факт
-        +e.col._one темп
+        +e.col._one(data-set='gt4' data-set-stage) закон утвержденный
+        +e.col._one(data-set='gt4') темп
 
-        +e.col._one факт
-        +e.col._one темп
+        +e.col._one(data-set='gt5' data-set-stage) закон утвержденный
+        +e.col._one(data-set='gt5') темп
 
     +e.row
       +e.col._four Налоговые и неналоговые доходы
@@ -595,7 +595,7 @@ mixin table-aincome(data)
       +dataType(data, 'total')
 
 //- таблица в аналитике Гос. программы
-mixin table-gp(data, switcher)
+mixin table-gp(data, analytics, switcher)
 
   mixin dataType(data, type)
     case data.length
@@ -608,8 +608,12 @@ mixin table-gp(data, switcher)
 
     each item in data
       if (typeof data[0].total === "object")
-        +e.col._one= item[type].initial
-        +e.col._one= item[type].change
+        if analytics
+          +e.col._one(data-set=item.set)= item[type].initial
+          +e.col._one(data-set=item.set)= item[type].change
+        else
+          +e.col._one= item[type].initial
+          +e.col._one= item[type].change
       else
         +e(class= 'col_'+cells)= item.total
 
@@ -626,29 +630,52 @@ mixin table-gp(data, switcher)
 
       if (data[0].year)
         each item in data
-          +e.col._four= item.year
+          if analytics
+            +e.col._four(data-set=item.set data-set-year)= item.year
+          else
+            +e.col._four= item.year
       else
         +e.col._four МЛРД РУБ.
         +e.col._four %
 
     if (typeof data[0].total === "object")
       +e.row._subcaption
-        +e.col._four &nbsp;
-
-        +e.col._one факт
-        +e.col._one &nbsp;
-
-        +e.col._one факт
-        +e.col._one темп
-
-        +e.col._one закон о бюджете
-        +e.col._one темп
-
-        +e.col._one закон о бюджете
-        +e.col._one темп
-
-        +e.col._one закон о бюджете
-        +e.col._one темп
+      
+        if analytics
+          +e.col._four &nbsp;
+  
+          +e.col._one(data-set='gt1' data-set-stage) факт
+          +e.col._one(data-set='gt1') &nbsp;
+  
+          +e.col._one(data-set='gt2' data-set-stage) факт
+          +e.col._one(data-set='gt2') темп
+  
+          +e.col._one(data-set='gt3' data-set-stage) закон утвержденный
+          +e.col._one(data-set='gt3') темп
+  
+          +e.col._one(data-set='gt4' data-set-stage) закон утвержденный
+          +e.col._one(data-set='gt4') темп
+  
+          +e.col._one(data-set='gt5' data-set-stage) закон утвержденный
+          +e.col._one(data-set='gt5') темп
+          
+        else
+          +e.col._four &nbsp;
+  
+          +e.col._one факт
+          +e.col._one &nbsp;
+  
+          +e.col._one факт
+          +e.col._one темп
+  
+          +e.col._one закон о бюджете
+          +e.col._one темп
+  
+          +e.col._one закон о бюджете
+          +e.col._one темп
+  
+          +e.col._one закон о бюджете
+          +e.col._one темп
 
     +e.row._opened
       +e.col._four 
@@ -774,9 +801,9 @@ mixin table-analytics-gov-debt(data)
         - var cells = 'one';
     each item in data
       if (typeof data[0].total === "object")
-        +e.col._one= item[type].initial
-        +e.col._one= item[type].change
-        +e.col._one= item[type].final
+        +e.col._one(data-set=item.set)= item[type].initial
+        +e.col._one(data-set=item.set)= item[type].change
+        //+e.col._one= item[type].final
       else
         +e(class= 'col_'+cells)= item.total
   
@@ -785,23 +812,23 @@ mixin table-analytics-gov-debt(data)
       +e.col._four Показатели
       if (data[0].year)
         each item in data
-          +e.col._four= item.year
+          +e.col._four(data-set=item.set data-set-year)= item.year
       else
         +e.col._four МЛРД РУБ.
         +e.col._four %
     if (typeof data[0].total === "object")
       +e.row._subcaption
         +e.col._four &nbsp;
-        +e.col._one факт
-        +e.col._one &nbsp;
-        +e.col._one факт
-        +e.col._one темп
-        +e.col._one закон о бюджете
-        +e.col._one темп
-        +e.col._one закон о бюджете
-        +e.col._one темп
-        +e.col._one закон о бюджете
-        +e.col._one темп
+        +e.col._one(data-set='gt1' data-set-stage) факт
+        +e.col._one(data-set='gt1') &nbsp;
+        +e.col._one(data-set='gt2' data-set-stage) факт
+        +e.col._one(data-set='gt2') темп
+        +e.col._one(data-set='gt3' data-set-stage) закон утвержденный
+        +e.col._one(data-set='gt3') темп
+        +e.col._one(data-set='gt4' data-set-stage) закон утвержденный
+        +e.col._one(data-set='gt4') темп
+        +e.col._one(data-set='gt5' data-set-stage) закон утвержденный
+        +e.col._one(data-set='gt5') темп
     +e.row
       +e.col._four Налоговые и неналоговые доходы
       +dataType(data, 'total')

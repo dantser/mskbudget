@@ -1207,7 +1207,7 @@ mixin analityc-graphics-line-vertical(data, isWide)
   +b.analityc-graphics-line-vertical&attributes(attributes)
 
     each item in data
-      +e.graphic(data-year=item.yearval data-month='none' data-stage=item.stage)
+      +e.graphic(data-set=item.set)
         +e.lines
 
           if isWide
@@ -1244,8 +1244,8 @@ mixin analityc-graphics-line-vertical(data, isWide)
               +e.line-fill
 
         +e.caption
-          +e.STRONG.caption-year= item.year
-          +e.SPAN.caption-text= item.text
+          +e.STRONG.caption-year(data-set-year)= item.year
+          +e.SPAN.caption-text(data-set-stage)= item.text
 
 mixin analityc-graphics-line-vertical_slider(data, isWide)
   +b.analityc-graphics-line-vertical._slider.swiper-container&attributes(attributes)
@@ -1335,7 +1335,7 @@ mixin analityc-graphics-line-vertical-alt(data)
   +b.analityc-graphics-line-vertical._alt&attributes(attributes)
 
     each item in data
-      +e.graphic(data-year=item.yearval data-month=item.month data-stage=item.stage)
+      +e.graphic(data-set=item.set)
         +e.lines
 
           +e.line._red(data-name=item.names[0])
@@ -1361,8 +1361,10 @@ mixin analityc-graphics-line-vertical-alt(data)
             +e.line-fill
 
         +e.caption
-          +e.STRONG.caption-year= item.year
-          +e.SPAN.caption-text= item.text
+          +e.STRONG.caption-year
+            span(data-set-month)= item.month
+            span(data-set-year)= item.year
+          +e.SPAN.caption-text(data-set-stage)= item.text
 
 
 mixin analityc-graphics-line-gorizontal(data)
@@ -1430,7 +1432,7 @@ mixin analityc-graphics-classic(data)
       +e.clipper
         +e.part._lines
           each item in data
-            +e.item(data-year=item.yearval data-month='none' data-stage=item.stageval)
+            +e.item(data-set=item.set)
               +e.item-wrapper._income(data-val=item.income)
                 +e.val= item.income + '%'
                 +e.line
@@ -1439,10 +1441,10 @@ mixin analityc-graphics-classic(data)
                 +e.line
       +e.part._captions
         each year in data
-          +e.item(data-year=year.yearval data-month='none' data-stage=year.stageval)
+          +e.item(data-set=year.set)
             +e.item-wrapper-bottom
-              +e.val= year.year
-              +e.stage= year.stage
+              +e.val(data-set-year)= year.year
+              +e.stage(data-set-stage)= year.stage
 
 mixin analityc-graphics-custom1()
   +b.analityc-graphics-custom&attributes(attributes)
@@ -1456,7 +1458,7 @@ mixin analityc-graphics-bars(data)
   +b.analityc-graphics-bars&attributes(attributes)
 
     each item in data
-      +e.graphic(data-year=item.yearval data-month=item.month data-stage=item.stage)
+      +e.graphic(data-set=item.set)
         +e.lines
           +e.line
             +e.line-bar-value= item.value
@@ -1477,14 +1479,19 @@ mixin analityc-graphics-bars(data)
                 +e.percent= item.changes[1]
                 
         +e.caption
-          +e.STRONG.caption-year= item.year
-          +e.SPAN.caption-text= item.text
+          if item.month
+            +e.STRONG.caption-year
+              span(data-set-month)= item.month
+              span(data-set-year)= item.year
+          else
+            +e.STRONG.caption-year(data-set-year)= item.year
+          +e.SPAN.caption-text(data-set-stage)= item.text
 
 mixin analityc-graphics-bars-alt(data)
   +b.analityc-graphics-bars&attributes(attributes)
 
     each item in data
-      +e.graphic(data-year=item.yearval data-month=item.month data-stage=item.stage data-rate=item.rate)
+      +e.graphic(data-set=item.set data-rate=item.rate)
         +e.lines
           +e.line
           
@@ -1517,8 +1524,9 @@ mixin analityc-graphics-bars-alt(data)
                 +e.percent= item.changes[1]
                 
         +e.caption
-          +e.STRONG.caption-year= item.year
-          +e.SPAN.caption-text= item.text
+          if !item.rate
+            +e.STRONG.caption-year(data-set-year)= item.year
+            +e.SPAN.caption-text(data-set-stage)= item.text
 
 
 
@@ -1847,8 +1855,8 @@ mixin analityc-graphics-forecast-industry()
 mixin analityc-graphics-analytics-gov-debt-line()
   +b.analityc-graphics-broken-line&attributes(attributes)
     +growth-rate(8, 15, 70)._grey._points.__growth-rate
-      +growth-rate-col('10.0', '10,0%')(data-year='2015' data-month='jan' data-stage='none')
-      +growth-rate-col('12.0', '12,0%')(data-year='2016' data-month='jan' data-stage='none')
-      +growth-rate-col('15.0', '15,0%')(data-year='2017' data-month='jan' data-stage='none')
-      +growth-rate-col('10.0', '10,0%')(data-year='2018' data-month='jan' data-stage='none')
-      +growth-rate-col('8.0', '8,0%', true)(data-year='2019' data-month='jan' data-stage='none')
+      +growth-rate-col('10.0', '10,0%')(data-set='gt1')
+      +growth-rate-col('12.0', '12,0%')(data-set='gt2')
+      +growth-rate-col('15.0', '15,0%')(data-set='gt3')
+      +growth-rate-col('10.0', '10,0%')(data-set='gt4')
+      +growth-rate-col('8.0', '8,0%', true)(data-set='gt5')

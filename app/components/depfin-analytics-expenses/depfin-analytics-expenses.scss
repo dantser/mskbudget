@@ -53,13 +53,6 @@
     }
   }
   
-  .analityc-widgethead [data-control] {
-    display: none;
-    &.active {
-      display: block;
-    }
-  }
-  
   .analityc-graphics-wrapper {
     margin-bottom: -20px;
     padding-bottom: 20px;
@@ -84,7 +77,12 @@
           display: block;
         }
         .analityc-graphics-line-vertical, .analityc-graphics-bars {
-          min-width: 1100px;
+          box-sizing: content-box;
+        }
+        &.no-arrows {
+          .analityc-graphics__slide-arrows {
+            display: none;
+          }
         }
       }
     }
