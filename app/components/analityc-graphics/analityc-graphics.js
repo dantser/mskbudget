@@ -235,6 +235,18 @@ export default () => {
       visibleGraphic.removeClass('analityc-graphics-bars__graphic_last');
       visibleGraphic.last().addClass('analityc-graphics-bars__graphic_last');
       
+      var minWidth = 0;
+      visibleGraphic.each(function(){
+        var grWidth = $(this).outerWidth(true);
+        minWidth += grWidth;
+      });
+      $(this).css('min-width', minWidth);
+      if ($(this).outerWidth() > $(this).parent().width()) {
+        $(this).parents('.analityc-graphics-container').removeClass('no-arrows');
+      } else {
+        $(this).parents('.analityc-graphics-container').addClass('no-arrows');
+      }
+      
       fill.each(function(){
         var dheight = $(this).data('height');
         if ($(this).parents('.analityc-graphics-bars').hasClass('analityc-graphics-bars_singlebar')) {
@@ -349,7 +361,7 @@ export default () => {
         }
         
         $(this).css('bottom', averageLineHeight+'px');
-      });
+      });      
     });
   }
   
@@ -529,11 +541,22 @@ export default () => {
   
   
   //analityc-graphics-line-vertical()
-  function grLineVertParams() {
+  window.grLineVertParams = function() {
     $('.analityc-graphics-line-vertical_params').each(function(){
       var visibleGraphic = $(this).find('.analityc-graphics-line-vertical__graphic:visible');
       visibleGraphic.removeClass('analityc-graphics-line-vertical__graphic_last');
       visibleGraphic.last().addClass('analityc-graphics-line-vertical__graphic_last');
+      var minWidth = 0;
+      visibleGraphic.each(function(){
+        var grWidth = $(this).outerWidth(true);
+        minWidth += grWidth;
+      });
+      $(this).css('min-width', minWidth);
+      if ($(this).outerWidth() > $(this).parent().width()) {
+        $(this).parents('.analityc-graphics-container').removeClass('no-arrows');
+      } else {
+        $(this).parents('.analityc-graphics-container').addClass('no-arrows');
+      }
     });
   }
   
@@ -546,6 +569,18 @@ export default () => {
     $('.analityc-graphics-line-vertical_alt').each(function(){
       var line = $(this).find('.analityc-graphics-line-vertical__line'),
           visibleGraphic = $(this).find('.analityc-graphics-line-vertical__graphic:visible');
+      
+      var minWidth = 0;
+      visibleGraphic.each(function(){
+        var grWidth = $(this).outerWidth(true);
+        minWidth += grWidth;
+      });
+      $(this).css('min-width', minWidth);
+      if ($(this).outerWidth() > $(this).parent().width()) {
+        $(this).parents('.analityc-graphics-container').removeClass('no-arrows');
+      } else {
+        $(this).parents('.analityc-graphics-container').addClass('no-arrows');
+      }
       
       line.each(function(){
         var barValue = $(this).find('.analityc-graphics-line-vertical__line-bar-value'),
@@ -571,7 +606,8 @@ export default () => {
       var checkBox = $(this).find('.checkbox__control'),
           checkStatus = checkBox.is(':checked'),
           name = $(this).data('name'),
-          graphic = $(this).parent().siblings('.analityc-graphics-container');
+		  comparison = $(this).parents('.legend_checkbox').data('comparison'),
+          graphic = $(this).parent().siblings('.analityc-widget-income[data-comparison="'+comparison+'"]');
       
       if (checkStatus == true) {
         graphic.find('[data-name="'+name+'"]').show();
@@ -585,7 +621,8 @@ export default () => {
       var checkBox = $(this).find('.checkbox__control'),
           checkStatus = checkBox.is(':checked'),
           name = $(this).data('name'),
-          graphic = $(this).parent().siblings('.analityc-graphics-container, .analytics-gov-debt__graphics-container');
+          comparison = $(this).parents('.legend-icon-a').data('comparison'),
+          graphic = $(this).parent().siblings('.analityc-graphics[data-comparison="'+comparison+'"]');
       
       if (checkStatus == true) {
         graphic.find('[data-name="'+name+'"]').show();
@@ -599,8 +636,8 @@ export default () => {
       var checkBox = $(this).find('input[data-name]'),
           checkStatus = checkBox.is(':checked'),
           name = checkBox.data('name'),
-          graphic = $(this).parents('.analityc-widgethead').siblings('.analityc-widget-income[data-comparison="comparative"], .analityc-graphics[data-comparison="comparative"]').find('.analityc-graphics-container'),
-          legend = graphic.next('.legend_basket');
+          graphic = $(this).parents('.analityc-widgethead').siblings('.analityc-widget-income[data-comparison="comparative"], .analityc-graphics[data-comparison="comparative"]'),
+          legend = graphic.siblings('.legend_basket');
       if (checkStatus == true) {
         graphic.find('[data-name="'+name+'"]').show();
         legend.find('[data-name="'+name+'"]').show();
@@ -638,43 +675,59 @@ export default () => {
   
   $(document).on('click', '.legend_basket .legend__remove', function(){
     var name = $(this).parents('.legend__item').data('name'),
-        checkboxes = $(this).parents('.analityc-widget-income, .analityc-graphics').siblings('.analityc-widgethead').find('.analityc-control-checkboxes');
+        checkboxes = $(this).parents('.legend_basket').siblings('.analityc-widgethead').find('.analityc-control-checkboxes');
     checkboxes.find('[data-name="'+name+'"]').prop('checked', false).change();
   });
   
   
   
-  // Отображение графиков при добавлении/удалении года/этапа
+  // Отображение графиков/столбцов таблиц при добавлении/удалении года/этапа
   $(document).on('click', '.analityc-add-group, .analityc-remove-group', function(e){
     var cgroup = $(this).parents('.analityc-control-frame_left').find('.analityc-control-group');
     
     cgroup.each(function(){
-      var year = $(this).data('year'),
-          month = $(this).data('month'),
-          stage = $(this).data('stage'),
-		  type = $(this).parents('[data-type]').data('type'),
-		  comparison = $(this).parents('[data-comparison]').data('comparison');
+      var set = $(this).data('set');
 		
       if ($(this).is(':visible')) {
-        $('.analityc-widget-income, .analityc-graphics, .analytics-gov-debt__graphics').each(function(){
-          var gtype = $(this).data('type'),
-			  gcomparison = $(this).data('comparison');
-          if (type.match(gtype) && comparison.match(gcomparison)) {
-            console.log('ttt');
-            $(this).find('[data-year="'+year+'"][data-month="'+month+'"][data-stage="'+stage+'"]').show().prev('[data-rate]').show();
-          }
+        $('.analityc-widget-income, .analityc-graphics, .analytics-gov-debt__graphics, .analityc-table').each(function(){
+          $(this).find('[data-set="'+set+'"]').show();
         });
       } else {
-        $('.analityc-widget-income, .analityc-graphics, .analytics-gov-debt__graphics').each(function(){
-          var gtype = $(this).data('type'),
-			  gcomparison = $(this).data('comparison');
-          if (type.match(gtype) && comparison.match(gcomparison)) {
-            console.log('fff');
-            $(this).find('[data-year="'+year+'"][data-month="'+month+'"][data-stage="'+stage+'"]').hide().prev('[data-rate]').hide();
-          }
+        $('.analityc-widget-income, .analityc-graphics, .analytics-gov-debt__graphics, .analityc-table').each(function(){
+          $(this).find('[data-set="'+set+'"]').hide();
         });
       }
     });
+    
+    graphicBars();
+    graphicLineVertAlt();
+    rateLine();
+    grLineVertParams();
+    grClassic();
+  });
+  
+  
+  
+  // Смена данных по селектам выбора года/этапа
+  $(document).on('change', '.analityc-control-frame_left .analityc-control-group select', function(e){
+    
+    var name = $(this).attr('name'),
+        selectedVal = $(this).val(),
+        set = $(this).parents('[data-set]').data('set');
+    
+    if (name == 'month' && selectedVal == 'all') selectedVal = '';
+    
+    if ($(this).parent().attr('data-type')) {
+      var type = $(this).parent().data('type');
+      $('.analityc-widget-income, .analityc-graphics, .analytics-gov-debt__graphics').each(function(){
+        var gtype = $(this).data('type');
+        if (gtype.match(type)) {
+          $(this).find('[data-set="'+set+'"] [data-set-'+name+'], [data-set="'+set+'"][data-set-'+name+']').text(selectedVal);
+        }
+      });
+    } else {
+      $('.analityc-widget-income, .analityc-graphics, .analytics-gov-debt__graphics, .analityc-table').find('[data-set="'+set+'"] [data-set-'+name+'], [data-set="'+set+'"][data-set-'+name+']').text(selectedVal);
+    }
     
     graphicBars();
     graphicLineVertAlt();

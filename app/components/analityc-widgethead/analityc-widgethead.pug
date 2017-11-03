@@ -84,8 +84,8 @@ mixin select-year-analityc(selectedText, selectedIndex)
     
 //- Месяц (Аналитика)
 mixin select-month-analityc(selectedText, selectedIndex)
-  +selbox('month', selectedText)._cgroup.analityc-widget__selectbox._month
-    - var optArray = [['jan', 'январь'], ['feb', 'февраль'], ['mar', 'март'], ['apr', 'апрель'], ['may', 'май'], ['jun', 'июнь'], ['jul', 'июль'], ['aug', 'август'], ['sep', 'сентябрь'], ['oct', 'октябрь'], ['nov', 'ноябрь'], ['dec', 'декабрь'], ['all', 'год']]
+  +selbox('month', selectedText)._cgroup.analityc-widget__selectbox._month&attributes(attributes)
+    - var optArray = [['ЯНВ-ЯНВ', 'январь'], ['ЯНВ-ФЕВ', 'февраль'], ['ЯНВ-МАРТ', 'март'], ['ЯНВ-АПР', 'апрель'], ['ЯНВ-МАЙ', 'май'], ['ЯНВ-ИЮНЬ', 'июнь'], ['ЯНВ-ИЮЛЬ', 'июль'], ['ЯНВ-АВГ', 'август'], ['ЯНВ-СЕН', 'сентябрь'], ['ЯНВ-ОКТ', 'октябрь'], ['ЯНВ-НОЯ', 'ноябрь'], ['ЯНВ-ДЕК', 'декабрь'], ['all', 'год']]
     - for (var i = 0; i < optArray.length; i++)
       if i == selectedIndex
         +selbox-opt(optArray[i][0], optArray[i][1], true)
@@ -94,29 +94,29 @@ mixin select-month-analityc(selectedText, selectedIndex)
     
 //- Все месяцы (Аналитика)
 mixin select-allmonths-analityc()
-  +selbox('month', 'год')._cgroup.analityc-widget__selectbox._month
+  +selbox('month', 'год')._cgroup.analityc-widget__selectbox._month&attributes(attributes)
     +selbox-opt('all', 'год', true)
     
 //- Месяц с первым днем (аналитика)
 mixin select-month-firstday()
   +selbox('month', '1 января')._cgroup.analityc-widget__selectbox._month
-    +selbox-opt('jan', '1 января', true)
-    +selbox-opt('feb', '1 февраля')
-    +selbox-opt('mar', '1 марта')
-    +selbox-opt('apr', '1 апреля')
-    +selbox-opt('may', '1 мая')
-    +selbox-opt('jun', '1 июня')
-    +selbox-opt('jul', '1 июля')
-    +selbox-opt('aug', '1 августа')
-    +selbox-opt('sep', '1 сентября')
-    +selbox-opt('oct', '1 октября')
-    +selbox-opt('nov', '1 ноября')
-    +selbox-opt('dec', '1 декабря')
+    +selbox-opt('01.01.', '1 января', true)
+    +selbox-opt('01.02.', '1 февраля')
+    +selbox-opt('01.03.', '1 марта')
+    +selbox-opt('01.04.', '1 апреля')
+    +selbox-opt('01.05.', '1 мая')
+    +selbox-opt('01.06.', '1 июня')
+    +selbox-opt('01.07.', '1 июля')
+    +selbox-opt('01.08.', '1 августа')
+    +selbox-opt('01.09.', '1 сентября')
+    +selbox-opt('01.10.', '1 октября')
+    +selbox-opt('01.11.', '1 ноября')
+    +selbox-opt('01.12.', '1 декабря')
     
 //- Этап (Аналитика)
 mixin select-stage-analityc(selectedText, selectedIndex)
   +selbox('stage', selectedText)._cgroup.analityc-widget__selectbox._stage
-    - var optArray = [['fact', 'Фактическое исполнение'], ['approved', 'Закон о бюджете (утвержденный)']]
+    - var optArray = [['Факт', 'Фактическое исполнение'], ['Закон утвержденный', 'Закон о бюджете (утвержденный)']]
     - for (var i = 0; i < optArray.length; i++)
       if i == selectedIndex
         +selbox-opt(optArray[i][0], optArray[i][1], true)
@@ -372,29 +372,29 @@ mixin analityc-widgethead-forecast()
 mixin analityc-widgethead-main()
   +b.analityc-widgethead&attributes(attributes)
   
-    .analityc-control-frame.analityc-control-frame_left.active(data-type='line, classic' data-comparison='none' data-control)
+    .analityc-control-frame.analityc-control-frame_left
       span.analityc-control-frame-title Выберите год и этап
-      .analityc-control-group(data-year='2015' data-month='none' data-stage='fact')
+      .analityc-control-group(data-set='gt1')
         a(href='#').analityc-remove-group
           +icon('delete', true)
         +select-year-analityc('2015', 0)
         +select-stage-analityc('Фактическое исполнение', 0)
-      .analityc-control-group(data-year='2016' data-month='none' data-stage='fact')
+      .analityc-control-group(data-set='gt2')
         a(href='#').analityc-remove-group
           +icon('delete', true)
         +select-year-analityc('2016', 1)
         +select-stage-analityc('Фактическое исполнение', 0)
-      .analityc-control-group(data-year='2017' data-month='none' data-stage='approved')
+      .analityc-control-group(data-set='gt3')
         a(href='#').analityc-remove-group
           +icon('delete', true)
         +select-year-analityc('2017', 2)
         +select-stage-analityc('Закон о бюджете (утвержденный)', 1)
-      .analityc-control-group(data-year='2018' data-month='none' data-stage='approved')
+      .analityc-control-group(data-set='gt4')
         a(href='#').analityc-remove-group
           +icon('delete', true)
         +select-year-analityc('2018', 3)
         +select-stage-analityc('Закон о бюджете (утвержденный)', 1)
-      .analityc-control-group(data-year='2019' data-month='none' data-stage='approved')
+      .analityc-control-group(data-set='gt5')
         a(href='#').analityc-remove-group
           +icon('delete', true)
         +select-year-analityc('2019', 4)
@@ -419,117 +419,42 @@ mixin analityc-widgethead-main()
 mixin analityc-widgethead-analityc-income()
   +b.analityc-widgethead._income&attributes(attributes)
   
-    .analityc-control-frame.analityc-control-frame_left.active(data-type='g2, g3' data-comparison='overall' data-control)
+    .analityc-control-frame.analityc-control-frame_left
       span.analityc-control-frame-title Выберите год и этап
-      .analityc-control-group(data-year='2015' data-month='all' data-stage='fact')
+      .analityc-control-group(data-set='gt1')
         a(href='#').analityc-remove-group
           +icon('delete', true)
         +select-year-analityc('2015', 0)
-        +select-allmonths-analityc()
+        +select-allmonths-analityc()(data-control data-type='g2, g3' data-comparison='all')
+        +select-month-analityc('март', 2)(data-control data-type='g1' data-comparison='all')
         +select-stage-analityc('Фактическое исполнение', 0)
-      .analityc-control-group(data-year='2016' data-month='all' data-stage='fact')
+      .analityc-control-group(data-set='gt2')
         a(href='#').analityc-remove-group
           +icon('delete', true)
         +select-year-analityc('2016', 1)
-        +select-allmonths-analityc()
+        +select-allmonths-analityc()(data-control data-type='g2, g3' data-comparison='all')
+        +select-month-analityc('апрель', 3)(data-control data-type='g1' data-comparison='all')
         +select-stage-analityc('Фактическое исполнение', 0)
-      .analityc-control-group(data-year='2017' data-month='all' data-stage='approved')
+      .analityc-control-group(data-set='gt3')
         a(href='#').analityc-remove-group
           +icon('delete', true)
         +select-year-analityc('2017', 2)
-        +select-allmonths-analityc()
+        +select-allmonths-analityc()(data-control data-type='g2, g3' data-comparison='all')
+        +select-month-analityc('май', 4)(data-control data-type='g1' data-comparison='all')
         +select-stage-analityc('Закон о бюджете (утвержденный)', 1)
-      .analityc-control-group(data-year='2018' data-month='all' data-stage='approved')
+      .analityc-control-group(data-set='gt4')
         a(href='#').analityc-remove-group
           +icon('delete', true)
         +select-year-analityc('2018', 3)
-        +select-allmonths-analityc()
+        +select-allmonths-analityc()(data-control data-type='g2, g3' data-comparison='all')
+        +select-month-analityc('июнь', 5)(data-control data-type='g1' data-comparison='all')
         +select-stage-analityc('Закон о бюджете (утвержденный)', 1)
-      .analityc-control-group(data-year='2019' data-month='all' data-stage='approved')
+      .analityc-control-group(data-set='gt5')
         a(href='#').analityc-remove-group
           +icon('delete', true)
         +select-year-analityc('2019', 4)
-        +select-allmonths-analityc()
-        +select-stage-analityc('Закон о бюджете (утвержденный)', 1)
-      a(href='#').analityc-add-group + Добавить год и этап
-      
-    .analityc-control-frame.analityc-control-frame_left(data-type='g1' data-comparison='overall' data-control)
-      span.analityc-control-frame-title Выберите год и этап
-      .analityc-control-group(data-year='2015' data-month='mar' data-stage='fact')
-        a(href='#').analityc-remove-group
-          +icon('delete', true)
-        +select-year-analityc('2015', 0)
-        +select-month-analityc('март', 2)
-        +select-stage-analityc('Фактическое исполнение', 0)
-      .analityc-control-group(data-year='2015' data-month='apr' data-stage='fact')
-        a(href='#').analityc-remove-group
-          +icon('delete', true)
-        +select-year-analityc('2015', 0)
-        +select-month-analityc('апрель', 3)
-        +select-stage-analityc('Фактическое исполнение', 0)
-      .analityc-control-group(data-year='2015' data-month='may' data-stage='fact')
-        a(href='#').analityc-remove-group
-          +icon('delete', true)
-        +select-year-analityc('2015', 0)
-        +select-month-analityc('май', 4)
-        +select-stage-analityc('Фактическое исполнение', 0)
-      .analityc-control-group(data-year='2015' data-month='jun' data-stage='fact')
-        a(href='#').analityc-remove-group
-          +icon('delete', true)
-        +select-year-analityc('2015', 0)
-        +select-month-analityc('июнь', 5)
-        +select-stage-analityc('Фактическое исполнение', 0)
-      .analityc-control-group(data-year='2015' data-month='jul' data-stage='fact')
-        a(href='#').analityc-remove-group
-          +icon('delete', true)
-        +select-year-analityc('2015', 0)
-        +select-month-analityc('июль', 6)
-        +select-stage-analityc('Фактическое исполнение', 0)
-      .analityc-control-group(data-year='2015' data-month='aug' data-stage='fact')
-        a(href='#').analityc-remove-group
-          +icon('delete', true)
-        +select-year-analityc('2015', 0)
-        +select-month-analityc('август', 6)
-        +select-stage-analityc('Фактическое исполнение', 0)
-      .analityc-control-group(data-year='2015' data-month='all' data-stage='fact')
-        a(href='#').analityc-remove-group
-          +icon('delete', true)
-        +select-year-analityc('2015', 0)
-        +select-month-analityc('год', 12)
-        +select-stage-analityc('Фактическое исполнение', 0)
-      a(href='#').analityc-add-group + Добавить год и этап
-      
-    .analityc-control-frame.analityc-control-frame_left(data-type='g1, g2, g3' data-comparison='comparative' data-control)
-      span.analityc-control-frame-title Выберите год и этап
-      .analityc-control-group(data-year='2015' data-month='all' data-stage='fact')
-        a(href='#').analityc-remove-group
-          +icon('delete', true)
-        +select-year-analityc('2015', 0)
-        +select-allmonths-analityc()
-        +select-stage-analityc('Фактическое исполнение', 0)
-      .analityc-control-group(data-year='2016' data-month='all' data-stage='fact')
-        a(href='#').analityc-remove-group
-          +icon('delete', true)
-        +select-year-analityc('2016', 1)
-        +select-allmonths-analityc()
-        +select-stage-analityc('Фактическое исполнение', 0)
-      .analityc-control-group(data-year='2017' data-month='all' data-stage='approved')
-        a(href='#').analityc-remove-group
-          +icon('delete', true)
-        +select-year-analityc('2017', 2)
-        +select-allmonths-analityc()
-        +select-stage-analityc('Закон о бюджете (утвержденный)', 1)
-      .analityc-control-group(data-year='2018' data-month='all' data-stage='approved')
-        a(href='#').analityc-remove-group
-          +icon('delete', true)
-        +select-year-analityc('2018', 3)
-        +select-allmonths-analityc()
-        +select-stage-analityc('Закон о бюджете (утвержденный)', 1)
-      .analityc-control-group(data-year='2019' data-month='all' data-stage='approved')
-        a(href='#').analityc-remove-group
-          +icon('delete', true)
-        +select-year-analityc('2019', 4)
-        +select-allmonths-analityc()
+        +select-allmonths-analityc()(data-control data-type='g2, g3' data-comparison='all')
+        +select-month-analityc('год', 12)(data-control data-type='g1' data-comparison='all')
         +select-stage-analityc('Закон о бюджете (утвержденный)', 1)
       a(href='#').analityc-add-group + Добавить год и этап
 	  
@@ -601,117 +526,42 @@ mixin analityc-widgethead-analityc-income()
 mixin analityc-widgethead-analytics-expenses()
   +b.analityc-widgethead&attributes(attributes)
   
-    .analityc-control-frame.analityc-control-frame_left.active(data-type='g2, g3' data-comparison='overall' data-control)
+    .analityc-control-frame.analityc-control-frame_left
       span.analityc-control-frame-title Выберите год и этап
-      .analityc-control-group(data-year='2015' data-month='all' data-stage='fact')
+      .analityc-control-group(data-set='gt1')
         a(href='#').analityc-remove-group
           +icon('delete', true)
         +select-year-analityc('2015', 0)
-        +select-allmonths-analityc()
+        +select-allmonths-analityc()(data-control data-type='g2, g3' data-comparison='all')
+        +select-month-analityc('март', 2)(data-control data-type='g1' data-comparison='all')
         +select-stage-analityc('Фактическое исполнение', 0)
-      .analityc-control-group(data-year='2016' data-month='all' data-stage='fact')
+      .analityc-control-group(data-set='gt2')
         a(href='#').analityc-remove-group
           +icon('delete', true)
         +select-year-analityc('2016', 1)
-        +select-allmonths-analityc()
+        +select-allmonths-analityc()(data-control data-type='g2, g3' data-comparison='all')
+        +select-month-analityc('апрель', 3)(data-control data-type='g1' data-comparison='all')
         +select-stage-analityc('Фактическое исполнение', 0)
-      .analityc-control-group(data-year='2017' data-month='all' data-stage='approved')
+      .analityc-control-group(data-set='gt3')
         a(href='#').analityc-remove-group
           +icon('delete', true)
         +select-year-analityc('2017', 2)
-        +select-allmonths-analityc()
+        +select-allmonths-analityc()(data-control data-type='g2, g3' data-comparison='all')
+        +select-month-analityc('май', 4)(data-control data-type='g1' data-comparison='all')
         +select-stage-analityc('Закон о бюджете (утвержденный)', 1)
-      .analityc-control-group(data-year='2018' data-month='all' data-stage='approved')
+      .analityc-control-group(data-set='gt4')
         a(href='#').analityc-remove-group
           +icon('delete', true)
         +select-year-analityc('2018', 3)
-        +select-allmonths-analityc()
+        +select-allmonths-analityc()(data-control data-type='g2, g3' data-comparison='all')
+        +select-month-analityc('июнь', 5)(data-control data-type='g1' data-comparison='all')
         +select-stage-analityc('Закон о бюджете (утвержденный)', 1)
-      .analityc-control-group(data-year='2019' data-month='all' data-stage='approved')
+      .analityc-control-group(data-set='gt5')
         a(href='#').analityc-remove-group
           +icon('delete', true)
         +select-year-analityc('2019', 4)
-        +select-allmonths-analityc()
-        +select-stage-analityc('Закон о бюджете (утвержденный)', 1)
-      a(href='#').analityc-add-group + Добавить год и этап
-      
-    .analityc-control-frame.analityc-control-frame_left(data-type='g1' data-comparison='overall' data-control)
-      span.analityc-control-frame-title Выберите год и этап
-      .analityc-control-group(data-year='2015' data-month='mar' data-stage='fact')
-        a(href='#').analityc-remove-group
-          +icon('delete', true)
-        +select-year-analityc('2015', 0)
-        +select-month-analityc('март', 2)
-        +select-stage-analityc('Фактическое исполнение', 0)
-      .analityc-control-group(data-year='2015' data-month='apr' data-stage='fact')
-        a(href='#').analityc-remove-group
-          +icon('delete', true)
-        +select-year-analityc('2015', 0)
-        +select-month-analityc('апрель', 3)
-        +select-stage-analityc('Фактическое исполнение', 0)
-      .analityc-control-group(data-year='2015' data-month='may' data-stage='fact')
-        a(href='#').analityc-remove-group
-          +icon('delete', true)
-        +select-year-analityc('2015', 0)
-        +select-month-analityc('май', 4)
-        +select-stage-analityc('Фактическое исполнение', 0)
-      .analityc-control-group(data-year='2015' data-month='jun' data-stage='fact')
-        a(href='#').analityc-remove-group
-          +icon('delete', true)
-        +select-year-analityc('2015', 0)
-        +select-month-analityc('июнь', 5)
-        +select-stage-analityc('Фактическое исполнение', 0)
-      .analityc-control-group(data-year='2015' data-month='jul' data-stage='fact')
-        a(href='#').analityc-remove-group
-          +icon('delete', true)
-        +select-year-analityc('2015', 0)
-        +select-month-analityc('июль', 6)
-        +select-stage-analityc('Фактическое исполнение', 0)
-      .analityc-control-group(data-year='2015' data-month='aug' data-stage='fact')
-        a(href='#').analityc-remove-group
-          +icon('delete', true)
-        +select-year-analityc('2015', 0)
-        +select-month-analityc('август', 6)
-        +select-stage-analityc('Фактическое исполнение', 0)
-      .analityc-control-group(data-year='2015' data-month='all' data-stage='fact')
-        a(href='#').analityc-remove-group
-          +icon('delete', true)
-        +select-year-analityc('2015', 0)
-        +select-month-analityc('год', 12)
-        +select-stage-analityc('Фактическое исполнение', 0)
-      a(href='#').analityc-add-group + Добавить год и этап
-      
-    .analityc-control-frame.analityc-control-frame_left(data-type='g1, g2, g3' data-comparison='comparative' data-control)
-      span.analityc-control-frame-title Выберите год и этап
-      .analityc-control-group(data-year='2015' data-month='all' data-stage='fact')
-        a(href='#').analityc-remove-group
-          +icon('delete', true)
-        +select-year-analityc('2015', 0)
-        +select-allmonths-analityc()
-        +select-stage-analityc('Фактическое исполнение', 0)
-      .analityc-control-group(data-year='2016' data-month='all' data-stage='fact')
-        a(href='#').analityc-remove-group
-          +icon('delete', true)
-        +select-year-analityc('2016', 1)
-        +select-allmonths-analityc()
-        +select-stage-analityc('Фактическое исполнение', 0)
-      .analityc-control-group(data-year='2017' data-month='all' data-stage='approved')
-        a(href='#').analityc-remove-group
-          +icon('delete', true)
-        +select-year-analityc('2017', 2)
-        +select-allmonths-analityc()
-        +select-stage-analityc('Закон о бюджете (утвержденный)', 1)
-      .analityc-control-group(data-year='2018' data-month='all' data-stage='approved')
-        a(href='#').analityc-remove-group
-          +icon('delete', true)
-        +select-year-analityc('2018', 3)
-        +select-allmonths-analityc()
-        +select-stage-analityc('Закон о бюджете (утвержденный)', 1)
-      .analityc-control-group(data-year='2019' data-month='all' data-stage='approved')
-        a(href='#').analityc-remove-group
-          +icon('delete', true)
-        +select-year-analityc('2019', 4)
-        +select-allmonths-analityc()
+        +select-allmonths-analityc()(data-control data-type='g2, g3' data-comparison='all')
+        +select-month-analityc('год', 12)(data-control data-type='g1' data-comparison='all')
         +select-stage-analityc('Закон о бюджете (утвержденный)', 1)
       a(href='#').analityc-add-group + Добавить год и этап
       
@@ -784,29 +634,29 @@ mixin analityc-widgethead-analytics-expenses()
 mixin analityc-widgethead-analytics-govdebt()
   +b.analityc-widgethead&attributes(attributes)
   
-    .analityc-control-frame.analityc-control-frame_left(data-type='rate, percentage' data-comparison='none')
+    .analityc-control-frame.analityc-control-frame_left
       span.analityc-control-frame-title Выберите год и месяц
-      .analityc-control-group(data-year='2015' data-month='jan' data-stage='none')
+      .analityc-control-group(data-set='gt1')
         a(href='#').analityc-remove-group
           +icon('delete', true)
         +select-year-analityc('2015', 0)
         +select-month-firstday()
-      .analityc-control-group(data-year='2016' data-month='jan' data-stage='none')
+      .analityc-control-group(data-set='gt2')
         a(href='#').analityc-remove-group
           +icon('delete', true)
         +select-year-analityc('2016', 1)
         +select-month-firstday()
-      .analityc-control-group(data-year='2017' data-month='jan' data-stage='none')
+      .analityc-control-group(data-set='gt3')
         a(href='#').analityc-remove-group
           +icon('delete', true)
         +select-year-analityc('2017', 2)
         +select-month-firstday()
-      .analityc-control-group(data-year='2018' data-month='jan' data-stage='none')
+      .analityc-control-group(data-set='gt4')
         a(href='#').analityc-remove-group
           +icon('delete', true)
         +select-year-analityc('2018', 3)
         +select-month-firstday()
-      .analityc-control-group(data-year='2019' data-month='jan' data-stage='none')
+      .analityc-control-group(data-set='gt5')
         a(href='#').analityc-remove-group
           +icon('delete', true)
         +select-year-analityc('2019', 4)

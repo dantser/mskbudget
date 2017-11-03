@@ -53,16 +53,59 @@ export default () => {
     $('.d-smr__add-char-list-wrapper').scrollbar();
     
     // Добавить год и этап
+    if ($('.analityc-add-group').length) {
+      $('.analityc-add-group').each(function(){
+        if ($(this).siblings('.analityc-control-group').length == $(this).siblings('.analityc-control-group:visible').length) {
+          $('.analityc-add-group').hide();
+        }
+      });
+    }
+    
     $(document).on('click', '.analityc-add-group', function(e){
       e.preventDefault();
       $(this).siblings('.analityc-control-group').not(':visible').first().show();
       $('.analityc-remove-group').show();
+      if ($(this).siblings('.analityc-control-group').length == $(this).siblings('.analityc-control-group:visible').length) {
+        $('.analityc-add-group').hide();
+      }
     });
     
     // Удалить год и этап
+    var isMobile = {
+      Android: function() {
+        return navigator.userAgent.match(/Android/i);
+      },
+      BlackBerry: function() {
+        return navigator.userAgent.match(/BlackBerry/i);
+      },
+      iOS: function() {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+      },
+      Opera: function() {
+        return navigator.userAgent.match(/Opera Mini/i);
+      },
+      Windows: function() {
+        return navigator.userAgent.match(/IEMobile/i);
+      },
+      any: function() {
+        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+      }
+    };
+    
+    if ($('.analityc-remove-group').length) {
+      $('.analityc-remove-group').parent().each(function(){
+        if (isMobile.any()) {
+          $(this).addClass('analityc-control-group_mobile');
+        } else {
+          $(this).removeClass('analityc-control-group_mobile');
+        }
+      });
+    }
+    
     $(document).on('click', '.analityc-remove-group', function(e){
       e.preventDefault();
       $(this).parent().hide();
+      $('.analityc-add-group').show();
       if ($(this).parent().siblings('.analityc-control-group:visible').length == 1) {
         $('.analityc-remove-group').hide();
       }

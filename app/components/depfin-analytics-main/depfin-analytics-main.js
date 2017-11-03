@@ -46,8 +46,9 @@ export default() => {
 			//grClassic();
 			$('.analityc-widget_params .analityc-graphics[data-type="classic"]').addClass('active');
 			LEGEND.children('.legend__item_green').hide();
-			grClassic();
 		}
+		grLineVertParams();
+		grClassic();
 
   	// обновление графиков при отрисовке (массив window.grLineVert)
     setTimeout(function() {
@@ -70,12 +71,23 @@ export default() => {
 		const linesH = lines.height();
 		const items = lines.find('.analityc-graphics-classic__item:visible');	
 		var itemsCnt = items.length;
+		
+		var visibleLineItem = gr.find('.analityc-graphics-classic__part_lines .analityc-graphics-classic__item:visible');
+		var visibleCaptItem = gr.find('.analityc-graphics-classic__part_captions .analityc-graphics-classic__item:visible');
+		var wrapperWidth = 204 * visibleLineItem.length;
+		
+		gr.css('min-width', wrapperWidth);
+		
+		if (gr.outerWidth() > gr.parent().width()) {
+			gr.parents('.analityc-graphics-container').removeClass('no-arrows');
+      	} else {
+        	gr.parents('.analityc-graphics-container').addClass('no-arrows');
+		}
+		
 		var lineW = wrapper.width() / (itemsCnt - 1.0);
 		// высшая/низшая точка графика (для вычисления высоты графика)
 		var grHigherPoint = gr.find('.analityc-graphics-classic__item-wrapper').eq(0); 
 		var grLowerPoint = gr.find('.analityc-graphics-classic__item-wrapper').eq(0);
-		var visibleLineItem = gr.find('.analityc-graphics-classic__part_lines .analityc-graphics-classic__item:visible');
-		var visibleCaptItem = gr.find('.analityc-graphics-classic__part_captions .analityc-graphics-classic__item:visible');
 		
 		visibleLineItem.removeClass('analityc-graphics-classic__item_first analityc-graphics-classic__item_last analityc-graphics-classic__item_single');
 		visibleCaptItem.removeClass('analityc-graphics-classic__item_first analityc-graphics-classic__item_last analityc-graphics-classic__item_single');
