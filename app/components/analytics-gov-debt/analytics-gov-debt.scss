@@ -37,13 +37,18 @@
   }
   
   .analityc-graphics-broken-line {
-    padding-top: 18px;
+    padding: 18px 18px 0;
+    
+    @media (max-width: 1100px) {
+      padding: 18px 50px 0;
+    }
   }
   
   .analityc-graphics-broken-line__growth-rate {
     border-bottom: 0;
     padding: 0 0 30px;
     text-align: center;
+    font-size: 0;
     
     .growth-rate__col {
       width: 109px;
@@ -145,7 +150,12 @@
         display: block;
       }
       .analityc-graphics-broken-line, .analityc-graphics-bars {
-        min-width: 1100px;
+        box-sizing: content-box;
+      }
+      &.no-arrows {
+        .analytics-gov-debt__slide-arrows {
+          display: none;
+        }
       }
     }
   }

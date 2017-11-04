@@ -11,6 +11,7 @@ export default () => {
     function changeContent(typeofchange, el) {
       
       var graphics = $('.analytics-gov-debt__graphics'),
+          controls = $('.analytics-gov-debt [data-control]'),
           typeVal;
       
       if (typeofchange == 'select') {
@@ -20,8 +21,10 @@ export default () => {
       }
       
       graphics.removeClass('active');
+      controls.hide();
 	 
       changeBlock(graphics, typeVal);
+      changeControl(controls, typeVal);
       rateLine();
       graphicBars();
     }
@@ -31,6 +34,15 @@ export default () => {
         var type = $(this).data('type');
         if (type == 'all' || type.match(typeVal)) {
           $(this).addClass('active');
+        }
+      });
+    }
+    
+    function changeControl(el, typeVal) {
+      el.each(function(){
+        var type = $(this).data('type');
+        if (type == 'all' || type.match(typeVal)) {
+          $(this).show();
         }
       });
     }

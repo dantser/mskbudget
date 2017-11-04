@@ -19,28 +19,38 @@ mixin depfin-analytics-gp()
 						.analityc-graphics-scroll-hider
 							.analityc-graphics-wrapper(data-offset='100')
 								+analityc-graphics-line-vertical-alt(getData('graphic-lines-analityc-income'))
-					+legend-icon()
 				.analityc-graphics(data-type='g2', data-comparison='overall').active
 					.analityc-graphics-container.analityc-graphics-container_bars
 						+slide-arrows().analityc-graphics__slide-arrows
 						.analityc-graphics-scroll-hider
 							.analityc-graphics-wrapper(data-offset='100')
 								+analityc-graphics-bars(getData('legend-analityc-bar1'))
-					+legend-icon()
 				.analityc-graphics(data-type='g3', data-comparison='overall')
 					.analityc-graphics-container.analityc-graphics-container_bars
 						+slide-arrows().analityc-graphics__slide-arrows
 						.analityc-graphics-scroll-hider
 							.analityc-graphics-wrapper(data-offset='100')
 								+analityc-graphics-bars(getData('legend-analityc-bar2'))
-					+legend-icon()
-				.analityc-graphics(data-type='g1, g2, g3', data-comparison='comparative')
+				.analityc-graphics(data-type='g1', data-comparison='comparative')
+					.analityc-graphics-container.analityc-graphics-container_vert-lines
+						+slide-arrows().analityc-graphics__slide-arrows
+						.analityc-graphics-scroll-hider
+							.analityc-graphics-wrapper(data-offset='100')
+								+analityc-graphics-line-vertical-alt(getData('graphic-lines-analityc-income'))
+				.analityc-graphics(data-type='g2', data-comparison='comparative')
 					.analityc-graphics-container.analityc-graphics-container_bars-entired
 						+slide-arrows().analityc-graphics__slide-arrows
 						.analityc-graphics-scroll-hider
 							.analityc-graphics-wrapper(data-offset='100')
 								+analityc-graphics-bars-alt(getData('legend-analityc-bar4'))._entired
-					+legend-basket(getData('legend-analityc-income')[2])
+				.analityc-graphics(data-type='g3', data-comparison='comparative')
+					.analityc-graphics-container.analityc-graphics-container_bars-entired
+						+slide-arrows().analityc-graphics__slide-arrows
+						.analityc-graphics-scroll-hider
+							.analityc-graphics-wrapper(data-offset='100')
+								+analityc-graphics-bars-alt(getData('legend-analityc-bar6'))._entired
+				+legend-icon()(data-control data-type='g1, g2, g3' data-comparison='overall')
+				+legend-basket(getData('legend-analityc-income')[2])(data-control data-type='g1, g2, g3' data-comparison='comparative')
 				.table-switcher
 					.analityc-control-switcher.analityc-control-switcher_table.analityc-control-switcher_large.active
 						a(href="#").active млн руб.

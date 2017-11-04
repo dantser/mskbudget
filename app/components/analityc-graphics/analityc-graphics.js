@@ -240,7 +240,12 @@ export default () => {
         var grWidth = $(this).outerWidth(true);
         minWidth += grWidth;
       });
+      
       $(this).css('min-width', minWidth);
+      if ($(this).siblings('.analityc-graphics-broken-line').length) {
+        $(this).siblings('.analityc-graphics-broken-line').css('min-width', minWidth);
+      }
+      
       if ($(this).outerWidth() > $(this).parent().width()) {
         $(this).parents('.analityc-graphics-container').removeClass('no-arrows');
       } else {
@@ -622,7 +627,7 @@ export default () => {
           checkStatus = checkBox.is(':checked'),
           name = $(this).data('name'),
           comparison = $(this).parents('.legend-icon-a').data('comparison'),
-          graphic = $(this).parent().siblings('.analityc-graphics[data-comparison="'+comparison+'"]');
+          graphic = $(this).parent().siblings('.analityc-graphics[data-comparison="'+comparison+'"], .analytics-gov-debt__graphics');
       
       if (checkStatus == true) {
         graphic.find('[data-name="'+name+'"]').show();
@@ -659,6 +664,16 @@ export default () => {
   if ($('.legend-icon-a .checkbox').length) {
     checkLegendBoxes();
     $(document).on('change', '.legend-icon-a .checkbox__control', function(){
+      if ($('.analitycs-gp').length) {
+        var name = $(this).parents('.checkbox').data('name'),
+            controlChboxes = $('.analityc-control-checkboxes'),
+            checkStatus = $(this).is(':checked');
+        if (checkStatus) {
+          controlChboxes.find('input[data-name="'+name+'"]').prop('checked', true);
+        } else {
+          controlChboxes.find('input[data-name="'+name+'"]').prop('checked', false);
+        }
+      }
       checkLegendBoxes();
       graphicBars();
       rateLine();
@@ -668,6 +683,18 @@ export default () => {
   if ($('.analityc-control-checkboxes').length) {
     checkLegendBoxes();
     $(document).on('change', '.analityc-control-checkboxes input[data-name]', function(){
+      if ($('.analitycs-gp').length) {
+        var name = $(this).data('name'),
+            legendChboxes = $('.legend-icon-a'),
+            checkStatus = $(this).is(':checked');
+        if (checkStatus) {
+          legendChboxes.find('.checkbox[data-name="'+name+'"]').addClass('checkbox_active');
+          legendChboxes.find('.checkbox[data-name="'+name+'"] .checkbox__control').prop('checked', true);
+        } else {
+          legendChboxes.find('.checkbox[data-name="'+name+'"]').removeClass('checkbox_active');
+          legendChboxes.find('.checkbox[data-name="'+name+'"] .checkbox__control').prop('checked', false);
+        }
+      }
       checkLegendBoxes();
       graphicBars();
     });
