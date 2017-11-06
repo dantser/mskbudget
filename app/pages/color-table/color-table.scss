@@ -1,0 +1,140 @@
+.color-table {
+  display: block;
+  position: relative;
+  
+  &__note {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 13px;
+  }
+  
+  &__block {
+    & + & {
+      margin-top: 50px;
+    }
+  }
+  
+  &__heading-list {
+    font-size: 16px;
+    text-transform: uppercase;
+    
+    li {
+      margin-top: 10px;
+    }
+  }
+  
+  &__table {
+    border: 1px solid #d7d7d7;
+    margin-top: 10px;
+  }
+  
+  &__row {
+    display: flex;
+    align-items: stretch;
+    border-bottom: 1px solid #d7d7d7;
+    width: 100%;
+    
+    &:last-child {
+      border: 0;
+    }
+  }
+  
+  &__col {
+    display: inline-flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    width: 20%;
+    border-right: 1px solid #d7d7d7;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    flex-wrap: wrap;
+    
+    p {
+      padding: 10px;
+    }
+    
+    &:last-child {
+      border: 0;
+    }
+    
+    &_caption {
+      font-weight: 500;
+      color: gray;
+    }
+    
+    &_big {
+      width: 60%;
+      
+      .color-table__row {
+        border-top: 1px solid #d7d7d7;
+      }
+    }
+    
+    &_sub {
+      width: 50%;
+      align-self: stretch;
+    }
+  }
+  
+  &__grad {
+    display: inline-block;
+    width: 80%;
+    height: 20px;
+    
+    &_blue {
+      background-image: linear-gradient(270deg,#006ed8,#01daf3);
+      &.color-table__grad_light {
+        background-image: linear-gradient(270deg,#a5c0ee 0,#a5feff);
+      }
+    }
+    &_pink {
+      background-image: linear-gradient(270deg,#b63e7e,#e55c66);
+      &.color-table__grad_light {
+        background-image: linear-gradient(270deg,#ddb6d5 0,#ffcac5);
+      }
+    }
+    &_green {
+      background-image: linear-gradient(270deg,#34ad67,#fee300 65%);
+      &.color-table__grad_light {
+        background-image: linear-gradient(90deg,#fef5a5 0,#bbe5c7 83%,#b6e3ca);
+      }
+    }
+    &_violet {
+      background-image: linear-gradient(270deg,#8449b4,#a870d5 65%);
+      &.color-table__grad_light {
+        background-image: linear-gradient(270deg,#cbb5dc 0,#e8d4f7);
+      }
+    }
+    &_grey {
+      background-image: linear-gradient(270deg,#bcc0ca,#ccd0d7 65%);
+      &.color-table__grad_light {
+        background-image: linear-gradient(90deg,#f0f1f3 0,#cbcdd2);
+      }
+    }
+    &_orange {
+      background-image: linear-gradient(270deg,#fca805,#ffd856 65%);
+      &.color-table__grad_light {
+        background-image: linear-gradient(90deg,#ffecaa 0,#ffba38);
+      }
+    }
+    &_altgreen {
+      background-image: linear-gradient(270deg,#2dc98f,#26c082 65%);
+    }
+  }
+  
+  &__line {
+    display: inline-block;
+    width: 80%;
+    height: 2px;
+    
+    &_orange {
+      background-color: #e85b21;
+    }
+    &_grey {
+      background-color: #c9ccd3;
+    }
+  }
+}

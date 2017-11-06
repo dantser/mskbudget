@@ -1,0 +1,242 @@
+extends ../../layouts/default
+include ../../blocks/page-head/page-head
+
+block head
+  - var pageTitle = 'Таблица цветов'
+
+block page
+  block header
+    +header()._budget
+
+  block sections
+    +sections()
+
+      block content
+      
+        // ----------------------//
+        
+        mixin caption-row()
+          +e.row
+            +e.col._caption
+              p Градиент / линия
+            +e.col._caption
+              p Название
+            +e.col._big._caption
+              p Класс
+              +e.row
+                +e.col._sub
+                  p График
+                +e.col._sub
+                  p Легенда
+                
+              
+        mixin grad-row(name, text1, text2, text22)
+          +e.row
+            +e.col
+              +e.grad(class='_'+name)
+            +e.col
+              p= name
+            +e.col._big
+              +e.col._sub
+                p= text1
+              +e.col._sub
+                p= text2
+                  br
+                  = text22
+                  
+        mixin line-row(name, text1, text2, text22)
+          +e.row
+            +e.col
+              +e.line(class='_'+name)
+            +e.col
+              p= name
+            +e.col._big
+              +e.col._sub
+                p= text1
+              +e.col._sub
+                p= text2
+                  br
+                  = text22
+              
+        // ----------------------//
+
+        section.main.basic-budget.section__item
+          .wrapper-header
+            +page-head('Таблица цветов')
+          .wrapper
+            .analityc-widget.load-anim-fade(data-delay="1500")
+            
+              +b.color-table
+                +e.note * - нет класса, цвет задается через скрипт
+                //
+                +e.block
+                  +e.UL.heading-list
+                    li Бюджет Москвы - Основные показатели бюджета
+                  +e.table
+                    +caption-row()
+                    +grad-row('blue', '- *', '.legend__item_blue')
+                    +grad-row('pink', '- *', '.legend__item_pink')
+                    +grad-row('green', '- *', '.legend__item_green')
+                //
+                +e.block
+                  +e.UL.heading-list
+                    li Бюджет Москвы - Доходы бюджета - Закон о бюджете утвержденный / Закон об исполнении
+                    li Бюджет Москвы - Расходы бюджета - Закон о бюджете утвержденный / Закон об исполнении
+                    li Бюджет Москвы - Государственные программы - Закон о бюджете утвержденный - Структура / Закон об исполнении - Структура
+                    li Бюджет Москвы - Государственная программа - Закон о бюджете утвержденный / Закон об исполнении
+                    li Бюджет Москвы - Государственный долг - Закон об исполнении
+                    li Бюджет Москвы - Межбюджетные отношения - Закон о бюджете утвержденный / Закон об исполнении / Закон о бюджете (действующая редакция)
+                  +e.table
+                    +caption-row()
+                    +grad-row('blue', '- *', '.legend__item_blue')
+                    +grad-row('pink', '- *', '.legend__item_pink')
+                    +grad-row('green', '- *', '.legend__item_green')
+                    +grad-row('violet', '- *', '.legend__item_violet')
+                    +grad-row('grey', '- *', '.legend__item_grey')
+                    +grad-row('orange', '- *', '.legend__item_yellow')
+                    +grad-row('altgreen', '- *', '.legend__item_altgreen')
+                //
+                +e.block
+                  +e.UL.heading-list
+                    li Бюджет Москвы - Доходы бюджета - Закон о внесении изменений
+                    li Бюджет Москвы - Расходы бюджета - Закон о внесении изменений
+                    li Бюджет Москвы - Государственная программа - Закон о внесении изменений
+                    li Бюджет Москвы - Межбюджетные отношения - Закон о внесении изменений
+                  +e.table
+                    +caption-row()
+                    +grad-row('grey', '.column-area_gray', '.legend__item_grey')
+                    +grad-row('violet', '.column-area_violet', '.legend__item_violet')
+                    +grad-row('blue', '.column-area_blue', '.legend__item_blue')
+                    +grad-row('pink', '.column-area_pink', '.legend__item_pink')
+                    +grad-row('green', '.column-area_green', '.legend__item_green')
+                    +grad-row('orange', '.column-area_orange', '.legend__item_yellow')
+                //
+                +e.block
+                  +e.UL.heading-list
+                    li Бюджет Москвы - Адресная инвестиционная политика - Финансовые показатели
+                  +e.table
+                    +caption-row()
+                    +grad-row('pink', '- *', '.legend-icon__circle_pink', '.legend-icon__icon_pink')
+                    +grad-row('violet', '- *', '.legend-icon__circle_violet', '.legend-icon__icon_violet')
+                    +grad-row('blue', '- *', '.legend-icon__circle_blue', '.legend-icon__icon_blue')
+                    +grad-row('green', '- *', '.legend-icon__circle_greenyellow', '.legend-icon__icon_greenyellow')
+                    +grad-row('grey', '- *', '.legend-icon__circle_gray')
+                    +grad-row('altgreen', '- *', '.legend-icon__circle_green')
+                //
+                +e.block
+                  +e.UL.heading-list
+                    li Бюджет Москвы - Прогноз социально-экономического развития - Индекс промышленного производства
+                  +e.table
+                    +caption-row()
+                    +line-row('orange', '.growth-rate_orange', '.legend__item_orangeline')
+                //
+                +e.block
+                  +e.UL.heading-list
+                    li Аналитика - Основные параметры - млрд.руб
+                  +e.table
+                    +caption-row()
+                    +grad-row('blue', '.analityc-graphics-line-vertical__line_altblue', '.legend__item_blue')
+                    +grad-row('pink', '.analityc-graphics-line-vertical__line_pink', '.legend__item_pink')
+                    +grad-row('green', '.analityc-graphics-line-vertical__line_green', '.legend__item_green')
+                //
+                +e.block
+                  +e.UL.heading-list
+                    li Аналитика - Основные параметры - темп роста
+                  +e.table
+                    +caption-row()
+                    +grad-row('blue', '.analityc-graphics-classic__item-wrapper_income', '.legend__item_blue')
+                    +grad-row('pink', '.analityc-graphics-classic__item-wrapper_expenses', '.legend__item_pink')
+                //
+                +e.block
+                  +e.UL.heading-list
+                    li Аналитика - Доходы бюджета - Темп роста / Доля
+                  +e.table
+                    +caption-row()
+                    +grad-row('pink', '.analityc-graphics-bars__line-fill_red', '.legend__item_red')
+                    +grad-row('violet', '.analityc-graphics-bars__line-fill_pink', '.legend__item_pink')
+                    +grad-row('blue', '.analityc-graphics-bars__line-fill_altblue', '.legend__item_altblue')
+                    +grad-row('green', '.analityc-graphics-bars__line-fill_green', '.legend__item_green')
+                    +grad-row('grey', '.analityc-graphics-bars__line-fill_grey', '.legend__item_grey')
+                    +grad-row('altgreen', '.analityc-graphics-bars__line-fill_lightgreen', '.legend__item_lightgreen')
+                //
+                +e.block
+                  +e.UL.heading-list
+                    li Аналитика - Доходы бюджета - % исполнения
+                  +e.table
+                    +caption-row()
+                    +grad-row('pink', '.analityc-graphics-line-vertical__line_red', '.legend__item_red')
+                    +grad-row('violet', '.analityc-graphics-line-vertical__line_pink', '.legend__item_pink')
+                    +grad-row('blue', '.analityc-graphics-line-vertical__line_altblue', '.legend__item_altblue')
+                    +grad-row('green', '.analityc-graphics-line-vertical__line_green', '.legend__item_green')
+                    +grad-row('grey', '.analityc-graphics-line-vertical__line_grey', '.legend__item_grey')
+                    +grad-row('altgreen', '.analityc-graphics-line-vertical__line_lightgreen', '.legend__item_lightgreen')
+                //
+                +e.block
+                  +e.UL.heading-list
+                    li Аналитика - Расходы бюджета - Общий анализ - Темп роста / Доля
+                    li Аналитика - Государственные программы - Общий анализ - Темп роста / Доля
+                    li Аналитика - Государственный долг - Темп роста / Доля
+                  +e.table
+                    +caption-row()
+                    +grad-row('pink', '.analityc-graphics-bars__line-fill_red', '.legend-icon-a__circle_red', '.legend-icon-a__icon_red')
+                    +grad-row('violet', '.analityc-graphics-bars__line-fill_pink', '.legend-icon-a__circle_violet', '.legend-icon-a__icon_violet')
+                    +grad-row('blue', '.analityc-graphics-bars__line-fill_altblue', '.legend-icon-a__circle_blue', '.legend-icon-a__icon_blue')
+                    +grad-row('green', '.analityc-graphics-bars__line-fill_green', '.legend-icon-a__circle_greenyellow', '.legend-icon-a__icon_greenyellow')
+                    +grad-row('grey', '.analityc-graphics-bars__line-fill_grey', '.legend-icon-a__circle_gray')
+                    +grad-row('altgreen', '.analityc-graphics-bars__line-fill_lightgreen', '.legend-icon-a__circle_green')
+                    +grad-row('orange', '.analityc-graphics-bars__line-fill_yellow', '.legend-icon-a__circle_yellow', '.legend-icon-a__icon_yellow')
+                    +line-row('grey', '.growth-rate_grey', '.legend-icon-a__line_grey')
+                //
+                +e.block
+                  +e.UL.heading-list
+                    li Аналитика - Расходы бюджета - % исполнения
+                    li Аналитика - Государственные программы - % исполнения
+                  +e.table
+                    +caption-row()
+                    +grad-row('pink', '.analityc-graphics-line-vertical__line_red', '.legend-icon-a__circle_red', '.legend-icon-a__icon_red')
+                    +grad-row('violet', '.analityc-graphics-line-vertical__line_pink', '.legend-icon-a__circle_violet', '.legend-icon-a__icon_violet')
+                    +grad-row('blue', '.analityc-graphics-line-vertical__line_altblue', '.legend-icon-a__circle_blue', '.legend-icon-a__icon_blue')
+                    +grad-row('green', '.analityc-graphics-line-vertical__line_green', '.legend-icon-a__circle_greenyellow', '.legend-icon-a__icon_greenyellow')
+                    +grad-row('grey', '.analityc-graphics-line-vertical__line_grey', '.legend-icon-a__circle_gray')
+                    +grad-row('altgreen', '.analityc-graphics-line-vertical__line_lightgreen', '.legend-icon-a__circle_green')
+                //
+                +e.block
+                  +e.UL.heading-list
+                    li Аналитика - Расходы бюджета - Сравнительный анализ - Темп роста / Доля
+                    li Аналитика - Государственные программы - Сравнительный анализ - Темп роста / Доля
+                  +e.table
+                    +caption-row()
+                    +grad-row('pink', '.analityc-graphics-bars__line-fill_red', '.legend__item_red', '.legend__icon_red')
+                    +grad-row('violet', '.analityc-graphics-bars__line-fill_pink', '.legend__item_violet', '.legend__icon_violet')
+                    +grad-row('blue', '.analityc-graphics-bars__line-fill_altblue', '.legend__item_blue', '.legend__icon_blue')
+                    +grad-row('green', '.analityc-graphics-bars__line-fill_green', '.legend__item_green', '.legend__icon_green')
+                    +grad-row('grey', '.analityc-graphics-bars__line-fill_grey', '.legend__item_grey')
+                    +grad-row('altgreen', '.analityc-graphics-bars__line-fill_lightgreen', '.legend__item_lightgreen')
+                      
+        
+        +footer()
+        +button-top()
+        
+  +popup-wrapper()
+        
+  script(src="assets/scripts/js/jquery-3.1.1.min.js")
+  script(src="assets/scripts/js/library.js")
+  script(src="assets/scripts/js/header/easing.min.js")
+  script(src="assets/scripts/js/header/swipe.min.js")
+  script(src="assets/scripts/js/header/slick.min.js")
+  script(src="assets/scripts/js/header/jquery-ui.min.js")
+  script(src="assets/scripts/js/header/jquery.validate.min.js")
+  script(src="assets/scripts/js/header/sections.min.js")
+  script(src="assets/scripts/js/header/cube.min.js")
+  script(src="assets/scripts/js/header/animation.min.js")
+  script(src="assets/scripts/js/header/label.min.js")
+  script(src="assets/scripts/js/header/select.min.js")
+  script(src="assets/scripts/js/header/popup.min.js")
+  script(src="assets/scripts/js/header/share.min.js")
+  script(src="assets/scripts/js/header/form.min.js")
+  script(src="assets/scripts/js/header/letter.min.js")
+  script(src="assets/scripts/js/header/common.min.js")
+  script(src="assets/scripts/js/header/diagram.min.js")
+  script(src="assets/scripts/js/owl.carousel.min.js")
+  script(src="assets/scripts/js/script.js")
+  script(src="assets/scripts/js/ez.js")
