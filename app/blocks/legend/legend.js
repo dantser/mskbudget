@@ -21,13 +21,13 @@ export default () => {
     });
   });
   
-  //REMOVE_LINK.each( function () {
-  //  const EL = $(this);
-  //  EL.on('click', (e) => {
-  //    e.preventDefault();
-  //    EL.parent('.legend__item').hide();
-  //  });
-  //});
+  REMOVE_LINK.each( function () {
+    const EL = $(this);
+    EL.on('click', (e) => {
+      e.preventDefault();
+      //EL.parent('.legend__item').hide();
+    });
+  });
   
   $(document).on('change', '.legend-icon-a .checkbox__control', function(){
     if (this.checked) {

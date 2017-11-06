@@ -247,9 +247,9 @@ export default () => {
       }
       
       if ($(this).outerWidth() > $(this).parent().width()) {
-        $(this).parents('.analityc-graphics-container').removeClass('no-arrows');
+        $(this).parents('.analityc-graphics-container, .analytics-gov-debt__graphics-container').removeClass('no-arrows');
       } else {
-        $(this).parents('.analityc-graphics-container').addClass('no-arrows');
+        $(this).parents('.analityc-graphics-container, .analytics-gov-debt__graphics-container').addClass('no-arrows');
       }
       
       fill.each(function(){
