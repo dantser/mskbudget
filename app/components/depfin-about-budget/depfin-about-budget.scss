@@ -1,5 +1,10 @@
 .js-resolution-wrap {
   padding-top: 0!important;
+  
+  & + .section-tabs_dropdown {
+    border-bottom: none;
+    border-top: 1px solid rgba(254,227,0,.2);
+  }
 }
 .js-resolution-320 {
   @media screen and (max-width: 639px) {
@@ -58,6 +63,7 @@
     width:100%;
     //overflow:hidden;
 }
+
 .whatIsBudget {padding-top:171px;
 
   @media (max-width: 1024px) {
@@ -506,7 +512,7 @@
         bottom: calc(100% - 25px) !important;
     }
     .whatIsBudget-revenues__item .whatIsBudget-revenues__examples {
-        top: 0!important;
+        top: 0;
         transform: none;
         width: auto!important;
         margin-left: 0!important;

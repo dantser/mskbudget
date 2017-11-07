@@ -59,7 +59,7 @@ export default () => {
   const MULTILINE_BAR = $('.analityc-multiline__line-bar');
 
   MULTILINE_BAR.each(function() {
-    var MULTILINE_BAR_WIDTH = 80;
+    var MULTILINE_BAR_WIDTH = 100;
     
     if ($(document).width() <= 900 && $(document).width() > 580)
       MULTILINE_BAR_WIDTH = 200;
