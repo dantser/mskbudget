@@ -116,26 +116,14 @@ export default () => {
         var slideWHcoef = slideWidth / slideHeight,
             vpWHcoef = vpWidth / vpHeight;
         
-        if (vpWidth >= vpHeight) {
-          if (vpWHcoef >= slideWHcoef) {
-            var newVpHeight = slideHeight,
-                scaleCoef = newVpHeight / vpHeight,
-                newVpWidth = vpWidth * scaleCoef;
-          } else {
-            var newVpWidth = slideWidth,
-                scaleCoef = newVpWidth / vpWidth,
-                newVpHeight = vpHeight * scaleCoef;
-          }
+        if (vpWHcoef <= slideWHcoef) {
+          var newVpHeight = slideHeight,
+              scaleCoef = newVpHeight / vpHeight,
+              newVpWidth = vpWidth * scaleCoef;
         } else {
-          if (vpWHcoef >= slideWHcoef) {
-            var newVpWidth = slideWidth,
-                scaleCoef = newVpWidth / vpWidth,
-                newVpHeight = vpHeight * scaleCoef;
-          } else {
-            var newVpHeight = slideHeight,
-                scaleCoef = newVpHeight / vpHeight,
-                newVpWidth = vpWidth * scaleCoef;
-          }
+          var newVpWidth = slideWidth,
+              scaleCoef = newVpWidth / vpWidth,
+              newVpHeight = vpHeight * scaleCoef;
         }
         
         var newViewport = page.getViewport(scaleCoef);
