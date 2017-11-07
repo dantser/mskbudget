@@ -48,6 +48,10 @@
   .d-si__icons_item {
     position: relative;
     cursor: pointer;
+    float: none;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 0;
 
     &:hover {
       .page-header__panel { display: block; }
@@ -71,9 +75,14 @@
   }
 
   .favor {
-    display: block;
-    float: left;
+    display: inline-block;
+    vertical-align: middle;
     width: auto;
+    height: 23px;
+    
+    @media screen and (max-width: 639px) {
+      height: 21px;
+    }
 
     &:hover {
       .favor__icon {
