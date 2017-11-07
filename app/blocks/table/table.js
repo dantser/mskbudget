@@ -19,7 +19,19 @@ export default () => {
           }
         })
       });
-      
+
+      $(document).on('click', '.table__subarrow', function(e) {
+        e.preventDefault();
+        $(this).parents('.table__subrow').toggleClass('table__subrow_opened');
+        $(this).parents('.table__subrow').nextAll('.table__subrow').each(function () {
+          if ( !$(this).hasClass('table__subrow_hassub') ) {
+            $(this).toggle();
+          } else {
+            return false;
+          }
+        })
+      });
+
       $(document).on('click', '.table__arrow_root', function(e) {
         e.preventDefault();
         // EL.closest('.table__row').nextAll('.table__row_subrow').slideToggle();
