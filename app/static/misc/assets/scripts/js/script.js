@@ -399,6 +399,14 @@ budget.extend("whatIsBudgetDescription", {
 
                 this.elements.$revenues.on("click", ".whatIsBudget-revenues__subtitle", function (event) {
                         _this.revenuesTriggered($(event.delegateTarget));
+						var wrapper = $('.whatIsBudget-revenues__wrapper'),
+							revenues = $(this),
+							wrapperHeight = wrapper.outerHeight(),
+							wrapperDistance = wrapper.offset().top,
+							revenuesHeight = revenues.next().outerHeight(),
+							revenuesDistance = revenues.offset().top,
+							difference = (wrapperDistance + wrapperHeight) - (revenuesDistance + revenuesHeight);
+						(difference < 0 && $(window).width() <= 1000) ? revenues.next().css('top', difference+'px') : revenues.next().css('top', '');
                 });
 
                 this.elements.publicDebt.on("click", ".whatIsBudget-publicDebt__title", function (event) {
@@ -639,7 +647,7 @@ budget.extend("whatIsBudgetLines", {
 
                                     this.elements.deficit.$line7.css("bottom", this.elements.deficit.$title7.outerHeight() / 2);
 
-                                    this.elements.deficit.$line7.css("height", this.elements.deficit.$item7.position().top - this.elements.deficit.$item6.position().top + 60);
+                                    //this.elements.deficit.$line7.css("height", this.elements.deficit.$item7.position().top - this.elements.deficit.$item6.position().top + 60);
                         }
             }
 });
