@@ -2,9 +2,6 @@ import $ from 'jquery';
 
 export default () => {
 
-	$('.open-file__content').hide();
-	$('.open-file__popup_request').show();
-
 	const ROWS = $('.open-file__row');
 	const DESC_BTN = $('.open-file__row-description');
 	const MORE_BTN = $('.open-file__show-more');
@@ -106,6 +103,10 @@ export default () => {
 
 				})
 			})
+
+      $('html, body').animate({
+        scrollTop: $('#open-file__howto').offset().top - 200
+      });
 
 			if (form.find('.open-file__err').length > 0) {
 				return false;

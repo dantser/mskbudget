@@ -3,23 +3,37 @@ include ../../blocks/button/button
 
 mixin contest-popup(isJuridical)
 
+	if isJuridical
+		- var fieldIdN = 'nj';
+		- var fieldIdF = 'fj';
+		- var fieldIdT = 'tj';
+		- var fieldIdP = 'pj';
+	else
+		- var fieldIdN = 'ni';
+		- var fieldIdF = 'fi';
+		- var fieldIdT = 'ti';
+		- var fieldIdP = 'pi';
+
+
 	mixin participant(number)
 		+e.DIV(data-type='text').participant.js-opencon-question
 			+e.P.hide
 				+icon('close').hide-icon
 				| скрыть
-
-			+e.P.participant-number 
-				| Участник №
-				+e.SPAN.js-participant-number 
+			
+			if !isJuridical
+				+e.P.participant-number 
+					| Участник №
+					+e.SPAN.js-participant-number 
+					i (необходимо заполнить все поля)
 
 			if isJuridical
 				+participant-field('text', 'Наименование организации', 'name')
 				+participant-field('text', 'Наименование деятельности', 'kind')
-				+participant-field('tel', 'Адрес местонахождения', 'address')
-				+participant-field('email', 'Контактное лицо', 'fio')
-				+participant-field('email', 'Контактный телефон', 'phone')
-				+participant-field('text', 'Адрес электронной почты', 'email')
+				+participant-field('text', 'Адрес местонахождения', 'address')
+				+participant-field('text', 'Контактное лицо', 'fio')
+				+participant-field('tel', 'Контактный телефон', 'phone')
+				+participant-field('email', 'Адрес электронной почты', 'email')
 			else
 				+participant-field('text', 'ФИО', 'fio')
 				+participant-field('text', 'Дата рождения', 'birth')
@@ -31,7 +45,7 @@ mixin contest-popup(isJuridical)
 	mixin participant-field(type, label, name)
 		+e.participant-field.js-opencon-field
 			+e.LABEL(for='').label= label
-			+e.INPUT(type=''+type+'' name='p-'+name id='p-'+name).fio
+			+e.INPUT(type=''+type+'' name=fieldIdP+'-'+name id=fieldIdP+'-'+name).fio
 
 	mixin option(type, label, name, isOther)
 		+e.option-field.js-opencon-field
@@ -60,29 +74,29 @@ mixin contest-popup(isJuridical)
 					
 					+e.option-title Номинация конкурса:
 
-					+option('n', '«Бюджет города Москвы: сколько я плачу и что получаю?»', 'f1')
-					+option('n', '«Интерактивный бюджет города Москвы для граждан»', 'f2')
-					+option('n', '«Разработка рейтинга понятности бюджета города Москвы для граждан»', 'f3')
-					+option('n', '«Популярный словарь бюджетных терминов»', 'f4')
-					+option('n', '«Проекты инициативного бюджетирования в городе Москве»', 'f5')
-					+option('n', '«Бюджет города Москвы: просто о сложном»', 'f6')
+					+option(fieldIdN, '«Бюджет города Москвы: сколько я плачу и что получаю?»', 'f1')
+					+option(fieldIdN, '«Интерактивный бюджет города Москвы для граждан»', 'f2')
+					+option(fieldIdN, '«Разработка рейтинга понятности бюджета города Москвы для граждан»', 'f3')
+					+option(fieldIdN, '«Популярный словарь бюджетных терминов»', 'f4')
+					+option(fieldIdN, '«Проекты инициативного бюджетирования в городе Москве»', 'f5')
+					+option(fieldIdN, '«Бюджет города Москвы: просто о сложном»', 'f6')
 				
 				+e.DIV(data-type='checkbox').option.js-opencon-question
 					+e.option-title Приложением к заявке является проект, представленный в формате:
 
-					+option('f', 'Презентация', 'f1')
-					+option('f', 'Видео', 'f2')
-					+option('f', 'Интернет-брошюра', 'f3')
-					+option('f', 'Мультипликационный ролик', 'f4')
-					+option('f', 'Фото-коллаж', 'f5')
-					+option('f', 'Иное (указать)', 'f6', true)
+					+option(fieldIdF, 'Презентация', 'f1')
+					+option(fieldIdF, 'Видео', 'f2')
+					+option(fieldIdF, 'Интернет-брошюра', 'f3')
+					+option(fieldIdF, 'Мультипликационный ролик', 'f4')
+					+option(fieldIdF, 'Фото-коллаж', 'f5')
+					+option(fieldIdF, 'Иное (указать)', 'f6', true)
 						
 				+e.DIV(data-type='checkbox').option.js-opencon-question
 					+e.option-title Приложением представлено на:
 
-					+option('t', 'Бумажном носителе информации на __ листах', 'f1')
-					+option('t', 'Электронном носителе информации', 'f2')
-					+option('t', 'Иное (указать)', 'f3', true)
+					+option(fieldIdT, 'Бумажном носителе информации на __ листах', 'f1')
+					+option(fieldIdT, 'Электронном носителе информации', 'f2')
+					+option(fieldIdT, 'Иное (указать)', 'f3', true)
 
 				+e.extra
 					+button()._kind_yellow.js-button-attachment Прикрепить файл

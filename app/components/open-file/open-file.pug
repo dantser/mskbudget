@@ -124,7 +124,8 @@ mixin open-file()
             form(action='#', id='d-sii__form').d-sii__form
 
               fieldset(data-type='text').d-sii__form_question
-                +e.LEGEND Пожалуйста, представьтесь
+                +e.LEGEND(id='open-file__howto') Пожалуйста, представьтесь
+                  i (необходимо заполнить все поля)
                 +e.field
                   +e.LABEL ФИО
                   +e.INPUT(type='text' name='')

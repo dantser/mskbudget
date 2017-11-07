@@ -36,32 +36,40 @@ export default () => {
   });
   
 
-  $('.open-con .tabs__tab.active .contest-popup form').submit(function(e) {
+  window.openConFormValidation = function() {
+    $('.open-con .tabs__tab.active .contest-popup form').submit(function(e) {
 
-    const form = $(this);
-    const fieldset = form.find('.js-opencon-question');
+      const form = $(this);
+      const fieldset = form.find('.js-opencon-question');
 
-    form.find('.contest-popup__err').removeClass('contest-popup__err');
+      form.find('.contest-popup__err').removeClass('contest-popup__err');
 
-    fieldset.each(function() {
-      var fieldset = $(this);
-      fieldset.find('.js-opencon-field').each(function() {
-        var input = $(this).find('input');
-        var label = $(this).find('label');
+      fieldset.each(function() {
+        var fieldset = $(this);
+        fieldset.find('.js-opencon-field').each(function() {
+          var input = $(this).find('input');
+          var label = $(this).find('label');
 
-        if (fieldset.data('type') === 'text' && input.val() === '')
-          label.addClass('contest-popup__err');
+          if (fieldset.data('type') === 'text' && input.val() === '')
+            label.addClass('contest-popup__err');
 
-        if ((fieldset.data('type') === 'radio' || fieldset.data('type') === 'checkbox') && !fieldset.find('input:checked').length)
-          fieldset.find('.contest-popup__option-title').addClass('contest-popup__err');
+          if ((fieldset.data('type') === 'radio' || fieldset.data('type') === 'checkbox') && !fieldset.find('input:checked').length)
+            fieldset.find('.contest-popup__option-title').addClass('contest-popup__err');
 
+        })
       })
+
+      $('html, body').animate({
+        scrollTop: $('#contest-page__howto').offset().top - 200
+      });
+
+      if (form.find('.contest-popup__err').length > 0) {
+        return false;
+      }
+
     })
+  }
 
-    if (form.find('.contest-popup__err').length > 0) {
-      return false;
-    }
-
-  })
+  openConFormValidation();
 
 }

@@ -242,12 +242,13 @@
     /*Балун для маркера на карте*/
     .placemark-layout-container {
       display: block;
-      width: 260px;
+      width: 290px;
       position: absolute;
       top: 10px;
       left: 50%;
       transform: translateX(-50%);
       padding: 15px;
+      padding-right: 45px;
       font-family: $PFDinTextPro;
       background-color: white;
       box-shadow: 0px 10px 25px -5px rgba(0, 0, 0, 0.4);
@@ -265,6 +266,23 @@
       &::after {
         border-bottom: 10px solid white;
         top: -19px; 
+      }
+
+      .placemark-layout-close {
+        display: block;
+        position: absolute;
+        top: 5px;
+        right: 0;
+        opacity: .3;
+        cursor: pointer;
+        margin-right: 4px;
+        width: 30px;
+        height: 40px;
+        background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMTQgLjdsLS43LS43TDcgNi4zLjcgMCAwIC43IDYuMyA3IDAgMTMuM2wuNy43TDcgNy43bDYuMyA2LjMuNy0uN0w3LjcgN3oiIGNsaXAtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==) 50% no-repeat;
+        
+        &:hover {
+          opacity: 1;
+        }
       }
 
       .placemark-layout-inner {

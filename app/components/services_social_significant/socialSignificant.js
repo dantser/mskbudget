@@ -97,20 +97,36 @@ export default () => {
       
       // Создание макета содержимого балуна.
       var BalloonLayout = maps.templateLayoutFactory.createClass(
-          '<div class="placemark-layout-container">' +
-              // '<a class="close" href="#">&times;</a>' +
-              '<div class="placemark-layout-inner">' +
-                '$[[options.contentLayout observeSize minWidth=235 maxWidth=235 maxHeight=350]]' +
-              '</div>' +
-          '</div>'
+        '<div class="placemark-layout-container">' +
+            '<div class="placemark-layout-close" href="#"></div>' +
+            '<div class="placemark-layout-inner">' +
+              '$[[options.contentLayout observeSize minWidth=235 maxWidth=235 maxHeight=350]]' +
+            '</div>' +
+        '</div>',
+        {
+          build: function () {
+            BalloonLayout.superclass.build.call(this);
+            this.handleClose = $.proxy(this.handleClose, this);
+            $(this.getParentElement)
+              .on('click', '.placemark-layout-close', this.handleClose);
+          },
+          clear: function () {
+            $(this.getParentElement)
+              .off('click', '.placemark-layout-close', this.handleClose);
+            BalloonLayout.superclass.build.call(this);
+          },
+          handleClose: function () {
+            this.events.fire('userclose');
+          }
+        }
       )
 
       // Создание вложенного макета содержимого балуна.
       var BalloonContentLayout = maps.templateLayoutFactory.createClass(
-          '<h3 class="placemark-layout-header">$[properties.balloonHeader]</h3>' +
-          '<p class="placemark-layout-street">$[properties.balloonStreet]</p>' +
-          '<p class="placemark-layout-date">Предполагаемый срок ввода в эксплуатацию: $[properties.balloonDate]</p>' +
-          '<a href="$[properties.balloonHref]" class="placemark-layout-link">подробнее</p>'
+        '<h3 class="placemark-layout-header">$[properties.balloonHeader]</h3>' +
+        '<p class="placemark-layout-street">$[properties.balloonStreet]</p>' +
+        '<p class="placemark-layout-date">Предполагаемый срок ввода в эксплуатацию: $[properties.balloonDate]</p>' +
+        '<a href="$[properties.balloonHref]" class="placemark-layout-link">подробнее</p>'
       )
 
       // Опции балуна
@@ -125,8 +141,20 @@ export default () => {
       // Данные передаются вторым параметром в конструктор метки, опции - третьим.
       for(var i = 0, len = points.length; i < len; i++) {
         geoObjects[i] = new maps.Placemark(points[i], getPointData(i), balloonPresets);
+        geoObjects[i].id = i + 1;
       }
       
+      // Выделение проекта в таблице по клику на метке
+      bigMap.geoObjects.events.add('click', function(e) {
+        var object = e.get('target');
+        $('.significant-list__table .significant-list__row').removeClass('significant-list__row_active');
+        $('.significant-list__table .significant-list__row-title[data-target='+object.id+']')
+          .parents('.significant-list__row')
+          .addClass('significant-list__row_active');
+
+        bigMap.panTo( object.geometry.getCoordinates(), { flying: true });
+      })
+
       // В кластеризатор можно добавить javascript-массив меток (не геоколлекцию) или одну метку.
       clusterer.add(geoObjects);
       bigMap.geoObjects.add(clusterer);
@@ -157,6 +185,8 @@ export default () => {
         
       });
       
+
+
       // карта во вкладке отдельного проекта
       smallMap = new maps.Map("significant-smallmap", {
           center: [55.753215, 37.622504],

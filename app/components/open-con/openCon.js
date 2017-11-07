@@ -13,6 +13,12 @@ export default () => {
       e.preventDefault();
       EL.parent().siblings().find('.button-light').removeClass(ACTIVE_CLASS);
       EL.addClass(ACTIVE_CLASS);
+
+        var filter = EL.data('tab-target'),
+            tabs = '.analityc-widget_conform .tabs__tab';
+        $(tabs).removeClass('active');
+        $(tabs+'[data-tab="'+filter+'"]').addClass('active');
+        
     })
   })
 
@@ -28,7 +34,10 @@ export default () => {
   PROPOSAL.click(function(e) {
     e.preventDefault();
     $('.open-con__con').hide();
-    $('.open-con__popup').show();
+    $('.open-con__popup').show().find('.tabs .tabs__tab:first-child').show().addClass('active').siblings().removeClass('active');
+
+    $('.open-con__popup').find('.buttons-set__item .button-light').removeClass('button-light--fill');
+    $('.open-con__popup').find('.buttons-set__item:first-child .button-light').addClass('button-light--fill');
   })
 
 }

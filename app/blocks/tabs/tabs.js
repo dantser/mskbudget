@@ -30,6 +30,10 @@ export default function tabs() {
       tab.find('.services-net-inner').first().addClass('services-net-inner_active');
     }
 
+    if (targetTab == 'individual' || targetTab == 'juridical') {
+      openConFormValidation();
+    }
+
     $(document).find("[data-tab-group='" + tabGroup + "']").hide();
 
     $(document).find("[data-tab-bg='" + targetTab + "']").addClass("active").siblings().removeClass("active");
