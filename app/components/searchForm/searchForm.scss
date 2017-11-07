@@ -1010,6 +1010,7 @@
         }
 
         &__arrow {
+          background-color: #fff;
           @media (max-width: 900px) and (min-width: 601px) {
             width: 55px;
           }
@@ -1018,6 +1019,16 @@
             @media (max-width: 900px) and (min-width: 601px) {
               border-width: 9px 9px 0;
             }
+          }
+        }
+        
+        ul {
+          background-color: #fff;
+        }
+        
+        &.active {
+          .selectbox__arrow {
+            background-color: #fff;
           }
         }
       }
@@ -1051,6 +1062,7 @@
       color: $color-black !important;
       background: $color-white;
       border: 1px solid #acacac;
+      vertical-align: middle;
 
       @media (max-width: 900px) and (min-width: 601px) {
         margin-top: 7px;
@@ -1085,11 +1097,16 @@
     }
 
     &__close {
+      display: none;
       position: absolute;
       top: 17px;
       right: 11px;
       height: 20px;
       width: 20px;
+      
+      @media (max-width:900px) {
+        display: block;
+      }
 
       @media (max-width: 900px) and (min-width: 601px) {
         right: 10px;
