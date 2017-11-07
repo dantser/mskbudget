@@ -91,15 +91,16 @@ mixin contest-popup(isJuridical)
 					+option(fieldIdF, 'Фото-коллаж', 'f5')
 					+option(fieldIdF, 'Иное (указать)', 'f6', true)
 						
-				+e.DIV(data-type='checkbox').option.js-opencon-question
-					+e.option-title Приложением представлено на:
+				//- +e.DIV(data-type='checkbox').option.js-opencon-question
+				//- 	+e.option-title Приложением представлено на:
 
-					+option(fieldIdT, 'Бумажном носителе информации на __ листах', 'f1')
-					+option(fieldIdT, 'Электронном носителе информации', 'f2')
-					+option(fieldIdT, 'Иное (указать)', 'f3', true)
+				//- 	+option(fieldIdT, 'Бумажном носителе информации на __ листах', 'f1')
+				//- 	+option(fieldIdT, 'Электронном носителе информации', 'f2')
+				//- 	+option(fieldIdT, 'Иное (указать)', 'f3', true)
 
 				+e.extra
 					+button()._kind_yellow.js-button-attachment Прикрепить файл
+					+e.I.note Перед отправлением заявки необходимо прикрепить как минимум один файл
 					+e.UL.attachments
 						+e.LI.attachment
 							+icon('close').delete-icon
@@ -108,7 +109,7 @@ mixin contest-popup(isJuridical)
 							+icon('close').delete-icon
 							+e.SPAN.document Document 2
 
-				+button(true)._kind_yellow.__submit Отправить
+				+button(true)._kind_yellow.__submit.disabled Отправить
 				
 		+e.footer
 			+e.P.footer-text По всем возникающим вопросам Вы можете обращаться<br> по телефону +7&nbsp;(495)&nbsp;620-20-00 (доб.64327) или<br> по электронной почте

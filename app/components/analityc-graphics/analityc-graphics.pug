@@ -1062,11 +1062,11 @@ mixin analityc-graphics-multiline(data)
 
 mixin analityc-graphics-line-alt(data, title)
   +b.analityc-line&attributes(attributes)._line
-    P.analityc-graphics__toptext МЛРД РУБ.
     if title
       P.analityc-graphics__heading= title
         SPAN.js-dp-output.js-dp-output_others.active 22.04.2017
         SPAN.js-dp-output.js-dp-output_cons 1 февраля 2017
+    P.analityc-graphics__toptext МЛРД РУБ.
     +e.lines
       each obj in data
         +e.DIV(class="__line_"+obj.class)
@@ -1147,60 +1147,61 @@ mixin analityc-graphics-mix(data)
 
 mixin analityc-graphics-js-line(title, data)
   +b.analityc-js-line&attributes(attributes)
-    P.analityc-graphics__toptext МЛРД РУБ.
     P.analityc-graphics__heading= title
       SPAN.js-dp-output.js-dp-output_others.active 22.04.2017
       SPAN.js-dp-output.js-dp-output_cons 1 февраля 2017
-    each item in data.item
-      if item.strong
-        +e.line._big
-          +e.left-block
-            +e.P.title
-              strong= item.title
-            +e.line-bar
-              +e.line-total._altred
-              +e.line-fill
-                +e.line-values
-                  = item.value1
-                  span /
-                  = item.value2
-              +e.SPAN.line-bar-value= item.barvalue
-          +e.right-block
-            each items in item.items
-              +e.line
-                +e.P.title= items.title
-                +e.line-bar
-                  +e.line-total._altred
-                  +e.line-fill
-                    +e.line-values
-                      = items.value1
-                      span /
-                      = items.value2
-                  +e.SPAN.line-bar-value= items.barvalue
-      else
-        +e.line
-          +e.left-block
-            +e.P.title= item.title
-            +e.line-bar
-              +e.line-total._altred
-              +e.line-fill
-                +e.line-values
-                  = item.value1
-                  span /
-                  = item.value2
-              +e.SPAN.line-bar-value= item.barvalue
-          +e.right-block
-            each items in item.items
-              +e.line
-                +e.P.title= items.title
-                +e.line-bar
-                  +e.line-total._altred
-                  +e.line-fill
-                    +e.line-values
-                      = items.value1
-                      span /
-                      = items.value2
-                  +e.SPAN.line-bar-value= items.barvalue
+    P.analityc-graphics__toptext МЛРД РУБ.
+    +e.wrapper
+      each item in data.item
+        if item.strong
+          +e.line._big
+            +e.left-block
+              +e.P.title
+                strong= item.title
+              +e.line-bar
+                +e.line-total._altred
+                +e.line-fill
+                  +e.line-values
+                    = item.value1
+                    span /
+                    = item.value2
+                +e.SPAN.line-bar-value= item.barvalue
+            +e.right-block
+              each items in item.items
+                +e.line
+                  +e.P.title= items.title
+                  +e.line-bar
+                    +e.line-total._altred
+                    +e.line-fill
+                      +e.line-values
+                        = items.value1
+                        span /
+                        = items.value2
+                    +e.SPAN.line-bar-value= items.barvalue
+        else
+          +e.line
+            +e.left-block
+              +e.P.title= item.title
+              +e.line-bar
+                +e.line-total._altred
+                +e.line-fill
+                  +e.line-values
+                    = item.value1
+                    span /
+                    = item.value2
+                +e.SPAN.line-bar-value= item.barvalue
+            +e.right-block
+              each items in item.items
+                +e.line
+                  +e.P.title= items.title
+                  +e.line-bar
+                    +e.line-total._altred
+                    +e.line-fill
+                      +e.line-values
+                        = items.value1
+                        span /
+                        = items.value2
+                    +e.SPAN.line-bar-value= items.barvalue
 
             //- data - json файл с данными для графиков
 mixin analityc-graphics-line-vertical(data, isWide)

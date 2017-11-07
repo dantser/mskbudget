@@ -239,7 +239,13 @@ export default () => {
     grLinePopup();
 
 	  if ($(document).width() >= 900 && $('.analityc-js-line').length) {
-	    $('.analityc-js-line').css('min-height', $('.analityc-js-line__line_active').find('.analityc-js-line__right-block').outerHeight() + Math.abs($('.analityc-js-line__line_active').position().top));
+	  	
+	    if ($('.analityc-js-line__line_active .analityc-js-line__right-block').outerHeight() <= $('.analityc-js-line__wrapper').outerHeight()) {
+	      $('.analityc-js-line__line_active .analityc-js-line__right-block').css('min-height', '100%');
+	      $('.analityc-js-line__wrapper').css('min-height', 'auto');
+	    }
+	    else
+	    	$('.analityc-js-line__wrapper').css('min-height', $('.analityc-js-line__line_active').find('.analityc-js-line__right-block').outerHeight());
 	  }
 
   });

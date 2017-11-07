@@ -3289,6 +3289,10 @@
   display: block;
   position: relative;
 
+  &__wrapper {
+    position: relative;
+  }
+
   &__left {
     width: 60%;
     display: inline-block;
@@ -3296,15 +3300,18 @@
   }
 
   &__right-block {
-    /*left: 52.4%;*/
-    left: 51.4%;
-    top: -100%;
+    /*left: 51.4%;*/
+    left: 50%;
+    /*top: -100%;*/
+    top: 0;
     min-width: 200px;
+    min-height: 100%;
     position: absolute;
     vertical-align: middle;
     padding: 35px 25px 23px 31px;
     border: 1px solid #d3d3d3;
-    margin-right: -25px;
+    /*margin-right: -25px;*/
+    margin-left: -11px;
     // transition: all .25s ease-in-out;
 
     @media (max-width: 900px) {
@@ -3393,7 +3400,8 @@
   }
 
   &__left-block {
-    width: 51.5%;
+    /*width: 51.5%;*/
+    width: 50%;
     position: relative;
     padding: 16px;
     padding-top: 8px;
@@ -3401,13 +3409,11 @@
     border: 1px solid transparent;
     border-right: none;
     cursor: pointer;
-    margin-right: -25px;
 
     @media (max-width: 900px) {
       width: 100%;
       padding: 0;
       padding-top: 0;
-      margin-right: 0;
     }
 
     .analityc-js-line__title {
@@ -3416,7 +3422,7 @@
   }
  // линия
   &__line {
-    position: relative;
+    /*position: relative;*/
     margin-left: -18px;
 
     @media (max-width: 900px) {

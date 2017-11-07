@@ -49,14 +49,24 @@
     font-weight: 500;
     text-transform: uppercase;
     margin-bottom: 21px;
-
-    i {
-      font-size: .8em;
-      font-style: italic;
-      vertical-align: top;
-      text-transform: none;
-    }
   }
+
+  i {
+    display: inline-block;
+    max-width: 250px;
+    font-size: 14px;
+    line-height: 1.4em;
+    font-style: italic;
+    vertical-align: top;
+    text-transform: none;
+    margin-left: 5px;
+    color: $color-black;
+  }
+
+  &__note {
+    margin-left: 15px!important;
+  }
+
   &__js-participant-number {
     margin-left: -4px;
   }
@@ -221,6 +231,12 @@
   }
   &__submit {
     margin-top: 20px;
+
+    &.disabled {
+      background-color: #e7ce00;
+      cursor: default;
+      pointer-events: none;
+    }
   }
   &__footer {
     padding: 18px 205px 25px;

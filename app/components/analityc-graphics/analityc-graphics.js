@@ -2,15 +2,20 @@ import $ from 'jquery';
 import Swiper from 'swiper';
 
 export default () => {
-  const GR_JS_LINE = $(' .analityc-js-line');
+  const GR_JS_LINE = $(' .analityc-js-line__wrapper');
   const LINE = $(' .analityc-js-line__line');
   const ACTIVE_CLASS = 'analityc-js-line__line_active';
-  $('.analityc-js-line__line:nth-child(3)').addClass(ACTIVE_CLASS).find('.analityc-js-line__right-block').show();
+  $('.analityc-js-line__line:nth-child(1)').addClass(ACTIVE_CLASS).find('.analityc-js-line__right-block').show();
   var ACTIVE_LINE = $('.analityc-js-line__line_active');
   var ACTIVE_BLOCK = ACTIVE_LINE.find('.analityc-js-line__right-block');
 
   if ($(document).width() >= 900 && $('.analityc-js-line').length) {
-    GR_JS_LINE.css('min-height', ACTIVE_BLOCK.outerHeight() + Math.abs(ACTIVE_LINE.position().top));
+    if (ACTIVE_BLOCK.outerHeight() <= GR_JS_LINE.outerHeight()) {
+      ACTIVE_BLOCK.css('min-height', '100%');
+      GR_JS_LINE.css('min-height', 'auto');
+    }
+    else
+      GR_JS_LINE.css('min-height', ACTIVE_BLOCK.outerHeight());
   }
 
   LINE.each( function () { // eslint-disable-line
@@ -24,7 +29,12 @@ export default () => {
       EL.find('.analityc-js-line__right-block').fadeIn('fast');
 
       if ($(document).width() >= 900 && $('.analityc-js-line').length) {
-        GR_JS_LINE.css('min-height', EL.find('.analityc-js-line__right-block').outerHeight() + Math.abs(EL.position().top));
+        if (EL.find('.analityc-js-line__right-block').outerHeight() <= GR_JS_LINE.outerHeight()) {
+          EL.find('.analityc-js-line__right-block').css('min-height', '100%');
+          GR_JS_LINE.css('min-height', 'auto');
+        }
+        else
+          GR_JS_LINE.css('min-height', EL.find('.analityc-js-line__right-block').outerHeight());
       }
     })
   })

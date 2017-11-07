@@ -182,13 +182,13 @@
   &__header {
     display: block;
     position: relative;
+    padding-right: 120px;
     margin-top: 12px;
     margin-bottom: 34px;
-    max-width: 85%;
     white-space: nowrap;
 
     @media (max-width: 1140px) {
-      max-width: 100%;
+      padding-right: 0;
     }
 
     @media (max-width: 900px) {
@@ -233,7 +233,7 @@
     display: inline-block;
     position: absolute;
     bottom: 0;
-    left: 101%;
+    right: 0;
     font-size: 14px;
     font-weight: 400;
     font-family: $PFDinTextPro;
@@ -346,30 +346,15 @@
       }
 
       .analityc-graphics__toptext {
-        top: inherit;
-
-        @media (max-width: 900px) {
-          top: -30px;
-        }
-      }
+        position: static;
+        width: 100%;
+        text-align: right;
+        margin-bottom: 10px;
+      }  
     }
   }
 
   .analityc-js-line {
-    .analityc-graphics__toptext {
-      right: 0;
-      @media (max-width: 1140px) {
-        top: 20px;
-      }
-
-      @media (max-width: 900px) {
-        top: 40px;
-      }
-
-      @media (max-width: 580px) {
-        top: 60px;
-      }
-    }
 
     .analityc-graphics__heading {
       margin-bottom: 42px;
