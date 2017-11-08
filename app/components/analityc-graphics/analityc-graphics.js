@@ -236,14 +236,14 @@ export default () => {
           rateLine = $(this).find('.analityc-graphics-bars__rate-line'),
           barVal = $(this).find('.analityc-graphics-bars__val'),
           changes = $(this).find('.analityc-graphics-bars__changes'),
-          visibleGraphic = $(this).find('.analityc-graphics-bars__graphic:visible');
+          visibleGraphic = $(this).find('.analityc-graphics-bars__graphic:visible').not('[data-rate]');
       
       $(this).find('.analityc-graphics-bars__line-fill-area').parent().addClass('analityc-graphics-bars__line_area');
       
       var fillAreaLine = $(this).find('.analityc-graphics-bars__line_area');
       
       visibleGraphic.removeClass('analityc-graphics-bars__graphic_last');
-      visibleGraphic.last().addClass('analityc-graphics-bars__graphic_last');
+      visibleGraphic.last().addClass('analityc-graphics-bars__graphic_last').next('[data-rate]').hide();
       
       var minWidth = 0;
       visibleGraphic.each(function(){
@@ -310,9 +310,10 @@ export default () => {
               lineFill = '.analityc-graphics-bars__line-fill',
               fillAreaName = fillArea.eq(i).data('name'),
               prevLineFill = $(this).parents(barGraphic).prevAll(':visible').first().find(lineFill+'[data-name="'+fillAreaName+'"]'),
-              nextLineFill = $(this).parents(barGraphic).nextAll(':visible').first().find(lineFill+'[data-name="'+fillAreaName+'"]')
+              nextLineFill = $(this).parents(barGraphic).nextAll(':visible').first().find(lineFill+'[data-name="'+fillAreaName+'"]');
           
           if (nextLineFill.length) {
+            
             var prevLineFillHeight = prevLineFill.height(),
                 nextLineFillHeight = nextLineFill.height(),
                 maxLineFillHeight;
@@ -362,13 +363,16 @@ export default () => {
       changes.each(function(){
         var graphic = $(this).parents('.analityc-graphics-bars__graphic'),
             firstLineHeight = graphic.find('.analityc-graphics-bars__lines').height(),
-            lastLineHeight = graphic.nextAll(':visible').first().find('.analityc-graphics-bars__lines').height(),
+            lastLineHeight = graphic.nextAll('[data-set]:visible').not('[data-rate]').first().find('.analityc-graphics-bars__lines').height(),
             averageLineHeight;
+        
+        $(this).removeClass('analityc-graphics-bars__changes_neg');
         
         if (lastLineHeight >= firstLineHeight) {
           averageLineHeight = (lastLineHeight - firstLineHeight) / 2 + firstLineHeight;
         } else {
           averageLineHeight = (firstLineHeight - lastLineHeight) / 2 + lastLineHeight;
+          $(this).addClass('analityc-graphics-bars__changes_neg');
         }
         
         if ($(this).parents('.analityc-graphics-bars').hasClass('analityc-graphics-bars_singlebar')) {
@@ -666,6 +670,14 @@ export default () => {
   if ($('.legend_checkbox').length) {
     checkLegendBoxes();
     $(document).on('change', '.legend_checkbox .checkbox__control', function(){
+      var name = $(this).parents('.checkbox').data('name'),
+          controlChboxes = $('.analityc-control-checkboxes'),
+          checkStatus = $(this).is(':checked');
+      if (checkStatus) {
+        controlChboxes.find('input[data-name="'+name+'"]').prop('checked', true);
+      } else {
+        controlChboxes.find('input[data-name="'+name+'"]').prop('checked', false);
+      }
       checkLegendBoxes();
       graphicBars();
     });
@@ -674,15 +686,13 @@ export default () => {
   if ($('.legend-icon-a .checkbox').length) {
     checkLegendBoxes();
     $(document).on('change', '.legend-icon-a .checkbox__control', function(){
-      if ($('.analitycs-gp').length) {
-        var name = $(this).parents('.checkbox').data('name'),
-            controlChboxes = $('.analityc-control-checkboxes'),
-            checkStatus = $(this).is(':checked');
-        if (checkStatus) {
-          controlChboxes.find('input[data-name="'+name+'"]').prop('checked', true);
-        } else {
-          controlChboxes.find('input[data-name="'+name+'"]').prop('checked', false);
-        }
+      var name = $(this).parents('.checkbox').data('name'),
+          controlChboxes = $('.analityc-control-checkboxes'),
+          checkStatus = $(this).is(':checked');
+      if (checkStatus) {
+        controlChboxes.find('input[data-name="'+name+'"]').prop('checked', true);
+      } else {
+        controlChboxes.find('input[data-name="'+name+'"]').prop('checked', false);
       }
       checkLegendBoxes();
       graphicBars();
@@ -693,17 +703,15 @@ export default () => {
   if ($('.analityc-control-checkboxes').length) {
     checkLegendBoxes();
     $(document).on('change', '.analityc-control-checkboxes input[data-name]', function(){
-      if ($('.analitycs-gp').length) {
-        var name = $(this).data('name'),
-            legendChboxes = $('.legend-icon-a'),
-            checkStatus = $(this).is(':checked');
-        if (checkStatus) {
-          legendChboxes.find('.checkbox[data-name="'+name+'"]').addClass('checkbox_active');
-          legendChboxes.find('.checkbox[data-name="'+name+'"] .checkbox__control').prop('checked', true);
-        } else {
-          legendChboxes.find('.checkbox[data-name="'+name+'"]').removeClass('checkbox_active');
-          legendChboxes.find('.checkbox[data-name="'+name+'"] .checkbox__control').prop('checked', false);
-        }
+      var name = $(this).data('name'),
+          legendChboxes = $('.legend_checkbox, .legend-icon-a'),
+          checkStatus = $(this).is(':checked');
+      if (checkStatus) {
+        legendChboxes.find('.checkbox[data-name="'+name+'"]').addClass('checkbox_active');
+        legendChboxes.find('.checkbox[data-name="'+name+'"] .checkbox__control').prop('checked', true);
+      } else {
+        legendChboxes.find('.checkbox[data-name="'+name+'"]').removeClass('checkbox_active');
+        legendChboxes.find('.checkbox[data-name="'+name+'"] .checkbox__control').prop('checked', false);
       }
       checkLegendBoxes();
       graphicBars();
