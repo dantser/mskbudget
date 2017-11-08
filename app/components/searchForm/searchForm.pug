@@ -206,9 +206,12 @@ mixin searchFormNet(placeholder, tooltip)
               +e.field
                 +e.SPAN.field-label Округ
                 +selectbox('zone', [{"val":"opt1", "text":"Все"}, {"val":"opt2", "text":"Другое"}]).extra-search__field-input
+              //- +e.LABEL.field
+              //-   +e.SPAN.field-label Краткое название
+              //-   +e.INPUT(type='text' name='short').field-input
               +e.LABEL.field
-                +e.SPAN.field-label Краткое название
-                +e.INPUT(type='text' name='short').field-input
+                +e.SPAN.field-label Адрес
+                +e.INPUT(type='text' name='address').field-input
             +e.col_two
               +e.LABEL.field
                 +e.SPAN.field-label ИНН
@@ -216,9 +219,9 @@ mixin searchFormNet(placeholder, tooltip)
               +e.LABEL.field
                 +e.SPAN.field-label КПП
                 +e.INPUT(type='text' name='kpp').field-input
-              +e.LABEL.field
-                +e.SPAN.field-label Адрес
-                +e.INPUT(type='text' name='address').field-input
+              //- +e.LABEL.field
+              //-   +e.SPAN.field-label Адрес
+              //-   +e.INPUT(type='text' name='address').field-input
 
           +button()._kind_blue Искать
           +e.INPUT.reset(type="reset" value="Сбросить фильтр")
