@@ -51,10 +51,10 @@ mixin depfin-analytics-gp()
 								+analityc-graphics-bars-alt(getData('legend-analityc-bar6'))._entired
 				+legend-icon()(data-control data-type='g1, g2, g3' data-comparison='overall')
 				+legend-basket(getData('legend-analityc-income')[2])(data-control data-type='g1, g2, g3' data-comparison='comparative')
-				.table-switcher
+				.table-switcher(data-control data-type='g1, g2, g3' data-comparison='overall')
 					.analityc-control-switcher.analityc-control-switcher_table.analityc-control-switcher_large.active
 						a(href="#").active млн руб.
 						a(href="#") млрд руб.
-				+analityc-table-slider(100)._gp
+				+analityc-table-slider(100)._gp(data-type='g1, g2, g3' data-comparison='overall')
 					+table-gp(getData('gp'), true, false)
 		+dropdown().load-anim-fade(data-delay="1700")

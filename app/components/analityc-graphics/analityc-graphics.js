@@ -225,10 +225,15 @@ export default () => {
   window.graphicBars = function() {
     $('.analityc-graphics-bars').each(function(){
       
-      if ($(this).find('[data-name]:visible').siblings('[data-name]:visible').length < 1) {
+      if ($(this).find('[data-name]:visible').length && $(this).find('[data-name]:visible').siblings('[data-name]:visible').length < 1) {
+        $(this).removeClass('analityc-graphics-bars_empty');
         $(this).addClass('analityc-graphics-bars_singlebar');
+      } else if ($(this).find('[data-name]:visible').length < 1) {
+        $(this).removeClass('analityc-graphics-bars_singlebar');
+        $(this).addClass('analityc-graphics-bars_empty');
       } else {
         $(this).removeClass('analityc-graphics-bars_singlebar');
+        $(this).removeClass('analityc-graphics-bars_empty');
       }
       
       var line = $(this).find('.analityc-graphics-bars__line'),
@@ -341,6 +346,8 @@ export default () => {
             fillArea.eq(i).css('top', tranPoint+'px');
             fillArea.eq(i).find(lineFill).css('transform', 'skewY('+angle+'deg)');
             fillArea.eq(i).find(lineFill).next().css('transform', 'translateY('+(pointDiff/2 * -1)+'px)');
+          } else {
+            fillArea.eq(i).height(0);
           }
         }
       });
