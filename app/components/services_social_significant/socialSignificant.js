@@ -146,11 +146,16 @@ export default () => {
       
       // Выделение проекта в таблице по клику на метке
       bigMap.geoObjects.events.add('click', function(e) {
-        var object = e.get('target');
-        $('.significant-list__table .significant-list__row').removeClass('significant-list__row_active');
-        $('.significant-list__table .significant-list__row-title[data-target='+object.id+']')
-          .parents('.significant-list__row')
-          .addClass('significant-list__row_active');
+        var object = e.get('target'),
+            table = $('.significant-list_map .significant-list__main'),
+            scrollTo = table.find('.significant-list__row-title[data-target='+object.id+']').parents('.significant-list__row');
+
+        table.animate( { 
+          scrollTop: scrollTo.offset().top - table.offset().top + table.scrollTop()
+        });
+
+        table.find('.significant-list__row').removeClass('significant-list__row_active');
+        scrollTo.addClass('significant-list__row_active');
 
         bigMap.panTo( object.geometry.getCoordinates(), { flying: true });
       })

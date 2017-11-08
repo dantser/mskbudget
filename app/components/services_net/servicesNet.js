@@ -15,6 +15,19 @@ export default () => {
   const TAB_INNER_INSTITUTES = $('.services-net-institutes');
   const TAB_INNER_INSTITUTE = $('.services-net-institute');
 
+  var map;
+  // var coords;
+
+  var getCoords = function(coordinates) {
+    var coordinatesSplitter = coordinates.split(",");
+    var prj_coords = {x: '', y: ''};
+
+    prj_coords.x = parseFloat(coordinatesSplitter[0]);
+    prj_coords.y = parseFloat(coordinatesSplitter[1]);
+
+    return prj_coords;
+  }
+
 	// Переключатели табов
 	const TABLINK = $('.services-net .button-light');
 
@@ -111,8 +124,6 @@ export default () => {
 
   if ( $('#net-map').length > 0 ) {
 
-    var map;
-
     ymaps.load().then(maps => {
       map = new maps.Map("net-map", {
           center: [55.755814, 37.617635],
@@ -124,6 +135,34 @@ export default () => {
 
       var placemark = new maps.Placemark([55.755814, 37.617635]);
       map.geoObjects.add(placemark);
+
+      // Установка новой метки
+      TABLE_LINK.click(function() {
+
+        map.setCenter( [getCoords($(this).attr('value')).x, getCoords($(this).attr('value')).y], 14);
+
+        map.geoObjects.removeAll();
+        
+        map.setZoom(14);
+
+        var elem = $(this),
+            mapCoords = [getCoords(elem.attr('value')).x, getCoords(elem.attr('value')).y],
+            elemText = elem.text(),
+            elemStreet = elem.data('address');
+        
+        // переход к новой метке
+        map.panTo( mapCoords, { flying: true } );
+        
+        var mapPlacemark = new maps.Placemark(mapCoords, {
+
+          balloonContentBody:
+            '<h3>'+elemText+'</h3>' +
+            '<p>'+elemStreet+'</p>'
+        });
+
+        map.geoObjects.add(mapPlacemark);
+      })
+
     })
 
     const MAP_OPEN = $('.services-net-institute__address-map-open');
