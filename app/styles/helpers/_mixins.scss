@@ -373,6 +373,46 @@ div {
   }
 }
 
+
+
+
+// линейный градиент
+// $type - тип градиента (horizontal/vertical)
+@mixin gradient($type, $startcolor, $endcolor) {
+  @if $type == horizontal {
+    background: -moz-linear-gradient(left, #{$startcolor} 0%, #{$endcolor} 100%);
+    background: -webkit-linear-gradient(left, #{$startcolor} 0%, #{$endcolor} 100%);
+    background: linear-gradient(to right, #{$startcolor} 0%, #{$endcolor} 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$startcolor}, endColorstr=#{$endcolor}, GradientType=1);
+  }
+  @elseif $type == vertical {
+    background: -moz-linear-gradient(top, #{$startcolor} 0%, #{$endcolor} 100%);
+    background: -webkit-linear-gradient(top, #{$startcolor} 0%, #{$endcolor} 100%);
+    background: linear-gradient(to bottom, #{$startcolor} 0%, #{$endcolor} 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$startcolor}, endColorstr=#{$endcolor}, GradientType=0);
+  }
+}
+
+// градиент
+// $type - тип градиента (horizontal/vertical)
+// $gradient - цвет градиента (из списка в миксине)
+// пример: @include color-gradient(horizontal, blue1);
+@mixin color-gradient($type, $gradient) {
+  @if $gradient == blue1       {@include gradient(#{$type}, #2aa3dd, #255aa5);}
+  @if $gradient == pinkviolet  {@include gradient(#{$type}, #eb655f, #ac4593);}
+  @if $gradient == greenyellow {@include gradient(#{$type}, #48ae4f, #f6e622);}
+  @if $gradient == yellowgreen {@include gradient(#{$type}, #f6e622, #48ae4f);}
+  @if $gradient == yellowgreen {@include gradient(#{$type}, #f6e622, #48ae4f);}
+  @if $gradient == orange1     {@include gradient(#{$type}, #fab233, #e28b00);}
+  @if $gradient == violetblue  {@include gradient(#{$type}, #642583, #44509f);}
+  @if $gradient == blue2       {@include gradient(#{$type}, #317fa9, #60bcd2);}
+  @if $gradient == cyanviolet  {@include gradient(#{$type}, #1a8f8d, #594495);}
+  @if $gradient == red1        {@include gradient(#{$type}, #e40514, #e40514);}
+  @if $gradient == grey1       {@include gradient(#{$type}, #878e9d, #e3e2e2);}
+}
+
+
+
 @mixin img-responsive {
   display: block;
   max-width: 100%;
