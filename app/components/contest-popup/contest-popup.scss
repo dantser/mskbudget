@@ -201,6 +201,15 @@
   }
   &__extra {
     margin-top: 28px;
+    .contest-popup__note {
+      display: none;
+    }
+    &.contest-popup__err {
+      color: #000;
+      .contest-popup__note {
+        display: inline-block;
+      }
+    }
   }
   .contest-popup__extra .button, .contest-popup__submit {
     font-size: 18px;
@@ -225,6 +234,11 @@
     margin-top: 15px;
   }
   &__attachment {
+    
+    &_hidden {
+      display: none;
+    }
+    
     & + & {
       margin-top: 12px;
     }

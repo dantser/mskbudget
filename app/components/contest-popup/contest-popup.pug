@@ -33,13 +33,13 @@ mixin contest-popup(isJuridical)
 				+participant-field('text', 'Адрес местонахождения', 'address')
 				+participant-field('text', 'Контактное лицо', 'fio')
 				+participant-field('tel', 'Контактный телефон', 'phone')
-				+participant-field('email', 'Адрес электронной почты', 'email')
+				+participant-field('text', 'Адрес электронной почты', 'email')
 			else
 				+participant-field('text', 'ФИО', 'fio')
 				+participant-field('text', 'Дата рождения', 'birth')
 				+participant-field('text', 'Должность', 'position')
 				+participant-field('tel', 'Контактный телефон', 'phone')
-				+participant-field('email', 'Электронная почта', 'email')
+				+participant-field('text', 'Электронная почта', 'email')
 				+participant-field('text', 'Адрес', 'address')
 
 	mixin participant-field(type, label, name)
@@ -99,17 +99,17 @@ mixin contest-popup(isJuridical)
 				//- 	+option(fieldIdT, 'Иное (указать)', 'f3', true)
 
 				+e.extra
-					+button()._kind_yellow.js-button-attachment Прикрепить файл
+					+button()(type='button')._kind_yellow.js-button-attachment Прикрепить файл
 					+e.I.note Перед отправлением заявки необходимо прикрепить как минимум один файл
 					+e.UL.attachments
-						+e.LI.attachment
+						+e.LI.attachment._hidden
 							+icon('close').delete-icon
-							+e.SPAN.document Document 1
-						+e.LI.attachment
+							+e.SPAN.document Document
+						//+e.LI.attachment
 							+icon('close').delete-icon
 							+e.SPAN.document Document 2
 
-				+button(true)._kind_yellow.__submit.disabled Отправить
+				+button(true)._kind_yellow.__submit Отправить
 				
 		+e.footer
 			+e.P.footer-text По всем возникающим вопросам Вы можете обращаться<br> по телефону +7&nbsp;(495)&nbsp;620-20-00 (доб.64327) или<br> по электронной почте

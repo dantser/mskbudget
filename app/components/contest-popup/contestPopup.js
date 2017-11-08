@@ -1,4 +1,6 @@
 import $ from 'jquery';
+import Inputmask from "inputmask";
+
 
 export default () => {
   
@@ -27,8 +29,9 @@ export default () => {
   
   $('.contest-popup .js-button-addparticipant').click(function(e){
     e.preventDefault();
-    $('.contest-popup__participant').first().clone(true).insertBefore('.contest-popup .js-button-addparticipant');
+    $('.contest-popup__participant').first().clone(true).insertBefore('.contest-popup .js-button-addparticipant').find('.contest-popup__fio').val('');
     checkParticipantIndex();
+    inputMasks();
   });
   
   $('.contest-popup__delete-icon').click(function(e){
@@ -41,6 +44,8 @@ export default () => {
 
       const form = $(this);
       const fieldset = form.find('.js-opencon-question');
+      const attachments = form.find('.contest-popup__attachments');
+      const attachment = attachments.find('.contest-popup__attachment').not('.contest-popup__attachment_hidden');
 
       form.find('.contest-popup__err').removeClass('contest-popup__err');
 
@@ -58,6 +63,10 @@ export default () => {
 
         })
       })
+      
+      if (!attachment.length) {
+        attachments.parent().addClass('contest-popup__err');
+      }
 
       $('html, body').animate({
         scrollTop: $('#contest-page__howto').offset().top - 200
@@ -71,5 +80,56 @@ export default () => {
   }
 
   openConFormValidation();
+  
+  
+  // маски инпутов
+  function inputMasks() {
+    Inputmask({
+      mask: '99.99.9999',
+      clearMaskOnLostFocus: false,
+      positionCaretOnClick: 'none',
+      onincomplete: function(){
+        $(this).siblings('.contest-popup__label').addClass('contest-popup__err')
+      }
+    }).mask('.contest-popup__fio[name="pi-birth"]');
+    
+    Inputmask({
+      mask: '+7 (999) 999-9999',
+      clearMaskOnLostFocus: false,
+      positionCaretOnClick: 'none',
+      onincomplete: function(){
+        $(this).siblings('.contest-popup__label').addClass('contest-popup__err')
+      }
+    }).mask('.contest-popup__fio[name="pi-phone"], .contest-popup__fio[name="pj-phone"]');
+    
+    Inputmask({
+      mask: "*{1,20}[.*{1,20}][.*{1,20}][.*{1,20}]@*{1,20}[.*{2,6}][.*{1,2}]",
+      clearMaskOnLostFocus: false,
+      positionCaretOnClick: 'none',
+      greedy: false,
+      onBeforePaste: function (pastedValue, opts) {
+        pastedValue = pastedValue.toLowerCase();
+        return pastedValue.replace("mailto:", "");
+      },
+      definitions: {
+        '*': {
+          validator: "[0-9A-Za-z!#$%&'*+/=?^_`{|}~\-]",
+          cardinality: 1,
+          casing: "lower"
+        }
+      }
+    }).mask('.contest-popup__fio[name="pi-email"], .contest-popup__fio[name="pj-email"]');
+  }
+  
+  inputMasks();
+  
+  
+  // Прикрепить файл
+  $(document).on('click', '.contest-popup .js-button-attachment', function(){
+    $(this).parents('.contest-popup__extra').removeClass('contest-popup__err');
+    var attachment = $('.contest-popup__attachment_hidden').first();
+    attachment.clone(true).appendTo('.contest-popup__attachments').removeClass('contest-popup__attachment_hidden');
+  });
+
 
 }

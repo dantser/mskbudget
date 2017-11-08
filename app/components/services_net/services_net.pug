@@ -71,14 +71,14 @@ mixin services_net()
 						+e.wrapper
 							+e.tile
 								- for (var i=0; i<data.length; i++)
-									+row(data[i].id, data[i].colOne, data[i].colTwo, data[i].colThree)
+									+row(data[i].id, data[i].colOne, data[i].colTwo, data[i].colThree, data[i].coordinates, data[i].street)
 		A(href="#").services-net-table__show-more.d-si__button.d-si__button_show-more Показать еще
 
-	mixin row(num, colOne, colTwo, colThree)
+	mixin row(num, colOne, colTwo, colThree, coordinates, street)
 		+e.row
 			+e.col._left
 				+e.row-num= num
-				+e.A(href='#' data-tab-target='significantThree' data-target=num).row-one= colOne
+				+e.A(href='#' data-tab-target='significantThree' value=coordinates data-address=street data-target=num).row-one= colOne
 			+e.col._center
 				+e.row-two= colTwo
 			+e.col._right
