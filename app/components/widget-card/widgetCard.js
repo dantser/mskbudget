@@ -9,7 +9,7 @@ export default () => {
     $(this).toggleClass('widget-card__favor_active');
   });
 
-  $(document).on('click', '.widget-card__pin', function(e) {
+  /*$(document).on('click', '.widget-card__pin', function(e) {
     e.preventDefault();
     e.stopPropagation();
     $(this).toggleClass('widget-card__pin_active');
@@ -55,7 +55,7 @@ export default () => {
       }
       
     }
-  });
+  });*/
 
   // добавляем title всем заголовкам
   $('.widget-card__title h3, .widget-card__results-total, .widget-card__info-block-title, .widget-card__lessons-text').each(function(){
