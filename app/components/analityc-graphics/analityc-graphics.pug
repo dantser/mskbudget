@@ -1154,7 +1154,7 @@ mixin analityc-graphics-js-line(title, data)
     +e.wrapper
       each item in data.item
         if item.strong
-          +e.line._big
+          +e.line._outer._big
             +e.left-block
               +e.P.title
                 strong= item.title
@@ -1179,7 +1179,7 @@ mixin analityc-graphics-js-line(title, data)
                         = items.value2
                     +e.SPAN.line-bar-value= items.barvalue
         else
-          +e.line
+          +e.line._outer
             +e.left-block
               +e.P.title= item.title
               +e.line-bar

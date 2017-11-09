@@ -3,39 +3,49 @@ import Swiper from 'swiper';
 
 export default () => {
   const GR_JS_LINE = $(' .analityc-js-line__wrapper');
-  const LINE = $(' .analityc-js-line__line');
+  const LINE = $(' .analityc-js-line__line_outer');
   const ACTIVE_CLASS = 'analityc-js-line__line_active';
-  $('.analityc-js-line__line:nth-child(1)').addClass(ACTIVE_CLASS).find('.analityc-js-line__right-block').show();
-  var ACTIVE_LINE = $('.analityc-js-line__line_active');
+  $('.analityc-js-line__line_outer.analityc-js-line__line:nth-child(1)').addClass(ACTIVE_CLASS).find('.analityc-js-line__right-block').show();
+  var ACTIVE_LINE = $('.analityc-js-line__line_outer.analityc-js-line__line_active');
   var ACTIVE_BLOCK = ACTIVE_LINE.find('.analityc-js-line__right-block');
 
-  if ($(document).width() >= 900 && $('.analityc-js-line').length) {
-    if (ACTIVE_BLOCK.outerHeight() <= GR_JS_LINE.outerHeight()) {
-      ACTIVE_BLOCK.css('min-height', '100%');
-      GR_JS_LINE.css('min-height', 'auto');
+  // выравнивание правого блока подвидов для графика analityc-js-line
+  window.grJsLine = function(wrapper, line) {
+    const rightBlock = line.find('.analityc-js-line__right-block');
+    const rBlockH = rightBlock.outerHeight();
+    const wrapperH = wrapper.outerHeight();
+
+    if ($(document).width() >= 900) {
+      
+      if (rightBlock.outerHeight() <= line.outerHeight())
+        rightBlock.css({'bottom': '0'});
+      else
+        rightBlock.css({'bottom': 'auto', 'height': rBlockH});
+
+      wrapper.css({'height': 'auto'});
+      if (rightBlock.outerHeight() + rightBlock.offset().top > wrapper.outerHeight() + wrapper.offset().top )
+        wrapper.css('height', rightBlock.offset().top - wrapper.offset().top + rightBlock.outerHeight());
+
     }
-    else
-      GR_JS_LINE.css('min-height', ACTIVE_BLOCK.outerHeight());
   }
+
+  if ($('.analityc-js-line').length)
+    grJsLine(GR_JS_LINE, ACTIVE_LINE);
 
   LINE.each( function () { // eslint-disable-line
     const EL = $(this);
     EL.on('click', (e) => {
 
       e.preventDefault();
-      EL.siblings().removeClass(ACTIVE_CLASS);
-      EL.addClass(ACTIVE_CLASS);
+
       $('.analityc-js-line__right-block').hide();
       EL.find('.analityc-js-line__right-block').fadeIn('fast');
 
-      if ($(document).width() >= 900 && $('.analityc-js-line').length) {
-        if (EL.find('.analityc-js-line__right-block').outerHeight() <= GR_JS_LINE.outerHeight()) {
-          EL.find('.analityc-js-line__right-block').css('min-height', '100%');
-          GR_JS_LINE.css('min-height', 'auto');
-        }
-        else
-          GR_JS_LINE.css('min-height', EL.find('.analityc-js-line__right-block').outerHeight());
-      }
+      if (!EL.hasClass('analityc-js-line__line_active'))
+        grJsLine(GR_JS_LINE, EL);
+
+      EL.siblings().removeClass(ACTIVE_CLASS);
+      EL.addClass(ACTIVE_CLASS);
     })
   })
 

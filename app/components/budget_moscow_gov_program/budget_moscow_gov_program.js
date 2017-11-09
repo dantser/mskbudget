@@ -238,15 +238,8 @@ export default () => {
     grChanges();
     grLinePopup();
 
-	  if ($(document).width() >= 900 && $('.analityc-js-line').length) {
-	  	
-	    if ($('.analityc-js-line__line_active .analityc-js-line__right-block').outerHeight() <= $('.analityc-js-line__wrapper').outerHeight()) {
-	      $('.analityc-js-line__line_active .analityc-js-line__right-block').css('min-height', '100%');
-	      $('.analityc-js-line__wrapper').css('min-height', 'auto');
-	    }
-	    else
-	    	$('.analityc-js-line__wrapper').css('min-height', $('.analityc-js-line__line_active').find('.analityc-js-line__right-block').outerHeight());
-	  }
+    if ($('.analityc-js-line').length) 
+	  	grJsLine($('.analityc-js-line__wrapper'), $('.analityc-js-line__line_outer.analityc-js-line__line_active'));
 
   });
   
@@ -257,6 +250,10 @@ export default () => {
     $(this).addClass('active');
     changeContent('button', $(this));
     grLinePopup();
+
+    if ($('.analityc-js-line').length) 
+	  	grJsLine($('.analityc-js-line__wrapper'), $('.analityc-js-line__line_outer.analityc-js-line__line_active'));
+
   });
   
   // переключение по свитчеру гп/структура
