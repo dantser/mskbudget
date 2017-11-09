@@ -23,8 +23,11 @@ mixin services_social_significant(data)
 					+e.H3.col._right Предполагаемый срок реализации
 
 				+e.rows.significant-list__main
-					- for (var i=0; i<data.length; i++)
-						+row(data[i].id, data[i].title, data[i].street, data[i].date, data[i].coordinates)
+					//- +e.lg._top-lg
+					//- +e.lg._bottom-lg.active
+					.scroll-pane
+						- for (var i=0; i<data.length; i++)
+							+row(data[i].id, data[i].title, data[i].street, data[i].date, data[i].coordinates)
 
 	mixin row(num, title, street, date, coordinates)
 		+e.row
@@ -47,12 +50,12 @@ mixin services_social_significant(data)
 
 				+searchFormWidget('Поиск').significant__search
 
-				+tabs-tab(data-tab-group="significantTabs", data-tab="significantOne").active.significant-list_list.significant-list__
+				+tabs-tab(data-tab-group="significantTabs", data-tab="significantOne").significant-list_list.significant-list__
 					+e.total Всего учреждений 1 226
 					+slide-arrows().__slide-arrows
 					+table(data)
 
-				+tabs-tab(data-tab-group="significantTabs", data-tab="significantTwo").significant-list_map.significant-list__
+				+tabs-tab(data-tab-group="significantTabs", data-tab="significantTwo").active.significant-list_map.significant-list__
 					+e.map(id='significant-bigmap')
 					+table(data)
 
