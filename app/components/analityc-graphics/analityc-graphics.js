@@ -751,12 +751,24 @@ export default () => {
       }
     });
     
+    hideTableSubcol();
+    
     graphicBars();
     graphicLineVertAlt();
     rateLine();
     grLineVertParams();
     grClassic();
   });
+  
+  // Скрытие второго столбца первого года в таблице
+  function hideTableSubcol() {
+    $('.analityc-table_rate .table__row').each(function(){
+      $(this).find('.table__col_one[data-set]').removeClass('table__col_inactive');
+      $(this).find('.table__col_one[data-set]:visible').eq(1).addClass('table__col_inactive');
+    });
+  }
+  
+  hideTableSubcol();
   
   
   
@@ -771,7 +783,7 @@ export default () => {
     
     if ($(this).parent().attr('data-type')) {
       var type = $(this).parent().data('type');
-      $('.analityc-widget-income, .analityc-graphics, .analytics-gov-debt__graphics').each(function(){
+      $('.analityc-widget-income, .analityc-graphics, .analytics-gov-debt__graphics, .analityc-table').each(function(){
         var gtype = $(this).data('type');
         if (gtype.match(type)) {
           $(this).find('[data-set="'+set+'"] [data-set-'+name+'], [data-set="'+set+'"][data-set-'+name+']').text(selectedVal);

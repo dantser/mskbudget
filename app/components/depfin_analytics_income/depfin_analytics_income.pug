@@ -57,7 +57,11 @@ mixin depfin_analytics_income()
 					.analityc-control-switcher.analityc-control-switcher_table.analityc-control-switcher_large.active
 						a(href="#").active млн руб.
 						a(href="#") млрд руб.
-				+analityc-table-slider(100)._params.active(data-type='g1, g2, g3' data-comparison='overall')
-					+table-aincome(getData('main'))
+				+analityc-table-slider(100)._params._rate.active(data-type='g2' data-comparison='overall')
+					+table-aincome(getData('main'), 'rate')
+				+analityc-table-slider(100)._params._part(data-type='g3' data-comparison='overall')
+					+table-aincome(getData('main'), 'part')
+				+analityc-table-slider(100)._params._exe(data-type='g1' data-comparison='overall')
+					+table-aincome(getData('main'), 'exe')
 				a(href="/").analityc-more Перейти в&nbsp;раздел бюжет москвы
 		+dropdown().load-anim-fade(data-delay="1700")
