@@ -518,7 +518,7 @@ mixin table-main(data)
 
 
 //- таблица аналитике доходы
-mixin table-aincome(data)
+mixin table-aincome(data, type)
 
   mixin dataType(data, type)
     case data.length
@@ -545,7 +545,12 @@ mixin table-aincome(data)
 
       if (data[0].year)
         each item in data
-          +e.col._four(data-set=item.set data-set-year)= item.year
+          if type == 'exe'
+            +e.col._four(data-set=item.set)
+              span(data-set-month)= item.month
+              span(data-set-year)= item.year
+          else
+            +e.col._four(data-set=item.set data-set-year)= item.year
       else
         +e.col._four МЛРД РУБ.
         +e.col._four %
@@ -553,21 +558,54 @@ mixin table-aincome(data)
     if (typeof data[0].total === "object")
       +e.row._subcaption
         +e.col._four &nbsp;
-
-        +e.col._one(data-set='gt1' data-set-stage) факт
-        +e.col._one(data-set='gt1') &nbsp;
-
-        +e.col._one(data-set='gt2' data-set-stage) факт
-        +e.col._one(data-set='gt2') темп
-
-        +e.col._one(data-set='gt3' data-set-stage) закон утвержденный
-        +e.col._one(data-set='gt3') темп
-
-        +e.col._one(data-set='gt4' data-set-stage) закон утвержденный
-        +e.col._one(data-set='gt4') темп
-
-        +e.col._one(data-set='gt5' data-set-stage) закон утвержденный
-        +e.col._one(data-set='gt5') темп
+        
+        if type == 'rate'
+          +e.col._one(data-set='gt1' data-set-stage) факт
+          +e.col._one(data-set='gt1') &nbsp;
+          
+          +e.col._one(data-set='gt2' data-set-stage) факт
+          +e.col._one(data-set='gt2') темп
+          
+          +e.col._one(data-set='gt3' data-set-stage) закон утвержденный
+          +e.col._one(data-set='gt3') темп
+          
+          +e.col._one(data-set='gt4' data-set-stage) закон утвержденный
+          +e.col._one(data-set='gt4') темп
+          
+          +e.col._one(data-set='gt5' data-set-stage) закон утвержденный
+          +e.col._one(data-set='gt5') темп
+          
+        else if type == 'part'
+          +e.col._one(data-set='gt1' data-set-stage) факт
+          +e.col._one(data-set='gt1') доля
+          
+          +e.col._one(data-set='gt2' data-set-stage) факт
+          +e.col._one(data-set='gt2') доля
+          
+          +e.col._one(data-set='gt3' data-set-stage) закон утвержденный
+          +e.col._one(data-set='gt3') доля
+          
+          +e.col._one(data-set='gt4' data-set-stage) закон утвержденный
+          +e.col._one(data-set='gt4') доля
+          
+          +e.col._one(data-set='gt5' data-set-stage) закон утвержденный
+          +e.col._one(data-set='gt5') доля
+          
+        else if type == 'exe'
+          +e.col._one(data-set='gt1' data-set-stage) факт
+          +e.col._one(data-set='gt1') % исполнения
+          
+          +e.col._one(data-set='gt2' data-set-stage) факт
+          +e.col._one(data-set='gt2') % исполнения
+          
+          +e.col._one(data-set='gt3' data-set-stage) закон утвержденный
+          +e.col._one(data-set='gt3') % исполнения
+          
+          +e.col._one(data-set='gt4' data-set-stage) закон утвержденный
+          +e.col._one(data-set='gt4') % исполнения
+          
+          +e.col._one(data-set='gt5' data-set-stage) закон утвержденный
+          +e.col._one(data-set='gt5') % исполнения
 
     +e.row
       +e.col._four Налоговые и неналоговые доходы
@@ -595,7 +633,7 @@ mixin table-aincome(data)
       +dataType(data, 'total')
 
 //- таблица в аналитике Гос. программы
-mixin table-gp(data, analytics, switcher)
+mixin table-gp(data, analytics, switcher, type)
 
   mixin dataType(data, type)
     case data.length
@@ -631,7 +669,12 @@ mixin table-gp(data, analytics, switcher)
       if (data[0].year)
         each item in data
           if analytics
-            +e.col._four(data-set=item.set data-set-year)= item.year
+            if type == 'exe'
+              +e.col._four(data-set=item.set)
+                span(data-set-month)= item.month
+                span(data-set-year)= item.year
+            else
+              +e.col._four(data-set=item.set data-set-year)= item.year
           else
             +e.col._four= item.year
       else
@@ -642,22 +685,60 @@ mixin table-gp(data, analytics, switcher)
       +e.row._subcaption
       
         if analytics
-          +e.col._four &nbsp;
-  
-          +e.col._one(data-set='gt1' data-set-stage) факт
-          +e.col._one(data-set='gt1') &nbsp;
-  
-          +e.col._one(data-set='gt2' data-set-stage) факт
-          +e.col._one(data-set='gt2') темп
-  
-          +e.col._one(data-set='gt3' data-set-stage) закон утвержденный
-          +e.col._one(data-set='gt3') темп
-  
-          +e.col._one(data-set='gt4' data-set-stage) закон утвержденный
-          +e.col._one(data-set='gt4') темп
-  
-          +e.col._one(data-set='gt5' data-set-stage) закон утвержденный
-          +e.col._one(data-set='gt5') темп
+          
+          if type == 'rate'
+            +e.col._four &nbsp;
+    
+            +e.col._one(data-set='gt1' data-set-stage) факт
+            +e.col._one(data-set='gt1') &nbsp;
+    
+            +e.col._one(data-set='gt2' data-set-stage) факт
+            +e.col._one(data-set='gt2') темп
+    
+            +e.col._one(data-set='gt3' data-set-stage) закон утвержденный
+            +e.col._one(data-set='gt3') темп
+    
+            +e.col._one(data-set='gt4' data-set-stage) закон утвержденный
+            +e.col._one(data-set='gt4') темп
+    
+            +e.col._one(data-set='gt5' data-set-stage) закон утвержденный
+            +e.col._one(data-set='gt5') темп
+            
+          else if type == 'part'
+            +e.col._four &nbsp;
+    
+            +e.col._one(data-set='gt1' data-set-stage) факт
+            +e.col._one(data-set='gt1') доля
+    
+            +e.col._one(data-set='gt2' data-set-stage) факт
+            +e.col._one(data-set='gt2') доля
+    
+            +e.col._one(data-set='gt3' data-set-stage) закон утвержденный
+            +e.col._one(data-set='gt3') доля
+    
+            +e.col._one(data-set='gt4' data-set-stage) закон утвержденный
+            +e.col._one(data-set='gt4') доля
+    
+            +e.col._one(data-set='gt5' data-set-stage) закон утвержденный
+            +e.col._one(data-set='gt5') доля
+            
+          else if type == 'exe'
+            +e.col._four &nbsp;
+    
+            +e.col._one(data-set='gt1' data-set-stage) факт
+            +e.col._one(data-set='gt1') % исполнения
+    
+            +e.col._one(data-set='gt2' data-set-stage) факт
+            +e.col._one(data-set='gt2') % исполнения
+    
+            +e.col._one(data-set='gt3' data-set-stage) закон утвержденный
+            +e.col._one(data-set='gt3') % исполнения
+    
+            +e.col._one(data-set='gt4' data-set-stage) закон утвержденный
+            +e.col._one(data-set='gt4') % исполнения
+    
+            +e.col._one(data-set='gt5' data-set-stage) закон утвержденный
+            +e.col._one(data-set='gt5') % исполнения
           
         else
           +e.col._four &nbsp;

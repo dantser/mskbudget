@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import 'jquery.scrollbar';
 import ymaps from 'ymaps';
 
 export default () => {
@@ -43,6 +44,10 @@ export default () => {
       SEARCH.show();
     })
   })
+
+  // Custom scroll
+  if ($('.significant').length)
+    $('.significant').find('.significant-list__main').scrollbar();
 
   const TABS = $('.significant .tabs__tab');
   const LISTLINK = $('.significant-list_list .significant-list__row-title');

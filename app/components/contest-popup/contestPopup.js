@@ -36,6 +36,7 @@ export default () => {
   
   $('.contest-popup__delete-icon').click(function(e){
     $(this).parent().remove();
+    checkAttachments();
   });
   
 
@@ -44,8 +45,6 @@ export default () => {
 
       const form = $(this);
       const fieldset = form.find('.js-opencon-question');
-      const attachments = form.find('.contest-popup__attachments');
-      const attachment = attachments.find('.contest-popup__attachment').not('.contest-popup__attachment_hidden');
 
       form.find('.contest-popup__err').removeClass('contest-popup__err');
 
@@ -63,10 +62,6 @@ export default () => {
 
         })
       })
-      
-      if (!attachment.length) {
-        attachments.parent().addClass('contest-popup__err');
-      }
 
       $('html, body').animate({
         scrollTop: $('#contest-page__howto').offset().top - 200
@@ -125,10 +120,23 @@ export default () => {
   
   
   // Прикрепить файл
+  function checkAttachments() {
+    $('.contest-popup__attachments').each(function(){
+      var attachment = $(this).find('.contest-popup__attachment').not('.contest-popup__attachment_hidden');
+      if (!attachment.length) {
+        $(this).parent().addClass('contest-popup__err');
+        $('.contest-popup__submit').addClass('disabled');
+      }
+    });
+  }
+  
+  checkAttachments();
+  
   $(document).on('click', '.contest-popup .js-button-attachment', function(){
     $(this).parents('.contest-popup__extra').removeClass('contest-popup__err');
     var attachment = $('.contest-popup__attachment_hidden').first();
     attachment.clone(true).appendTo('.contest-popup__attachments').removeClass('contest-popup__attachment_hidden');
+    $('.contest-popup__submit').removeClass('disabled');
   });
 
 

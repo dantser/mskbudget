@@ -11,7 +11,7 @@ mixin legend(data)
 mixin legend-checkbox(data)
   +b.legend._checkbox&attributes(attributes)
     each obj in data
-      +b.LABEL.checkbox._active&attributes(attributes)(data-name=obj.name)
+      +b.LABEL.checkbox._active(data-name=obj.name data-control=obj.control data-type=obj.type data-comparison=obj.comparison)
         +e.INPUT(type='checkbox', name=obj.name, value='yes', checked).control
         +e.box
           +icon('icon-ok-ch').mark
@@ -21,13 +21,13 @@ mixin legend-basket(data)
   +b.legend._basket&attributes(attributes)
     each obj in data
       if obj.icon
-        +e.P(class="__item_icon _"+obj.color+"", data-name=obj.name)
+        +e.P(class="__item_icon _"+obj.color+"" data-name=obj.name data-control=obj.control data-type=obj.type data-comparison=obj.comparison)
           +e.icon(class="_"+obj.color+"")
           span= obj.title
             +e.A(href="#").remove
               +icon('basket').remove-icon
       else
-        +e.P(class="__item_"+obj.color+"", data-name=obj.name)
+        +e.P(class="__item_"+obj.color+"" data-name=obj.name data-control=obj.control data-type=obj.type data-comparison=obj.comparison)
           span= obj.title
             +e.A(href="#").remove
               +icon('basket').remove-icon
@@ -56,6 +56,9 @@ mixin legend-icon()
     +checkbox(true)._active.legend-icon-a__item._noicon(data-name='g1-l6')
       .legend-icon-a__circle.legend-icon-a__circle_green
       SPAN.legend-icon-a__label Непрограммные направления деятельности
+    +checkbox(true)._active.legend-icon-a__item._noicon(data-name='g1-l7' data-control data-type='g1' data-comparison='all')
+      .legend-icon-a__circle.legend-icon-a__circle_redblue
+      SPAN.legend-icon-a__label Всего
 
 mixin legend-icon-woch()
   .legend-icon

@@ -16,6 +16,7 @@ export default () => {
     function changeContent(typeofchange, el) {
       
       var graphics = $('.analityc-widget-income'),
+		  table = $('.analityc-table'),
           controls = $('._analitycs-income [data-control]'),
           comparVal = $('._analitycs-income .analityc-widgethead select[name="comparison"]').val(),
           typeVal;
@@ -27,9 +28,11 @@ export default () => {
       }
       
       graphics.removeClass('active');
+      table.removeClass('active');
       controls.hide();
 	 
       changeBlock(graphics, comparVal, typeVal);
+      changeBlock(table, comparVal, typeVal);
       changeControl(controls, comparVal, typeVal);
       graphicBars();
       graphicLineVertAlt();

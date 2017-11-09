@@ -32,20 +32,36 @@ mixin depfin-analytics-expenses()
 						.analityc-graphics-scroll-hider
 							.analityc-graphics-wrapper(data-offset='100')
 								+analityc-graphics-bars(getData('legend-analityc-bar2'))
-				.analityc-graphics(data-type='g1, g2, g3', data-comparison='comparative')
+				.analityc-graphics(data-type='g1', data-comparison='comparative')
+					.analityc-graphics-container.analityc-graphics-container_vert-lines
+						+slide-arrows().analityc-graphics__slide-arrows
+						.analityc-graphics-scroll-hider
+							.analityc-graphics-wrapper(data-offset='100')
+								+analityc-graphics-line-vertical-alt(getData('graphic-lines-analityc-income'))
+				.analityc-graphics(data-type='g2', data-comparison='comparative')
 					.analityc-graphics-container.analityc-graphics-container_bars-entired
 						+slide-arrows().analityc-graphics__slide-arrows
 						.analityc-graphics-scroll-hider
 							.analityc-graphics-wrapper(data-offset='100')
 								+analityc-graphics-bars-alt(getData('legend-analityc-bar4'))._entired
+				.analityc-graphics(data-type='g3', data-comparison='comparative')
+					.analityc-graphics-container.analityc-graphics-container_bars-entired
+						+slide-arrows().analityc-graphics__slide-arrows
+						.analityc-graphics-scroll-hider
+							.analityc-graphics-wrapper(data-offset='100')
+								+analityc-graphics-bars-alt(getData('legend-analityc-bar6'))._entired
 				+legend-icon()(data-control data-type='g1, g2, g3' data-comparison='overall')
 				+legend-basket(getData('legend-analityc-income')[1])(data-control data-type='g1, g2, g3' data-comparison='comparative')
-				.table-switcher
+				.table-switcher(data-control data-type='g1, g2, g3' data-comparison='overall')
 					.analityc-control-switcher.analityc-control-switcher_table.analityc-control-switcher_large.active
 						a(href="#").active млн руб.
 						a(href="#") млрд руб.
-				+analityc-table-slider(100)._gp
-					+table-gp(getData('analytics-expenses'), true, false)
+				+analityc-table-slider(100)._gp._rate(data-type='g2' data-comparison='overall')
+					+table-gp(getData('analytics-expenses'), true, false, 'rate')
+				+analityc-table-slider(100)._gp._part(data-type='g3' data-comparison='overall')
+					+table-gp(getData('analytics-expenses'), true, false, 'part')
+				+analityc-table-slider(100)._gp._exe(data-type='g1' data-comparison='overall')
+					+table-gp(getData('analytics-expenses'), true, false, 'exe')
 
 				a(href="/").analityc-more Перейти в&nbsp;раздел бюжет москвы
 				
