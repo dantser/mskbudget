@@ -98,7 +98,7 @@ export default () => {
     }).mask('.contest-popup__fio[name="pi-phone"], .contest-popup__fio[name="pj-phone"]');
     
     Inputmask({
-      mask: "*{1,80}@[i{1,20}].[i{2,6}][.i{1,2}]",
+      mask: "*{1,80}@i{1,20}.i{1,6}[.i{1,2}]",
       clearMaskOnLostFocus: false,
       positionCaretOnClick: 'none',
       greedy: false,
