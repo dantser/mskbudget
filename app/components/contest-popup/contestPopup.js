@@ -98,7 +98,7 @@ export default () => {
     }).mask('.contest-popup__fio[name="pi-phone"], .contest-popup__fio[name="pj-phone"]');
     
     Inputmask({
-      mask: "*{1,20}[.*{1,20}][.*{1,20}][.*{1,20}]@*{1,20}[.*{2,6}][.*{1,2}]",
+      mask: "*{1,80}@i{1,20}.i{1,6}[.i{1,2}]",
       clearMaskOnLostFocus: false,
       positionCaretOnClick: 'none',
       greedy: false,
@@ -108,7 +108,12 @@ export default () => {
       },
       definitions: {
         '*': {
-          validator: "[0-9A-Za-z!#$%&'*+/=?^_`{|}~\-]",
+          validator: "[0-9A-Za-z._-]",
+          cardinality: 1,
+          casing: "lower"
+        },
+        'i': {
+          validator: "[0-9A-Za-z_-]",
           cardinality: 1,
           casing: "lower"
         }

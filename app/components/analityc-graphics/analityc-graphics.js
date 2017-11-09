@@ -676,10 +676,10 @@ export default () => {
           legend = graphic.siblings('.legend_basket');
       if (checkStatus == true) {
         graphic.find('[data-name="'+name+'"]').show();
-        legend.find('[data-name="'+name+'"]').show();
+        legend.find('[data-name="'+name+'"]').removeClass('hidden');
       } else {
         graphic.find('[data-name="'+name+'"]').hide();
-        legend.find('[data-name="'+name+'"]').hide();
+        legend.find('[data-name="'+name+'"]').addClass('hidden');
       }
     });
   }
@@ -823,7 +823,7 @@ export default () => {
       LINE_BAR.each(function() {
         var line = $(this).find('.analityc-line__line-wrap');
         var fillPers = $(this).find('.analityc-line__line-fill');
-        var longLimit = $(window).width() <= 900 && $(window).width() > 580 ? 50 : 30;
+        var longLimit = $(window).width() <= 900 && $(window).width() > 580 ? 50 : 90;
         var isLong = fillPers.outerWidth() > longLimit ? true : false;
         var val = $(this).find('.analityc-line__line-value');
         var abs = $(this).find('.analityc-line__line-abs');
