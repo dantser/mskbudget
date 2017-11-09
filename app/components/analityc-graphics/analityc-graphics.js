@@ -260,8 +260,10 @@ export default () => {
       visibleGraphic.removeClass('analityc-graphics-bars__graphic_last');
       visibleGraphic.last().addClass('analityc-graphics-bars__graphic_last').next('[data-rate]').hide();
       
+      var totalGraphic = $(this).find('.analityc-graphics-bars__graphic:visible');
+      
       var minWidth = 0;
-      visibleGraphic.each(function(){
+      totalGraphic.each(function(){
         var grWidth = $(this).outerWidth(true);
         minWidth += grWidth;
       });
