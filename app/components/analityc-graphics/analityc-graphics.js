@@ -659,19 +659,17 @@ export default () => {
     });
     
     $('.analityc-control-checkboxes .d-smr__add-char-item').each(function(){
-      if ($(this).is(':visible')) {
-        var checkBox = $(this).find('input[data-name]'),
-            checkStatus = checkBox.is(':checked'),
-            name = checkBox.data('name'),
-            graphic = $(this).parents('.analityc-widgethead').siblings('.analityc-widget-income[data-comparison="comparative"], .analityc-graphics[data-comparison="comparative"]'),
-            legend = graphic.siblings('.legend_basket');
-        if (checkStatus == true) {
-          graphic.find('[data-name="'+name+'"]').show();
-          legend.find('[data-name="'+name+'"]').show();
-        } else {
-          graphic.find('[data-name="'+name+'"]').hide();
-          legend.find('[data-name="'+name+'"]').hide();
-        }
+      var checkBox = $(this).find('input[data-name]'),
+          checkStatus = checkBox.is(':checked'),
+          name = checkBox.data('name'),
+          graphic = $(this).parents('.analityc-widgethead').siblings('.analityc-widget-income[data-comparison="comparative"], .analityc-graphics[data-comparison="comparative"]'),
+          legend = graphic.siblings('.legend_basket');
+      if (checkStatus == true) {
+        graphic.find('[data-name="'+name+'"]').show();
+        legend.find('[data-name="'+name+'"]').removeClass('hidden');
+      } else {
+        graphic.find('[data-name="'+name+'"]').hide();
+        legend.find('[data-name="'+name+'"]').addClass('hidden');
       }
     });
   }
