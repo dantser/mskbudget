@@ -263,5 +263,17 @@ export default () => {
     overflowDotts(45, '.widget-card-polls-pers .widget-card__info-block-title, .widget-card-quiz-pers .widget-card__info-block-title');
     overflowDotts(127, '.widget-card-social-support .widget-card__info-block-item, .widget-card-gov-programs-result .widget-card__info-block-item');
   }
+  
+  // Фикс шрифта заголовков виджетов в iOS
+  var isMobile = {
+    iOS: function() {
+      return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+    }
+  };
+  if (isMobile.iOS() && $('.widget-card').length) {
+    $('.widget-card__title h3').addClass('alt');
+  } else {
+    $('.widget-card__title h3').removeClass('alt');
+  }
 
 }
