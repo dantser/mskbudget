@@ -3153,6 +3153,7 @@
     cursor: pointer;
     font-family: $PFDinTextPro;
     font-weight: 400;
+    text-align: left;
     width: 28%;
     display: inline-block;
     vertical-align: middle;
@@ -3193,18 +3194,30 @@
         height: 43px;
       }
     }
+
+    strong {
+      display: inline-block;
+      text-align: right;
+      width: 100%;
+
+      @media (max-width: 900px) {
+        text-align: left;
+      }
+    }
   }
 
   &__lines {
     display: none;
-    width: 69.3%;
+    width: 67%;
     display: inline-block;
     vertical-align: top;
-    margin-top: 56px;
+    margin-top: 24px;
+    margin-left: 30px;
 
     @media (max-width: 900px){
       width: 100%;
       margin-top: 43px;
+      margin-left: 0;
     }
 
     @media (max-width: 580px){
