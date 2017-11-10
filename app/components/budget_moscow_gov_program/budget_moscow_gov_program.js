@@ -195,7 +195,7 @@ export default () => {
 					$(stage + ' .analityc-widget-moscow-gov-program__structure-wrapper').removeClass('active');
 				} else {
 					if ($(document).width() >= 900) {
-						$this.siblings().hide();
+						$this.siblings('.analityc-mix').hide();
 					}
 					
 					$this.addClass('active');
