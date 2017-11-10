@@ -124,7 +124,7 @@ export default () => {
 
   if ( $('#net-map').length > 0 ) {
 
-    ymaps.load().then(maps => {
+    ymaps.load('https://api-maps.yandex.ru/2.1/?lang=ru_RU').then(maps => {
       map = new maps.Map("net-map", {
           center: [55.755814, 37.617635],
           zoom: 14,

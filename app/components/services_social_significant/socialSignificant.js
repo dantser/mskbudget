@@ -73,7 +73,7 @@ export default () => {
 
   if ( $('#significant-bigmap').length > 0 ) {
         
-    ymaps.load().then(maps => {
+    ymaps.load('https://api-maps.yandex.ru/2.1/?lang=ru_RU').then(maps => {
       var bigMap = new maps.Map("significant-bigmap", {
         center: [55.751574, 37.573856],
         zoom: 10,
