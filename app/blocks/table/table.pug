@@ -893,7 +893,9 @@ mixin table-analytics-gov-debt(data)
       +e.col._four Показатели
       if (data[0].year)
         each item in data
-          +e.col._four(data-set=item.set data-set-year)= item.year
+          +e.col._four(data-set=item.set)
+            span(data-set-month)= item.gdmonth
+            span(data-set-year)= item.year
       else
         +e.col._four МЛРД РУБ.
         +e.col._four %
@@ -910,21 +912,58 @@ mixin table-analytics-gov-debt(data)
         +e.col._one(data-set='gt4') темп
         +e.col._one(data-set='gt5' data-set-stage) закон утвержденный
         +e.col._one(data-set='gt5') темп
-    +e.row
-      +e.col._four Налоговые и неналоговые доходы
+        
+    //+e.row
+    //  +e.col._four Налоговые и неналоговые доходы
+    //  +dataType(data, 'total')
+    //+e.row
+    //  +e.col._four ...
+    //  +dataType(data, 'other')
+    //+e.row
+    //  +e.col._four Налог на прибыль
+    //  +dataType(data, 'total')
+    //+e.row
+    //  +e.col._four ...
+    //  +dataType(data, 'other')
+    //+e.row
+    //  +e.col._four Неналоговые доходы
+    //  +dataType(data, 'total')
+
+    +e.row._opened
+      +e.col._four 
+        +e.SPAN.figure Расходы, всего
+        +icon('angle-arrow').arrow
+
       +dataType(data, 'total')
+
+    +e.row._opened
+      +e.col._four._subcol 
+        +e.SPAN.figure Программные расходы, в том числе:
+        +icon('angle-arrow').arrow
+
+      +dataType(data, 'tax')
+
+    +e.row._opened
+      +e.col._four._subcol 
+        +e.icon
+        +e.SPAN.figure ГП &laquo;Развитие транспортной системы&raquo;
+        +icon('angle-arrow').arrow
+
+      +dataType(data, 'org')
+
     +e.row
-      +e.col._four ...
+      +e.col._four._subcol  
+        +e.SPAN.figure Общественный транспорт &laquo;Метрополитен&raquo;
+
+      +dataType(data, 'ndfl')
+
+    +e.row
+      +e.col._four  
+        +e.SPAN.figure Непрограммные направления деятельности
+
       +dataType(data, 'other')
-    +e.row
-      +e.col._four Налог на прибыль
-      +dataType(data, 'total')
-    +e.row
-      +e.col._four ...
-      +dataType(data, 'other')
-    +e.row
-      +e.col._four Неналоговые доходы
-      +dataType(data, 'total')
+
+
 
 mixin table-mrelations(data)
 
