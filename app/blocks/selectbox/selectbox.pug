@@ -19,6 +19,18 @@ mixin selectbox-cities(name, data)
           option(value=obj.val, data-image=obj.img, data-period=obj.period)= obj.text
     +e.SPAN.arrow
       span
+      
+mixin selectbox-file(name, value, data)
+  +b.selectbox._file&attributes(attributes)
+    +e.P.val= value
+    +e.SELECT.select(name=name)
+      each obj in data
+        if (obj.locked)
+          option(value=obj.val, data-locked, disabled, data-image=obj.img, data-period=obj.period, data-href=obj.href)= obj.text
+        else
+          option(value=obj.val, data-image=obj.img, data-period=obj.period, data-href=obj.href)= obj.text
+    +e.SPAN.arrow
+      span
 
 
 //- Selectbox без json
