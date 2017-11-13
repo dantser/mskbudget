@@ -43,7 +43,8 @@ export default () => {
 		$('.open-file__content, .open-file__search-form').show();
 	})
 
-	SORT.bind('click', function(e) {
+	//SORT.bind('click', function(e) {
+	$(document).on('click', '.open-file__sort-field', function(e) {
 		e.preventDefault();
 		$(e.target).toggleClass(function() {
 			if ($(this).hasClass('open-file__sort-field_dec')) {
