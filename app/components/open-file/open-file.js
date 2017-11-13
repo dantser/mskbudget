@@ -7,7 +7,8 @@ export default () => {
 	const MORE_BTN = $('.open-file__show-more');
 	const SORT = $('.open-file__sort-field');
 
-	DESC_BTN.bind('click', function(e) {
+	//DESC_BTN.bind('click', function(e) {
+	$(document).on('click', '.open-file__row-description', function(e) {
 		if (!$(e.target))
 			ROWS.removeClass('open-file__row_active');
 		$(e.target).parents('.open-file__row').toggleClass('open-file__row_active');
