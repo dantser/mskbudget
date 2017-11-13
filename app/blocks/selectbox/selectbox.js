@@ -70,8 +70,11 @@ export default function selectbox() {
           
           if ($(this).attr('data-tooltip')) {
             const title = $(this).attr('title');
-            console.log(title);
             const li = '<li class="locked js-tooltip" data-val="' + vval + '" title="'+title+'">' + ttext + '</li>';
+            selBox.find('ul').append(li);
+          } else if ($(this).attr('data-href')) {
+            const href = $(this).attr('data-href');
+            const li = '<li class="locked" data-val="' + vval + '"><a href="'+href+'">' + ttext + '</a></li>';
             selBox.find('ul').append(li);
           } else {
             const li = '<li class="locked" data-val="' + vval + '">' + ttext + '</li>';
@@ -79,8 +82,14 @@ export default function selectbox() {
           }
           
         } else {
-          const li = '<li data-val="' + vval + '">' + ttext + '</li>';
-          selBox.find('ul').append(li);
+          if ($(this).attr('data-href')) {
+            const href = $(this).attr('data-href');
+            const li = '<li data-val="' + vval + '"><a href="'+href+'">' + ttext + '</a></li>';
+            selBox.find('ul').append(li);
+          } else {
+            const li = '<li data-val="' + vval + '">' + ttext + '</li>';
+            selBox.find('ul').append(li);
+          }
         }
 
       }

@@ -18,8 +18,8 @@ mixin open-file()
           +e.row-title= title
           +e.row-controls
             +e.BUTTON.row-description.open-file__row-control описание
-            +selectbox('select', [{"val":"opt1", "text":"Скачать"}, {"val":"opt2", "text":"Другое"}]).open-file__row-control
-            +selectbox('select', [{"val":"opt1", "text":"Паспорт"}, {"val":"opt2", "text":"Другое"}]).open-file__row-control
+            +selectbox-file('select1', 'Скачать', [{"val":"doc", "text":"DOC", "href":"assets/doc1.doc"}, {"val":"pdf", "text":"PDF", "href":"assets/pdf1.pdf"}, {"val":"zip", "text":"ZIP", "href":"assets/zip1.zip"}]).open-file__row-control
+            +selectbox-file('select2', 'Паспорт', [{"val":"doc", "text":"DOC", "href":"assets/doc2.doc"}, {"val":"pdf", "text":"PDF", "href":"assets/pdf2.pdf"}, {"val":"zip", "text":"ZIP", "href":"assets/zip2.zip"}]).open-file__row-control
         +e.row-about= about 
       +e.col._right
         +e.row-date= date
