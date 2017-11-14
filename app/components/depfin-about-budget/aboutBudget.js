@@ -13,6 +13,10 @@ export default () => {
 		$(this).siblings().removeClass('_active');
 	});
 
+  // Custom scroll
+  if ($('.depfin-about-budget').length)
+    $('.whatIsBudget-publicDebt__inner').scrollbar();
+
 	function pageScale() {
 		if ($(window).width() < '640') {
 			var maxWidth  = $('.js-resolution-320').width();

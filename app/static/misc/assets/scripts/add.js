@@ -4,6 +4,9 @@ $(document).on('click', '.selectbox li', function (e) {
   
   if ($(this).hasClass('locked')) {
     e.stopPropagation();
+  } else if ($(this).find('a').length) {
+    e.stopPropagation();
+    $(this).parents('.selectbox').removeClass('active');
   } else {
     var newval = $(this).data('val');
     $(this).parents('.selectbox').find('select').val(newval).change();

@@ -18,6 +18,7 @@ export default function documentsCards() {
       content.each(function () {
         var contentText = $(this).text();
         if(contentText.length > size){
+          console.log($(this).text())
           $(this).text(contentText.slice(0, size) + ' ...');
         }
       });

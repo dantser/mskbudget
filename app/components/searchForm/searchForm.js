@@ -13,15 +13,21 @@ export default () => {
 
 
 
-  TABS_LINK.each( function () { // eslint-disable-line
-    const EL = $(this);
-
-    EL.on('click', (e) => {
-      e.preventDefault();
-      EL.siblings('.filter-link').removeClass(ACTIVE_CLASS);
-      EL.toggleClass(ACTIVE_CLASS);
-    });
-
+  //TABS_LINK.each( function () { // eslint-disable-line
+  //  const EL = $(this);
+  //  
+  //  EL.on('click', (e) => {
+  //    e.preventDefault();
+  //    EL.siblings('.filter-link').removeClass(ACTIVE_CLASS);
+  //    EL.toggleClass(ACTIVE_CLASS);
+  //  });
+  //  
+  //});
+   
+  $(document).on('click', '.filter-link', function(e) {
+    e.preventDefault();
+    $(this).siblings('.filter-link').removeClass(ACTIVE_CLASS);
+    $(this).toggleClass(ACTIVE_CLASS);
   });
 
   // тултип
