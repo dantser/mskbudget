@@ -87,6 +87,14 @@ export default () => {
         }
       }
     });
+    
+    $('#menu .submenu__link, #menu .subsubmenu').on('mouseout', function(e) {
+      if ($(window).outerWidth() > 1024) {
+        if (!$('#menu .subsubmenu:hover').length) {
+          closeSubMenu();
+        }
+      }
+    });
 
     // МОБИЛА
     $('#menu .submenu__link.has-dropdown').on('click', function(e) {
@@ -97,6 +105,27 @@ export default () => {
           } else {
             $(this).addClass('dropdown-is-active');
           }
+      }
+    });
+  }
+  
+  // выделение соответствующего пункта меню на открытой странице
+  if ($('#menu').length) {
+    setNav();
+  }
+  
+  function setNav() {
+    var path = window.location.pathname;
+    path = path.replace(/\/$/, "");
+    path = decodeURIComponent(path);
+    
+    $('.menu__link, .menu .submenu__link').removeClass('current');
+    
+    $('.menu__link, .menu .submenu__link').each(function(){
+      var href = $(this).attr('href');
+      if (path.substr(-href.length) === href) {
+        $(this).addClass('current');
+        $(this).parents('.submenu').prev().addClass('current');
       }
     });
   }
