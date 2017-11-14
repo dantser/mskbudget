@@ -32,16 +32,52 @@ export default () => {
     SORT_BTN.click(function() {
       $(this).toggleClass('services-moscow-index__sort_desc services-moscow-index__sort_ask');
     })
+  
+  if ($('.services-moscow').length) {
+    
+    var graphic = $('.services-moscow .analityc-graphics-line-gorizontal'),
+        grLines = graphic.find('.analityc-graphics-line-gorizontal__lines'),
+        grLine = graphic.find('.analityc-graphics-line-gorizontal__line'),
+        grLayout = graphic.find('.analityc-graphics-line-gorizontal__lines-layout'),
+        grUnit = graphic.find('.analityc-graphics-line-gorizontal__unit'),
+        grMinVal = 0,
+        grMaxVal = 0,
+        grTotalVal,
+        grNeg,
+        grSector,
+        grCount;
 
-    const GRAPHIC = $('.services-moscow .analityc-graphics-line-gorizontal');
-    const GR_LINES = GRAPHIC.find('.analityc-graphics-line-gorizontal__line');
-    const GR_MAX_VAL = 120;
-
-    GR_LINES.each(function() {
+    grLine.each(function() {
       var gr_val = $(this).find('.analityc-graphics-line-gorizontal__line-bar-value').text();
       if (gr_val != '') {
         var gr_val_dec = parseFloat((gr_val).replace(',', '.'));
-        var gr_val_pers = gr_val_dec*100/GR_MAX_VAL
+        
+        if (gr_val_dec < 0) {
+          if (gr_val_dec < grMinVal) grMinVal = gr_val_dec;
+        } else {
+          if (gr_val_dec > grMaxVal) grMaxVal = gr_val_dec;
+        }
+      }
+    });
+  
+    grMinVal = Math.floor(grMinVal/10)*10;
+    grMaxVal = Math.ceil(grMaxVal/10)*10;
+    grTotalVal = Math.abs(grMinVal) + grMaxVal;
+    grNeg = 100 * Math.abs(grMinVal) / grTotalVal;
+    grCount = grTotalVal / 10;
+    grSector = 100 / grCount;
+    
+    grLayout.css({
+      'padding-left': grNeg+'%',
+      'background-size': grSector+'%'
+    });
+  
+    grLine.each(function() {
+      var gr_val = $(this).find('.analityc-graphics-line-gorizontal__line-bar-value').text();
+      if (gr_val != '') {
+        var gr_val_dec = parseFloat((gr_val).replace(',', '.'));
+        
+        var gr_val_pers = gr_val_dec*100/grMaxVal;
 
         if (gr_val_dec < 0) {
           $(this).css('width', gr_val_pers*(-1) + '%');
@@ -49,14 +85,23 @@ export default () => {
         } else {
           $(this).css('width', gr_val_pers + '%');
         }
-
       } else {
-        $(this).css('width', '0');
+        $(this).css('width', 0);
       }
-
-    })
+    });
+    
+    grUnit.eq(0).find('span').text(grMinVal);
+    
+    for (var i = 0; i < grCount; i++) {
+      grUnit.eq(0).clone(true).appendTo(grUnit.parent()).css('margin-left', grSector+'%').find('span').text(grMinVal + 10 * (i+1));
+    }
+    
+    if ($(window).width() < 400 && grCount > 16) {
+      grUnit.parent().addClass('analityc-graphics-line-gorizontal__units_highval');
+    }
   
     $('.city-popup__wrapper').scrollbar();
+  }
   
   //Попап
   $(document).on('click', '.services-moscow-index__col-heading', function(e){

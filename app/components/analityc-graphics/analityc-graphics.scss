@@ -1422,9 +1422,20 @@
 
 .analityc-graphics-line-gorizontal {
   padding: 0 70px;
+  overflow: hidden;
 
   @media(max-width: 1140px) {
     padding: 0;
+    padding-right: 40px;
+    margin-right: -30px;
+  }
+  
+  @media(max-width: 900px) {
+    margin-right: 0;
+  }
+  
+  @media(max-width: 580px) {
+    margin-right: -20px;
   }
 
   &__top {
@@ -1484,10 +1495,10 @@
 
   &__lines-layout {
     width: 100%;
-    padding-left: calc(100%/13);
+    //padding-left: calc(100%/13);
 
-    background: linear-gradient(90deg, rgba(0,0,0,.2), transparent 1px);
-    background-size: calc(100%/13);
+    //background: linear-gradient(90deg, rgba(0,0,0,.2), transparent 1px);
+    //background-size: calc(100%/13);
     background-position: 0%;
   }
 
@@ -1501,6 +1512,7 @@
     position: relative;
     width: 0;
     height: 16px;
+    z-index: 2;
 
     &_yellow {
       background: #fee300;
@@ -1582,6 +1594,7 @@
     width: 83.5%;
     list-style: none;
     font-size: 0;
+    @include block-justify;
 
     @media (max-width: 900px) {
       width: 75%;
@@ -1590,7 +1603,12 @@
     @media (max-width: 580px) {
       width: 65%;
     }
-
+    
+    &_highval {
+      .analityc-graphics-line-gorizontal__unit:nth-child(4n+4) span {
+        display: none;
+      }
+    }
   }
 
   &__unit {
@@ -1601,7 +1619,9 @@
       font-size: 14px;
 
       &:nth-child(2n + 1) {
-        display: none;
+        span {
+          display: none;
+        }
       }
     }
 
@@ -1625,6 +1645,20 @@
       display: inline-block;
       left: 50%;
       transform: translateX(-50%);
+      white-space: nowrap;
+    }
+    
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 50%;
+      right: 50%;
+      bottom: 100%;
+      margin-bottom: 10px;
+      width: 1px;
+      height: 9999px;
+      background: rgba(0,0,0,.2);
     }
   }
   
@@ -1648,6 +1682,7 @@
 
     @media (max-width: 900px) {
       padding-left: 158px;
+      margin-right: -40px;
     }
 
     @media (max-width: 600px) {
@@ -1656,9 +1691,13 @@
     
     @media (max-width: 580px) {
       padding-left: 0;
+      margin-right: -20px;
     }
-
-
+    
+    .legend {
+      height: auto;
+    }
+    
     .legend__item {
       display: inline-block;
       color: #000;
