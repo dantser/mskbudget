@@ -3435,7 +3435,7 @@
     /*left: 51.4%;*/
     left: calc(50% - 1px);
     top: -70px;
-    min-width: 200px;
+    width: 50%;
     min-height: 100%;
     position: absolute;
     vertical-align: middle;
@@ -3443,6 +3443,16 @@
     border: 1px solid #d3d3d3;
     /*margin-right: -25px;*/
     // transition: all .25s ease-in-out;
+
+    &_small {
+      top: 0;
+      bottom: 0;
+    }
+
+    &_equal {
+      top: 50%;
+      transform: translateY(-50%);
+    }
 
     @media (max-width: 900px) {
       position: relative;
