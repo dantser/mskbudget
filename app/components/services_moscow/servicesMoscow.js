@@ -33,11 +33,21 @@ export default () => {
       $(this).toggleClass('services-moscow-index__sort_desc services-moscow-index__sort_ask');
     })
 
-    const GRAPHIC = $('.services-moscow .analityc-graphics-line-gorizontal');
-    const GR_LINES = GRAPHIC.find('.analityc-graphics-line-gorizontal__line');
-    const GR_MAX_VAL = 120;
+    // формирование высоты шапки в таблице
+    var tableHeadingHeight = 59;
+    $('.services-moscow-index__col-heading, .services-moscow-index__row_caption').each(function() {
+      var headingH = $(this).outerHeight();
+      if (headingH > tableHeadingHeight) tableHeadingHeight = headingH;
+    })
+    $('.services-moscow-index__col-heading, .services-moscow-index__row_caption').each(function() {
+      $(this).height(tableHeadingHeight);
+    })
 
-    GR_LINES.each(function() {
+    const GRAPHIC = $('.services-moscow .analityc-graphics-line-gorizontal');
+    const GR_LINE = GRAPHIC.find('.analityc-graphics-line-gorizontal__line');
+    var GR_MAX_VAL = 120;
+
+    GR_LINE.each(function() {
       var gr_val = $(this).find('.analityc-graphics-line-gorizontal__line-bar-value').text();
       if (gr_val != '') {
         var gr_val_dec = parseFloat((gr_val).replace(',', '.'));
