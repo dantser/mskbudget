@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1.5, user-scalable=yes, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Государственный долг</title>
+    <title>Доходы бюджета</title>
     <!--[if lte IE 9]><script type="text/javascript" src="assets/scripts/js/html5.min.js"></script><![endif]-->
     <meta name="description" content="">
     <meta name="keywords" content="">
@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <header class="header" id="header">
+    <header class="header header_budget" id="header">
         <div class="header__wrap wrap">
             <a class="logo header__logo hidden-desktop" href="#">
                 <img class="logo__img" src="assets/images/logo-navbar.png" alt="logo" title="" />
@@ -354,14 +354,14 @@
         </button>
     </header>
     <div class="sections">
-        <section class="gov-debt basic-budget section__item">
+        <section class="main _basic basic-budget sections__item budget-income budget-income-roboto">
             <div class="wrapper-header">
                 <div class="page-header">
                     <div class="page-head">
                         <p class="page-head__breadcrumbs load-anim-fade" data-delay="500">
                             <a class="page-head__category" href="#">Бюджет Москвы</a>
                         </p>
-                        <h1 class="page-head__title load-anim-fade" data-delay="700">Государственный долг</h1>
+                        <h1 class="page-head__title load-anim-fade" data-delay="700">Доходы бюджета</h1>
                     </div>
                     <div class="d-si__head_icons">
                         <div class="favor icons-item load-anim-fade" title="Добавить в избранное" data-delay="900">
@@ -405,503 +405,221 @@
                         </div>
                     </div>
                 </div>
+                <!-- Tab 1-->
             </div>
-            <div class="wrapper wrapper_govdebt">
-                <div class="gov-debt__analityc-widget analityc-widget load-anim-fade" data-delay="1500">
-                    <div class="gov-debt__analityc-tab-links">
-                        <a class="gov-debt__analityc-tab-link active" href="#" data-govdebt-tab="govdebt">Государственный долг г. Москвы</a>
-                        <a class="gov-debt__analityc-tab-link" href="#" data-govdebt-tab="repayment">график погашения государственного долга</a>
-                        <a class="gov-debt__analityc-tab-link" href="#" data-govdebt-tab="govbonds">Государственные облигации г. Москвы</a>
+            <div class="wrapper">
+                <div class="analityc-widget analityc-widget_income load-anim-fade" data-delay="1500">
+                    <div class="analityc-widgethead">
+                        <div class="analityc-control-group _year">
+                            <span>Год</span>
+                            <div class="selectbox selectbox_cgroup analityc-widget__selectbox">
+                                <p class="selectbox__val">2017</p>
+                                <span class="selectbox__arrow">
+                                    <span></span>
+                                </span>
+                                <select class="selectbox__select" name="year">
+                                    <option value="2017" selected="selected">2017</option>
+                                    <option value="2016">2016</option>
+                                    <option value="2015">2015</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="analityc-control-group _stage">
+                            <span>Этап</span>
+                            <div class="selectbox selectbox_cgroup analityc-widget__selectbox">
+                                <p class="selectbox__val">Закон о бюджете утвержденный</p>
+                                <span class="selectbox__arrow">
+                                    <span></span>
+                                </span>
+                                <select class="selectbox__select" name="stage">
+                                    <option value="approved" selected="selected">Закон о бюджете утвержденный</option>
+                                    <option value="changes">Закон о внесении изменений</option>
+                                    <option value="done">Закон об исполнении</option>
+                                    <option value="date">Исполнение на дату</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="analityc-control-group _level">
+                            <span>Уровень</span>
+                            <div class="selectbox selectbox_cgroup analityc-widget__selectbox">
+                                <p class="selectbox__val">Бюджет москвы</p>
+                                <span class="selectbox__arrow">
+                                    <span></span>
+                                </span>
+                                <select class="selectbox__select" name="level">
+                                    <option value="moscow" selected="selected">Бюджет москвы</option>
+                                    <option value="area">Бюджет области</option>
+                                    <option value="region">Бюджет региона</option>
+                                    <option value="consolidated">Консолидированный бюджет</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="analityc-control-group _transfer">
+                            <span>Классификация доходов</span>
+                            <div class="selectbox selectbox_cgroup analityc-widget__selectbox">
+                                <p class="selectbox__val">Без межбюджетных трансфертов</p>
+                                <span class="selectbox__arrow">
+                                    <span></span>
+                                </span>
+                                <select class="selectbox__select" name="transfer">
+                                    <option value="no" selected="selected">Без межбюджетных трансфертов</option>
+                                    <option value="yes" title="Принятие закона о бюджете города Москвы происходит до принятия федерального бюджета, в котором установлены суммы межбюджетных трансфертов, поэтому в&amp;nbsp;первоначальной версии бюджета города Москвы отсутствуют межбюджетные трансферты."
+                                        data-locked="data-locked" data-tooltip="data-tooltip" disabled="disabled">с трансфертами</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="analityc-control-buttons active">
+                            <a class="analityc-control-button analityc-control-button_graphics active" href="#" data-type="graphics">
+                                <svg><use xlink:href="assets/images/icon.svg#icon_graphic"></use></svg>
+                            </a>
+                            <a class="analityc-control-button analityc-control-button_table" href="#" data-type="table">
+                                <svg><use xlink:href="assets/images/icon.svg#icon_table"></use></svg>
+                            </a>
+                        </div>
+                        <div class="analityc-control-group _dp" data-stage="date" data-level="moscow, area, region" data-type="all" data-control="data-control">
+                            <input class="datepicker" placeholder="Выберите дату исполнения" value="Выберите дату исполнения" readonly="readonly" />
+                        </div>
+                        <div class="analityc-control-group _dp analityc-control-group _dp-alt expenses__dp" data-stage="date" data-level="consolidated" data-type="all" data-control="data-control">
+                            <div class="selectbox selectbox_cgroup selectbox_disabled analityc-widget__selectbox analityc-widget__selectbox_alt analityc-widget__selectbox_day">
+                                <p class="selectbox__val">01</p>
+                                <span class="selectbox__arrow">
+                                    <span></span>
+                                </span>
+                                <select class="selectbox__select" name="day" disabled="disabled">
+                                    <option value="01" selected="selected">01</option>
+                                </select>
+                            </div>
+                            <div class="selectbox selectbox_cgroup analityc-widget__selectbox analityc-widget__selectbox_alt analityc-widget__selectbox_month">
+                                <p class="selectbox__val">января</p>
+                                <span class="selectbox__arrow">
+                                    <span></span>
+                                </span>
+                                <select class="selectbox__select" name="month">
+                                    <option value="jan" selected="selected">января</option>
+                                    <option value="feb">февраля</option>
+                                    <option value="mar">марта</option>
+                                    <option value="apr">апреля</option>
+                                    <option value="may">мая</option>
+                                    <option value="jun">июня</option>
+                                    <option value="jul">июля</option>
+                                    <option value="aug">августа</option>
+                                    <option value="sep">сентября</option>
+                                    <option value="oct">октября</option>
+                                    <option value="nov">ноября</option>
+                                    <option value="dec">декабря</option>
+                                </select>
+                            </div>
+                            <div class="selectbox selectbox_cgroup analityc-widget__selectbox analityc-widget__selectbox_alt analityc-widget__selectbox_year">
+                                <p class="selectbox__val">2015</p>
+                                <span class="selectbox__arrow">
+                                    <span></span>
+                                </span>
+                                <select class="selectbox__select" name="year">
+                                    <option value="2014">2014</option>
+                                    <option value="2015" selected="selected">2015</option>
+                                    <option value="2016">2016</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2018">2018</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="analityc-control-switcher analityc-control-switcher_large active" data-stage="approved, changes, done" data-level="all" data-type="graphics" data-control="data-control">
+                            <a class="active" href="#">доля от общей суммы, %</a>
+                            <a href="#">млрд руб.</a>
+                        </div>
+                        <div class="analityc-control-switcher analityc-control-switcher_big" data-stage="all" data-level="all" data-type="table" data-control="data-control">
+                            <a class="active" href="#">млрд руб.</a>
+                            <a href="#">млн руб.</a>
+                        </div>
                     </div>
-                    <!-- Государственный долг г. Москвы-->
-                    <div class="gov-debt__analityc-tab gov-debt__analityc-tab_govdebt active">
-                        <div class="analityc-widgethead gov-debt__analityc-widgethead">
-                            <div class="analityc-control-group _year">
-                                <span>Год</span>
-                                <div class="selectbox selectbox_cgroup analityc-widget__selectbox">
-                                    <p class="selectbox__val">2017</p>
-                                    <span class="selectbox__arrow">
-                                        <span></span>
-                                    </span>
-                                    <select class="selectbox__select" name="year">
-                                        <option value="2017" selected="selected">2017</option>
-                                        <option value="2016">2016</option>
-                                        <option value="2015">2015</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="analityc-control-group _stage">
-                                <span>Этап</span>
-                                <div class="selectbox selectbox_cgroup analityc-widget__selectbox">
-                                    <p class="selectbox__val">Закон о бюджете утвержденный</p>
-                                    <span class="selectbox__arrow">
-                                        <span></span>
-                                    </span>
-                                    <select class="selectbox__select" name="stage">
-                                        <option value="approved" selected="selected">Закон о бюджете утвержденный</option>
-                                        <option value="changes">Закон о внесении изменений</option>
-                                        <option value="date">Исполнение на дату</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="analityc-control-group _dp" data-stage="date" data-level="consolidated" data-control="data-control">
-                                <div class="selectbox selectbox_cgroup selectbox_disabled analityc-widget__selectbox analityc-widget__selectbox_alt analityc-widget__selectbox_day">
-                                    <p class="selectbox__val">01</p>
-                                    <span class="selectbox__arrow">
-                                        <span></span>
-                                    </span>
-                                    <select class="selectbox__select" name="day" disabled="disabled">
-                                        <option value="01" selected="selected">01</option>
-                                    </select>
-                                </div>
-                                <div class="selectbox selectbox_cgroup analityc-widget__selectbox analityc-widget__selectbox_alt analityc-widget__selectbox_month">
-                                    <p class="selectbox__val">января</p>
-                                    <span class="selectbox__arrow">
-                                        <span></span>
-                                    </span>
-                                    <select class="selectbox__select" name="month">
-                                        <option value="jan" selected="selected">января</option>
-                                        <option value="feb">февраля</option>
-                                        <option value="mar">марта</option>
-                                        <option value="apr">апреля</option>
-                                        <option value="may">мая</option>
-                                        <option value="jun">июня</option>
-                                        <option value="jul">июля</option>
-                                        <option value="aug">августа</option>
-                                        <option value="sep">сентября</option>
-                                        <option value="oct">октября</option>
-                                        <option value="nov">ноября</option>
-                                        <option value="dec">декабря</option>
-                                    </select>
-                                </div>
-                                <div class="selectbox selectbox_cgroup analityc-widget__selectbox analityc-widget__selectbox_alt analityc-widget__selectbox_year">
-                                    <p class="selectbox__val">2015</p>
-                                    <span class="selectbox__arrow">
-                                        <span></span>
-                                    </span>
-                                    <select class="selectbox__select" name="year">
-                                        <option value="2014">2014</option>
-                                        <option value="2015" selected="selected">2015</option>
-                                        <option value="2016">2016</option>
-                                        <option value="2017">2017</option>
-                                        <option value="2018">2018</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="analityc-control-switcher" data-stage="date" data-level="all" data-control="data-control">
-                                <a class="active" href="#">доля от общей суммы, %</a>
-                                <a href="#">млрд. руб.</a>
-                            </div>
-                        </div>
-                        <div class="analityc-graphics analityc-graphics_approved gov-debt__analityc-graphics active" data-stage="approved">
-                            <p class="analityc-graphics__periodtext">
-                                <span>Плановый период</span>
-                            </p>
-                            <div class="analityc-graphics__graphic-container">
-                                <div class="slide-arrows analityc-graphics__slide-arrows">
-                                    <div class="slide-arrows__arrow slide-arrows__arrow_left">
-                                        <svg><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
-                                    </div>
-                                    <div class="slide-arrows__arrow slide-arrows__arrow_right">
-                                        <svg><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
+                    <div class="analityc-graphics analityc-graphics_round analityc-graphics_approved active" data-stage="approved">
+                        <p class="analityc-graphics__periodtext">
+                            <span>Плановый период</span>
+                        </p>
+                        <div class="swiper-container round-graphics_slider">
+                            <div class="analityc-graphics__cols swiper-wrapper">
+                                <div class="analityc-graphics__col swiper-slide">
+                                    <p class="analityc-graphics__year">2017</p>
+                                    <div class="analityc-graphics__graphic analityc-graphics__graphic_round">
+                                        <div class="segment-diagram" id="diagram-10">
+                                            <div class="segment-diagram__value">
+                                                <p class="segment-diagram__value-num">1885,7</p>
+                                                <span class="segment-diagram__val">20,8%</span>
+                                                <span class="segment-diagram__val">14,3%</span>
+                                                <span class="segment-diagram__val">12,2%</span>
+                                                <span class="segment-diagram__val">21,9%</span>
+                                                <span class="segment-diagram__val">7,7%</span>
+                                                <span class="segment-diagram__val">23,2%</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="analityc-graphics__graphic-slider" data-offset="sliderwidth">
-                                    <div class="analityc-graphics__graphic-wrapper">
-                                        <div class="analityc-graphics__head">
-                                            <div class="analityc-graphics__col">
-                                                <p class="analityc-graphics__year">2017</p>
-                                            </div>
-                                            <div class="analityc-graphics__col">
-                                                <span class="analityc-graphics__period-left"></span>
-                                                <p class="analityc-graphics__year">2018</p>
-                                            </div>
-                                            <div class="analityc-graphics__col">
-                                                <span class="analityc-graphics__period-right"></span>
-                                                <p class="analityc-graphics__year">2019</p>
-                                            </div>
-                                        </div>
-                                        <div class="growth-rate growth-rate_blue growth-rate_columns analityc-graphics__growth-rate analityc-graphics__growth-rate_level" data-minrate="2.9" data-maxrate="5" data-height="70">
-                                            <div class="growth-rate__col">
-                                                <p class="growth-rate__level" data-rate-level="3.5">3,5%
-                                                    <span class="growth-rate__line"></span>
-                                                </p>
-                                            </div>
-                                            <div class="growth-rate__col">
-                                                <p class="growth-rate__level" data-rate-level="3.1">3,1%
-                                                    <span class="growth-rate__line"></span>
-                                                </p>
-                                            </div>
-                                            <div class="growth-rate__col">
-                                                <p class="growth-rate__level" data-rate-level="2.9">2,9%</p>
+                                <div class="analityc-graphics__col swiper-slide">
+                                    <span class="analityc-graphics__period-left"></span>
+                                    <p class="analityc-graphics__year">2018</p>
+                                    <div class="analityc-graphics__graphic analityc-graphics__graphic_round">
+                                        <div class="segment-diagram" id="diagram-11">
+                                            <div class="segment-diagram__value">
+                                                <p class="segment-diagram__value-num">1885,7</p>
+                                                <span class="segment-diagram__val">20,8%</span>
+                                                <span class="segment-diagram__val">14,3%</span>
+                                                <span class="segment-diagram__val">12,2%</span>
+                                                <span class="segment-diagram__val">21,9%</span>
+                                                <span class="segment-diagram__val">7,7%</span>
+                                                <span class="segment-diagram__val">23,2%</span>
                                             </div>
                                         </div>
-                                        <div class="growth-rate growth-rate_pink growth-rate_columns analityc-graphics__growth-rate analityc-graphics__growth-rate_limit" data-minrate="57.1" data-maxrate="87.6" data-height="70">
-                                            <div class="growth-rate__col">
-                                                <p class="growth-rate__level" data-rate-level="87.6">87,6
-                                                    <span class="growth-rate__line"></span>
-                                                </p>
-                                            </div>
-                                            <div class="growth-rate__col">
-                                                <p class="growth-rate__level" data-rate-level="61.5">61,5
-                                                    <span class="growth-rate__line"></span>
-                                                </p>
-                                            </div>
-                                            <div class="growth-rate__col">
-                                                <p class="growth-rate__level" data-rate-level="57.1">57,1</p>
-                                            </div>
-                                        </div>
-                                        <div class="analityc-graphics__columns">
-                                            <div class="analityc-graphics__col">
-                                                <div class="analityc-graphics__graphic analityc-graphics__graphic_limitcolumn">
-                                                    <p class="analityc-graphics__limitcolumn-value">61,5</p>
-                                                </div>
-                                            </div>
-                                            <div class="analityc-graphics__col">
-                                                <div class="analityc-graphics__graphic analityc-graphics__graphic_limitcolumn">
-                                                    <p class="analityc-graphics__limitcolumn-value">57,1</p>
-                                                </div>
-                                            </div>
-                                            <div class="analityc-graphics__col">
-                                                <div class="analityc-graphics__graphic analityc-graphics__graphic_limitcolumn">
-                                                    <p class="analityc-graphics__limitcolumn-value">57,1</p>
-                                                </div>
+                                    </div>
+                                </div>
+                                <div class="analityc-graphics__col swiper-slide">
+                                    <span class="analityc-graphics__period-right"></span>
+                                    <p class="analityc-graphics__year">2019</p>
+                                    <div class="analityc-graphics__graphic analityc-graphics__graphic_round">
+                                        <div class="segment-diagram" id="diagram-12">
+                                            <div class="segment-diagram__value">
+                                                <p class="segment-diagram__value-num">1885,7</p>
+                                                <span class="segment-diagram__val">20,8%</span>
+                                                <span class="segment-diagram__val">14,3%</span>
+                                                <span class="segment-diagram__val">12,2%</span>
+                                                <span class="segment-diagram__val">21,9%</span>
+                                                <span class="segment-diagram__val">7,7%</span>
+                                                <span class="segment-diagram__val">23,2%</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <span class="analityc-graphics_round-next"></span>
+                            <span class="analityc-graphics_round-prev"></span>
                             <div class="legend analityc-graphics__legend">
-                                <p class="legend__item legend__item_yellow">
-                                    <SPAN>Верхний предел государственного долга, млрд руб.</SPAN>
+                                <p class="legend__item legend__item_green">
+                                    <SPAN>Налог на доходы физических лиц</SPAN>
                                 </p>
-                                <p class="legend__item legend__item_redline">
-                                    <SPAN>Предельный объем государственного долга, млрд. руб.</SPAN>
+                                <p class="legend__item legend__item_blue">
+                                    <SPAN>Неналоговые доходы</SPAN>
                                 </p>
-                                <p class="legend__item legend__item_blueline">
-                                    <SPAN>Уровень долговой нагрузки</SPAN>
+                                <p class="legend__item legend__item_violet">
+                                    <SPAN>Налог на имущество организаций</SPAN>
+                                </p>
+                                <p class="legend__item legend__item_pink">
+                                    <SPAN>Налог на прибыль организаций</SPAN>
+                                </p>
+                                <p class="legend__item legend__item_grey">
+                                    <SPAN>Прочие налоговые доходы</SPAN>
                                 </p>
                             </div>
                         </div>
-                        <div class="analityc-graphics analityc-graphics_changes gov-debt__analityc-graphics" data-stage="changes">
-                            <p class="analityc-graphics__periodtext">
-                                <span>Плановый период</span>
-                            </p>
-                            <div class="analityc-graphics__graphic-container">
-                                <div class="slide-arrows analityc-graphics__slide-arrows">
-                                    <div class="slide-arrows__arrow slide-arrows__arrow_left">
-                                        <svg><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
-                                    </div>
-                                    <div class="slide-arrows__arrow slide-arrows__arrow_right">
-                                        <svg><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
-                                    </div>
-                                </div>
-                                <div class="analityc-graphics__graphic-slider" data-offset="sliderwidth">
-                                    <div class="analityc-graphics__graphic-wrapper">
-                                        <div class="analityc-graphics__cols">
-                                            <div class="analityc-graphics__col">
-                                                <p class="analityc-graphics__year">2017</p>
-                                                <div class="analityc-graphics__changes analityc-graphics__changes_neg">
-                                                    <div class="analityc-graphics__abs">+14,0</div>
-                                                    <div class="analityc-graphics__percent">+22,8%</div>
-                                                </div>
-                                                <div class="analityc-graphics__graphic analityc-graphics__graphic_double-column">
-                                                    <div class="analityc-graphics__graphic-column">
-                                                        <div class="analityc-graphics__graphic-column-val">61,5</div>
-                                                    </div>
-                                                    <div class="analityc-graphics__graphic-column">
-                                                        <div class="analityc-graphics__graphic-column-val">75,5</div>
-                                                    </div>
-                                                </div>
-                                                <div class="analityc-graphics__bottom">
-                                                    <p>Бюджет утвержденный</p>
-                                                    <p>Бюджет с учетом изменений</p>
-                                                </div>
-                                            </div>
-                                            <div class="analityc-graphics__col">
-                                                <span class="analityc-graphics__period-left"></span>
-                                                <p class="analityc-graphics__year">2018</p>
-                                                <div class="analityc-graphics__changes analityc-graphics__changes_rev">
-                                                    <div class="analityc-graphics__abs">-10,0</div>
-                                                    <div class="analityc-graphics__percent">-3,8%</div>
-                                                </div>
-                                                <div class="analityc-graphics__graphic analityc-graphics__graphic_double-column">
-                                                    <div class="analityc-graphics__graphic-column">
-                                                        <div class="analityc-graphics__graphic-column-val">61,5</div>
-                                                    </div>
-                                                    <div class="analityc-graphics__graphic-column">
-                                                        <div class="analityc-graphics__graphic-column-val">47,1</div>
-                                                    </div>
-                                                </div>
-                                                <div class="analityc-graphics__bottom">
-                                                    <p>Бюджет утвержденный</p>
-                                                    <p>Бюджет с учетом изменений</p>
-                                                </div>
-                                            </div>
-                                            <div class="analityc-graphics__col">
-                                                <span class="analityc-graphics__period-right"></span>
-                                                <p class="analityc-graphics__year">2019</p>
-                                                <div class="analityc-graphics__graphic analityc-graphics__graphic_double-column">
-                                                    <div class="analityc-graphics__graphic-column">
-                                                        <div class="analityc-graphics__graphic-column-val">57,1</div>
-                                                    </div>
-                                                    <div class="analityc-graphics__graphic-column">
-                                                        <div class="analityc-graphics__graphic-column-val">57,1</div>
-                                                    </div>
-                                                </div>
-                                                <div class="analityc-graphics__bottom">
-                                                    <p>Бюджет утвержденный</p>
-                                                    <p>Бюджет с учетом изменений</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                    </div>
+                    <div class="analityc-table analityc-table_approved" data-stage="approved">
+                        <div class="slide-arrows analityc-table__slide-arrows">
+                            <div class="slide-arrows__arrow slide-arrows__arrow_left">
+                                <svg><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
                             </div>
-                            <div class="legend analityc-graphics__legend">
-                                <p class="legend__item legend__item_yellow">Верхний предел государственного долга, млрд руб.</p>
+                            <div class="slide-arrows__arrow slide-arrows__arrow_right">
+                                <svg><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
                             </div>
                         </div>
-                        <div class="analityc-graphics analityc-graphics_date gov-debt__analityc-graphics" data-stage="date">
-                            <p class="analityc-graphics__graphic-heading">Объем государственного долга на
-                                <SPAN class="js-dp-output js-dp-output_cons active">1 февраля 2017</SPAN>
-                            </p>
-                            <div class="analityc-graphics__cols">
-                                <div class="analityc-graphics__col analityc-graphics__col_wide">
-                                    <div class="analityc-graphics__graphic-triangle">
-                                        <img src="assets/images/graphics-border.svg" />
-                                        <div class="analityc-graphics__graphic-angle analityc-graphics__graphic-angle_big">
-                                            <div class="segment-diagram" id="diagram-23">
-                                                <div class="segment-diagram__value">
-                                                    <p class="segment-diagram__value-num">71,5</p>
-                                                    <span class="segment-diagram__val">68,8%</span>
-                                                    <span class="segment-diagram__val"> 10,0%</span>
-                                                    <span class="segment-diagram__val"> 12,5%</span>
-                                                    <span class="segment-diagram__val">0,7%</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="analityc-graphics__graphic-angle analityc-graphics__graphic-angle_right-top">
-                                            <p class="graphic-text">Внутренний долг</p>
-                                            <div class="segment-diagram" id="diagram-24">
-                                                <div class="segment-diagram__value">
-                                                    <p class="segment-diagram__value-num">61,5</p>
-                                                    <span class="segment-diagram__val">68,8%</span>
-                                                    <span class="segment-diagram__val"> 10,0%</span>
-                                                    <span class="segment-diagram__val"> 12,5%</span>
-                                                    <span class="segment-diagram__val">0,7%</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="analityc-graphics__graphic-angle analityc-graphics__graphic-angle_right-bottom">
-                                            <p class="graphic-text">Внешний долг</p>
-                                            <div class="segment-diagram" id="diagram-25">
-                                                <div class="segment-diagram__value">
-                                                    <p class="segment-diagram__value-num">0,0</p>
-                                                    <span class="segment-diagram__val segment-diagram__val_dark">0,0%</span>
-                                                    <!--span.segment-diagram__val  50,0%-->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="analityc-graphics__col">
-                                    <div class="legend analityc-graphics__legend analityc-graphics__legend_vert">
-                                        <p class="legend__item legend__item_pink">
-                                            <svg class="legend__icon legend__icon_pink"><use xlink:href="assets/images/icon.svg#icon_depfin-icons-28"></use></svg>Развитие транспортной системы</p>
-                                        <p class="legend__item legend__item_blue">
-                                            <svg class="legend__icon legend__icon_blue"><use xlink:href="assets/images/icon.svg#icon_depfin-icons-29"></use></svg>Банковские кредиты</p>
-                                        <p class="legend__item legend__item_green">
-                                            <svg class="legend__icon legend__icon_green"><use xlink:href="assets/images/icon.svg#icon_depfin-icons-30"></use></svg>Бюджетные кредиты</p>
-                                        <p class="legend__item legend__item_yellow">
-                                            <svg class="legend__icon legend__icon_yellow"><use xlink:href="assets/images/icon.svg#icon_depfin-icons-27"></use></svg>Государственные гарантии</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="analityc-control-switcher">
-                            <a class="active" href="#">млн. руб.</a>
-                            <a href="#">млрд. руб.</a>
-                        </div>
-                        <div class="analityc-table analityc-table_approved active" data-stage="approved">
-                            <div class="slide-arrows analityc-table__slide-arrows">
-                                <div class="slide-arrows__arrow slide-arrows__arrow_left">
-                                    <svg><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
-                                </div>
-                                <div class="slide-arrows__arrow slide-arrows__arrow_right">
-                                    <svg><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
-                                </div>
-                            </div>
-                            <div class="analityc-table__wrapper" data-offset="100">
-                                <div class="table">
-                                    <p class="table__periodtext">
-                                        <span>Плановый период</span>
-                                    </p>
-                                    <div class="table__row table__row_caption">
-                                        <div class="table__col table__col_four">Виды доходов</div>
-                                        <div class="table__col table__col_four">2017</div>
-                                        <div class="table__col table__col_four">2018
-                                            <span class="table__period-left"></span>
-                                        </div>
-                                        <div class="table__col table__col_four">2019
-                                            <span class="table__period-right"></span>
-                                        </div>
-                                    </div>
-                                    <div class="table__row">
-                                        <div class="table__col table__col_four">Доходы, всего</div>
-                                        <div class="table__col table__col_three">1 598,90</div>
-                                        <div class="table__col table__col_three">1 598,90</div>
-                                        <div class="table__col table__col_three">1 598,90</div>
-                                    </div>
-                                    <div class="table__row table__row_opened table__row_hassub">
-                                        <div class="table__col table__col_four">
-                                            <svg class="table__arrow"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>Налоговые доходы, в том числе:</div>
-                                        <div class="table__col table__col_three">1 598,90</div>
-                                        <div class="table__col table__col_three">1 598,90</div>
-                                        <div class="table__col table__col_three">1 598,90</div>
-                                    </div>
-                                    <div class="table__row table__row_subrow_tax">
-                                        <div class="table__col table__col_four table__col_subcol">Налог на прибыль организаций</div>
-                                        <div class="table__col table__col_three">1 598,90</div>
-                                        <div class="table__col table__col_three">1 598,90</div>
-                                        <div class="table__col table__col_three">1 598,90</div>
-                                    </div>
-                                    <div class="table__row table__row_subrow_tax">
-                                        <div class="table__col table__col_four table__col_subcol">Налог на доходы физических лиц</div>
-                                        <div class="table__col table__col_three">1 598,90</div>
-                                        <div class="table__col table__col_three">1 598,90</div>
-                                        <div class="table__col table__col_three">1 598,90</div>
-                                    </div>
-                                    <div class="table__row">
-                                        <div class="table__col table__col_four">...</div>
-                                        <div class="table__col table__col_three">1 598,90</div>
-                                        <div class="table__col table__col_three">1 598,90</div>
-                                        <div class="table__col table__col_three">1 598,90</div>
-                                    </div>
-                                    <div class="table__row table__row_hassub">
-                                        <div class="table__col table__col_four">
-                                            <svg class="table__arrow"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>Неналоговые доходы, в том числе:</div>
-                                        <div class="table__col table__col_three">1 598,90</div>
-                                        <div class="table__col table__col_three">1 598,90</div>
-                                        <div class="table__col table__col_three">1 598,90</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="analityc-table analityc-table_changes" data-stage="changes">
-                            <div class="slide-arrows analityc-table__slide-arrows">
-                                <div class="slide-arrows__arrow slide-arrows__arrow_left">
-                                    <svg><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
-                                </div>
-                                <div class="slide-arrows__arrow slide-arrows__arrow_right">
-                                    <svg><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
-                                </div>
-                            </div>
-                            <div class="analityc-table__wrapper" data-offset="100">
-                                <div class="table">
-                                    <p class="table__periodtext">
-                                        <span>Плановый период</span>
-                                    </p>
-                                    <div class="table__row table__row_caption">
-                                        <div class="table__col table__col_four">Виды доходов</div>
-                                        <div class="table__col table__col_four">2017</div>
-                                        <div class="table__col table__col_four">2018
-                                            <span class="table__period-left"></span>
-                                        </div>
-                                        <div class="table__col table__col_four">2019
-                                            <span class="table__period-right"></span>
-                                        </div>
-                                    </div>
-                                    <div class="table__row table__row_subcaption">
-                                        <div class="table__col table__col_four">empty</div>
-                                        <div class="table__col table__col_one">Закон перво- начальный</div>
-                                        <div class="table__col table__col_one">Изменение</div>
-                                        <div class="table__col table__col_one">Закон с учетом Изменений</div>
-                                        <div class="table__col table__col_one">Закон перво- начальный</div>
-                                        <div class="table__col table__col_one">Изменение</div>
-                                        <div class="table__col table__col_one">Закон с учетом Изменений</div>
-                                        <div class="table__col table__col_one">Закон перво- начальный</div>
-                                        <div class="table__col table__col_one">Изменение</div>
-                                        <div class="table__col table__col_one">Закон с учетом Изменений</div>
-                                    </div>
-                                    <div class="table__row">
-                                        <div class="table__col table__col_four">Доходы, всего</div>
-                                        <div class="table__col table__col_one">1 598,90</div>
-                                        <div class="table__col table__col_one">1 647,20</div>
-                                        <div class="table__col table__col_one">1 692,60</div>
-                                        <div class="table__col table__col_one">1 598,90</div>
-                                        <div class="table__col table__col_one">1 647,20</div>
-                                        <div class="table__col table__col_one">1 692,60</div>
-                                        <div class="table__col table__col_one">1 598,90</div>
-                                        <div class="table__col table__col_one">1 647,20</div>
-                                        <div class="table__col table__col_one">1 692,60</div>
-                                    </div>
-                                    <div class="table__row table__row_opened table__row_hassub">
-                                        <div class="table__col table__col_four">
-                                            <svg class="table__arrow"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>Налоговые доходы, в том числе:</div>
-                                        <div class="table__col table__col_one">1 751,00</div>
-                                        <div class="table__col table__col_one">1 681,00</div>
-                                        <div class="table__col table__col_one">1 746,50</div>
-                                        <div class="table__col table__col_one">1 751,00</div>
-                                        <div class="table__col table__col_one">1 681,00</div>
-                                        <div class="table__col table__col_one">1 746,50</div>
-                                        <div class="table__col table__col_one">1 751,00</div>
-                                        <div class="table__col table__col_one">1 681,00</div>
-                                        <div class="table__col table__col_one">1 746,50</div>
-                                    </div>
-                                    <div class="table__row table__row_subrow_tax">
-                                        <div class="table__col table__col_four table__col_subcol">Налог на прибыль организаций</div>
-                                        <div class="table__col table__col_one">–152,1</div>
-                                        <div class="table__col table__col_one">–33,8</div>
-                                        <div class="table__col table__col_one">–53,9</div>
-                                        <div class="table__col table__col_one">–152,1</div>
-                                        <div class="table__col table__col_one">–33,8</div>
-                                        <div class="table__col table__col_one">–53,9</div>
-                                        <div class="table__col table__col_one">–152,1</div>
-                                        <div class="table__col table__col_one">–33,8</div>
-                                        <div class="table__col table__col_one">–53,9</div>
-                                    </div>
-                                    <div class="table__row table__row_subrow_tax">
-                                        <div class="table__col table__col_four table__col_subcol">Налог на доходы физических лиц</div>
-                                        <div class="table__col table__col_one">1 598,90</div>
-                                        <div class="table__col table__col_one">1 647,20</div>
-                                        <div class="table__col table__col_one">1 692,60</div>
-                                        <div class="table__col table__col_one">1 598,90</div>
-                                        <div class="table__col table__col_one">1 647,20</div>
-                                        <div class="table__col table__col_one">1 692,60</div>
-                                        <div class="table__col table__col_one">1 598,90</div>
-                                        <div class="table__col table__col_one">1 647,20</div>
-                                        <div class="table__col table__col_one">1 692,60</div>
-                                    </div>
-                                    <div class="table__row">
-                                        <div class="table__col table__col_four">...</div>
-                                        <div class="table__col table__col_one">1 751,00</div>
-                                        <div class="table__col table__col_one">1 681,00</div>
-                                        <div class="table__col table__col_one">1 746,50</div>
-                                        <div class="table__col table__col_one">1 751,00</div>
-                                        <div class="table__col table__col_one">1 681,00</div>
-                                        <div class="table__col table__col_one">1 746,50</div>
-                                        <div class="table__col table__col_one">1 751,00</div>
-                                        <div class="table__col table__col_one">1 681,00</div>
-                                        <div class="table__col table__col_one">1 746,50</div>
-                                    </div>
-                                    <div class="table__row table__row_hassub">
-                                        <div class="table__col table__col_four">
-                                            <svg class="table__arrow"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>Неналоговые доходы, в том числе:</div>
-                                        <div class="table__col table__col_one">–152,1</div>
-                                        <div class="table__col table__col_one">–33,8</div>
-                                        <div class="table__col table__col_one">–53,9</div>
-                                        <div class="table__col table__col_one">–152,1</div>
-                                        <div class="table__col table__col_one">–33,8</div>
-                                        <div class="table__col table__col_one">–53,9</div>
-                                        <div class="table__col table__col_one">–152,1</div>
-                                        <div class="table__col table__col_one">–33,8</div>
-                                        <div class="table__col table__col_one">–53,9</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="analityc-table analityc-table_done" data-stage="date">
+                        <div class="analityc-table__wrapper" data-offset="100">
                             <div class="table">
                                 <p class="table__periodtext">
                                     <span>Плановый период</span>
@@ -909,205 +627,750 @@
                                 <div class="table__row table__row_caption">
                                     <div class="table__col table__col_four">Виды доходов</div>
                                     <div class="table__col table__col_four">2017</div>
+                                    <div class="table__col table__col_four">2018
+                                        <span class="table__period-left"></span>
+                                    </div>
+                                    <div class="table__col table__col_four">2019
+                                        <span class="table__period-right"></span>
+                                    </div>
                                 </div>
                                 <div class="table__row">
                                     <div class="table__col table__col_four">Доходы, всего</div>
-                                    <div class="table__col table__col_one">1 598,90</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
                                 </div>
                                 <div class="table__row table__row_opened table__row_hassub">
                                     <div class="table__col table__col_four">
                                         <svg class="table__arrow"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>Налоговые доходы, в том числе:</div>
-                                    <div class="table__col table__col_one">1 598,90</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
                                 </div>
                                 <div class="table__row table__row_subrow_tax">
                                     <div class="table__col table__col_four table__col_subcol">Налог на прибыль организаций</div>
-                                    <div class="table__col table__col_one">1 598,90</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
                                 </div>
                                 <div class="table__row table__row_subrow_tax">
                                     <div class="table__col table__col_four table__col_subcol">Налог на доходы физических лиц</div>
-                                    <div class="table__col table__col_one">1 598,90</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
                                 </div>
                                 <div class="table__row">
                                     <div class="table__col table__col_four">...</div>
-                                    <div class="table__col table__col_one">1 598,90</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
                                 </div>
                                 <div class="table__row table__row_hassub">
                                     <div class="table__col table__col_four">
                                         <svg class="table__arrow"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>Неналоговые доходы, в том числе:</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="analityc-graphics analityc-graphics_column analityc-graphics_changes" data-stage="changes">
+                        <p class="analityc-graphics__periodtext">
+                            <span>Плановый период</span>
+                        </p>
+                        <p class="analityc-graphics__toptext">МЛРД РУБ.</p>
+                        <div class="swiper-container column-graphics_slider">
+                            <div class="analityc-graphics__cols swiper-wrapper">
+                                <div class="analityc-graphics__col swiper-slide">
+                                    <p class="analityc-graphics__year">2017</p>
+                                    <div class="analityc-graphics__graphic analityc-graphics__graphic_column">
+                                        <div class="column">
+                                            <div class="column__value">1976,5</div>
+                                            <div class="column-area column-area_gray" data-height="69">
+                                                <div class="column-value">495,4</div>
+                                            </div>
+                                            <div class="column-area column-area_violet" data-height="35">
+                                                <div class="column-value">233</div>
+                                            </div>
+                                            <div class="column-area column-area_blue" data-height="36">
+                                                <div class="column-value">276,2</div>
+                                            </div>
+                                            <div class="column-area column-area_pink" data-height="48">
+                                                <div class="column-value">391,2</div>
+                                            </div>
+                                            <div class="column-area column-area_green" data-height="59">
+                                                <div class="column-value">434,5</div>
+                                            </div>
+                                            <div class="column-area column-area_orange" data-height="23">
+                                                <div class="column-value">146,2</div>
+                                            </div>
+                                        </div>
+                                        <div class="subcolumn">
+                                            <div class="subcolumn-area">
+                                                <div class="column-area column-area_gray column-area_sub"></div>
+                                                <div class="column-value">+10,0</div>
+                                            </div>
+                                            <div class="subcolumn-area">
+                                                <div class="column-area column-area_violet column-area_sub"></div>
+                                                <div class="column-value">+10,0</div>
+                                            </div>
+                                            <div class="subcolumn-area">
+                                                <div class="column-area column-area_blue column-area_sub"></div>
+                                                <div class="column-value">+10,0</div>
+                                            </div>
+                                            <div class="subcolumn-area">
+                                                <div class="column-area column-area_pink column-area_sub"></div>
+                                                <div class="column-value">+10,0</div>
+                                            </div>
+                                            <div class="subcolumn-area">
+                                                <div class="column-area column-area_green column-area_sub"></div>
+                                                <div class="column-value">+10,0</div>
+                                            </div>
+                                            <div class="subcolumn-area">
+                                                <div class="column-area column-area_orange column-area_sub"></div>
+                                                <div class="column-value">+10,0</div>
+                                            </div>
+                                        </div>
+                                        <div class="column">
+                                            <div class="column__value">2036,5</div>
+                                            <div class="column-area column-area_gray" data-height="71">
+                                                <div class="column-value">505,4</div>
+                                            </div>
+                                            <div class="column-area column-area_violet" data-height="35">
+                                                <div class="column-value">243</div>
+                                            </div>
+                                            <div class="column-area column-area_blue" data-height="36">
+                                                <div class="column-value">286,2</div>
+                                            </div>
+                                            <div class="column-area column-area_pink" data-height="54">
+                                                <div class="column-value">401,2</div>
+                                            </div>
+                                            <div class="column-area column-area_green" data-height="59">
+                                                <div class="column-value">444,5</div>
+                                            </div>
+                                            <div class="column-area column-area_orange" data-height="23">
+                                                <div class="column-value">156,2</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="analityc-graphics__bottom">
+                                        <p>Бюджет первоначальный</p>
+                                        <p>Бюджет с учетом изменений</p>
+                                    </div>
+                                </div>
+                                <div class="analityc-graphics__col swiper-slide">
+                                    <span class="analityc-graphics__period-left"></span>
+                                    <p class="analityc-graphics__year">2018</p>
+                                    <div class="analityc-graphics__graphic analityc-graphics__graphic_column">
+                                        <div class="column">
+                                            <div class="column__value">1976,5</div>
+                                            <div class="column-area column-area_gray" data-height="69">
+                                                <div class="column-value">495,4</div>
+                                            </div>
+                                            <div class="column-area column-area_violet" data-height="35">
+                                                <div class="column-value">233</div>
+                                            </div>
+                                            <div class="column-area column-area_blue" data-height="36">
+                                                <div class="column-value">276,2</div>
+                                            </div>
+                                            <div class="column-area column-area_pink" data-height="48">
+                                                <div class="column-value">391,2</div>
+                                            </div>
+                                            <div class="column-area column-area_green" data-height="59">
+                                                <div class="column-value">434,5</div>
+                                            </div>
+                                            <div class="column-area column-area_orange" data-height="23">
+                                                <div class="column-value">146,2</div>
+                                            </div>
+                                        </div>
+                                        <div class="subcolumn">
+                                            <div class="subcolumn-area">
+                                                <div class="column-area column-area_gray column-area_sub"></div>
+                                                <div class="column-value">+10,0</div>
+                                            </div>
+                                            <div class="subcolumn-area">
+                                                <div class="column-area column-area_violet column-area_sub"></div>
+                                                <div class="column-value">+10,0</div>
+                                            </div>
+                                            <div class="subcolumn-area">
+                                                <div class="column-area column-area_blue column-area_sub"></div>
+                                                <div class="column-value">+10,0</div>
+                                            </div>
+                                            <div class="subcolumn-area">
+                                                <div class="column-area column-area_pink column-area_sub"></div>
+                                                <div class="column-value">+10,0</div>
+                                            </div>
+                                            <div class="subcolumn-area">
+                                                <div class="column-area column-area_green column-area_sub"></div>
+                                                <div class="column-value">+10,0</div>
+                                            </div>
+                                            <div class="subcolumn-area">
+                                                <div class="column-area column-area_orange column-area_sub"></div>
+                                                <div class="column-value">+10,0</div>
+                                            </div>
+                                        </div>
+                                        <div class="column">
+                                            <div class="column__value">2036,5</div>
+                                            <div class="column-area column-area_gray" data-height="71">
+                                                <div class="column-value">505,4</div>
+                                            </div>
+                                            <div class="column-area column-area_violet" data-height="35">
+                                                <div class="column-value">243</div>
+                                            </div>
+                                            <div class="column-area column-area_blue" data-height="36">
+                                                <div class="column-value">286,2</div>
+                                            </div>
+                                            <div class="column-area column-area_pink" data-height="54">
+                                                <div class="column-value">401,2</div>
+                                            </div>
+                                            <div class="column-area column-area_green" data-height="59">
+                                                <div class="column-value">444,5</div>
+                                            </div>
+                                            <div class="column-area column-area_orange" data-height="23">
+                                                <div class="column-value">156,2</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="analityc-graphics__bottom">
+                                        <p>Бюджет первоначальный</p>
+                                        <p>Бюджет с учетом изменений</p>
+                                    </div>
+                                </div>
+                                <div class="analityc-graphics__col swiper-slide">
+                                    <span class="analityc-graphics__period-right"></span>
+                                    <p class="analityc-graphics__year">2019</p>
+                                    <div class="analityc-graphics__graphic analityc-graphics__graphic_column">
+                                        <div class="column">
+                                            <div class="column__value">1976,5</div>
+                                            <div class="column-area column-area_gray" data-height="69">
+                                                <div class="column-value">495,4</div>
+                                            </div>
+                                            <div class="column-area column-area_violet" data-height="35">
+                                                <div class="column-value">233</div>
+                                            </div>
+                                            <div class="column-area column-area_blue" data-height="36">
+                                                <div class="column-value">276,2</div>
+                                            </div>
+                                            <div class="column-area column-area_pink" data-height="48">
+                                                <div class="column-value">391,2</div>
+                                            </div>
+                                            <div class="column-area column-area_green" data-height="59">
+                                                <div class="column-value">434,5</div>
+                                            </div>
+                                            <div class="column-area column-area_orange" data-height="23">
+                                                <div class="column-value">146,2</div>
+                                            </div>
+                                        </div>
+                                        <div class="subcolumn">
+                                            <div class="subcolumn-area">
+                                                <div class="column-area column-area_gray column-area_sub"></div>
+                                                <div class="column-value">+10,0</div>
+                                            </div>
+                                            <div class="subcolumn-area">
+                                                <div class="column-area column-area_violet column-area_sub"></div>
+                                                <div class="column-value">+10,0</div>
+                                            </div>
+                                            <div class="subcolumn-area">
+                                                <div class="column-area column-area_blue column-area_sub"></div>
+                                                <div class="column-value">+10,0</div>
+                                            </div>
+                                            <div class="subcolumn-area">
+                                                <div class="column-area column-area_pink column-area_sub"></div>
+                                                <div class="column-value">+10,0</div>
+                                            </div>
+                                            <div class="subcolumn-area">
+                                                <div class="column-area column-area_green column-area_sub"></div>
+                                                <div class="column-value">+10,0</div>
+                                            </div>
+                                            <div class="subcolumn-area">
+                                                <div class="column-area column-area_orange column-area_sub"></div>
+                                                <div class="column-value">+10,0</div>
+                                            </div>
+                                        </div>
+                                        <div class="column">
+                                            <div class="column__value">2036,5</div>
+                                            <div class="column-area column-area_gray" data-height="71">
+                                                <div class="column-value">505,4</div>
+                                            </div>
+                                            <div class="column-area column-area_violet" data-height="35">
+                                                <div class="column-value">243</div>
+                                            </div>
+                                            <div class="column-area column-area_blue" data-height="36">
+                                                <div class="column-value">286,2</div>
+                                            </div>
+                                            <div class="column-area column-area_pink" data-height="54">
+                                                <div class="column-value">401,2</div>
+                                            </div>
+                                            <div class="column-area column-area_green" data-height="59">
+                                                <div class="column-value">444,5</div>
+                                            </div>
+                                            <div class="column-area column-area_orange" data-height="23">
+                                                <div class="column-value">156,2</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="analityc-graphics__bottom">
+                                        <p>Бюджет первоначальный</p>
+                                        <p>Бюджет с учетом изменений</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="analityc-graphics_round-next"></span>
+                            <span class="analityc-graphics_round-prev"></span>
+                        </div>
+                        <div class="legend analityc-graphics__legend">
+                            <p class="legend__item legend__item_green">
+                                <SPAN>Налог на доходы физических лиц</SPAN>
+                            </p>
+                            <p class="legend__item legend__item_blue">
+                                <SPAN>Неналоговые доходы</SPAN>
+                            </p>
+                            <p class="legend__item legend__item_violet">
+                                <SPAN>Налог на имущество организаций</SPAN>
+                            </p>
+                            <p class="legend__item legend__item_pink">
+                                <SPAN>Налог на прибыль организаций</SPAN>
+                            </p>
+                            <p class="legend__item legend__item_grey">
+                                <SPAN>Прочие налоговые доходы</SPAN>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="analityc-table analityc-table_changes" data-stage="changes">
+                        <div class="slide-arrows analityc-table__slide-arrows">
+                            <div class="slide-arrows__arrow slide-arrows__arrow_left">
+                                <svg><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
+                            </div>
+                            <div class="slide-arrows__arrow slide-arrows__arrow_right">
+                                <svg><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
+                            </div>
+                        </div>
+                        <div class="analityc-table__wrapper" data-offset="100">
+                            <div class="table">
+                                <p class="table__periodtext">
+                                    <span>Плановый период</span>
+                                </p>
+                                <div class="table__row table__row_caption">
+                                    <div class="table__col table__col_four">Виды доходов</div>
+                                    <div class="table__col table__col_four">2017</div>
+                                    <div class="table__col table__col_four">2018
+                                        <span class="table__period-left"></span>
+                                    </div>
+                                    <div class="table__col table__col_four">2019
+                                        <span class="table__period-right"></span>
+                                    </div>
+                                </div>
+                                <div class="table__row table__row_subcaption">
+                                    <div class="table__col table__col_four">empty</div>
+                                    <div class="table__col table__col_one">Закон перво- начальный</div>
+                                    <div class="table__col table__col_one">Изменение</div>
+                                    <div class="table__col table__col_one">Закон с учетом Изменений</div>
+                                    <div class="table__col table__col_one">Закон перво- начальный</div>
+                                    <div class="table__col table__col_one">Изменение</div>
+                                    <div class="table__col table__col_one">Закон с учетом Изменений</div>
+                                    <div class="table__col table__col_one">Закон перво- начальный</div>
+                                    <div class="table__col table__col_one">Изменение</div>
+                                    <div class="table__col table__col_one">Закон с учетом Изменений</div>
+                                </div>
+                                <div class="table__row">
+                                    <div class="table__col table__col_four">Доходы, всего</div>
                                     <div class="table__col table__col_one">1 598,90</div>
+                                    <div class="table__col table__col_one">1 647,20</div>
+                                    <div class="table__col table__col_one">1 692,60</div>
+                                    <div class="table__col table__col_one">1 598,90</div>
+                                    <div class="table__col table__col_one">1 647,20</div>
+                                    <div class="table__col table__col_one">1 692,60</div>
+                                    <div class="table__col table__col_one">1 598,90</div>
+                                    <div class="table__col table__col_one">1 647,20</div>
+                                    <div class="table__col table__col_one">1 692,60</div>
+                                </div>
+                                <div class="table__row table__row_opened table__row_hassub">
+                                    <div class="table__col table__col_four">
+                                        <svg class="table__arrow"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>Налоговые доходы, в том числе:</div>
+                                    <div class="table__col table__col_one">1 751,00</div>
+                                    <div class="table__col table__col_one">1 681,00</div>
+                                    <div class="table__col table__col_one">1 746,50</div>
+                                    <div class="table__col table__col_one">1 751,00</div>
+                                    <div class="table__col table__col_one">1 681,00</div>
+                                    <div class="table__col table__col_one">1 746,50</div>
+                                    <div class="table__col table__col_one">1 751,00</div>
+                                    <div class="table__col table__col_one">1 681,00</div>
+                                    <div class="table__col table__col_one">1 746,50</div>
+                                </div>
+                                <div class="table__row table__row_subrow_tax">
+                                    <div class="table__col table__col_four table__col_subcol">Налог на прибыль организаций</div>
+                                    <div class="table__col table__col_one">–152,1</div>
+                                    <div class="table__col table__col_one">–33,8</div>
+                                    <div class="table__col table__col_one">–53,9</div>
+                                    <div class="table__col table__col_one">–152,1</div>
+                                    <div class="table__col table__col_one">–33,8</div>
+                                    <div class="table__col table__col_one">–53,9</div>
+                                    <div class="table__col table__col_one">–152,1</div>
+                                    <div class="table__col table__col_one">–33,8</div>
+                                    <div class="table__col table__col_one">–53,9</div>
+                                </div>
+                                <div class="table__row table__row_subrow_tax">
+                                    <div class="table__col table__col_four table__col_subcol">Налог на доходы физических лиц</div>
+                                    <div class="table__col table__col_one">1 598,90</div>
+                                    <div class="table__col table__col_one">1 647,20</div>
+                                    <div class="table__col table__col_one">1 692,60</div>
+                                    <div class="table__col table__col_one">1 598,90</div>
+                                    <div class="table__col table__col_one">1 647,20</div>
+                                    <div class="table__col table__col_one">1 692,60</div>
+                                    <div class="table__col table__col_one">1 598,90</div>
+                                    <div class="table__col table__col_one">1 647,20</div>
+                                    <div class="table__col table__col_one">1 692,60</div>
+                                </div>
+                                <div class="table__row">
+                                    <div class="table__col table__col_four">...</div>
+                                    <div class="table__col table__col_one">1 751,00</div>
+                                    <div class="table__col table__col_one">1 681,00</div>
+                                    <div class="table__col table__col_one">1 746,50</div>
+                                    <div class="table__col table__col_one">1 751,00</div>
+                                    <div class="table__col table__col_one">1 681,00</div>
+                                    <div class="table__col table__col_one">1 746,50</div>
+                                    <div class="table__col table__col_one">1 751,00</div>
+                                    <div class="table__col table__col_one">1 681,00</div>
+                                    <div class="table__col table__col_one">1 746,50</div>
+                                </div>
+                                <div class="table__row table__row_hassub">
+                                    <div class="table__col table__col_four">
+                                        <svg class="table__arrow"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>Неналоговые доходы, в том числе:</div>
+                                    <div class="table__col table__col_one">–152,1</div>
+                                    <div class="table__col table__col_one">–33,8</div>
+                                    <div class="table__col table__col_one">–53,9</div>
+                                    <div class="table__col table__col_one">–152,1</div>
+                                    <div class="table__col table__col_one">–33,8</div>
+                                    <div class="table__col table__col_one">–53,9</div>
+                                    <div class="table__col table__col_one">–152,1</div>
+                                    <div class="table__col table__col_one">–33,8</div>
+                                    <div class="table__col table__col_one">–53,9</div>
                                 </div>
                             </div>
                         </div>
-                        <a class="analityc-more" href="/">Перейти в&nbsp;раздел аналитика</a>
                     </div>
-                    <!-- график погашения государственного долга-->
-                    <div class="gov-debt__analityc-tab gov-debt__analityc-tab_repayment">
-                        <h2 class="gov-debt__analityc-widget-heading">График погашения
-                            <br> государственного долга</h2>
-                        <div class="analityc-control-switcher">
-                            <a class="active" href="#">млн. руб.</a>
-                            <a href="#">млрд. руб.</a>
-                        </div>
-                        <div class="analityc-graphics analityc-graphics_repayment gov-debt__analityc-graphics active">
-                            <div class="analityc-graphics__graphic-container">
-                                <div class="slide-arrows analityc-graphics__slide-arrows">
-                                    <div class="slide-arrows__arrow slide-arrows__arrow_left">
-                                        <svg><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
-                                    </div>
-                                    <div class="slide-arrows__arrow slide-arrows__arrow_right">
-                                        <svg><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
-                                    </div>
-                                </div>
-                                <div class="analityc-graphics__graphic-slider" data-offset="sliderwidth">
-                                    <div class="analityc-graphics__graphic-wrapper analityc-graphics__graphic-wrapper_noslide">
-                                        <div class="analityc-graphics__graphic analityc-graphics__graphic_multicolumn">
-                                            <div class="analityc-graphics__graphic-column">
-                                                <div class="analityc-graphics__graphic-column-fill">
-                                                    <p class="analityc-graphics__graphic-column-val">26,1</p>
-                                                </div>
-                                            </div>
-                                            <div class="analityc-graphics__graphic-column analityc-graphics__graphic-column_low">
-                                                <div class="analityc-graphics__graphic-column-fill">
-                                                    <p class="analityc-graphics__graphic-column-val">4,4</p>
-                                                </div>
-                                            </div>
-                                            <div class="analityc-graphics__graphic-column analityc-graphics__graphic-column_zero">
-                                                <div class="analityc-graphics__graphic-column-fill">
-                                                    <p class="analityc-graphics__graphic-column-val">0,0</p>
-                                                </div>
-                                            </div>
-                                            <div class="analityc-graphics__graphic-column analityc-graphics__graphic-column_zero">
-                                                <div class="analityc-graphics__graphic-column-fill">
-                                                    <p class="analityc-graphics__graphic-column-val">0,0</p>
-                                                </div>
-                                            </div>
-                                            <div class="analityc-graphics__graphic-column analityc-graphics__graphic-column_zero">
-                                                <div class="analityc-graphics__graphic-column-fill">
-                                                    <p class="analityc-graphics__graphic-column-val">0,0</p>
-                                                </div>
-                                            </div>
-                                            <div class="analityc-graphics__graphic-column">
-                                                <div class="analityc-graphics__graphic-column-fill">
-                                                    <p class="analityc-graphics__graphic-column-val">30,0</p>
-                                                </div>
-                                            </div>
-                                            <div class="analityc-graphics__graphic-column analityc-graphics__graphic-column_low">
-                                                <div class="analityc-graphics__graphic-column-fill">
-                                                    <p class="analityc-graphics__graphic-column-val">1,5</p>
-                                                </div>
-                                            </div>
+                    <div class="analityc-graphics analityc-graphics_singleround analityc-graphics_done" data-stage="done">
+                        <div class="analityc-graphics__cols">
+                            <div class="analityc-graphics__col">
+                                <p class="analityc-graphics__year">2016</p>
+                                <div class="analityc-graphics__graphic analityc-graphics__graphic_round">
+                                    <div class="segment-diagram" id="diagram-22">
+                                        <div class="segment-diagram__value">
+                                            <p class="segment-diagram__value-num">1885,7</p>
+                                            <span class="segment-diagram__val">20,8%</span>
+                                            <span class="segment-diagram__val">14,3%</span>
+                                            <span class="segment-diagram__val">12,2%</span>
+                                            <span class="segment-diagram__val">21,9%</span>
+                                            <span class="segment-diagram__val">7,7%</span>
+                                            <span class="segment-diagram__val">23,2%</span>
                                         </div>
-                                        <div class="analityc-graphics__graphic-years">
-                                            <p class="analityc-graphics__graphic-year">2017</p>
-                                            <p class="analityc-graphics__graphic-year">2018</p>
-                                            <p class="analityc-graphics__graphic-year">2019</p>
-                                            <p class="analityc-graphics__graphic-year">2020</p>
-                                            <p class="analityc-graphics__graphic-year">2021</p>
-                                            <p class="analityc-graphics__graphic-year">2022</p>
-                                            <p class="analityc-graphics__graphic-year">2025-2034</p>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="legend analityc-graphics__legend">
-                                <p class="legend__item legend__item_nvioletblue">Прямой долг</p>
+                            <div class="analityc-graphics__col">
+                                <div class="legend analityc-graphics__legend analityc-graphics__legend analityc-graphics__legend_vert">
+                                    <p class="legend__item legend__item_pink">
+                                        <SPAN>Налог на прибыль организаций</SPAN>
+                                    </p>
+                                    <p class="legend__item legend__item_green">
+                                        <SPAN>Налог на доходы физических лиц</SPAN>
+                                    </p>
+                                    <p class="legend__item legend__item_violet">
+                                        <SPAN>Налог на имущество организаций</SPAN>
+                                    </p>
+                                    <p class="legend__item legend__item_grey">
+                                        <SPAN>Прочие налоговые доходы</SPAN>
+                                    </p>
+                                    <p class="legend__item legend__item_blue">
+                                        <SPAN>Неналоговые доходы</SPAN>
+                                    </p>
+                                    <p class="legend__item legend__item_altgreen">
+                                        <SPAN>Безвозмездные поступления</SPAN>
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Государственные облигации г. Москвы-->
-                    <div class="gov-debt__analityc-tab gov-debt__analityc-tab_govbonds">
-                        <h2 class="gov-debt__analityc-widget-heading">Государственные облигации
-                            <br> города Москвы</h2>
-                        <h3 class="gov-debt__block-heading gov-debt__block-heading_main">Что такое облигация?</h3>
-                        <p class="gov-debt__paragraph gov-debt__paragraph_main">
-                            <b>Облигация</b> — эмиссионная ценная бумага, закрепляющая право ее владельца на получение от эмитента облигации в предусмотренный срок ее номинальной стоимости или иного имущественного эквивалента. Облигация может также предусматривать
-                            право ее владельца на получение фиксированного процента от номинальной стоимости облигации либо иные имущественные права. Доходом по облигации являются процент и/или дисконт.</p>
-                        <h3 class="gov-debt__block-heading">Данные о рейтингах долгосрочных долговых обязательств Москвы, РФ на 2016 г.</h3>
-                        <div class="gov-debt__rating-table">
-                            <div class="gov-debt__rating-table-row">
-                                <p class="gov-debt__rating-table-item"></p>
-                                <p class="gov-debt__rating-table-heading">Moody’s</p>
-                                <p class="gov-debt__rating-table-heading">S&P</p>
-                                <p class="gov-debt__rating-table-heading">Fitch</p>
+                    <div class="analityc-table analityc-table_done" data-stage="done">
+                        <div class="table">
+                            <p class="table__periodtext">
+                                <span>Плановый период</span>
+                            </p>
+                            <div class="table__row table__row_caption">
+                                <div class="table__col table__col_four">Виды доходов</div>
+                                <div class="table__col table__col_four">2017</div>
                             </div>
-                            <div class="gov-debt__rating-table-row">
-                                <p class="gov-debt__rating-table-item">Внутренние обязательства РФ/Москва</p>
-                                <p class="gov-debt__rating-table-value">Baa1/Ba1</p>
-                                <p class="gov-debt__rating-table-value">BBB/BB+</p>
-                                <p class="gov-debt__rating-table-value">BBB/BBB-</p>
+                            <div class="table__row">
+                                <div class="table__col table__col_four">Доходы, всего</div>
+                                <div class="table__col table__col_one">1 598,90</div>
                             </div>
-                            <div class="gov-debt__rating-table-row">
-                                <p class="gov-debt__rating-table-item">Внешние обязательства РФ/Москва</p>
-                                <p class="gov-debt__rating-table-value">Baa1/Ba1</p>
-                                <p class="gov-debt__rating-table-value">BBB/BB+</p>
-                                <p class="gov-debt__rating-table-value">BBB/BBB-</p>
+                            <div class="table__row table__row_opened table__row_hassub">
+                                <div class="table__col table__col_four">
+                                    <svg class="table__arrow"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>Налоговые доходы, в том числе:</div>
+                                <div class="table__col table__col_one">1 598,90</div>
                             </div>
-                            <div class="gov-debt__rating-links">
-                                <p>
-                                    <a class="link gov-debt__rating-link" href="#">Сравнительная таблица рейтингов</a>
-                                </p>
-                                <p>
-                                    <a class="link gov-debt__rating-link" href="#">Информация о рейтингах</a>
-                                </p>
+                            <div class="table__row table__row_subrow_tax">
+                                <div class="table__col table__col_four table__col_subcol">Налог на прибыль организаций</div>
+                                <div class="table__col table__col_one">1 598,90</div>
                             </div>
-                        </div>
-                        <div class="gov-debt__inner-block">
-                            <p class="gov-debt__paragraph">Владелец облигации выступает как кредитор, который предоставляет свои деньги эмитенту (заемщику) во временное пользование и за оговоренную плату.</p>
-                            <p class="gov-debt__paragraph">Облигация подтверждает обязательство эмитента (заемщика) по истечении определенного периода времени выплатить ее владельцу (кредитору) номинальную стоимость облигации и доход (проценты).</p>
-                            <p class="gov-debt__paragraph">Владельцем облигации может выступать как физическое лицо, так и организация.</p>
-                            <p class="gov-debt__list-heading">Эмитентом облигации могут выступать:</p>
-                            <ul class="gov-debt__list gov-debt__list_text-big">
-                                <li>Федеральные органы власти;</li>
-                                <li>Органы власти субъектов федерации;</li>
-                                <li>Органы местного самоуправления;</li>
-                                <li>Коммерческие организации.</li>
-                            </ul>
-                            <p class="gov-debt__paragraph">Каждый из этих эмитентов может выпустить облигации, в том числе предназначенные для размещения среди населения.</p>
-                            <p class="gov-debt__paragraph">Облигация, как и иной товар, имеет цену и ее можно купить и продать. Цена облигации выражается в процентах от ее номинальной стоимости. Как и цена товара, цена облигации формируется на основе баланса спроса и предложения. Основным
-                                местом торговли облигациями и, соответственно, их ценообразования является биржа.</p>
-                        </div>
-                        <div class="gov-debt__half-blocks">
-                            <div class="gov-debt__half-block">
-                                <h3 class="gov-debt__block-heading">Под продажей облигации может подразумеваться одно из двух действий:</h3>
-                                <ol class="gov-debt__list gov-debt__list_ordered">
-                                    <li>размещение облигации — продажа эмитентом бумаги ее первому владельцу путем заключения гражданско-правовых сделок;</li>
-                                    <li>продажа облигации ее владельцем третьему лицу, который становится новым владельцем облигации, и перед которым эмитент несет обязательство выплаты ее номинальной стоимости и процентного дохода.</li>
-                                </ol>
+                            <div class="table__row table__row_subrow_tax">
+                                <div class="table__col table__col_four table__col_subcol">Налог на доходы физических лиц</div>
+                                <div class="table__col table__col_one">1 598,90</div>
                             </div>
-                            <div class="gov-debt__half-block">
-                                <h3 class="gov-debt__block-heading">Облигации могут быть проданы:</h3>
-                                <ol class="gov-debt__list">
-                                    <li>с дисконтом, то есть, приобретая облигацию, будущий владелец заплатит за нее меньше чем ее номинальная стоимость;</li>
-                                    <li>по номинальной стоимости;</li>
-                                    <li>с премией, то есть приобретая облигацию, будущий владелец заплатит за облигацию сумму, превышающую ее номинальную стоимость.</li>
-                                </ol>
+                            <div class="table__row">
+                                <div class="table__col table__col_four">...</div>
+                                <div class="table__col table__col_one">1 598,90</div>
                             </div>
-                        </div>
-                        <p class="gov-debt__paragraph gov-debt__paragraph_important">Вне зависимости от уплаченной при приобретении облигации суммы,
-                            <br> в дату погашения владелец получит сумму, равную номинальной стоимости облигации.</p>
-                        <div class="gov-debt__inner-block">
-                            <h3 class="gov-debt__block-heading">Экономические факторы, обеспечивающие
-                                <br> надежность облигаций Москвы:</h3>
-                            <ol class="gov-debt__list gov-debt__list_ordered">
-                                <li>
-                                    <span>Низкий уровень долга Москвы.</span> Как отмечено выше, к основным показателям, определяющим уровень долга в соответствии с действующими нормами РФ, относятся следующие отношения:
-                                    <ol class="gov-debt__list gov-debt__list_letter">
-                                        <li>объема государственного долга города Москвы к собственным доходам бюджета;</li>
-                                        <li>расходов бюджета города Москвы на обслуживание государственного долга к расходам бюджета;</li>
-                                        <li>ежегодного объема погашаемого долга к доходам бюджета за минусом текущих расходов и части расходов бюджета амортизационного характера (указанная разность определяется как «капитальный ресурс» бюджета).</li>
-                                    </ol>
-                                </li>
-                                <li>
-                                    <span>Равномерный</span> график погашения долга. Размещение облигаций Москвы в течение последних нескольких лет обеспечило формирование относительно равномерного графика погашения долга на горизонте от 1 до 12 лет, без "пиковых"
-                                    нагрузок. Это обеспечивает возможность безусловного исполнения долговых обязательств независимо от экономической конъюнктуры в Российской Федерации.</li>
-                                <li>
-                                    <span>Экономическое состояние региона.</span> Москва — явный лидер среди городов страны по темпам реформирования хозяйственной деятельности и перехода экономики к рыночным отношениям. Такое положение Москве удалось занять
-                                    благодаря развитой городской инфраструктуре, широкому спектру недвижимости, включающему современные офисные центры, а также высокому культурному, интеллектуальному и управленческому потенциалу города.</li>
-                            </ol>
-                            <p class="gov-debt__paragraph gov-debt__paragraph_last">Показатели экономики города Москвы обеспечивают стабильно низкое отношение долга к уровню валового регионального продукта (ВРП) города. Так, несмотря на рост долга в абсолютном выражении, его отношение к ВРП по имеющейся оценке
-                                сохраняется на крайне низком уровне — порядка 3%.</p>
+                            <div class="table__row table__row_hassub">
+                                <div class="table__col table__col_four">
+                                    <svg class="table__arrow"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>Неналоговые доходы, в том числе:</div>
+                                <div class="table__col table__col_one">1 598,90</div>
+                            </div>
                         </div>
                     </div>
+                    <div class="analityc-graphics analityc-graphics_line analityc-graphics_date-one" data-stage="date">
+                        <p class="analityc-graphics__toptext">МЛРД РУБ.</p>
+                        <p class="analityc-graphics__heading">Исполнение доходов бюджета на
+                            <SPAN class="js-dp-output js-dp-output_others active">22.04.2017</SPAN>
+                            <SPAN class="js-dp-output js-dp-output_cons">1 февраля 2017</SPAN>
+                        </p>
+                        <div class="analityc-graphics__lines">
+                            <div class="analityc-graphics__line analityc-graphics__line_altblue" data-val1="1459,1" data-val2="81,6%" data-barval="1 788,0">
+                                <p class="analityc-graphics__line-title">
+                                    <strong>Доходы, всего</strong>
+                                </p>
+                                <div class="analityc-graphics__line-values">1459,1
+                                    <span>/</span>81,6%</div>
+                                <div class="analityc-graphics__line-bar">
+                                    <div class="analityc-graphics__line-total"></div>
+                                    <span class="analityc-graphics__line-bar-value">1 788,0</span>
+                                    <div class="analityc-graphics__line-abs">1 788,0</div>
+                                    <div class="analityc-graphics__line-fill"></div>
+                                </div>
+                            </div>
+                            <div class="analityc-graphics__line analityc-graphics__line_pink" data-val1="1057,1" data-val2="80,5%" data-barval="1313,0">
+                                <p class="analityc-graphics__line-title">Налог на прибыль организаций</p>
+                                <div class="analityc-graphics__line-values">1057,1
+                                    <span>/</span>80,5%</div>
+                                <div class="analityc-graphics__line-bar">
+                                    <div class="analityc-graphics__line-total"></div>
+                                    <span class="analityc-graphics__line-bar-value">1313,0</span>
+                                    <div class="analityc-graphics__line-abs">1313,0</div>
+                                    <div class="analityc-graphics__line-fill"></div>
+                                </div>
+                            </div>
+                            <div class="analityc-graphics__line analityc-graphics__line_green" data-val1="300,0" data-val2="38,1%" data-barval="787,4">
+                                <p class="analityc-graphics__line-title">Налог на доходы физических лиц</p>
+                                <div class="analityc-graphics__line-values">300,0
+                                    <span>/</span>38,1%</div>
+                                <div class="analityc-graphics__line-bar analityc-graphics__line-bar_overwidth">
+                                    <div class="analityc-graphics__line-total"></div>
+                                    <span class="analityc-graphics__line-bar-value">787,4</span>
+                                    <div class="analityc-graphics__line-abs">787,4</div>
+                                    <div class="analityc-graphics__line-fill"></div>
+                                </div>
+                            </div>
+                            <div class="analityc-graphics__line analityc-graphics__line_violet" data-val1="40,0" data-val2="39,1%" data-barval="102,1">
+                                <p class="analityc-graphics__line-title">Налог на имущество организаций</p>
+                                <div class="analityc-graphics__line-values">40,0
+                                    <span>/</span>39,1%</div>
+                                <div class="analityc-graphics__line-bar">
+                                    <div class="analityc-graphics__line-total"></div>
+                                    <span class="analityc-graphics__line-bar-value">102,1</span>
+                                    <div class="analityc-graphics__line-abs">102,1</div>
+                                    <div class="analityc-graphics__line-fill"></div>
+                                </div>
+                            </div>
+                            <div class="analityc-graphics__line analityc-graphics__line_grey" data-val1="50,0" data-val2="31,0%" data-barval="161,3">
+                                <p class="analityc-graphics__line-title">Прочие налоговые доходы</p>
+                                <div class="analityc-graphics__line-values">50,0
+                                    <span>/</span>31,0%</div>
+                                <div class="analityc-graphics__line-bar">
+                                    <div class="analityc-graphics__line-total"></div>
+                                    <span class="analityc-graphics__line-bar-value">161,3</span>
+                                    <div class="analityc-graphics__line-abs">161,3</div>
+                                    <div class="analityc-graphics__line-fill"></div>
+                                </div>
+                            </div>
+                            <div class="analityc-graphics__line analityc-graphics__line_blue" data-val1="70,0" data-val2="38,4%" data-barval="182,2">
+                                <p class="analityc-graphics__line-title">Неналоговый доход</p>
+                                <div class="analityc-graphics__line-values">70,0
+                                    <span>/</span>38,4%</div>
+                                <div class="analityc-graphics__line-bar">
+                                    <div class="analityc-graphics__line-total"></div>
+                                    <span class="analityc-graphics__line-bar-value">182,2</span>
+                                    <div class="analityc-graphics__line-abs">182,2</div>
+                                    <div class="analityc-graphics__line-fill"></div>
+                                </div>
+                            </div>
+                            <div class="analityc-graphics__line analityc-graphics__line_altgreen" data-val1="20,0" data-val2="20,0%" data-barval="100,0">
+                                <p class="analityc-graphics__line-title">Безвозмездные поступления</p>
+                                <div class="analityc-graphics__line-values">20,0
+                                    <span>/</span>20,0%</div>
+                                <div class="analityc-graphics__line-bar">
+                                    <div class="analityc-graphics__line-total"></div>
+                                    <span class="analityc-graphics__line-bar-value">100,0</span>
+                                    <div class="analityc-graphics__line-abs">100,0</div>
+                                    <div class="analityc-graphics__line-fill"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="analityc-table analityc-table_date" data-stage="date">
+                        <p class="analityc-table__heading">Исполнение доходов бюджета на
+                            <SPAN class="js-dp-output js-dp-output_others active">22.04.2017</SPAN>
+                            <SPAN class="js-dp-output js-dp-output_cons">1 февраля 2017</SPAN>
+                        </p>
+                        <div class="slide-arrows analityc-table__slide-arrows">
+                            <div class="slide-arrows__arrow slide-arrows__arrow_left">
+                                <svg><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
+                            </div>
+                            <div class="slide-arrows__arrow slide-arrows__arrow_right">
+                                <svg><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>
+                            </div>
+                        </div>
+                        <div class="analityc-table__wrapper" data-offset="100">
+                            <div class="table">
+                                <p class="table__periodtext">
+                                    <span>Плановый период</span>
+                                </p>
+                                <div class="table__row table__row_caption">
+                                    <div class="table__col table__col_four">Виды доходов</div>
+                                    <div class="table__col table__col_four">Уточненный план</div>
+                                    <div class="table__col table__col_four">Фактическое исполнение</div>
+                                    <div class="table__col table__col_four">% исполнения</div>
+                                </div>
+                                <div class="table__row">
+                                    <div class="table__col table__col_four">Доходы, всего</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                </div>
+                                <div class="table__row table__row_opened table__row_hassub">
+                                    <div class="table__col table__col_four">
+                                        <svg class="table__arrow"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>Налоговые доходы, в том числе:</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                </div>
+                                <div class="table__row table__row_subrow_tax">
+                                    <div class="table__col table__col_four table__col_subcol">Налог на прибыль организаций</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                </div>
+                                <div class="table__row table__row_subrow_tax">
+                                    <div class="table__col table__col_four table__col_subcol">Налог на доходы физических лиц</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                </div>
+                                <div class="table__row">
+                                    <div class="table__col table__col_four">...</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                </div>
+                                <div class="table__row table__row_hassub">
+                                    <div class="table__col table__col_four">
+                                        <svg class="table__arrow"><use xlink:href="assets/images/icon.svg#icon_angle-arrow"></use></svg>Неналоговые доходы, в том числе:</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                    <div class="table__col table__col_three">1 598,90</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="analityc-graphics analityc-graphics_line analityc-graphics_date-two" data-stage="dtwo">
+                        <p class="analityc-graphics__toptext">МЛРД РУБ.</p>
+                        <p class="analityc-graphics__heading">Исполнение доходов бюджета на
+                            <SPAN class="js-dp-output js-dp-output_others active">22.04.2017</SPAN>
+                            <SPAN class="js-dp-output js-dp-output_cons">1 февраля 2017</SPAN>
+                        </p>
+                        <div class="analityc-graphics__lines">
+                            <div class="analityc-graphics__line analityc-graphics__line_altblue" data-val1="680,0" data-val2="36,6%" data-barval="1 868,6">
+                                <p class="analityc-graphics__line-title">
+                                    <strong>Доходы, всего</strong>
+                                </p>
+                                <div class="analityc-graphics__line-values">680,0
+                                    <span>/</span>36,6%</div>
+                                <div class="analityc-graphics__line-bar">
+                                    <div class="analityc-graphics__line-total"></div>
+                                    <span class="analityc-graphics__line-bar-value">1 868,6</span>
+                                    <div class="analityc-graphics__line-abs">1 868,6</div>
+                                    <div class="analityc-graphics__line-fill"></div>
+                                </div>
+                            </div>
+                            <div class="analityc-graphics__line analityc-graphics__line_pink" data-val1="200,0" data-val2="38,1%" data-barval="525,6">
+                                <p class="analityc-graphics__line-title">Налог на прибыль организаций</p>
+                                <div class="analityc-graphics__line-values">200,0
+                                    <span>/</span>38,1%</div>
+                                <div class="analityc-graphics__line-bar">
+                                    <div class="analityc-graphics__line-total"></div>
+                                    <span class="analityc-graphics__line-bar-value">525,6</span>
+                                    <div class="analityc-graphics__line-abs">525,6</div>
+                                    <div class="analityc-graphics__line-fill"></div>
+                                </div>
+                            </div>
+                            <div class="analityc-graphics__line analityc-graphics__line_green" data-val1="300,0" data-val2="38,1%" data-barval="787,4">
+                                <p class="analityc-graphics__line-title">Налог на доходы физических лиц</p>
+                                <div class="analityc-graphics__line-values">300,0
+                                    <span>/</span>38,1%</div>
+                                <div class="analityc-graphics__line-bar">
+                                    <div class="analityc-graphics__line-total"></div>
+                                    <span class="analityc-graphics__line-bar-value">787,4</span>
+                                    <div class="analityc-graphics__line-abs">787,4</div>
+                                    <div class="analityc-graphics__line-fill"></div>
+                                </div>
+                            </div>
+                            <div class="analityc-graphics__line analityc-graphics__line_violet" data-val1="40,0" data-val2="39,1%" data-barval="102,1">
+                                <p class="analityc-graphics__line-title">Налог на имущество организаций</p>
+                                <div class="analityc-graphics__line-values">40,0
+                                    <span>/</span>39,1%</div>
+                                <div class="analityc-graphics__line-bar">
+                                    <div class="analityc-graphics__line-total"></div>
+                                    <span class="analityc-graphics__line-bar-value">102,1</span>
+                                    <div class="analityc-graphics__line-abs">102,1</div>
+                                    <div class="analityc-graphics__line-fill"></div>
+                                </div>
+                            </div>
+                            <div class="analityc-graphics__line analityc-graphics__line_grey" data-val1="50,0" data-val2="31,0%" data-barval="161,3">
+                                <p class="analityc-graphics__line-title">Прочие налоговые доходы</p>
+                                <div class="analityc-graphics__line-values">50,0
+                                    <span>/</span>31,0%</div>
+                                <div class="analityc-graphics__line-bar">
+                                    <div class="analityc-graphics__line-total"></div>
+                                    <span class="analityc-graphics__line-bar-value">161,3</span>
+                                    <div class="analityc-graphics__line-abs">161,3</div>
+                                    <div class="analityc-graphics__line-fill"></div>
+                                </div>
+                            </div>
+                            <div class="analityc-graphics__line analityc-graphics__line_blue" data-val1="70,0" data-val2="38,4%" data-barval="182,2">
+                                <p class="analityc-graphics__line-title">Неналоговый доход</p>
+                                <div class="analityc-graphics__line-values">70,0
+                                    <span>/</span>38,4%</div>
+                                <div class="analityc-graphics__line-bar">
+                                    <div class="analityc-graphics__line-total"></div>
+                                    <span class="analityc-graphics__line-bar-value">182,2</span>
+                                    <div class="analityc-graphics__line-abs">182,2</div>
+                                    <div class="analityc-graphics__line-fill"></div>
+                                </div>
+                            </div>
+                            <div class="analityc-graphics__line analityc-graphics__line_altgreen" data-val1="20,0" data-val2="20,0%" data-barval="100,0">
+                                <p class="analityc-graphics__line-title">Безвозмездные поступления</p>
+                                <div class="analityc-graphics__line-values">20,0
+                                    <span>/</span>20,0%</div>
+                                <div class="analityc-graphics__line-bar">
+                                    <div class="analityc-graphics__line-total"></div>
+                                    <span class="analityc-graphics__line-bar-value">100,0</span>
+                                    <div class="analityc-graphics__line-abs">100,0</div>
+                                    <div class="analityc-graphics__line-fill"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="analityc-more" href="/">Перейти в&nbsp;раздел аналитика</a>
                 </div>
             </div>
             <div class="dropdown-block load-anim-fade load-anim-fade" data-delay="1700">
