@@ -2,6 +2,21 @@ include ../doc-cards/doc-cards
 include ../page-header/page-header
 
 mixin depfin-about-budget()
+
+	mixin publicDebt(title, text, isActive)
+		li.whatIsBudget-publicDebt
+			h3.whatIsBudget-publicDebt__title= title
+			if isActive
+				.whatIsBudget-publicDebt__description._active
+					.whatIsBudget-publicDebt__inner
+						p.scroll-pane= text
+					.whatIsBudget-publicDebt__close.btn-close-c.btn-close-c--xl
+			else
+				.whatIsBudget-publicDebt__description
+					.whatIsBudget-publicDebt__inner
+						p.scroll-pane= text
+					.whatIsBudget-publicDebt__close.btn-close-c.btn-close-c--xl
+
 	.js-resolution-wrap
 		.js-resolution-320
 			+b.SECTION.whatIsBudget.depfin-about-budget.sections__item&attributes(attributes)
@@ -191,42 +206,18 @@ mixin depfin-about-budget()
 								span.whatIsBudget-financingOfDeficit__line6
 							p.whatIsBudget-financingOfDeficit__description Долговые обязательства, возникающие в&nbsp;валюте Российской Федерации, а&nbsp;также обязательства в&nbsp;иностранной валюте в&nbsp;рамках использования целевых иностранных кредитов
 							ul.whatIsBudget-publicDebt__wrapper
-								li.whatIsBudget-publicDebt
-									h3.whatIsBudget-publicDebt__title Государственные ценные бумаги
-									.whatIsBudget-publicDebt__description._active
-										p Государственные ценные бумаги могут быть выпущены в&nbsp;виде облигаций или иных ценных бумаг, отнесенных к&nbsp;эмиссионным ценным бумагам
-										.whatIsBudget-publicDebt__close.btn-close-c.btn-close-c--xl
-								li.whatIsBudget-publicDebt
-									h3.whatIsBudget-publicDebt__title Бюджетные кредиты
-									.whatIsBudget-publicDebt__description._active
-										p Денежные средства, предоставляемые бюджетом другому бюджету бюджетной системы Российской Федерации на возвратной и возмездной основах
-										.whatIsBudget-publicDebt__close.btn-close-c.btn-close-c--xl
-								li.whatIsBudget-publicDebt
-									h3.whatIsBudget-publicDebt__title Банковские кредиты
-									.whatIsBudget-publicDebt__description._active
-										p Государственные ценные бумаги могут быть выпущены в&nbsp;виде облигаций или иных ценных бумаг, отнесенных к&nbsp;эмиссионным ценным бумагам
-										.whatIsBudget-publicDebt__close.btn-close-c.btn-close-c--xl
-								li.whatIsBudget-publicDebt
-									h3.whatIsBudget-publicDebt__title Государственные гарантии
-									.whatIsBudget-publicDebt__description._active
-										p Обязательства, в силу которых субъект Российской Федерации (гарант) обязан при наступлении гарантийного случая уплатить лицу, в пользу которого предоставлена гарантия (бенефициару), по его письменному требованию определенную в обязательстве денежную сумму за счет средств бюджета в соответствии с условиями обязательства гаранта отвечать за исполнение третьим лицом (принципалом) обязательств перед бенефициаром
-										.whatIsBudget-publicDebt__close.btn-close-c.btn-close-c--xl
+								+publicDebt('Государственные ценные бумаги', 'Государственные ценные бумаги могут быть выпущены в виде облигаций или иных ценных бумаг, отнесенных к эмиссионным ценным бумагам', true)
+								+publicDebt('Бюджетные кредиты', 'Денежные средства, предоставляемые бюджетом другому бюджету бюджетной системы Российской Федерации на возвратной и возмездной основах', true)
+								+publicDebt('Банковские кредиты', 'Государственные ценные бумаги могут быть выпущены в виде облигаций или иных ценных бумаг, отнесенных к эмиссионным ценным бумагам', true)
+								+publicDebt('Государственные гарантии', 'Обязательства, в силу которых субъект Российской Федерации (гарант) обязан при наступлении гарантийного случая уплатить лицу, в пользу которого предоставлена гарантия (бенефициару), по его письменному требованию определенную в обязательстве денежную сумму за счет средств бюджета в соответствии с условиями обязательства гаранта отвечать за исполнение третьим лицом (принципалом) обязательств перед бенефициаром', true)
 						li.whatIsBudget-financingOfDeficit
 							h2.whatIsBudget-financingOfDeficit__title
 								| Государственный внешний долг
 								span.whatIsBudget-financingOfDeficit__line7
 							p.whatIsBudget-financingOfDeficit__description Долговые обязательства, возникающие в&nbsp;иностранной валюте, за&nbsp;исключением обязательств в&nbsp;иностранной валюте в&nbsp;рамках использования целевых иностранных кредитов
 							ul.whatIsBudget-publicDebt__wrapper
-								li.whatIsBudget-publicDebt
-									h3.whatIsBudget-publicDebt__title Государственные ценные бумаги
-									.whatIsBudget-publicDebt__description
-										p Государственные ценные бумаги могут быть выпущены в&nbsp;виде облигаций или иных ценных бумаг, отнесенных к&nbsp;эмиссионным ценным бумагам
-										.whatIsBudget-publicDebt__close.btn-close-c.btn-close-c--xl
-								li.whatIsBudget-publicDebt
-									h3.whatIsBudget-publicDebt__title Банковские кредиты
-									.whatIsBudget-publicDebt__description
-										p Государственные ценные бумаги могут быть выпущены в&nbsp;виде облигаций или иных ценных бумаг, отнесенных к&nbsp;эмиссионным ценным бумагам
-										.whatIsBudget-publicDebt__close.btn-close-c.btn-close-c--xl
+								+publicDebt('Государственные ценные бумаги', 'Государственные ценные бумаги могут быть выпущены в виде облигаций или иных ценных бумаг, отнесенных к эмиссионным ценным бумагам')
+								+publicDebt('Банковские кредиты', 'Государственные ценные бумаги могут быть выпущены в виде облигаций или иных ценных бумаг, отнесенных к эмиссионным ценным бумагам')
 				ul.whatIsBudget-expenditures__wrapper
 					p.whatIsBudget-expenditures__classification Классификация расходов
 					.whatIsBudget-expenditures__titleWrapper
