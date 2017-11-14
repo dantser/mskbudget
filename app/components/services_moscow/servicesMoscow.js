@@ -33,6 +33,16 @@ export default () => {
       $(this).toggleClass('services-moscow-index__sort_desc services-moscow-index__sort_ask');
     })
   
+    // формирование высоты шапки в таблице
+    var tableHeadingHeight = 59;
+    $('.services-moscow-index__col-heading, .services-moscow-index__row_caption').each(function() {
+      var headingH = $(this).outerHeight();
+      if (headingH > tableHeadingHeight) tableHeadingHeight = headingH;
+    })
+    $('.services-moscow-index__col-heading, .services-moscow-index__row_caption').each(function() {
+      $(this).height(tableHeadingHeight);
+    })
+  
   if ($('.services-moscow').length) {
     
     var graphic = $('.services-moscow .analityc-graphics-line-gorizontal'),

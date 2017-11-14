@@ -13,14 +13,18 @@ export default () => {
   window.grJsLine = function(wrapper, line) {
     const rightBlock = line.find('.analityc-js-line__right-block');
     const rBlockH = rightBlock.outerHeight();
-    const wrapperH = wrapper.outerHeight();
 
     if ($(document).width() >= 900) {
-      
-      if (rightBlock.outerHeight() <= line.outerHeight())
-        rightBlock.css({'bottom': '0'});
-      else
-        rightBlock.css({'bottom': 'auto', 'height': rBlockH});
+
+      rightBlock.removeClass('analityc-js-line__right-block_small analityc-js-line__right-block_equal');
+
+      if (rightBlock.offset().top + rightBlock.outerHeight() <= line.offset().top + line.outerHeight()) {
+
+        if (rightBlock.outerHeight() <= line.outerHeight())
+          rightBlock.addClass('analityc-js-line__right-block_small');
+        else
+          rightBlock.addClass('analityc-js-line__right-block_equal');
+      }
 
       wrapper.css({'height': 'auto'});
       if (rightBlock.outerHeight() + rightBlock.offset().top > wrapper.outerHeight() + wrapper.offset().top )

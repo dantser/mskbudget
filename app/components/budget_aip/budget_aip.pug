@@ -8,83 +8,93 @@ include ../../blocks/tabs/tabs
 
 //- Программы для второго таба
 mixin GpAIP(data)
-  +b.govProgram&attributes(attributes)
-    +e.heading
-      +e.icon
-        img(src= data.icon)
-      +e.title
-        +e.SPAN.years= data.years
-        +e.H3.header= data.header
-    +e.content.active
-      +e.row
-        +e.data-item
-          +e.index 116,66 км
-          +e.index-text линий метрополитена
-        +e.data-item
-          +e.index 478,05 км
-          +e.index-text автомобильных дорог
-        +e.data-item
-          +e.index 22
-          +e.index-text конечных станций транспорта
-        +e.data-item
-          +e.index 52
-          +e.index-text станции метрополитена
-      +e.row
-        +e.data-item
-          +e.index 103
-          +e.index-text искусственных сооружения
-        +e.data-item
-          +e.index 60
-          +e.index-text трехсекционных низкопольных трамвая
-        +e.data-item
-          +e.index 7
-          +e.index-text электродепо
-        +e.data-item
-          +e.index 59
-          +e.index-text пешеходных перехода
-          
-    +analityc-table-slider(100)._changes.__table
-      +table-income_slider(getData('income1'))
+	+b.govProgram&attributes(attributes)
+		+e.heading
+			+e.icon
+				img(src= data.icon)
+			+e.title
+				+e.SPAN.years= data.years
+				+e.H3.header= data.header
+		+e.content.active
+			+e.row
+				+e.data-item
+					+e.index 
+						+e.index-value 116,66
+						+e.index-units единиц / посещений в смену
+					+e.index-text линий метрополитена
+				+e.data-item
+					+e.index 
+						+e.index-value 478,05
+						+e.index-units км
+					+e.index-text автомобильных дорог
+				+e.data-item
+					+e.index 
+						+e.index-value 22
+					+e.index-text конечных станций транспорта
+				+e.data-item
+					+e.index 
+						+e.index-value 52
+					+e.index-text станции метрополитена
+			+e.row
+				+e.data-item
+					+e.index 
+						+e.index-value 103
+					+e.index-text искусственных сооружения
+				+e.data-item
+					+e.index 
+						+e.index-value 60
+					+e.index-text трехсекционных низкопольных трамвая
+				+e.data-item
+					+e.index 
+						+e.index-value 7
+					+e.index-text электродепо
+				+e.data-item
+					+e.index 
+						+e.index-value 59
+					+e.index-text пешеходных перехода
+					
+		+analityc-table-slider(100)._changes.__table
+			+table-income_slider(getData('income1'))
 
 //-сама страница
 mixin budget_aip()
-  section.main._basic.basic-budget.sections__item.budget_aip
-    .wrapper-header
-      +page-header('адресная инвестиционная программа', ['Бюджет Москвы'], true).budget_aip__page-header
+	section.main._basic.basic-budget.sections__item.budget_aip
+		.wrapper-header
+			+page-header('адресная инвестиционная программа', ['Бюджет Москвы'], true).budget_aip__page-header
 
-    //- Tab 1
-    .wrapper.wrapper_widget
-      .analityc-widget.analityc-widget_aip.load-anim-fade(data-delay="1500")
-        +analityc-widgethead-aip().analityc-widgethead-aip
-        +tabs
-          +tabs-tab(data-tab-group="AIP" data-tab="AIPfinData").active
-            +analityc-graphics-aip('income1')._finData.active
-            +analityc-table-slider(100)._changes.analityc-widget-sources-table_date._finData
-              +table-income_slider(getData('income1'))
-          +tabs-tab(data-tab-group="AIP" data-tab="AIPresults")
-            .govProgram__arrows
-              a.govProgram__arr.govProgram__arr_prev
-              a.govProgram__arr.govProgram__arr_next
-            .govPrograms.active
-              +GpAIP(getData('AIPgovprogram')[0]).active(data-program='transport')
-              +GpAIP(getData('AIPgovprogram')[1])(data-program='medicine')
-              +GpAIP(getData('AIPgovprogram')[2])(data-program='support')
-              +GpAIP(getData('AIPgovprogram')[3])(data-program='education')
-        //- +analityc-table()._changes
-        //-   +icon('angle-arrow').section__ar.section__ar_left
-        //-   +icon('angle-arrow').section__ar.section__ar_right
-        //-   .analityc-table__wrapper
-        //-     +table-income(getData('income1'))
-        //- 
-        //- +analityc-graphics-singleround('income2')._done
-        //- +analityc-table()._done
-        //-   +table-income(getData('income2'))
-        //- +analityc-graphics-line('Исполнение доходов бюджета на 22.04.2017', getData('graphic-lines-income1'))._date-one
-        //- +analityc-table('Исполнение доходов бюджета на 22.04.2017')._date
-        //-   +table-income(getData('income3'))
-        //- +analityc-graphics-line('Исполнение доходов бюджета на 1 февраля 2017', getData('graphic-lines-income2'))._date-two
-        
-        //- .analityc-widget__bottom
-        //-   a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
-        a(href="/").analityc-more.analityc-more_results Результаты реализации государственных программ
-    +dropdown().load-anim-fade(data-delay="1700")
+		//- Tab 1
+		.wrapper.wrapper_widget
+			.analityc-widget.analityc-widget_aip.load-anim-fade(data-delay="1500")
+				+analityc-widgethead-aip().analityc-widgethead-aip
+				+tabs
+					+tabs-tab(data-tab-group="AIP" data-tab="AIPfinData").active
+						+analityc-graphics-aip('income1')._finData.active
+						+analityc-table-slider(100)._changes.analityc-widget-sources-table_date._finData
+							+table-income_slider(getData('income1'))
+					+tabs-tab(data-tab-group="AIP" data-tab="AIPresults")
+						.govProgram__arrows
+							a.govProgram__arr.govProgram__arr_prev
+							a.govProgram__arr.govProgram__arr_next
+						.govPrograms.active
+							+GpAIP(getData('AIPgovprogram')[0]).active(data-program='transport')
+							+GpAIP(getData('AIPgovprogram')[1])(data-program='medicine')
+							+GpAIP(getData('AIPgovprogram')[2])(data-program='support')
+							+GpAIP(getData('AIPgovprogram')[3])(data-program='education')
+				//- +analityc-table()._changes
+				//-   +icon('angle-arrow').section__ar.section__ar_left
+				//-   +icon('angle-arrow').section__ar.section__ar_right
+				//-   .analityc-table__wrapper
+				//-     +table-income(getData('income1'))
+				//- 
+				//- +analityc-graphics-singleround('income2')._done
+				//- +analityc-table()._done
+				//-   +table-income(getData('income2'))
+				//- +analityc-graphics-line('Исполнение доходов бюджета на 22.04.2017', getData('graphic-lines-income1'))._date-one
+				//- +analityc-table('Исполнение доходов бюджета на 22.04.2017')._date
+				//-   +table-income(getData('income3'))
+				//- +analityc-graphics-line('Исполнение доходов бюджета на 1 февраля 2017', getData('graphic-lines-income2'))._date-two
+				
+				//- .analityc-widget__bottom
+				//-   a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
+				a(href="/").analityc-more.analityc-more_results Результаты реализации государственных программ
+		+dropdown().load-anim-fade(data-delay="1700")
