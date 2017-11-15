@@ -124,5 +124,14 @@ export default () => {
       }, 350);
     }, 25);
 	}
-
+	
+	
+	$('.open-file__row-title').each(function(){
+      var el = this;
+      var wordArray = el.innerHTML.split(' ');
+      while(el.scrollHeight > el.offsetHeight) {
+        wordArray.pop();
+        el.innerHTML = wordArray.join(' ') + '...';
+      }
+	});
 }

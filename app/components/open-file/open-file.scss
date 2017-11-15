@@ -57,6 +57,8 @@
     @media (max-width: 400px) {
       overflow-x: auto;
       overflow-y: hidden;
+      padding-bottom: 200px;
+      margin-bottom: -200px;
     }
   }
 
@@ -219,6 +221,14 @@
 
   &__main {
     margin-top: 18px;
+    
+    .open-file__row {
+      white-space: normal;
+    }
+    
+    .open-file__col_right {
+      vertical-align: bottom;
+    }
 
     @media (max-width: 900px) and (min-width: 581px) {
       margin-top: 24px;
@@ -227,15 +237,21 @@
 
   &__row-wrap {
     position: relative;
-    text-align: justify;
+    text-align: right;
     white-space: normal;
-
-    &:after {
-      content: '';
-      display: inline-block;
-      width: 100%;
-      height: 0.00000000001px;
+    padding-top: 26px;
+    
+    @media (max-width: 900px) {
+      text-align: left;
+      padding-top: 0;
     }
+
+    //&:after {
+    //  content: '';
+    //  display: inline-block;
+    //  width: 100%;
+    //  height: 0.00000000001px;
+    //}
   }
 
   &__row-title {
@@ -246,7 +262,13 @@
     text-align: left;
     letter-spacing: .1px;
     white-space: normal;
-    vertical-align: middle;
+    vertical-align: bottom;
+    padding-bottom: 10px;
+    box-sizing: content-box;
+    max-height: 3em;
+    position: absolute;
+    left: 0;
+    bottom: 0;
 
     @media (max-width: 1140px) {
       width: 45%;
@@ -255,16 +277,20 @@
     @media (max-width: 900px) and (min-width: 581px) {
       width: 100%;
       font-size: 22px;
+      padding-bottom: 0;
+      position: static;
     }
     @media (max-width: 580px) {
       width: 100%;
+      padding-bottom: 0;
+      position: static;
     }
-
   }
 
   &__row-controls {
     display: inline-block;
-    vertical-align: middle;
+    vertical-align: bottom;
+    text-align: left;
 
     @media (max-width: 900px) and (min-width: 581px) {
       margin-top: 10px;
@@ -335,6 +361,8 @@
     font-size: 14px;
     font-weight: 300;
     color: #000000;
+    height: 32px;
+    line-height: 32px;
 
     @media (max-width: 900px) and (min-width: 581px) {
       font-size: 20px;
