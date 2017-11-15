@@ -29,6 +29,8 @@ export default () => {
     
     var program = newgp.data('program');
     selectGP.next().find('[data-val="'+program+'"]').click();
+
+    aipSetUnits();
   });
 
 
