@@ -68,4 +68,24 @@ export default () => {
     }
      
  });
+
+
+  window.aipSetUnits = function() {
+    // регулировка шрифта единиц измерения на вкладке Ожидаемых результатов
+    setTimeout(function() {
+      $('.budget_aip .govProgram__data-item').each(function() {
+        var value = $(this).find('.govProgram__index-value'),
+            unit = $(this).find('.govProgram__index-units'),
+            indexW = $(this).width(),
+            valueW = value.width(),
+            unitW = unit.width(),
+            unitСalcW = indexW - valueW;
+        if (unitW > unitСalcW) unit.addClass('govProgram__index-units_small');
+      });      
+    }, 50)
+
+  }
+
+  aipSetUnits();
+
 }

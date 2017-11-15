@@ -96,6 +96,7 @@
 
   &__data-item {
     display: inline-block;
+    padding-right: 5px;
     vertical-align: top;
     width: 24%;
     font-weight: 500;
@@ -106,9 +107,9 @@
   }
 
   &__index {
+    display: table;
     font-size: 48px;
     color: #af3b81;
-    white-space: nowrap;
   }
 
   &__index-text {
@@ -118,13 +119,32 @@
 
   &__index-value,
   &__index-units {
-    display: inline-block;
-    white-space: normal;
+    display: table-cell;
+    vertical-align: bottom;
   }
 
   &__index-units {
-    font-size: 14px;
-    max-width: 30%;
+    padding: 0 0 5px 5px;
+    font-size: .5em;
+    white-space: nowrap;
+
+    @media (max-width: 900px) {
+      padding: 0 0 2px 5px;
+    }
+
+    &_small {
+      font-size: .3em;
+      padding: 0 0 7px 5px;
+      white-space: normal;
+
+      @media (max-width: 900px) {
+        padding: 0 0 2px 5px;
+      }
+
+      @media (max-width: 600px) {
+        padding: 0 0 5px 5px;
+      }
+    }
   }
 }
 
@@ -451,6 +471,32 @@
         }
       }
     }
+
+    div.govProgram {
+      &__title {
+        display: block;
+        margin-top: 15px;
+        margin-left: 0;
+      }
+      &__index {
+        font-size: 28px;
+      }
+      &__index-text {
+        font-size: 16px;
+      }
+    }
+
+    .govProgram {
+
+      &__index {
+        font-size: 36px;
+      }
+
+      &__index-text {
+        font-size: 18px;
+      }
+    }
+
     .analityc-widget__bottom {
       display: block;
     }
@@ -477,30 +523,6 @@
       }
     }
 
-    div.govProgram {
-      &__title {
-        display: block;
-        margin-top: 15px;
-        margin-left: 0;
-      }
-      &__index {
-        font-size: 28px;
-      }
-      &__index-text {
-        font-size: 16px;
-      }
-    }
-
-    .govProgram {
-
-      &__index {
-        font-size: 36px;
-      }
-
-      &__index-text {
-        font-size: 18px;
-      }
-    }
     .legend-icon__item {
       display: block;
       width: auto;

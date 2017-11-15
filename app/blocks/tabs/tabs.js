@@ -34,6 +34,10 @@ export default function tabs() {
       openConFormValidation();
     }
 
+    if (targetTab == 'AIPresults') {
+      aipSetUnits();
+    }
+
     $(document).find("[data-tab-group='" + tabGroup + "']").hide();
 
     $(document).find("[data-tab-bg='" + targetTab + "']").addClass("active").siblings().removeClass("active");
