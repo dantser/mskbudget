@@ -42,6 +42,8 @@ export default () => {
 
   window.openConFormValidation = function() {
     $('.open-con .tabs__tab.active .contest-popup form').submit(function(e) {
+      
+      e.preventDefault();
 
       const form = $(this);
       const fieldset = form.find('.js-opencon-question');
@@ -62,15 +64,19 @@ export default () => {
 
         })
       })
-
-      $('html, body').animate({
-        scrollTop: $('#contest-page__howto').offset().top - 200
-      });
+      
 
       if (form.find('.contest-popup__err').length > 0) {
+        $('html, body').animate({
+          scrollTop: $('#contest-page__howto').offset().top - 200
+        });
         return false;
+      } else {
+        $('#popup-wrapper, .popup-success').fadeIn(321);
+        setTimeout(function(){
+          $('#popup-wrapper, .popup-success').fadeOut(321);
+        }, 3000);
       }
-
     })
   }
 
