@@ -57,8 +57,8 @@ export default () => {
       nextButton: $(this).parents('.depfin-budget-moscow-media-materials__content_slider').find('.swiper-button-next'),
       slidesPerView: 1,
       spaceBetween: 46,
-      pagination: $(this).parents('.depfin-budget-moscow-media-materials__content_slider').find('.swiper-pagination'),
-      paginationClickable: true,
+      // pagination: $(this).parents('.depfin-budget-moscow-media-materials__content_slider').find('.swiper-pagination'),
+      // paginationClickable: true,
       loop: true,
       observer: true,
       observeParents: true

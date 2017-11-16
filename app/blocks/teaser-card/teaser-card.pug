@@ -1,0 +1,9 @@
+mixin teaser-card(image, title, bottomLink, topLink)
+	+b.A(href='#').teaser-card&attributes(attributes)
+		+e.DIV.thumb
+			img(src="assets/images/news/"+image+".jpg", alt="thumb")
+		+e.DIV.body
+			if topLink
+				+e.DIV.top-link= topLink
+			+e.DIV.SPAN.title= title
+			+e.DIV.bottom-link= bottomLink

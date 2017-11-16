@@ -1,0 +1,75 @@
+.teaser-card {
+  display: block;
+  color: $color-black;
+  text-decoration: none;
+  font-family: $PFDinTextPro;
+  font-weight: 500;
+  border: 1px solid #b4b4b4;
+  margin: 0 10px;
+
+  &:hover {
+  	.teaser-card__thumb {
+  		opacity: .8;
+  	}
+
+  	.teaser-card__title {
+			opacity: 1;
+  	}
+  }
+
+  &__thumb {
+    height: 180px;
+    overflow: hidden;
+    background: rgb(0, 0, 0);
+    transition: .5s;
+
+    @media (max-width: 580px) and (min-width: 401px) {
+    	height: 150px;
+    }
+
+    img {
+	    display: block;
+	    width: 100%;
+	    height: auto;
+	    min-height: 100%;
+    }
+  }
+
+  &__body {
+  	height: 200px;
+  	position: relative;
+  	padding: 10px 19px;
+  }
+
+	&__title {
+    font-size: 18px;
+		line-height: 1.2;
+    opacity: .8;
+    transition: .5s;
+	}
+
+  &__top-link,
+  &__bottom-link {
+    color: #000;
+		font-size: 14px;
+  }
+
+  &__top-link {
+  	color: $color-link;
+    line-height: 2;
+  }
+
+  &__bottom-link {
+  	position: absolute;
+    bottom: 10px;
+    opacity: .3;
+  }
+
+  &_ref {
+  	.teaser-card__bottom-link {
+  		color: $color-link;
+			font-size: 16px;
+			opacity: 1;
+  	}
+  }
+}

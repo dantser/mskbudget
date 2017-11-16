@@ -5,6 +5,10 @@
   background-position: center 0;
   padding-bottom: 124px;
 
+  .wrapper-header {
+    margin-bottom: 58px;
+  }
+
   &__heading {
     display: inline-block;
     vertical-align: top;
@@ -12,39 +16,24 @@
     font-family: $PFDinCompressedPro;
     font-weight: 500;
     text-transform: uppercase;
-    font-size: 72px;
+    font-size: 30px;
     line-height: 1em;
     letter-spacing: 0.0325rem;
     margin-bottom: 20px;
     white-space: nowrap;
 
     @media screen and (max-width: 1160px) and (min-width: 901px) {
-      padding-left: 24px;
+      /*padding-left: 24px;*/
     }
 
     @media screen and (max-width: 640px) and (min-width: 401px) {
-      padding-left: 15px;
-    }
-
-    @media (max-width: 580px) {
-      font-size: 48px;
-    }
-
-    @media (max-width: 580px) {
-      font-size: 36px;
-    }
-
-    @media screen and (max-width: 450px) {
-
+      /*padding-left: 15px;*/
     }
 
     .media-main__page-link {
       margin-left: 8px;
-      margin-top: 7px;
-
-      @media (max-width: 580px) {
-        margin-top: 2px;
-      }
+      margin-top: 2px;
+      white-space: nowrap;
     }
   }
 
@@ -431,6 +420,15 @@
   &__section {
     &_news {
 
+      .swiper-container {
+        @media (max-width: 900px) {
+          padding-bottom: 58px;
+        }
+
+        @media (max-width: 640px) {
+          padding-bottom: 30px;
+        }
+      }
     }
 
     &_events {
@@ -483,7 +481,7 @@
   }
 
   &__materials {
-    margin-top: 74px;
+    margin-top: 20px;
     display: none;
     &.active {
       display: block;

@@ -4,6 +4,7 @@ include ../../blocks/button/button
 include ../page-header/page-header
 include ../../blocks/news-card/news-card
 include ../../blocks/icon/icons
+include ../../blocks/teaser-card/teaser-card
 
 mixin news-one()
   +b.SECTION.news-one.sections__item&attributes(attributes)
@@ -106,6 +107,14 @@ mixin news-one()
           .d-sr__social
             span.d-sr__social_txt Поделиться новостью:
             +social('facebook-box', 'vk', 'tw', 'odnokl', 'printer').__social.d-si-content__social
+
+        +e.teaser
+          +e.teaser-tile
+            +teaser-card(1, '«Наш город»: открытые зимние темы', 'Новость')
+          +e.teaser-tile
+            +teaser-card(1, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque assumenda corporis, dignissimos, ullam voluptas debitis, maiores reiciendis quidem ex laudantium, magni atque! Quibusdam tempora repellendus voluptatem. Est adipisci quo blanditiis.', 'Проверить', 'инструкция')._ref
+          +e.teaser-tile
+            +teaser-card(1, 'Как госуслуги помогут подготовиться к отпуску', 'Новость')
     
     .wrap
       +e.read-also
