@@ -25,9 +25,6 @@ export default () => {
 
 	$(document).on('click', '.open-file__link-about', function(e) {
 		e.preventDefault();
-		//$('.open-file__content, .open-file__search-form').hide();
-		//$('.open-file__popup_about').show();
-		//scrollUp();
 		$('html, body').css('overflow', 'hidden');
 		$('.open-file__popups, .open-file__popup_about').show().scrollTop(0);
 		if ($(window).width() <= 767) {
@@ -36,9 +33,6 @@ export default () => {
 	})
 	$(document).on('click', '.open-file__link-terms', function(e) {
 		e.preventDefault();
-		//$('.open-file__content, .open-file__search-form').hide();
-		//$('.open-file__popup_terms').show();
-		//scrollUp();
 		$('html, body').css('overflow', 'hidden');
 		$('.open-file__popups, .open-file__popup_terms').show().scrollTop(0);
 		if ($(window).width() <= 767) {
@@ -47,23 +41,18 @@ export default () => {
 	})
 	$(document).on('click', '.open-file__get', function(e) {
 		e.preventDefault();
-		//$('.open-file__content, .open-file__search-form').hide();
-		//$('.open-file__popup_request').show();
-		//scrollUp();
-		$('html, body').css('overflow', 'hidden');
-		$('.open-file__popups, .open-file__popup_request').show().scrollTop(0);
-		if ($(window).width() <= 767) {
-			$('.open-file').css('z-index', 'auto');
-		}
+		$('.open-file__content, .open-file__search-form').hide();
+		$('.open-file__popups-static, .open-file__popup_request').show();
+		scrollUp();
 	})
 
 	$(document).on('click', '.open-file__popups, .open-file__popup-close', function(e) {
 		$('html, body').css('overflow', '');
-		$('.open-file__popups, .open-file__popup').hide();
+		$('.open-file__popups, .open-file__popups-static, .open-file__popup').hide();
 		if ($(window).width() <= 767) {
 			$('.open-file').css('z-index', '');
 		}
-		//$('.open-file__content, .open-file__search-form').show();
+		$('.open-file__content, .open-file__search-form').show();
 	})
 	
 	$(document).on('click', '.open-file__popup', function(e) {
@@ -136,12 +125,8 @@ export default () => {
 				})
 			})
 
-      //$('html, body').animate({
-      //  scrollTop: $('#open-file__howto').offset().top - 200
-      //});
-          
-      $('.open-file__popups').animate({
-        scrollTop: 0
+      $('html, body').animate({
+        scrollTop: $('#open-file__howto').offset().top - 200
       });
 
 			if (form.find('.open-file__err').length > 0) {

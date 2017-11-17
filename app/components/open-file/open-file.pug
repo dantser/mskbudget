@@ -115,74 +115,75 @@ mixin open-file()
               +e.P.popup-text Основными потребителями служат разработчики приложений и сервисов, данные как исходный материал для своих разработок, а также журналисты и другие заинтересованные лица, которые могут делать глубокие социально-экономические, научные исследования на основе «сырых» данных.
               +e.P.popup-text Целью раскрытия данных и их публикации в машиночитаемых форматах и есть облегчение к ним доступа и создание приложений, проведения исследований на их основе.
   
-          +e.popup._request
-            +e.popup-head
-              +e.H3.popup-title Запросить открытые данные
-              +icon('icon-cross').popup-close
-            +e.popup-content
-              +e.P.popup-text В случае, если Вам нужны какие-либо данные, но Вы не нашли их на Портале, Вы можете направить запрос на их добавление. Запрос будет рассмотрен в Департаменте финансов города Москвы. После принятия решения о раскрытии данных они будут размещены на нашем Портале.
+      +e.popups-static
+        +e.popup._request
+          +e.popup-head
+            +e.H3.popup-title Запросить открытые данные
+            +icon('icon-cross').popup-close
+          +e.popup-content
+            +e.P.popup-text В случае, если Вам нужны какие-либо данные, но Вы не нашли их на Портале, Вы можете направить запрос на их добавление. Запрос будет рассмотрен в Департаменте финансов города Москвы. После принятия решения о раскрытии данных они будут размещены на нашем Портале.
+            
+            
+            form(action='#', id='d-sii__form').d-sii__form
+
+              fieldset(data-type='text').d-sii__form_question
+                +e.LEGEND(id='open-file__howto') Пожалуйста, представьтесь
+                  i (необходимо заполнить все поля)
+                +e.field
+                  +e.LABEL ФИО
+                  +e.INPUT(type='text' name='')
+                +e.field
+                  +e.LABEL Электронная почта
+                  +e.INPUT(type='text' name='')
+
+              fieldset(data-type='text').d-sii__form_question
+                +e.LEGEND Ваша деятельность
+                +e.field
+                  +e.LABEL Категория
+                  +selectbox('select', [{'val': 'opt1', 'text': 'Общественные организации'}, {'val': 'opt2', 'text': 'Другое'}])
+                +e.field
+                  +e.LABEL Место работы
+                  +e.INPUT(type='text' name='')
+                +e.field
+                  +e.LABEL Должность
+                  +e.INPUT(type='text' name='')
+
+              fieldset(data-type='text').d-sii__form_question
+                +e.LEGEND Какие данные вы хотели бы получить?
+                +e.field
+                  +e.LABEL Наименование
+                  +e.INPUT(type='text' name='')
+                +e.field
+                  +e.LABEL Описание
+                  +e.INPUT(type='text' name='')
+
+              fieldset(data-type='radio').d-sii__form_question.d-sii__form_nowrap
+                legend Сталкивались ли вы ранее с проблемой доступа к этим данным?
+                +e.field
+                  input(name='d-sq_radio', type='radio', id='d-rad-f').d-sq_radio
+                  label(for='d-rad-f') Да
+                +e.field
+                  input(name='d-sq_radio', type='radio', id='d-rad-s').d-sq_radio
+                  label(for='d-rad-s') Нет
               
-              
-              form(action='#', id='d-sii__form').d-sii__form
-  
-                fieldset(data-type='text').d-sii__form_question
-                  +e.LEGEND(id='open-file__howto') Пожалуйста, представьтесь
-                    i (необходимо заполнить все поля)
-                  +e.field
-                    +e.LABEL ФИО
-                    +e.INPUT(type='text' name='')
-                  +e.field
-                    +e.LABEL Электронная почта
-                    +e.INPUT(type='text' name='')
-  
-                fieldset(data-type='text').d-sii__form_question
-                  +e.LEGEND Ваша деятельность
-                  +e.field
-                    +e.LABEL Категория
-                    +selectbox('select', [{'val': 'opt1', 'text': 'Общественные организации'}, {'val': 'opt2', 'text': 'Другое'}])
-                  +e.field
-                    +e.LABEL Место работы
-                    +e.INPUT(type='text' name='')
-                  +e.field
-                    +e.LABEL Должность
-                    +e.INPUT(type='text' name='')
-  
-                fieldset(data-type='text').d-sii__form_question
-                  +e.LEGEND Какие данные вы хотели бы получить?
-                  +e.field
-                    +e.LABEL Наименование
-                    +e.INPUT(type='text' name='')
-                  +e.field
-                    +e.LABEL Описание
-                    +e.INPUT(type='text' name='')
-  
-                fieldset(data-type='radio').d-sii__form_question.d-sii__form_nowrap
-                  legend Сталкивались ли вы ранее с проблемой доступа к этим данным?
-                  +e.field
-                    input(name='d-sq_radio', type='radio', id='d-rad-f').d-sq_radio
-                    label(for='d-rad-f') Да
-                  +e.field
-                    input(name='d-sq_radio', type='radio', id='d-rad-s').d-sq_radio
-                    label(for='d-rad-s') Нет
-                
-                fieldset(data-type='checkbox').d-sii__form_question.d-sii__form_nowrap
-                  legend В каких целях вы хотели бы использовать данные?
-                  +e.field
-                    input(type='checkbox', id='d-sii__chbox-s-first').d-sii__chbox
-                    label(for='d-sii__chbox-s-first') В бизнесе
-                  +e.field
-                    input(type='checkbox', id='d-sii__chbox-s-second').d-sii__chbox
-                    label(for='d-sii__chbox-s-second') В личных целях
-                  +e.field
-                    input(type='checkbox', id='d-sii__chbox-s-third').d-sii__chbox
-                    label(for='d-sii__chbox-s-third') В общественной работе
-                  +e.field
-                    input(type='checkbox', id='d-sii__chbox-s-forth').d-sii__chbox
-                    label(for='d-sii__chbox-s-forth') Для исследовательской деятельности
-                  +e.field
-                    input(type='checkbox', id='d-sii__chbox-s-fifth').d-sii__chbox
-                    label(for='d-sii__chbox-s-fifth') Другое
-  
-                +e.popup-submit
-                  +button(true)._kind_yellow
-                    | Отправить
+              fieldset(data-type='checkbox').d-sii__form_question.d-sii__form_nowrap
+                legend В каких целях вы хотели бы использовать данные?
+                +e.field
+                  input(type='checkbox', id='d-sii__chbox-s-first').d-sii__chbox
+                  label(for='d-sii__chbox-s-first') В бизнесе
+                +e.field
+                  input(type='checkbox', id='d-sii__chbox-s-second').d-sii__chbox
+                  label(for='d-sii__chbox-s-second') В личных целях
+                +e.field
+                  input(type='checkbox', id='d-sii__chbox-s-third').d-sii__chbox
+                  label(for='d-sii__chbox-s-third') В общественной работе
+                +e.field
+                  input(type='checkbox', id='d-sii__chbox-s-forth').d-sii__chbox
+                  label(for='d-sii__chbox-s-forth') Для исследовательской деятельности
+                +e.field
+                  input(type='checkbox', id='d-sii__chbox-s-fifth').d-sii__chbox
+                  label(for='d-sii__chbox-s-fifth') Другое
+
+              +e.popup-submit
+                +button(true)._kind_yellow
+                  | Отправить
