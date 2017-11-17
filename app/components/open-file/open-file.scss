@@ -34,7 +34,7 @@
     @include clearfix;
     opacity: 0;
     position: absolute;
-    top: 0;
+    top: 100px;
     left: -3px;
     right: -3px;
     z-index: 1;
@@ -88,6 +88,24 @@
       .open-file__row-controls {
         position: relative;
         z-index: 2;
+        
+        &:after {
+          content: '';
+          display: block;
+          position: absolute;
+          left: 0;
+          top: 100%;
+          right: 0;
+          box-sizing: border-box;
+          height: 18px;
+          border-left: 1px solid #acacac;
+          border-right: 1px solid #acacac;
+          background-color: #fff;
+          
+          @media (max-width: 900px) {
+            display: none;
+          }
+        }
       }
 
       .open-file__row-about {
@@ -97,10 +115,12 @@
       .open-file__row-description {
         border-bottom: $color-white;
         background-color: $color-white;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
       }
 
       & + .open-file__row {
-        margin-top: 8px;
+        //margin-top: 8px;
       }
     }
   }
@@ -221,10 +241,6 @@
     .open-file__row {
       white-space: normal;
     }
-    
-    .open-file__col_right {
-      vertical-align: bottom;
-    }
 
     @media (max-width: 900px) and (min-width: 581px) {
       margin-top: 24px;
@@ -233,59 +249,73 @@
 
   &__row-wrap {
     position: relative;
-    text-align: right;
+    text-align: justify;
+    text-justify: distribute;
     white-space: normal;
-    padding-top: 26px;
     
     @media (max-width: 900px) {
       text-align: left;
       padding-top: 0;
     }
 
-    //&:after {
-    //  content: '';
-    //  display: inline-block;
-    //  width: 100%;
-    //  height: 0.00000000001px;
-    //}
+    &:after {
+      content: '';
+      display: inline-block;
+      width: 100%;
+      height: 0.00000000001px;
+    }
   }
 
   &__row-title {
     display: inline-block;
-    width: 55%;
+    width: 52%;
     font-family: $PFDinTextPro;
     font-size: 16px;
     text-align: left;
     letter-spacing: .1px;
     white-space: normal;
-    vertical-align: bottom;
-    padding-bottom: 10px;
+    vertical-align: middle;
+    height: 3em;
+    position: relative;
+    padding: 10px 0;
     box-sizing: content-box;
-    max-height: 3em;
-    position: absolute;
-    left: 0;
-    bottom: 0;
 
     @media (max-width: 1140px) {
       width: 45%;
     }
-
-    @media (max-width: 900px) and (min-width: 581px) {
+    
+    @media (max-width: 900px) {
       width: 100%;
       font-size: 22px;
-      padding-bottom: 0;
-      position: static;
+      padding: 0;
+      height: auto;
+      max-height: 3em;
     }
+    
     @media (max-width: 580px) {
+      font-size: 16px;
+    }
+    
+    span {
+      display: block;
+      position: absolute;
       width: 100%;
-      padding-bottom: 0;
-      position: static;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      
+      @media (max-width: 900px) {
+        position: static;
+        left: 0;
+        top: 0;
+        transform: none;
+      }
     }
   }
 
   &__row-controls {
     display: inline-block;
-    vertical-align: bottom;
+    vertical-align: middle;
     text-align: left;
 
     @media (max-width: 900px) and (min-width: 581px) {
@@ -348,9 +378,13 @@
     letter-spacing: 1px;
     color: #424242;
     white-space: normal;
-    border: 1px solid #d5d5d5;
+    border: 1px solid #acacac;
     margin-left: -10px;
     z-index: 1;
+    
+    @media (max-width: 400px) {
+      margin-left: -9px;
+    }
   }
 
   &__row-date {
@@ -361,7 +395,14 @@
     line-height: 32px;
 
     @media (max-width: 900px) and (min-width: 581px) {
+      height: auto;
       font-size: 20px;
+      line-height: 24px;
+    }
+    
+    @media (max-width: 580px) {
+      height: auto;
+      line-height: 18px;
     }
   }
 
@@ -371,6 +412,7 @@
     color: $color-link;
     margin-top: 43px;
     width: 76%;
+    position: relative;
 
     @media (max-width: 900px) {
       width: 100%;
@@ -436,16 +478,36 @@
   }
 
   &__popups {
-    margin-top: 48px;
-    background-color: $color-white;
-
-    @media (max-width: 580px) {
-      margin-top: 17px;
+    //margin-top: 48px;
+    //background-color: $color-white;
+    //
+    //@media (max-width: 580px) {
+    //  margin-top: 17px;
+    //}
+    
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(36,36,45,.3);
+    overflow-y: scroll;
+    z-index: 9999;
+  }
+  
+  &__popups-wrapper {
+    width: 1100px;
+    margin: 40px auto;
+    
+    @media (max-width: 1100px) {
+      width: auto;
     }
   }
 
   &__popup {
     display: none;
+    background-color: #fff;
 
     &_terms {
       .open-file__popup-text_small {
