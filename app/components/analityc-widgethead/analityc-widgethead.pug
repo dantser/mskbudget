@@ -4,6 +4,14 @@ include ../../blocks/checkbox/checkbox
 include ../../blocks/link/link
 include ../../blocks/selectbox/selectbox
 
+//- Переключатель график/таблица
+mixin gt-switcher()
+  .analityc-control-buttons&attributes(attributes)
+    a(href="#", data-type='graphics', title='График').analityc-control-button.analityc-control-button_graphics.active
+      +icon('graphic', true)
+    a(href="#", data-type='table', title='Таблица').analityc-control-button.analityc-control-button_table
+      +icon('table', true)
+
 //- Селекты
 //- Год
 mixin select-year()
@@ -140,11 +148,7 @@ mixin analityc-widgethead-income()
     .analityc-control-group._transfer
       span Классификация доходов
       +select-transfer-locked()
-    .analityc-control-buttons.active
-      a(href="#", data-type='graphics').analityc-control-button.analityc-control-button_graphics.active
-        +icon('graphic', true)
-      a(href="#", data-type='table').analityc-control-button.analityc-control-button_table
-        +icon('table', true)
+    +gt-switcher().active
     .analityc-control-group._dp(data-stage='date', data-level='moscow, area, region', data-type='all', data-control)
       input(placeholder="Выберите дату исполнения", value="Выберите дату исполнения", readonly="readonly").datepicker
     .analityc-control-group._dp.analityc-control-group._dp-alt.expenses__dp(data-stage='date', data-level='consolidated', data-type='all', data-control)
@@ -171,11 +175,7 @@ mixin analityc-widgethead-expenses()
     .analityc-control-group._transfer
       span Межбюджетные трансферы
       +select-transfer-locked()
-    .analityc-control-buttons
-      a(href="#", data-type='graphics').analityc-control-button.analityc-control-button_graphics.active
-        +icon('graphic', true)
-      a(href="#", data-type='table').analityc-control-button.analityc-control-button_table
-        +icon('table', true)
+    +gt-switcher()
     .analityc-control-group._classify
       span Классификация доходов
       +select-classify()
@@ -202,11 +202,7 @@ mixin analityc-widgethead-sources()
     .analityc-control-group._level
       span Уровень
       +select-level()
-    .analityc-control-buttons.active
-      a(href="#", data-type='graphics').analityc-control-button.analityc-control-button_graphics.active
-        +icon('graphic', true)
-      a(href="#", data-type='table').analityc-control-button.analityc-control-button_table
-        +icon('table', true)
+    +gt-switcher().active
     .analityc-control-group._dp(data-stage='date', data-level='moscow, area, region', data-type='all', data-control)
       input(value="Выберите дату исполнения", readonly="readonly").datepicker
     .analityc-control-group._dp-alt.expenses__dp(data-stage='date', data-level='consolidated', data-type='all', data-control)
@@ -231,11 +227,7 @@ mixin analityc-widgethead-moscow-gp(program)
     .analityc-control-group._transfer
       span Межбюджетные трансферты
       +select-transfer-locked()
-    .analityc-control-buttons.active
-      a(href="#", data-type='graphics').analityc-control-button.analityc-control-button_graphics.active
-        +icon('graphic', true)
-      a(href="#", data-type='table').analityc-control-button.analityc-control-button_table
-        +icon('table', true)
+    +gt-switcher().active
 
     //- в отдельной программе
     if program
@@ -307,11 +299,7 @@ mixin analityc-widgethead-mrelations(type)
           +selbox-opt('transkinds', 'Виды трансфертов', true)
           +selbox-opt('directions', 'Направления расходования')
     .analityc-control-group-wrapper
-      .analityc-control-buttons.active
-        a(href="#", data-type='graphics').analityc-control-button.analityc-control-button_graphics.active
-          +icon('graphic', true)
-        a(href="#", data-type='table').analityc-control-button.analityc-control-button_table
-          +icon('table', true)   
+      +gt-switcher().active   
       .analityc-control-group._dp(data-stage='date', data-type='all', data-control)
         input(placeholder="Выберите дату исполнения", value="Выберите дату исполнения", readonly="readonly").datepicker
       .analityc-control-switcher.analityc-control-switcher_big(data-stage='all', data-type='table', data-control)
@@ -345,11 +333,7 @@ mixin analityc-widgethead-aip()
           +selbox-opt('support', 'Социальная поддержка жителей Москвы')
           +selbox-opt('education', 'Столичное образование')
     +e.row._extra
-      .analityc-control-buttons.active
-        a(href="#", data-type='graphics').analityc-control-button.analityc-control-button_graphics.active
-          +icon('graphic', true)
-        a(href="#", data-type='table').analityc-control-button.analityc-control-button_table
-          +icon('table', true)
+      +gt-switcher().active
       .analityc-control-switcher.analityc-control-switcher_default.active
         a(href="#").active доля от общей суммы, %
         a(href="#") млрд. руб.
@@ -829,10 +813,10 @@ mixin analityc-widgethead-gov-realisation(type)
   
     .analityc-control-group-wrapper
       .analityc-control-buttons.active
-        a(href="#", data-select-switcher='switcher1').analityc-control-button.analityc-control-button_graphics
+        a(href="#", data-select-switcher='switcher1', title='График').analityc-control-button.analityc-control-button_graphics
           +icon('graphic', true)
           
-        a(href="#", data-select-switcher='switcher2').analityc-control-button.analityc-control-button_table.active
+        a(href="#", data-select-switcher='switcher2', title='Таблица').analityc-control-button.analityc-control-button_table.active
           +icon('table', true)   
 
       .analityc-control-switcher.analityc-control-switcher_large(data-switcher='switcher1')
