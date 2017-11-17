@@ -71,7 +71,12 @@ export default () => {
     function closeSubMenu() {
       return $('#menu .submenu__link.has-dropdown').removeClass('dropdown-is-active');
     }
-
+    
+    function addActiveClass(el) {
+      el.addClass('dropdown-is-active');
+    }
+    
+    var timeout;
     // показываем подменю 2-го уровня
     // ДЕКСТОП
     $('#menu .submenu__link').on('mouseover', function(e) {
@@ -83,16 +88,26 @@ export default () => {
           if (e.target.offsetTop > 0) {
             e.target.nextElementSibling.setAttribute('style','transform: translateY(' + e.target.offsetTop + 'px)');
           }
-          $(this).addClass('dropdown-is-active');
+          var el = $(this);
+          timeout = setTimeout(function(){
+            addActiveClass(el);
+          }, 200);
         }
       }
     });
     
+    //$('#menu .submenu__link, #menu .subsubmenu').on('mouseout', function(e) {
+    //  if ($(window).outerWidth() > 1024) {
+    //    if (!$('#menu .subsubmenu:hover').length) {
+    //      clearTimeout(timeout);
+    //      closeSubMenu();
+    //    }
+    //  }
+    //});
+    
     $('#menu .submenu__link, #menu .subsubmenu').on('mouseout', function(e) {
       if ($(window).outerWidth() > 1024) {
-        if (!$('#menu .subsubmenu:hover').length) {
-          closeSubMenu();
-        }
+        clearTimeout(timeout);
       }
     });
 
