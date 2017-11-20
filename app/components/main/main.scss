@@ -31,13 +31,20 @@
 
 .wrapper_main {
   max-width: initial;
+  
+  .sections__item {
+    &:first-of-type {
+      z-index: 2;
+    }
+  }
 
   .sections>:first-child {
     padding-top: 0;
   }
 
   .cube {
-    z-index: 0;
+    //z-index: 0;
+    overflow: hidden;
   }
 
   .cube__arrow_m {
@@ -66,10 +73,6 @@
     position: relative;
     display: inline-block;
     z-index: 3;
-    cursor: pointer;
-  }
-
-  .datepicker__show {
     cursor: pointer;
   }
 
@@ -425,6 +428,11 @@
         @media (max-width: 480px) {
           font-size: 14px;
         }
+      }
+      
+      ul {
+        max-height: 161px;
+        overflow: auto;
       }
     }
 
