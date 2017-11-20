@@ -91,7 +91,7 @@ export default () => {
           var el = $(this);
           timeout = setTimeout(function(){
             addActiveClass(el);
-          }, 200);
+          }, 300);
         }
       }
     });
