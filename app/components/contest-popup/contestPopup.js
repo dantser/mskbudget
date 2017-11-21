@@ -13,19 +13,19 @@ export default () => {
     });
   }
   
-  $('.contest-popup__close').click(function(e) {
+  $(document).on('click', '.contest-popup__close', function(e) {
     e.preventDefault();
     $('.open-con__popup').hide();
     $('.open-con__con').show();
   });
   
-  $('.contest-popup__hide').click(function(e){
+  $(document).on('click', '.contest-popup__hide', function(e){
     e.preventDefault();
     $(this).parent().remove();
     checkParticipantIndex();
   });
   
-  $('.contest-popup .js-button-addparticipant').click(function(e){
+  $(document).on('click', '.contest-popup .js-button-addparticipant', function(e){
     e.preventDefault();
     $('.contest-popup__participant').first().clone(true).insertBefore('.contest-popup .js-button-addparticipant').find('.contest-popup__fio').val('');
     checkParticipantIndex();
@@ -121,7 +121,7 @@ export default () => {
     $('.contest-popup__submit').removeClass('disabled');
   });
   
-  $('.contest-popup__delete-icon').click(function(e){
+  $(document).on('click', '.contest-popup__delete-icon', function(e){
     $(this).parent().remove();
     checkAttachments();
   });
