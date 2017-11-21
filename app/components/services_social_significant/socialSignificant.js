@@ -50,7 +50,7 @@ export default () => {
     $('.significant').find('.significant-list__main').scrollbar();
 
   const TABS = $('.significant .tabs__tab');
-  const LISTLINK = $('.significant-list_list .significant-list__row-title');
+  const LISTLINK = $('.significant-list_list .significant-list__row-title:not(.projectLink)');
   LISTLINK.each(function() {
   	$(this).click(function(e) {
   		e.preventDefault();
@@ -71,135 +71,135 @@ export default () => {
   	})
   })
 
-  if ( $('#significant-bigmap').length > 0 ) {
-        
+  if ( $('#significant-bigmap').length > 0 || $('#significant-smallmap').length > 0) {
     ymaps.load('https://api-maps.yandex.ru/2.1/?lang=ru_RU').then(maps => {
-      var bigMap = new maps.Map("significant-bigmap", {
-        center: [55.751574, 37.573856],
-        zoom: 10,
-        behaviors: ['default', 'scrollZoom'],
-        controls: []
-      }, {
-        suppressMapOpenBlock: true
-      }),
-          
-      // Создадим кластеризатор, вызвав функцию-конструктор.
-      clusterer = new maps.Clusterer({
-        preset: 'islands#blueClusterIcons',
-        groupByCoordinates: false
-      }),
-      
-      points = [],
-      geoObjects = [];
-      
-      $('.significant-list_map .significant-list__row-title').each(function(){
-        var point = $(this).attr('value').split(','),
-            pointArr = [],
-            pointX = pointArr.push(parseFloat(point[0])),
-            pointY = pointArr.push(parseFloat(point[1]));
-        points.push(pointArr);
-      });
-      
-      // Создание макета содержимого балуна.
-      var BalloonLayout = maps.templateLayoutFactory.createClass(
-        '<div class="placemark-layout-container">' +
-            '<div class="placemark-layout-close" href="#"></div>' +
-            '<div class="placemark-layout-inner">' +
-              '$[[options.contentLayout observeSize minWidth=235 maxWidth=235 maxHeight=350]]' +
-            '</div>' +
-        '</div>',
-        {
-          build: function () {
-            BalloonLayout.superclass.build.call(this);
-            this.handleClose = $.proxy(this.handleClose, this);
-            $(this.getParentElement)
-              .on('click', '.placemark-layout-close', this.handleClose);
-          },
-          clear: function () {
-            $(this.getParentElement)
-              .off('click', '.placemark-layout-close', this.handleClose);
-            BalloonLayout.superclass.build.call(this);
-          },
-          handleClose: function () {
-            this.events.fire('userclose');
-          }
+        if ($('#significant-bigmap').length > 0) {
+            var bigMap = new maps.Map("significant-bigmap", {
+                    center: [55.751574, 37.573856],
+                    zoom: 10,
+                    behaviors: ['default', 'scrollZoom'],
+                    controls: []
+                }, {
+                    suppressMapOpenBlock: true
+                }),
+
+                // Создадим кластеризатор, вызвав функцию-конструктор.
+                clusterer = new maps.Clusterer({
+                    preset: 'islands#blueClusterIcons',
+                    groupByCoordinates: false
+                }),
+
+                points = [],
+                geoObjects = [];
+
+            $('.significant-list_map .significant-list__row-title').each(function () {
+                var point = $(this).attr('value').split(','),
+                    pointArr = [],
+                    pointX = pointArr.push(parseFloat(point[0])),
+                    pointY = pointArr.push(parseFloat(point[1]));
+                points.push(pointArr);
+            });
+
+            // Создание макета содержимого балуна.
+            var BalloonLayout = maps.templateLayoutFactory.createClass(
+                '<div class="placemark-layout-container">' +
+                '<div class="placemark-layout-close" href="#"></div>' +
+                '<div class="placemark-layout-inner">' +
+                '$[[options.contentLayout observeSize minWidth=235 maxWidth=235 maxHeight=350]]' +
+                '</div>' +
+                '</div>',
+                {
+                    build: function () {
+                        BalloonLayout.superclass.build.call(this);
+                        this.handleClose = $.proxy(this.handleClose, this);
+                        $(this.getParentElement)
+                            .on('click', '.placemark-layout-close', this.handleClose);
+                    },
+                    clear: function () {
+                        $(this.getParentElement)
+                            .off('click', '.placemark-layout-close', this.handleClose);
+                        BalloonLayout.superclass.build.call(this);
+                    },
+                    handleClose: function () {
+                        this.events.fire('userclose');
+                    }
+                }
+            )
+
+            // Создание вложенного макета содержимого балуна.
+            var BalloonContentLayout = maps.templateLayoutFactory.createClass(
+                '<h3 class="placemark-layout-header">$[properties.balloonHeader]</h3>' +
+                '<p class="placemark-layout-street">$[properties.balloonStreet]</p>' +
+                '<p class="placemark-layout-date">Предполагаемый срок ввода в эксплуатацию: $[properties.balloonDate]</p>' +
+                '<a href="$[properties.balloonHref]" class="placemark-layout-link">подробнее</p>'
+            )
+
+            // Опции балуна
+            var balloonPresets = {
+                balloonShadow: false,
+                balloonLayout: BalloonLayout,
+                balloonContentLayout: BalloonContentLayout,
+                balloonPanelMaxMapArea: 0,
+                hideIconOnBalloonOpen: false
+            }
+
+            // Данные передаются вторым параметром в конструктор метки, опции - третьим.
+            for (var i = 0, len = points.length; i < len; i++) {
+                geoObjects[i] = new maps.Placemark(points[i], getPointData(i), balloonPresets);
+                geoObjects[i].id = i + 1;
+            }
+
+            // Выделение проекта в таблице по клику на метке
+            bigMap.geoObjects.events.add('click', function (e) {
+                var object = e.get('target'),
+                    table = $('.significant-list_map .significant-list__main'),
+                    scrollTo = table.find('.significant-list__row-title[data-target=' + object.id + ']').parents('.significant-list__row');
+
+                table.animate({
+                    scrollTop: scrollTo.offset().top - table.offset().top + table.scrollTop()
+                });
+
+                table.find('.significant-list__row').removeClass('significant-list__row_active');
+                scrollTo.addClass('significant-list__row_active');
+
+                bigMap.panTo(object.geometry.getCoordinates(), {flying: true});
+            })
+
+            // В кластеризатор можно добавить javascript-массив меток (не геоколлекцию) или одну метку.
+            clusterer.add(geoObjects);
+            bigMap.geoObjects.add(clusterer);
+
+            $(".significant-list_map .significant-list__row-title").on("click", function (e) {
+
+                bigMap.setZoom(15);
+
+                var elem = $(this),
+                    elemIndex = $(this).parents('.significant-list__row').index();
+                // таблица
+                $('.significant-list__row').removeClass('significant-list__row_active');
+                elem.parents('.significant-list__row').addClass('significant-list__row_active');
+                // переход
+                var marks = clusterer.getGeoObjects(),
+                    currMark = marks[elemIndex],
+                    markCoords = currMark.geometry.getCoordinates();
+
+                bigMap.panTo(markCoords, {
+                    flying: true
+                }).then(function () {
+                    currMark.balloon.open();
+                }, function (err) {
+                    console.log('Произошла ошибка ' + err);
+                }, this);
+
+                return false;
+
+            });
+
         }
-      )
-
-      // Создание вложенного макета содержимого балуна.
-      var BalloonContentLayout = maps.templateLayoutFactory.createClass(
-        '<h3 class="placemark-layout-header">$[properties.balloonHeader]</h3>' +
-        '<p class="placemark-layout-street">$[properties.balloonStreet]</p>' +
-        '<p class="placemark-layout-date">Предполагаемый срок ввода в эксплуатацию: $[properties.balloonDate]</p>' +
-        '<a href="$[properties.balloonHref]" class="placemark-layout-link">подробнее</p>'
-      )
-
-      // Опции балуна
-      var balloonPresets = {
-        balloonShadow: false,
-        balloonLayout: BalloonLayout,
-        balloonContentLayout: BalloonContentLayout,
-        balloonPanelMaxMapArea: 0,
-        hideIconOnBalloonOpen: false
-      }
-
-      // Данные передаются вторым параметром в конструктор метки, опции - третьим.
-      for(var i = 0, len = points.length; i < len; i++) {
-        geoObjects[i] = new maps.Placemark(points[i], getPointData(i), balloonPresets);
-        geoObjects[i].id = i + 1;
-      }
-      
-      // Выделение проекта в таблице по клику на метке
-      bigMap.geoObjects.events.add('click', function(e) {
-        var object = e.get('target'),
-            table = $('.significant-list_map .significant-list__main'),
-            scrollTo = table.find('.significant-list__row-title[data-target='+object.id+']').parents('.significant-list__row');
-
-        table.animate( { 
-          scrollTop: scrollTo.offset().top - table.offset().top + table.scrollTop()
-        });
-
-        table.find('.significant-list__row').removeClass('significant-list__row_active');
-        scrollTo.addClass('significant-list__row_active');
-
-        bigMap.panTo( object.geometry.getCoordinates(), { flying: true });
-      })
-
-      // В кластеризатор можно добавить javascript-массив меток (не геоколлекцию) или одну метку.
-      clusterer.add(geoObjects);
-      bigMap.geoObjects.add(clusterer);
-      
-      $(".significant-list_map .significant-list__row-title").on("click", function(e) {
-        
-        bigMap.setZoom(15);
-        
-        var elem = $(this),
-            elemIndex = $(this).parents('.significant-list__row').index();
-        // таблица
-        $('.significant-list__row').removeClass('significant-list__row_active');
-        elem.parents('.significant-list__row').addClass('significant-list__row_active');        
-        // переход
-        var marks = clusterer.getGeoObjects(),
-            currMark = marks[elemIndex],
-            markCoords = currMark.geometry.getCoordinates();
-        
-        bigMap.panTo( markCoords, {
-          flying: true
-        }).then(function () {
-          currMark.balloon.open();
-        }, function (err) {
-          console.log('Произошла ошибка ' + err);
-        }, this);
-        
-        return false;
-        
-      });
-      
-
 
       // карта во вкладке отдельного проекта
       smallMap = new maps.Map("significant-smallmap", {
-          center: [55.753215, 37.622504],
+          center: [$('#significant-smallmap').data('lat'), $('#significant-smallmap').data('lng')],
           zoom: 14,
           type: "yandex#map",
           controls: []
@@ -208,17 +208,15 @@ export default () => {
         suppressMapOpenBlock: true
       });
       
-      $(".significant-list_list .significant-list__row-title").on("click", function(e) {
-        
         smallMap.geoObjects.removeAll();
         
         smallMap.setZoom(14);
         
         var elem = $(this),
-            smallMapCoords = [getCoords(elem.attr('value')).x, getCoords(elem.attr('value')).y],
-            elemText = elem.text(),
-            elemStreet = elem.parents('.significant-list__row').find('.significant-list__row-st').text(),
-            elemDate = elem.parents('.significant-list__row').find('.significant-list__row-date').text();
+            smallMapCoords = [$('#significant-smallmap').data('lat'), $('#significant-smallmap').data('lng')],
+            elemText = $('#significant-smallmap').data('name'),
+            elemStreet = $('#significant-smallmap').data('address'),
+            elemDate = $('#significant-smallmap').data('year');
         
         // переход
         smallMap.panTo( smallMapCoords, { flying: true } );
@@ -233,8 +231,6 @@ export default () => {
 
         smallMap.geoObjects.add(smallMapPlacemark);
         
-      });
-  
       const mapOpen = $('.significant-about__map-open');
       
       mapOpen.click(function(e) {
@@ -245,7 +241,7 @@ export default () => {
         
       });
       
-      $('.significant-about__map-close, .significant__mask, .significant-about__back').click(function(e) {
+      $('.significant-about__map-close, .significant__mask, .significant-about__back:not(.significantBack)').click(function(e) {
         e.preventDefault();
         if ($(document).width() <= 1024) $("html,body").css("overflow-y","auto");
         $('.significant').removeClass('popupMode');
