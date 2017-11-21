@@ -32,13 +32,7 @@ export default () => {
     $('.contest-popup__participant').first().clone(true).insertBefore('.contest-popup .js-button-addparticipant').find('.contest-popup__fio').val('');
     checkParticipantIndex();
     inputMasks();
-  });
-  
-  $('.contest-popup__delete-icon').click(function(e){
-    $(this).parent().remove();
-    checkAttachments();
-  });
-  
+  });  
 
   window.openConFormValidation = function() {
     $('.open-con .tabs__tab.active .contest-popup form').submit(function(e) {
@@ -47,6 +41,7 @@ export default () => {
 
       const form = $(this);
       const fieldset = form.find('.js-opencon-question');
+      const attfield = form.find('.contest-popup__attachment-field').not('.hidden');
 
       form.find('.contest-popup__err').removeClass('contest-popup__err');
 
@@ -63,8 +58,13 @@ export default () => {
             fieldset.find('.contest-popup__option-title').addClass('contest-popup__err');
 
         })
-      })
+      });
       
+      attfield.each(function(){
+        var input = $(this).find('input'),
+            text = $(this).find('.contest-popup__attachment-text');
+        if (input.val() == '') text.addClass('contest-popup__err');
+      });
 
       if (form.find('.contest-popup__err').length > 0) {
         $('html, body').animate({
@@ -151,7 +151,7 @@ export default () => {
   // Прикрепить файл
   function checkAttachments() {
     $('.contest-popup__attachments').each(function(){
-      var attachment = $(this).find('.contest-popup__attachment').not('.contest-popup__attachment_hidden');
+      var attachment = $(this).find('.contest-popup__attachment, .contest-popup__attachment-field').not('.hidden');
       if (!attachment.length) {
         $(this).parent().addClass('contest-popup__err');
         $('.contest-popup__submit').addClass('disabled');
@@ -159,14 +159,36 @@ export default () => {
     });
   }
   
+  function addAttachment(field) {
+    if (field) {
+      var attachment = $('.contest-popup__attachment-field.hidden').first();
+    } else {
+      var attachment = $('.contest-popup__attachment.hidden').first();
+    }
+    attachment.clone(true).appendTo('.contest-popup__attachments').removeClass('hidden');
+  }
+  
   checkAttachments();
   
   $(document).on('click', '.contest-popup .js-button-attachment', function(){
     $(this).parents('.contest-popup__extra').removeClass('contest-popup__err');
-    var attachment = $('.contest-popup__attachment_hidden').first();
-    attachment.clone(true).appendTo('.contest-popup__attachments').removeClass('contest-popup__attachment_hidden');
+    
+    // код только для демонстрации вариантов
+    var field;
+    var random = Math.random();
+    if (random > 0.5) {
+      field = true;
+    } else {
+      field = false;
+    }
+    // код только для демонстрации вариантов
+    
+    addAttachment(field);
     $('.contest-popup__submit').removeClass('disabled');
   });
-
-
+  
+  $('.contest-popup__delete-icon').click(function(e){
+    $(this).parent().remove();
+    checkAttachments();
+  });
 }
