@@ -7,7 +7,7 @@ export default () => {
   }
   
   function checkParticipantIndex() {
-    $('.contest-popup__participant').each(function(){
+    $(document).find('.contest-popup__participant').each(function(){
       var participantIndex = $(this).index() + 1;
       $(this).find('.contest-popup__js-participant-number').text(participantIndex);
     });
@@ -27,17 +27,18 @@ export default () => {
   
   $(document).on('click', '.contest-popup .js-button-addparticipant', function(e){
     e.preventDefault();
-    $('.contest-popup__participant').first().clone(true).insertBefore('.contest-popup .js-button-addparticipant').find('.contest-popup__fio').val('');
+    var participant = $(this).parents('.tabs__tab').find('.contest-popup__participant');
+    participant.first().clone(true).insertBefore('.contest-popup .js-button-addparticipant').find('.contest-popup__fio').val('');
     checkParticipantIndex();
     inputMasks(); // в add.js
   });  
 
   window.openConFormValidation = function() {
-    $('.open-con .tabs__tab.active .contest-popup form').submit(function(e) {
+    $(document).on('click', '.open-con .tabs__tab.active .contest-popup__submit', function(e) {
       
       e.preventDefault();
 
-      const form = $(this);
+      const form = $(this).parents('.contest-popup__application');
       const fieldset = form.find('.js-opencon-question');
       const attfield = form.find('.contest-popup__attachment-field').not('.hidden');
 
@@ -73,6 +74,7 @@ export default () => {
         $('#popup-wrapper, .popup-success').fadeIn(321);
         setTimeout(function(){
           $('#popup-wrapper, .popup-success').fadeOut(321);
+          form.submit();
         }, 3000);
       }
     })
@@ -82,27 +84,25 @@ export default () => {
   
   
   
-  // Прикрепить файл
+  // Прикрепить файл  
   function checkAttachments() {
-    $('.contest-popup__attachments').each(function(){
+    $(document).find('.open-con .tabs__tab.active .contest-popup__attachments').each(function(){
       var attachment = $(this).find('.contest-popup__attachment, .contest-popup__attachment-field').not('.hidden');
       if (!attachment.length) {
         $(this).parent().addClass('contest-popup__err');
-        $('.contest-popup__submit').addClass('disabled');
+        $('.open-con .tabs__tab.active .contest-popup__submit').addClass('disabled');
       }
     });
   }
   
   function addAttachment(field) {
     if (field) {
-      var attachment = $('.contest-popup__attachment-field.hidden').first();
+      var attachment = $('.open-con .tabs__tab.active .contest-popup__attachment-field.hidden').first();
     } else {
-      var attachment = $('.contest-popup__attachment.hidden').first();
+      var attachment = $('.open-con .tabs__tab.active .contest-popup__attachment.hidden').first();
     }
-    attachment.clone(true).appendTo('.contest-popup__attachments').removeClass('hidden');
+    attachment.clone(true).appendTo('.open-con .tabs__tab.active .contest-popup__attachments').removeClass('hidden');
   }
-  
-  checkAttachments();
   
   $(document).on('click', '.contest-popup .js-button-attachment', function(){
     $(this).parents('.contest-popup__extra').removeClass('contest-popup__err');
@@ -118,11 +118,23 @@ export default () => {
     // код только для демонстрации вариантов
     
     addAttachment(field);
-    $('.contest-popup__submit').removeClass('disabled');
+    $('.open-con .tabs__tab.active .contest-popup__submit').removeClass('disabled');
   });
   
   $(document).on('click', '.contest-popup__delete-icon', function(e){
     $(this).parent().remove();
+    checkAttachments();
+  });
+  
+  
+  //
+  $(document).on('click', '.open-con .js-button-proposal', function() {
+    checkParticipantIndex();
+    checkAttachments();
+  });
+  
+  $(document).on('click', '.open-con__popup .button-light', function() {
+    checkParticipantIndex();
     checkAttachments();
   });
 }
