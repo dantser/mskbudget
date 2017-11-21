@@ -88,19 +88,24 @@
       .open-file__row-controls {
         position: relative;
         z-index: 2;
+      }
+      
+      .open-file__row-wrap {
+        position: relative;
         
-        &:after {
+        &:before {
           content: '';
           display: block;
           position: absolute;
-          left: 0;
-          top: 100%;
+          bottom: 0;
+          width: 300px;
           right: 0;
+          height: 50%;
           box-sizing: border-box;
-          height: 18px;
           border-left: 1px solid #acacac;
           border-right: 1px solid #acacac;
           background-color: #fff;
+          z-index: 2;
           
           @media (max-width: 900px) {
             display: none;
@@ -255,7 +260,6 @@
     
     @media (max-width: 900px) {
       text-align: left;
-      padding-top: 0;
     }
 
     &:after {
@@ -275,7 +279,7 @@
     letter-spacing: .1px;
     white-space: normal;
     vertical-align: middle;
-    height: 3em;
+    max-height: 3em;
     position: relative;
     padding: 10px 0;
     box-sizing: content-box;
@@ -288,8 +292,6 @@
       width: 100%;
       font-size: 22px;
       padding: 0;
-      height: auto;
-      max-height: 3em;
     }
     
     @media (max-width: 580px) {
@@ -298,18 +300,6 @@
     
     span {
       display: block;
-      position: absolute;
-      width: 100%;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      
-      @media (max-width: 900px) {
-        position: static;
-        left: 0;
-        top: 0;
-        transform: none;
-      }
     }
   }
 
@@ -318,14 +308,9 @@
     vertical-align: middle;
     text-align: left;
 
-    @media (max-width: 900px) and (min-width: 581px) {
+    @media (max-width: 900px) {
       margin-top: 10px;
     }
-
-    @media (max-width: 580px) {
-      margin-top: 10px;
-    }
-
   }
 
   &__row-control {
@@ -384,6 +369,7 @@
     
     @media (max-width: 400px) {
       margin-left: -9px;
+      margin-right: 10px;
     }
   }
 

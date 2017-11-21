@@ -1,6 +1,4 @@
 import $ from 'jquery';
-import Inputmask from "inputmask";
-
 
 export default () => {
   
@@ -31,7 +29,7 @@ export default () => {
     e.preventDefault();
     $('.contest-popup__participant').first().clone(true).insertBefore('.contest-popup .js-button-addparticipant').find('.contest-popup__fio').val('');
     checkParticipantIndex();
-    inputMasks();
+    inputMasks(); // в add.js
   });  
 
   window.openConFormValidation = function() {
@@ -82,70 +80,6 @@ export default () => {
 
   openConFormValidation();
   
-  
-  // маски инпутов
-  function inputMasks() {
-    Inputmask({
-      mask: '99.99.9999',
-      clearMaskOnLostFocus: false,
-      positionCaretOnClick: 'none',
-      onincomplete: function(){
-        $(this).siblings('.contest-popup__label').addClass('contest-popup__err')
-      }
-    }).mask('.contest-popup__fio[name="pi-birth"]');
-    
-    Inputmask({
-      mask: '+7 (999) 999-9999',
-      clearMaskOnLostFocus: false,
-      positionCaretOnClick: 'none',
-      onincomplete: function(){
-        $(this).siblings('.contest-popup__label').addClass('contest-popup__err')
-      }
-    }).mask('.contest-popup__fio[name="pi-phone"], .contest-popup__fio[name="pj-phone"]');
-    
-    //Inputmask({
-    //  mask: "*{1,80}@i{1,20}.i{1,6}[.i{1,2}]",
-    //  clearMaskOnLostFocus: false,
-    //  positionCaretOnClick: 'none',
-    //  greedy: false,
-    //  onBeforePaste: function (pastedValue, opts) {
-    //    pastedValue = pastedValue.toLowerCase();
-    //    return pastedValue.replace("mailto:", "");
-    //  },
-    //  definitions: {
-    //    '*': {
-    //      validator: "[0-9A-Za-z._-]",
-    //      cardinality: 1,
-    //      casing: "lower"
-    //    },
-    //    'i': {
-    //      validator: "[0-9A-Za-z_-]",
-    //      cardinality: 1,
-    //      casing: "lower"
-    //    }
-    //  }
-    //}).mask('.contest-popup__fio[name="pi-email"], .contest-popup__fio[name="pj-email"]');
-    
-    Inputmask({
-      mask: "*{1,80}",
-      placeholder: "",
-      clearMaskOnLostFocus: false,
-      positionCaretOnClick: 'none',
-      onBeforePaste: function (pastedValue, opts) {
-        pastedValue = pastedValue.toLowerCase();
-        return pastedValue.replace("mailto:", "");
-      },
-      definitions: {
-        '*': {
-          validator: "[0-9A-Za-z@._-]",
-          cardinality: 1,
-          casing: "lower"
-        }
-      }
-    }).mask('.contest-popup__fio[name="pi-email"], .contest-popup__fio[name="pj-email"]');
-  }
-  
-  inputMasks();
   
   
   // Прикрепить файл

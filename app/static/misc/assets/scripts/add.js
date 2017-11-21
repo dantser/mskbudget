@@ -67,3 +67,74 @@ $(document).on('click', '.selectbox > *', function (e) {
 $(document).on('click', 'html, body', function(){
   $('.selectbox').removeClass('active');
 });
+
+
+
+// contestPopup()
+
+$(document).ready(function(){
+  
+  // маски инпутов  
+  window.inputMasks = function() {
+    Inputmask({
+      mask: '99.99.9999',
+      clearMaskOnLostFocus: false,
+      positionCaretOnClick: 'none',
+      onincomplete: function(){
+        $(this).siblings('.contest-popup__label').addClass('contest-popup__err')
+      }
+    }).mask('.contest-popup__fio#pi-birth');
+    
+    Inputmask({
+      mask: '+7 (999) 999-9999',
+      clearMaskOnLostFocus: false,
+      positionCaretOnClick: 'none',
+      onincomplete: function(){
+        $(this).siblings('.contest-popup__label').addClass('contest-popup__err')
+      }
+    }).mask('.contest-popup__fio#pi-phone, .contest-popup__fio#pj-phone');
+    
+    //Inputmask({
+    //  mask: "*{1,80}@i{1,20}.i{1,6}[.i{1,2}]",
+    //  clearMaskOnLostFocus: false,
+    //  positionCaretOnClick: 'none',
+    //  greedy: false,
+    //  onBeforePaste: function (pastedValue, opts) {
+    //    pastedValue = pastedValue.toLowerCase();
+    //    return pastedValue.replace("mailto:", "");
+    //  },
+    //  definitions: {
+    //    '*': {
+    //      validator: "[0-9A-Za-z._-]",
+    //      cardinality: 1,
+    //      casing: "lower"
+    //    },
+    //    'i': {
+    //      validator: "[0-9A-Za-z_-]",
+    //      cardinality: 1,
+    //      casing: "lower"
+    //    }
+    //  }
+    //}).mask('.contest-popup__fio#pi-email, .contest-popup__fio#pj-email');
+    
+    Inputmask({
+      mask: "*{1,80}",
+      placeholder: "",
+      clearMaskOnLostFocus: false,
+      positionCaretOnClick: 'none',
+      onBeforePaste: function (pastedValue, opts) {
+        pastedValue = pastedValue.toLowerCase();
+        return pastedValue.replace("mailto:", "");
+      },
+      definitions: {
+        '*': {
+          validator: "[0-9A-Za-z@._-]",
+          cardinality: 1,
+          casing: "lower"
+        }
+      }
+    }).mask('.contest-popup__fio#pi-email, .contest-popup__fio#pj-email');
+  }
+  
+  inputMasks();
+});
