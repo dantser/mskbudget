@@ -152,9 +152,6 @@ export default () => {
         
         for (var i = 0; i < wordArray.length; i++) {
           
-          console.log(textSpan.text(newText+wordArray[i]).height());
-          console.log($(this).height());
-          
           if (textSpan.text(newText+wordArray[i]).height() <= $(this).height()) {
             newText += ' '+wordArray[i];
           } else if (textSpan.text(newText+'...').height() <= $(this).height()){

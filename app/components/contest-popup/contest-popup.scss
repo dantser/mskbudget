@@ -235,14 +235,64 @@
   }
   &__attachment {
     
-    &_hidden {
+    &.hidden, &-field.hidden {
       display: none;
     }
     
-    & + & {
+    & + &, & + &-field, &-field + &, &-field + &-field {
       margin-top: 12px;
     }
+    
+    &-field {
+      
+      input {
+        font-size: 16px;
+        font-family: PFDinTextPro,sans-serif;
+        display: inline-block;
+        font-weight: 400;
+        border: 1px solid #d7d7d7;
+        border-radius: 2px;
+        width: 190px;
+        line-height: 26px;
+        height: 28px;
+        padding: 0 12px!important;
+        background-color: #fff;
+        vertical-align: middle;
+        
+        @media (max-width: 768px) and (min-width: 581px) {
+          width: calc(100% - 27px);
+          border-width: 2px;
+          line-height: 41px;
+          height: 45px;
+          font-size: 20px;
+        }
+        
+        @media (max-width: 580px) {
+          width: calc(100% - 22px);
+        }
+      }
+    }
   }
+  
+  &__attachment-text {
+    display: block;
+    font-size: 14px;
+    line-height: 1.4em;
+    font-style: italic;
+    vertical-align: top;
+    text-transform: none;
+    margin-left: 21px;
+    margin-top: 3px;
+    
+    @media (max-width: 768px) and (min-width: 581px) {
+      margin-left: 27px;
+    }
+    
+    @media (max-width: 580px) {
+      margin-left: 22px;
+    }
+  }
+  
   &__submit {
     margin-top: 20px;
 

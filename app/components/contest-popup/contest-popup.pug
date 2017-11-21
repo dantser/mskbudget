@@ -98,18 +98,19 @@ mixin contest-popup(isJuridical)
 				//- 	+option(fieldIdT, 'Электронном носителе информации', 'f2')
 				//- 	+option(fieldIdT, 'Иное (указать)', 'f3', true)
 
-				+e.extra
+				+e.extra.contest-popup__err
 					+button()(type='button')._kind_yellow.js-button-attachment Прикрепить файл
 					+e.I.note Перед отправлением заявки необходимо прикрепить как минимум один файл
 					+e.UL.attachments
-						+e.LI.attachment._hidden
+						+e.LI.attachment.hidden
 							+icon('close').delete-icon
 							+e.SPAN.document Document
-						//+e.LI.attachment
+						+e.LI.attachment-field.hidden
 							+icon('close').delete-icon
-							+e.SPAN.document Document 2
+							+e.INPUT(type='text' name='filelink').attachment-input
+							+e.SPAN.attachment-text Указанный файл слишком большой, пожалуйста, разместите его на доступном ресурсе и укажите ссылку на размещенный файл
 
-				+button(true)._kind_yellow.__submit Отправить
+				+button(true)._kind_yellow.__submit.disabled Отправить
 				
 		+e.footer
 			+e.P.footer-text По всем возникающим вопросам Вы можете обращаться<br> по телефону +7&nbsp;(495)&nbsp;620-20-00 (доб.64327) или<br> по электронной почте
