@@ -27,12 +27,13 @@ export default () => {
     checkParticipantIndex();
   });
   
-  $('.contest-popup .js-button-addparticipant').click(function(e){
+  $(document).on('click', '.contest-popup .js-button-addparticipant', function(e){
     e.preventDefault();
     $('.contest-popup__participant').first().clone(true).insertBefore('.contest-popup .js-button-addparticipant').find('.contest-popup__fio').val('');
     checkParticipantIndex();
     inputMasks();
-  });  
+  });
+    
 
   window.openConFormValidation = function() {
     $('.open-con .tabs__tab.active .contest-popup form').submit(function(e) {

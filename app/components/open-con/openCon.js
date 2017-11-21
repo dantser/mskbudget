@@ -22,16 +22,14 @@ export default () => {
     })
   })
 
-  $('.open-con__con .button-light').on('click', function(){
+  $(document).on('click', '.open-con__con .button-light', function(){
     $('.analityc-control-switcher_con a').removeClass('active');
     $('.analityc-control-switcher_con a:first-child').addClass('active');
     $('.tabs__tab').hide();
     $('.tabs__tab:first-child').show();
   })
 
-  const PROPOSAL = $('.open-con .js-button-proposal');
-
-  PROPOSAL.click(function(e) {
+  $(document).on('click', '.open-con .js-button-proposal', function(e) {
     e.preventDefault();
     $('.open-con__con').hide();
     $('.open-con__popup').show().find('.tabs .tabs__tab:first-child').show().addClass('active').siblings().removeClass('active');
