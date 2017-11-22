@@ -25,7 +25,15 @@ export default () => {
 
 	$(document).on('click', '.open-file__link-about', function(e) {
 		e.preventDefault();
-		$('html, body').css('overflow', 'hidden');
+		var winWidth = $(window).width();
+		$('html, body').css({
+			'overflow': 'hidden',
+			'width': winWidth
+		});
+		$('.header').css({
+			'transition': 'none',
+			'width': winWidth
+		});
 		$('.open-file__popups, .open-file__popup_about').show().scrollTop(0);
 		if ($(window).width() <= 767) {
 			$('.open-file').css('z-index', 'auto');
@@ -33,7 +41,15 @@ export default () => {
 	})
 	$(document).on('click', '.open-file__link-terms', function(e) {
 		e.preventDefault();
-		$('html, body').css('overflow', 'hidden');
+		var winWidth = $(window).width();
+		$('html, body').css({
+			'overflow': 'hidden',
+			'width': winWidth
+		});
+		$('.header').css({
+			'transition': 'none',
+			'width': winWidth
+		});
 		$('.open-file__popups, .open-file__popup_terms').show().scrollTop(0);
 		if ($(window).width() <= 767) {
 			$('.open-file').css('z-index', 'auto');
@@ -47,7 +63,15 @@ export default () => {
 	})
 
 	$(document).on('click', '.open-file__popups, .open-file__popup-close', function(e) {
-		$('html, body').css('overflow', '');
+		var winWidth = $(window).width();
+		$('html, body').css({
+			'overflow': '',
+			'width': ''
+		});
+		$('.header').css({
+			'width': '',
+			'transition': '',
+		});
 		$('.open-file__popups, .open-file__popups-static, .open-file__popup').hide();
 		if ($(window).width() <= 767) {
 			$('.open-file').css('z-index', '');
