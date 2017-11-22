@@ -1,5 +1,4 @@
-// selectbox()
-
+// Custom selects
 $(document).on('click', '.selectbox li', function (e) {
   
   if ($(this).hasClass('locked')) {
@@ -69,12 +68,41 @@ $(document).on('click', 'html, body', function(){
 });
 
 
-
-// contestPopup()
-
+// Custom Selects jQuery UI
 $(document).ready(function(){
   
-  // маски инпутов  
+  $('.select-element1').selectmenu({
+    change: function(event, ui) {
+      var val = $(this).val();
+      $(this).find('option').removeAttr('selected');
+      $(this).find('option').each(function(){
+        if ($(this).val() == val) {
+          $(this).attr('selected', 'selected');
+        }
+      });
+      $(this).change();
+    }
+  }).selectmenu( "menuWidget" ).addClass( "ui-openreit" );
+  
+  $('.select-element2').selectmenu({
+    change: function(event, ui) {
+      var val = $(this).val();
+      $(this).find('option').removeAttr('selected');
+      $(this).find('option').each(function(){
+        if ($(this).val() == val) {
+          $(this).attr('selected', 'selected');
+        }
+      });
+      $(this).change();
+    }
+  }).selectmenu( "menuWidget" ).addClass( "ui-openreit" );
+});
+
+
+
+// Inputmasks
+$(document).ready(function(){
+ 
   window.inputMasks = function() {
     Inputmask({
       mask: '99.99.9999',
