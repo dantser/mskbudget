@@ -1,0 +1,263 @@
+include ../page-header/page-header
+
+mixin edu-service-question()
+  section.d-si-content._edu-question.sections__item.edu_roboto
+    .d-layer.d-layer_small
+      .d-si__head
+        +page-header('обучающий сервис', ['Сервисы'])
+
+        .d-sq__head_ss.load-anim-fade(data-delay="1500")
+          SPAN.d-sq__head_ss-s 5 из 9
+          SPAN.d-sq__head_ss-txt
+            | уроков
+            br
+            | пройдено
+            br
+            | успешно
+          canvas(width='78', height='78', default-fill='#413a62', stroke-width='7', sector-count='9', fill-sectors='0,2,3,5,8').sectored_round
+      .d-study__question.load-anim-fade(data-delay="1500")
+        .burger-lessons-menu
+          .close-lessons-burger
+          ul
+            li(id='1').edu-lesson-link.disable
+              span что такое бюджетная система?
+            li(id='2').edu-lesson-link
+              span Зачем используется бюджетная классификация?
+            li(id='3').edu-lesson-link.done
+              span Как формируется бюджет?
+            li(id='4').edu-lesson-link
+              span Что такое бюджет и&nbsp;из&nbsp;чего он&nbsp;состоит?
+            li(id='5').edu-lesson-link.done
+              span Что такое доходы и&nbsp;откуда они поступают?
+            li(id='6').edu-lesson-link
+              span Что такое расходы и&nbsp;на&nbsp;что они направлены?
+            li(id='7').edu-lesson-link
+              span Зачем нужны источники финансирования дефицита бюджета?
+            li(id='8').edu-lesson-link
+              span то такое государственный долг?
+            li(id='9').edu-lesson-link
+              span Что такое межбюджетные трансферты?
+        div(id='1').edu-content._active
+          .d-study__question_head
+            a(href='#').d-question__head_menu
+            SPAN.d-study__question_num 1:
+            SPAN.d-study__question-name что такое бюджетная система?
+            a(href='#').d-sq__head_next
+            a(href='#').d-sq__head_prev
+          .d-study__question_body
+            p.d-sq__body-p
+              strong Бюджетная система Российской Федерации</strong> — основанная на экономических отношениях и государственном устройстве Российской Федерации, регулируемая нормами права совокупность федерального бюджета, бюджетов субъектов Российской Федерации, местных бюджетов и бюджетов государственных внебюджетных фондов.
+            h5.d-sq__body-heading.d-sq__body_fhm Структура бюджетной системы Российской Федерации
+            ul.d-sq__body-puzzle
+              li
+                a(href='')
+                  span
+                    | Консолидированный бюджет
+                    br
+                    | российской федерации
+                    i.d-abs__nav_ico
+              li
+                a(href='')
+                  span
+                    | федеральные внебюджетные фонды
+                    i.d-abs__nav_ico
+              li
+                a(href='')
+                  span
+                    | федеральный
+                    br
+                    | бюджет
+                    i.d-abs__nav_ico
+              li
+                a(href='')
+                  span
+                    | Консолидированный бюджет
+                    br
+                    | субъекта российской федерации
+              li
+                a(href='')
+                  span
+                    | внебюджетные фонды субъектов российской федерации
+                    i.d-abs__nav_ico
+              li
+                a(href='')
+                  span
+                    | бюджет субъекта российской федерации
+                    i.d-abs__nav_ico
+              li
+                a(href='')
+                  span
+                    | бюджет муниципального образования
+                    i.d-abs__nav_ico
+            h5.d-sq__body-heading.d-sq__body_shm Принципы бюджетной системы Российской Федерации
+            p.d-sq__body-p.d-sq__body-pb Функционирование бюджетной системы Российской Федерации основано на особых принципах, закрепленных в Бюджетном кодексе РФ. Являясь исходными положениями, данные принципы лежат в основе построения бюджетов всех уровней в единую систему и отражают специфику бюджетной деятельности как особого вида государственного управления.
+            a(href='#').d-sq__body_princips Принципы бюджетной системы
+          .d-study__question_ftr
+            .d-sq__ftr_head вопросы
+            form(action='#').d-sq__ftr_form
+              fieldset
+                legend К какому уровню бюджетов бюджетной системы относится бюджет города Москвы?
+                input(name='d-sq_radio', type='radio', id='d-rad-f').d-sq_radio
+                label(for='d-rad-f') 
+                  | Бюджет субъекта Российской Федерации
+                  | Поиск информации о&nbsp;бюджете города Москвы для подготовки учебных материалов рефератов, курсовых/дипломных работ
+                  | Поиск информации о&nbsp;бюджете города Москвы для подготовки учебных материалов рефератов, курсовых/дипломных работ
+                  | Поиск информации о&nbsp;бюджете города Москвы для подготовки учебных материалов рефератов, курсовых/дипломных работ
+
+                input(name='d-sq_radio', type='radio', id='d-rad-s').d-sq_radio
+                label(for='d-rad-s').d-sq_form-error-label Федеральный бюджет
+                input(name='d-sq_radio', type='radio', value='2', id='d-rad-t').d-sq_radio
+                label(for='d-rad-t').d-sq_form-success-label Местный бюджет
+                input(name='d-sq_radio', type='radio', value='3', id='d-rad-fo').d-sq_radio
+                label(for='d-rad-fo') Бюджет государственного внебюджетного фонда
+              fieldset.d-sq-field-m
+                legend Из каких бюджетов состоит консолидированный бюджет города Москвы?
+                input(name='d-sq_check', type='checkbox', id='d-check-f').d-sq_check
+                label(for='d-check-f').d-sq_form-error-label Бюджет города Москвы
+                input(name='d-sq_check', type='checkbox', id='d-check-s').d-sq_check
+                label(for='d-check-s').d-sq_form-success-label Бюджет Московского городского фонда обязательного медицинского страхования
+                input(name='d-sq_check', type='checkbox', id='d-check-t').d-sq_check
+                label(for='d-check-t') Бюджеты внутригородских муниципальных образований города Москвы
+                input(name='d-sq_check', type='checkbox', id='d-check-fo').d-sq_check
+                label(for='d-check-fo').d-sq_form-error-label Федеральный бюджет
+              a(href='/moscowbudget/edu_service_result.html').d-sii__form_submit Ответить
+            p.d-sq__ftr_error К сожалению, Ваш ответ неверный. Попробуйте ответить еще раз.
+            .quiz-footer._success
+              .d-si__quiz-container_body
+                p.answer-result._success Поздравляем, вы&nbsp;ответили верно!
+                button(type='submit', form='d-sii__form')
+                  a(href='/moscowbudget/edu_service_result.html', style="text-decoration:none") Перейти к&nbsp;следующему уроку
+        div(id='2').edu-content
+          .d-study__question_head
+            a(href='#').d-question__head_menu
+            SPAN.d-study__question_num 2:
+            SPAN.d-study__question-name Зачем используется бюджетная классификация?
+            a(href='#').d-sq__head_next
+            a(href='#').d-sq__head_prev
+          .d-study__question_body
+            p.d-sq__body-p
+              strong Бюджетная система Российской Федерации</strong> — основанная на экономических отношениях и государственном устройстве Российской Федерации, регулируемая нормами права совокупность федерального бюджета, бюджетов субъектов Российской Федерации, местных бюджетов и бюджетов государственных внебюджетных фондов.
+            h5.d-sq__body-heading.d-sq__body_fhm Структура бюджетной системы Российской Федерации
+            ul.d-sq__body-puzzle
+              li
+                a(href='')
+                  span
+                    | Консолидированный бюджет
+                    br
+                    | российской федерации
+                    i.d-abs__nav_ico
+              li
+                a(href='')
+                  span
+                    | федеральные внебюджетные фонды
+                    i.d-abs__nav_ico
+              li
+                a(href='')
+                  span
+                    | федеральный
+                    br
+                    | бюджет
+                    i.d-abs__nav_ico
+              li
+                a(href='')
+                  span
+                    | Консолидированный бюджет
+                    br
+                    | субъекта российской федерации
+              li
+                a(href='')
+                  span
+                    | внебюджетные фонды субъектов российской федерации
+                    i.d-abs__nav_ico
+              li
+                a(href='')
+                  span
+                    | бюджет субъекта российской федерации
+                    i.d-abs__nav_ico
+              li
+                a(href='')
+                  span
+                    | бюджет муниципального образования
+                    i.d-abs__nav_ico
+            h5.d-sq__body-heading.d-sq__body_shm Принципы бюджетной системы Российской Федерации
+            p.d-sq__body-p.d-sq__body-pb Функционирование бюджетной системы Российской Федерации основано на особых принципах, закрепленных в Бюджетном кодексе РФ. Являясь исходными положениями, данные принципы лежат в основе построения бюджетов всех уровней в единую систему и отражают специфику бюджетной деятельности как особого вида государственного управления.
+            a(href='#').d-sq__body_princips Принципы бюджетной системы
+          .d-study__question_ftr
+            .d-sq__ftr_head вопросы
+            form(action='#').d-sq__ftr_form
+              fieldset
+                legend К какому уровню бюджетов бюджетной системы относится бюджет города Москвы?
+                input(name='d-sq_radio', type='radio', id='d-rad-f').d-sq_radio
+                label(for='d-rad-f') Бюджет субъекта Российской Федерации
+                input(name='d-sq_radio', type='radio', id='d-rad-s').d-sq_radio
+                label(for='d-rad-s').d-sq_form-error-label Федеральный бюджет
+                input(name='d-sq_radio', type='radio', value='2', id='d-rad-t').d-sq_radio
+                label(for='d-rad-t').d-sq_form-success-label Местный бюджет
+                input(name='d-sq_radio', type='radio', value='3', id='d-rad-fo').d-sq_radio
+                label(for='d-rad-fo') Бюджет государственного внебюджетного фонда
+              fieldset.d-sq-field-m
+                legend Из каких бюджетов состоит консолидированный бюджет города Москвы?
+                input(name='d-sq_check', type='checkbox', id='d-check-f').d-sq_check
+                label(for='d-check-f').d-sq_form-error-label Бюджет города Москвы
+                input(name='d-sq_check', type='checkbox', id='d-check-s').d-sq_check
+                label(for='d-check-s').d-sq_form-success-label Бюджет Московского городского фонда обязательного медицинского страхования
+                input(name='d-sq_check', type='checkbox', id='d-check-t').d-sq_check
+                label(for='d-check-t') Бюджеты внутригородских муниципальных образований города Москвы
+                input(name='d-sq_check', type='checkbox', id='d-check-fo').d-sq_check
+                label(for='d-check-fo').d-sq_form-error-label Федеральный бюджет
+              a(href='/moscowbudget/edu_service_result.html').d-sii__form_submit Ответить
+            p.d-sq__ftr_error К сожалению, Ваш ответ неверный. Попробуйте ответить еще раз.
+            .quiz-footer._success
+              .d-si__quiz-container_body
+                p.answer-result._success Поздравляем, вы&nbsp;ответили верно!
+                button(type='submit', form='d-sii__form')
+                  a(href='/moscowbudget/edu_service_result.html', style="text-decoration:none") Перейти к&nbsp;следующему уроку
+        div(id='3').edu-content
+          .d-study__question_head
+            a(href='#').d-question__head_menu
+            SPAN.d-study__question_num 3:
+            SPAN.d-study__question-name Как формируется бюджет?
+            a(href='#').d-sq__head_next
+            a(href='#').d-sq__head_prev
+        div(id='4').edu-content
+          .d-study__question_head
+            a(href='#').d-question__head_menu
+            SPAN.d-study__question_num 4:
+            SPAN.d-study__question-name Что такое бюджет и из чего он состоит?
+            a(href='#').d-sq__head_next
+            a(href='#').d-sq__head_prev
+        div(id='5').edu-content
+          .d-study__question_head
+            a(href='#').d-question__head_menu
+            SPAN.d-study__question_num 5:
+            SPAN.d-study__question-name Что такое доходы и откуда они поступают?
+            a(href='#').d-sq__head_next
+            a(href='#').d-sq__head_prev
+        div(id='6').edu-content
+          .d-study__question_head
+            a(href='#').d-question__head_menu
+            SPAN.d-study__question_num 6:
+            SPAN.d-study__question-name Что такое расходы и на что они направлены?
+            a(href='#').d-sq__head_next
+            a(href='#').d-sq__head_prev
+        div(id='7').edu-content
+          .d-study__question_head
+            a(href='#').d-question__head_menu
+            SPAN.d-study__question_num 7:
+            SPAN.d-study__question-name Зачем нужны источники финансирования дефицита бюджета?
+            a(href='#').d-sq__head_next
+            a(href='#').d-sq__head_prev
+        div(id='8').edu-content
+          .d-study__question_head
+            a(href='#').d-question__head_menu
+            SPAN.d-study__question_num 8:
+            SPAN.d-study__question-name Что такое государственный долг?
+            a(href='#').d-sq__head_next
+            a(href='#').d-sq__head_prev
+        div(id='9').edu-content
+          .d-study__question_head
+            a(href='#').d-question__head_menu
+            SPAN.d-study__question_num 9:
+            SPAN.d-study__question-name Что такое межбюджетные трансферты?
+            a(href='#').d-sq__head_next
+            a(href='#').d-sq__head_prev

@@ -110,6 +110,7 @@ $(() => {
 	  questions();
 	  lkNav();
 	  search();
+	  window.openReit = openReit;
 	  openReit();
 	  regions();
 	  tabs();
@@ -124,8 +125,10 @@ $(() => {
 	  budgetCalcApp();
 	  newsFilter();
 	  range();
+	  window.openCon = openCon;
 	  openCon();
 	  contest();
+	  window.openSlider = openSlider;
 	  openSlider();
 	  mediaMaterials();
 	  govDebt();
@@ -152,10 +155,10 @@ $(() => {
 	  aip();
 	  classifyNew();
 	  servicesVMO();
-	  window.socialSignificant = socialSignificant;
 	  socialSignificant();
 	  servicesNet();
 	  dropTable();
+      window.slideArrows = slideArrows;
 	  slideArrows();
 	  budgetForecast();
 	  window.servicesMoscow = servicesMoscow;
