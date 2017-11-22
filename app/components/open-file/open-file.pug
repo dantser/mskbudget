@@ -37,6 +37,21 @@ mixin open-file()
     .wrapper
       // content
       +e.content.load-anim-fade(data-delay="1500")
+
+        +e.links
+          +e.link
+            +link().open-file__link-about
+              | что такое открытые данные?
+              +icon('right-arrow').icon
+          +e.link
+            +link().open-file__link-terms
+              | условия использования
+              +icon('right-arrow').icon
+
+          +e.link.open-file__get
+            +button()._kind_yellow
+              | запросить открытые данные
+
         .analityc-table
           +slide-arrows().__slide-arrows
           +e(data-offset='100').table-wrap.analityc-table__wrapper
@@ -73,18 +88,18 @@ mixin open-file()
 
         +e.A(href="#").show-more.d-si__button_show-more Показать еще
       
-        +e.links
-          +link().open-file__link-about
-            | что такое открытые данные?
-            +icon('right-arrow').icon
+        //- +e.links
+        //-   +link().open-file__link-about
+        //-     | что такое открытые данные?
+        //-     +icon('right-arrow').icon
 
-          +link().open-file__link-terms
-            | условия использования
-            +icon('right-arrow').icon
+        //-   +link().open-file__link-terms
+        //-     | условия использования
+        //-     +icon('right-arrow').icon
 
-        +e.get
-          +button()._kind_yellow
-            | запросить открытые данные
+        //-   +e.get
+        //-     +button()._kind_yellow
+        //-       | запросить открытые данные
 
       // popups
       +e.popups
