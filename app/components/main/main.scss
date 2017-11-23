@@ -429,11 +429,6 @@
           font-size: 14px;
         }
       }
-      
-      ul {
-        max-height: 161px;
-        overflow: auto;
-      }
     }
 
 
@@ -457,6 +452,26 @@
         height: 30px;
         line-height: 30px;
         font-size: 12px;
+      }
+    }
+  }
+  
+  .widget-card-cities, .widget-card-regions {
+    .selectbox {
+      ul {
+        @media (max-height: 530px) {
+          max-height: 110px;
+        }
+      }
+    }
+  }
+  
+  .widget-card-municipalities {
+    .selectbox {
+      ul {
+        @media (max-height: 530px) {
+          max-height: 65px;
+        }
       }
     }
   }

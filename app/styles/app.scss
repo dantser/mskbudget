@@ -336,7 +336,7 @@ input::-ms-reveal {  display: none; width : 0; height: 0; }
 
   &::before {
     content: '';
-    height: 44px;
+    height: 40px;
     width: 1px;
     background-color: black;
     position: absolute;
@@ -349,60 +349,61 @@ input::-ms-reveal {  display: none; width : 0; height: 0; }
     white-space: nowrap;
   }
 
-  $lt: 30px;
+  $lt: 25px;
+  $ht: 30px;
 
   &_rt {
-    &::before { transform-origin: left bottom; left: 0; bottom: 0; transform: rotate(45deg); }
-    >span { left: $lt; bottom: $lt; }
+    &::before { transform-origin: left bottom; left: 0; bottom: 0; transform: rotate(40deg); }
+    >span { left: $lt; bottom: $ht; }
     
     &-before {
-      &::before { height: 51px; transform: rotate(36deg); }
+      &::before { height: 48px; transform: rotate(32deg); }
       >span { bottom: 40px; }
     }
     &-after {
-      &::before { height: 36px; transform: rotate(55deg); }
+      &::before { height: 33px; transform: rotate(51deg); }
       >span { bottom: 20px; }
     }
   }
 
   &_lt {
-    &::before { transform-origin: right bottom; right: 0; bottom: 0; transform: rotate(-45deg); }
-    >span { right: $lt; bottom: $lt; }
+    &::before { transform-origin: right bottom; right: 0; bottom: 0; transform: rotate(-40deg); }
+    >span { right: $lt; bottom: $ht; }
     
     &-before {
-      &::before { height: 36px; transform: rotate(-55deg); }
+      &::before { height: 33px; transform: rotate(-51deg); }
       >span { bottom: 20px; }
     }
     &-after {
-      &::before { height: 51px; transform: rotate(-36deg); }
+      &::before { height: 48px; transform: rotate(-32deg); }
       >span { bottom: 40px; }
     }
   }
 
   &_rb {
-    &::before { transform-origin: left top; left: 0; top: 0; transform: rotate(-45deg); }
-    >span { left: $lt; bottom: -$lt; }
+    &::before { transform-origin: left top; left: 0; top: 0; transform: rotate(-40deg); }
+    >span { left: $lt; bottom: -$ht; }
     
     &-before {
-      &::before { height: 36px; transform: rotate(-55deg); }
+      &::before { height: 33px; transform: rotate(-51deg); }
       >span { bottom: -20px; }
     }
     &-after {
-      &::before { height: 51px; transform: rotate(-36deg); }
+      &::before { height: 48px; transform: rotate(-32deg); }
       >span { bottom: -40px; }
     }
   }
 
   &_lb {
-    &::before { transform-origin: right top; right: 0; top: 0; transform: rotate(45deg); }
-    >span { right: $lt; bottom: -$lt; }
+    &::before { transform-origin: right top; right: 0; top: 0; transform: rotate(40deg); }
+    >span { right: $lt; bottom: -$ht; }
     
     &-before {
-      &::before { height: 51px; transform: rotate(36deg); }
+      &::before { height: 48px; transform: rotate(32deg); }
       >span { bottom: -40px; }
     }
     &-after {
-      &::before { height: 36px; transform: rotate(55deg); }
+      &::before { height: 33px; transform: rotate(51deg); }
       >span { bottom: -20px; }
     }
   }
