@@ -49,9 +49,21 @@ export default () => {
         fieldset.find('.js-opencon-field').each(function() {
           var input = $(this).find('input');
           var label = $(this).find('label');
+          $(this).find('.error').remove();
 
           if (fieldset.data('type') === 'text' && input.val() === '')
             label.addClass('contest-popup__err');
+          
+          if (fieldset.data('type') === 'text' && input.is('[name="pi-email"], [name="pj-email"]')) {
+            
+            var email = /^([A-Za-z0-9_\.-]+)@([A-Za-z0-9_\.-]+)\.([A-Za-z\.]{2,6})$/.test(input.val()); // с поддержкой иерархических доменов: user@mail.ru.com
+            var email = /^([A-Za-z0-9_\.-]+)@([A-Za-z0-9_-]+)\.([A-Za-z]{2,6})$/.test(input.val()); // без поддержки иерархических доменов: user@mail.ru
+            
+            if (!email) {
+              input.after('<div class="error"><i></i><span>Проверьте правильность e-mail</span></div>');
+              label.addClass('contest-popup__err');
+            }
+          }
 
           if ((fieldset.data('type') === 'radio' || fieldset.data('type') === 'checkbox') && !fieldset.find('input:checked').length)
             fieldset.find('.contest-popup__option-title').addClass('contest-popup__err');
@@ -79,15 +91,19 @@ export default () => {
       }
     })
   }
+  
+  $(document).on('keypress keyup', '.js-opencon-field', function() {
+    $(this).find('.error').remove();
+  });
 
   openConFormValidation();
-  
-  
+
+
   
   // Прикрепить файл  
   function checkAttachments() {
     $(document).find('.open-con .tabs__tab.active .contest-popup__attachments').each(function(){
-      var attachment = $(this).find('.contest-popup__attachment, .contest-popup__attachment-field').not('.hidden');
+      var attachment = $(this).find('.contest-popup__attachment').not('.hidden');
       if (!attachment.length) {
         $(this).parent().addClass('contest-popup__err');
         $('.open-con .tabs__tab.active .contest-popup__submit').addClass('disabled');
@@ -97,28 +113,54 @@ export default () => {
   
   function addAttachment(field) {
     if (field) {
-      var attachment = $('.open-con .tabs__tab.active .contest-popup__attachment-field.hidden').first();
+      var attachment = $('.open-con .tabs__tab.active .contest-popup__attachment_field.hidden').first();
     } else {
-      var attachment = $('.open-con .tabs__tab.active .contest-popup__attachment.hidden').first();
+      var attachment = $('.open-con .tabs__tab.active .contest-popup__attachment_doc.hidden').first();
     }
     attachment.clone(true).appendTo('.open-con .tabs__tab.active .contest-popup__attachments').removeClass('hidden');
   }
   
   $(document).on('click', '.contest-popup .js-button-attachment', function(){
-    $(this).parents('.contest-popup__extra').removeClass('contest-popup__err');
+    var extra = $(this).parents('.contest-popup__extra'),
+        buttons = extra.find('.contest-popup__attachment-buttons');
+    extra.removeClass('contest-popup__err');
+    buttons.show();
+  });
+  
+  $(document).on('click', '.contest-popup .js-button-attfile', function(){
+    var extra = $(this).parents('.contest-popup__extra'),
+        buttons = extra.find('.contest-popup__attachment-buttons'),
+        attachment = $('.open-con .tabs__tab.active .contest-popup__attachment_doc.hidden').first(),
+        noteErr = extra.find('.contest-popup__attachment-note_err');
     
-    // код только для демонстрации вариантов
-    var field;
-    var random = Math.random();
-    if (random > 0.5) {
-      field = true;
-    } else {
-      field = false;
+    buttons.hide();
+    
+    //код только для демонстрации
+    extra.attr('data-file', Math.floor(Math.random()*3+1));
+    extra.attr('data-size', Math.random()*30);
+    //код только для демонстрации
+    
+    var fileLength = extra.data('file');
+    console.log(fileLength);
+    for (var i = 1; i <= fileLength; i++) {
+      attachment.clone(true).appendTo('.open-con .tabs__tab.active .contest-popup__attachments').removeClass('hidden');
     }
-    // код только для демонстрации вариантов
     
-    addAttachment(field);
-    $('.open-con .tabs__tab.active .contest-popup__submit').removeClass('disabled');
+    var fileSize = extra.data('size');
+    if (fileSize > 20) {
+      noteErr.show();
+    } else {
+      $('.open-con .tabs__tab.active .contest-popup__submit').removeClass('disabled');
+    }
+  });
+  
+  $(document).on('click', '.contest-popup .js-button-attlink', function(){
+    var extra = $(this).parents('.contest-popup__extra'),
+        buttons = extra.find('.contest-popup__attachment-buttons'),
+        attachment = $('.open-con .tabs__tab.active .contest-popup__attachment_field.hidden').first();
+    
+    buttons.hide();
+    attachment.clone(true).appendTo('.open-con .tabs__tab.active .contest-popup__attachments').removeClass('hidden');
   });
   
   $(document).on('click', '.contest-popup__delete-icon', function(e){
