@@ -243,6 +243,7 @@ export default () => {
     region = region.toLowerCase();
     regionMap.find('path, polygon').removeClass('active');
     regionMap.find('[data-name="'+region+'"]').addClass('active');
+    $(this).blur();
   });
   
   // Обрезание текста многоточием
