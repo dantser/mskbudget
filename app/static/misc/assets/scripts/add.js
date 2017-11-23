@@ -145,23 +145,23 @@ $(document).ready(function(){
     //  }
     //}).mask('.contest-popup__fio#pi-email, .contest-popup__fio#pj-email');
     
-    Inputmask({
-      mask: "*{1,80}",
-      placeholder: "",
-      clearMaskOnLostFocus: false,
-      positionCaretOnClick: 'none',
-      onBeforePaste: function (pastedValue, opts) {
-        pastedValue = pastedValue.toLowerCase();
-        return pastedValue.replace("mailto:", "");
-      },
-      definitions: {
-        '*': {
-          validator: "[0-9A-Za-z@._-]",
-          cardinality: 1,
-          casing: "lower"
-        }
-      }
-    }).mask('.contest-popup__fio#pi-email, .contest-popup__fio#pj-email');
+    //Inputmask({
+    //  mask: "*{1,80}",
+    //  placeholder: "",
+    //  clearMaskOnLostFocus: false,
+    //  positionCaretOnClick: 'none',
+    //  onBeforePaste: function (pastedValue, opts) {
+    //    pastedValue = pastedValue.toLowerCase();
+    //    return pastedValue.replace("mailto:", "");
+    //  },
+    //  definitions: {
+    //    '*': {
+    //      validator: "[0-9A-Za-z@._-]",
+    //      cardinality: 1,
+    //      casing: "lower"
+    //    }
+    //  }
+    //}).mask('.contest-popup__fio#pi-email, .contest-popup__fio#pj-email');
   }
   
   inputMasks();
