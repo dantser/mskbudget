@@ -542,6 +542,25 @@
             @include color-gradient(vertical, grey1, true, true);
           }          
         }
+        // v2
+        &_ncyan {
+          @include color-gradient(vertical, cyan1);
+          &.column-area_sub {
+            @include color-gradient(vertical, cyan1, true, true);
+          }          
+        }
+        &_nblueviolet {
+          @include color-gradient(vertical, blueviolet);
+          &.column-area_sub {
+            @include color-gradient(vertical, blueviolet, true, true);
+          }          
+        }
+        &_nviolet {
+          @include color-gradient(vertical, violet1);
+          &.column-area_sub {
+            @include color-gradient(vertical, violet1, true, true);
+          }          
+        }
         
         &_sub {
           transform-origin: right;
@@ -586,7 +605,7 @@
         position: absolute;
         bottom: 0;
         width: 44%;
-        @include color-gradient(horizontal, orange1);
+        @include color-gradient(horizontal, cyan1);
 
         &:first-child {
           left: 0;
@@ -654,7 +673,7 @@
     &_limitcolumn {
       margin-top: 0;
       height: 105px;
-      @include color-gradient(vertical, orange1);
+      @include color-gradient(vertical, cyan1);
       position: relative;
     }
   }
@@ -1998,7 +2017,10 @@
     @include analityc-graphics-lines(ncyanviolet, 6.7%, #1a8f8d, #594495, #1a8f8d);
     @include analityc-graphics-lines(nred, 6.7%, #e40514, #e40514, #e40514);
     @include analityc-graphics-lines(ngrey, 6.7%, #878e9d, #e3e2e2, #878e9d);
-
+    // v2
+    @include analityc-graphics-lines(ncyan, 6.7%, #18928c, #43cea2, #18928c);
+    @include analityc-graphics-lines(nblueviolet, 6.7%, #3f51b5, #b92c7a, #3f51b5);
+    @include analityc-graphics-lines(nviolet, 6.7%, #673ab7, #b39ddb, #673ab7);
   }
 
   .analityc-graphics-line-vertical__lines {
@@ -2397,6 +2419,10 @@
     @include analityc-graphics-bars(ncyanviolet, #1a8f8d, #594495, #1a8f8d);
     @include analityc-graphics-bars(nred, #e40514, #e40514, #e40514);
     @include analityc-graphics-bars(ngrey, #878e9d, #e3e2e2, #878e9d);
+    // v2
+    @include analityc-graphics-bars(ncyan, #18928c, #43cea2, #18928c);
+    @include analityc-graphics-bars(nblueviolet, #3f51b5, #b92c7a, #3f51b5);
+    @include analityc-graphics-bars(nviolet, #673ab7, #b39ddb, #673ab7);
   }
   
   &__line-fill-area {
@@ -2449,6 +2475,10 @@
       @include analityc-graphics-bars(ncyanviolet, #a3d2d1, #bdb4d5, #a3d2d1);
       @include analityc-graphics-bars(nred, #f49ba1, #f49ba1, #f49ba1);
       @include analityc-graphics-bars(ngrey, #cfd2d8, #f4f3f3, #cfd2d8);
+      // v2
+      @include analityc-graphics-bars(ncyan, #a3d3d1, #b4ebda, #a3d3d1);
+      @include analityc-graphics-bars(nblueviolet, #b2b9e1, #e3abca, #b2b9e1);
+      @include analityc-graphics-bars(nviolet, #c2b0e2, #e1d8f1, #c2b0e2);
     }
     
     .analityc-graphics-bars__val {
