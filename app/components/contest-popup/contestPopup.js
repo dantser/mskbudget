@@ -111,42 +111,40 @@ export default () => {
     });
   }
   
-  function addAttachment(field) {
-    if (field) {
-      var attachment = $('.open-con .tabs__tab.active .contest-popup__attachment_field.hidden').first();
-    } else {
-      var attachment = $('.open-con .tabs__tab.active .contest-popup__attachment_doc.hidden').first();
-    }
-    attachment.clone(true).appendTo('.open-con .tabs__tab.active .contest-popup__attachments').removeClass('hidden');
-  }
-  
   $(document).on('click', '.contest-popup .js-button-attachment', function(){
     var extra = $(this).parents('.contest-popup__extra'),
-        buttons = extra.find('.contest-popup__attachment-buttons');
+        buttons = extra.find('.contest-popup__attachment-buttons'),
+        visibleAttachment = extra.find('.contest-popup__attachment:visible'),
+        noteErr = extra.find('.contest-popup__attachment-note_err');
+    
     extra.removeClass('contest-popup__err');
+    visibleAttachment.remove();
+    noteErr.hide();
     buttons.show();
+    $('.open-con .tabs__tab.active .contest-popup__submit').addClass('disabled');
   });
   
   $(document).on('click', '.contest-popup .js-button-attfile', function(){
     var extra = $(this).parents('.contest-popup__extra'),
         buttons = extra.find('.contest-popup__attachment-buttons'),
         attachment = $('.open-con .tabs__tab.active .contest-popup__attachment_doc.hidden').first(),
-        noteErr = extra.find('.contest-popup__attachment-note_err');
+        noteErr = extra.find('.contest-popup__attachment-note_err'),
+        fileLength,
+        fileSize;
     
     buttons.hide();
     
     //код только для демонстрации
     extra.attr('data-file', Math.floor(Math.random()*3+1));
-    extra.attr('data-size', Math.random()*30);
+    extra.attr('data-size', Math.random()*40);
     //код только для демонстрации
     
-    var fileLength = extra.data('file');
-    console.log(fileLength);
+    fileLength = extra.attr('data-file');
     for (var i = 1; i <= fileLength; i++) {
       attachment.clone(true).appendTo('.open-con .tabs__tab.active .contest-popup__attachments').removeClass('hidden');
     }
     
-    var fileSize = extra.data('size');
+    fileSize = extra.attr('data-size');
     if (fileSize > 20) {
       noteErr.show();
     } else {
@@ -163,8 +161,38 @@ export default () => {
     attachment.clone(true).appendTo('.open-con .tabs__tab.active .contest-popup__attachments').removeClass('hidden');
   });
   
+  $(document).on('input', '.contest-popup__attachment-input', function(){
+    if ($(this).val()) {
+      $('.open-con .tabs__tab.active .contest-popup__submit').removeClass('disabled');
+    } else {
+      $('.open-con .tabs__tab.active .contest-popup__submit').addClass('disabled');
+    }
+  });
+  
   $(document).on('click', '.contest-popup__delete-icon', function(e){
+    var extra = $(this).parents('.contest-popup__extra'),
+        noteErr = extra.find('.contest-popup__attachment-note_err'),
+        fileLength = extra.attr('data-file'),
+        fileSize;
+    
     $(this).parent().remove();
+    fileLength -= 1;
+    extra.attr('data-file', fileLength);
+    
+    //код только для демонстрации
+    extra.attr('data-size', extra.attr('data-size')/1.5);
+    if (fileLength == 0) extra.attr('data-size', 0);
+    //код только для демонстрации
+    
+    fileSize = extra.attr('data-size');
+    
+    if (fileSize > 20) {
+      noteErr.show();
+    } else {
+      noteErr.hide();
+      $('.open-con .tabs__tab.active .contest-popup__submit').removeClass('disabled');
+    }
+    
     checkAttachments();
   });
   
