@@ -111,6 +111,29 @@ export default () => {
     });
   }
   
+  function addDoc(fileLength, fileSize, maxSize) {
+    var attachment = $('.open-con .tabs__tab.active .contest-popup__attachment_doc.hidden').first();
+    
+    for (var i = 1; i <= fileLength; i++) {
+      attachment.clone(true).appendTo('.open-con .tabs__tab.active .contest-popup__attachments').removeClass('hidden');
+    }
+    
+    if (fileSize > maxSize) {
+      $('.open-con .tabs__tab.active .contest-popup__attachment-note_err').show();
+    } else {
+      $('.open-con .tabs__tab.active .contest-popup__submit').removeClass('disabled');
+    }
+  }
+  
+  function removeDoc(fileSize, maxSize) {
+    if (fileSize > maxSize) {
+      $('.open-con .tabs__tab.active .contest-popup__attachment-note_err').show();
+    } else {
+      $('.open-con .tabs__tab.active .contest-popup__attachment-note_err').hide();
+      $('.open-con .tabs__tab.active .contest-popup__submit').removeClass('disabled');
+    }
+  }
+  
   $(document).on('click', '.contest-popup .js-button-attachment', function(){
     var extra = $(this).parents('.contest-popup__extra'),
         buttons = extra.find('.contest-popup__attachment-buttons'),
@@ -126,30 +149,16 @@ export default () => {
   
   $(document).on('click', '.contest-popup .js-button-attfile', function(){
     var extra = $(this).parents('.contest-popup__extra'),
-        buttons = extra.find('.contest-popup__attachment-buttons'),
-        attachment = $('.open-con .tabs__tab.active .contest-popup__attachment_doc.hidden').first(),
-        noteErr = extra.find('.contest-popup__attachment-note_err'),
-        fileLength,
-        fileSize;
+        buttons = extra.find('.contest-popup__attachment-buttons');       
     
     buttons.hide();
     
     //код только для демонстрации
-    extra.attr('data-file', Math.floor(Math.random()*3+1));
-    extra.attr('data-size', Math.random()*40);
+    var fileLength = Math.floor(Math.random()*3+1);
+    var fileSize = Math.random()*40;
     //код только для демонстрации
     
-    fileLength = extra.attr('data-file');
-    for (var i = 1; i <= fileLength; i++) {
-      attachment.clone(true).appendTo('.open-con .tabs__tab.active .contest-popup__attachments').removeClass('hidden');
-    }
-    
-    fileSize = extra.attr('data-size');
-    if (fileSize > 20) {
-      noteErr.show();
-    } else {
-      $('.open-con .tabs__tab.active .contest-popup__submit').removeClass('disabled');
-    }
+    addDoc(fileLength, fileSize, 20);
   });
   
   $(document).on('click', '.contest-popup .js-button-attlink', function(){
@@ -171,28 +180,15 @@ export default () => {
   
   $(document).on('click', '.contest-popup__delete-icon', function(e){
     var extra = $(this).parents('.contest-popup__extra'),
-        noteErr = extra.find('.contest-popup__attachment-note_err'),
-        fileLength = extra.attr('data-file'),
-        fileSize;
+        noteErr = extra.find('.contest-popup__attachment-note_err');
     
     $(this).parent().remove();
-    fileLength -= 1;
-    extra.attr('data-file', fileLength);
     
     //код только для демонстрации
-    extra.attr('data-size', extra.attr('data-size')/1.5);
-    if (fileLength == 0) extra.attr('data-size', 0);
+    var fileSize = 10;
     //код только для демонстрации
     
-    fileSize = extra.attr('data-size');
-    
-    if (fileSize > 20) {
-      noteErr.show();
-    } else {
-      noteErr.hide();
-      $('.open-con .tabs__tab.active .contest-popup__submit').removeClass('disabled');
-    }
-    
+    removeDoc(fileSize, 20);
     checkAttachments();
   });
   
