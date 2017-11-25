@@ -109,10 +109,12 @@ mixin footer()
             +e.LI.menu-item
               +e.A.menu-link(href="#") Форум
         //- колонка меню
-        +e.column._break-the-line
+        +e.column._break-the-line._about
           +e.about
-            +e.A.about-link(href="#") О портале
-            +e.A.about-link(href="#") Карта сайта
+            +e.SPAN.about-col
+              +e.A.about-link(href="#") О портале
+            +e.SPAN.about-col
+              +e.A.about-link(href="#") Карта сайта
         //- колонка меню
         +e.column
           +e.A.block-logo(href="#")
@@ -137,5 +139,9 @@ mixin footer()
               +icon('android').icon
             +e.A.app-link(href="#")
               +icon('windows').icon
+        //- колонка меню
+        +e.column._oldver
+          +e.about
+            +e.A.about-link(href="#") Старая версия портала
 
     +e.common
