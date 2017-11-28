@@ -163,8 +163,13 @@ export default () => {
 
     $(document).on('click', function() {
       $('.jq-spec-datepicker').blur().removeClass('hasDatepicker');
+      $('.jq-spec-datepicker').datepicker('hide');
     });
     
+    $(document).on('click', '.jq-spec-datepicker, .ui-datepicker, .ui-datepicker-next, .ui-datepicker-prev', function(e){
+      e.stopPropagation();
+      $('.jq-spec-datepicker').blur().removeClass('hasDatepicker');
+    });
     
     // Обрезание текста троеточием
     if ($('.wrapper_main').length) {
