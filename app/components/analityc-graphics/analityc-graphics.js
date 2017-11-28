@@ -851,4 +851,35 @@ export default () => {
       
     })
   }
+  
+  // Бюджет Москвы - Закон о бюджете утвержденный - выравнивание графиков "Верхний предел государственного долга" и "Предельный объем государственного долга"
+  $('.gov-debt__analityc-tab_govdebt .analityc-graphics_approved .analityc-graphics__columns').each(function(){
+    
+    var cols = $(this),
+        col = cols.find('.analityc-graphics__graphic_limitcolumn'),
+        maxColHeight = 0,
+        minColHeight,
+        colHeightDiff;    
+    
+    col.each(function(){
+      var colHeight = $(this).height();
+      if (colHeight > maxColHeight) {
+        maxColHeight = colHeight;
+      }
+    });
+    
+    minColHeight = maxColHeight;
+    
+    col.each(function(){
+      var colHeight = $(this).height();
+      if (colHeight < minColHeight) {
+        minColHeight = colHeight;
+      }
+    });
+    
+    colHeightDiff = maxColHeight - minColHeight;
+    cols.css('margin-top', '-'+colHeightDiff+'px');
+    
+  });
+  
 }
