@@ -62,7 +62,7 @@ export default () => {
   const FILTER_CLOSE = $('.extra-search__close');
 
   FILTER_LINK.click(function() {
-    if ($(this).hasClass('active'))
+    if (!$(this).hasClass('active'))
       $(this).parents('.search_net').find('.search__filter').show();
     else
       $(this).parents('.search_net').find('.search__filter').hide();

@@ -9,10 +9,45 @@ export default () => {
 
 	//DESC_BTN.bind('click', function(e) {
 	$(document).on('click', '.open-file__row-description', function(e) {
-		if (!$(e.target))
-			ROWS.removeClass('open-file__row_active');
+		//if (!$(e.target))
+		//	ROWS.removeClass('open-file__row_active');
+		//$(e.target).parents('.open-file__row').toggleClass('open-file__row_active');
+      
+      if ($(window).width() > 900) {
+        
+        var row = $(this).parents('.open-file__row'),
+            rowTitle = row.find('.open-file__row-title'),
+            rowControls = row.find('.open-file__row-controls');
+        
+        if (row.hasClass('open-file__row_active')) {
+          
+          row.css('padding-top', '');
+          row.removeClass('open-file__row_active');
+          
+        } else {
+          
+          var rowTitleHeight = rowTitle.outerHeight();
+          row.addClass('open-file__row_active');
+          var newRowTitleHeight = rowTitle.outerHeight();
+          var rowControlsHeight = rowControls.outerHeight();
+          
+          if (newRowTitleHeight < rowControlsHeight) { 
+            var heightDiff = rowTitleHeight - rowControlsHeight;
+          } else {
+            var heightDiff = rowTitleHeight - newRowTitleHeight;
+          }
+          
+          row.css('padding-top', heightDiff/2+'px');
+        }
+        
+      } else {
+        
+        if (!$(e.target))
+		  ROWS.removeClass('open-file__row_active');
 		$(e.target).parents('.open-file__row').toggleClass('open-file__row_active');
-	})
+        
+      }
+	});
 
 	MORE_BTN.click(function(e) {
 		e.preventDefault();
