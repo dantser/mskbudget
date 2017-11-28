@@ -201,6 +201,7 @@ budget.extend("common", {
           var dt = new Date($(this).datepicker('getDate'));
           var strDate = fmt(dt.getDate()) + "." + fmt(dt.getMonth()+1) + "." + dt.getFullYear();
           $(document).find('.js-dp-output_others_unixtime').val(strDate);
+          $(document).find('.js-dp-unixtime').val(((dt.getTime() - dt.getTimezoneOffset()*60*1000) / 1000).toFixed(0));
           $(this).trigger("change");
         }
 
