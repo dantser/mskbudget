@@ -957,8 +957,13 @@
   }
   
   .analityc-graphics__growth-rate {
-    margin-bottom: 10px;
     padding-bottom: 20px;
+    position: relative;
+    z-index: 2;
+    
+    & + .analityc-graphics__growth-rate {
+      margin-top: 10px;
+    }
     
     @media screen and (min-width: 581px) and (max-width: 768px) {
       padding-bottom: 30px;
@@ -994,6 +999,6 @@
   &__note {
     font-size: 16px;
     font-style: italic;
-    margin-top: 30px;
+    margin-top: 50px;
   }
 }
