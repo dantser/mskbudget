@@ -163,12 +163,12 @@ export default () => {
 
     $(document).on('click', function() {
       $('.jq-spec-datepicker').blur().removeClass('hasDatepicker');
-      $('.jq-spec-datepicker').datepicker('hide');
     });
     
-    $(document).on('click', '.jq-spec-datepicker, .ui-datepicker, .ui-datepicker-next, .ui-datepicker-prev', function(e){
-      e.stopPropagation();
-      $('.jq-spec-datepicker').blur().removeClass('hasDatepicker');
+    $(document).on('click', function(e){
+      if (!$(e.target).parents('.ui-datepicker, .ui-datepicker-prev, .ui-datepicker-next, .sections__datepicker .dp, .widget-card-gov-programs .widget-card__datepicker').length) {
+        $('.jq-spec-datepicker').datepicker('hide');
+      }
     });
     
     // Обрезание текста троеточием
