@@ -99,12 +99,42 @@ mixin menu()
             +e.LI.item
               +e.A.link(href="analytics-gov-debt.html") Государственный долг
       +e.LI.item
-        +e.A.link(href="depfin-services-main.html") Сервисы
+        +e.A.link(href="depfin-services-main.html").has-dropdown Сервисы
+        //- субменю
+        +b.DIV.submenu.__submenu
+          +e.UL.list
+            +e.LI.item._main-page-link
+              +e.A.link(href="depfin-services-main.html") Все сервисы
+            +e.LI.item
+              +e.A.link(href="services_gov_program_list.html") Результаты реализации государственных программ
+            +e.LI.item
+              +e.A.link(href="edu-service.html") Обучающий сервис
+            +e.LI.item
+              +e.A.link(href="polls_task.html") Опросы
+            +e.LI.item
+              +e.A.link(href="regions.html") Москва и субъекты РФ
+            +e.LI.item
+              +e.A.link(href="depfin-services-social-support.html") Социальная поддержка населения
+            +e.LI.item
+              +e.A.link(href="depfin_services_budget_calc.html") Калькулятор бюджета
+            +e.LI.item
+              +e.A.link(href="quiz-task.html") Викторины
+            +e.LI.item
+              +e.A.link(href="services_social_significant.html") Общественно значимые проекты
+            +e.LI.item
+              +e.A.link(href="depfin_services_VMO.html") Внутригородские муниципальные образования
+            +e.LI.item
+              +e.A.link(href="services_net.html") Бюджетная сеть
+            +e.LI.item
+              +e.A.link(href="services_moscow.html") Москва и города мира
+
       +e.LI.item
         +e.A.link(href="depfin-budget-moscow-open.html").has-dropdown Открытость
         //- субменю
         +b.DIV.submenu.__submenu
           +e.UL.list
+            +e.LI.item._main-page-link
+              +e.A.link(href="depfin-budget-moscow-open.html") Стартовая страница
             +e.LI.item
               +e.A.link(href="open-preza.html") Путеводитель по бюджету
             +e.LI.item
@@ -120,6 +150,8 @@ mixin menu()
         //- субменю
         +b.DIV.submenu.__submenu
           +e.UL.list
+            +e.LI.item._main-page-link
+              +e.A.link(href="media-main.html") Стартовая страница
             +e.LI.item
               +e.A.link(href="news.html").has-dropdown Новости
               //- субменю
