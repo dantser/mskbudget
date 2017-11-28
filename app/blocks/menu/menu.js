@@ -39,7 +39,7 @@ export default () => {
             menuTimeout = setTimeout(function(){
               closeMenu();
               addActiveClass(el);
-            }, 300);
+            }, 500);
           } else {
             var el = $(this);
             addActiveClass(el);
@@ -47,7 +47,7 @@ export default () => {
         } else {
           menuTimeout = setTimeout(function(){
             closeMenu();
-          }, 300);
+          }, 500);
         }
       }
     });
@@ -139,7 +139,7 @@ export default () => {
             subMenuTimeout = setTimeout(function(){
               closeSubMenu();
               addActiveClass(el);
-            }, 300);
+            }, 500);
           } else {
             if (e.target.offsetTop > 0) {
               e.target.nextElementSibling.setAttribute('style','transform: translateY(' + e.target.offsetTop + 'px)');
@@ -147,12 +147,12 @@ export default () => {
             var el = $(this);
             subMenuTimeout = setTimeout(function(){
               addActiveClass(el);
-            }, 300);
+            }, 500);
           }
         } else if ($(this).parents('.subsubmenu').length == 0) {
           subMenuTimeout = setTimeout(function(){
             closeSubMenu();
-          }, 600);
+          }, 500);
         }
       }
     });
