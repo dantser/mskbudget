@@ -94,4 +94,9 @@ export default function docCards() {
   } else {
     overflowDotts(179, '.news__title');
   }
+
+  // шрифт Fira
+  if ($('.budget-income-fira').length) {
+    overflowDotts(165, '.news__title');
+  }
 }
