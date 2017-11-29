@@ -80,7 +80,7 @@ export default function docCards() {
       const SIZE = size;
       const CONTENTTEXT = $(this).text();
         if(CONTENTTEXT.length > SIZE){
-          $(this).text(CONTENTTEXT.slice(0, SIZE) + ' ...');
+          $(this).text((CONTENTTEXT.slice(0, SIZE)).trim() + '...');
         }
     });
   };

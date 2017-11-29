@@ -8,7 +8,7 @@ export default () => {
         var contentText = $(this).text();
         if(contentText.length > size){
           console.log($(this).text())
-          $(this).text(contentText.slice(0, size) + ' ...');
+          $(this).text((contentText.slice(0, size)).trim() + '...');
         }
       });
     };
