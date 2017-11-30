@@ -87,16 +87,5 @@ export default function docCards() {
 
   overflowDotts(60, '.section-tabs__title');
   overflowDotts(400, '.section-tabs__text');
-
-
-  if ($(window).width() < 650) {
-    overflowDotts(310, '.news__title');
-  } else {
-    overflowDotts(179, '.news__title');
-  }
-
-  // шрифт Fira
-  if ($('.budget-income-fira').length) {
-    overflowDotts(165, '.news__title');
-  }
+  overflowDotts(165, '.news__title');
 }
