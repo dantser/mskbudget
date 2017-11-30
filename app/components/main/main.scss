@@ -168,12 +168,13 @@
         font-size: 12px;
         margin-top: 0;
       }
-      @media (max-width: 480px) {
+      @media (max-width: 480px) and (min-width: 321px) {
         font-size: 14px;
       }
-
-      @media (max-width: 320px) {
-        font-size: 12px;
+    }
+    
+    &__state {
+      @media (max-width: 900px) {
         margin-top: 0;
       }
     }
@@ -1302,29 +1303,40 @@
 //   }
 // }
 
-@media screen and (max-width: 605px) {
+@media screen and (max-height: 610px) and (max-width: 900px) {
   .wrapper_main {
     .service__diagram-tabs {
       bottom: 30px;
-      height: 54px;
+      height: 62px;
     }
     .diagram-tabs__btn {
-      height: 30px;
+      height: 38px;
       font-size: 13px;
-      padding: 5px;
-      text-align: center;
+      padding: 5px 8px;
+      text-align: left;
       min-width: 42px;
+      &_other:before {
+        background-position: -184px 6px;
+      }
+      &_bank:before {
+        background-position: -142px 2px;
+      }
+      &_bag:before {
+        background-position: -142px -16px;
+      }
+      &_build:before {
+        background-position: -142px -35px;
+      }
     }
     .diagram-tabs__btn:before {
-      display: inline-block;
-      width: 11px;
-      height: 12px;
+      width: 18px;
+      height: 17px;
       position: relative;
       margin-right: 1px;
-      background-image: url(../images/sprite@2x.png);
-      background-size: 480px auto;
+      background-image: url(../images/sprite.png);
+      background-size: 380px auto;
       background-repeat: no-repeat;
-      top: 1px;
+      top: 0;
     }
     .diagram-tabs__icon {
       width: 11px;
@@ -1340,6 +1352,77 @@
     .diagram-tabs__caption {
       line-height: 24px;
       font-size: 12px;
+    }
+  }
+}
+
+@media screen and (max-width: 605px) {
+  .wrapper_main {
+    .service__diagram-tabs {
+      bottom: 30px;
+      height: 62px;
+    }
+    .diagram-tabs__btn {
+      height: 38px;
+      font-size: 13px;
+      padding: 5px 8px;
+      text-align: left;
+      min-width: 42px;
+      &_other:before {
+        background-position: -184px 6px;
+      }
+      &_bank:before {
+        background-position: -142px 2px;
+      }
+      &_bag:before {
+        background-position: -142px -16px;
+      }
+      &_build:before {
+        background-position: -142px -35px;
+      }
+    }
+    .diagram-tabs__btn:before {
+      width: 18px;
+      height: 17px;
+      position: relative;
+      margin-right: 1px;
+      background-image: url(../images/sprite.png);
+      background-size: 380px auto;
+      background-repeat: no-repeat;
+      top: 0;
+    }
+    .diagram-tabs__icon {
+      width: 11px;
+      height: 12px;
+      margin-right: 1px;
+      position: relative;
+      top: 1px;
+      display: inline-block;
+    }
+    .diagram-tabs__btn_house:before {
+      background-position: -207px 2px;
+    }
+    .diagram-tabs__caption {
+      line-height: 24px;
+      font-size: 12px;
+    }
+    
+    .widget-card-gov-programs .service-dot-cont, .widget-card-gov-programs .service-dot-cont_act {
+      margin-top: 42px;
+    }
+    .widget-card-invest-program .segment-diagram {
+      margin-top: 42px;
+    }
+  }
+}
+
+@media screen and (max-height: 610px) and (max-width: 605px) {
+  .wrapper_main {
+    .widget-card-gov-programs .service-dot-cont, .widget-card-gov-programs .service-dot-cont_act {
+      margin-top: 12px;
+    }
+    .widget-card-invest-program .segment-diagram {
+      margin-top: 12px;
     }
   }
 }
@@ -1750,27 +1833,27 @@ body.home {
       // Государственные программы
       @media screen and (max-width: 650px) and (max-height: 550px) {
         .widget-card-gov-programs .dashed-diagram__diagram, .widget-card-gov-programs .dashed-diagram__diagram .svg {
-          width: 110px !important;
-          height: 110px !important;
+          width: 120px !important;
+          height: 120px !important;
         }
         .service__dashed-diagram {
-          height: 120px;
+          height: 130px;
         }
       }
       
       // Адресная инвестиционная программа
       @media screen and (max-width: 650px) and (max-height: 550px) {
         .widget-card-invest-program .segment-diagram, .widget-card-invest-program .segment-diagram .svg {
-          width: 110px !important;
-          height: 110px !important;
+          width: 130px !important;
+          height: 130px !important;
         } 
       }
       
       // Государственный долг
       @media screen and (max-width: 650px) and (max-height: 550px) {
         .widget-card-gov-debt .segment-diagram, .widget-card-gov-debt .segment-diagram .svg {
-          width: 110px !important;
-          height: 110px !important;
+          width: 130px !important;
+          height: 130px !important;
         }
       }
       

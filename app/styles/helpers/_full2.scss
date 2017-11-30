@@ -620,7 +620,7 @@ button::-moz-focus-inner { padding: 0; border: 0; }
 @media (max-width: 900px) and (max-height: 610px) {
   .diagram-tabs { height: 45px; }
   .diagram-tabs__btn { height: 22px; font-size: 11px; padding: 5px; text-align: center; min-width: 35px; }
-  .diagram-tabs__btn:before { display: inline-block; width: 11px; height: 12px; position: relative; margin-right: 1px; background-image: url("../images/sprite@2x.png"); -moz-background-size: 480px auto; -o-background-size: 480px auto; background-size: 480px auto; background-repeat: no-repeat; top: 1px; }
+  .diagram-tabs__btn:before { width: 11px; height: 12px; position: relative; margin-right: 1px; background-image: url("../images/sprite@2x.png"); -moz-background-size: 480px auto; -o-background-size: 480px auto; background-size: 480px auto; background-repeat: no-repeat; top: 1px; }
   .diagram-tabs__btn_house:before { background-position: -207px 2px; }
   .diagram-tabs__btn_med:before { background-position: -208px -43px; }
   .diagram-tabs__btn_build:before { background-position: -181px -43px; }
@@ -1391,7 +1391,9 @@ button::-moz-focus-inner { padding: 0; border: 0; }
 
 .sections__all { float: left; font-size: 16px; color: #fee300; position: relative; -webkit-transition: 0.5s; -moz-transition: 0.5s; -o-transition: 0.5s; transition: 0.5s; text-decoration: none; margin-top: 7px; }
 
-.sections__all:after { display: block; content: ""; width: 6px; height: 10px; background-image: url("../images/sprite.png"); background-repeat: no-repeat; background-position: -81px -32px; position: absolute; right: -17px; top: 3px; @media(max-width:400px){top:2px;}}
+.sections__all:after { display: block; content: ""; width: 6px; height: 10px; background-image: url("../images/sprite.png"); background-repeat: no-repeat; background-position: -81px -32px; position: absolute; right: -17px; top: 3px; 
+  @media(max-width:400px) { top: 0; bottom: 0; margin: auto; }
+}
 
 .sections__all:hover { filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50); opacity: 0.5; }
 
@@ -1528,7 +1530,7 @@ button::-moz-focus-inner { padding: 0; border: 0; }
 @media (max-width: 700px) and (max-height: 700px) { .banner__wrap { padding: 9.5625rem 0 0 0; } }
 
 @media (max-width: 700px) { .banner__cat { width: 117px; height: 28px; font-size: 12px; line-height: 15px; }
-  .banner__row { font-size: 38px; padding: 0 8px; }
+  .banner__row { font-size: 38px; padding: 1px 8px; }
   //.banner__row_v1 { padding: 5px 8px; line-height: 38px; }
   .banner__row_v1 .viewport-sm { display: inline !important; }
   //.banner__row_v2 { padding: 5px 8px 8px; }
