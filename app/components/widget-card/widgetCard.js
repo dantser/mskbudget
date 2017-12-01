@@ -152,13 +152,23 @@ export default () => {
         if ($this.parents().hasClass('dropdown-block') || $this.parents().hasClass('wrapper_main') || $this.parents().hasClass('lk-services-second')) {   //убираем сворачивание виджетов в блоке дропдаунов и на главной
           return;
         }
-        $this.parents('.widget-card').find('.service__diagram-tabs').hide();
+        $this.parents('.widget-card').find('.service__diagram-tabs, .service-dots').hide();
         $this.parents('.widget-card').toggleClass('widget-card_active');
         $this.parents('.widget-card__head').siblings().slideToggle(321);
         setTimeout(function () {
-          $this.parents('.widget-card').find('.service__diagram-tabs').show();
+          $this.parents('.widget-card').find('.service__diagram-tabs, .service-dots').show();
         }, 321)
       });
+	  
+	  $(document).on('click', '.depfin-services-main .widget-card .datepicker__show', function(e){
+		var $this = $(this);
+        $this.parents('.widget-card').find('.service__diagram-tabs, .service-dots').hide();
+        $this.parents('.widget-card').addClass('widget-card_active');
+        $this.parents('.widget-card__head').siblings().slideDown(321);
+        setTimeout(function () {
+          $this.parents('.widget-card').find('.service__diagram-tabs, .service-dots').show();
+        }, 321)
+	  });
   };
 
 
