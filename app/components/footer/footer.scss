@@ -7,7 +7,7 @@ body.home .footer-frame-wrp { display: none; }
   overflow: hidden;
   padding-bottom: 0 !important;
   font-family: $PFDinCondensedPro;
-  font-size: 15px;
+  font-size: 13.5px;
   line-height: 1.15;
   font-weight: 400;
   font-style: normal;
@@ -56,6 +56,19 @@ body.home .footer-frame-wrp { display: none; }
         align-items: stretch;
         align-content: center;
       }
+      
+      &_less-col {
+        .footer__column_about {
+          @media (max-width: 320px) {
+            margin-bottom: 10px;
+          }
+        }
+        .footer__about-col {
+          @media (max-width: 320px) {
+            font-size: 12px;
+          }
+        }
+      }
     }
 
     &__common {
@@ -95,6 +108,14 @@ body.home .footer-frame-wrp { display: none; }
       @media screen and (max-width: 1024px) {
         margin-left: 0;
         margin-right: 0;
+      }
+    }
+    
+    &__column {
+      @media (min-width: $navBreakpointTablet + 1px) {
+        &:nth-child(6) {
+          margin-top: 40px;
+        }
       }
     }
 
@@ -249,7 +270,7 @@ body.home .footer-frame-wrp { display: none; }
   &__heading {
     display: block;
     margin-bottom: 7px;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 500;
     text-decoration: none;
     
