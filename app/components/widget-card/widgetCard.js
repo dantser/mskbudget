@@ -274,6 +274,32 @@ export default () => {
     overflowDotts(45, '.widget-card-polls-pers .widget-card__info-block-title, .widget-card-quiz-pers .widget-card__info-block-title');
     overflowDotts(127, '.widget-card-social-support .widget-card__info-block-item, .widget-card-gov-programs-result .widget-card__info-block-item');
     overflowDotts(65, '.widget-card-projects .widget-card__info-block-desc');
+    
+    
+    function dotText(el, children) {
+      $(el).each(function(){
+        var textSpan = $(this).find(children),
+            wordArray = textSpan.text().split(' '),
+            newText = '';
+        
+        for (var i = 0; i < wordArray.length; i++) {
+          
+          if (textSpan.text(newText+wordArray[i]).height() <= $(this).height()) {
+            newText += ' '+wordArray[i];
+          } else if (textSpan.text(newText+'...').height() <= $(this).height()){
+            newText += '...';
+            i = wordArray.length;
+          } else {
+            newText = newText.substring(0, newText.lastIndexOf(' ')) + '...';
+            i = wordArray.length;
+          }
+          
+          textSpan.text(newText);
+        }
+	 });
+    }
+    
+    dotText('.widget-card__title', 'h3');
   }
   
   // Фикс шрифта заголовков виджетов в iOS

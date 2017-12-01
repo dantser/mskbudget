@@ -139,26 +139,20 @@
 
     &__title {
       @media (max-width: 900px) {
-        font-size: 15px;
+        font-size: 14.5px;
         margin-bottom: 3px;
         min-height: 12px;
         line-height: 15px;
-        padding-right: 40px;
 
         &::first-letter {
           text-transform: uppercase;
         }
       }
-
-      @media (max-width: 320px) {
-        font-size: 15px;
-        margin-bottom: 3px;
-        min-height: 12px;
-        line-height: 15px;
-      }
       
       h3 {
-        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
     }
 
@@ -1133,7 +1127,7 @@
       padding: 10px 15px 30px;
     }
     .segment-diagram {
-      bottom: 10px;
+      bottom: 5px;
     }
   }
 }
@@ -1410,18 +1404,20 @@
     .widget-card-gov-programs .service-dot-cont, .widget-card-gov-programs .service-dot-cont_act {
       margin-top: 42px;
     }
-    .widget-card-invest-program .segment-diagram {
+    .widget-card-invest-program .segment-diagram,
+    .widget-card-gov-debt .segment-diagram {
       margin-top: 42px;
     }
   }
 }
 
-@media screen and (max-height: 610px) and (max-width: 605px) {
+@media screen and (max-height: 570px) and (max-width: 605px) {
   .wrapper_main {
     .widget-card-gov-programs .service-dot-cont, .widget-card-gov-programs .service-dot-cont_act {
       margin-top: 12px;
     }
-    .widget-card-invest-program .segment-diagram {
+    .widget-card-invest-program .segment-diagram,
+    .widget-card-gov-debt .segment-diagram {
       margin-top: 12px;
     }
   }

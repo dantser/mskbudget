@@ -9,7 +9,10 @@ mixin widget-card()
 mixin widget-card-head(title, subtitle, datepicker, alt)
 	+e.head&attributes(attributes)
 		+e.title
-			h3= title
+			if (subtitle || datepicker)
+				h3.one-line= title
+			else
+				h3= title
 			+icon('angle-arrow').arrow-open
 			+icon('pin').pin
 			+e.BUTTON.favor
@@ -34,7 +37,7 @@ mixin widget-card-head(title, subtitle, datepicker, alt)
 mixin widget-card-head-altdp(title, subtitle)
 	+e.head&attributes(attributes)
 		+e.title
-			h3= title
+			h3.one-line= title
 			+icon('angle-arrow').arrow-open
 			+icon('pin').pin
 			+e.BUTTON.favor
