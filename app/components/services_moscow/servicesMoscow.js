@@ -1,8 +1,11 @@
 import $ from 'jquery';
 import Swiper from 'swiper';
 
-export default () => {
+var isDocumentLoad = true;
 
+export default () => {
+  if (isDocumentLoad)
+  {
     $('.services-moscow__buttons-set .buttons-set__item').click(function() {
       $('.button-light').removeClass('button-light--fill');
       $(this).find('.button-light').addClass('button-light--fill');
@@ -13,6 +16,8 @@ export default () => {
       nextButton: '.services-moscow-index__slider-arrow_next',
       loop: true
     });
+  }
+  isDocumentLoad = false;
 
     var table = new Swiper('.services-moscow-index__index', {
       slidesPerView: 5,
