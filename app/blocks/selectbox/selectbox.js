@@ -82,7 +82,12 @@ export default function selectbox() {
           }
           
         } else {
-          if ($(this).attr('data-href')) {
+          if ($(this).attr('data-tooltip')) {
+            const title = $(this).attr('title');
+            const li = '<li class="js-tooltip" data-val="' + vval + '" title="'+title+'">' + ttext + '</li>';
+            selBox.find('ul').append(li);
+          }
+          else if ($(this).attr('data-href')) {
             const href = $(this).attr('data-href');
             const li = '<li data-val="' + vval + '"><a href="'+href+'">' + ttext + '</a></li>';
             selBox.find('ul').append(li);
