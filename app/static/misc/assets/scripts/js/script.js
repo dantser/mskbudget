@@ -398,6 +398,7 @@ budget.extend("whatIsBudgetDescription", {
                 });
 
                 this.elements.$revenues.on("click", ".whatIsBudget-revenues__subtitle", function (event) {
+					if (!$(this).hasClass('no-clickable')) {
                         _this.revenuesTriggered($(event.delegateTarget));
 						var wrapper = $('.whatIsBudget-revenues__wrapper'),
 							revenues = $(this),
@@ -407,6 +408,7 @@ budget.extend("whatIsBudgetDescription", {
 							revenuesDistance = revenues.offset().top,
 							difference = (wrapperDistance + wrapperHeight) - (revenuesDistance + revenuesHeight);
 						(difference < 0 && $(window).width() <= 1000) ? revenues.next().css('top', difference+'px') : revenues.next().css('top', '');
+					}
                 });
 
                 this.elements.publicDebt.on("click", ".whatIsBudget-publicDebt__title", function (event) {
