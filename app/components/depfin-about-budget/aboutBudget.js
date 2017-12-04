@@ -18,32 +18,34 @@ export default () => {
     $('.whatIsBudget-publicDebt__inner').scrollbar();
 
 	function pageScale() {
-		if ($(window).width() < '640') {
-			var maxWidth  = $('.js-resolution-320').width();
-			var maxHeight = $('.js-resolution-320').height();
-
-	    var $window = $(window);
-	    var width = $window.width();
-	    var height = $window.height();
-	    var scale;
-
-	    // early exit
-	    if(width >= maxWidth && height >= maxHeight) {
-	        // $('.js-resolution-320').css({'-webkit-transform': '', '-moz-transform': '', '-ms-transform': '', '-o-transform': '', 'transform': ''});
-	        $('.js-resolution-320').attr('style', '-webkit-transform: ' + '' + '; -moz-transform: ' + '' + '; -ms-transform:' + '' + '; -o-transform:' + '' + '; transform:' + '' + ';');
-	        $('.js-resolution-wrap').css({ width: '', height: '' });
-	        return;
-	    }
-
-	    scale = width/maxWidth;
-
-	    // $('.js-resolution-320').css({'-webkit-transform': 'scale(' + scale + ')', '-moz-transform': 'scale(' + scale + ')', '-ms-transform': 'scale(' + scale + ')', '-o-transform': 'scale(' + scale + ')', 'transform': 'scale(' + scale + ')'});
-      $('.js-resolution-320').attr('style', '-webkit-transform: scale(' + scale + '); -moz-transform: scale(' + scale + '); -ms-transform: scale(' + scale + '); -o-transform:(' + scale + '); transform: scale(' + scale + ');');
-	    $('.js-resolution-wrap').css({ width: maxWidth * scale, height: maxHeight * scale });
-          
-          $('.js-resolution-320').find('.whatIsBudget').css('padding-top', 103/scale+'px');
-		}
-	}
+      if ($(window).width() < '640') {
+        var maxWidth  = $('.js-resolution-320').width();
+        var maxHeight = $('.js-resolution-320').height();
+        var $window = $(window);
+        var width = $window.width();
+        var height = $window.height();
+        var scale;
+        
+        scale = width/maxWidth;
+        
+        $('.js-resolution-320').find('.whatIsBudget').css('padding-top', 103/scale+'px');
+        
+        maxHeight = $('.js-resolution-320').height();
+        
+        // early exit
+        if(width >= maxWidth && height >= maxHeight) {
+          // $('.js-resolution-320').css({'-webkit-transform': '', '-moz-transform': '', '-ms-transform': '', '-o-transform': '', 'transform': ''});
+          $('.js-resolution-320').attr('style', '-webkit-transform: ' + '' + '; -moz-transform: ' + '' + '; -ms-transform:' + '' + '; -o-transform:' + '' + '; transform:' + '' + ';');
+          $('.js-resolution-wrap').css({ width: '', height: '' });
+          return;
+        }
+        
+        // $('.js-resolution-320').css({'-webkit-transform': 'scale(' + scale + ')', '-moz-transform': 'scale(' + scale + ')', '-ms-transform': 'scale(' + scale + ')', '-o-transform': 'scale(' + scale + ')', 'transform': 'scale(' + scale + ')'});
+        
+        $('.js-resolution-320').attr('style', '-webkit-transform: scale(' + scale + '); -moz-transform: scale(' + scale + '); -ms-transform: scale(' + scale + '); -o-transform:(' + scale + '); transform: scale(' + scale + ');');
+        $('.js-resolution-wrap').css({ width: maxWidth * scale, height: maxHeight * scale });
+      }
+    }
 }
 
 // import $ from 'jquery';

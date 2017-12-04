@@ -50,17 +50,17 @@ mixin widget-card-head-altdp(title, subtitle)
 				div.datepicker__panel
 					ul.datepicker__col.datepicker__col_years
 						li
-							a(href="#").datepicker__a 2011
+							a(href="#" data-disabled-months="01 10").datepicker__a 2011
 						li
-							a(href="#").datepicker__a 2012
+							a(href="#" data-disabled-months="03").datepicker__a 2012
 						li
-							a(href="#").datepicker__a 2013
+							a(href="#" data-disabled-months="07").datepicker__a 2013
 						li
-							a(href="#").datepicker__a 2014
+							a(href="#" data-disabled-months="04 05 11").datepicker__a 2014
 						li
-							a(href="#").datepicker__a 2015
+							a(href="#" data-disabled-months="").datepicker__a 2015
 						li
-							a(href="#").datepicker__a.datepicker__a_act 2016
+							a(href="#" data-disabled-months="12").datepicker__a.datepicker__a_act 2016
 					.datepicker__col-wrap
 						ul.datepicker__col.datepicker__col_months
 							li
@@ -87,7 +87,7 @@ mixin widget-card-head-altdp(title, subtitle)
 							li
 								a(href="#" data-month="11").datepicker__a ноябрь
 							li
-								a(href="#" data-month="12").datepicker__a декабрь
+								a(href="#" data-month="12").datepicker__a.datepicker__a_dis декабрь
 					button.datepicker__close
 			span , млрд. руб
 		block
