@@ -155,6 +155,7 @@ $(() => {
 	  aip();
 	  classifyNew();
 	  servicesVMO();
+	  window.socialSignificant = socialSignificant;
 	  socialSignificant();
 	  servicesNet();
 	  dropTable();
