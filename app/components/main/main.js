@@ -141,14 +141,14 @@ export default () => {
     
     
     // Инициализация календарей
-    if ($(".jq-spec-datepicker").length > 0) {
+   /* if ($(".jq-spec-datepicker").length > 0) {
       if ($('.wrapper_main').length) {
         setTimeout(function(){
           initSpecDP();
         },1000);
-      } /*else {
+      }else {
         initSpecDP();
-      }*/
+      }
     }
     
     if ($(".jq-spec-datepicker-alt").length > 0) {
@@ -156,10 +156,10 @@ export default () => {
         setTimeout(function(){
           initSpecDPalt();
         },1000);
-      } /*else {
+      } else {
         initSpecDPalt();
-      }*/
-    }
+      }
+    }*/
 
     $(document).on('click', function() {
       $('.jq-spec-datepicker').blur().removeClass('hasDatepicker');
