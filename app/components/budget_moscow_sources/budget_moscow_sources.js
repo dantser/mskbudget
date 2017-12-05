@@ -7,6 +7,7 @@ export default () => {
      
     // графики
     graphicInit();
+    dateGraphicInit();
     
     function graphicInit() {
       $('.graphic__data .linear-diagram__fill').each(function(){
@@ -38,10 +39,47 @@ export default () => {
           $(this).width(dwidth);
         });
       });
-      
-      $('.analityc-widget-sources_date [data-width]').each(function(){
-        var dwidth = $(this).data('width');
-        $(this).css('width', dwidth+'%');
+    }
+    
+    function graphicArrowInit() {
+      $('.graphic__data-arrow').each(function(){
+        var parentRow = $(this).parents('.graphic__row'),
+            totalRowsHeight = 0,
+            dataRows = parentRow.nextAll().not('.graphic__total');
+        
+        dataRows.each(function(){
+          var rowHeight = $(this).outerHeight(true);
+          totalRowsHeight += rowHeight;
+        });
+        
+        totalRowsHeight += 20;
+        
+        $(this).height(totalRowsHeight);
+      });
+    }
+    
+    function dateGraphicInit() {
+      $('.analityc-widget-sources_date .linear-diagrams').each(function(){
+        var area = $(this).attr('data-area'),
+            diagram = $(this).find('.linear-diagram'),
+            diagramsWidth = $(this).width();
+        
+        if ($(window).width() <= 550) {
+          area = Math.floor(area / 1.5);
+        }
+        
+        diagram.css('min-width', area+'px');
+        
+        $(this).find('[data-width]').each(function(){
+          var dwidth = $(this).data('width');
+          $(this).css('width', dwidth+'%');
+        });
+        
+        if (area > diagramsWidth) {
+          $(this).addClass('linear-diagrams_arrowed');
+        } else {
+          $(this).removeClass('linear-diagrams_arrowed');
+        }
       });
     }
     
@@ -51,6 +89,8 @@ export default () => {
     
     approvedSliderInit();
     changesSliderInit();
+    
+    graphicArrowInit();
     
     function approvedSliderInit() {
       if ($(window).width() <= 980) {
@@ -79,6 +119,7 @@ export default () => {
         approvedGraphSlider.update();
         changesGraphSlider.update();
       }
+      graphicArrowInit();
     });
     
     // переключение по кнопкам график/таблица
@@ -91,6 +132,7 @@ export default () => {
         approvedGraphSlider.update();
         changesGraphSlider.update();
       }
+      graphicArrowInit();
     });
     
     
@@ -126,6 +168,7 @@ export default () => {
       changeControl(controls, stageVal, levelVal, typeVal);
       
       positionValues();
+      dateGraphicInit();
     }
     
     function changeBlock(el, stageVal) {
