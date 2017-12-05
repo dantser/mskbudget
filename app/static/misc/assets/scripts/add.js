@@ -13,6 +13,13 @@ $(document).on('click', '.selectbox li', function (e) {
     $(this).parents('.selectbox').find('select option').removeAttr('selected');
     $(this).parents('.selectbox').find('select option[value="'+newval+'"]').attr('selected', 'selected');
     $(this).parents('.selectbox').find('input').val(inputval);
+    
+    if ($(this).parents('.selectbox').hasClass('analityc-widget__selectbox_alt analityc-widget__selectbox_month')) {
+      var optIndex = $(this).index(),
+          monthArray = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+      inputval = monthArray[optIndex];
+    }
+    
     $(this).parents('.selectbox').find('.selectbox__val').text(inputval);
     
     //$(this).parent().removeClass('active');
