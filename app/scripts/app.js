@@ -79,6 +79,7 @@ import pressReleases from '../components/press-releases/pressReleases';
 import depfinAnalyticsExpenses from '../components/depfin-analytics-expenses/depfinAnalyticsExpenses';
 import depfinAnalyticsGP from '../components/depfin-analytics-gp/depfinAnalyticsGP';
 import teaserCard from '../blocks/teaser-card/teaserCard';
+import footer from '../components/footer/footer';
 
 $(() => {
 	  // перезагрузка страниц при изменении разрешения
@@ -184,4 +185,5 @@ $(() => {
     depfinAnalyticsExpenses();
     depfinAnalyticsGP();
     teaserCard();
+    footer();
 });
