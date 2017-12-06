@@ -65,7 +65,8 @@ mixin table-income(data)
 
     +e.row._opened._hassub
       +e.col._four
-        +icon('angle-arrow').arrow
+        +e.SPAN.arrow
+          +icon('angle-arrow')
         | Налоговые доходы, в том числе:
 
       +dataType(data, 'tax')
@@ -87,7 +88,8 @@ mixin table-income(data)
 
     +e.row._hassub
       +e.col._four
-        +icon('angle-arrow').arrow
+        +e.SPAN.arrow
+          +icon('angle-arrow')
         | Неналоговые доходы, в том числе:
 
       +dataType(data, 'nonTax')
@@ -152,7 +154,8 @@ mixin table-income_slider(data)
 
     +e.row._opened._hassub
       +e.col._four
-        +icon('angle-arrow').arrow
+        +e.SPAN.arrow
+          +icon('angle-arrow')
         | Налоговые доходы, в том числе:
 
       +dataType(data, 'tax')
@@ -174,7 +177,8 @@ mixin table-income_slider(data)
 
     +e.row._hassub
       +e.col._four
-        +icon('angle-arrow').arrow
+        +e.SPAN.arrow
+          +icon('angle-arrow')
         | Неналоговые доходы, в том числе:
 
       +dataType(data, 'nonTax')
@@ -235,7 +239,8 @@ mixin table-vmo(data)
 
     +e.row._opened._hassub
       +e.col._four
-        +icon('angle-arrow').arrow
+        +e.SPAN.arrow
+          +icon('angle-arrow')
         | Доходы
 
       +dataType(data, 'total')
@@ -247,7 +252,8 @@ mixin table-vmo(data)
 
     +e.row._opened._hassub
       +e.col._four
-        +icon('angle-arrow').arrow
+        +e.SPAN.arrow
+          +icon('angle-arrow')
         | Расходы
 
       +dataType(data, 'org')
@@ -283,7 +289,7 @@ mixin table-expenses(data)
         +e(class= 'col_'+cells)= item.total
 
 
-  +b.table&attributes(attributes)
+  +b.table._multilevel&attributes(attributes)
     
     +e.P.periodtext
       span Плановый период
@@ -318,39 +324,75 @@ mixin table-expenses(data)
         +e.col._one Изменение
         +e.col._one Закон с учетом Изменений
 
-    +e.row
+    +e.row._level1(data-level='1').active
       +e.col._four Расходы, всего
-
       +dataType(data, 'total')
-
-    +e.row._opened._hassub
-      +e.col._four
-        +icon('angle-arrow').arrow
-        | Программные расходы, в том числе:
-
+      
+    +e.row._level1(data-level='1')._opened.active
+      +e.col._four Уровень 1 Налоговые расходы, в том числе:
+        +e.SPAN.arrow
+          +icon('angle-arrow')
       +dataType(data, 'tax')
-
-    +e.row._subrow_tax
-      +e.col._four._subcol ГП «Развитие транспортной системы»
-
+      
+    +e.row._level2(data-level='2')
+      +e.col._four Уровень 2 Налог на прибыль организаций
+      +dataType(data, 'org')
+      
+    +e.row._level2(data-level='2')._opened
+      +e.col._four Уровень 2 Налог на доходы физических лиц
+        +e.SPAN.arrow
+          +icon('angle-arrow')
+      +dataType(data, 'ndfl')
+      
+    +e.row._level3(data-level='3')._opened
+      +e.col._four Уровень 3 Налог на прибыль организаций
+        +e.SPAN.arrow
+          +icon('angle-arrow')
+      +dataType(data, 'org')
+      
+    +e.row._level4(data-level='4')
+      +e.col._four Уровень 4 Налог на прибыль организаций
+      +dataType(data, 'org')
+      
+    +e.row._level4(data-level='4')
+      +e.col._four Уровень 4 Налог на прибыль организаций
+        +e.SPAN.arrow
+          +icon('angle-arrow')
+      +dataType(data, 'org')
+      
+    +e.row._level5(data-level='5')
+      +e.col._four Уровень 5 Налог на прибыль организаций
+      +dataType(data, 'org')
+      
+    +e.row._level5(data-level='5')._opened
+      +e.col._four Уровень 5 Налог на прибыль организаций
+        +e.SPAN.arrow
+          +icon('angle-arrow')
+      +dataType(data, 'org')
+      
+    +e.row._level6(data-level='6')
+      +e.col._four Уровень 6 Налог на прибыль организаций
+      +dataType(data, 'org')
+      
+    +e.row._level5(data-level='5')
+      +e.col._four Уровень 5 Налог на прибыль организаций
+      +dataType(data, 'org')
+      
+    +e.row._level3(data-level='3')
+      +e.col._four Уровень 3 Налог на прибыль организаций
+      +dataType(data, 'org')
+      
+    +e.row._level1(data-level='1').active
+      +e.col._four Уровень 1 Неналоговые расходы, в том числе:
+        +e.SPAN.arrow
+          +icon('angle-arrow')
+      +dataType(data, 'nonTax')
+      
+    +e.row._level2(data-level='2')
+      +e.col._four Уровень 2 Налог на прибыль организаций
       +dataType(data, 'org')
 
-    +e.row._subrow_tax
-      +e.col._four._subcol ГП «Развитие здравоохранения города Москвы»
 
-      +dataType(data, 'ndfl')
-
-    +e.row
-      +e.col._four ...
-
-      +dataType(data, 'other')
-
-    +e.row._hassub
-      +e.col._four
-        +icon('angle-arrow').arrow
-        | Непрограммные расходы
-
-      +dataType(data, 'nonTax')
 
 mixin table-sources(data)
 
@@ -413,7 +455,8 @@ mixin table-sources(data)
 
     +e.row._opened._hassub
       +e.col._four
-        +icon('angle-arrow').arrow
+        +e.SPAN.arrow
+          +icon('angle-arrow')
         | Источники, в том числе:
 
       +dataType(data, 'tax')
@@ -435,7 +478,8 @@ mixin table-sources(data)
 
     +e.row._hassub
       +e.col._four
-        +icon('angle-arrow').arrow
+        +e.SPAN.arrow
+          +icon('angle-arrow')
         | Другие, в том числе:
 
       +dataType(data, 'nonTax')
@@ -761,14 +805,16 @@ mixin table-gp(data, analytics, switcher, type)
     +e.row._opened
       +e.col._four 
         +e.SPAN.figure Расходы, всего
-        +icon('angle-arrow').arrow
+        +e.SPAN.arrow
+          +icon('angle-arrow')
 
       +dataType(data, 'total')
 
     +e.row._opened
       +e.col._four._subcol 
         +e.SPAN.figure Программные расходы, в том числе:
-        +icon('angle-arrow').arrow
+        +e.SPAN.arrow
+          +icon('angle-arrow')
 
       +dataType(data, 'tax')
 
@@ -776,7 +822,8 @@ mixin table-gp(data, analytics, switcher, type)
       +e.col._four._subcol 
         +e.icon
         +e.SPAN.figure ГП &laquo;Развитие транспортной системы&raquo;
-        +icon('angle-arrow').arrow
+        +e.SPAN.arrow
+          +icon('angle-arrow')
 
       +dataType(data, 'org')
 
@@ -932,14 +979,16 @@ mixin table-analytics-gov-debt(data)
     +e.row._opened
       +e.col._four 
         +e.SPAN.figure Расходы, всего
-        +icon('angle-arrow').arrow
+        +e.SPAN.arrow
+          +icon('angle-arrow')
 
       +dataType(data, 'total')
 
     +e.row._opened
       +e.col._four._subcol 
         +e.SPAN.figure Программные расходы, в том числе:
-        +icon('angle-arrow').arrow
+        +e.SPAN.arrow
+          +icon('angle-arrow')
 
       +dataType(data, 'tax')
 
@@ -947,7 +996,8 @@ mixin table-analytics-gov-debt(data)
       +e.col._four._subcol 
         +e.icon
         +e.SPAN.figure ГП &laquo;Развитие транспортной системы&raquo;
-        +icon('angle-arrow').arrow
+        +e.SPAN.arrow
+          +icon('angle-arrow')
 
       +dataType(data, 'org')
 
@@ -1096,7 +1146,8 @@ mixin table-mrelations2(data)
 
     +e.row._opened._hassub
       +e.col._four
-        +icon('angle-arrow').arrow
+        +e.SPAN.arrow
+          +icon('angle-arrow')
         | Национальная экономика
 
       +dataType(data, 'tax')
@@ -1118,6 +1169,7 @@ mixin table-mrelations2(data)
 
     +e.row._hassub
       +e.col._four
-        +icon('angle-arrow').arrow
+        +e.SPAN.arrow
+          +icon('angle-arrow')
         | Образование
       +dataType(data, 'nonTax')
