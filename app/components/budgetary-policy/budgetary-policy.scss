@@ -76,12 +76,22 @@
 
 }
 
+.d-slide {
+  margin: 0 auto;
+}
+
 .d-abs-content {
   width: 100%;
   background: url(../images/depfin-about-budjet/about-budjet-sys-bg.jpg) no-repeat;
   background-size: cover;
   padding: 40px 0 80px;
   font-weight: 500;
+  
+  &.d-budjet-cards_bg {
+    @media (max-width: 1000px) {
+      padding-bottom: 0;
+    }
+  }
 }
 
 .d-abs-content {
@@ -589,7 +599,6 @@
 
 .mobile-carousel {
   position: relative;
-  padding-bottom: 50px;
 }
 
 .mobile-carousel .d-slide {
@@ -703,7 +712,11 @@
 }
 
 @media screen and (max-width: 1000px) {
-
+  
+  .d-slide {
+    max-width: none;
+  }
+  
   .d-abs__head_descr {
     padding-right: 0;
     padding-left: 0;
@@ -749,12 +762,12 @@
 @media screen and (min-width: 761px) and (max-width: 1000px) {
   .carousel-count {
     line-height: 45px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
   }
   #carousel .ar-left,
   #carousel .ar-right {
-    width: 45px;
-    height: 45px;
+    width: 55px;
+    height: 55px;
   }
 }
 
