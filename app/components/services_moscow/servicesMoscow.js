@@ -18,19 +18,32 @@ export default () => {
     });
   }
   isDocumentLoad = false;
-
-    var table = new Swiper('.services-moscow-index__index', {
-      slidesPerView: 5,
-      prevButton: '.services-moscow-index__table-arrow_prev',
-      nextButton: '.services-moscow-index__table-arrow_next',
-      loop: true,
-
-      breakpoints: {
-        900: {
-          slidesPerView: 'auto',
-        }
+  
+  if ($('.services-moscow').length) {
+  
+    if ($(window).width() > 900) {
+      var colLength = $('.services-moscow-index__col').length;
+      if (colLength >= 5) {
+        var table = new Swiper('.services-moscow-index__index', {
+          slidesPerView: 5,
+          prevButton: '.services-moscow-index__table-arrow_prev',
+          nextButton: '.services-moscow-index__table-arrow_next',
+          loop: true
+        });
+      } else {
+        $('.services-moscow-index__table-arrow_prev').hide();
+        $('.services-moscow-index__table-arrow_next').hide();
+        $('.services-moscow-index__col').css('width', (100 / colLength)+'%');
+        $('.services-moscow-index__col').addClass('services-moscow-index__col_noslide');
       }
-    });
+    } else {
+      var table = new Swiper('.services-moscow-index__index', {
+        slidesPerView: 'auto',
+        prevButton: '.services-moscow-index__table-arrow_prev',
+        nextButton: '.services-moscow-index__table-arrow_next',
+        loop: true
+      });
+    }
 
     const SORT_BTN = $('.services-moscow-index__sort');
 
@@ -47,8 +60,6 @@ export default () => {
     $('.services-moscow-index__col-heading, .services-moscow-index__row_caption').each(function() {
       $(this).height(tableHeadingHeight);
     })
-  
-  if ($('.services-moscow').length) {
     
     var graphic = $('.services-moscow .analityc-graphics-line-gorizontal'),
         grLines = graphic.find('.analityc-graphics-line-gorizontal__lines'),

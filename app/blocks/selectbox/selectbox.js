@@ -37,29 +37,29 @@ export default function selectbox() {
             if (imgLayer)
             {
               var svg = "<svg><use xlink:href='"+imgUrl+"#"+imgLayer+"'</use></svg>";
-              const li = '<li class="locked" data-val="' + vval + '">' + svg + '<span>' + ttext + '</span>' + (period ? '<i>' + period +'</i>' : '') + '</li>';
+              const li = '<li class="locked" data-val="' + vval + '" title="'+ttext+'">' + svg + '<span>' + ttext + '</span>' + (period ? '<i>' + period +'</i>' : '') + '</li>';
               selBox.find('ul').append(li);
             }
             else
             {
-              const li = '<li class="locked" data-val="' + vval + '"><img src="' + imgUrl + '"><span>' + ttext + '</span>' + (period ? '<i>' + period +'</i>' : '') + '</li>';
+              const li = '<li class="locked" data-val="' + vval + '" title="'+ttext+'"><img src="' + imgUrl + '"><span>' + ttext + '</span>' + (period ? '<i>' + period +'</i>' : '') + '</li>';
               selBox.find('ul').append(li);
             }
           }
           else
           {
-            const li = '<li class="locked" data-val="' + vval + '"><img src="assets/images/' + img + '.png"><span>' + ttext + '</span>' + (period ? '<i>' + period +'</i>' : '') + '</li>';
+            const li = '<li class="locked" data-val="' + vval + '" title="'+ttext+'"><img src="assets/images/' + img + '.png"><span>' + ttext + '</span>' + (period ? '<i>' + period +'</i>' : '') + '</li>';
             selBox.find('ul').append(li);
           }
         } else {
           if (imgUrl)
           {
-            const li = '<li data-val="' + vval + '"><img src="' + imgUrl + '"><span>' + ttext + '</span>' + (period ? '<i>' + period +'</i>' : '') + '</li>';
+            const li = '<li data-val="' + vval + '" title="'+ttext+'"><img src="' + imgUrl + '"><span>' + ttext + '</span>' + (period ? '<i>' + period +'</i>' : '') + '</li>';
             selBox.find('ul').append(li);
           }
           else
           {
-            const li = '<li data-val="' + vval + '"><img src="assets/images/' + img + '.png"><span>' + ttext + '</span>' + (period ? '<i>' + period +'</i>' : '') + '</li>';
+            const li = '<li data-val="' + vval + '" title="'+ttext+'"><img src="assets/images/' + img + '.png"><span>' + ttext + '</span>' + (period ? '<i>' + period +'</i>' : '') + '</li>';
             selBox.find('ul').append(li);
           }
         }
@@ -74,10 +74,10 @@ export default function selectbox() {
             selBox.find('ul').append(li);
           } else if ($(this).attr('data-href')) {
             const href = $(this).attr('data-href');
-            const li = '<li class="locked" data-val="' + vval + '"><a href="'+href+'">' + ttext + '</a></li>';
+            const li = '<li class="locked" data-val="' + vval + '" title="'+ttext+'"><a href="'+href+'">' + ttext + '</a></li>';
             selBox.find('ul').append(li);
           } else {
-            const li = '<li class="locked" data-val="' + vval + '">' + ttext + '</li>';
+            const li = '<li class="locked" data-val="' + vval + '" title="'+ttext+'">' + ttext + '</li>';
             selBox.find('ul').append(li);
           }
           
@@ -89,10 +89,10 @@ export default function selectbox() {
           }
           else if ($(this).attr('data-href')) {
             const href = $(this).attr('data-href');
-            const li = '<li data-val="' + vval + '"><a href="'+href+'">' + ttext + '</a></li>';
+            const li = '<li data-val="' + vval + '" title="'+ttext+'"><a href="'+href+'">' + ttext + '</a></li>';
             selBox.find('ul').append(li);
           } else {
-            const li = '<li data-val="' + vval + '">' + ttext + '</li>';
+            const li = '<li data-val="' + vval + '" title="'+ttext+'">' + ttext + '</li>';
             selBox.find('ul').append(li);
           }
         }

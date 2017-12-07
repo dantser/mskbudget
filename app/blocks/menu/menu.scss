@@ -82,7 +82,7 @@
       color: #fee300;
 
       + .submenu {
-        z-index: 1;
+        //z-index: 1;
         visibility: visible;
         opacity: 1;
 
@@ -99,7 +99,7 @@
             color: #fee300;
 
             + .submenu {
-              z-index: 1;
+              //z-index: 1;
               visibility: visible;
               opacity: 1;
 
@@ -121,7 +121,8 @@
   // подменю 1-го уровня
   .submenu { // div
     // прячем
-    z-index: -9999;
+    //z-index: -9999;
+    z-index: 1;
     visibility: hidden;
     opacity: 0;
 
@@ -231,6 +232,8 @@
 
   // подменю 2-го уровня
   .subsubmenu {
+    z-index: 2;
+    
     &:after {
       @include ghost;
       bottom: auto;
