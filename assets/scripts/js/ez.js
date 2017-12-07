@@ -227,8 +227,6 @@ budget.extend("common", {
             return [false];
           } else if ($.inArray(currentdate, budget.allowedDates) == -1) {
             return [false];
-          } else if (day == 1 || day == 0) {
-            return [false];
           } else {
             return [true];
           }
