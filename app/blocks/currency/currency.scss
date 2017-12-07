@@ -28,21 +28,27 @@
       display: block;
       content: "";
       position: absolute;
-      top: 50%;
-      @include transform(translateY(-50%));
+      top: 0;
+      bottom: 0;
+      //@include transform(translateY(-50%));
       right: -13px;
+      margin: auto;
       width: 8px;
-      height: 10px;
-      background-image: url("../images/sprite.png");
+      height: 9px;
+      //background-image: url("../images/sprite.png");
+      background-image: url("../images/wh-ar.svg");
       background-repeat: no-repeat;
-      background-position: -68px -30px;
+      //background-position: -68px -30px;
+      background-position: 50% 50%;
+      background-size: 7px 5px;
     }
 
     &_up {
       color: #66ff00;
 
       &:after {
-        background-position: -68px -20px;
+        //background-position: -68px -20px;
+        transform: rotate(180deg);
       }
     }
   }
