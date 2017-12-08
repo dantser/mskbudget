@@ -77,10 +77,10 @@
 }
 .whatIsBudget-conception{max-width:976px;margin:0 auto;padding-left:142px;-webkit-box-sizing:border-box;box-sizing:border-box; margin-top: 50px;}
 
-.whatIsBudget-termin {font-family:$PFDinCompressedPro;color:#fff;text-transform:uppercase;font-size:230px;margin-left:-11px}
+.whatIsBudget-termin {font-family:$PFDinCompressedPro;color:#fff;text-transform:uppercase;font-size:230px;margin-left:-11px; margin-bottom: 15px;}
 .whatIsBudget-termin h1 {font-weight:500}
 
-.whatIsBudget-definition {font-family:$PFDinCondensedPro; margin-top: 15px; font-size:36px; color:#fff; letter-spacing:-.2px}
+.whatIsBudget-definition {font-family:$PFDinCondensedPro; font-size:36px; color:#fff; letter-spacing:-.2px}
 .whatIsBudget-definition__accent{font-style:normal;padding:0 9px;position:relative}
 .whatIsBudget-definition__accent:before{position:absolute;content:"";left:0;top:2px;right:0;bottom:1px}
 .whatIsBudget-definition__accent._blue:before{background:-webkit-gradient(linear,left top, right top,color-stop(0, #004ccf),to(#0ff));background:-webkit-linear-gradient(left,#004ccf 0,#0ff 100%);background:linear-gradient(to right,#004ccf 0,#0ff 100%)}
@@ -494,7 +494,12 @@
 
 .whatIsBudget-characteristic__termin:before{-webkit-transition:all 1.5s ease;transition:all 1.5s ease}
 
-.whatIsBudget-characteristic__definition{width:auto!important;height:auto!important;font-family: $PFDinTextPro; font-size:15.5px;padding:5px 23px 24px;line-height:1.266;opacity:0;visibility:hidden;display:none;height:0;overflow:hidden;border-left:2px solid;border-right:2px solid;border-bottom:2px solid}.whatIsBudget-characteristic__definition._show{display:block!important;height:auto!important}
+.whatIsBudget-characteristic__definition{width:auto!important;height:auto!important;font-family: $PFDinTextPro; font-size:14px;padding:5px 23px 24px;line-height:1.266;opacity:0;visibility:hidden;display:none;height:0;overflow:hidden;border-left:2px solid;border-right:2px solid;border-bottom:2px solid;
+  @media (max-width: 767px) {
+    padding: 5px 10px 24px;
+  }
+}
+.whatIsBudget-characteristic__definition._show{display:block!important;height:auto!important}
 .whatIsBudget-characteristic__definition p+p{margin-top:19px}
 .whatIsBudget-characteristic__definition div{color:#fff}
 
@@ -542,9 +547,6 @@
     }
     .whatIsBudget-revenues__item .whatIsBudget-revenues__examples:before {
         display: none!important;
-    }
-    .whatIsBudget-financingOfDeficit:nth-child(7) .whatIsBudget-publicDebt__close {
-        top: 10px;
     }
 }
 
@@ -629,7 +631,7 @@
 @media screen and (max-width: 1000px) {
     .whatIsBudget-financingOfDeficit__wrapper {
         max-width: 464px;
-        padding: 26px 0 60px;
+        padding: 26px 0 0;
     }
     .whatIsBudget-financingOfDeficit:nth-child(4) .whatIsBudget-financingOfDeficit__description {
         width: 100%;
@@ -875,7 +877,11 @@
         margin-left: -9px
     }
     .whatIsBudget-definition {
-        font-size: 29px
+        font-size: 29px;
+        text-align: left;
+    }
+    .whatIsBudget-instruction {
+        text-align: left;
     }
     .budgetScales-legend__wrapper {
         max-width: 980px
@@ -1165,9 +1171,6 @@
   }
   .whatIsBudget-expenditures__wrapper {
     width: 464px !important;
-  }
-  .whatIsBudget-expenditures__title, .whatIsBudget-expenditures__title-fake {
-    font-size: 18px !important;
   }
   .whatIsBudget-expenditures__subtitle {
     font-size: 18px !important;
