@@ -1213,7 +1213,7 @@ $('.budgetScales-activeZone._balance').hover(function(){
 
 //init func
 expendituresTitleFake();
-
+$('.whatIsBudget-expenditures__title-fake[data-item="0"]').trigger('click');
 });
 //$(document).ready * end
 
