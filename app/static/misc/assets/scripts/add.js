@@ -19,9 +19,11 @@ $(document).on('click', '.selectbox li', function (e) {
           monthArray = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
       inputval = monthArray[optIndex];
     }
-    
-    $(this).parents('.selectbox').find('.selectbox__val').text(inputval);
-    
+
+    if (!$(this).parents('.selectbox').find('.switchConsolidatedMonth').length){
+        $(this).parents('.selectbox').find('.selectbox__val').text(inputval);
+    }
+
     //$(this).parent().removeClass('active');
     //setTimeout(function () {
     //  $('body').click();
