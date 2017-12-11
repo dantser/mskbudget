@@ -149,6 +149,9 @@
     height: 950px;
     overflow: hidden;
     margin-top: 34px;
+    &_one-card {
+      height: 475px;
+    }
   }
 
   .tile {
@@ -363,11 +366,23 @@
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     padding-top: 40px;
-    margin: 0 -10px;
+    margin: 0 -5px;
+    
+    @media (max-width: 580px) {
+      justify-content: center;
+    }
   }
 
   &__teaser-tile {
-    width: calc(100% / 3);
+    width: 25%;
+    
+    @media (max-width: 1140px) {
+      width: 33.33333%;
+      
+      &:nth-child(n+4) {
+        display: none;
+      }
+    }
 
     @media (max-width: 900px) {
       width: 50%;
@@ -376,10 +391,11 @@
         display: none;
       }
     }
-
-    @media (max-width: 400px) {
+    
+    @media (max-width: 580px) {
       width: 100%;
-
+      max-width: 344px;
+      
       &:nth-child(n+2) {
         display: none;
       }

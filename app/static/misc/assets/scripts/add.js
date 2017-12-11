@@ -188,3 +188,18 @@ $(document).ready(function(){
   }
   
 });
+
+
+
+// Обрезание текста троеточием
+function overflowDottsInit(size, element) {
+  if ($(element).length) {
+    var content = $(element);
+    content.each(function () {
+      var contentText = $(this).text();
+      if(contentText.length > size){
+        $(this).text((contentText.slice(0, size)).trim() + '...');
+      }
+    });
+  }
+}

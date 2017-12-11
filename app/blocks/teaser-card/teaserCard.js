@@ -16,6 +16,6 @@ export default () => {
     if ($(document).width() > 400 && $(document).width() <= 580)
     	overflowDotts(100, '.teaser-card__title');
     else
-    	overflowDotts(160, '.teaser-card__title');
+    	overflowDotts(120, '.teaser-card__title');
 
 }

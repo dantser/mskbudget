@@ -39,10 +39,10 @@ export default () => {
   }
   
   // Перенос блока подписки на мобилке
-  if ($('.news-page').length) {
+  /*if ($('.news-page').length) {
     if ($(window).width() <= 580) {
       $('.news-page__subscribe').appendTo('.news-page__content');
     }
-  }
+  }*/
   
 }
