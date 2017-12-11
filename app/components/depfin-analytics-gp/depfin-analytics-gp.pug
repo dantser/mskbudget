@@ -55,10 +55,10 @@ mixin depfin-analytics-gp()
 					.analityc-control-switcher.analityc-control-switcher_table.analityc-control-switcher_large.active
 						a(href="#").active млн руб.
 						a(href="#") млрд руб.
-				+analityc-table-slider(100)._gp._rate(data-type='g2' data-comparison='overall')
+				+analityc-table-slider(100, false, true)._gp._rate(data-type='g2' data-comparison='overall')
 					+table-gp(getData('gp'), true, false, 'rate')
-				+analityc-table-slider(100)._gp._part(data-type='g3' data-comparison='overall')
+				+analityc-table-slider(100, false, true)._gp._part(data-type='g3' data-comparison='overall')
 					+table-gp(getData('gp'), true, false, 'part')
-				+analityc-table-slider(100)._gp._exe(data-type='g1' data-comparison='overall')
+				+analityc-table-slider(100, false, true)._gp._exe(data-type='g1' data-comparison='overall')
 					+table-gp(getData('gp'), true, false, 'exe')
 		+dropdown().load-anim-fade(data-delay="1700")

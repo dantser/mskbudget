@@ -524,16 +524,16 @@ mixin table-main(data)
         +e.col._one(data-set='gt1') &nbsp;
 
         +e.col._one(data-set='gt2' data-set-stage) факт
-        +e.col._one(data-set='gt2') темп
+        +e.col._one(data-set='gt2') темп, %
 
         +e.col._one(data-set='gt3' data-set-stage) закон утвержденный
-        +e.col._one(data-set='gt3') темп
+        +e.col._one(data-set='gt3') темп, %
 
         +e.col._one(data-set='gt4' data-set-stage) закон утвержденный
-        +e.col._one(data-set='gt4') темп
+        +e.col._one(data-set='gt4') темп, %
 
         +e.col._one(data-set='gt5' data-set-stage) закон утвержденный
-        +e.col._one(data-set='gt5') темп
+        +e.col._one(data-set='gt5') темп, %
 
     +e.row
       +e.col._four Доходы
@@ -705,7 +705,7 @@ mixin table-gp(data, analytics, switcher, type)
         a(href="#").active млн руб.
         a(href="#") млрд руб.
 
-  +b.table&attributes(attributes)
+  +b.table._multilevel&attributes(attributes)
 
     +e.row._caption
       +e.col._four Показатели
@@ -737,16 +737,16 @@ mixin table-gp(data, analytics, switcher, type)
             +e.col._one(data-set='gt1') &nbsp;
     
             +e.col._one(data-set='gt2' data-set-stage) факт
-            +e.col._one(data-set='gt2') темп
+            +e.col._one(data-set='gt2') темп, %
     
             +e.col._one(data-set='gt3' data-set-stage) закон утвержденный
-            +e.col._one(data-set='gt3') темп
+            +e.col._one(data-set='gt3') темп, %
     
             +e.col._one(data-set='gt4' data-set-stage) закон утвержденный
-            +e.col._one(data-set='gt4') темп
+            +e.col._one(data-set='gt4') темп, %
     
             +e.col._one(data-set='gt5' data-set-stage) закон утвержденный
-            +e.col._one(data-set='gt5') темп
+            +e.col._one(data-set='gt5') темп, %
             
           else if type == 'part'
             +e.col._four &nbsp;
@@ -791,53 +791,43 @@ mixin table-gp(data, analytics, switcher, type)
           +e.col._one &nbsp;
   
           +e.col._one факт
-          +e.col._one темп
+          +e.col._one темп, %
   
           +e.col._one закон о бюджете
-          +e.col._one темп
+          +e.col._one темп, %
   
           +e.col._one закон о бюджете
-          +e.col._one темп
+          +e.col._one темп, %
   
           +e.col._one закон о бюджете
-          +e.col._one темп
-
-    +e.row._opened
-      +e.col._four 
-        +e.SPAN.figure Расходы, всего
+          +e.col._one темп, %
+      
+    +e.row._level1(data-level='1')._opened.active
+      +e.col._four Расходы, всего
         +e.SPAN.arrow
           +icon('angle-arrow')
-
       +dataType(data, 'total')
-
-    +e.row._opened
-      +e.col._four._subcol 
-        +e.SPAN.figure Программные расходы, в том числе:
+      
+    +e.row._level2(data-level='2')._opened
+      +e.col._four Программные расходы, в том числе:
         +e.SPAN.arrow
           +icon('angle-arrow')
-
       +dataType(data, 'tax')
-
-    +e.row._opened
-      +e.col._four._subcol 
-        +e.icon
-        +e.SPAN.figure ГП &laquo;Развитие транспортной системы&raquo;
+      
+    +e.row._level3(data-level='3')._opened
+      +e.col._four._iconed ГП &laquo;Развитие транспортной системы&raquo;
+        +e.SPAN.icon
         +e.SPAN.arrow
           +icon('angle-arrow')
-
       +dataType(data, 'org')
-
-    +e.row
-      +e.col._four._subcol  
-        +e.SPAN.figure Общественный транспорт &laquo;Метрополитен&raquo;
-
+      
+    +e.row._level4(data-level='4')
+      +e.col._four Общественный транспорт &laquo;Метрополитен&raquo;
       +dataType(data, 'ndfl')
-
-    +e.row
-      +e.col._four  
-        +e.SPAN.figure Непрограммные направления деятельности
-
-      +dataType(data, 'other')
+      
+    +e.row._level1(data-level='1').active
+      +e.col._four Непрограммные направления деятельности
+      +dataType(data, 'org')
       
       
 //- таблица Государственный долг
@@ -952,66 +942,40 @@ mixin table-analytics-gov-debt(data)
         +e.col._one(data-set='gt1' data-set-stage) факт
         +e.col._one(data-set='gt1') &nbsp;
         +e.col._one(data-set='gt2' data-set-stage) факт
-        +e.col._one(data-set='gt2') темп
+        +e.col._one(data-set='gt2') темп, %
         +e.col._one(data-set='gt3' data-set-stage) закон утвержденный
-        +e.col._one(data-set='gt3') темп
+        +e.col._one(data-set='gt3') темп, %
         +e.col._one(data-set='gt4' data-set-stage) закон утвержденный
-        +e.col._one(data-set='gt4') темп
+        +e.col._one(data-set='gt4') темп, %
         +e.col._one(data-set='gt5' data-set-stage) закон утвержденный
-        +e.col._one(data-set='gt5') темп
-        
-    //+e.row
-    //  +e.col._four Налоговые и неналоговые доходы
-    //  +dataType(data, 'total')
-    //+e.row
-    //  +e.col._four ...
-    //  +dataType(data, 'other')
-    //+e.row
-    //  +e.col._four Налог на прибыль
-    //  +dataType(data, 'total')
-    //+e.row
-    //  +e.col._four ...
-    //  +dataType(data, 'other')
-    //+e.row
-    //  +e.col._four Неналоговые доходы
-    //  +dataType(data, 'total')
+        +e.col._one(data-set='gt5') темп, %
 
-    +e.row._opened
-      +e.col._four 
-        +e.SPAN.figure Расходы, всего
+    +e.row._level1(data-level='1')._opened.active
+      +e.col._four Расходы, всего
         +e.SPAN.arrow
           +icon('angle-arrow')
-
       +dataType(data, 'total')
-
-    +e.row._opened
-      +e.col._four._subcol 
-        +e.SPAN.figure Программные расходы, в том числе:
+      
+    +e.row._level2(data-level='2')._opened
+      +e.col._four Программные расходы, в том числе:
         +e.SPAN.arrow
           +icon('angle-arrow')
-
       +dataType(data, 'tax')
-
-    +e.row._opened
-      +e.col._four._subcol 
-        +e.icon
-        +e.SPAN.figure ГП &laquo;Развитие транспортной системы&raquo;
+      
+    +e.row._level3(data-level='3')._opened
+      +e.col._four._iconed ГП &laquo;Развитие транспортной системы&raquo;
+        +e.SPAN.icon
         +e.SPAN.arrow
           +icon('angle-arrow')
-
       +dataType(data, 'org')
-
-    +e.row
-      +e.col._four._subcol  
-        +e.SPAN.figure Общественный транспорт &laquo;Метрополитен&raquo;
-
+      
+    +e.row._level4(data-level='4')
+      +e.col._four Общественный транспорт &laquo;Метрополитен&raquo;
       +dataType(data, 'ndfl')
-
-    +e.row
-      +e.col._four  
-        +e.SPAN.figure Непрограммные направления деятельности
-
-      +dataType(data, 'other')
+      
+    +e.row._level1(data-level='1').active
+      +e.col._four Непрограммные направления деятельности
+      +dataType(data, 'org')
 
 
 

@@ -6,12 +6,17 @@ mixin analityc-table(title)
       +e.P.heading= title
     block
       
-mixin analityc-table-slider(offset, title)
+mixin analityc-table-slider(offset, title, scrollhider)
   +b.analityc-table&attributes(attributes)
     if title
       +e.P.heading= title
         SPAN.js-dp-output.js-dp-output_others.active 22.04.2017
         SPAN.js-dp-output.js-dp-output_cons 1 февраля 2017
     +slide-arrows().__slide-arrows
-    +e.wrapper(data-offset=offset)
-      block
+    if scrollhider
+      +e.scroll-hider
+        +e.wrapper(data-offset=offset)
+          block
+    else
+      +e.wrapper(data-offset=offset)
+        block

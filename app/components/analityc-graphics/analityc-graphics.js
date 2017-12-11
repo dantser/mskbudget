@@ -768,7 +768,7 @@ export default () => {
     });
     
     hideTableSubcol();
-    
+    changeTableWidth();
     graphicBars();
     graphicLineVertAlt();
     rateLine();
@@ -785,6 +785,32 @@ export default () => {
   }
   
   hideTableSubcol();
+  
+  // Изменение ширины таблицы в аналитике при добавлении/удалении года/этапа
+  function changeTableWidth() {
+    $('.analityc-table_params, .analityc-table_gp').each(function(){
+      if ($(this).find('[data-set]').length) {
+        var visibleColLength = $('.analityc-control-group[data-set]:visible').length,
+            colMinWidth = 182,
+            firstColMinWidth = 288,
+            wrapperWidth = $('.analityc-table__wrapper:visible').width(),
+            tableWidth;
+        tableWidth = firstColMinWidth + visibleColLength * colMinWidth;
+        $(this).find('.table').css('min-width', tableWidth);
+        if (tableWidth <= wrapperWidth) {
+          $(this).addClass('no-arrows');
+          $(this).find('.table__row').css('padding-right', (wrapperWidth - tableWidth)+'px');
+        } else {
+          $(this).removeClass('no-arrows');
+          $(this).find('.table__row').css('padding-right', '');
+        }
+      }
+    });
+  }
+  
+  setTimeout(function(){
+    changeTableWidth();
+  },1);
   
   
   

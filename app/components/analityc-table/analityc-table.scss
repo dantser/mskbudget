@@ -273,10 +273,6 @@
   padding-bottom: 20px;
   margin-top: 48px;
 
-  .table {
-    min-width: 514px;
-  }
-
   .table__row {
     font-size: 16px;
 
@@ -317,7 +313,7 @@
 
     .table__col {
       border: 0 !important;
-      padding: 5px 0 23px;
+      padding: 5px 15px 23px 0;
     }
   }
   .table__arrow {
@@ -368,8 +364,7 @@
 
       &:first-child {
         width: 24%;
-        padding-right: 0;
-        white-space: nowrap;
+        padding-right: 30px;
       }
 
       &:nth-child(3n+5) {
@@ -401,7 +396,7 @@
 
     .table__col {
       border: 0 !important;
-      padding: 5px 0 23px;
+      padding: 5px 15px 23px 0;
     }
   }
   .table__figure {
@@ -410,9 +405,7 @@
     white-space: normal;
   }
   .table__arrow {
-    position: static;
-    display: inline-block;
-    margin-left: 5px;
+    right: 5px;
   }
   .table__periodtext {
     display: block;
@@ -545,6 +538,10 @@
 .analityc-table {
   position: relative;
   
+  &__scroll-hider {
+    overflow: hidden;
+  }
+  
   &__slide-arrows {
     display: none;
     position: absolute;
@@ -563,7 +560,42 @@
   &_approved, &_date, &_domain, &_work {
     @include table-slider(640px);
   }
-  &_changes, &_vmo, &_params, &_gp {
+  &_changes, &_vmo {
     @include table-slider(900px);
   }
+}
+
+.analityc-table {
+  &_params, &_gp {
+    .analityc-table__wrapper {
+      overflow-x: auto;
+      overflow-y: hidden;
+      margin-bottom: -20px;
+      padding-bottom: 20px;
+    }
+    .analityc-table__slide-arrows {
+      display: block;
+    }
+    .table {
+      min-width: 1200px;
+    }
+    .table__row {
+      table-layout: fixed;
+    }
+    &.no-arrows {
+      .analityc-table__slide-arrows {
+        display: none;
+      }
+    }
+  }
+}
+
+.significant-about .analityc-table_gp {
+  .table {
+    min-width: 0;
+  }
+  .analityc-table__slide-arrows {
+    display: none;
+  }
+  @include table-slider(900px);
 }
