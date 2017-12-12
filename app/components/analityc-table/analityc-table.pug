@@ -20,3 +20,14 @@ mixin analityc-table-slider(offset, title, scrollhider)
     else
       +e.wrapper(data-offset=offset)
         block
+          
+mixin analityc-table-desktopslider(offset, title, index)
+  +b.analityc-table&attributes(attributes)
+    if title
+      +e.P.heading= title
+        SPAN.js-dp-output.js-dp-output_others.active 22.04.2017
+        SPAN.js-dp-output.js-dp-output_cons 1 февраля 2017
+    +slide-arrows().__slide-arrows
+    +e.scroll-hider
+      +e.wrapper(class="js-drag-scroll-element"+index+"" data-offset=offset)
+        block
