@@ -60,13 +60,15 @@ export default () => {
     
     function dateGraphicInit() {
       $('.analityc-widget-sources_date .linear-diagrams').each(function(){
-        var area = $(this).attr('data-area'),
-            diagram = $(this).find('.linear-diagram'),
-            diagramsWidth = $(this).width();
         
         if ($(window).width() <= 550) {
-          area = Math.floor(area / 1.5);
+          var area = $(this).attr('data-phonearea');
+        } else {
+          var area = $(this).attr('data-area');
         }
+        
+        var diagram = $(this).find('.linear-diagram'),
+            diagramsWidth = $(this).width();
         
         diagram.css('min-width', area+'px');
         
