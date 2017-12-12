@@ -19,23 +19,27 @@
 		}
 
 		.services-net-institute__address-map {
-			position: absolute;
-			left: 0;
-			z-index: 99999;
-
-			@media (max-width: 900px) {
-				position: fixed;
-				top: 50%;
-				transform: translateY(-50%);
-			}
-
-			@media (min-width: 400px) {
-		    height: 560px;
-			}
-
-			@media (max-width: 640px) and (min-width: 601px) {
-				height: 360px;
-			}
+		  position: absolute;
+		  left: 0;
+          top: 0;
+          bottom: 0;
+          height: auto;
+		  z-index: 99999;
+          
+          @media (max-width: 900px) {
+		    position: fixed;
+            height: 560px;
+            top: 0;
+            right: 0;
+            margin: auto;
+		  }
+          
+		  @media (max-width: 640px) and (min-width: 601px) {
+		    height: 360px;
+		  }
+          @media screen and (max-width: 400px) {
+            height: 210px;
+          }
 		}
 
 		.services-net-institute__address-map-open {

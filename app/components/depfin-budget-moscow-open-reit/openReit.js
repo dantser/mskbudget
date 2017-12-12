@@ -7,13 +7,23 @@ export default () => {
   $('.analityc-select_transparentyellow.analityc-select_year').selectmenu({
   	change: function( event, ui ) {
   		$('.analityc-select_transparentyellow.analityc-select_year').trigger("change");
-	}
+	},
+    open: function( event, ui ) {
+        $('.ui-openfed .ui-menu-item-wrapper').each(function(){
+          $(this).attr('title', $(this).text());
+        });
+    }
   }).selectmenu( "menuWidget" ).addClass( "ui-openfed ui-openfed-year" );
   
   $('.analityc-select_transparentyellow.analityc-select_law').selectmenu({
   	change: function( event, ui ) {
   		$('.analityc-select_transparentyellow.analityc-select_law').trigger("change");
-	}
+	},
+    open: function( event, ui ) {
+        $('.ui-openfed .ui-menu-item-wrapper').each(function(){
+          $(this).attr('title', $(this).text());
+        });
+    }
   }).selectmenu( "menuWidget" ).addClass( "ui-openfed ui-openfed-law" );
   
   if ($(window).width() <= 580) {
