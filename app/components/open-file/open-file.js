@@ -162,7 +162,7 @@ export default () => {
 
 	if ($('.open-file__popup_request form').length) {
 
-		$('.open-file__popup_request form').submit(function(e) {
+		$(document).on('submit', '.open-file__popup_request form', function(e) {
 
 			const form = $(this);
 			const fieldset = form.find('fieldset');
