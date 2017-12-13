@@ -68,7 +68,7 @@ export default () => {
 
   $(document).on('click', function(e) {
     if (!$(e.target).closest('.search__filter').length && $('.range-datepicker').is(':hidden')) {
-      TABS_LINK.removeClass(ACTIVE_CLASS);
+      $('.filter-link').removeClass(ACTIVE_CLASS);
     }
     e.stopPropagation();
   });
