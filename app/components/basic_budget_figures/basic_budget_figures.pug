@@ -75,11 +75,11 @@ mixin basic_budget_figures()
           .analityc-widget-item
             .comp-diagram.comp-diagram_dash-1(id="diagram-2")
               a(href="#" title="Диаграмма 2018 год")
-              p.comp-diagram__year 2018
+              p.comp-diagram__year 2018*
           .analityc-widget-item
             .comp-diagram.comp-diagram_dash-1(id="diagram-3")
               a(href="#" title="Диаграмма 2019 год")
-              p.comp-diagram__year 2019
+              p.comp-diagram__year 2019*
         .analityc-widget-rounds(data-stage='done, date')
           .analityc-widget-item._incoming.large-diagram_income
             span.large-diagram__caption
@@ -105,10 +105,14 @@ mixin basic_budget_figures()
           .analityc-widget-item
             .comp-diagram.comp-diagram_dash-1(id="diagram-02")
               a(href="#" title="Диаграмма 2018 год")
-              p.comp-diagram__year 2018
+              p.comp-diagram__year 2018*
           .analityc-widget-item
             .comp-diagram.comp-diagram_dash-1(id="diagram-03")
               a(href="#" title="Диаграмма 2019 год")
-              p.comp-diagram__year 2019
+              p.comp-diagram__year 2019*
         a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
+        p.analityc-bottomtip.active * Кроме того в плановом периоде учитываются 
+          span условно утвержденные расходы 
+            span.analityc-popup Под условно утверждаемыми (утвержденными) расходами понимаются не распределенные в&nbsp;плановом периоде в соответствии с&nbsp;классификацией расходов бюджетов бюджетные ассигнования.
+          | на 2018 год в сумме 48,3 млрд рублей и на 2019 год в сумме 97,5 млрд рублей
     +dropdown().load-anim-fade(data-delay="1700")
