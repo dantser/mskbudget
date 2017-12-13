@@ -174,27 +174,35 @@ export default () => {
 				fieldset.find('.open-file__field').each(function() {
 					var input = $(this).find('input');
 					var label = $(this).find('label');
+					$(this).find('.error').remove();
 
 					if (fieldset.data('type') === 'text' && input.val() === '')
 						label.addClass('open-file__err');
+					
+					if (fieldset.data('type') === 'text' && input.is('[name="email"]')) {
+						var email = /^([A-Za-z0-9_\.-]+)@([A-Za-z0-9_\.-]+)\.([A-Za-z\.]{2,6})$/.test(input.val()); // с поддержкой иерархических доменов: user@mail.ru.com
+						var email = /^([A-Za-z0-9_\.-]+)@([A-Za-z0-9_-]+)\.([A-Za-z]{2,6})$/.test(input.val()); // без поддержки иерархических доменов: user@mail.ru
+						if (!email) {
+							input.after('<div class="error"><i></i><span>Проверьте правильность e-mail</span></div>');
+							label.addClass('open-file__err');
+						}
+					}
 
 					if ((fieldset.data('type') === 'radio' || fieldset.data('type') === 'checkbox') && !fieldset.find('input:checked').length)
 						fieldset.find('legend').addClass('open-file__err');
 
-				})
-			})
-
-      $('html, body').animate({
-        scrollTop: $('#open-file__howto').offset().top - 200
-      });
-
+				});
+			});
+			
 			if (form.find('.open-file__err').length > 0) {
+				$('html, body').animate({
+        			scrollTop: $('#open-file__howto').offset().top - 200
+      			});
 				return false;
 			}
-
 		})
 	}
-
+	
 	function scrollUp() {
     setTimeout(function() {
       $("html,body").animate({

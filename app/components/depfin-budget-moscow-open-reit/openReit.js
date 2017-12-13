@@ -10,7 +10,9 @@ export default () => {
 	},
     open: function( event, ui ) {
         $('.ui-openfed .ui-menu-item-wrapper').each(function(){
-          $(this).attr('title', $(this).text());
+          if ($(this).width() > $(this).parent().width()) {
+            $(this).addClass('overwidth').attr('title', $(this).text());
+          }
         });
     }
   }).selectmenu( "menuWidget" ).addClass( "ui-openfed ui-openfed-year" );
@@ -21,7 +23,9 @@ export default () => {
 	},
     open: function( event, ui ) {
         $('.ui-openfed .ui-menu-item-wrapper').each(function(){
-          $(this).attr('title', $(this).text());
+          if ($(this).width() > $(this).parent().width()) {
+            $(this).addClass('overwidth').attr('title', $(this).text());
+          }
         });
     }
   }).selectmenu( "menuWidget" ).addClass( "ui-openfed ui-openfed-law" );

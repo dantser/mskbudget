@@ -136,7 +136,11 @@
       }
       
       &:nth-of-type(2) {
-        width: 405px;
+        width: 720px;
+        
+        @media (max-width: 940px) {
+          width: 405px;
+        }
       }
     }
   }
@@ -207,7 +211,10 @@
     max-width: 112px;
   }
   &.ui-openfed-law {
-    max-width: 405px;
+    max-width: 720px;
+    @media (max-width: 940px) {
+      max-width: 405px;
+    }
   }
   &.ui-openfed-year, &.ui-openfed-law {
     @media (max-width: 640px) {
@@ -215,8 +222,13 @@
     }
     .ui-menu-item-wrapper {
       white-space: nowrap;
+      display: inline-block;
+      min-width: 100%;
+    }
+    .ui-menu-item-wrapper.overwidth {
       overflow: hidden;
       text-overflow: ellipsis;
+      max-width: 100%;
     }
   }
 }

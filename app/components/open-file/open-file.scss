@@ -679,9 +679,68 @@
   }
 
   &__field {
+    position: relative;
 
     & + .open-file__field {
       margin-top: 20px;
+    }
+    
+    .error {
+      display: inline-block;
+      position: absolute;
+      top: 100%;
+      right: 70px;
+      margin-top: 10px;
+      max-width: 255px;
+      padding: 11px 10px 10px 38px;
+      border: 1px solid #c7c7c7;
+      border-radius: 2px;
+      background: #fff;
+      color: $color-black;
+      z-index: 2;
+      
+      @media (max-width: 1100px) and (min-width: 901px) {
+        right: 150px;
+      }
+      
+      @media (max-width: 700px) {
+        right: 0;
+      }
+    
+      &:before,
+      &:after {
+        content: '';
+        position: absolute;
+        left: 10px;
+        top: -20px;
+        border: 10px solid transparent;
+        border-bottom: 10px solid #c7c7c7;
+      }
+    
+      &:after {
+        border-bottom: 10px solid #fff;
+        top: -19px;
+      }
+    
+      & i {
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 12px;
+        margin: auto;
+        width: 18px;
+        height: 18px;
+        border: 1px solid transparent;
+        border-radius: 2px;
+        background: #faab20 url(../images/exclamation-mark.png) 50% 50%/contain no-repeat;
+        background-size: 12px;
+      }
+      
+      span {
+        font-size: 13px;
+        font-family: $PFDinCondensedPro;
+      }
     }
   }
 
@@ -727,6 +786,7 @@
 
     label {
       display: inline-block;
+      vertical-align: middle;
       width: 162px;
       font-family: $PFDinCondensedPro;
       font-size: 14px;
@@ -743,11 +803,16 @@
 
     input {
       display: inline-block;
+      vertical-align: middle;
       padding: 0 10px;
       width: 388px;
       height: 35px;
       border: 1px solid #d7d7d7;
       border-radius: 1px;
+      
+      @media (max-width: 634px) {
+        margin-top: 5px;
+      }
 
       @media (max-width: 580px) {
         width: 100%;
@@ -756,10 +821,15 @@
 
     .selectbox {
       display: inline-block;
+      vertical-align: middle;
       width: 388px;
       font-size: 16px;
       text-transform: none;
       font-weight: 400;
+      
+      @media (max-width: 634px) {
+        margin-top: 5px;
+      }
 
       @media (max-width: 580px) {
         width: 100%;
