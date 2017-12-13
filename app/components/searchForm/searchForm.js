@@ -46,7 +46,7 @@ export default () => {
   $(document).on('click', '.search_widget .d-si__search', function(e){
     e.stopPropagation();
     $('.search_widget .d-si__search').not($(this)).blur();
-    if (!$(this).hasClass('focused')) {
+  if (!$(this).hasClass('focused') && !$(this).hasClass('social__search')) {
       $(this).val('');
       $(this).siblings('.search__tooltip').fadeIn(321);
       $(this).addClass('focused');
