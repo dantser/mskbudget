@@ -25,8 +25,8 @@ export default () => {
 	 
       changeBlock(graphics, typeVal);
       changeControl(controls, typeVal);
-      rateLine();
       graphicBars();
+      rateLine();
     }
     
     function changeBlock(el, typeVal) {

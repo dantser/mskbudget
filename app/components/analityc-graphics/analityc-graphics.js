@@ -612,6 +612,9 @@ export default () => {
       var line = $(this).find('.analityc-graphics-line-vertical__line'),
           visibleGraphic = $(this).find('.analityc-graphics-line-vertical__graphic:visible');
       
+      visibleGraphic.removeClass('analityc-graphics-line-vertical__graphic_last');
+      visibleGraphic.last().addClass('analityc-graphics-line-vertical__graphic_last');
+      
       var minWidth = 0;
       visibleGraphic.each(function(){
         var grWidth = $(this).outerWidth(true);
@@ -631,9 +634,6 @@ export default () => {
         barValue.css('bottom', value + '%');
         lineFill.css('height', value + '%');
       });
-      
-      visibleGraphic.removeClass('analityc-graphics-line-vertical__graphic_last');
-      visibleGraphic.last().addClass('analityc-graphics-line-vertical__graphic_last');
     });
   }
   

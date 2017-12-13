@@ -8,7 +8,11 @@
     
     .analityc-control-frame_right {
       float: left;
-      margin-left: 11px;
+      margin-left: 50px;
+      
+      @media (max-width: 1140px) {
+        margin-left: 30px;
+      }
     }
     
     .analityc-widget__selectbox_year {
@@ -30,8 +34,20 @@
     
     .analityc-control-switcher {
       margin-top: 22px;
+      
       a {
+        font-size: 12px;
         padding: 0 23px;
+        
+        @media (max-width: 900px) {
+          font-size: 17px;
+          line-height: 52px;
+        }
+        
+        @media (max-width: 580px) {
+          font-size: 11.5px;
+          line-height: 26px;
+        }
       }
     }
   }
@@ -227,11 +243,12 @@
         margin-top: 41px;
         width: 100%;
         a {
+          padding: 0 10px;
           &:first-child {
-            width: 59%;
+            width: 64%;
           }
           &:last-child {
-            width: 41%;
+            width: 36%;
           }
         }
       }
@@ -276,6 +293,19 @@
     
     .analityc-table .table__row_caption .table__col:first-child {
       font-size: 15px;  
+    }
+  }
+  
+  .analityc-more {
+    @media (max-width: 580px) {
+      font-size: 16px;
+    }
+    
+    &:before {
+      @media (max-width: 580px) {
+        right: -19px;
+        top: 3px;
+      }
     }
   }
 }
