@@ -586,7 +586,10 @@ mixin analityc-graphics-column(legendtype, expenses)
             p Бюджет с учетом изменений
         +e.col.swiper-slide
           +e.SPAN.period-left
-          +e.P.year 2018
+          if expenses
+            +e.P.year 2018*
+          else
+            +e.P.year 2018
           +e.graphic._column
             .column
               .column__value 1976,5
@@ -619,7 +622,10 @@ mixin analityc-graphics-column(legendtype, expenses)
             p Бюджет с учетом изменений
         +e.col.swiper-slide
           +e.SPAN.period-right
-          +e.P.year 2019
+          if expenses
+            +e.P.year 2019*
+          else
+            +e.P.year 2019
           +e.graphic._column
             .column
               .column__value 1976,5
