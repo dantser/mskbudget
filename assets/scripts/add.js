@@ -205,3 +205,28 @@ function overflowDottsInit(size, element) {
     });
   }
 }
+
+function dotTextInit(element) {
+  if ($(element).length) {
+    $(element).each(function(){
+      var textSpan = $(this).find('span'),
+          wordArray = textSpan.text().split(' '),
+          newText = '';
+      
+      for (var i = 0; i < wordArray.length; i++) {
+        
+        if (textSpan.text(newText+wordArray[i]).height() <= $(this).height()) {
+          newText += ' '+wordArray[i];
+        } else if (textSpan.text(newText+'...').height() <= $(this).height()){
+          newText += '...';
+          i = wordArray.length;
+        } else {
+          newText = newText.substring(0, newText.lastIndexOf(' ')) + '...';
+          i = wordArray.length;
+        }
+        
+        textSpan.text(newText);
+      }
+    });
+  }
+}
