@@ -5,7 +5,14 @@ mixin document(date, title, excerpt)
       +e.A(href='#', title=title).title= title
     +e.P.excerpt= excerpt
     +e.bottom
-      +e.A(href='#').dwnl Скачать (DOCX, 957,55 Кб)
+      +e.dwnl-wrapper
+        +e.dwnl-list-item
+          +e.A(href='#').dwnl Скачать (DOCX, 957,55 Кб)
+        +e.UL.dwnl-list
+          +e.LI.dwnl-list-item
+            +e.A(href='#').dwnl Скачать (RAR, 157,55 Кб)
+          +e.LI.dwnl-list-item
+            +e.A(href='#').dwnl Скачать (DOC, 57,55 Кб)
       +e.is-added
         +e.favor
           +favor()._stroke-color-blue
@@ -20,7 +27,12 @@ mixin document-indir(date, title, excerpt, category)
       +e.A(href='#').title= title
     +e.P.excerpt= excerpt
     +e.bottom
-      +e.A(href='#').dwnl Скачать (DOCX, 957,55 Кб)
+      +e.dwnl-wrapper
+        +e.dwnl-list-item
+          +e.A(href='#').dwnl Скачать (DOCX, 957,55 Кб)
+        +e.UL.dwnl-list
+          +e.LI.dwnl-list-item
+            +e.A(href='#').dwnl Скачать (DOC, 57,55 Кб)
       +e.is-added
         +e.favor
           +favor()._stroke-color-blue
