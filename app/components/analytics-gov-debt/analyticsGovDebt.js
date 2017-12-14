@@ -27,6 +27,8 @@ export default () => {
       changeControl(controls, typeVal);
       graphicBars();
       rateLine();
+      hideTableSubcol();
+      changeTableWidth();
     }
     
     function changeBlock(el, typeVal) {

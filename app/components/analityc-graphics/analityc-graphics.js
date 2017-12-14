@@ -757,12 +757,18 @@ export default () => {
       var set = $(this).data('set');
 		
       if ($(this).is(':visible')) {
-        $('.analityc-widget-income, .analityc-graphics, .analytics-gov-debt__graphics, .analityc-table').each(function(){
+        $('.analityc-widget-income, .analityc-graphics, .analytics-gov-debt__graphics').each(function(){
           $(this).find('[data-set="'+set+'"]').show();
         });
+        $('.analityc-table').each(function(){
+          $(this).find('[data-set="'+set+'"]').css('display', 'table-cell');
+        });
       } else {
-        $('.analityc-widget-income, .analityc-graphics, .analytics-gov-debt__graphics, .analityc-table').each(function(){
+        $('.analityc-widget-income, .analityc-graphics, .analytics-gov-debt__graphics').each(function(){
           $(this).find('[data-set="'+set+'"]').hide();
+        });
+        $('.analityc-table').each(function(){
+          $(this).find('[data-set="'+set+'"]').css('display', 'none');
         });
       }
     });
@@ -777,17 +783,19 @@ export default () => {
   });
   
   // Скрытие второго столбца первого года в таблице
-  function hideTableSubcol() {
+  window.hideTableSubcol = function() {
     $('.analityc-table_rate .table__row').each(function(){
       $(this).find('.table__col_one[data-set]').removeClass('table__col_inactive');
       $(this).find('.table__col_one[data-set]:visible').eq(1).addClass('table__col_inactive');
+      $(this).find('.table__col_four[data-set]').removeClass('table__col_half');
+      $(this).find('.table__col_four[data-set]:visible').eq(0).addClass('table__col_half');
     });
   }
   
   hideTableSubcol();
   
   // Изменение ширины таблицы в аналитике при добавлении/удалении года/этапа
-  function changeTableWidth() {
+  window.changeTableWidth = function() {
     $('.analityc-table_params, .analityc-table_gp').each(function(){
       if ($(this).find('[data-set]').length) {
         var visibleColLength = $('.analityc-control-group[data-set]:visible').length,
@@ -796,6 +804,9 @@ export default () => {
             wrapperWidth = $('.analityc-table__wrapper:visible').width(),
             tableWidth;
         tableWidth = firstColMinWidth + visibleColLength * colMinWidth;
+        if ($(this).hasClass('analityc-table_rate')) {
+          tableWidth -= (colMinWidth / 2);
+        }
         $(this).find('.table').css('min-width', tableWidth);
         if (tableWidth <= wrapperWidth) {
           $(this).addClass('no-arrows');

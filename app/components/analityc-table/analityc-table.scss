@@ -277,10 +277,10 @@
     font-size: 16px;
 
     .table__col {
-      width: 7.93%; /**/
+      width: 91px; /**/
 
       &:first-child {
-        width: 20.7%;
+        width: 288px;
         padding-right: 0;
       }
 
@@ -298,9 +298,14 @@
     font-size: 17.2px;
 
     .table__col {
-      text-align: left;
-      width: 15.86%; /**/
-      padding: 12px 0 3px;
+      text-align: center;
+      width: 182px; /**/
+      padding: 12px 15px 3px 0;
+      
+      &_half {
+        text-align: left;
+        width: 91px;
+      }
 
       &:first-child {
         text-align: left;
@@ -360,10 +365,10 @@
     }
 
     .table__col {
-      width: 7.6%; /**/
+      width: 91px; /**/
 
       &:first-child {
-        width: 24%;
+        width: 288px;
         padding-right: 30px;
       }
 
@@ -381,13 +386,18 @@
     font-size: 17.2px;
 
     .table__col {
-      text-align: left;
-      width: 15.2%; /**/
-      padding: 12px 0 3px;
+      text-align: center;
+      width: 182px; /**/
+      padding: 12px 15px 3px 0;
 
       &:first-child {
         text-align: left;
         font-size: 14.5px;
+      }
+      
+      &_half {
+        text-align: left;
+        width: 91px;
       }
     }
   }
@@ -610,4 +620,22 @@
     display: none;
   }
   @include table-slider(900px);
+
+  .table__row {
+    .table__col {
+      width: 7.6%; /**/
+
+      &:first-child {
+        width: 24%;
+      }
+    }
+  }
+  
+  .table__row_caption {
+    .table__col {
+      text-align: left;
+      width: 15.2%; /**/
+      padding: 12px 0 3px;
+    }
+  }
 }
