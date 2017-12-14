@@ -61,27 +61,33 @@ export default () => {
     function dateGraphicInit() {
       $('.analityc-widget-sources_date .linear-diagrams').each(function(){
         
-        if ($(window).width() <= 550) {
-          var area = $(this).attr('data-phonearea');
-        } else {
-          var area = $(this).attr('data-area');
-        }
+        var maxDiagramWidth = 0,
+            diagramsWrapperWidth = $(this).find('.linear-diagrams__wrapper').width();
         
-        var diagram = $(this).find('.linear-diagram'),
-            diagramsWidth = $(this).width();
-        
-        diagram.css('min-width', area+'px');
+        $(this).find('[data-pxwidth]').each(function(){
+          var dwidth = $(this).data('pxwidth');
+          if ($(window).width() <= 550) {
+            dwidth = Math.floor(dwidth / 1.5);
+          }
+          $(this).css('width', dwidth+'px');
+        });
         
         $(this).find('[data-width]').each(function(){
           var dwidth = $(this).data('width');
           $(this).css('width', dwidth+'%');
         });
         
-        if (area > diagramsWidth) {
+        $(this).find('.linear-diagram').each(function(){
+          var diagramWidth = $(this).width();
+          if (diagramWidth > maxDiagramWidth) maxDiagramWidth = diagramWidth;
+        });
+        
+        if (maxDiagramWidth > diagramsWrapperWidth) {
           $(this).addClass('linear-diagrams_arrowed');
         } else {
           $(this).removeClass('linear-diagrams_arrowed');
         }
+        
       });
     }
     

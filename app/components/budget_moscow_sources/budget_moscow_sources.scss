@@ -297,6 +297,11 @@
       padding-bottom: 20px;
     }
     
+    .linear-diagram {
+      display: inline-block;
+      min-width: 100%;
+    }
+    
     &_arrowed {
       
       &:before, &:after {
@@ -383,16 +388,13 @@
     &__wrapper {
       display: inline-block;
       vertical-align: middle;
-      width: calc(100% - 258px);
-      
-      @media screen and (max-width: 550px) {
-        width: calc(100% - 136px);
-      }
     }
 
     &__block {
       border: 1px solid $color-black;
       position: relative;
+      display: inline-block;
+      vertical-align: middle;
     }
 
     &__wave {
@@ -1020,6 +1022,9 @@
 
     .linear-diagram__val {
       margin-left: 12px;
+      font-size: 14px;
+      display: inline-block;
+      vertical-align: middle;
     }
   }
 
