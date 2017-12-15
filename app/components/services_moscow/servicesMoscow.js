@@ -71,12 +71,14 @@ export default () => {
         grTotalVal,
         grNeg,
         grSector,
-        grCount;
+        grCount,
+        grCountLimit,
+        grStep;
 
     grLine.each(function() {
       var gr_val = $(this).find('.analityc-graphics-line-gorizontal__line-bar-value').text();
       if (gr_val != '') {
-        var gr_val_dec = parseFloat((gr_val).replace(',', '.'));
+        var gr_val_dec = parseFloat((gr_val).replace(',', '.').replace(' ', ''));
         
         if (gr_val_dec < 0) {
           if (gr_val_dec < grMinVal) grMinVal = gr_val_dec;
@@ -85,23 +87,34 @@ export default () => {
         }
       }
     });
+    
+    if ($(window).width() > 900) {
+      grCountLimit = 17;
+    } else if ($(window).width() > 580) {
+      grCountLimit = 12;
+    } else {
+      grCountLimit = 7;
+    }
   
     grMinVal = Math.floor(grMinVal/10)*10;
     grMaxVal = Math.ceil(grMaxVal/10)*10;
     grTotalVal = Math.abs(grMinVal) + grMaxVal;
-    grNeg = 100 * Math.abs(grMinVal) / grTotalVal;
+    grNeg = 100 * Math.abs(grMinVal) / grTotalVal; 
     grCount = grTotalVal / 10;
+    if (grCount > grCountLimit) {
+      grCount = grCountLimit;
+    }
     grSector = 100 / grCount;
+    grStep = grTotalVal / grCount;
     
     grLayout.css({
-      'padding-left': grNeg+'%',
-      'background-size': grSector+'%'
+      'padding-left': grNeg+'%'
     });
   
     grLine.each(function() {
       var gr_val = $(this).find('.analityc-graphics-line-gorizontal__line-bar-value').text();
       if (gr_val != '') {
-        var gr_val_dec = parseFloat((gr_val).replace(',', '.'));
+        var gr_val_dec = parseFloat((gr_val).replace(',', '.').replace(' ', ''));
         
         var gr_val_pers = gr_val_dec*100/grMaxVal;
 
@@ -119,11 +132,9 @@ export default () => {
     grUnit.eq(0).find('span').text(grMinVal);
     
     for (var i = 0; i < grCount; i++) {
-      grUnit.eq(0).clone(true).appendTo(grUnit.parent()).css('margin-left', grSector+'%').find('span').text(grMinVal + 10 * (i+1));
-    }
-    
-    if ($(window).width() < 400 && grCount > 16) {
-      grUnit.parent().addClass('analityc-graphics-line-gorizontal__units_highval');
+      var grCountStep = grStep * (i+1);
+      grCountStep = Math.round(grCountStep);
+      grUnit.eq(0).clone(true).appendTo(grUnit.parent()).css('margin-left', grSector+'%').find('span').text(grMinVal + grCountStep);
     }
   
     $('.city-popup__wrapper').scrollbar();
