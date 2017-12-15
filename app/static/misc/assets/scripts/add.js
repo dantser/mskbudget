@@ -38,10 +38,12 @@ $(document).on('mousedown', '.selectbox select', function (e) {
   window.focus();
   $(document).find('.selectbox').not($(this).parents('.selectbox')).removeClass('active');
   $(this).parents('.selectbox').toggleClass('active');
+  //selectboxItemWidth($(this).parents('.selectbox'));
 });
 
 $(document).on('click', '.selectbox select', function (e) {
   e.stopPropagation();
+  //selectboxItemWidth($(this).parents('.selectbox'));
 });
 
 $(document).on('click', '.selectbox', function (e) {
@@ -49,6 +51,7 @@ $(document).on('click', '.selectbox', function (e) {
     e.stopPropagation();
     $(document).find('.selectbox').not($(this)).removeClass('active');
     $(this).toggleClass('active');
+    //selectboxItemWidth($(this));
   }
 });
 
@@ -58,8 +61,23 @@ $(document).on('click', '.selectbox > *', function (e) {
     e.stopPropagation();
     $(document).find('.selectbox').not($(this).parents('.selectbox')).removeClass('active');
     $(this).parents('.selectbox').toggleClass('active');
+    //selectboxItemWidth($(this).parents('.selectbox'));
   }
 });
+
+function selectboxItemWidth(el) {
+  el.find('li').each(function(){
+    var itemWidth = $(this).width(),
+        spanWidth = $(this).find('span').width();
+    if ($(this).find('a').length) {
+      itemWidth = $(this).find('a').width();
+    }
+    if (spanWidth > itemWidth) {
+      var spanText = $(this).find('span').text();
+      $(this).attr('title', $.trim(spanText));
+    }
+  });
+}
 
 //$(document).on('click', '.selectbox ul', function () {
 //  $(this).removeClass('active');

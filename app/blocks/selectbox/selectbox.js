@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import 'jquery.scrollbar';
 
 export default function selectbox() {
   $('.selectbox').each(function () {
@@ -37,29 +38,29 @@ export default function selectbox() {
             if (imgLayer)
             {
               var svg = "<svg><use xlink:href='"+imgUrl+"#"+imgLayer+"'</use></svg>";
-              const li = '<li class="locked" data-val="' + vval + '" title="'+ttext+'">' + svg + '<span>' + ttext + '</span>' + (period ? '<i>' + period +'</i>' : '') + '</li>';
+              const li = '<li class="locked" data-val="' + vval + '">' + svg + '<span>' + ttext + '</span>' + (period ? '<i>' + period +'</i>' : '') + '</li>';
               selBox.find('ul').append(li);
             }
             else
             {
-              const li = '<li class="locked" data-val="' + vval + '" title="'+ttext+'"><img src="' + imgUrl + '"><span>' + ttext + '</span>' + (period ? '<i>' + period +'</i>' : '') + '</li>';
+              const li = '<li class="locked" data-val="' + vval + '"><img src="' + imgUrl + '"><span>' + ttext + '</span>' + (period ? '<i>' + period +'</i>' : '') + '</li>';
               selBox.find('ul').append(li);
             }
           }
           else
           {
-            const li = '<li class="locked" data-val="' + vval + '" title="'+ttext+'"><img src="assets/images/' + img + '.png"><span>' + ttext + '</span>' + (period ? '<i>' + period +'</i>' : '') + '</li>';
+            const li = '<li class="locked" data-val="' + vval + '"><img src="assets/images/' + img + '.png"><span>' + ttext + '</span>' + (period ? '<i>' + period +'</i>' : '') + '</li>';
             selBox.find('ul').append(li);
           }
         } else {
           if (imgUrl)
           {
-            const li = '<li data-val="' + vval + '" title="'+ttext+'"><img src="' + imgUrl + '"><span>' + ttext + '</span>' + (period ? '<i>' + period +'</i>' : '') + '</li>';
+            const li = '<li data-val="' + vval + '"><img src="' + imgUrl + '"><span>' + ttext + '</span>' + (period ? '<i>' + period +'</i>' : '') + '</li>';
             selBox.find('ul').append(li);
           }
           else
           {
-            const li = '<li data-val="' + vval + '" title="'+ttext+'"><img src="assets/images/' + img + '.png"><span>' + ttext + '</span>' + (period ? '<i>' + period +'</i>' : '') + '</li>';
+            const li = '<li data-val="' + vval + '"><img src="assets/images/' + img + '.png"><span>' + ttext + '</span>' + (period ? '<i>' + period +'</i>' : '') + '</li>';
             selBox.find('ul').append(li);
           }
         }
@@ -70,29 +71,29 @@ export default function selectbox() {
           
           if ($(this).attr('data-tooltip')) {
             const title = $(this).attr('title');
-            const li = '<li class="locked js-tooltip" data-val="' + vval + '" title="'+title+'">' + ttext + '</li>';
+            const li = '<li class="locked js-tooltip" data-val="' + vval + '" title="'+title+'"><span>' + ttext + '</span></li>';
             selBox.find('ul').append(li);
           } else if ($(this).attr('data-href')) {
             const href = $(this).attr('data-href');
-            const li = '<li class="locked" data-val="' + vval + '" title="'+ttext+'"><a href="'+href+'">' + ttext + '</a></li>';
+            const li = '<li class="locked" data-val="' + vval + '"><a href="'+href+'"><span>' + ttext + '</span></a></li>';
             selBox.find('ul').append(li);
           } else {
-            const li = '<li class="locked" data-val="' + vval + '" title="'+ttext+'">' + ttext + '</li>';
+            const li = '<li class="locked" data-val="' + vval + '"><span>' + ttext + '</span></li>';
             selBox.find('ul').append(li);
           }
           
         } else {
           if ($(this).attr('data-tooltip')) {
             const title = $(this).attr('title');
-            const li = '<li class="js-tooltip" data-val="' + vval + '" title="'+title+'">' + ttext + '</li>';
+            const li = '<li class="js-tooltip" data-val="' + vval + '" title="'+title+'"><span>' + ttext + '</span></li>';
             selBox.find('ul').append(li);
           }
           else if ($(this).attr('data-href')) {
             const href = $(this).attr('data-href');
-            const li = '<li data-val="' + vval + '" title="'+ttext+'"><a href="'+href+'">' + ttext + '</a></li>';
+            const li = '<li data-val="' + vval + '"><a href="'+href+'"><span>' + ttext + '</span></a></li>';
             selBox.find('ul').append(li);
           } else {
-            const li = '<li data-val="' + vval + '" title="'+ttext+'">' + ttext + '</li>';
+            const li = '<li data-val="' + vval + '"><span>' + ttext + '</span></li>';
             selBox.find('ul').append(li);
           }
         }
@@ -105,7 +106,30 @@ export default function selectbox() {
       var valText = '<p class="selectbox__val">'+selectVal+'</p>';
       $(this).find('select').after(valText);
     }
+    
   });
+  
+  setTimeout(function(){
+    $('.selectbox').each(function () {
+      $(this).find('li').each(function(){
+        var itemWidth = $(this).width(),
+            spanWidth = $(this).find('span').width();
+        if ($(this).find('a').length) {
+          itemWidth = $(this).find('a').width();
+        }
+        if (spanWidth > itemWidth) {
+          var spanText = $(this).find('span').text();
+          //$(this).addClass('long').attr('title', $.trim(spanText));
+          $(this).attr('title', $.trim(spanText));
+        }
+      });
+    });
+  }, 500);
+  
+  setTimeout(function(){
+    $('.widget-card .selectbox ul').scrollbar();
+  }, 1000);
+  
   
   
   
