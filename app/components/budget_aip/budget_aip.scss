@@ -113,6 +113,12 @@
       width: 50%;
       margin-bottom: 15px;
     }
+    
+    &.checked {
+      .govProgram__index-units {
+        opacity: 1;
+      }
+    }
   }
 
   &__data-single{
@@ -148,6 +154,8 @@
     padding: 0 0 5px 5px;
     font-size: .5em;
     white-space: nowrap;
+    transition: opacity .25s ease-in-out;
+    opacity: 0;
 
     @media (max-width: 900px) {
       padding: 0 10px 2px 5px;
