@@ -638,10 +638,6 @@ label {
   text-transform: uppercase;
   margin-top: 39px;
   display: inline-block;
-  
-  &_right {
-    margin-right: 22px;
-  }
 }
 .analityc-more:before {
   content: '';
@@ -663,9 +659,22 @@ label {
   100% {right:-20px;}
 }
 
-.analityc-more-links {
+.analityc-widget__bottom {
   @include block-justify;
   text-justify: distribute;
+  padding-right: 22px;
+}
+.analityc-more-link {
+  display: inline-block;
+  text-align: left;
+  margin-top: 39px;
+  .analityc-more {
+    display: inline;
+    &:before {
+      top: auto;
+      bottom: 6px;
+    }
+  }
 }
 
 .dropdown {

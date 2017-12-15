@@ -751,51 +751,21 @@
 
   .analityc-widget__bottom {
     margin: 60px 0 20px;
-    text-align: justify;
-
-    @include clearfix;
-
-    @media (max-width: 1140px) {
+    
+    @media (max-width: 1020px) {
       text-align: left;
     }
-
-    .analityc-more {
+    
+    .analityc-more-link {
       margin-top: 0;
-
-      @media (max-width: 900px) {
-        display: block;
-        max-width: 230px;
-      } 
-
-      @media (max-width: 580px) {
-        max-width: 280px;
-      } 
       
-      &:before {
-
-        @media (max-width: 580px) {
-          top: 5px;
-          right: 30px;
-        } 
-
+      @media (max-width: 1020px) {
+        display: block;
       }
-
-      &_results {
-        float: right;
-
-        @media (max-width: 900px) {
-          margin-top: 24px;
-          float: none;
-        } 
-
-        @media (max-width: 580px) {
-          margin-top: 11px;
-        } 
-
-        &:before {
-          @media (max-width: 900px) {
-            top: 23px;
-          } 
+      
+      & + .analityc-more-link {
+        @media (max-width: 1020px) {
+          margin-top: 39px;
         }
       }
     }
