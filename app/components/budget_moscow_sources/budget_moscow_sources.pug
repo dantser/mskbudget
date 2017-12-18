@@ -27,61 +27,55 @@ mixin budget_moscow_sources()
             P.toptext МЛРД РУБ.
             .linear-diagrams
               +slide-arrows.linear-diagrams__slide-arrows
-              .linear-diagrams__scroll-hider
-                .linear-diagrams__wrapper(data-offset='100')
-                  +b.linear-diagram_redblue
-                    +e.H4.sources_bold Всего по источникам финансирования дефицита
-                    +e.wrapper
-                      +e.block(data-pxwidth="693")
-                        +e.SPAN.wave
-                        +e.fill(data-width="45.9")
-                          +e.SPAN.value 100,0 (45,9%)
-                        //+e.SPAN.value._out 217,9
-                      +e.SPAN.val 217,9
-                  +b.linear-diagram_pink
-                    +e.H4.sources._pink Средства от продажи акций
-                    +e.wrapper
-                      +e.block(data-pxwidth="221")
-                        +e.fill(data-width="50")
-                          +e.SPAN.value 0,5 (50%)
-                        //+e.SPAN.value._out 1,0
-                      +e.SPAN.val 1,0
-                  +b.linear-diagram_blue
-                    +e.H4.sources._blue Возврат бюджетных кредитов
-                    +e.wrapper
-                      +e.block(data-pxwidth="23")
-                        +e.fill(data-width="50")
-                          +e.fill-hover
-                            +e.fill-abs
-                              +e.SPAN.value._abs 0,05 (50%)
-                      +e.SPAN.val 0,1
-                  +b.linear-diagram_violet._group-head
-                    +e.H4.sources._violet Заемные средства
-                  +b.linear-diagram_violet
-                    +e.H4.sources._italic._violet привлечение
-                    +e.wrapper
-                      +e.block(data-pxwidth="495")
-                        +e.fill(data-width="50")
-                          +e.SPAN.value 12,9 (50%)
-                        //+e.SPAN.value._out 25,7
-                      +e.SPAN.val 25,7
-                  +b.linear-diagram_violet
-                    +e.H4.sources._italic._violet погашение
-                    +e.wrapper
-                      +e.block(data-pxwidth="495")
-                        +e.fill(data-width="50")
-                          +e.SPAN.value 12,9 (50%)
-                        //+e.SPAN.value._out 25,7
-                      +e.SPAN.val 25,7
-                  +b.linear-diagram_green
-                    +e.H4.sources._green Накопление остатков средств бюджета
-                    +e.wrapper
-                      +e.block(data-pxwidth="686")
-                        +e.SPAN.wave
-                        +e.fill(data-width="50")
-                          +e.SPAN.SPAN.value 108,5 (50%)
-                        //+e.SPAN.value._out 216,9
-                      +e.SPAN.val 216,9
+              .linear-diagrams__wrapper(data-offset='100')
+                +b.linear-diagram_redblue
+                  +e.H4.sources_bold Всего по источникам финансирования дефицита
+                  +e.wrapper
+                    +e.block(data-width="91")
+                      +e.SPAN.wave
+                      +e.fill(data-width="45.9")
+                        +e.SPAN.value 100,0 (45,9%)
+                      +e.SPAN.value._out 217,9
+                +b.linear-diagram_pink
+                  +e.H4.sources._pink Средства от продажи акций
+                  +e.wrapper
+                    +e.block(data-width="29")
+                      +e.fill(data-width="50")
+                        +e.SPAN.value 0,5 (50%)
+                      +e.SPAN.value._out 1,0
+                +b.linear-diagram_blue
+                  +e.H4.sources._blue Возврат бюджетных кредитов
+                  +e.wrapper
+                    +e.block(data-width="3")
+                      +e.fill(data-width="50")
+                        +e.fill-hover
+                          +e.fill-abs
+                            +e.SPAN.value._abs 0,05 (50%)
+                  +e.SPAN.val 0,1
+                +b.linear-diagram_violet._group-head
+                  +e.H4.sources._violet Заемные средства
+                +b.linear-diagram_violet
+                  +e.H4.sources._italic._violet привлечение
+                  +e.wrapper
+                    +e.block(data-width="65")
+                      +e.fill(data-width="50")
+                        +e.SPAN.value 12,9 (50%)
+                      +e.SPAN.value._out 25,7
+                +b.linear-diagram_violet
+                  +e.H4.sources._italic._violet погашение
+                  +e.wrapper
+                    +e.block(data-width="65")
+                      +e.fill(data-width="50")
+                        +e.SPAN.value 12,9 (50%)
+                      +e.SPAN.value._out 25,7
+                +b.linear-diagram_green
+                  +e.H4.sources._green Накопление остатков средств бюджета
+                  +e.wrapper
+                    +e.block(data-width="90")
+                      +e.SPAN.wave
+                      +e.fill(data-width="50")
+                        +e.SPAN.SPAN.value 108,5 (50%)
+                      +e.SPAN.value._out 216,9
           
           +analityc-table-slider(100, 'Исполнение доходов бюджета на')._date(data-stage='date')
             +table-sources(getData('sources'))

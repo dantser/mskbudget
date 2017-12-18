@@ -288,21 +288,7 @@
       margin-top: -25px;
     }
     
-    &__scroll-hider {
-      overflow: hidden;
-    }
-    
-    &__wrapper {
-      margin-bottom: -20px;
-      padding-bottom: 20px;
-    }
-    
-    .linear-diagram {
-      display: inline-block;
-      min-width: 100%;
-    }
-    
-    &_arrowed {
+    @media screen and (max-width: 980px) {
       
       &:before, &:after {
         content: '';
@@ -330,16 +316,17 @@
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=1 );
       }
       
-      .linear-diagrams__wrapper {
+      &__wrapper {
         overflow-x: auto;
         overflow-y: hidden;
       }
       
       .linear-diagram {
+        min-width: 920px;
         padding: 0 20px;
       }
       
-      .linear-diagrams__slide-arrows {
+      &__slide-arrows {
         display: block;
       }
     }
@@ -349,6 +336,24 @@
         left: -23px;
         right: -23px;
         margin-top: -15px;
+      }
+    }
+    
+    @media screen and (max-width: 550px) {
+      .linear-diagram {
+        min-width: 600px;
+      }
+    }
+    
+    &.noscroll {
+      
+      .linear-diagrams__slide-arrows,
+      &:after, &:before {
+        display: none;
+      }
+      
+      .linear-diagrams__wrapper {
+        overflow-x: hidden;
       }
     }
   }
@@ -368,13 +373,12 @@
       text-align: right;
       display: inline-block;
       vertical-align: middle;
-      width: 232px;
+      width: 22.8%;
       white-space: normal;
       
       @media screen and (max-width: 550px) {
         font-size: 10px;
         line-height: 12px;
-        width: 120px;
       }
 
       &_bold {font-weight: 700;}
@@ -388,13 +392,12 @@
     &__wrapper {
       display: inline-block;
       vertical-align: middle;
+      width: calc(76% - 26px);
     }
 
     &__block {
       border: 1px solid $color-black;
       position: relative;
-      display: inline-block;
-      vertical-align: middle;
     }
 
     &__wave {
@@ -1022,9 +1025,6 @@
 
     .linear-diagram__val {
       margin-left: 12px;
-      font-size: 14px;
-      display: inline-block;
-      vertical-align: middle;
     }
   }
 

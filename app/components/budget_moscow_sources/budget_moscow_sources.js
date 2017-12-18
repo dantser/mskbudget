@@ -7,7 +7,6 @@ export default () => {
      
     // графики
     graphicInit();
-    dateGraphicInit();
     
     function graphicInit() {
       $('.graphic__data .linear-diagram__fill').each(function(){
@@ -58,38 +57,37 @@ export default () => {
       });
     }
     
-    function dateGraphicInit() {
+    $('.analityc-widget-sources_date [data-width]').each(function(){
+      var dwidth = $(this).data('width');
+      $(this).css('width', dwidth+'%');
+    });
+    
+    function checkDateGraphics() {
       $('.analityc-widget-sources_date .linear-diagrams').each(function(){
         
-        var maxDiagramWidth = 0,
-            diagramsWrapperWidth = $(this).find('.linear-diagrams__wrapper').width();
-        
-        $(this).find('[data-pxwidth]').each(function(){
-          var dwidth = $(this).data('pxwidth');
-          if ($(window).width() <= 550) {
-            dwidth = Math.floor(dwidth / 1.5);
-          }
-          $(this).css('width', dwidth+'px');
-        });
-        
-        $(this).find('[data-width]').each(function(){
-          var dwidth = $(this).data('width');
-          $(this).css('width', dwidth+'%');
-        });
+        var wrapperWidth = $(this).find('.linear-diagrams__wrapper').width();
+        var titleWidth = $(this).find('.linear-diagram__sources').outerWidth(true);
+        var maxlineWidth = 0;
         
         $(this).find('.linear-diagram').each(function(){
-          var diagramWidth = $(this).width();
-          if (diagramWidth > maxDiagramWidth) maxDiagramWidth = diagramWidth;
+          var lineWidth = $(this).find('.linear-diagram__block').outerWidth();
+          if (lineWidth > maxlineWidth) maxlineWidth = lineWidth;
         });
         
-        if (maxDiagramWidth > diagramsWrapperWidth) {
-          $(this).addClass('linear-diagrams_arrowed');
+        var totalWidth = titleWidth + maxlineWidth;
+        var diagramPadding = parseInt($(this).find('.linear-diagram').css('padding-left'));
+        totalWidth += diagramPadding;
+        
+        if (totalWidth <= wrapperWidth) {
+          $(this).addClass('noscroll');
         } else {
-          $(this).removeClass('linear-diagrams_arrowed');
+          $(this).removeClass('noscroll');
         }
         
       });
     }
+    
+    checkDateGraphics();
     
     
     // слайдер
@@ -176,7 +174,7 @@ export default () => {
       changeControl(controls, stageVal, levelVal, typeVal);
       
       positionValues();
-      dateGraphicInit();
+      checkDateGraphics();
     }
     
     function changeBlock(el, stageVal) {
