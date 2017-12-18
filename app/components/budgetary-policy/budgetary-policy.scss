@@ -37,6 +37,22 @@
   }
 }
 
+.carousel-wrapper {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  pointer-events: none;
+  
+  &_loaded {
+    filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
 //ie-carousel fix
 .carousel-3d-container {
   min-height: 600px;
@@ -992,7 +1008,21 @@
   .d-slide__body_list {
     overflow: visible !important;
     
-    &.scroll-pane > li {
+    .d-slide__body_list li {
+      background-position: 15px 7px!important;
+      padding-left: 33px;
+    
+      &.none {
+        padding-left: 0;
+      }
+    }
+  }
+  
+  .d-slide__body_list li {
+    background-position: 0 7px!important;
+    padding-left: 18px;
+    
+    &.none {
       padding-left: 0;
     }
   }

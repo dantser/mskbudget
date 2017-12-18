@@ -147,7 +147,16 @@ export default () => {
     var popup = $(this).parents('.services-moscow-index__table').find('.services-moscow-index__city-popup');
     popup.find('.city-popup__category').removeClass('active');
     popup.find('.city-popup__category[data-category="'+category+'"]').addClass('active');
-    popup.fadeIn(321);
+    if ($(window).width() <= 580) {
+      $.when(popup.fadeIn(321)).then(function(){
+        var categoryHeight = popup.find('.city-popup__category.active').height(),
+            titleHeight = popup.find('.city-popup__category.active .city-popup__title').outerHeight(true),
+            listMaxHeight = categoryHeight - titleHeight;
+        popup.find('.city-popup__category.active .city-popup__wrapper').css('max-height', listMaxHeight);
+      });
+    } else {
+      popup.fadeIn(321);
+    }
   });
   
   $(document).on('click', '.services-moscow-params__sources-link', function(e){
