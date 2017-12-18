@@ -26,11 +26,11 @@ mixin budget_income()
         +analityc-graphics-singleround('income2')._done(data-stage='done')
         +analityc-table()._done(data-stage='done')
           +table-income(getData('income2'))
-        +analityc-graphics-line('Исполнение доходов бюджета на', getData('graphic-lines-income1'))._date-one(data-stage='date')
+        +analityc-graphics-line('Исполнение доходов бюджета на', getData('graphic-lines-income1'), 'budget')._date-one(data-stage='date')
 
         +analityc-table-slider(100, 'Исполнение доходов бюджета на')._date(data-stage='date')
           +table-income(getData('sources'))
 
-        +analityc-graphics-line('Исполнение доходов бюджета на', getData('graphic-lines-income2'))._date-two(data-stage='dtwo')
+        +analityc-graphics-line('Исполнение доходов бюджета на', getData('graphic-lines-income2'), 'budget')._date-two(data-stage='dtwo')
         a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
     +dropdown().load-anim-fade(data-delay="1700")

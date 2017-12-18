@@ -30,11 +30,11 @@ mixin budget_expenses()
         +analityc-table()._done(data-stage='done', data-class='all')
           +table-expenses(getData('moscow_expenses2'))
 
-        +analityc-graphics-line('Исполнение расходов бюджета на', getData('graphic-lines-expenses1'))._date-one(data-stage='date', data-class='all')
+        +analityc-graphics-line('Исполнение расходов бюджета на', getData('graphic-lines-expenses1'), 'budget')._date-one(data-stage='date', data-class='all')
         +analityc-table-slider(100, 'Исполнение доходов бюджета на')._date(data-stage='date', data-class='all')
           +table-expenses(getData('sources'))
 
-        +analityc-graphics-line('Исполнение расходов бюджета на', getData('graphic-lines-expenses1'))._date-two(data-stage='dtwo')
+        +analityc-graphics-line('Исполнение расходов бюджета на', getData('graphic-lines-expenses1'), 'budget')._date-two(data-stage='dtwo')
         a(href="/").analityc-more Перейти в&nbsp;раздел аналитика
         p.analityc-bottomtip.active * Кроме того в плановом периоде учитываются 
           span условно утвержденные расходы 

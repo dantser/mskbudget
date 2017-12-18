@@ -1067,13 +1067,15 @@ mixin analityc-graphics-singleround-alt(legendtype)
 
 //- title - Заголовок графиков
 //- data - json файл с данными для графиков
-mixin analityc-graphics-line(title, data)
+mixin analityc-graphics-line(title, data, type)
   +b.analityc-graphics&attributes(attributes)._line
     +e.P.toptext МЛРД РУБ.
     +e.P.heading= title
       SPAN.js-dp-output.js-dp-output_others.active 22.04.2017
       SPAN.js-dp-output.js-dp-output_cons 1 февраля 2017
     +e.lines
+      if type == 'budget'
+        +e.P.line-values-title Факт / Уточненный план
       each obj in data
         +e.DIV(class="__line_"+obj.color+"" data-val1=obj.value1 data-val2=obj.value2 data-barval=obj.barvalue)
           if obj.strong
