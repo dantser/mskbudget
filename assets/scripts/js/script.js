@@ -45,6 +45,8 @@ window.onload = function () {
             $("body").on("click", "#carousel", function (event) {
                 car_count.html(($dslide.filter(".current").index() + 1) + " из " + $dslide.length);
             });
+			
+			$('.carousel-wrapper').addClass('carousel-wrapper_loaded');
 
             //свайп на горизонтальном iPad
             if (Modernizr.mobile) {
@@ -158,6 +160,8 @@ window.onload = function () {
             });
 
             $carousel_count.html(($d_slide.filter("._active").index() + 1) + " из " + $d_slide.length);
+			
+			$('.carousel-wrapper').addClass('carousel-wrapper_loaded');
         }
     }
 
