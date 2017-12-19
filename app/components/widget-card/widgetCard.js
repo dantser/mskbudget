@@ -158,6 +158,7 @@ export default () => {
         setTimeout(function () {
           $this.parents('.widget-card').find('.service__diagram-tabs, .service-dots').show();
         }, 321)
+        selectTitles('.selectbox');
       });
 	  
 	  $(document).on('click', '.depfin-services-main .widget-card .datepicker__show', function(e){
@@ -168,6 +169,7 @@ export default () => {
         setTimeout(function () {
           $this.parents('.widget-card').find('.service__diagram-tabs, .service-dots').show();
         }, 321)
+        selectTitles('.selectbox');
 	  });
   };
 

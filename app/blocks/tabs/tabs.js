@@ -46,5 +46,6 @@ export default function tabs() {
 
     positionValues();
     grLinePopup();
+    selectTitles('.selectbox');
   });
 }

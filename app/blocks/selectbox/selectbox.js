@@ -112,50 +112,53 @@ export default function selectbox() {
   
   window.selectTitles = function(el) {
     
-    $(el).each(function () {
-      
-      $(this).find('li:visible').each(function(){
+    if ($(el).length) {
+    
+      $(el).each(function () {
         
-        var itemWidth = $(this).width(),
-            spanWidth = $(this).find('span').width();
-        
-        if ($(this).find('a').length) {
-          itemWidth = $(this).find('a').width();
-        }
-        
-        if (spanWidth > itemWidth) {
+        $(this).find('li:visible').each(function(){
           
-          var spanText = $(this).find('span').text();
-          $(this).addClass('long').attr('title', $.trim(spanText));
+          var itemWidth = $(this).width(),
+              spanWidth = $(this).find('span').width();
           
-          var longItem = $(this).get(0);
-          var tooltipPosition = ($(window).width() > 559) ? 'right' : 'top';
-          
-          if (!$(this).hasClass('js-tooltip')) {
-            tippy(longItem, {
-              delay: [10, 100],
-              animation: 'shift',      
-              position: tooltipPosition,
-              offset: 20,
-              duration: 200,
-              arrow: true,
-              distance: 20,
-              theme: 'light',
-              size: 'big',
-              arrowSize: 'big',
-              popperOptions: {
-                modifiers: {
-                  flip: {
-                    behavior: ['right', 'bottom']
-                  }
-                }
-              }
-            });
+          if ($(this).find('a').length) {
+            itemWidth = $(this).find('a').width();
           }
           
-        }
+          if (spanWidth > itemWidth) {
+            
+            var spanText = $(this).find('span').text();
+            $(this).addClass('long').attr('title', $.trim(spanText));
+            
+            var longItem = $(this).get(0);
+            var tooltipPosition = ($(window).width() > 559) ? 'right' : 'top';
+            
+            if (!$(this).hasClass('js-tooltip')) {
+              tippy(longItem, {
+                delay: [10, 100],
+                animation: 'shift',      
+                position: tooltipPosition,
+                offset: 20,
+                duration: 200,
+                arrow: true,
+                distance: 20,
+                theme: 'light',
+                size: 'big',
+                arrowSize: 'big',
+                popperOptions: {
+                  modifiers: {
+                    flip: {
+                      behavior: ['right', 'bottom']
+                    }
+                  }
+                }
+              });
+            }
+            
+          }
+        });
       });
-    });
+    }
   }
   
   setTimeout(function(){
