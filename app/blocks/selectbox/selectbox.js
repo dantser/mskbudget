@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import 'jquery.scrollbar';
+import tippy from 'tippy.js';
 
 export default function selectbox() {
   $('.selectbox').each(function () {
@@ -109,21 +110,56 @@ export default function selectbox() {
     
   });
   
-  setTimeout(function(){
-    $('.selectbox').each(function () {
-      $(this).find('li').each(function(){
+  window.selectTitles = function(el) {
+    
+    $(el).each(function () {
+      
+      $(this).find('li:visible').each(function(){
+        
         var itemWidth = $(this).width(),
             spanWidth = $(this).find('span').width();
+        
         if ($(this).find('a').length) {
           itemWidth = $(this).find('a').width();
         }
+        
         if (spanWidth > itemWidth) {
+          
           var spanText = $(this).find('span').text();
-          //$(this).addClass('long').attr('title', $.trim(spanText));
-          $(this).attr('title', $.trim(spanText));
+          $(this).addClass('long').attr('title', $.trim(spanText));
+          
+          var longItem = $(this).get(0);
+          var tooltipPosition = ($(window).width() > 559) ? 'right' : 'top';
+          
+          if (!$(this).hasClass('js-tooltip')) {
+            tippy(longItem, {
+              delay: [10, 100],
+              animation: 'shift',      
+              position: tooltipPosition,
+              offset: 20,
+              duration: 200,
+              arrow: true,
+              distance: 20,
+              theme: 'light',
+              size: 'big',
+              arrowSize: 'big',
+              popperOptions: {
+                modifiers: {
+                  flip: {
+                    behavior: ['right', 'bottom']
+                  }
+                }
+              }
+            });
+          }
+          
         }
       });
     });
+  }
+  
+  setTimeout(function(){
+    selectTitles('.selectbox');
   }, 500);
   
   setTimeout(function(){

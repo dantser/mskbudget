@@ -57,8 +57,6 @@
     padding: 0 12px;
     transition: all .25s ease-in-out;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 
     &:hover {
       background-color: #c9c9c9;
@@ -70,6 +68,11 @@
       &:hover {
         background-color: #ebebeb;
       }
+    }
+    
+    &.long {
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     div {
@@ -154,12 +157,16 @@
       z-index: 20;
     }
     
-    .selectbox__val, li {
+    .selectbox__val {
       //font-size: 14.5px;
       padding: 0 20px 0 12px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+    }
+    
+    li {
+      padding: 0 20px 0 12px;
     }
     
     @media screen and (min-width: 581px) and (max-width: 900px) {
