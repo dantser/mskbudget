@@ -23,7 +23,9 @@ export default () => {
     DP_OUTPUT.text(val);
   }
   $(document).on('click', '.analityc-control-group._level li', function() {
-    graphicsDate();
+    if ($('.gov-debt').length == 0) {
+      graphicsDate();
+    }
     $('.js-dp-output').siblings().removeClass('active');
     if ($(this).data('val') == 'consolidated')
       $('.js-dp-output_cons').addClass('active');
