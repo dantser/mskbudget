@@ -3172,8 +3172,11 @@
     &-abs {
       display: none;
       position: absolute;
-      left: -80px;
-      width: 75px;
+      right: 100%;
+      margin-right: 5px;
+      min-width: 75px;
+      padding: 0 5px;
+      white-space: nowrap;
       font-size: 14px;
       line-height: 26px;
       text-align: center;
@@ -3184,9 +3187,12 @@
       background-image: linear-gradient(90deg,#ff0036 0,#021398);
 
       @media (max-width: 580px) {
-        left: -43px;
-        width: 40px;
         font-size: 12px;
+        min-width: 40px;
+        right: auto;
+        left: 100%;
+        margin-right: 0;
+        margin-left: 5px;
       }
 
       &::after {
@@ -3198,6 +3204,13 @@
         right: -17px;
         border: 10px solid transparent;
         border-left: 10px solid #021398;
+        
+        @media (max-width: 580px) {
+          right: auto;
+          left: -17px;
+          border-left: 10px solid transparent;
+          border-right: 10px solid #ff0036;
+        }
       }
     }
 
