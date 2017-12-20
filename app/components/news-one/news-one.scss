@@ -175,12 +175,6 @@
     margin: 0 5px;
   }
 
-  .news__thumb {
-    @media (max-width: 640px) {
-      height: 150px;
-    }
-  }
-
   .news__category {
     @media (max-width: 640px) {
       padding: 0 7px;
@@ -576,6 +570,17 @@
       }
     }
   }
+  
+  @media (max-width: 640px) {
+    &__image {
+      height: auto;
+      &:before {
+        content: '';
+        display: block;
+        padding-top: (3/4)*100%;
+      }
+    }
+  }
 
   @media (max-width: 580px) {
     &__news-one {
@@ -608,10 +613,6 @@
       margin-top: 12px;
       margin-left: -20px;
       margin-right: -20px;
-    }
-
-    &__image {
-      height: 242px;
     }
 
     &__category {

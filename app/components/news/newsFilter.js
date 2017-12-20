@@ -23,7 +23,7 @@ export default () => {
   });
   
   // Обрезание текста троеточием
-  if ($('.media-main, .news-page').length) {
+  if ($('.media-main, .news-page, .news-one').length) {
     
     function overflowDotts(size, element) {
       var content = $(element);
@@ -35,7 +35,12 @@ export default () => {
       });
     };
     
-    overflowDotts(140, '.news__title');
+    if ($(window).width() > 640) {
+      overflowDotts(140, '.news__title');
+    } else {
+      overflowDotts(85, '.news__title');
+    }
+    
   }
   
   // Перенос блока подписки на мобилке

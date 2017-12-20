@@ -423,3 +423,19 @@
     }
   }
 }
+
+
+.news__thumb {
+  .news-page &,
+  .media-main &,
+  .news-one & {
+    @media (max-width: 640px) {
+      height: auto;
+      &:before {
+        content: '';
+        display: block;
+        padding-top: (3/4)*100%;
+      }
+    }
+  }
+}
