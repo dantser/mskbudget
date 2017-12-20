@@ -20,7 +20,7 @@ $(document).on('click', '.selectbox li', function (e) {
       inputval = monthArray[optIndex];
     }
 
-    if (!$(this).parents('.selectbox').find('.switchConsolidatedMonth').length){
+    if (!$(this).parents('.selectbox').find('.switchConsolidatedMonth').length  && $('.gov-debt').length == 0){
         $(this).parents('.selectbox').find('.selectbox__val').text(inputval);
     }
 
