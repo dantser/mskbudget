@@ -656,6 +656,7 @@ function tabsLine() {
     $(this).toggleClass('js-label-button-closed');
     sectionTabs.toggleClass('active');
     sectionTabs.find($('.section-tabs__head')).toggleClass('section-tabs__head_closed');
+    setImagePosition();
     return false
     /*
     если понадобиться скрывать пункты в навигации табов,

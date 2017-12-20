@@ -248,3 +248,46 @@ function dotTextInit(element) {
     });
   }
 }
+
+
+
+// Позиционирование картинок в новостях и событиях
+function setImagePosition() {
+  
+  if ($('.js-image').length) {
+    
+    $('.js-image').each(function(){
+      
+      $(this).removeClass('full-height');
+      $(this).css('top', '');
+      
+      var imageWidth = $(this).width(), // ширина картинки
+          imageHeight = $(this).height(), // высота картинки
+          blockHeight = $(this).parent().height(), // высота области под картинку
+          imageBlockHeightDiff = imageHeight - blockHeight; // разность высоты картинки и высоты области под картинку
+      
+      if (imageBlockHeightDiff > 0) { // если высота картинки больше высоты области под картинку
+      
+        var zoneHeight = imageWidth / 2.5, // высота нужной зоны
+            zoneDistance = $(this).attr('data-pos'), // расстояние от верха картинки до нужной зоны
+            blockZoneHeightDiff = blockHeight - zoneHeight, // разность высоты области под картинку и высоты нужной зоны
+            imageTranslation = zoneDistance - blockZoneHeightDiff / 2; // сдвиг картинки под нужную область
+      
+        if (imageTranslation < 0) imageTranslation = 0;
+        if (imageTranslation > imageBlockHeightDiff) imageTranslation = imageBlockHeightDiff;
+      
+        $(this).css('top', '-'+imageTranslation+'px');
+        
+      } else {
+        
+        $(this).addClass('full-height');
+        
+      }
+      
+    });
+  }
+}
+
+$(document).ready(function(){
+  setImagePosition();
+});
