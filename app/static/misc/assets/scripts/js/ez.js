@@ -219,21 +219,28 @@ budget.extend("common", {
         // Take note that we will increment the month count by 1
         var currentdate = (m + 1) + '-' + d + '-' + y;
 
-        // We will now check if the date belongs to disableddates array
-        for (var i = 0; i < disableddates.length; i++) {
-
-          // Now check if the current date is in disabled dates array.
-          if ($.inArray(currentdate, disableddates) != -1) {
+        if (budget.allowedDates)
+        {
+          if ($.inArray(currentdate, budget.allowedDates) == -1)
             return [false];
-          } else if ($.inArray(currentdate, budget.allowedDates) == -1) {
-            return [false];
-          } else if (day == 1 || day == 0) {
-            return [false];
-          } else {
+          else
             return [true];
+        }
+        else
+        {
+          // We will now check if the date belongs to disableddates array
+          for (var i = 0; i < disableddates.length; i++) {
+
+            // Now check if the current date is in disabled dates array.
+            if ($.inArray(currentdate, disableddates) != -1) {
+              return [false];
+            } else if ($.inArray(currentdate, budget.allowedDates) == -1) {
+              return [false];
+            } else {
+              return [true];
+            }
           }
         }
-
       }
       $.datepicker.setDefaults($.datepicker.regional['ru']);
     }
