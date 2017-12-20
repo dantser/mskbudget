@@ -1,7 +1,7 @@
 mixin teaser-card(image, title, bottomLink, topLink)
 	+b.A(href='#').teaser-card&attributes(attributes)
 		+e.DIV.thumb
-			img(src="assets/images/news/"+image+".jpg", alt="thumb")
+			img(src="assets/images/news/"+image+".jpg" alt="thumb" data-pos='10').js-image
 		+e.DIV.body
 			if topLink
 				+e.DIV.top-link= topLink

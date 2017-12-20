@@ -21,4 +21,33 @@ export default () => {
       });
     });
   });
+  
+  // Обрезание текста троеточием
+  if ($('.media-main, .news-page, .news-one').length) {
+    
+    function overflowDotts(size, element) {
+      var content = $(element);
+      content.each(function () {
+        var contentText = $(this).text();
+        if(contentText.length > size){
+          $(this).text((contentText.slice(0, size)).trim() + '...');
+        }
+      });
+    };
+    
+    if ($(window).width() > 640) {
+      overflowDotts(140, '.news__title');
+    } else {
+      overflowDotts(85, '.news__title');
+    }
+    
+  }
+  
+  // Перенос блока подписки на мобилке
+  /*if ($('.news-page').length) {
+    if ($(window).width() <= 580) {
+      $('.news-page__subscribe').appendTo('.news-page__content');
+    }
+  }*/
+  
 }

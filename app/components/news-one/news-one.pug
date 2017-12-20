@@ -30,7 +30,7 @@ mixin news-one()
         +e.P.date 06.10.2016
         +e.image-block
           +e.image
-            img(src="assets/images/news/news2.jpg", alt="@@")
+            img(src="assets/images/news/news2.jpg" alt="@@" data-pos='30').js-image
           +e.image-block-bottom
             +e.P.category._blue Новости бюджета
             +e.P.image-caption Министр Правительства Москвы, руководитель Департамента труда и социальной защиты населения города Владимир Петросян
@@ -83,7 +83,7 @@ mixin news-one()
 
           +e.col._side
             +e.H2.heading актуально
-            +e.card-wrapper._side
+            +e.card-wrapper._side._one-card
               .tile
                 +news-card(1, 'Новости бюджета', 'Подведены итоги предварительной апробации федеральной учебной программы «Бюджетная грамотность для старшеклассников»', '8 августа 2016', ['итоги', 'апробация', 'старшеклассники', 'тест1', 'тест2', 'тест3'])._blue
                 +news-card(2, 'Новости Москвы', 'О выплатах купонного дохода по облигациям Городского облигационного (внутреннего) займа Москвы', '5 августа 2016', ['итоги', 'апробация', 'старшеклассники'])._red
@@ -95,13 +95,17 @@ mixin news-one()
             
         +e.UL.tags
           +e.LI.tag
-            +e.A(href='#').tag-link Исполнение
+            +e.A(href='#').tag-link Правительство Москвы
           +e.LI.tag
-            +e.A(href='#').tag-link Москва
+            +e.A(href='#').tag-link Бюджет
           +e.LI.tag
-            +e.A(href='#').tag-link Расходы
+            +e.A(href='#').tag-link Департамент финансов города Москвы
           +e.LI.tag
-            +e.A(href='#').tag-link Госпрограммы
+            +e.A(href='#').tag-link бюджет для граждан
+          +e.LI.tag
+            +e.A(href='#').tag-link Общественная палата города Москвы
+          +e.LI.tag
+            +e.A(href='#').tag-link АндрейСемункин
           
         +e.social
           .d-sr__social
@@ -115,6 +119,8 @@ mixin news-one()
             +teaser-card(1, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque assumenda corporis, dignissimos, ullam voluptas debitis, maiores reiciendis quidem ex laudantium, magni atque! Quibusdam tempora repellendus voluptatem. Est adipisci quo blanditiis.', 'Проверить', 'инструкция')._ref
           +e.teaser-tile
             +teaser-card(1, 'Как госуслуги помогут подготовиться к отпуску', 'Новость')
+          +e.teaser-tile
+            +teaser-card(1, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque assumenda corporis, dignissimos, ullam voluptas debitis, maiores reiciendis quidem ex laudantium, magni atque! Quibusdam tempora repellendus voluptatem. Est adipisci quo blanditiis.', 'Проверить', 'инструкция')._ref
     
     .wrap
       +e.read-also

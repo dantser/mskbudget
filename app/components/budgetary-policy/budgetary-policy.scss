@@ -37,6 +37,22 @@
   }
 }
 
+.carousel-wrapper {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  pointer-events: none;
+  
+  &_loaded {
+    filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
 //ie-carousel fix
 .carousel-3d-container {
   min-height: 600px;
@@ -76,12 +92,22 @@
 
 }
 
+.d-slide {
+  margin: 0 auto;
+}
+
 .d-abs-content {
   width: 100%;
   background: url(../images/depfin-about-budjet/about-budjet-sys-bg.jpg) no-repeat;
   background-size: cover;
   padding: 40px 0 80px;
   font-weight: 500;
+  
+  &.d-budjet-cards_bg {
+    @media (max-width: 1000px) {
+      padding-bottom: 0;
+    }
+  }
 }
 
 .d-abs-content {
@@ -552,7 +578,7 @@
   font-weight: 400;
   padding-left: 24px;
   background: url(../images/depfin-about-budjet/icon-squere.svg) 0 5px no-repeat;
-  font-size: 16px;
+  font-size: 15.7px;
   line-height: 22px;
   left: 22px;
   margin-bottom: 14px;
@@ -589,7 +615,6 @@
 
 .mobile-carousel {
   position: relative;
-  padding-bottom: 50px;
 }
 
 .mobile-carousel .d-slide {
@@ -703,7 +728,11 @@
 }
 
 @media screen and (max-width: 1000px) {
-
+  
+  .d-slide {
+    max-width: none;
+  }
+  
   .d-abs__head_descr {
     padding-right: 0;
     padding-left: 0;
@@ -749,12 +778,12 @@
 @media screen and (min-width: 761px) and (max-width: 1000px) {
   .carousel-count {
     line-height: 45px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
   }
   #carousel .ar-left,
   #carousel .ar-right {
-    width: 45px;
-    height: 45px;
+    width: 55px;
+    height: 55px;
   }
 }
 
@@ -979,7 +1008,21 @@
   .d-slide__body_list {
     overflow: visible !important;
     
-    &.scroll-pane > li {
+    .d-slide__body_list li {
+      background-position: 15px 7px!important;
+      padding-left: 33px;
+    
+      &.none {
+        padding-left: 0;
+      }
+    }
+  }
+  
+  .d-slide__body_list li {
+    background-position: 0 7px!important;
+    padding-left: 18px;
+    
+    &.none {
       padding-left: 0;
     }
   }

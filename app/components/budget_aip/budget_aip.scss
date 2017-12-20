@@ -14,6 +14,10 @@
     border-bottom: 1px solid $color-light-gray;
     padding-bottom: 20px;
     margin-bottom: 30px;
+    display: flex;
+    @media (max-width: 767px){
+      display: block;
+    }
   }
   &__arrows {
     position: absolute;
@@ -92,6 +96,10 @@
 
   &__row {
     margin-bottom: 42px;
+    
+    @media (max-width: 680px) {
+      margin-bottom: 0;
+    }
   }
 
   &__data-item {
@@ -100,6 +108,17 @@
     vertical-align: top;
     width: 24%;
     font-weight: 500;
+    
+    @media (max-width: 680px) {
+      width: 50%;
+      margin-bottom: 15px;
+    }
+    
+    &.checked {
+      .govProgram__index-units {
+        opacity: 1;
+      }
+    }
   }
 
   &__data-single{
@@ -108,13 +127,22 @@
 
   &__index {
     display: table;
-    font-size: 48px;
+    font-size: 46px;
     color: #af3b81;
+    
+    @media (max-width: 1020px) {
+      font-size: 33px;
+    }
   }
 
   &__index-text {
     font-size: 20px;
-    max-width: 80%;
+    padding-right: 10px;
+    word-wrap: break-word;
+    
+    @media (max-width: 1020px) {
+      font-size: 16px;
+    }
   }
 
   &__index-value,
@@ -127,6 +155,8 @@
     padding: 0 0 5px 5px;
     font-size: .5em;
     white-space: nowrap;
+    transition: opacity .25s ease-in-out;
+    opacity: 0;
 
     @media (max-width: 900px) {
       padding: 0 10px 2px 5px;
@@ -296,12 +326,6 @@
     margin-right: 15px;
   }
 
-  .table {
-    .table__periodtext{
-      width: 39.5%;
-    }
-  }
-
   .analityc-table_aip{
     .table__col{
       width: 14%;
@@ -338,6 +362,10 @@
       width: 15.5%;
       right: 5.5%;
     }
+  }
+  
+  .legend-icon {
+    text-align: left;
   }
 }
 
@@ -436,11 +464,16 @@
     }
     .legend-icon__label {
       font-size: 16px;
+      display: inline-block;
+      width: calc(100% - 84px);
+      vertical-align: top;
+      padding-top: 9px;
     }
 
     .legend-icon__item {
       width: 50%;
       display: inline-block;
+      vertical-align: top;
     }
 
     .analityc-control-switcher {
@@ -461,12 +494,12 @@
       &_main {
         width: 85%;
         a {
-          padding: 0 20px;
+          padding: 0 10px !important;
           &:first-child {
-            width: 36%;
+            width: 44%;
           }
           &:last-child {
-            width: 64%;
+            width: 56%;
           }
         }
       }
@@ -507,6 +540,7 @@
       font-size: 16px;
     }
   }
+  
   @media (max-width: 640px) {
     .tabs {
       margin-top: 40px;
@@ -531,6 +565,14 @@
       width: 80%;
     }
   }
+  
+  @media (max-width: 580px) {
+    .legend-icon__label {
+      width: calc(100% - 55px);
+      padding-top: 3px;
+    }
+  }
+  
   @media (max-width: 480px) {
     .analityc-control-group {
       margin-left: 0!important;

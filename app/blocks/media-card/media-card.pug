@@ -13,3 +13,17 @@ mixin media-card(img, text, date)
 				+e.label
 					+e.P.text= text
 					+e.SPAN.date= date
+					
+mixin media-event-card(img, text, date)
+	+b.media-card&attributes(attributes)
+		+e.A.link
+			+e.container
+				+e.DIV.img-wrapper
+					+e.IMG(src= 'assets/images/depfin-budget-moscow-media-materials/' + img + '.jpg' data-pos='10').img.js-image
+
+				+e.BUTTON.play
+					+icon('angle-arrow')
+
+				+e.label
+					+e.P.text= text
+					+e.SPAN.date= date

@@ -212,12 +212,18 @@
   
   .legend_basket .legend__item {
     margin-bottom: 17px;
+    height: auto;
+    vertical-align: top;
     
     @media screen and (max-width: 900px) {
       width: 50%;
     }
     @media screen and (max-width: 580px) {
       width: 100%;
+    }
+    
+    span {
+      top: 0;
     }
   }
   
@@ -305,6 +311,19 @@
     
     &.active {
       display: block;
+    }
+  }
+  
+  .analityc-more {
+    @media (max-width: 580px) {
+      font-size: 16px;
+    }
+    
+    &:before {
+      @media (max-width: 580px) {
+        right: -19px;
+        top: 3px;
+      }
     }
   }
 }

@@ -1,4 +1,6 @@
 import $ from 'jquery';
+import 'jquery.scrollbar';
+import tippy from 'tippy.js';
 
 export default function selectbox() {
   $('.selectbox').each(function () {
@@ -70,29 +72,29 @@ export default function selectbox() {
           
           if ($(this).attr('data-tooltip')) {
             const title = $(this).attr('title');
-            const li = '<li class="locked js-tooltip" data-val="' + vval + '" title="'+title+'">' + ttext + '</li>';
+            const li = '<li class="locked js-tooltip" data-val="' + vval + '" title="'+title+'"><span>' + ttext + '</span></li>';
             selBox.find('ul').append(li);
           } else if ($(this).attr('data-href')) {
             const href = $(this).attr('data-href');
-            const li = '<li class="locked" data-val="' + vval + '"><a href="'+href+'">' + ttext + '</a></li>';
+            const li = '<li class="locked" data-val="' + vval + '"><a href="'+href+'"><span>' + ttext + '</span></a></li>';
             selBox.find('ul').append(li);
           } else {
-            const li = '<li class="locked" data-val="' + vval + '">' + ttext + '</li>';
+            const li = '<li class="locked" data-val="' + vval + '"><span>' + ttext + '</span></li>';
             selBox.find('ul').append(li);
           }
           
         } else {
           if ($(this).attr('data-tooltip')) {
             const title = $(this).attr('title');
-            const li = '<li class="js-tooltip" data-val="' + vval + '" title="'+title+'">' + ttext + '</li>';
+            const li = '<li class="js-tooltip" data-val="' + vval + '" title="'+title+'"><span>' + ttext + '</span></li>';
             selBox.find('ul').append(li);
           }
           else if ($(this).attr('data-href')) {
             const href = $(this).attr('data-href');
-            const li = '<li data-val="' + vval + '"><a href="'+href+'">' + ttext + '</a></li>';
+            const li = '<li data-val="' + vval + '"><a href="'+href+'"><span>' + ttext + '</span></a></li>';
             selBox.find('ul').append(li);
           } else {
-            const li = '<li data-val="' + vval + '">' + ttext + '</li>';
+            const li = '<li data-val="' + vval + '"><span>' + ttext + '</span></li>';
             selBox.find('ul').append(li);
           }
         }
@@ -105,7 +107,89 @@ export default function selectbox() {
       var valText = '<p class="selectbox__val">'+selectVal+'</p>';
       $(this).find('select').after(valText);
     }
+    
   });
+  
+  var isMobile = {
+    Android: function() {
+      return navigator.userAgent.match(/Android/i);
+    },
+    BlackBerry: function() {
+      return navigator.userAgent.match(/BlackBerry/i);
+    },
+    iOS: function() {
+      return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+    },
+    Opera: function() {
+      return navigator.userAgent.match(/Opera Mini/i);
+    },
+    Windows: function() {
+      return navigator.userAgent.match(/IEMobile/i);
+    },
+    any: function() {
+      return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+    }
+  };
+  
+  window.selectTitles = function(el) {
+    
+    if ($(el).length) {
+    
+      $(el).each(function () {
+        
+        $(this).find('li:visible').each(function(){
+          
+          var itemWidth = $(this).width(),
+              spanWidth = $(this).find('span').width();
+          
+          if ($(this).find('a').length) {
+            itemWidth = $(this).find('a').width();
+          }
+          
+          if (spanWidth > itemWidth) {
+            
+            var spanText = $(this).find('span').text();
+            $(this).addClass('long').attr('title', $.trim(spanText));
+            
+            var longItem = $(this).get(0);
+            var tooltipPosition = ($(window).width() > 559) ? 'right' : 'top';
+            
+            if (!$(this).hasClass('js-tooltip') && !isMobile.any()) {
+              tippy(longItem, {
+                delay: [10, 100],
+                animation: 'shift',      
+                position: tooltipPosition,
+                offset: 20,
+                duration: 200,
+                arrow: true,
+                distance: 20,
+                theme: 'light',
+                size: 'big',
+                arrowSize: 'big',
+                popperOptions: {
+                  modifiers: {
+                    flip: {
+                      behavior: ['right', 'bottom']
+                    }
+                  }
+                }
+              });
+            }
+            
+          }
+        });
+      });
+    }
+  }
+  
+  setTimeout(function(){
+    selectTitles('.selectbox');
+  }, 500);
+  
+  setTimeout(function(){
+    $('.widget-card .selectbox ul').scrollbar();
+  }, 1000);
+  
   
   
   

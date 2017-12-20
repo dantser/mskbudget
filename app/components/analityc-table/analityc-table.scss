@@ -69,7 +69,7 @@
 .analityc-widget-moscow-gov-program-table_done {
   .table__row {
     padding-right: 24%;
-    font-size: 17.5px;
+    font-size: 17.2px;
     @media (max-width: 900px) {
       padding-right: 0;
     }
@@ -102,7 +102,7 @@
     }
   }
   .table__arrow {
-    right: 15px;
+    right: 10px;
   }
   .table__arrow_root {
     right: 15px;
@@ -140,7 +140,7 @@
     }
   }
   .table__row_caption {
-    font-size: 17.5px;
+    font-size: 17.2px;
     .table__col {
       text-align: center;
       width: 24.2%;
@@ -171,7 +171,7 @@
 .analityc-widget-moscow-gov-program-table_exec {
   .table__row {
     padding-right: 54%;
-    font-size: 17.5px;
+    font-size: 17.2px;
     @media (max-width: 900px) {
       padding-right: 0;
     }
@@ -273,19 +273,17 @@
   padding-bottom: 20px;
   margin-top: 48px;
 
-  .table {
-    min-width: 514px;
-  }
-
   .table__row {
     font-size: 16px;
 
     .table__col {
-      width: 7.93%; /**/
+      width: 91px; /**/
+      text-align: center;
 
       &:first-child {
-        width: 20.7%;
+        width: 288px;
         padding-right: 0;
+        text-align: left;
       }
 
       &:nth-child(3n+5) {
@@ -299,12 +297,16 @@
     }
   }
   .table__row_caption {
-    font-size: 17.5px;
+    font-size: 19.1px;
 
     .table__col {
-      text-align: left;
-      width: 15.86%; /**/
+      text-align: center;
+      width: 182px; /**/
       padding: 12px 0 3px;
+      
+      &_half {
+        width: 91px;
+      }
 
       &:first-child {
         text-align: left;
@@ -364,12 +366,13 @@
     }
 
     .table__col {
-      width: 7.6%; /**/
+      width: 91px; /**/
+      text-align: center;
 
       &:first-child {
-        width: 24%;
-        padding-right: 0;
-        white-space: nowrap;
+        width: 288px;
+        padding-right: 30px;
+        text-align: left;
       }
 
       &:nth-child(3n+5) {
@@ -383,16 +386,20 @@
     }
   }
   .table__row_caption {
-    font-size: 17.5px;
+    font-size: 19.1px;
 
     .table__col {
-      text-align: left;
-      width: 15.2%; /**/
+      text-align: center;
+      width: 182px; /**/
       padding: 12px 0 3px;
 
       &:first-child {
         text-align: left;
         font-size: 14.5px;
+      }
+      
+      &_half {
+        width: 91px;
       }
     }
   }
@@ -410,9 +417,7 @@
     white-space: normal;
   }
   .table__arrow {
-    position: static;
-    display: inline-block;
-    margin-left: 5px;
+    right: 5px;
   }
   .table__periodtext {
     display: block;
@@ -545,6 +550,10 @@
 .analityc-table {
   position: relative;
   
+  &__scroll-hider {
+    overflow: hidden;
+  }
+  
   &__slide-arrows {
     display: none;
     position: absolute;
@@ -563,7 +572,254 @@
   &_approved, &_date, &_domain, &_work {
     @include table-slider(640px);
   }
-  &_changes, &_vmo, &_params, &_gp {
+  &_changes, &_vmo {
     @include table-slider(900px);
+  }
+}
+
+.analityc-table {
+  &_params, &_gp {
+    .analityc-table__scroll-hider {
+      cursor: move;
+      cursor: -webkit-grab;
+      cursor: -moz-grab;
+      cursor: grab;
+    }
+    .analityc-table__wrapper {
+      overflow-x: auto;
+      overflow-y: hidden;
+      margin-bottom: -20px;
+      padding-bottom: 20px;
+    }
+    .analityc-table__slide-arrows {
+      display: block;
+    }
+    .table {
+      min-width: 1200px;
+    }
+    .table__row {
+      table-layout: fixed;
+    }
+    &.no-arrows {
+      .analityc-table__scroll-hider {
+        cursor: auto;
+      }
+      .analityc-table__slide-arrows {
+        display: none;
+      }
+    }
+  }
+}
+
+.significant-about .analityc-table_gp {
+  .analityc-table__scroll-hider {
+    cursor: auto;
+  }
+  .table {
+    min-width: 0;
+  }
+  .analityc-table__slide-arrows {
+    display: none;
+  }
+  @include table-slider(900px);
+
+  .table__row {
+    .table__col {
+      width: 7.6%; /**/
+      text-align: left;
+
+      &:first-child {
+        width: 24%;
+      }
+    }
+  }
+  
+  .table__row_caption {
+    .table__col {
+      text-align: left;
+      width: 15.2%; /**/
+      padding: 12px 0 3px;
+    }
+  }
+}
+
+
+//--- таблицы с плавающими стрелками ---//
+.analityc-table_sticky-arrows {
+  .analityc-table__slide-arrows {
+    top: 100px;
+    margin-top: 0;
+    &.fixed {
+      position: fixed;
+      left: 2px;
+      right: 2px;
+      top: 50%;
+      @media(max-width: 580px) {
+        left: -3px;
+        right: -3px;
+      }
+      &.bottom {
+        top: 50%;
+      }
+    }
+    &.bottom {
+      top: auto;
+      bottom: 80px;
+    }
+  }
+  
+  //budget_moscow_sources
+  .moscow-sources & {
+    .analityc-table__slide-arrows {
+      &.fixed {
+        @media (max-width: 580px) and (min-width: 551px) {
+          left: 17px;
+          right: 17px;
+        }
+      }
+    }
+  }
+  
+  //раздел Аналитика
+  .analityc-widget_params &,
+  ._analitycs-income &,
+  .analitycs-expenses &,
+  .analytics-gov-debt &,
+  .analitycs-gp & {
+    .analityc-table__slide-arrows {
+      &.fixed {
+        @media (min-width: 1101px) {
+          left: calc(50% - 548px);
+          right: calc(50% - 548px);
+        }
+      }
+    }
+  }
+  
+  //depfin-analytics-main
+  .analityc-widget_params & {
+    .analityc-table__slide-arrows {
+      &.fixed {
+        @media (max-width: 1010px) and (min-width: 901px) {
+          left: -2px;
+          right: -2px;
+        }
+      }
+    }
+  }
+  
+  //services_social_significant
+  .significant-about & {
+    .analityc-table__slide-arrows {
+      @media (min-width: 581px) {
+        left: -39px;
+        right: -39px;
+      }
+    }
+  }
+}
+
+//depfin_services_VMO
+.services-VMO .tabs__tab[data-tab=vmoAll] .services-VMO__table .slide-arrows {
+  &.fixed {
+    @media(min-width: 581px) {
+      left: 4px;
+      right: 4px;
+    }
+  }
+}
+
+//services_gov_program
+.gov-program .slide-arrows {
+  position: absolute;
+  left: -40px;
+  right: -40px;
+  top: 100px;
+  margin-top: 0;
+  z-index: 2;
+  
+  @media screen and (max-width: 1024px) {
+    left: -35px;
+    right: -35px;
+  }
+  
+  @media screen and (max-width: 580px) {
+    right: -20px;
+    left: -20px;
+  }
+  
+  &.fixed {
+    position: fixed;
+    left: calc(50% - 550px);
+    right: calc(50% - 550px);
+    top: 50%;
+    @media(max-width: 1180px) {
+      left: 0;
+      right: 0;
+    }
+    @media(max-width: 1024px) {
+      left: 15px;
+      right: 15px;
+    }
+    @media(max-width: 768px) {
+      left: 30px;
+      right: 30px;
+    }
+    @media(max-width: 580px) {
+      left: 5px;
+      right: 5px;
+    }
+    &.bottom {
+      top: 50%;
+    }
+  }
+  &.bottom {
+    top: auto;
+    bottom: 80px;
+  }
+}
+
+//services_net
+.services-net .slide-arrows {
+  position: absolute;
+  z-index: 1;
+  top: 100px;
+  left: -32px;
+  right: -32px;
+  
+  @media (min-width: 901px) {
+    display: none;
+  }
+  
+  @media (max-width: 600px) {
+    left: -40px;
+    right: -40px;
+  }
+  
+  @media (max-width: 580px) {
+    left: -19px;
+    right: -19px;
+  }
+  
+  &.fixed {
+    position: fixed;
+    left: -7px;
+    right: -7px;
+    top: 50%;
+    @media (max-width: 600px) {
+      left: 0;
+      right: 0;
+    }
+    @media (max-width: 580px) {
+      left: -4px;
+      right: -4px;
+    }
+    &.bottom {
+      top: 50%;
+    }
+  }
+  &.bottom {
+    top: auto;
+    bottom: 80px;
   }
 }

@@ -3,11 +3,11 @@ import $ from 'jquery';
 export default () => {
 
 
-	$(window).on('load resize', pageScale);
+	/*$(window).on('load resize', pageScale);
 
 	$('.whatIsBudget-component, .whatIsBudget-expenditures__title-fake').click(function() {
 		setTimeout(pageScale, 1);
-	});
+	});*/
 
 	$(".whatIsBudget-expenditures__title").click(function(){
 		$(this).siblings().removeClass('_active');
@@ -17,7 +17,7 @@ export default () => {
   if ($('.depfin-about-budget').length)
     $('.whatIsBudget-publicDebt__inner').scrollbar();
 
-	function pageScale() {
+	/*function pageScale() {
       if ($(window).width() < '640') {
         var maxWidth  = $('.js-resolution-320').width();
         var maxHeight = $('.js-resolution-320').height();
@@ -45,7 +45,7 @@ export default () => {
         $('.js-resolution-320').attr('style', '-webkit-transform: scale(' + scale + '); -moz-transform: scale(' + scale + '); -ms-transform: scale(' + scale + '); -o-transform:(' + scale + '); transform: scale(' + scale + ');');
         $('.js-resolution-wrap').css({ width: maxWidth * scale, height: maxHeight * scale });
       }
-    }
+    }*/
 }
 
 // import $ from 'jquery';

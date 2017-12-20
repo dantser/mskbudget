@@ -157,6 +157,7 @@ export default () => {
         $this.parents('.widget-card__head').siblings().slideToggle(321);
         setTimeout(function () {
           $this.parents('.widget-card').find('.service__diagram-tabs, .service-dots').show();
+          selectTitles('.selectbox');
         }, 321)
       });
 	  
@@ -167,6 +168,7 @@ export default () => {
         $this.parents('.widget-card__head').siblings().slideDown(321);
         setTimeout(function () {
           $this.parents('.widget-card').find('.service__diagram-tabs, .service-dots').show();
+          selectTitles('.selectbox');
         }, 321)
 	  });
   };

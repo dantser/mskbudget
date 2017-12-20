@@ -36,6 +36,8 @@ export default () => {
       changeControl(controls, comparVal, typeVal);
       graphicBars();
       graphicLineVertAlt();
+      hideTableSubcol();
+      changeTableWidth();
     }
     
     function changeBlock(el, comparVal, typeVal) {

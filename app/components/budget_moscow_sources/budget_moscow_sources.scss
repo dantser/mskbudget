@@ -1,3 +1,25 @@
+@mixin linear-diagram-fill ($class, $startcolor, $endcolor, $midcolor) {
+  &_#{$class} {
+    .linear-diagram__fill, .linear-diagram__fill-extra, .linear-diagram__fill-abs {
+      background-image: linear-gradient(to right, $startcolor 0%, $endcolor 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr=#{$startcolor}, endColorstr=#{$endcolor});
+    }
+    .linear-diagram__fill-abs {
+      &:before {border-right-color: $startcolor;}
+      &:after {border-left-color: $endcolor;}
+    }
+    .linear-diagram__fill-pos .linear-diagram__fill-down {
+      border: 1px solid $endcolor;
+    }
+    .linear-diagram__fill-neg .linear-diagram__fill-down {
+      border: 1px solid $startcolor;
+    }
+  }
+  &__sources_#{$class} {
+    color: $midcolor;
+  }
+}
+
 .moscow-sources {
   display: block;
 
@@ -244,7 +266,7 @@
     letter-spacing: -.45px;
     
     @media screen and (max-width: 550px) {
-      font-size: 24px;
+      font-size: 22.7px;
       margin-bottom: 20px;
     }
   }
@@ -320,6 +342,18 @@
     @media screen and (max-width: 550px) {
       .linear-diagram {
         min-width: 600px;
+      }
+    }
+    
+    &.noscroll {
+      
+      .linear-diagrams__slide-arrows,
+      &:after, &:before {
+        display: none;
+      }
+      
+      .linear-diagrams__wrapper {
+        overflow-x: hidden;
       }
     }
   }
@@ -492,75 +526,26 @@
       }
     }
     
-    &_pink {
-      .linear-diagram__fill, .linear-diagram__fill-extra, .linear-diagram__fill-abs {
-        background-image: linear-gradient(to right, #9d308a 0%, #ff695b 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1,startColorstr='#9d308a', endColorstr='#ff695b');
-      }
-      .linear-diagram__fill-abs {
-        &:before {border-right-color: #9d308a;}
-        &:after {border-left-color: #ff695b;}
-      }
-      .linear-diagram__fill-down {
-        border: 1px solid $color-red;
-      }
-    }
-    
-    &_blue {
-      .linear-diagram__fill, .linear-diagram__fill-extra, .linear-diagram__fill-abs {
-        background-image: linear-gradient(to right, #00ffff 0%, #004ccf 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1,startColorstr='#00ffff', endColorstr='#004ccf');
-      }
-      .linear-diagram__fill-abs {
-        &:before {border-right-color: #00ffff;}
-        &:after {border-left-color: #004ccf;}
-      }
-      .linear-diagram__fill-down {
-        border: 1px solid #00ade9;
-      }
-    }
-    
-    &_violet {
-      .linear-diagram__fill, .linear-diagram__fill-extra, .linear-diagram__fill-abs {
-        background-image: linear-gradient(to right, #612292 0%, #bd84e9 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1,startColorstr='#612292', endColorstr='#bd84e9');
-      }
-      .linear-diagram__fill-abs {
-        &:before {border-right-color: #612292;}
-        &:after {border-left-color: #bd84e9;}
-      }
-      .linear-diagram__fill-down {
-        border: 1px solid #783ca8;
-      }
-    }
-    
-    &_green {
-      .linear-diagram__fill, .linear-diagram__fill-extra, .linear-diagram__fill-abs {
-        background-image: linear-gradient(to right, #32d197 0%, #11a360 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1,startColorstr='#32d197', endColorstr='#11a360');
-      }
-      .linear-diagram__fill-abs {
-        &:before {border-right-color: #32d197;}
-        &:after {border-left-color: #11a360;}
-      }
-      .linear-diagram__fill-down {
-        border: 1px solid #30b069;
-      }
-    }
-    
-    &_lightgreen {
-      .linear-diagram__fill, .linear-diagram__fill-extra, .linear-diagram__fill-abs {
-        background-image: linear-gradient(to right, #b3dd34 0%, #30b069 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1,startColorstr='#b3dd34', endColorstr='#30b069');
-      }
-      .linear-diagram__fill-abs {
-        &:before {border-right-color: #b3dd34;}
-        &:after {border-left-color: #30b069;}
-      }
-      .linear-diagram__fill-down {
-        border: 1px solid #30b069;
-      }
-    }
+    @include linear-diagram-fill (pink, #9d308a, #ff695b, #ce4d73);
+    @include linear-diagram-fill (blue, #00ffff, #004ccf, #00a6e7);
+    @include linear-diagram-fill (violet, #612292, #bd84e9, #8f53be);
+    @include linear-diagram-fill (green, #32d197, #11a360, #22ba7c);
+    @include linear-diagram-fill (lightgreen, #b3dd34, #30b069, #72c74f);
+    // новые градиенты
+    @include linear-diagram-fill (nblue, #2aa3dd, #255aa5, #287fc1);
+    @include linear-diagram-fill (npinkviolet, #eb655f, #ac4593, #cc5579);
+    @include linear-diagram-fill (ngreenyellow, #48ae4f, #f6e622, #9fca39);
+    @include linear-diagram-fill (nyellowgreen, #f6e622, #48ae4f, #9fca39);
+    @include linear-diagram-fill (norange, #fab233, #e28b00, #ee9f1a);
+    @include linear-diagram-fill (nvioletblue, #642583, #44509f, #543a91);
+    @include linear-diagram-fill (naltblue, #317fa9, #60bcd2, #489dbd);
+    @include linear-diagram-fill (ncyanviolet, #1a8f8d, #594495, #3a6a91);
+    @include linear-diagram-fill (nred, #e40514, #e40514, #e40514);
+    @include linear-diagram-fill (ngrey, #878e9d, #e3e2e2, #b5b8c0);
+    // v2
+    @include linear-diagram-fill (ncyan, #18928c, #43cea2, #2db097);
+    @include linear-diagram-fill (nblueviolet, #3f51b5, #b92c7a, #7b3e97);
+    @include linear-diagram-fill (nviolet, #673ab7, #b39ddb, #8d6bc9);
   }
 
   .analityc-graphics__periodtext {
@@ -693,14 +678,14 @@
         color: $color-black;
 
         @media (max-width: 1100px) {
-          font-size: 24px;
+          font-size: 22.7px;
         }
       }
 
       &_red {
         color: #ec1d48;
         position: relative;
-        font-size: 24px;
+        font-size: 22.7px;
         transform: translateY(-3px);
         
         @media screen and (max-width: 550px) {
@@ -711,7 +696,7 @@
 
       &_green {
         color: #85c53e;
-        font-size: 24px;
+        font-size: 22.7px;
         
         @media screen and (max-width: 550px) {
           font-size: 20px;
@@ -719,37 +704,56 @@
       }
       
       &_arrowed {
-        &::after {
-          @include pseudo;
-          height: 208px;
-          width: 1px;
-          right: 50%;
-          right: calc(50% - 1px);
-          background-color: #c9c9c9;
-          top: 36px;
-          
-          @media screen and (max-width: 550px) {
-            height: 168px;
-          }
-        }
-
-        &::before {
-          @include pseudo;
-          top: 243px;
-          border: 2px solid transparent;	border-top: 5px solid #c9c9c9;
-          right: 50%;
-          right: calc(50% - 2px);
-          
-          @media screen and (max-width: 550px) {
-            top: 203px;
-          }
-        }
-
-        &:last-child {
-          &::after {
-            right: 50%;
-          }
-        }
+        //&::after {
+        //  @include pseudo;
+        //  height: 208px;
+        //  width: 1px;
+        //  right: 50%;
+        //  right: calc(50% - 1px);
+        //  background-color: #c9c9c9;
+        //  top: 36px;
+        //  
+        //  @media screen and (max-width: 550px) {
+        //    height: 168px;
+        //  }
+        //}
+        //
+        //&::before {
+        //  @include pseudo;
+        //  top: 243px;
+        //  border: 2px solid transparent;	border-top: 5px solid #c9c9c9;
+        //  right: 50%;
+        //  right: calc(50% - 2px);
+        //  
+        //  @media screen and (max-width: 550px) {
+        //    top: 203px;
+        //  }
+        //}
+        //
+        //&:last-child {
+        //  &::after {
+        //    right: 50%;
+        //  }
+        //}
+      }
+    }
+    
+    &__data-arrow {
+      display: block;
+      position: absolute;
+      width: 1px;
+      right: 50%;
+      right: calc(50% - 1px);
+      background-color: #c9c9c9;
+      top: 100%;
+      margin-top: 4px;
+      
+      &:after {
+        @include pseudo;
+        top: 100%;
+        border: 2px solid transparent;	border-top: 5px solid #c9c9c9;
+        right: 50%;
+        right: calc(50% - 2px);
       }
     }
 

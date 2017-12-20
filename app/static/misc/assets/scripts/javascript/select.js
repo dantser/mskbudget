@@ -613,6 +613,7 @@ if ($('.jq-f-datepicker').length > 0) {
 
 
 //Datepicker
+
 $(document).on('click', '.datepicker__show', function () {
 
 	var _ = $(this);
@@ -669,14 +670,14 @@ $(document).on('click', '.datepicker__col_months a', function () {
 
 	return false;
 });
-
+/*
 $(document).on('click', '.datepicker__close', function () {
 
 	$(this).parent().slideUp(321).prev().removeClass('datepicker__show_act');
 
 	return false;
 });
-
+*/
 
 //Tab
 $('.tab__btn').click(function() {

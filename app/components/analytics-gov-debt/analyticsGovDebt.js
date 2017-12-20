@@ -25,8 +25,10 @@ export default () => {
 	 
       changeBlock(graphics, typeVal);
       changeControl(controls, typeVal);
-      rateLine();
       graphicBars();
+      rateLine();
+      hideTableSubcol();
+      changeTableWidth();
     }
     
     function changeBlock(el, typeVal) {

@@ -49,6 +49,8 @@ export default() => {
 		}
 		grLineVertParams();
 		grClassic();
+        hideTableSubcol();
+        changeTableWidth();
 
   	// обновление графиков при отрисовке (массив window.grLineVert)
     setTimeout(function() {

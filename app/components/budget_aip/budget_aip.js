@@ -68,6 +68,8 @@ export default () => {
     } else {
       aipTable.addClass('active');
     }
+    
+    aipSetUnits();
      
  });
 
@@ -75,14 +77,17 @@ export default () => {
   window.aipSetUnits = function() {
     // регулировка шрифта единиц измерения на вкладке Ожидаемых результатов
     setTimeout(function() {
-      $('.budget_aip .govProgram__data-item').each(function() {
-        var value = $(this).find('.govProgram__index-value'),
-            unit = $(this).find('.govProgram__index-units'),
-            indexW = $(this).width(),
-            valueW = value.width(),
-            unitW = unit.width(),
-            unitСalcW = indexW - valueW;
-        if (unitW > unitСalcW) unit.addClass('govProgram__index-units_small');
+      $('.budget_aip .govProgram__data-item:visible').each(function() {
+        if (!$(this).hasClass('checked')) {
+          var value = $(this).find('.govProgram__index-value'),
+              unit = $(this).find('.govProgram__index-units'),
+              indexW = $(this).width(),
+              valueW = value.width(),
+              unitW = unit.width(),
+              unitСalcW = indexW - valueW;
+          if (unitW > unitСalcW) unit.addClass('govProgram__index-units_small');
+          $(this).addClass('checked');
+        }
       });      
     }, 50)
 

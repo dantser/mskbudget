@@ -256,7 +256,7 @@
 
 	&__slide-value {
 		display: block;
-    font-size: 36px;
+    font-size: 35.6px;
 
 		@media (max-width: 580px) {
 			font-size: 22px;
@@ -391,22 +391,23 @@
 			}
 			
 			&_caption {
-				padding-left: 0;
-				font-size: 16px;
-				color: #737373;
-				background: none;
-
-				@media (max-width: 580px) {
-		      font-size: 14px;
-				}
-
-				P {
-			    transform: translate(0, -50%);
-			    left: 23px;
-
-					@media (max-width: 580px) {
-	          left: 7px;
-					}
+		      padding-left: 0;
+		      font-size: 16px;
+		      color: #737373;
+		      background: none;
+              padding: 5px 0;
+              
+              @media (max-width: 580px) {
+                font-size: 14px;
+              }
+              
+              P {
+                transform: translate(0, -50%);
+                left: 23px;
+                
+                @media (max-width: 580px) {
+                  left: 7px;
+                }
 					
 
 			    SPAN {
@@ -463,27 +464,25 @@
 			display: block;
 		}
 	}
-	
-	&__index-wrapper {
-		.services-moscow-index__col {
-			cursor: move;
-			cursor: -webkit-grab;
-			cursor: -moz-grab;
-			cursor: grab;
-		}
-	}
 
 	&__col {
-
-    	@media(max-width: 900px) {
-    		width: 30%!important;
-    	}
-		@media(max-width: 790px) {
-			width: 143px !important;
-		}
-    	@media(max-width: 580px) {
-    		width: 110px!important;
-    	}
+      cursor: move;
+      cursor: -webkit-grab;
+	  cursor: -moz-grab;
+	  cursor: grab;
+      
+      @media(max-width: 900px) {
+        width: 30%!important;
+      }
+      
+      @media(max-width: 790px) {
+        width: 143px !important;
+      }
+      
+      &_noslide {
+        cursor: auto;
+        display: inline-block;
+      }
 	}
 	
 	&__col-heading {
@@ -506,54 +505,63 @@
 		
 
 		&_caption {
-			position: relative;
-			font-family: $PFDinTextPro;
-			font-size: 16px;
-			line-height: 18px;
-			font-weight: 400;
-			color: $color-link;
-			background: $color-yellow;
-
-	    @media(max-width: 580px) {
-				font-size: 12px;
-	    }
-			
-			P {
-				@include center-block;
-				width: 100%;
-
-		    SPAN {
-		    	border-bottom: 1px dashed $color-link;
-		    }
-			}
+		  position: relative;
+		  font-family: $PFDinTextPro;
+		  font-size: 16px;
+		  line-height: 18px;
+		  font-weight: 400;
+		  color: $color-link;
+		  background: $color-yellow;
+          padding: 5px;
+          
+          @media(max-width: 900px) {
+            font-size: 14px;
+          }
+          
+          @media(max-width: 580px) {
+            font-size: 12px;
+          }
+          
+          P {
+            @include center-block;
+            width: calc(100% - 10px);
+            
+            SPAN {
+              border-bottom: 1px dashed $color-link;
+            }
+          }
 		}
 	}
 
 	&__sort {
-		display: none;
-		width: 100%;
-    height: 25px;
-		position: absolute;
-		top: -25px;
-		padding-left: 5px;
-		font-family: $PFDinTextPro;
-		font-size: 12px;
-		line-height: 14px;
-		color: $color-link;
-		cursor: pointer;
-		z-index: 1;
-
-		&_desc {
-			.services-moscow-index__sort-arrow_desc {
-				display: inline-block;
-			}
-		}
-
-		&_ask {
-			.services-moscow-index__sort-arrow_ask {
-				display: inline-block;
-			}
-		}
+      display: none;
+      width: 100%;
+      height: 25px;
+      position: absolute;
+      top: -25px;
+      padding-left: 5px;
+      font-family: $PFDinTextPro;
+      font-size: 12px;
+      line-height: 14px;
+      color: $color-link;
+      cursor: pointer;
+      z-index: 1;
+      
+      @media (max-width: 580px) {
+        font-size: 11px;
+      }
+      
+      &_desc {
+        .services-moscow-index__sort-arrow_desc {
+          display: inline-block;
+        }
+      }
+      
+      &_ask {
+        .services-moscow-index__sort-arrow_ask {
+          display: inline-block;
+        }
+      }
 	}
 
 	&__sort-arrow {
@@ -647,6 +655,10 @@
 		left: 0;
 		right: 0;
 		margin: auto;
+      
+      @media (max-width: 580px) {
+        max-height: 460px;
+      }
 	}
 }
 

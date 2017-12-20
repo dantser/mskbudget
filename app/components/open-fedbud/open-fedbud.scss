@@ -107,7 +107,7 @@
       font-size: 16px;
       display: inline-block;
       vertical-align: middle;
-      padding: 0 0 0 12px;
+      padding: 0 30px 0 12px;
       border-radius: 2px;
       margin-top: 5px;
       text-transform: uppercase;
@@ -127,8 +127,20 @@
         font-size: 16px;
       }
       
+      .ui-selectmenu-text {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+        display: inline-block;
+      }
+      
       &:nth-of-type(2) {
-        width: 405px;
+        width: 720px;
+        
+        @media (max-width: 940px) {
+          width: 405px;
+        }
       }
     }
   }
@@ -191,5 +203,32 @@
 
   option {
     color: $color-black;
+  }
+}
+
+.ui-menu {
+  &.ui-openfed-year {
+    max-width: 112px;
+  }
+  &.ui-openfed-law {
+    max-width: 720px;
+    @media (max-width: 940px) {
+      max-width: 405px;
+    }
+  }
+  &.ui-openfed-year, &.ui-openfed-law {
+    @media (max-width: 640px) {
+      max-width: none;
+    }
+    .ui-menu-item-wrapper {
+      white-space: nowrap;
+      display: inline-block;
+      min-width: 100%;
+    }
+    .ui-menu-item-wrapper.overwidth {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
   }
 }

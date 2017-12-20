@@ -6,12 +6,12 @@
     border-top: 1px solid rgba(254,227,0,.2);
   }
 }
-.js-resolution-320 {
-  @media screen and (max-width: 639px) {
-    width: 639px;
-    transform-origin: left top;
-  }
-}
+//.js-resolution-320 {
+//  @media screen and (max-width: 639px) {
+//    width: 639px;
+//    transform-origin: left top;
+//  }
+//}
 
 .d-slide__body-wrapper.scroll-content { -webkit-overflow-scrolling: touch; }
 
@@ -77,10 +77,10 @@
 }
 .whatIsBudget-conception{max-width:976px;margin:0 auto;padding-left:142px;-webkit-box-sizing:border-box;box-sizing:border-box; margin-top: 50px;}
 
-.whatIsBudget-termin {font-family:$PFDinCompressedPro;color:#fff;text-transform:uppercase;font-size:230px;margin-left:-11px}
+.whatIsBudget-termin {font-family:$PFDinCompressedPro;color:#fff;text-transform:uppercase;font-size:230px;margin-left:-11px; margin-bottom: 15px;}
 .whatIsBudget-termin h1 {font-weight:500}
 
-.whatIsBudget-definition {font-family:$PFDinCondensedPro; margin-top: 15px; font-size:36px; color:#fff; letter-spacing:-.2px}
+.whatIsBudget-definition {font-family:$PFDinCondensedPro; font-size:36px; color:#fff; letter-spacing:-.2px}
 .whatIsBudget-definition__accent{font-style:normal;padding:0 9px;position:relative}
 .whatIsBudget-definition__accent:before{position:absolute;content:"";left:0;top:2px;right:0;bottom:1px}
 .whatIsBudget-definition__accent._blue:before{background:-webkit-gradient(linear,left top, right top,color-stop(0, #004ccf),to(#0ff));background:-webkit-linear-gradient(left,#004ccf 0,#0ff 100%);background:linear-gradient(to right,#004ccf 0,#0ff 100%)}
@@ -494,7 +494,12 @@
 
 .whatIsBudget-characteristic__termin:before{-webkit-transition:all 1.5s ease;transition:all 1.5s ease}
 
-.whatIsBudget-characteristic__definition{width:auto!important;height:auto!important;font-family: $PFDinTextPro; font-size:15.5px;padding:5px 23px 24px;line-height:1.266;opacity:0;visibility:hidden;display:none;height:0;overflow:hidden;border-left:2px solid;border-right:2px solid;border-bottom:2px solid}.whatIsBudget-characteristic__definition._show{display:block!important;height:auto!important}
+.whatIsBudget-characteristic__definition{width:auto!important;height:auto!important;font-family: $PFDinTextPro; font-size:14px;padding:5px 23px 24px;line-height:1.266;opacity:0;visibility:hidden;display:none;height:0;overflow:hidden;border-left:2px solid;border-right:2px solid;border-bottom:2px solid;
+  @media (max-width: 767px) {
+    padding: 5px 10px 24px;
+  }
+}
+.whatIsBudget-characteristic__definition._show{display:block!important;height:auto!important}
 .whatIsBudget-characteristic__definition p+p{margin-top:19px}
 .whatIsBudget-characteristic__definition div{color:#fff}
 
@@ -543,9 +548,6 @@
     .whatIsBudget-revenues__item .whatIsBudget-revenues__examples:before {
         display: none!important;
     }
-    .whatIsBudget-financingOfDeficit:nth-child(7) .whatIsBudget-publicDebt__close {
-        top: 10px;
-    }
 }
 
 /*iPad*/
@@ -586,7 +588,7 @@
 @media screen and (max-width: 640px) {
 
     .whatIsBudget-revenues__wrapper {
-        max-width: 590px;
+        max-width: 550px;
         padding-left: 122px;
     }
 
@@ -629,7 +631,7 @@
 @media screen and (max-width: 1000px) {
     .whatIsBudget-financingOfDeficit__wrapper {
         max-width: 464px;
-        padding: 26px 0 60px;
+        padding: 26px 0 0;
     }
     .whatIsBudget-financingOfDeficit:nth-child(4) .whatIsBudget-financingOfDeficit__description {
         width: 100%;
@@ -714,8 +716,8 @@
         display: none;
     }
     .whatIsBudget-financingOfDeficit__suitcase:before {
-        height: 76px;
-        top: -53px;
+        height: 96px;
+        top: -73px;
     }
     .whatIsBudget-publicDebt__wrapper {
         padding: 42px 0 0 44px;
@@ -727,7 +729,7 @@
 
 @media (max-width: 640px) {
     .whatIsBudget-financingOfDeficit__wrapper {
-        max-width: 590px;
+        max-width: 550px;
     }
     .whatIsBudget-financingOfDeficit:nth-child(5) {
         margin-top: 0;
@@ -748,7 +750,7 @@
         bottom: auto;
     }
     .whatIsBudget-financingOfDeficit:nth-child(7) {
-        background-size: 2px 74px;
+        background-size: 2px 89px;
     }
     .whatIsBudget-publicDebt__wrapper {
         margin-left: 0;
@@ -875,7 +877,17 @@
         margin-left: -9px
     }
     .whatIsBudget-definition {
-        font-size: 29px
+        font-size: 26px;
+        text-align: left;
+        max-width: 710px;
+        margin: auto;
+        transform: translateX(47px);
+    }
+    .whatIsBudget-instruction {
+        text-align: left;
+        max-width: 710px;
+        margin: auto;
+        transform: translateX(47px);
     }
     .budgetScales-legend__wrapper {
         max-width: 980px
@@ -980,6 +992,17 @@
       }
     }
 }
+@media screen and (max-width: 900px) {
+    .whatIsBudget-definition {
+        font-size: 31px;
+        max-width: 620px;
+        transform: translateX(0);
+    }
+    .whatIsBudget-instruction {
+        max-width: 620px;
+        transform: translateX(0);
+    }
+}
 @media screen and (max-width:767px) {
     .whatIsBudget-characteristic._deficit{
         text-align:right;
@@ -1000,7 +1023,6 @@
         padding-left: 4px;
     }
     .whatIsBudget-termin {
-        font-size: 70px;
         margin-left: -8px;
     }
     .whatIsBudget-definition {
@@ -1020,6 +1042,7 @@
     }
     .budgetScales-legend__wrapper {
         max-width: 580px;
+        padding: 0 15px;
     }
     .budgetScales-legend {
         font-size: 15px;
@@ -1091,7 +1114,6 @@
         margin-left: -64px;
     }
     .whatIsBudget-characteristic__wrapper {
-        max-width: 624px;
         position: relative;
     }
     .whatIsBudget-characteristic__wrapper{
@@ -1166,9 +1188,6 @@
   .whatIsBudget-expenditures__wrapper {
     width: 464px !important;
   }
-  .whatIsBudget-expenditures__title, .whatIsBudget-expenditures__title-fake {
-    font-size: 18px !important;
-  }
   .whatIsBudget-expenditures__subtitle {
     font-size: 18px !important;
     padding: 20px !important;
@@ -1183,16 +1202,17 @@
   .whatIsBudget-characteristic__wrapper {
     margin-bottom: 70px !important;
     height: 320px !important;
+    padding: 0 15px;
   }
   .budgetScales-mainWeight._expenditures:before {
-    width: 168px !important;
-    height: 168px !important;
+    width: 168px;
+    height: 168px;
   }
   .whatIsBudget-conception {
     padding-left: 0 !important;
   }
   .whatIsBudget-termin {
-    font-size: 90px !important;
+    font-size: 90px;
   }
   .whatIsBudget-definition {
     font-size: 24px !important;
@@ -1205,11 +1225,223 @@
   .budgetScales-legend._left, .budgetScales-legend._right {
     max-width: 120px !important;
   }
+  .whatIsBudget-component__outer {
+    max-width: none;
+    padding: 0 15px;
+  }
+  .whatIsBudget-component__wrapper {
+    width: 550px;
+  }
+  .whatIsBudget-financingOfDeficit:nth-child(1) {
+    margin-left: 103px;
+    margin-bottom: 33px;
+    float: none;
+  }
+  .whatIsBudget-financingOfDeficit:nth-child(2) {
+    margin-left: 103px;
+    margin-bottom: 41px;
+    margin-right: 0;
+    float: none;
+  }
+  .whatIsBudget-financingOfDeficit__suitcase:before {
+    height: 134px;
+    top: -102px;
+  }
 }
 
-@media screen and (max-width:480px) {
-  .budgetScales-legend__wrapper {
-    padding: 0 15px !important;
+@media screen and (max-width: 580px) {
+  .whatIsBudget-termin {
+    font-size: 70px;
+  }
+  .budgetScales-mainWeight._revenues {
+    left: 5px;
+  }
+  .budgetScales-mainWeight._revenues:before {
+    width: 100px;
+    height: 130px;
+  }
+  .budgetScales-mainWeight._revenues[data-status=big] {
+    transform: translateZ(0) scale(1.1);
+  }
+  .budgetScales-mainWeight._expenditures[data-status=big] {
+    transform: translateZ(0) scale(1.1);
+  }
+  .budgetScales-mainWeight._expenditures {
+    right: 5px;
+  }
+  .budgetScales-mainWeight._expenditures:before {
+    width: 90px;
+    height: 110px;
+  }
+  .budgetScales-mainWeight {
+    width: 60px;
+    height: 75px;
+    font-size: 12px;
+    padding-top: 35px;
+  }
+  .budgetScales-supportingWeight._financingOfDeficit {
+    left: 21%;
+  }
+  .budgetScales-supportingWeight._useOfSurplus {
+    right: 21%;
+  }
+  .budgetScales-supportingWeight {
+    width: 90px;
+    height: 60px;
+    font-size: 9px;
+    padding-top: 24px;
+  }
+  .whatIsBudget-component__wrapper {
+    width: 290px;
+  }
+  .whatIsBudget-component {
+    width: 90px;
+    height: 90px;
+  }
+  .whatIsBudget-component__termin {
+    font-size: 17px;
+    padding-top: 38px;
+  }
+  .whatIsBudget-component__definition {
+    width: 290px;
+    font-size: 17px;
+  }
+  .whatIsBudget-component__conception .whatIsBudget-component__definition {
+    margin: 0 0 12px!important;
+  }
+  .whatIsBudget-component:nth-child(2) {
+    width: 90px;
+    height: 55px;
+  }
+  .whatIsBudget-component:nth-child(2) .whatIsBudget-component__termin {
+    font-size: 9px;
+    padding-top: 19px;
+  }
+  .whatIsBudget-revenues__wrapper {
+    max-width: 290px;
+    padding-left: 70px;
+  }
+  .whatIsBudget-revenues:nth-child(3) .whatIsBudget-revenues__title:after {
+    left: -30px;
+  }
+  .whatIsBudget-line {
+    width: 30px !important;
+    bottom: 50% !important;
+  }
+  .whatIsBudget-revenues__title {
+    height: 44px;
+    line-height: 40px;
+    font-size: 15px;
+  }
+  .whatIsBudget-revenues__description {
+    font-size: 14px;
+    margin-top: 12px;
+  }
+  .whatIsBudget-revenues__subtitle {
+    font-size: 15px;
+    padding: 12px;
+  }
+  .whatIsBudget-revenues__examples,
+  .whatIsBudget-revenues__item--direct-l .whatIsBudget-revenues__examples {
+    font-size: 12px;
+    padding: 12px 36px 12px 12px;
+  }
+  .whatIsBudget-revenues__close,
+  .whatIsBudget-revenues__item--direct-l .whatIsBudget-revenues__close {
+    top: 12px;
+    right: 12px;
+  }
+  .whatIsBudget-financingOfDeficit__wrapper {
+    max-width: 290px;
+    background-size: 2px 26px,calc(50% - 30px) 2px;
+    background-position: 50% 0,30px 24px;
+  }
+  .whatIsBudget-financingOfDeficit:first-child,
+  .whatIsBudget-financingOfDeficit:nth-child(2) {
+    margin-left: 48px;
+    width: 200px;
+  }
+  .whatIsBudget-financingOfDeficit__line1, .whatIsBudget-financingOfDeficit__line2 {
+    width: 20px !important;
+  }
+  .whatIsBudget-financingOfDeficit__title {
+    font-size: 20px;
+    padding: 12px;
+  }
+  .whatIsBudget-financingOfDeficit__list {
+    margin-left: 12px;
+    margin-right: 12px;
+    margin-top: 12px;
+    font-size: 14px;
+  }
+  .whatIsBudget-financingOfDeficit:nth-child(4) .whatIsBudget-financingOfDeficit__description,
+  .whatIsBudget-financingOfDeficit:nth-child(5) .whatIsBudget-financingOfDeficit__description {
+    font-size: 12px;
+    padding: 12px 0 0 calc(50% + 20px);
+  }
+  .whatIsBudget-financingOfDeficit__suitcase:before {
+    height: 130px;
+    top: -98px;
+  }
+  .whatIsBudget-financingOfDeficit:nth-child(6), .whatIsBudget-financingOfDeficit:nth-child(7) {
+    padding: 38px 30px 0 60px;
+  }
+  .whatIsBudget-financingOfDeficit__description {
+    font-size: 14px;
+  }
+  .whatIsBudget-financingOfDeficit__line6, .whatIsBudget-financingOfDeficit__line7 {
+    width: 30px !important;
+  }
+  .whatIsBudget-publicDebt__wrapper {
+    margin-left: 0 !important;
+    padding: 32px 0 0 32px;
+    background-position: 18px 0;
+    background-size: 2px calc(100% - 16px)!important;
+  }
+  .whatIsBudget-publicDebt__title {
+    font-size: 14px !important;
+    padding-top: 15px;
+    padding-right: 25px;
+  }
+  .whatIsBudget-publicDebt__title:before {
+    margin-top: 4px;
+  }
+  .whatIsBudget-publicDebt__description {
+    padding: 15px 8px 15px 8px;
+    font-size: 12px;
+    line-height: 1.3;
+    p {
+      padding-right: 5px;
+    }
+  }
+  .whatIsBudget-publicDebt__close {
+    top: -32px;
+  }
+  .whatIsBudget-financingOfDeficit:nth-child(7) {
+    background-size: 2px 73px;
+    .whatIsBudget-publicDebt__wrapper {
+      background-size: 2px calc(100% - 22px)!important;
+    }
+  }
+  .whatIsBudget-expenditures__wrapper {
+    width: 290px !important;
+  }
+  .whatIsBudget-expenditures__classification, .whatIsBudget-expenditures__title, .whatIsBudget-expenditures__title-fake {
+    font-size: 16px;
+  }
+  .whatIsBudget-expenditures__title, .whatIsBudget-expenditures__title-fake {
+    padding: 18px 0;
+  }
+  .whatIsBudget-expenditures__subtitle {
+    font-size: 16px !important;
+    padding: 18px !important;
+  }
+  .whatIsBudget-expenditures__description {
+    font-size: 12px !important;
+    padding: 0 18px 18px !important;
+  }
+  .whatIsBudget-expenditures_departments .whatIsBudget-expenditures__description {
+    padding: 18px !important;
   }
 }
 

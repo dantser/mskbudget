@@ -51,8 +51,33 @@ export default () => {
     });
   }
 
-  //// Аналитика - Государственный долг
-  //slideArrow('.analytics-gov-debt__graphic-wrapper', '.analytics-gov-debt__slide-arrows_graphics', 100);
-  //slideArrow('.analytics-gov-debt__table-wrapper', '.analytics-gov-debt__slide-arrows_table', 100);
+  // Движущиеся стрелки
+  if ($('.analityc-table_sticky-arrows').length) {
+    
+    $(window).scroll(function(){
+      
+      if ($('.analityc-table_sticky-arrows .slide-arrows:visible').length) {
+        
+        var stickyArrows = $('.analityc-table_sticky-arrows .slide-arrows:visible');
+        var scrollDistance = $(window).scrollTop() + $(window).height() / 2;
+        var table = stickyArrows.parents('.analityc-table_sticky-arrows');
+        var tableHeight = table.outerHeight();
+        var topArrowsDistance = table.offset().top + 100;
+        var bottomArrowsDistance = table.offset().top + tableHeight - 80;
+        if (scrollDistance >= topArrowsDistance && scrollDistance <= bottomArrowsDistance) {
+          stickyArrows.addClass('fixed');
+        } else {
+          stickyArrows.removeClass('fixed');
+        }
+        if (scrollDistance >= bottomArrowsDistance) {
+          stickyArrows.addClass('bottom');
+        } else {
+          stickyArrows.removeClass('bottom');
+        }
+          
+      }
+      
+    });
+  }
 
 }

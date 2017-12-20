@@ -575,7 +575,7 @@ label {
   width: 285px;
 }
 .comp-diagram__year {
-  font-size: 23px;
+  font-size: 22.7px;
   font-weight: 500;
   color: #FFF;
   position: absolute;
@@ -658,6 +658,25 @@ label {
   50% {right:-25px;}
   100% {right:-20px;}
 }
+
+.analityc-widget__bottom {
+  @include block-justify;
+  text-justify: distribute;
+  padding-right: 22px;
+}
+.analityc-more-link {
+  display: inline-block;
+  text-align: left;
+  margin-top: 39px;
+  .analityc-more {
+    display: inline;
+    &:before {
+      top: auto;
+      bottom: 6px;
+    }
+  }
+}
+
 .dropdown {
   border-top: 1px solid rgba(254, 227, 0, .2);
 }
@@ -1280,5 +1299,23 @@ label {
         width: 100%;
       }
     }
+  }
+}
+
+.basic_budget_figures {
+  .analityc-bottomtip {
+    margin-top: 39px;
+    @media screen and (max-width: 1020px) and (min-width: 769px) {
+      margin-top: 30px;
+    }
+    @media screen and (max-width: 768px) and (min-width: 581px) {
+      margin-top: 19px;
+    }
+    @media screen and (max-width: 580px) {
+      margin-top: 7px;
+    }
+  }
+  .analityc-widget {
+    padding-bottom: 50px;
   }
 }

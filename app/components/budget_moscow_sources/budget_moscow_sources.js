@@ -38,12 +38,56 @@ export default () => {
           $(this).width(dwidth);
         });
       });
-      
-      $('.analityc-widget-sources_date [data-width]').each(function(){
-        var dwidth = $(this).data('width');
-        $(this).css('width', dwidth+'%');
+    }
+    
+    function graphicArrowInit() {
+      $('.graphic__data-arrow').each(function(){
+        var parentRow = $(this).parents('.graphic__row'),
+            totalRowsHeight = 0,
+            dataRows = parentRow.nextAll().not('.graphic__total');
+        
+        dataRows.each(function(){
+          var rowHeight = $(this).outerHeight(true);
+          totalRowsHeight += rowHeight;
+        });
+        
+        totalRowsHeight += 20;
+        
+        $(this).height(totalRowsHeight);
       });
     }
+    
+    $('.analityc-widget-sources_date [data-width]').each(function(){
+      var dwidth = $(this).data('width');
+      $(this).css('width', dwidth+'%');
+    });
+    
+    function checkDateGraphics() {
+      $('.analityc-widget-sources_date .linear-diagrams').each(function(){
+        
+        var wrapperWidth = $(this).find('.linear-diagrams__wrapper').width();
+        var titleWidth = $(this).find('.linear-diagram__sources').outerWidth(true);
+        var maxlineWidth = 0;
+        
+        $(this).find('.linear-diagram').each(function(){
+          var lineWidth = $(this).find('.linear-diagram__block').outerWidth();
+          if (lineWidth > maxlineWidth) maxlineWidth = lineWidth;
+        });
+        
+        var totalWidth = titleWidth + maxlineWidth;
+        var diagramPadding = parseInt($(this).find('.linear-diagram').css('padding-left'));
+        totalWidth += diagramPadding;
+        
+        if (totalWidth <= wrapperWidth) {
+          $(this).addClass('noscroll');
+        } else {
+          $(this).removeClass('noscroll');
+        }
+        
+      });
+    }
+    
+    checkDateGraphics();
     
     
     // слайдер
@@ -51,6 +95,8 @@ export default () => {
     
     approvedSliderInit();
     changesSliderInit();
+    
+    graphicArrowInit();
     
     function approvedSliderInit() {
       if ($(window).width() <= 980) {
@@ -79,6 +125,7 @@ export default () => {
         approvedGraphSlider.update();
         changesGraphSlider.update();
       }
+      graphicArrowInit();
     });
     
     // переключение по кнопкам график/таблица
@@ -91,6 +138,7 @@ export default () => {
         approvedGraphSlider.update();
         changesGraphSlider.update();
       }
+      graphicArrowInit();
     });
     
     
@@ -126,6 +174,7 @@ export default () => {
       changeControl(controls, stageVal, levelVal, typeVal);
       
       positionValues();
+      checkDateGraphics();
     }
     
     function changeBlock(el, stageVal) {

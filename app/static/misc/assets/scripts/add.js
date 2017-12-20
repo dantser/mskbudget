@@ -13,8 +13,17 @@ $(document).on('click', '.selectbox li', function (e) {
     $(this).parents('.selectbox').find('select option').removeAttr('selected');
     $(this).parents('.selectbox').find('select option[value="'+newval+'"]').attr('selected', 'selected');
     $(this).parents('.selectbox').find('input').val(inputval);
-    $(this).parents('.selectbox').find('.selectbox__val').text(inputval);
     
+    if ($(this).parents('.selectbox').hasClass('analityc-widget__selectbox_alt analityc-widget__selectbox_month')) {
+      var optIndex = $(this).index(),
+          monthArray = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+      inputval = monthArray[optIndex];
+    }
+
+    if (!$(this).parents('.selectbox').find('.switchConsolidatedMonth').length  && $('.gov-debt').length == 0){
+        $(this).parents('.selectbox').find('.selectbox__val').text(inputval);
+    }
+
     //$(this).parent().removeClass('active');
     //setTimeout(function () {
     //  $('body').click();
@@ -29,10 +38,12 @@ $(document).on('mousedown', '.selectbox select', function (e) {
   window.focus();
   $(document).find('.selectbox').not($(this).parents('.selectbox')).removeClass('active');
   $(this).parents('.selectbox').toggleClass('active');
+  //selectboxItemWidth($(this).parents('.selectbox'));
 });
 
 $(document).on('click', '.selectbox select', function (e) {
   e.stopPropagation();
+  //selectboxItemWidth($(this).parents('.selectbox'));
 });
 
 $(document).on('click', '.selectbox', function (e) {
@@ -40,6 +51,7 @@ $(document).on('click', '.selectbox', function (e) {
     e.stopPropagation();
     $(document).find('.selectbox').not($(this)).removeClass('active');
     $(this).toggleClass('active');
+    //selectboxItemWidth($(this));
   }
 });
 
@@ -49,8 +61,23 @@ $(document).on('click', '.selectbox > *', function (e) {
     e.stopPropagation();
     $(document).find('.selectbox').not($(this).parents('.selectbox')).removeClass('active');
     $(this).parents('.selectbox').toggleClass('active');
+    //selectboxItemWidth($(this).parents('.selectbox'));
   }
 });
+
+function selectboxItemWidth(el) {
+  el.find('li').each(function(){
+    var itemWidth = $(this).width(),
+        spanWidth = $(this).find('span').width();
+    if ($(this).find('a').length) {
+      itemWidth = $(this).find('a').width();
+    }
+    if (spanWidth > itemWidth) {
+      var spanText = $(this).find('span').text();
+      $(this).attr('title', $.trim(spanText));
+    }
+  });
+}
 
 //$(document).on('click', '.selectbox ul', function () {
 //  $(this).removeClass('active');
@@ -180,4 +207,87 @@ $(document).ready(function(){
     
   }
   
+});
+
+
+
+// Обрезание текста троеточием
+function overflowDottsInit(size, element) {
+  if ($(element).length) {
+    var content = $(element);
+    content.each(function () {
+      var contentText = $(this).text();
+      if(contentText.length > size){
+        $(this).text((contentText.slice(0, size)).trim() + '...');
+      }
+    });
+  }
+}
+
+function dotTextInit(element) {
+  if ($(element).length) {
+    $(element).each(function(){
+      var textSpan = $(this).find('span'),
+          wordArray = textSpan.text().split(' '),
+          newText = '';
+      
+      for (var i = 0; i < wordArray.length; i++) {
+        
+        if (textSpan.text(newText+wordArray[i]).height() <= $(this).height()) {
+          newText += ' '+wordArray[i];
+        } else if (textSpan.text(newText+'...').height() <= $(this).height()){
+          newText += '...';
+          i = wordArray.length;
+        } else {
+          newText = newText.substring(0, newText.lastIndexOf(' ')) + '...';
+          i = wordArray.length;
+        }
+        
+        textSpan.text(newText);
+      }
+    });
+  }
+}
+
+
+
+// Позиционирование картинок в новостях и событиях
+function setImagePosition() {
+  
+  if ($('.js-image').length) {
+    
+    $('.js-image').each(function(){
+      
+      $(this).removeClass('full-height');
+      $(this).css('top', '');
+      
+      var imageWidth = $(this).width(), // ширина картинки
+          imageHeight = $(this).height(), // высота картинки
+          blockHeight = $(this).parent().height(), // высота области под картинку
+          imageBlockHeightDiff = imageHeight - blockHeight; // разность высоты картинки и высоты области под картинку
+      
+      if (imageBlockHeightDiff > 0) { // если высота картинки больше высоты области под картинку
+      
+        var zoneHeight = imageWidth / 2.5, // высота нужной зоны
+            zoneDistance = $(this).attr('data-pos'), // расстояние от верха картинки до нужной зоны
+            blockZoneHeightDiff = blockHeight - zoneHeight, // разность высоты области под картинку и высоты нужной зоны
+            imageTranslation = zoneDistance - blockZoneHeightDiff / 2; // сдвиг картинки под нужную область
+      
+        if (imageTranslation < 0) imageTranslation = 0;
+        if (imageTranslation > imageBlockHeightDiff) imageTranslation = imageBlockHeightDiff;
+      
+        $(this).css('top', '-'+imageTranslation+'px');
+        
+      } else {
+        
+        $(this).addClass('full-height');
+        
+      }
+      
+    });
+  }
+}
+
+$(document).ready(function(){
+  setImagePosition();
 });

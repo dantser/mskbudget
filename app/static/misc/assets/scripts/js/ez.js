@@ -641,30 +641,31 @@ function tabsLine() {
 
     sectionTabs.find($('.section-tabs__nav')).slideToggle();
     
-    var holder = sectionTabs.find('.dd-holder'),
-        holderWidth = holder.width(),
-        itemsWidth = 0;
-    
-    holder.children().each(function(){
-      var width = $(this).outerWidth(true);
-      itemsWidth += width;
-    });
-    
-    if ($(this).hasClass('js-label-button-closed')) {
-      if (itemsWidth <= holderWidth) {
-        sectionTabs.find($('.owl-nav')).hide();
+    if (sectionTabs.hasClass('section-tabs_documents') || sectionTabs.hasClass('section-tabs_news') || sectionTabs.hasClass('section-tabs_services')) {
+      var cardsLimit,
+          cardsCount = sectionTabs.find('.tile__item').not('.hidden').length;
+      if ($(window).width() > 1180) {
+        cardsLimit = 4;
+      } else if ($(window).width() > 900) {
+        cardsLimit = 3;
+      } else if ($(window).width() > 630) {
+        cardsLimit = 2;
       } else {
-        sectionTabs.find($('.owl-nav')).show();
+        cardsLimit = 1;
+      }
+      if (cardsCount > cardsLimit) {
+        sectionTabs.find($('.owl-nav')).toggle();
+      } else {
+        sectionTabs.find($('.owl-nav')).hide();
       }
     } else {
-      sectionTabs.find($('.owl-nav')).hide();
+      sectionTabs.find($('.owl-nav')).toggle();
     }
-    
-    //sectionTabs.find($('.owl-nav')).toggle();
 
     $(this).toggleClass('js-label-button-closed');
     sectionTabs.toggleClass('active');
     sectionTabs.find($('.section-tabs__head')).toggleClass('section-tabs__head_closed');
+    setImagePosition();
     return false
     /*
     если понадобиться скрывать пункты в навигации табов,

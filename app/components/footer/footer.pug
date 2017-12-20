@@ -4,7 +4,7 @@ include ../../blocks/icon/icons
 mixin footer()
   +b.FOOTER.footer#footer.sections__item&attributes(attributes)
     //- основной блок футера
-    +e.main
+    +e.main.load-anim-fade(data-delay="1500")
       //- враппер с отступами и ограничением ширины
       +e.wrap.wrap
         //- колонка меню
@@ -23,10 +23,12 @@ mixin footer()
                   +e.A.menu-link(href="#") Принципы бюджетной системы
                 +e.LI.menu-item
                   +e.A.menu-link(href="#") Этапы подготовки бюджета
+                //+e.LI.menu-item
+                //  +e.A.menu-link(href="#") Бюджетная политика Москвы
+                //+e.LI.menu-item
+                //  +e.A.menu-link(href="#") Налоговая политика Москвы
                 +e.LI.menu-item
-                  +e.A.menu-link(href="#") Бюджетная политика Москвы
-                +e.LI.menu-item
-                  +e.A.menu-link(href="#") Налоговая политика Москвы
+                  +e.A.menu-link(href="#") Бюджетная и налоговая политика Москвы
             +e.LI.menu-item
               +e.A.menu-link(href="#") Бюдженая классификация
             +e.LI.menu-item
@@ -100,7 +102,7 @@ mixin footer()
             +e.LI.menu-item
               +e.A.menu-link(href="#") Пресс-служба
         //- колонка меню
-        +e.column
+        +e.column._services
           +e.A.heading(href="#") Сервисы
         //- колонка меню
         +e.column
