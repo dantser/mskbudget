@@ -50,7 +50,7 @@ mixin budget_moscow_gov_program()
             span.analityc-graphics_round-prev
             +legend(getData('legend-moscow-gp2')).analityc-graphics__legend
 
-        +analityc-table-slider(100)._approved(data-stage='approved', data-category='all')
+        +analityc-table-slider(100)._approved._sticky-arrows(data-stage='approved', data-category='all')
           +table-income(getData('income'))
 
         // Этап Закон о внесении изменений
@@ -74,7 +74,7 @@ mixin budget_moscow_gov_program()
             +tabs-tab(data-tab-group="analityc-lines", data-tab="line3")
               +analityc-graphics-line-alt(getData('graphic-lines-gp1'))._date-three
 
-        +analityc-table-slider(100)._changes(data-stage='changes', data-category='all')
+        +analityc-table-slider(100)._changes._sticky-arrows(data-stage='changes', data-category='all')
           +table-income(getData('income1'))
 
 
@@ -94,7 +94,7 @@ mixin budget_moscow_gov_program()
         .analityc-widget-sources.analityc-widget-moscow-gov-program_date(data-stage='date', data-category='all')
           +analityc-graphics-line-alt(getData('graphic-lines-gp2'), 'Исполнение доходов бюджета на')._gp
 
-        +analityc-table-slider(100, 'Исполнение доходов бюджета на')._date(data-stage='date', data-category='all')
+        +analityc-table-slider(100, 'Исполнение доходов бюджета на')._date._sticky-arrows(data-stage='date', data-category='all')
           +table-income(getData('sources'))
 
 

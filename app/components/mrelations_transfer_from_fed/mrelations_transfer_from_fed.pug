@@ -26,13 +26,13 @@ mixin mrelations_transfer_from_fed(header)
 
 				+analityc-graphics-round7()._approved.active(data-stage='approved', data-class='transkinds')
 				
-				+analityc-table-slider(100)._approved(data-stage='approved', data-class='transkinds')
+				+analityc-table-slider(100)._approved._sticky-arrows(data-stage='approved', data-class='transkinds')
 					+table-mrelations(getData('income'))
 
 				//- класс-я Направления расходования
 				+analityc-graphics-round8()._domain(data-stage='approved', data-class='directions')
 
-				+analityc-table-slider(100)._domain(data-stage='approved', data-class='directions')
+				+analityc-table-slider(100)._domain._sticky-arrows(data-stage='approved', data-class='directions')
 					+table-mrelations2(getData('income'))
 						
 
@@ -44,6 +44,6 @@ mixin mrelations_transfer_from_fed(header)
 
 				+analityc-graphics-line('ИСПОЛНЕНИЕ ДОХОДОВ БЮДЖЕТА НА', getData('graphic-lines-mrelations'), 'budget')._date(data-stage='date', data-class='all')
 				
-				+analityc-table-slider(100, 'Исполнение доходов бюджета на')._date(data-stage='date', data-class='all')
+				+analityc-table-slider(100, 'Исполнение доходов бюджета на')._date._sticky-arrows(data-stage='date', data-class='all')
 					+table-mrelations(getData('sources'))
 		+dropdown().load-anim-fade(data-delay="1700")

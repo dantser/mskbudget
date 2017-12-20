@@ -146,7 +146,7 @@ export default () => {
 	}
 	
 	function floatingArrows(arrPos, tablePos) {
-		if ($(document).width() <= 400) {
+		if ($(document).width() <= 450) {
 			// плавающие стрелки
 			$(window).scroll(function() {
 				var sT = $(document).scrollTop();

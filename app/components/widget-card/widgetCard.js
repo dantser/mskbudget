@@ -157,8 +157,8 @@ export default () => {
         $this.parents('.widget-card__head').siblings().slideToggle(321);
         setTimeout(function () {
           $this.parents('.widget-card').find('.service__diagram-tabs, .service-dots').show();
+          selectTitles('.selectbox');
         }, 321)
-        selectTitles('.selectbox');
       });
 	  
 	  $(document).on('click', '.depfin-services-main .widget-card .datepicker__show', function(e){
@@ -168,8 +168,8 @@ export default () => {
         $this.parents('.widget-card__head').siblings().slideDown(321);
         setTimeout(function () {
           $this.parents('.widget-card').find('.service__diagram-tabs, .service-dots').show();
+          selectTitles('.selectbox');
         }, 321)
-        selectTitles('.selectbox');
 	  });
   };
 

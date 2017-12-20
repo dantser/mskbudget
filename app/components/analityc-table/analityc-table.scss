@@ -642,3 +642,184 @@
     }
   }
 }
+
+
+//--- таблицы с плавающими стрелками ---//
+.analityc-table_sticky-arrows {
+  .analityc-table__slide-arrows {
+    top: 100px;
+    margin-top: 0;
+    &.fixed {
+      position: fixed;
+      left: 2px;
+      right: 2px;
+      top: 50%;
+      @media(max-width: 580px) {
+        left: -3px;
+        right: -3px;
+      }
+      &.bottom {
+        top: 50%;
+      }
+    }
+    &.bottom {
+      top: auto;
+      bottom: 80px;
+    }
+  }
+  
+  //budget_moscow_sources
+  .moscow-sources & {
+    .analityc-table__slide-arrows {
+      &.fixed {
+        @media (max-width: 580px) and (min-width: 551px) {
+          left: 17px;
+          right: 17px;
+        }
+      }
+    }
+  }
+  
+  //раздел Аналитика
+  .analityc-widget_params &,
+  ._analitycs-income &,
+  .analitycs-expenses &,
+  .analytics-gov-debt &,
+  .analitycs-gp & {
+    .analityc-table__slide-arrows {
+      &.fixed {
+        @media (min-width: 1101px) {
+          left: calc(50% - 548px);
+          right: calc(50% - 548px);
+        }
+      }
+    }
+  }
+  
+  //depfin-analytics-main
+  .analityc-widget_params & {
+    .analityc-table__slide-arrows {
+      &.fixed {
+        @media (max-width: 1010px) and (min-width: 901px) {
+          left: -2px;
+          right: -2px;
+        }
+      }
+    }
+  }
+  
+  //services_social_significant
+  .significant-about & {
+    .analityc-table__slide-arrows {
+      @media (min-width: 581px) {
+        left: -39px;
+        right: -39px;
+      }
+    }
+  }
+}
+
+//depfin_services_VMO
+.services-VMO .tabs__tab[data-tab=vmoAll] .services-VMO__table .slide-arrows {
+  &.fixed {
+    @media(min-width: 581px) {
+      left: 4px;
+      right: 4px;
+    }
+  }
+}
+
+//services_gov_program
+.gov-program .slide-arrows {
+  position: absolute;
+  left: -40px;
+  right: -40px;
+  top: 100px;
+  margin-top: 0;
+  z-index: 2;
+  
+  @media screen and (max-width: 1024px) {
+    left: -35px;
+    right: -35px;
+  }
+  
+  @media screen and (max-width: 580px) {
+    right: -20px;
+    left: -20px;
+  }
+  
+  &.fixed {
+    position: fixed;
+    left: calc(50% - 550px);
+    right: calc(50% - 550px);
+    top: 50%;
+    @media(max-width: 1180px) {
+      left: 0;
+      right: 0;
+    }
+    @media(max-width: 1024px) {
+      left: 15px;
+      right: 15px;
+    }
+    @media(max-width: 768px) {
+      left: 30px;
+      right: 30px;
+    }
+    @media(max-width: 580px) {
+      left: 5px;
+      right: 5px;
+    }
+    &.bottom {
+      top: 50%;
+    }
+  }
+  &.bottom {
+    top: auto;
+    bottom: 80px;
+  }
+}
+
+//services_net
+.services-net .slide-arrows {
+  position: absolute;
+  z-index: 1;
+  top: 100px;
+  left: -32px;
+  right: -32px;
+  
+  @media (min-width: 901px) {
+    display: none;
+  }
+  
+  @media (max-width: 600px) {
+    left: -40px;
+    right: -40px;
+  }
+  
+  @media (max-width: 580px) {
+    left: -19px;
+    right: -19px;
+  }
+  
+  &.fixed {
+    position: fixed;
+    left: -7px;
+    right: -7px;
+    top: 50%;
+    @media (max-width: 600px) {
+      left: 0;
+      right: 0;
+    }
+    @media (max-width: 580px) {
+      left: -4px;
+      right: -4px;
+    }
+    &.bottom {
+      top: 50%;
+    }
+  }
+  &.bottom {
+    top: auto;
+    bottom: 80px;
+  }
+}

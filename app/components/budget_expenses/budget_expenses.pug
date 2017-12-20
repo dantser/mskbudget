@@ -19,11 +19,11 @@ mixin budget_expenses()
         +analityc-graphics-round3('expenses3')._approved._departments(data-stage='approved', data-class='departments')
         +analityc-graphics-round4('expenses4')._approved._kinds(data-stage='approved', data-class='kinds')
 
-        +analityc-table-slider(100)._approved(data-stage='approved', data-class='all')
+        +analityc-table-slider(100)._approved._sticky-arrows(data-stage='approved', data-class='all')
           +table-expenses(getData('moscow_expenses'))
 
         +analityc-graphics-column('expenses5', true)._changes(data-stage='changes', data-class='all')
-        +analityc-table-slider(100)._changes(data-stage='changes', data-class='all')
+        +analityc-table-slider(100)._changes._sticky-arrows(data-stage='changes', data-class='all')
           +table-expenses(getData('expenses1'))
 
         +analityc-graphics-singleround-alt('expenses5')._done(data-stage='done', data-class='all')
@@ -31,7 +31,7 @@ mixin budget_expenses()
           +table-expenses(getData('moscow_expenses2'))
 
         +analityc-graphics-line('Исполнение расходов бюджета на', getData('graphic-lines-expenses1'), 'budget')._date-one(data-stage='date', data-class='all')
-        +analityc-table-slider(100, 'Исполнение доходов бюджета на')._date(data-stage='date', data-class='all')
+        +analityc-table-slider(100, 'Исполнение доходов бюджета на')._date._sticky-arrows(data-stage='date', data-class='all')
           +table-expenses(getData('sources'))
 
         +analityc-graphics-line('Исполнение расходов бюджета на', getData('graphic-lines-expenses1'), 'budget')._date-two(data-stage='dtwo')

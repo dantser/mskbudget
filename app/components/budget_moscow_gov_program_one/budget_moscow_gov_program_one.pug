@@ -41,7 +41,7 @@ mixin budget_moscow_gov_program_one(header)
 				.analityc-widget-sources.analityc-widget-moscow-gov-program_expenses.analityc-widget-moscow-gov-program_expenses-done(data-stage='approved', data-category='expenses')
 					+analityc-graphics-round6()
 
-				+analityc-table-slider(100)._approved(data-stage='approved', data-category='all')
+				+analityc-table-slider(100)._approved._sticky-arrows(data-stage='approved', data-category='all')
 					+table-income(getData('income'))
 
 
@@ -52,7 +52,7 @@ mixin budget_moscow_gov_program_one(header)
 				.analityc-widget-sources.analityc-widget-moscow-gov-program_expenses.analityc-widget-moscow-gov-program_expenses-changes(data-stage='changes', data-category='expenses')
 					+analityc-graphics-column4()
 
-				+analityc-table-slider(100)._changes(data-stage='changes', data-category='all')
+				+analityc-table-slider(100)._changes._sticky-arrows(data-stage='changes', data-category='all')
 					+table-income(getData('income1'))
 
 
@@ -71,7 +71,7 @@ mixin budget_moscow_gov_program_one(header)
 				.analityc-widget-sources.analityc-widget-moscow-gov-program_date(data-stage='date', data-category='all')
 					+analityc-graphics-js-line('Исполнение доходов бюджета на', getData('graphic-js-line1')[0])
 
-				+analityc-table-slider(100, 'Исполнение доходов бюджета на')._date(data-stage='date', data-category='all')
+				+analityc-table-slider(100, 'Исполнение доходов бюджета на')._date._sticky-arrows(data-stage='date', data-category='all')
 					+table-income(getData('sources'))
 
 
