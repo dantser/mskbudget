@@ -28,7 +28,7 @@
 	}
 
 	&:hover {
-		.media-card__img,
+		.media-card__img-wrapper,
 	  .media-card__text {
 			opacity: 1;
 		}
@@ -68,6 +68,8 @@
 		z-index: auto;
     white-space: nowrap;
     position: relative;
+		opacity: .8;
+		transition: .5s;
 		
 		@media (max-width: 1140px) and (min-width: 901px) {
 			height: 105px;
@@ -95,10 +97,12 @@
 		height: 0;
 	}
 
-	&__img {
+	&__img:not(.js-image) {
 		@include fill-img;
-		opacity: .8;
-		transition: .5s;
+	}
+	
+	&__img.js-image {
+		@include js-image;
 	}
 
 	&__play {

@@ -33,6 +33,7 @@ export default () => {
 
       $('.media-main__page-link_slider').removeClass('active');
       $('.media-main__page-link_slider[data-filter="'+mfilter+'"]').addClass('active');
+      setImagePosition();
     });
 
     $('.media-main .swiper-container').each(function() {
@@ -46,8 +47,8 @@ export default () => {
         loop: true,
         observer: true,
         observeParents: true
-      })
-
+      });
+      setImagePosition();
     })
 
     // if ($(".media-main__datepicker" ).length) {

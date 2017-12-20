@@ -541,3 +541,20 @@ div {
     height: 0.00000000001px;
   }
 }
+
+// позиционирование картинок .js-image
+@mixin js-image {
+  display: block;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  
+  &.full-height {
+    width: auto;
+    height: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

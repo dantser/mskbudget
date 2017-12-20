@@ -7,7 +7,7 @@
 mixin news-card(image, category, title, date, tags)
   +b.news&attributes(attributes)
     a(href="#").news__thumb
-      img(src="assets/images/news/"+image+".jpg", alt="thumb")
+      img(src="assets/images/news/"+image+".jpg" alt="thumb" data-pos='10').js-image
     a(href="#").news__category= category
     a(href="#", title=title).news__title= title
     .news__bottom
@@ -46,7 +46,7 @@ mixin logo-card(title, img)
 mixin news-card-dropdown(image, category, title, date, tags)
   +b.news._dropdown&attributes(attributes)
     a(href="#").news__thumb
-      img(src="assets/images/news/"+image+".jpg", alt="thumb")
+      img(src="assets/images/news/"+image+".jpg" alt="thumb" data-pos='10').js-image
     a(href="#").news__category= category
     a(href="#").news__title= title
     .news__bottom
