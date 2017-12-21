@@ -12,7 +12,7 @@ mixin news-one()
       +e.header
         // page-header
         +page-header('Новости', ['Медиацентр'], true)
-        A(href="#").media-main__page-link Все новости
+        A(href="#" data-delay="1300").media-main__page-link.load-anim-fade Все новости
           +icon('angle-arrow', true).media-main__page-link-icon
         //+e.FORM(action='', method='POST', data-delay="1500").form.form.load-anim-fade
           .form__field.form__field_d3
@@ -147,7 +147,7 @@ mixin news-one()
               +news-card(3, 'Федеральные новости', 'Итоги исполнения бюджета города Москвы за первое полугодие 2016 года', '1 августа 2016', ['итоги', 'апробация', 'старшеклассники'])._green.tile__inner
 
 
-        +e.A(href="#").show-more.d-si__button_show-more Показать еще
+        +e.A(href="#" data-delay="1500").show-more.d-si__button_show-more.load-anim-fade Показать еще
       
   .range-datepicker
     .range-datepicker__item.range-datepicker__item_min(data-range="min")
