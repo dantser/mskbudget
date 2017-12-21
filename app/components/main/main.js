@@ -34,7 +34,7 @@ export default () => {
       if (isMobile.any()) {
         
         var windowHeight = $(window).height();
-        $('.wrapper_main').css('height', windowHeight+'px');
+        $('.wrapper_main').css('min-height', windowHeight+'px');
         $('body').css('overflow', 'hidden');
         
       } else {
