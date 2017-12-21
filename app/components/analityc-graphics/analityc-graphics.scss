@@ -4684,3 +4684,100 @@
     }
   }
 }
+
+
+.budget-income, .budget-expenses {
+  .analityc-graphics__line-abs {
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    margin-left: 7px;
+    min-width: 75px;
+    height: 26px;
+    padding: 0 5px;
+    white-space: nowrap;
+    font-size: 14px;
+    line-height: 26px;
+    text-align: center;
+    color: #fff;
+    border-radius: 2px;
+    z-index: 1;
+    
+    @media (max-width: 760px) and (min-width: 551px) {
+      font-size: 24px;
+      height: 46px;
+      line-height: 46px;
+    }
+    
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: -17px;
+      border: 10px solid transparent;
+      border-right: 10px solid;
+    }
+  }
+  
+  .analityc-graphics__line_short {
+    .analityc-graphics__line-bar-value {
+      display: none;
+    }
+    .analityc-graphics__line-bar:hover {
+      .analityc-graphics__line-abs {
+        @media (min-width: 551px) {
+          display: block;
+        }
+      }
+    }
+  }
+  
+  .analityc-graphics__line {
+    &_altblue {
+      .analityc-graphics__line-abs {
+        @include gradient(horizontal, #0d46a1, #c3157f);
+        &:after { border-right-color: #0d46a1; }
+      }
+    }
+    &_pink {
+      .analityc-graphics__line-abs {
+        @include gradient(horizontal, #9d308a, #ff695b);
+        &:after { border-right-color: #9d308a; }
+      }
+    }
+    &_green {
+      .analityc-graphics__line-abs {
+        @include gradient(horizontal, #fee300, #30b069);
+        &:after { border-right-color: #fee300; }
+      }
+    }
+    &_violet {
+      .analityc-graphics__line-abs {
+        @include gradient(horizontal, #612292, #bd84e9);
+        &:after { border-right-color: #612292; }
+      }
+    }
+    &_grey {
+      .analityc-graphics__line-abs {
+        @include gradient(horizontal, #d5d8de, #838a9a);
+        &:after { border-right-color: #d5d8de; }
+      }
+    }
+    &_blue {
+      .analityc-graphics__line-abs {
+        @include gradient(horizontal, #00fdff, #004ccf);
+        &:after { border-right-color: #00fdff; }
+      }
+    }
+    &_altgreen {
+      .analityc-graphics__line-abs {
+        @include gradient(horizontal, #11a360, #32d197);
+        &:after { border-right-color: #11a360; }
+      }
+    }
+  }
+}

@@ -29,6 +29,25 @@ export default () => {
       }
     });
     
+    // значения на графике Исполнение на дату
+    function dateGraphicVal() {
+      $(".budget-income .analityc-graphics__line").each(function(){
+        var valWidth = $(this).find('.analityc-graphics__line-bar-value').outerWidth(true),
+            lineWidth = $(this).find('.analityc-graphics__line-total').width(),
+            fillWidth = $(this).find('.analityc-graphics__line-fill').width();
+        
+        console.log(valWidth);
+        console.log(lineWidth);
+        
+        if (valWidth > lineWidth) {
+          $(this).addClass('analityc-graphics__line_short');
+          $(this).find('.analityc-graphics__line-abs').css('left', fillWidth+'px');
+        } else {
+          $(this).removeClass('analityc-graphics__line_short');
+          $(this).find('.analityc-graphics__line-abs').css('left', '');
+        }
+      });
+    }
     
     
     function changeContent(typeofchange, el) {
@@ -66,6 +85,7 @@ export default () => {
       
       positionValues();
       $(document).trigger('contentChanged');
+      dateGraphicVal();
     }
     
     function changeBlock(el, stageVal) {
