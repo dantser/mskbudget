@@ -1929,6 +1929,12 @@ button::-moz-focus-inner { padding: 0; border: 0; }
 
 .cube__arrow_m { display: none; }
 
+.cube.slider {
+  -webkit-perspective: none; -moz-perspective: none; perspective: none;
+  .cube__side { position: relative; -webkit-backface-visibility: visible; -moz-backface-visibility: visible; backface-visibility: visible; -webkit-transform-style: flat; -moz-transform-style: flat; transform-style: flat; opacity: 1; }
+  .slick-arrow { @media (max-width: 700px) { display: none !important; } }
+}
+
 @media (max-width: 1180px) { .cube__arrow { background: #fee300 !important; } }
 
 @media (max-width: 700px) { .cube__arrow { display: none; position: relative; top: 0; margin-top: 0; }
