@@ -8,10 +8,42 @@ export default () => {
   
   $(document).ready(function() {
     
+    var isMobile = {
+      Android: function() {
+        return navigator.userAgent.match(/Android/i);
+      },
+      BlackBerry: function() {
+        return navigator.userAgent.match(/BlackBerry/i);
+      },
+      iOS: function() {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+      },
+      Opera: function() {
+        return navigator.userAgent.match(/Opera Mini/i);
+      },
+      Windows: function() {
+        return navigator.userAgent.match(/IEMobile/i);
+      },
+      any: function() {
+        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+      }
+    };
+    
     if ($('.wrapper_main').length) {
-      $(window).resize(function() {
-        location.reload();
-      });
+      
+      if (isMobile.any()) {
+        
+        var windowHeight = $(window).height();
+        $('.wrapper_main').css('height', windowHeight+'px');
+        $('body').css('overflow', 'hidden');
+        
+      } else {
+        
+        $(window).resize(function() {
+          location.reload();
+        });
+        
+      }
     }
 
     if ($('.service__icon').length) {
