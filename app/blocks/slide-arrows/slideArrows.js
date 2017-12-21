@@ -54,6 +54,12 @@ export default () => {
   // Движущиеся стрелки
   if ($('.analityc-table_sticky-arrows').length) {
     
+    $('.analityc-table_sticky-arrows').each(function(){
+      var topPos = $(this).find('.slide-arrows').css('top');
+      topPos = parseInt(topPos);
+      $(this).find('.slide-arrows').attr('data-top', topPos);
+    });
+    
     $(window).scroll(function(){
       
       if ($('.analityc-table_sticky-arrows .slide-arrows:visible').length) {
@@ -62,7 +68,8 @@ export default () => {
         var scrollDistance = $(window).scrollTop() + $(window).height() / 2;
         var table = stickyArrows.parents('.analityc-table_sticky-arrows');
         var tableHeight = table.outerHeight();
-        var topArrowsDistance = table.offset().top + 100;
+        var startPos = parseInt(stickyArrows.attr('data-top'));
+        var topArrowsDistance = table.offset().top + startPos;
         var bottomArrowsDistance = table.offset().top + tableHeight - 80;
         if (scrollDistance >= topArrowsDistance && scrollDistance <= bottomArrowsDistance) {
           stickyArrows.addClass('fixed');
