@@ -61,7 +61,7 @@ export default () => {
       //
       // }
 
-      const regionSlider = new Swiper('.d-smr__chart-wrapper', {
+      /*const regionSlider = new Swiper('.d-smr__chart-wrapper', {
         slidesPerView: 3,
         nextButton: '._regions__ar-right',
         prevButton: '._regions__ar-left',
@@ -97,7 +97,7 @@ export default () => {
             slidesPerView: 1
           }
         }
-       });
+       });*/
 
       function checkSlidesAmount(swiper) {
         var slidesAmount = swiper.wrapper.find('.d-smr__chart-col.active').length;
