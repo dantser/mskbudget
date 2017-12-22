@@ -212,17 +212,89 @@ $(document).ready(function(){
 
 
 // Обрезание текста троеточием
-function overflowDottsInit(size, element) {
-  if ($(element).length) {
-    var content = $(element);
-    content.each(function () {
-      var contentText = $(this).text();
-      if(contentText.length > size){
-        $(this).text((contentText.slice(0, size)).trim() + '...');
-      }
-    });
+function overflowDotts(size, element) {
+  var content = $(element);
+  content.each(function () {
+    var contentText = $(this).text();
+    if(contentText.length > size){
+      $(this).text((contentText.slice(0, size)).trim() + '...');
+    }
+  });
+};
+
+function overflowDottsInit() {
+  
+  // teaser-card
+  if ($('.teaser-card').length) {
+    overflowDotts(120, '.teaser-card__title');
   }
+  
+  // widget-card
+  if ($('.widget-card').length) {
+    overflowDotts(70, '.widget-card-polls .widget-card__info-block-title, .widget-card-quiz .widget-card__info-block-title');
+    overflowDotts(45, '.widget-card-polls-pers .widget-card__info-block-title, .widget-card-quiz-pers .widget-card__info-block-title');
+    overflowDotts(127, '.widget-card-social-support .widget-card__info-block-item, .widget-card-gov-programs-result .widget-card__info-block-item');
+    overflowDotts(95, '.widget-card-projects .widget-card__info-block-desc');
+  }
+  
+  // depfin-budget-moscow-open
+  if ($('.depfin-budget-moscow-open').length) {
+    if ($(window).width() < 900) {
+      overflowDotts(50, '.depfin-budget-moscow-open__text');
+    } else {
+      overflowDotts(70, '.depfin-budget-moscow-open__text');
+    }
+  }
+  
+  // media-card
+  if ($('.media-card').length) {
+    if ($(window).width() < 1140 && $(window).width() >= 401) {
+      overflowDotts(42, '.media-card__text');
+    } else if ($(window).width() < 400) {
+      overflowDotts(80, '.media-card__text');
+    } else {
+      overflowDotts(60, '.media-card__text');
+    }
+  }
+  
+  // section-tabs
+  if ($('.section-tabs').length) {
+    overflowDotts(60, '.section-tabs__title');
+    overflowDotts(400, '.section-tabs__text');
+    overflowDotts(165, '.news__title');
+  }
+  
+  // document / directory
+  if ($('.document').length || $('.directory').length) {
+    overflowDotts(60, '.document__title');
+    overflowDotts(60, '.directory__title');
+    overflowDotts(250, '.document__excerpt');
+  }
+    
+  // wrapper_main (главная)
+  if ($('.wrapper_main').length) {
+    overflowDotts(80, '.news__title');
+  }
+  
+  // media-main / news-page / news-one
+  if ($('.media-main, .news-page, .news-one').length) {
+    if ($(window).width() > 640) {
+      overflowDotts(140, '.news__title');
+    } else {
+      overflowDotts(85, '.news__title');
+    }
+  }
+  
+  // d-si__quiz (опросы / викторины)
+  if ($('.d-si__quiz').length) {
+    overflowDotts(90, '.d-si__quiz_head');
+  }
+  
 }
+
+$(document).ready(function(){
+  overflowDottsInit();
+});
 
 function dotTextInit(element) {
   if ($(element).length) {
