@@ -72,20 +72,4 @@ export default function docCards() {
     }
   });
 
-  // добавляем три точки при переполнении заголовков
-
-  function overflowDotts(size, element) {
-    const CONTENT = $(element);
-    CONTENT.each(function () {
-      const SIZE = size;
-      const CONTENTTEXT = $(this).text();
-        if(CONTENTTEXT.length > SIZE){
-          $(this).text((CONTENTTEXT.slice(0, SIZE)).trim() + '...');
-        }
-    });
-  };
-
-  overflowDotts(60, '.section-tabs__title');
-  overflowDotts(400, '.section-tabs__text');
-  overflowDotts(165, '.news__title');
 }
