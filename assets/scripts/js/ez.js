@@ -994,13 +994,14 @@ function stageSlider() {
     });
     
     $('.steps__mob-slider, .steps.back-round .wrap').swipe({
-      swipe: function(event, direction) {
+      swipeLeft: function(event, direction) {
         if ($(window).width() <= 800) {
-          if (direction == "left") {
             $(this).parents('.steps').find('.steps__mob-slider-arrow_next').click();
-          } else if (direction == "right") {
+        }
+      },
+      swipeRight: function(event, direction) {
+        if ($(window).width() <= 800) {
             $(this).parents('.steps').find('.steps__mob-slider-arrow_prev').click();
-          }
         }
       },
       threshold: 121,
