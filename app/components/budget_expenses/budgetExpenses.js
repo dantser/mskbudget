@@ -34,9 +34,6 @@ export default () => {
           lineWidth = $(this).find('.analityc-graphics__line-total').width(),
           fillWidth = $(this).find('.analityc-graphics__line-fill').width();
       
-      console.log(valWidth);
-      console.log(lineWidth);
-      
       if (valWidth > lineWidth) {
         $(this).addClass('analityc-graphics__line_short');
         $(this).find('.analityc-graphics__line-abs').css('left', fillWidth+'px');
