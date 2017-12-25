@@ -90,6 +90,41 @@ export default () => {
     checkDateGraphics();
     
     
+    function checkGraphicVals() {
+      $('.analityc-widget-sources_approved .linear-diagram__value, .analityc-widget-sources_done .linear-diagram__value').each(function(){
+        var valueWidth = $(this).outerWidth(),
+            fillWidth = $(this).parent().width();
+        if ($(this).siblings('.linear-diagram__wave').length) {
+          var waweWidth = $(this).siblings('.linear-diagram__wave').outerWidth(true);
+          fillWidth -= waweWidth;
+        }
+        if (valueWidth > fillWidth) {
+          $(this).addClass('linear-diagram__value_out');
+        } else {
+          $(this).removeClass('linear-diagram__value_out');
+        }
+      });
+      
+      $('.analityc-widget-sources_changes .linear-diagram__fill-pos > .linear-diagram__value, .analityc-widget-sources_changes .linear-diagram__fill-neg > .linear-diagram__value').each(function(){
+        var valueWidth = $(this).outerWidth(),
+            fillWidth = $(this).parent().width();
+        if ($(this).siblings('.linear-diagram__wave').length) {
+          var waweWidth = $(this).siblings('.linear-diagram__wave').outerWidth(true);
+          fillWidth -= waweWidth;
+        }
+        if (valueWidth > fillWidth) {
+          $(this).hide();
+          $(this).next('.linear-diagram__fill-hover').addClass('active');
+        } else {
+          $(this).show();
+          $(this).next('.linear-diagram__fill-hover').removeClass('active');
+        }
+      });
+    }
+    
+    checkGraphicVals();
+    
+    
     // слайдер
     var approvedGraphSlider, changesGraphSlider;
     
@@ -126,6 +161,7 @@ export default () => {
         changesGraphSlider.update();
       }
       graphicArrowInit();
+      checkGraphicVals();
     });
     
     // переключение по кнопкам график/таблица
@@ -139,6 +175,7 @@ export default () => {
         changesGraphSlider.update();
       }
       graphicArrowInit();
+      checkGraphicVals();
     });
     
     

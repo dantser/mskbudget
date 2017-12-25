@@ -116,10 +116,10 @@ mixin budget_moscow_sources()
                     +e.data(data-char='2017')
                       +b.linear-diagram._violet
                         +e.fill
-                          +e.fill-neg(data-width="61")
+                          +e.fill-neg(data-width="71")
                             +e.SPAN.wave                          
                             +e.SPAN.value -25,7
-                          +e.fill-pos(data-width="61")
+                          +e.fill-pos(data-width="71")
                             +e.SPAN.wave
                             +e.SPAN.value -25,7
                   +e.row.__sources
@@ -127,7 +127,7 @@ mixin budget_moscow_sources()
                     +e.data(data-char='2017')
                       +b.linear-diagram._lightgreen
                         +e.fill
-                          +e.fill-pos(data-width="112")
+                          +e.fill-pos(data-width="102")
                             +e.SPAN.wave
                             +e.SPAN.value 216,9
                   +e.row.__total
@@ -240,6 +240,7 @@ mixin budget_moscow_sources()
                       +b.linear-diagram._pink
                         +e.fill
                           +e.fill-pos(data-width="10")
+                            +e.SPAN.value 1,0
                             +e.fill-hover
                               +e.fill-abs
                                 +e.SPAN.value._abs 1,0
@@ -251,6 +252,7 @@ mixin budget_moscow_sources()
                       +b.linear-diagram._blue
                         +e.fill
                           +e.fill-pos(data-width="10")
+                            +e.SPAN.value 1,0
                             +e.fill-hover
                               +e.fill-abs
                                 +e.SPAN.value._abs 1,0
@@ -261,12 +263,18 @@ mixin budget_moscow_sources()
                     +e.data(data-char='2017')
                       +b.linear-diagram._violet
                         +e.fill
-                          +e.fill-neg(data-width="61")
+                          +e.fill-neg(data-width="71")
                             +e.SPAN.wave                          
                             +e.SPAN.value -25,7
-                          +e.fill-pos(data-width="61")
+                            +e.fill-hover
+                              +e.fill-abs
+                                +e.SPAN.value._abs -25,7
+                          +e.fill-pos(data-width="71")
                             +e.SPAN.wave
                             +e.SPAN.value -25,7
+                            +e.fill-hover
+                              +e.fill-abs
+                                +e.SPAN.value._abs -25,7
                             +e.fill-extra(data-width="7")
                               +e.SPAN.value._out +25,0
                   +e.row.__sources
@@ -274,9 +282,12 @@ mixin budget_moscow_sources()
                     +e.data(data-char='2017')
                       +b.linear-diagram._lightgreen
                         +e.fill
-                          +e.fill-pos(data-width="112")
+                          +e.fill-pos(data-width="102")
                             +e.SPAN.wave
                             +e.SPAN.value 216,9
+                            +e.fill-hover
+                              +e.fill-abs
+                                +e.SPAN.value._abs 216,9
                             +e.fill-extra(data-width="7")
                               +e.SPAN.value._out +10,0
                   +e.row.__total
@@ -298,6 +309,7 @@ mixin budget_moscow_sources()
                       +b.linear-diagram._pink
                         +e.fill
                           +e.fill-pos(data-width="10")
+                            +e.SPAN.value 1,0
                             +e.fill-hover
                               +e.fill-abs
                                 +e.SPAN.value._abs 1,0
@@ -308,7 +320,7 @@ mixin budget_moscow_sources()
                     +e.data(data-char='2018')
                       +b.linear-diagram._blue
                         +e.fill
-                          +e.fill-pos._small(data-width="21")
+                          +e.fill-pos(data-width="21")
                             +e.SPAN.value 5,6
                             +e.fill-hover
                               +e.fill-abs
@@ -322,6 +334,9 @@ mixin budget_moscow_sources()
                         +e.fill
                           +e.fill-neg(data-width="44")
                             +e.SPAN.value -4,3
+                            +e.fill-hover
+                              +e.fill-abs
+                                +e.SPAN.value._abs -4,3
                             +e.fill-extra(data-width="17")
                               +e.SPAN.value._out +2,5
                   +e.row.__sources
@@ -332,8 +347,11 @@ mixin budget_moscow_sources()
                           +e.fill-pos(data-width="82")
                             +e.SPAN.wave
                             +e.SPAN.value 86,3
-                            +e.fill-down(data-width="13")
-                              +e.SPAN.value._out -10,0
+                            +e.fill-hover
+                              +e.fill-abs
+                                +e.SPAN.value._abs 86,3
+                              +e.fill-down(data-width="13")
+                                +e.SPAN.value._out -10,0
                   +e.row.__total
                     +e.title.linear-diagram__sources Всего по источникам финансирования дефицита
                     +e.SPAN.data_green(data-char='2018') +88,5
@@ -353,17 +371,19 @@ mixin budget_moscow_sources()
                       +b.linear-diagram._pink
                         +e.fill
                           +e.fill-pos
-                            +e.fill-down(data-width="17")
-                              +e.fill-hover
-                                +e.fill-abs
-                                  +e.SPAN.value._abs 1,0
-                              +e.SPAN.value_out -1,0
+                            +e.SPAN.value 1,0
+                            +e.fill-hover
+                              +e.fill-abs
+                                +e.SPAN.value._abs 1,0
+                              +e.fill-down(data-width="17")
+                                +e.SPAN.value_out -1,0
                   +e.row.__credits
                     +e.title.linear-diagram__sources_blue Возврат бюджетных кредитов
                     +e.data(data-char='2019')
                       +b.linear-diagram._blue
                         +e.fill
                           +e.fill-pos(data-width="10")
+                            +e.SPAN.value 0,4
                             +e.fill-hover
                               +e.fill-abs
                                 +e.SPAN.value._abs 0,4
@@ -374,6 +394,10 @@ mixin budget_moscow_sources()
                       +b.linear-diagram._violet
                         +e.fill
                           +e.fill-neg(data-width="0")
+                            +e.SPAN.value 0,0
+                            +e.fill-hover
+                              +e.fill-abs
+                                +e.SPAN.value._abs 0,0
                             +e.fill-extra(data-width="20")
                               +e.SPAN.value._out +2,5
                   +e.row.__sources
@@ -383,6 +407,9 @@ mixin budget_moscow_sources()
                         +e.fill
                           +e.fill-pos(data-width="42")
                             +e.SPAN.value 8,4
+                            +e.fill-hover
+                              +e.fill-abs
+                                +e.SPAN.value._abs 8,4
                   +e.row.__total
                     +e.title.linear-diagram__sources Всего по источникам финансирования дефицита
                     +e.SPAN.data_green(data-char='2019') +9,7
