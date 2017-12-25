@@ -236,3 +236,18 @@ mixin searchFormVMO(placeholder, tooltip)
         i
         span= tooltip
       +icon('icon-glass').__submit
+      
+mixin searchFormDocs()
+  +b.search.search_docs.d-si__search-form(action="#")
+    +e.filter
+      INPUT.link(type="reset" value="Сбросить все фильтры")
+      +link()._tags.filter-link Поиск по тэгам
+      +b.tags.modal
+        +e.wrapper
+          +e.title Тэги
+          +e.list
+            - for (var i = 0; i<25; i++)
+              +tag('Банки', 'searchTag')
+          +button()._kind_blue Искать
+          +e.INPUT.reset(type="reset" value="Сбросить все фильтры")
+          u.btn-close.js-close-modal

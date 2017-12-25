@@ -33,7 +33,7 @@
     .md-ml-50 { margin-left: 50px !important; }
     .md-ml-0 { margin-left: 0 !important; }
     .md-mr-0 { margin-right: 0 !important; }
-    .md-float-r { float: right; }
+    //.md-float-r { float: right; }
     .md-display-b { display: block; }
     .md-display-n { display: none; } }
 
@@ -310,7 +310,11 @@
 
   .form__field_d3 { width: 375px; padding-left: 180px; }
 
-  .form__field_d4 { width: 315px; padding-left: 120px; }
+  .form__field_d4 { width: 315px; padding-left: 120px; 
+    @media (max-width: 1140px) {
+      clear: left; padding-left: 180px; width: 375px;
+    }
+  }
 
   .form__label { display: block; position: absolute; margin: 0; transition: all 0.25s ease-in-out; font-size: 14px; font-weight: 500; color: #FFF; text-transform: uppercase; top: 11px; left: 0;
     &:hover {

@@ -1,5 +1,6 @@
 include ../page-header/page-header
 include ../../components/documents-cards/documents-cards
+include ../../components/searchForm/searchForm
 
 mixin documents()
   //- +b.documents&attributes(attributes)
@@ -71,6 +72,7 @@ mixin documents()
                 SPAN.form__date-range-sep —
                 INPUT(type='text', value='дд.мм.гг', readonly, data-type='document').form__date-range-input.jq-f-datepicker.input-max
                 SPAN.form__date-range-icon
+            +searchFormDocs()
           INPUT(type='submit', value='Искать').form__submit
         .sort.mb-30.load-anim-fade(data-delay="1500")
           SPAN.sort__capt Сортировать по:
