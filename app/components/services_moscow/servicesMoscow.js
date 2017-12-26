@@ -138,6 +138,63 @@ export default () => {
     }
   
     $('.city-popup__wrapper').scrollbar();
+    
+    var isMobile = {
+      Android: function() {
+        return navigator.userAgent.match(/Android/i);
+      },
+      BlackBerry: function() {
+        return navigator.userAgent.match(/BlackBerry/i);
+      },
+      iOS: function() {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+      },
+      Opera: function() {
+        return navigator.userAgent.match(/Opera Mini/i);
+      },
+      Windows: function() {
+        return navigator.userAgent.match(/IEMobile/i);
+      },
+      any: function() {
+        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+      }
+    };
+    
+    if (isMobile.any()) {
+      $('.services-moscow-index__sort').css('display', 'block');
+    } else {
+      $('.services-moscow-index__sort').css('display', '');
+    }
+  }
+  
+  function freezePage() {
+    var winWidth = $(window).width();
+    $('body').css({
+      'overflow': 'hidden',
+      'width': winWidth
+    });
+    $('.header').css({
+      'transition': 'none',
+      'width': winWidth
+    });
+    if ($(window).width() != winWidth) {
+      var buttonRightPos = parseInt($('.button-top').css('right'));
+      buttonRightPos += Math.abs($(window).width() - winWidth);
+      $('.button-top').css('right', buttonRightPos+'px');
+    }
+  }
+  
+  function unfreezePage() {
+    var winWidth = $(window).width();
+    $('body').css({
+      'overflow': '',
+      'width': ''
+    });
+    $('.header').css({
+      'transition': '',
+      'width': ''
+    });
+    $('.button-top').css('right', '');
   }
   
   //Попап
@@ -157,6 +214,8 @@ export default () => {
     } else {
       popup.fadeIn(321);
     }
+    $('.city-popup-mask').show();
+    freezePage();
   });
   
   $(document).on('click', '.services-moscow-params__sources-link', function(e){
@@ -164,10 +223,16 @@ export default () => {
     e.stopPropagation();
     var popup = $(this).parents('.services-moscow__note').find('.services-moscow-params__city-popup');
     popup.fadeIn(321);
+    $('.city-popup-mask').show();
+    freezePage();
   });
   
   $(document).on('click', '.city-popup__close', function(){
     $(this).parents('.city-popup').fadeOut(321);
+    $('.city-popup-mask').hide();
+    setTimeout(function(){
+      unfreezePage();
+    }, 321);
   });
   
   $(document).on('click', '.city-popup', function(e){
@@ -176,5 +241,9 @@ export default () => {
   
   $(document).on('click', 'html, body', function(){
     $('.city-popup').fadeOut(321);
+    $('.city-popup-mask').hide();
+    setTimeout(function(){
+      unfreezePage();
+    }, 321);
   });
 }
