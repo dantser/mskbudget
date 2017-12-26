@@ -24,10 +24,11 @@ $(document).on('click', '.selectbox li', function (e) {
         $(this).parents('.selectbox').find('.selectbox__val').text(inputval);
     }
 
-    //$(this).parent().removeClass('active');
-    //setTimeout(function () {
-    //  $('body').click();
-    //},100)
+    // смена картинки
+    if ($(this).find('img').length) {
+      var imgSrc = $(this).find('img').attr('src');
+      $(this).parents('.selectbox').children('img').attr('src', imgSrc);
+    }
   }
 });
 
