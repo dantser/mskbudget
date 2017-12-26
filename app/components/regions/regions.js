@@ -21,18 +21,18 @@ export default () => {
   //  }
   //  $('.d-smr__chart-col:visible[data-char]').css('display', 'none').prev().css('display', 'table-cell');
   //});
+  
   $('.d-smr__add-char-item').click(function(){
-  var inputCount = $(this).parent().find('.d-smr__add-char-item input:checked').length,
-      checkboxCount = $(this).siblings('.d-smr__add-char-item').length + 1;
+    var inputCount = $(this).parent().find('.d-smr__add-char-item input:checked').length,
+        checkboxCount = $(this).siblings('.d-smr__add-char-item').length + 1;
 
-  // console.log(inputCount + " " + checkboxCount);
-
-  if (inputCount != checkboxCount) {
-    $(this).parents('.d-smr__add-char-item').find('>input').prop('checked', false);
-  } else {
-    $(this).parents('.d-smr__add-char-item').find('>input').prop('checked', true);
-  }
-});
+    if (inputCount != checkboxCount) {
+      $(this).parents('.d-smr__add-char-item').find('>input').prop('checked', false);
+    } else {
+      $(this).parents('.d-smr__add-char-item').find('>input').prop('checked', true);
+    }
+  });
+  
   SORT.each(function () {
     const EL = $(this);
     EL.on('click', (e) => {
@@ -172,6 +172,41 @@ export default () => {
       });
 
       $('.d-smr__add-char-list-wrapper').scrollbar();
+      
+      var isMobile = {
+        Android: function() {
+          return navigator.userAgent.match(/Android/i);
+        },
+        BlackBerry: function() {
+          return navigator.userAgent.match(/BlackBerry/i);
+        },
+        iOS: function() {
+          return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+        },
+        Opera: function() {
+          return navigator.userAgent.match(/Opera Mini/i);
+        },
+        Windows: function() {
+          return navigator.userAgent.match(/IEMobile/i);
+        },
+        any: function() {
+          return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+        }
+      };
+      
+      if (isMobile.any()) {
+        $('.d-smr__chart-header .d-smr__chart-controls').addClass('mobile');
+      } else {
+        $('.d-smr__chart-header .d-smr__chart-controls').removeClass('mobile');
+      }
+      
+      $('.d-smr__char-sublist').each(function(){
+        var inputCount = $(this).find('input').length,
+            checkedInputCount = $(this).find('input:checked').length;
+        if (inputCount == checkedInputCount) {
+          $(this).siblings('input').prop('checked', true);
+        }
+      });
 
     }
 
