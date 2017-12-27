@@ -659,7 +659,9 @@ button::-moz-focus-inner { padding: 0; border: 0; }
   background-size: 19px 19px;
 }
 
-.diagram-tabs__btn:hover + p, .diagram-tabs__btn:hover .diagram-tabs__span-hov { height: auto; display: block; filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false); opacity: 1; opacity: 1 !important; }
+//.diagram-tabs__btn:hover + p, .diagram-tabs__btn:hover .diagram-tabs__span-hov { height: auto; display: block; filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false); opacity: 1; opacity: 1 !important; }
+
+.diagram-tabs__item:hover .diagram-tabs__caption, .diagram-tabs__item:hover .diagram-tabs__span-hov { height: auto; display: block; filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false); opacity: 1; opacity: 1 !important; visibility: visible;}
 
 .diagram-tabs__span-hov, .diagram-tabs__span-js { display: none; position: absolute; top: 0; left: 0; bottom: 0; right: 0; -webkit-border-radius: 2px 2px 0 0; -moz-border-radius: 2px 2px 0 0; border-radius: 2px 2px 0 0; }
 
@@ -705,7 +707,9 @@ button::-moz-focus-inner { padding: 0; border: 0; }
 
 .diagram-tabs__item_orange .diagram-tabs__btn span:after, .diagram-tabs__item_orange .diagram-tabs__btn span:before { background: #fca805; }
 
-.diagram-tabs__caption { position: absolute; left: 0; right: 0; z-index: 2; height: 28px; line-height: 30px; font-size: 14px; color: #000; height: 0; filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0); opacity: 0; -webkit-transition: opacity .5s ease 0s; -o-transition: opacity .5s ease 0s; -moz-transition: opacity .5s ease 0s; transition: opacity .5s ease 0s; }
+.diagram-tabs__caption { position: absolute; left: 0; right: 0; z-index: 2; height: auto; line-height: 30px; font-size: 14px; color: #000; filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0); opacity: 0; -webkit-transition: opacity .5s ease 0s; -o-transition: opacity .5s ease 0s; -moz-transition: opacity .5s ease 0s; transition: opacity .5s ease 0s; padding: 0 10px; visibility: hidden;
+  &.long {overflow: hidden; white-space: nowrap; text-overflow: ellipsis;}
+}
 
 @media (max-width: 900px) and (max-height: 610px) {
   .diagram-tabs { height: 45px; }
@@ -717,7 +721,7 @@ button::-moz-focus-inner { padding: 0; border: 0; }
   .diagram-tabs__btn_other:before { background-position: -234px 6px; }
   //.diagram-tabs__btn_bank:before { background-position: -180px 3px; }
   //.diagram-tabs__btn_bag:before { background-position: -180px -20px; }
-  .diagram-tabs__caption { height: 22px; line-height: 24px; font-size: 11px; }
+  .diagram-tabs__caption { height: auto; line-height: 24px; font-size: 11px; }
 }
 /*
 @media (max-width: 650px) { .diagram-tabs { height: 45px; }

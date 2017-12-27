@@ -109,34 +109,8 @@ export default function selectbox() {
     
   });
   
-  window.selectTitles = function(el) {
-    
-    if ($(el).length) {
-    
-      $(el).each(function () {
-        
-        $(this).find('li:visible').each(function(){
-          
-          var itemWidth = $(this).width(),
-              spanWidth = $(this).find('span').width();
-          
-          if ($(this).find('a').length) {
-            itemWidth = $(this).find('a').width();
-          }
-          
-          if (spanWidth > itemWidth) {
-            
-            var spanText = $(this).find('span').text();
-            $(this).addClass('long').attr('title', $.trim(spanText));
-            
-          }
-        });
-      });
-    }
-  }
-  
   setTimeout(function(){
-    selectTitles('.selectbox');
+    selectTitlesInit();
   }, 500);
   
   setTimeout(function(){
