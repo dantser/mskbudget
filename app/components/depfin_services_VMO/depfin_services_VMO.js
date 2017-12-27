@@ -19,17 +19,79 @@ export default () => {
       $this.addClass(ACTIVE_CLASS);
     })
   });
+  
+  var isMobile = {
+    Android: function() {
+      return navigator.userAgent.match(/Android/i);
+    },
+    BlackBerry: function() {
+      return navigator.userAgent.match(/BlackBerry/i);
+    },
+    iOS: function() {
+      return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+    },
+    Opera: function() {
+      return navigator.userAgent.match(/Opera Mini/i);
+    },
+    Windows: function() {
+      return navigator.userAgent.match(/IEMobile/i);
+    },
+    any: function() {
+      return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+    }
+  };
+  
+  if (isMobile.any()) {
+    
+    VMO.find('.services-VMO__map-hover').click(function(e) {
+      e.stopPropagation();
+      
+      if ($(this).hasClass('targeted')) {
+        
+        TABLINK.removeClass('active');
+        VMO.find('.services-VMO__tabs-control a[data-tab-target="' + $(this).data('tab-target') + '"]').addClass('active').click();
+        $('img[data-hover="' + $(this).data('hover-target') + '"]').hide();
+        $(this).removeClass('targeted');
+        
+      } else {
+        
+        $('img[data-hover]').hide();
+        $('.services-VMO__map-hover').removeClass('targeted');
+        $('img[data-hover="' + $(this).data('hover-target') + '"]').show();
+        $(this).addClass('targeted');
+        
+      }
+    });
+    
+    $(document).on('click', function(){
+      $('img[data-hover]').hide();
+      $('.services-VMO__map-hover').removeClass('targeted');
+    });
+    
+  } else {
+    
+    VMO.find('.services-VMO__map-hover').hover(function() {
+      $('img[data-hover="' + $(this).data('hover-target') + '"]').show();
+    }, function() {
+      $('img[data-hover="' + $(this).data('hover-target') + '"]').hide();
+    });
+    
+    VMO.find('.services-VMO__map-hover').click(function() {
+      TABLINK.removeClass('active');
+      VMO.find('.services-VMO__tabs-control a[data-tab-target="' + $(this).data('tab-target') + '"]').addClass('active');
+    });
+  }
 
-  VMO.find('.services-VMO__map-hover').hover(function() {
-    $('img[data-hover="' + $(this).data('hover-target') + '"]').show();
-  }, function() {
-    $('img[data-hover="' + $(this).data('hover-target') + '"]').hide();
-  })
-
-  VMO.find('.services-VMO__map-hover').click(function() {
-    TABLINK.removeClass('active');
-    VMO.find('.services-VMO__tabs-control a[data-tab-target="' + $(this).data('tab-target') + '"]').addClass('active');
-  })
+  //VMO.find('.services-VMO__map-hover').hover(function() {
+  //  $('img[data-hover="' + $(this).data('hover-target') + '"]').show();
+  //}, function() {
+  //  $('img[data-hover="' + $(this).data('hover-target') + '"]').hide();
+  //})
+  //
+  //VMO.find('.services-VMO__map-hover').click(function() {
+  //  TABLINK.removeClass('active');
+  //  VMO.find('.services-VMO__tabs-control a[data-tab-target="' + $(this).data('tab-target') + '"]').addClass('active');
+  //})
 
   // обновление графиков при отрисовке (массив window.grLineVert)
   VMO.find('.analityc-control-switcher-wrapper a').click(function() {
@@ -108,6 +170,7 @@ export default () => {
       }, 1000, function(){
         LIST.height('auto');
       });
+      $(this).addClass('inactive');
     })
   });
 
