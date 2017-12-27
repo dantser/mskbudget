@@ -324,6 +324,65 @@ function dotTextInit(element) {
 
 
 
+// Всплывающие подсказки в селектах
+function selectTitles(el) {
+  
+  if ($(el).length) {
+  
+    $(el).each(function () {
+      
+      $(this).find('li:visible').each(function(){
+        
+        var itemWidth = $(this).width(),
+            spanWidth = $(this).find('span').width();
+        
+        if ($(this).find('a').length) {
+          itemWidth = $(this).find('a').width();
+        }
+        
+        if (spanWidth > itemWidth) {
+          
+          var spanText = $(this).find('span').text();
+          $(this).addClass('long').attr('title', $.trim(spanText));
+          
+        }
+      });
+    });
+  }
+}
+
+function selectTitlesInit() {
+  selectTitles('.selectbox');
+}
+
+
+
+// Обрезание троеточием и добавление подсказки в подписях диаграмм в виджетах
+function captionDots(el) {
+  if ($(el).length) {
+    $(el+':visible').each(function(){
+      var lineHeight = parseInt($(this).css('line-height')),
+          captionHeight = $(this).height(),
+          captionText = $(this).text();      
+      if (captionHeight > lineHeight) {
+        $(this).addClass('long').attr('title', $.trim(captionText));
+      }
+    });
+  }
+}
+
+function captionDotsInit() {
+  captionDots('.diagram-tabs__caption');
+}
+
+$(document).ready(function(){
+  setTimeout(function(){
+    captionDotsInit();
+  }, 500);
+});
+
+
+
 // Позиционирование картинок в новостях и событиях
 function setImagePosition() {
   
@@ -371,7 +430,7 @@ $(document).ready(function(){
 function tooltipInit() {
   
   var tooltips = document.querySelectorAll('.js-tooltip');
-  var screenWidth = () => window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth || 0;
+  var screenWidth = $(window).width();
   var tooltipPosition = (screenWidth() > 559) ? 'right' : 'top';
 
   if (tooltips) {
