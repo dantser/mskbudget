@@ -1,5 +1,6 @@
 include ../../blocks/icon/icons
 include ../../blocks/button/button
+include ../../blocks/link/link
 
 mixin contest-popup(isJuridical)
 
@@ -67,7 +68,8 @@ mixin contest-popup(isJuridical)
 				+participant()
 				
 				if !isJuridical
-					+button()._kind_yellow.js-button-addparticipant Добавить участника
+					//+button()._kind_yellow.js-button-addparticipant Добавить участника
+					+link().js-button-addparticipant Добавить участника
 
 			+e.options
 				+e.DIV(data-type='checkbox').option.js-opencon-question

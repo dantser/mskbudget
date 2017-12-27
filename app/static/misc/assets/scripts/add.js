@@ -364,3 +364,40 @@ function setImagePosition() {
 $(document).ready(function(){
   setImagePosition();
 });
+
+
+
+// Tooltips
+function tooltipInit() {
+  
+  var tooltips = document.querySelectorAll('.js-tooltip');
+  var screenWidth = () => window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth || 0;
+  var tooltipPosition = (screenWidth() > 559) ? 'right' : 'top';
+
+  if (tooltips) {
+    tippy('.js-tooltip', {
+      // @TEST
+      // trigger: 'click',
+      delay: [10, 100],
+      //performance: true,
+      animation: 'shift',
+
+      position: tooltipPosition,
+      offset: 20,
+      // animation: 'perspective',
+      duration: 200,
+      arrow: true,
+      distance: 20,
+      theme: 'light',
+      size: 'big',
+      arrowSize: 'big',
+      popperOptions: {
+        modifiers: {
+          flip: {
+            behavior: ['right', 'bottom']
+          }
+        }
+      }
+    });
+  }
+}
