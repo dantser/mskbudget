@@ -20,15 +20,21 @@ export default () => {
   isDocumentLoad = false;
   
   if ($('.services-moscow').length) {
+    
+    window.citySlider = false;
   
     if ($(window).width() > 900) {
       var colLength = $('.services-moscow-index__col').length;
       if (colLength >= 5) {
-        var table = new Swiper('.services-moscow-index__index', {
+        citySlider = new Swiper('.services-moscow-index__index', {
           slidesPerView: 5,
           prevButton: '.services-moscow-index__table-arrow_prev',
           nextButton: '.services-moscow-index__table-arrow_next',
-          loop: true
+          loop: true,
+          onSlideChangeEnd: function(swiper) {
+            var activeSlide = swiper.realIndex;
+            $('.services-moscow-index__table').attr('data-active-slide', activeSlide);
+          }
         });
       } else {
         $('.services-moscow-index__table-arrow_prev').hide();
@@ -37,12 +43,23 @@ export default () => {
         $('.services-moscow-index__col').addClass('services-moscow-index__col_noslide');
       }
     } else {
-      var table = new Swiper('.services-moscow-index__index', {
+      citySlider = new Swiper('.services-moscow-index__index', {
         slidesPerView: 'auto',
         prevButton: '.services-moscow-index__table-arrow_prev',
         nextButton: '.services-moscow-index__table-arrow_next',
-        loop: true
+        loop: true,
+        onSlideChangeEnd: function(swiper) {
+          var activeSlide = swiper.realIndex;
+          $('.services-moscow-index__table').attr('data-active-slide', activeSlide);
+        }
       });
+    }
+    
+    window.setCitySlider = function() {
+      if (citySlider) {
+        var targetSlide = $('.services-moscow-index__table').attr('data-active-slide');
+        citySlider.slideTo(targetSlide, 0);
+      }
     }
 
     const SORT_BTN = $('.services-moscow-index__sort');
@@ -53,8 +70,8 @@ export default () => {
   
     // формирование высоты шапки в таблице
     var tableHeadingHeight = 59;
-    $('.services-moscow-index__col-heading, .services-moscow-index__row_caption').each(function() {
-      var headingH = $(this).outerHeight();
+    $('.services-moscow-index__col-heading').each(function() {
+      var headingH = $(this).height();
       if (headingH > tableHeadingHeight) tableHeadingHeight = headingH;
     })
     $('.services-moscow-index__col-heading, .services-moscow-index__row_caption').each(function() {
@@ -222,7 +239,15 @@ export default () => {
     e.preventDefault();
     e.stopPropagation();
     var popup = $(this).parents('.services-moscow__note').find('.services-moscow-params__city-popup');
-    popup.fadeIn(321);
+    if ($(window).width() <= 580) {
+      $.when(popup.fadeIn(321)).then(function(){
+        var titleHeight = popup.find('.city-popup__title').outerHeight(true),
+            listMaxHeight = 420 - titleHeight;
+        popup.find('.city-popup__wrapper').css('max-height', listMaxHeight);
+      });
+    } else {
+      popup.fadeIn(321);
+    }
     $('.city-popup-mask').show();
     freezePage();
   });

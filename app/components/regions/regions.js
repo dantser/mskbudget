@@ -194,19 +194,24 @@ export default () => {
         }
       };
       
-      if (isMobile.any()) {
-        $('.d-smr__chart-header .d-smr__chart-controls').addClass('mobile');
-      } else {
-        $('.d-smr__chart-header .d-smr__chart-controls').removeClass('mobile');
+      window.regionChartControls = function() {
+        if (checkMobile.any()) {
+          $('.d-smr__chart-header .d-smr__chart-controls').addClass('mobile');
+        } else {
+          $('.d-smr__chart-header .d-smr__chart-controls').removeClass('mobile');
+        }
+        
+        $('.d-smr__char-sublist').each(function(){
+          var inputCount = $(this).find('.d-smr__add-char-item:visible input').length,
+              checkedInputCount = $(this).find('.d-smr__add-char-item:visible input:checked').length;
+          if (inputCount == checkedInputCount && inputCount != 0) {
+            $(this).siblings('input').prop('checked', true);
+          }
+        });
+        
       }
       
-      $('.d-smr__char-sublist').each(function(){
-        var inputCount = $(this).find('input').length,
-            checkedInputCount = $(this).find('input:checked').length;
-        if (inputCount == checkedInputCount) {
-          $(this).siblings('input').prop('checked', true);
-        }
-      });
+      regionChartControls();
 
     }
 
