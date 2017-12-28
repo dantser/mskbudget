@@ -628,35 +628,56 @@ button::-moz-focus-inner { padding: 0; border: 0; }
 
 .diagram-tabs__btn { display: block; position: relative; padding: 7px 11px; height: 55px; min-width: 53px; font-size: 17.2px; font-weight: 500; text-align: left; text-decoration: none; }
 
-.diagram-tabs__btn:before { display: block; content: ""; height: 21px; width: 25px; background-image: url("../images/sprite.png"); background-repeat: no-repeat; background-position: 0 0; }
+.diagram-tabs__btn:before {
+  display: block;
+  content: "";
+  height: 21px;
+  width: 25px;
+  //background-image: url("../images/sprite.png");
+  background-repeat: no-repeat;
+  //background-position: 0 0;
+  background-position: 0 50%;
+  background-size: 20px 20px;
+}
 
-.diagram-tabs__btn_house:before { background-position: -207px 0; border-bottom: none; }
+.diagram-tabs__btn_house:before {
+  //background-position: -207px 0;
+  background-image: url('../images/depfin-icons-31.svg');
+}
 
-.diagram-tabs__btn_edu:before { background-position: -208px -19px; }
+.diagram-tabs__btn_edu:before {
+  //background-position: -208px -19px;
+  background-image: url('../images/depfin-icons-32.svg');
+}
 
-.diagram-tabs__btn_med:before { background-position: -208px -44px; }
+.diagram-tabs__btn_med:before {
+  //background-position: -208px -44px;
+  background-image: url('../images/depfin-icons-33.svg');
+}
 
-.diagram-tabs__btn_other:before { background-position: -234px 7px; }
+.widget-card-invest-program .diagram-tabs__btn_other:before {
+  //background-position: -234px 7px;
+  background-image: url('../images/depfin-icons-34.svg');
+}
 
 .diagram-tabs__btn_bank:before {
   //background-position: -180px 0;
   background-image: url('../images/depfin-icons-30.svg');
-  background-position: 0 50%;
-  background-size: 19px 19px;
 }
 
 .diagram-tabs__btn_bag:before { 
   //background-position: -180px -21px;
   background-image: url('../images/depfin-icons-29.svg');
-  background-position: 0 50%;
-  background-size: 19px 19px;
 }
 
 .diagram-tabs__btn_build:before {
   //background-position: -180px -45px;
   background-image: url('../images/depfin-icons-28.svg');
-  background-position: 0 50%;
-  background-size: 19px 19px;
+}
+
+.widget-card-gov-debt .diagram-tabs__btn_other:before {
+  //background-position: -234px 7px;
+  background-image: url('../images/depfin-icons-27.svg');
 }
 
 //.diagram-tabs__btn:hover + p, .diagram-tabs__btn:hover .diagram-tabs__span-hov { height: auto; display: block; filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false); opacity: 1; opacity: 1 !important; }
@@ -714,11 +735,22 @@ button::-moz-focus-inner { padding: 0; border: 0; }
 @media (max-width: 900px) and (max-height: 610px) {
   .diagram-tabs { height: 45px; }
   .diagram-tabs__btn { height: 22px; font-size: 11px; padding: 5px; text-align: center; min-width: 35px; }
-  .diagram-tabs__btn:before { width: 11px; height: 12px; position: relative; margin-right: 1px; background-image: url("../images/sprite@2x.png"); -moz-background-size: 480px auto; -o-background-size: 480px auto; background-size: 480px auto; background-repeat: no-repeat; top: 1px; }
-  .diagram-tabs__btn_house:before { background-position: -207px 2px; }
-  .diagram-tabs__btn_med:before { background-position: -208px -43px; }
+  .diagram-tabs__btn:before {
+    width: 11px;
+    height: 12px;
+    position: relative;
+    margin-right: 1px;
+    //background-image: url("../images/sprite@2x.png");
+    //-moz-background-size: 480px auto;
+    //-o-background-size: 480px auto;
+    //background-size: 480px auto;
+    //background-repeat: no-repeat;
+    top: 1px;
+  }
+  //.diagram-tabs__btn_house:before { background-position: -207px 2px; }
+  //.diagram-tabs__btn_med:before { background-position: -208px -43px; }
   //.diagram-tabs__btn_build:before { background-position: -181px -43px; }
-  .diagram-tabs__btn_other:before { background-position: -234px 6px; }
+  //.diagram-tabs__btn_other:before { background-position: -234px 6px; }
   //.diagram-tabs__btn_bank:before { background-position: -180px 3px; }
   //.diagram-tabs__btn_bag:before { background-position: -180px -20px; }
   .diagram-tabs__caption { height: auto; line-height: 24px; font-size: 11px; }
