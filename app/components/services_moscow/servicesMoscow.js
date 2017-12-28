@@ -66,6 +66,8 @@ export default () => {
 
     SORT_BTN.click(function() {
       $(this).toggleClass('services-moscow-index__sort_desc services-moscow-index__sort_ask');
+      $('.services-moscow-index__col').removeClass('active');
+      $(this).parents('.services-moscow-index__col').addClass('active');
     })
   
     // формирование высоты шапки в таблице
