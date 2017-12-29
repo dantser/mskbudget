@@ -234,5 +234,5 @@ export default () => {
 	 });
     }
 	
-	dotText();
+	//dotText();
 }
