@@ -21,17 +21,20 @@ export default () => {
           slider = $(this).parents('.slider'),
           slide = slider.find('.slick-slide'),
           firstSlide = slide.eq(1),
-          lastPinnedItem = slider.find('.tile__item_pinned').last();
+          lastPinnedItem = slider.find('.slick-slide:not(.slick-cloned) .tile__item_pinned').last();
       
       if ( !$(this).parents('.tile__item').hasClass('tile__item_pinned') ) {
         
         var currentSlide = lastPinnedItem.parents('.slick-slide').index();
+        var oldSlide = activeItem.parents('.slick-slide').index();
         activeItem.insertAfter(lastPinnedItem);
-        slide.each(function(){
-          if (!$(this).hasClass('slick-cloned') && $(this).index() <= currentSlide && $(this).index() !== 1) {
-            $(this).find('.tile__item').first().appendTo($(this).prev().find('.tile'));
-          }
-        });
+        if (currentSlide > oldSlide) {
+          slide.each(function(){
+            if (!$(this).hasClass('slick-cloned') && $(this).index() > oldSlide && $(this).index() <= currentSlide) {
+              $(this).find('.tile__item').first().appendTo($(this).prev().find('.tile'));
+            }
+          });
+        }
         
       } else {
         
@@ -59,7 +62,7 @@ export default () => {
 
   // добавляем title всем заголовкам
   $('.widget-card__title h3, .widget-card__results-total, .widget-card__info-block-title, .widget-card__lessons-text').each(function(){
-    $(this).attr('title', $(this).text() );
+    $(this).attr('title', $.trim($(this).text()) );
   });
 
   // стрелочки в виджетах
@@ -147,7 +150,7 @@ export default () => {
 
 // сворачивание-разворачивание карточек в мобильной версии
   if ($(window).width() < 581) {
-      $(document).on('click', '.widget-card__title', function () {
+      $(document).on('click', '.widget-card__arrow-open', function () {
         var $this = $(this);
         if ($this.parents().hasClass('dropdown-block') || $this.parents().hasClass('wrapper_main') || $this.parents().hasClass('lk-services-second')) {   //убираем сворачивание виджетов в блоке дропдаунов и на главной
           return;
@@ -286,7 +289,7 @@ export default () => {
 	 });
     }
     
-    dotText('.widget-card__title', 'h3');
+    //dotText('.widget-card__title', 'h3');
   }
   
   // Фикс шрифта заголовков виджетов в iOS

@@ -35,6 +35,23 @@ mixin widget-card-head(title, subtitle, datepicker, alt)
 				| , млрд. руб
 		block
 		
+mixin widget-card-head-linked(title, href, subtitle)
+	+e.head&attributes(attributes)
+		+e.title
+			if (subtitle)
+				h3.one-line
+					a(href=href)= title
+			else
+				h3
+					a(href=href)= title
+			+e.arrow-open
+				+icon('angle-arrow')
+			+icon('pin').pin
+			+e.BUTTON.favor
+		if subtitle
+			+e.P.subtitle= subtitle
+		block
+		
 mixin widget-card-head-altdp(title, subtitle)
 	+e.head&attributes(attributes)
 		+e.title

@@ -106,7 +106,9 @@ mixin contest-popup(isJuridical)
 					+e.attachment-buttons
 						+e.P.attachment-text Как Вы хотите прикрепить файл?
 						+e.attachment-buttonblock
-							+button()(type='button')._kind_yellow.js-button-attfile Загрузить
+							//+button()(type='button')._kind_yellow.js-button-attfile Загрузить
+							label.button.button_kind_yellow.js-button-attfile Загрузить
+								input(type='file')
 							+e.SPAN.attachment-note Общий объем загруженных файлов не должен превышать 20 Мб
 						+e.attachment-buttonblock
 							+button()(type='button')._kind_yellow.js-button-attlink Указать ссылку

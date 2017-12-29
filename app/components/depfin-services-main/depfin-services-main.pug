@@ -22,7 +22,7 @@ mixin widget-card-edu
 	.tile__item.ui-state-default&attributes(attributes)
 		.tile__inner
 			+widget-card().widget-card-edu
-				+widget-card-head('Обучающий сервис', 'Пройдите обучающий курс бюджетной тематики')
+				+widget-card-head-linked('Обучающий сервис', 'edu-service.html', 'Пройдите обучающий курс бюджетной тематики')
 				+widget-card-content()
 					+e.lessons
 						+passed-stages().widget-card__passed-stages
@@ -41,7 +41,7 @@ mixin widget-card-edu-pers
 	.tile__item.ui-state-default&attributes(attributes)
 		.tile__inner
 			+widget-card().widget-card-edu-pers
-				+widget-card-head('Обучающий сервис')
+				+widget-card-head-linked('Обучающий сервис', 'edu-service.html')
 				+widget-card-content()
 					+e.lessons
 						+passed-stages().widget-card__passed-stages
