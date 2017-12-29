@@ -153,12 +153,12 @@ export default () => {
     
     buttons.hide();
     
-    //код только для демонстрации
+    /*//код только для демонстрации
     var fileLength = Math.floor(Math.random()*3+1);
     var fileSize = Math.random()*40;
     //код только для демонстрации
     
-    addDoc(fileLength, fileSize, 20);
+    addDoc(fileLength, fileSize, 20);*/
   });
   
   $(document).on('click', '.contest-popup .js-button-attlink', function(){
@@ -184,11 +184,11 @@ export default () => {
     
     $(this).parent().remove();
     
-    //код только для демонстрации
+    /*//код только для демонстрации
     var fileSize = 10;
     //код только для демонстрации
     
-    removeDoc(fileSize, 20);
+    removeDoc(fileSize, 20);*/
     checkAttachments();
   });
   
