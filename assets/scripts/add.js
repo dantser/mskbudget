@@ -431,7 +431,7 @@ function tooltipInit() {
   
   var tooltips = document.querySelectorAll('.js-tooltip');
   var screenWidth = $(window).width();
-  var tooltipPosition = (screenWidth() > 559) ? 'right' : 'top';
+  var tooltipPosition = (screenWidth > 559) ? 'right' : 'top';
 
   if (tooltips) {
     tippy('.js-tooltip', {
