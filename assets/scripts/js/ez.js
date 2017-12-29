@@ -634,7 +634,7 @@ function tabsLine() {
   }
 
 
-  $('.js-label-button').click(function() {
+  $(document).on('click', '.js-label-button', function() {
     var sectionTabs = $(this).parents('.section-tabs');
     setTimeout(function() {
       sectionTabs.find(".whitescreen1").fadeToggle(100);
