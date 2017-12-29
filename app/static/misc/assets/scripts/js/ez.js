@@ -271,15 +271,6 @@ budget.extend("common", {
       }
     })
 
-    $('.d-question__head_menu').on('click', function() {
-      $(this).parents('.d-study__question').find('.burger-lessons-menu').show();
-    })
-
-    $('.close-lessons-burger').on('click', function() {
-      $(this).parents('.burger-lessons-menu').hide();
-    })
-
-
     self.setRounds();
 
     $(window).on('resize', function() {
@@ -461,7 +452,17 @@ $(budget.init);
 
 //
 $(document).ready(function() {
-
+  
+  $(document).on('click', '.d-question__head_menu', function(e) {
+    e.preventDefault();
+    $(this).parents('.d-study__question').find('.burger-lessons-menu').show();
+  });
+  
+  $(document).on('click', '.close-lessons-burger', function(e) {
+    e.preventDefault();
+    $(this).parents('.burger-lessons-menu').hide();
+  });
+  
   //
   $('.js-abs-btn').click(function() {
     $('.abs-box--active').removeClass('abs-box--active');
