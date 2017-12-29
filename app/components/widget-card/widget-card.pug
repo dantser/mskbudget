@@ -13,8 +13,7 @@ mixin widget-card-head(title, subtitle, datepicker, alt)
 				h3.one-line= title
 			else
 				h3= title
-			+e.arrow-open
-				+icon('angle-arrow')
+			+icon('angle-arrow').arrow-open
 			+icon('pin').pin
 			+e.BUTTON.favor
 		if subtitle
@@ -44,8 +43,7 @@ mixin widget-card-head-linked(title, href, subtitle)
 			else
 				h3
 					a(href=href)= title
-			+e.arrow-open
-				+icon('angle-arrow')
+			+icon('angle-arrow').arrow-open
 			+icon('pin').pin
 			+e.BUTTON.favor
 		if subtitle
