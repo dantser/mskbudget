@@ -33,8 +33,11 @@
       }
 
       .table1__col, .table2__col {
-        &::after { height: 3px; }
+        &::after {
+          height: 3px;
+        }
       }
+
     }
 
     &_data {
@@ -57,9 +60,15 @@
     height: 100%;
     transition: background-color .3s ease;
 
-    &_centered { text-align: center; }
-    &_bold, b { font-weight: 500; }
-    &:first-child { padding-left: 0; }
+    &_centered {
+      text-align: center;
+    }
+    &_bold, b {
+      font-weight: 500;
+    }
+    &:first-child {
+      padding-left: 0;
+    }
 
     &::after {
       content: '';
@@ -78,10 +87,14 @@
     &.active {
       background-color: #e9f0f6;
 
-      &::after { opacity: 1; }
+      &::after {
+        opacity: 1;
+      }
     }
 
-    &_data { font-family: $PFDinCondensedPro; }
+    &_data {
+      font-family: $PFDinCondensedPro;
+    }
     &_one {
       //width: 8.6%;
       width: 95px;
@@ -91,18 +104,31 @@
       //}
 
     }
-    &_two { 
+    &_two {
       //width: 12%;
-      width: 122px;    
+      width: 122px;
     }
-    &_three { 
+    &_three {
       //width: auto;
       width: 244px;
     }
     &_four {
       width: 310px;
     }
-    &_half { width: 45px; }
+    &_half {
+      width: 45px;
+    }
+
+  }
+
+  td, th {
+    &.table1__col {
+      border: 1px solid #000;
+      min-width: 90px;
+      &:first-child {
+        padding-left: 17px;
+      }
+    }
   }
 
   &__caption {
@@ -125,19 +151,17 @@
   }
 }
 
-
-
-
-
-
-
-
 .table2 {
-  &__row_data &__col { padding-top: 16px; padding-bottom: 16px; }
+  &__row_data &__col {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
 
-  &__col_one_big { 
+  &__col_one_big {
     //width: 10%;
     width: 102px;
   }
-  &__row_data:last-child { font-weight: 500; }
+  &__row_data:last-child {
+    font-weight: 500;
+  }
 }
