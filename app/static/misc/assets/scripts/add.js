@@ -223,6 +223,35 @@ function overflowDotts(size, element) {
   });
 };
 
+function maxHeightDots(element) {
+  if ($(element).length) {
+    $(element).each(function(){
+      var wordArray = $(this).text().split(' '),
+          newText = '',
+          maxHeight = parseFloat($(this).css('max-height'));
+      
+      $(this).html('<span></span>');
+      
+      var textSpan = $(this).find('span');
+      
+      for (var i = 0; i < wordArray.length; i++) {
+        
+        if (textSpan.text(newText+wordArray[i]).height() <= maxHeight) {
+          newText += ' '+wordArray[i];
+        } else if (textSpan.text(newText+'...').height() <= maxHeight){
+          newText += '...';
+          i = wordArray.length;
+        } else {
+          newText = newText.substring(0, newText.lastIndexOf(' ')) + '...';
+          i = wordArray.length;
+        }
+        
+        textSpan.text(newText);
+      }
+    });
+  }
+}
+
 function overflowDottsInit() {
   
   // teaser-card
@@ -274,7 +303,10 @@ function overflowDottsInit() {
     
   // wrapper_main (главная)
   if ($('.wrapper_main').length) {
-    overflowDotts(80, '.news__title');
+    //overflowDotts(80, '.news__title');
+    setTimeout(function(){
+      maxHeightDots('.news__title');
+    }, 500);
   }
   
   // media-main / news-page / news-one
