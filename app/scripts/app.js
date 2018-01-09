@@ -159,6 +159,7 @@ $(() => {
 	  servicesVMO();
 	  window.socialSignificant = socialSignificant;
 	  socialSignificant();
+	  window.servicesNet = servicesNet;
 	  servicesNet();
 	  dropTable();
       window.slideArrows = slideArrows;
