@@ -51,6 +51,11 @@ export default () => {
     observeParents: true
   });
 
+  var currentSphere = $('.services-net-domain__banner').data('sphere');
+  if (currentSphere) {
+    sliderGallery.slideTo(currentSphere, 0);
+  }
+
   // Клик по слайду -> таблица
   TAB_INNER_DOMAIN.find('.services-net-domain__banner-slide').click(function(e) {
     e.preventDefault();
