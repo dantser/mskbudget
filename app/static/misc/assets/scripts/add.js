@@ -303,10 +303,10 @@ function overflowDottsInit() {
     
   // wrapper_main (главная)
   if ($('.wrapper_main').length) {
-    //overflowDotts(80, '.news__title');
-    setTimeout(function(){
-      maxHeightDots('.news__title');
-    }, 500);
+    overflowDotts(80, '.news__title');
+    //setTimeout(function(){
+    //  maxHeightDots('.news__title');
+    //}, 500);
   }
   
   // media-main / news-page / news-one
