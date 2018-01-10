@@ -57,7 +57,7 @@ budget.extend("common", {
 
     $('.edu-lesson-link').on('click', function() {
       window.location.href = $(this).attr('href');
-      $('.edu-content').removeClass('_active');
+      /*$('.edu-content').removeClass('_active');
 
       var id = $(this).attr('id');
 
@@ -67,10 +67,10 @@ budget.extend("common", {
 
       $(this).addClass('disable');
 
-      $('.close-lessons-burger').trigger('click');
+      $('.close-lessons-burger').trigger('click');*/
     })
 
-    $('.d-sq__head_next').on('click', function() {
+    /*$('.d-sq__head_next').on('click', function() {
       var $active = $('.edu-lesson-link.disable');
 
       if ($active.next('.edu-lesson-link').length) {
@@ -87,7 +87,7 @@ budget.extend("common", {
       } else {
         $('.edu-lesson-link:last').trigger('click');
       }
-    })
+    })*/
 
     setTimeout(function() {
 
