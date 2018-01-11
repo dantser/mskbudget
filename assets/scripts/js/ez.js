@@ -593,6 +593,8 @@ function tabsLine() {
           $(this).parents('.section-tabs').find('.dd-holder').animate({ scrollLeft: '-='+offset }, 300);
         });
       }
+      
+      $(this).addClass('inited');
     });
   }
 
