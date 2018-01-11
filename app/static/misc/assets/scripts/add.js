@@ -385,7 +385,14 @@ function selectTitles(el) {
 
 function selectTitlesInit() {
   selectTitles('.selectbox');
+  if ($('.widget-card').length) {
+    $('.widget-card .selectbox ul').scrollbar();
+  }
 }
+
+$(document).on('serviceSliderInited', function(){
+  selectTitlesInit();
+});
 
 
 
