@@ -129,46 +129,55 @@ export default () => {
 
   if ( $('#net-map').length > 0 ) {
 
-    ymaps.load('https://api-maps.yandex.ru/2.1/?lang=ru_RU').then(maps => {
-      map = new maps.Map("net-map", {
-          center: [55.755814, 37.617635],
-          zoom: 14,
-          type: "yandex#map",
-          controls: []
-      },
-      {suppressMapOpenBlock: true});
+      ymaps.load('https://api-maps.yandex.ru/2.1/?lang=ru_RU').then(maps => {
+          var myGeocoder = maps.geocode($('#net-map').data('address'));
+          myGeocoder.then(
+              function (res) {
+                  map = new maps.Map("net-map", {
+                          center: res.geoObjects.get(0).geometry.getCoordinates(),
+                          zoom: 14,
+                          type: "yandex#map",
+                          controls: []
+                      },
+                      {suppressMapOpenBlock: true});
 
-      var placemark = new maps.Placemark([55.755814, 37.617635]);
-      map.geoObjects.add(placemark);
+                  var placemark = new maps.Placemark(res.geoObjects.get(0).geometry.getCoordinates());
+                  map.geoObjects.add(placemark);
 
-      // Установка новой метки
-      TABLE_LINK.click(function() {
+                  // Установка новой метки
+                  TABLE_LINK.click(function () {
 
-        map.setCenter( [getCoords($(this).attr('value')).x, getCoords($(this).attr('value')).y], 14);
+                      map.setCenter([getCoords($(this).attr('value')).x, getCoords($(this).attr('value')).y], 14);
 
-        map.geoObjects.removeAll();
-        
-        map.setZoom(14);
+                      map.geoObjects.removeAll();
 
-        var elem = $(this),
-            mapCoords = [getCoords(elem.attr('value')).x, getCoords(elem.attr('value')).y],
-            elemText = elem.text(),
-            elemStreet = elem.data('address');
-        
-        // переход к новой метке
-        map.panTo( mapCoords, { flying: true } );
-        
-        var mapPlacemark = new maps.Placemark(mapCoords, {
+                      map.setZoom(14);
 
-          balloonContentBody:
-            '<h3>'+elemText+'</h3>' +
-            '<p>'+elemStreet+'</p>'
-        });
+                      var elem = $(this),
+                          mapCoords = [getCoords(elem.attr('value')).x, getCoords(elem.attr('value')).y],
+                          elemText = elem.text(),
+                          elemStreet = elem.data('address');
 
-        map.geoObjects.add(mapPlacemark);
+                      // переход к новой метке
+                      map.panTo(mapCoords, {flying: true});
+
+                      var mapPlacemark = new maps.Placemark(mapCoords, {
+
+                          balloonContentBody:
+                          '<h3>' + elemText + '</h3>' +
+                          '<p>' + elemStreet + '</p>'
+                      });
+
+                      map.geoObjects.add(mapPlacemark);
+                  })
+              },
+              function (err) {
+                  console.log('Ошибка определения координат');
+              }
+          );
+
+
       })
-
-    })
 
     const MAP_OPEN = $('.services-net-institute__address-map-open');
     const MAP_CLOSE = $('.services-net-institute__map-close');
