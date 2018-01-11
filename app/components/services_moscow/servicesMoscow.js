@@ -54,13 +54,13 @@ export default () => {
         }
       });
     }
-    
-    window.setCitySlider = function() {
-      if (citySlider) {
-        var targetSlide = $('.services-moscow-index__table').attr('data-active-slide');
-        citySlider.slideTo(targetSlide, 0);
+
+      window.setCitySlider = function(targetSlidePjax) {
+          if (citySlider) {
+              var targetSlide = targetSlidePjax;
+              citySlider.slideTo(targetSlide, 0);
+          }
       }
-    }
 
     const SORT_BTN = $('.services-moscow-index__sort');
 
