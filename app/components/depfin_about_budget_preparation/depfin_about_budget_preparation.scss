@@ -85,16 +85,15 @@
     .owl-nav {
       // position: relative;
       .owl-next, .owl-prev {
-        bottom: 15px;
+        top: 25px;
+        bottom: auto;
 
-        @media screen and (min-width: 1001px) and (max-width: 1190px) {
-          bottom: 25px;
-        }
-        @media screen and (min-width: 801px) and (max-width: 1000px) {
-          bottom: 45px;
+        @media screen and (min-width: 801px) and (max-width: 1190px) {
+          top: 10px;
         }
         @media screen and (max-width: 800px) {
-          bottom: 5px;
+          top: 0;
+          bottom: 0;
         }
       }
     }
@@ -308,6 +307,18 @@
 .graphic-table__table-td:first-child{
     width:240px;
 }
+.graphic-table__table-th:first-child {
+  position: sticky;
+  height: 45px;
+  left: 0;
+  
+  @media (max-width: 800px) {
+    height: 98px;
+  }
+  @media (max-width: 630px) {
+    height: 51px;
+  }
+}
 .graphic-table__table-td:first-child{
     position:sticky;
     left:0;
@@ -329,6 +340,7 @@
     font-size:17.5px;
     line-height:20px;
     margin-bottom:1px;
+    position: relative;
 }
 .graphic-table__head.color_01{
     color:#fd9722;
