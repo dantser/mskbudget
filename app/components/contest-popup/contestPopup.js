@@ -54,7 +54,7 @@ export default () => {
           if (fieldset.data('type') === 'text' && input.val() === '')
             label.addClass('contest-popup__err');
           
-          if (fieldset.data('type') === 'text' && input.is('[name="pi-email"], [name="pj-email"]')) {
+          if (fieldset.data('type') === 'text' && input.is('#pi-email, #pj-email')) {
             
             var email = /^([A-Za-z0-9_\.-]+)@([A-Za-z0-9_\.-]+)\.([A-Za-z\.]{2,6})$/.test(input.val()); // с поддержкой иерархических доменов: user@mail.ru.com
             var email = /^([A-Za-z0-9_\.-]+)@([A-Za-z0-9_-]+)\.([A-Za-z]{2,6})$/.test(input.val()); // без поддержки иерархических доменов: user@mail.ru
