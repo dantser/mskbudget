@@ -9,7 +9,9 @@ export default () => {
   function mobileMenuClose() {
     $header.removeClass('is-active');
     $burger.removeClass('is-active');
-    $('.sections, .guide').removeClass('filter_blur');
+    setTimeout(function(){
+      $('.sections, .guide').removeClass('filter_blur');
+    }, 250);
     $headerDrop.fadeOut(250);
     $('body').removeClass('mobile-menu-is-open');
 
