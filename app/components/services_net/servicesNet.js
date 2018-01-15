@@ -89,7 +89,7 @@ export default () => {
   // Переход на таб Муниц. образование -> Перечень гос. учреждений
   const MORE_LINK = $('.analityc-more');
   MORE_LINK.click(function(e) {
-    e.preventDefault();
+    /*e.preventDefault();
 
     $('.tabs__tab').removeClass('active');
     $('.tabs__tab[data-tab="netTwo"]').addClass('active');
@@ -99,7 +99,7 @@ export default () => {
     $('.buttons-set .button-light[data-tab-target="netTwo"]').addClass('button-light--fill');
 
     TAB_INNER.removeClass(TAB_INNER_ACTIVE);
-    TAB_INNER_INSTITUTES.addClass(TAB_INNER_ACTIVE);
+    TAB_INNER_INSTITUTES.addClass(TAB_INNER_ACTIVE);*/
   })
 
   // Переход из таблицы гос. учреждений -> Описание гос. учреждения
