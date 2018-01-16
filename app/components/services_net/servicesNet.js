@@ -106,7 +106,7 @@ export default () => {
   const TABLE_LINK = $('.services-net-institutes .services-net-table__row-one, .services-net-domain .services-net-table__row-one');
 
   TABLE_LINK.click(function() {
-    $('.tabs__tab').removeClass('active');
+    /*$('.tabs__tab').removeClass('active');
     $('.tabs__tab[data-tab="netTwo"]').addClass('active');
     $('.tabs__tab[data-tab="netTwo"]').css('display', 'block');
 
@@ -116,15 +116,15 @@ export default () => {
     TAB_INNER.removeClass(TAB_INNER_ACTIVE);
     TAB_INNER_INSTITUTE.addClass(TAB_INNER_ACTIVE);
 
-    scrollUp();
+    scrollUp();*/
   })
 
   // Переход из Описание гос. учреждения -> Таблицы гос. учреждений
   const LINK_BACK = $('.services-net-institute__back');
 
   LINK_BACK.click(function() {
-    TAB_INNER.removeClass(TAB_INNER_ACTIVE);
-    TAB_INNER_INSTITUTES.addClass(TAB_INNER_ACTIVE);
+    /*TAB_INNER.removeClass(TAB_INNER_ACTIVE);
+    TAB_INNER_INSTITUTES.addClass(TAB_INNER_ACTIVE);*/
   });
 
   if ( $('#net-map').length > 0 ) {
