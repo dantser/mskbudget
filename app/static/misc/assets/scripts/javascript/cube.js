@@ -1,6 +1,12 @@
 (function() {
 
 	$(document).ready(function() {
+      
+      var browser = {};
+      browser.ie = /msie/.test(navigator.userAgent.toLowerCase());
+      browser.ie11 = /rv:11\.0/.test(navigator.userAgent.toLowerCase());
+  
+      if (!browser.ie && !browser.ie11) {
 
 			var winW = $(window).width(),
 			sideQt;
@@ -125,7 +131,8 @@
 			}
 
 		}
-
+        
+      }
 
 	});
 
