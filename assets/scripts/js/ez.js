@@ -990,8 +990,8 @@ function stageSlider() {
             $(this).addClass('steps__mob-slider-arrow-blocked');
           }
         }
-        $('.steps__mob-wrapper').css('left', '-' + currentSlide * 100 + '%');
-        $('.steps__holder').css('left', '-' + currentSlide * 100 + '%');
+        $('.steps__mob-wrapper').css('transform', 'translate3d(-' + currentSlide * 100 + '%, 0, 0)');
+        $('.steps__holder').css('transform', 'translate3d(-' + currentSlide * 100 + '%, 0, 0)');
       });
   
     });
