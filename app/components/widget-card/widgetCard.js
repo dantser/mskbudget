@@ -218,6 +218,19 @@ export default () => {
     var newval = $(this).data('val');
     var widgetCard = $(this).parents('.widget-card');
     widgetCard.find('.widget-card__info-block-items').removeClass('widget-card__info-block-items_active').hide();
+    
+    var l = widgetCard.find('.widget-card__info-block-items[data-option="'+newval+'"]').children().length;
+    if (l > 1)
+    {
+      $(document).find('.widget-card-social-support .arrow-button_next').show();
+      $(document).find('.widget-card-social-support .arrow-button_prev').show();
+    }
+    else
+    {
+      $(document).find('.widget-card-social-support .arrow-button_next').hide();
+      $(document).find('.widget-card-social-support .arrow-button_prev').hide();
+    }
+    
     widgetCard.find('.widget-card__info-block-items[data-option="'+newval+'"]').show(321).addClass('widget-card__info-block-items_active');
   });
   

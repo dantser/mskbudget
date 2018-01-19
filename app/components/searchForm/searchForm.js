@@ -73,7 +73,10 @@ export default () => {
     e.stopPropagation();
   });
 
+  var isChanging = false;
   $('input[name="all"]').change(function(){
+    if (isChanging) return;
+    
     if (this.checked) {
       $(this).parents('.checkbox').siblings('.extra-search__checkbox-group').find('input').prop('checked', true);
     } else {
@@ -82,6 +85,7 @@ export default () => {
   });
   //чекбоксы
   $('.extra-search__checkbox-group').click(function(){
+    isChanging = true;
   var inputCount = $(this).find('.checkbox__control:checked').length,
       checkboxCount = $(this).find('.checkbox').length;
 
@@ -91,6 +95,7 @@ export default () => {
   } else {
     $(this).siblings('.checkbox').find('.checkbox__control[name="all"]').prop('checked', true);
   }
+  isChanging = false;
 });
 
 
