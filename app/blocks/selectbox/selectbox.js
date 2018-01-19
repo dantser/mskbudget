@@ -10,7 +10,10 @@ export default function selectbox() {
       const imgUrl = selBox.find('option:eq(0)').data('imageurl');
       const img = selBox.find('option:eq(0)').data('image');
       const period = selBox.find('option:eq(0)').data('period');
-      if (imgUrl)
+      const layer = selBox.find('option:eq(0)').data('imagelayer');
+      if (layer) {
+          selBox.prepend('<svg><use xlink:href="'+imgUrl+'#'+layer+'"</use></svg>');
+      }else if (imgUrl)
         selBox.prepend('<img src="' + imgUrl + '">');
       else
         selBox.prepend('<img src="assets/images/' + img + '.png">');
@@ -53,7 +56,13 @@ export default function selectbox() {
             selBox.find('ul').append(li);
           }
         } else {
-          if (imgUrl)
+          if (imgLayer)
+            {
+              var svg = "<svg><use xlink:href='"+imgUrl+"#"+imgLayer+"'</use></svg>";
+              const li = '<li data-val="' + vval + '">' + svg + '<span>' + ttext + '</span>' + (period ? '<i>' + period +'</i>' : '') + '</li>';
+              selBox.find('ul').append(li);
+            }
+            else if (imgUrl)
           {
             const li = '<li data-val="' + vval + '"><img src="' + imgUrl + '"><span>' + ttext + '</span>' + (period ? '<i>' + period +'</i>' : '') + '</li>';
             selBox.find('ul').append(li);
