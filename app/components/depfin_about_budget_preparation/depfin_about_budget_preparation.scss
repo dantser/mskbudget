@@ -577,6 +577,9 @@
     white-space: nowrap;
     position: relative;
     transition: all .5s ease-in-out;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    font-size: 0;
   }
   &__mob-slider-arrow {
     position: absolute;
@@ -1320,11 +1323,13 @@
     }
     .steps {
       padding-top: 0;
+      overflow: hidden;
     }
     .steps .step {
       width: 100%;
       padding: 0;
       white-space: normal;
+      padding-left: 1px;
     }
     .steps .step__head {
       display: none;
@@ -1347,6 +1352,9 @@
       white-space: nowrap;
       position: relative;
       transition: all .5s ease-in-out;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      font-size: 0;
     }
     .label {
       line-height: 1;
@@ -1631,7 +1639,9 @@
     }
     .steps__holder {
       margin: 0;
-      margin-top: 41px;
+    }
+    .steps .step {
+      padding-top: 41px;
     }
     .btn-arrow {
       &:after {
@@ -1906,7 +1916,9 @@
     }
     .steps__holder {
       margin: 0;
-      margin-top: 12px;
+    }
+    .steps .step {
+      padding-top: 12px;
     }
     .section-tabs__head {
       padding: 20px 0 20px;
