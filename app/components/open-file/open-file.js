@@ -179,7 +179,7 @@ export default () => {
 					if (fieldset.data('type') === 'text' && input.val() === '')
 						label.addClass('open-file__err');
 					
-					if (fieldset.data('type') === 'text' && input.is('[name="email"]')) {
+					if (fieldset.data('type') === 'text' && input.is('[name="OPENDATAQUERY[QUERY_EMAIL]"]')) {
 						var email = /^([A-Za-z0-9_\.-]+)@([A-Za-z0-9_\.-]+)\.([A-Za-z\.]{2,6})$/.test(input.val()); // с поддержкой иерархических доменов: user@mail.ru.com
 						var email = /^([A-Za-z0-9_\.-]+)@([A-Za-z0-9_-]+)\.([A-Za-z]{2,6})$/.test(input.val()); // без поддержки иерархических доменов: user@mail.ru
 						if (!email) {
