@@ -288,6 +288,7 @@ export default () => {
     
     // Переход по карточке
     $(document).on('click', cardLink, function(e){
+      $(burgerList).find(burgerLink).removeClass('active');
       e.preventDefault();
       var category = $(this).parent().data('category');
       var type = $(this).parent().data('type');
