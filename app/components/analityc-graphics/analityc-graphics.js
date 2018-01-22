@@ -798,7 +798,8 @@ export default () => {
   window.changeTableWidth = function() {
     $('.analityc-table_params, .analityc-table_gp').each(function(){
       if ($(this).find('[data-set]').length) {
-        var visibleColLength = $('.analityc-control-group[data-set]:visible').length,
+        //var visibleColLength = $('.analityc-control-group[data-set]:visible').length,
+        var visibleColLength = $(this).find('.table__row_caption [data-set]:visible').length,
             colMinWidth = 182,
             firstColMinWidth = 288,
             wrapperWidth = $('.analityc-table__wrapper:visible').width(),

@@ -594,3 +594,16 @@ var checkMobile = {
     return (checkMobile.Android() || checkMobile.BlackBerry() || checkMobile.iOS() || checkMobile.Opera() || checkMobile.Windows());
   }
 };
+
+
+
+// смена контента в разделе Аналитика
+function changeAnalitycContent() {
+  if (appLoaded) {
+    analyticsMain();
+    depfin_analytics_income();
+    depfinAnalyticsExpenses();
+    analyticsGovDebt();
+    depfinAnalyticsGP();
+  }
+}

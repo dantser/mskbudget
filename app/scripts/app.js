@@ -121,6 +121,7 @@ $(() => {
 	  window.sources = sources;
 	  sources();
 	  govProgram();
+	  window.analyticsMain = analyticsMain;
 	  analyticsMain();
 	  legend();
 	  budgetCalcPage();
@@ -178,15 +179,21 @@ $(() => {
 	  table();
 	  budgetMoscowOpen();
 	  buttonsSet();
+	  window.analyticsGovDebt = analyticsGovDebt;
 	  analyticsGovDebt();
-  depfin_analytics_income();
+    window.depfin_analytics_income = depfin_analytics_income;
+    depfin_analytics_income();
   	mediaInfographic();
   	mediaEvents();
   	mediaSM();
   	pressReleases();
+    window.depfinAnalyticsExpenses = depfinAnalyticsExpenses;
     depfinAnalyticsExpenses();
+    window.depfinAnalyticsGP = depfinAnalyticsGP;
     depfinAnalyticsGP();
     teaserCard();
     footer();
     pollsTask();
+  
+    window.appLoaded = true;
 });
