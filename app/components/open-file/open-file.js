@@ -160,7 +160,7 @@ export default () => {
 	}
 	
 
-	if ($('.open-file__popup_request form').length) {
+	/*if ($('.open-file__popup_request form').length) {
 
 		$(document).on('submit', '.open-file__popup_request form', function(e) {
 
@@ -201,7 +201,7 @@ export default () => {
 				return false;
 			}
 		})
-	}
+	}*/
 	
 	function scrollUp() {
     setTimeout(function() {
