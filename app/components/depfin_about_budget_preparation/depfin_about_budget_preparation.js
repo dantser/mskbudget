@@ -31,9 +31,9 @@ export default function aboutBudgetPreparation() {
       tableFrame.height(tHeight);
     }
   
-    $(window).resize(function(){
+    /*$(window).resize(function(){
       prepationTableResize();
-    });
+    });*/
   
     // выделение текущего месяца
     function markCurrentMonth() {
