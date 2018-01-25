@@ -1,8 +1,10 @@
 import $ from 'jquery';
 import 'jquery.scrollbar';
 
-export default function selectbox() {
-  $('.selectbox').each(function () {
+export default function selectbox(selector) {
+  
+  var target = selector ? $(selector) : $('.selectbox');
+  target.each(function () {
     const wrapper = '<ul></ul>';
     const selBox = $(this);
 

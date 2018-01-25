@@ -607,3 +607,24 @@ function changeAnalitycContent() {
     depfinAnalyticsGP();
   }
 }
+
+
+
+// Значения графиков в разделах Бюджет Москвы и Аналитика
+function graphicValuesInit() {
+  if (appLoaded) {
+    budgetIncome();
+    budgetExpenses();
+    sources();
+    budget_moscow_gov_program();
+    govDebt();
+    mrelations();
+    aip();
+    budgetForecast();
+    analyticsMain();
+    depfin_analytics_income();
+    depfinAnalyticsExpenses();
+    analyticsGovDebt();
+    depfinAnalyticsGP();
+  }
+}

@@ -134,6 +134,7 @@ $(() => {
 	  window.openSlider = openSlider;
 	  openSlider();
 	  mediaMaterials();
+	  window.govDebt = govDebt;
 	  govDebt();
 	  profileEdit();
 	  budgetaryPolicy();
@@ -155,6 +156,7 @@ $(() => {
 	  rangeUi();
 	  contestPopup();
 	  socialService();
+	  window.aip = aip;
 	  aip();
 	  classifyNew();
 	  servicesVMO();
@@ -165,15 +167,18 @@ $(() => {
 	  dropTable();
       window.slideArrows = slideArrows;
 	  slideArrows();
+	  window.budgetForecast = budgetForecast;
 	  budgetForecast();
 	  window.servicesMoscow = servicesMoscow;
 	  servicesMoscow();
 	  bluedropdown();
 	  documentsCards();
 	  tablesActive();
+	  window.mrelations = mrelations;
 	  mrelations();
 	  window.budgetIncome = budgetIncome;
 	  budgetIncome();
+	  window.budgetExpenses = budgetExpenses;
 	  budgetExpenses();
       window.table = table;
 	  table();
