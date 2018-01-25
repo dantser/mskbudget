@@ -1043,6 +1043,11 @@ function dateSlider() {
     if (slidesLength === 1) {
       $(this).find('.steps-details__date-list-arrow').addClass('disabled');
     }
+    
+    var startX = 0,
+        endX = 0,
+        startY = 0,
+        endY = 0;
 
     $('.steps-details__date-list-arrow').click(function(e) {
       
@@ -1075,8 +1080,8 @@ function dateSlider() {
           }
         }
         
-        //dateListWrapper.find('.steps-details__date-list').css('left', '-' + currentSlide * 100 + '%');
-        dateListWrapper.find('.steps-details__date-list').animate({scrollLeft: currentSlide * slideWidth});
+        dateListWrapper.find('.steps-details__date-list').css('transform', 'translate3d(-' + currentSlide * 100 + '%, 0,0)');
+        //dateListWrapper.find('.steps-details__date-list').animate({scrollLeft: currentSlide * slideWidth}, 300);
         var activity = dateListWrapper.find('.steps-details__date-list li').eq(currentSlide).find('a').attr('data-activity');
         dateListWrapper.siblings('.steps-details__activity').removeClass('active');
         dateListWrapper.siblings('.steps-details__activity[data-activity="' + activity + '"]').addClass('active');
@@ -1088,18 +1093,24 @@ function dateSlider() {
       
       $(document).on('touchstart', '.steps-details__date-list', function(e){
         e.stopImmediatePropagation();
-        var offset = $(this).scrollLeft();
-        $(this).attr('data-offset', offset);
+        startX = e.pageX || e.originalEvent.touches[0].pageX;
+        startY = $(this).offset().top;
+      });
+      
+      $(document).on('touchmove', '.steps-details__date-list', function(e){
+        e.stopImmediatePropagation();
+        e.stopPropagation();
+        endX = e.pageX || e.originalEvent.touches[0].pageX;
+        endY = $(this).offset().top;
       });
       
       $(document).on('touchend', '.steps-details__date-list', function(e){
         e.stopImmediatePropagation();
-        var offset = $(this).attr('data-offset');
-        var newOffset = $(this).scrollLeft();
+        var diffY = Math.abs(endY - startY);
         
-        if (newOffset > offset) {
+        if (endX < startX && diffY < 20) {
           $(this).siblings('.steps-details__date-list-arrow_next').click();
-        } else if (newOffset < offset) {
+        } else if (endX > startX && diffY < 20) {
           $(this).siblings('.steps-details__date-list-arrow_prev').click();
         }
       });
