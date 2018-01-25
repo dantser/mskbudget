@@ -101,6 +101,31 @@ export default () => {
   /*$(document).on('click', '.analityc-control-group._stage li', function() {
     graphicsDate();
   })*/
+  
+  // График погашения государственного долга
+  $('.gov-debt .analityc-graphics__graphic_multicolumn').each(function(){
+    
+    var column = $(this).find('.analityc-graphics__graphic-column'),
+        columnFill = $(this).find('.analityc-graphics__graphic-column-fill'),
+        maxValue = 0;
+    
+    column.each(function(){
+      var value = $(this).find('.analityc-graphics__graphic-column-val').text();
+      value = parseFloat(value.replace(',', '.'));
+      if (value > maxValue) maxValue = value;
+    });
+    
+    columnFill.each(function(){
+      var value = $(this).find('.analityc-graphics__graphic-column-val').text();
+      value = parseFloat(value.replace(',', '.'));
+      var columnHeight = value / maxValue * 100;
+      $(this).css('height', columnHeight+'%');
+      if (columnHeight < 8) {
+        $(this).parent().addClass('analityc-graphics__graphic-column_zero');
+      }
+    });
+    
+  })
 
   
 }
