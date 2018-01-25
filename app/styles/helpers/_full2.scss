@@ -459,7 +459,11 @@ button::-moz-focus-inner { padding: 0; border: 0; }
 @media (max-width: 700px) { .button { width: 145px; height: 30px; font-size: 16px; line-height: 32px; } }
 
 /*Guide*/
-.guide { display: block; width: 276px; height: 94px; padding: 30px 0 0 132px; background: #fee300; position: fixed; bottom: 0; right: 0; z-index: 9; font-size: 18px; font-weight: 500; line-height: 1.16667; text-decoration: none; color: #000; transition: right .5s, background .5s; }
+.guide { display: block; width: 276px; height: 94px; padding: 30px 0 0 132px; background: #fee300; position: fixed; bottom: 0; right: 0; z-index: 9; font-size: 18px; font-weight: 500; line-height: 1.16667; text-decoration: none; color: #000; transition: right .5s, background .5s;
+  &.load-anim-fade {
+    transition: right .5s, background .5s, opacity .5s;
+  }
+}
 
 .guide span { position: relative; z-index: 2; }
 
