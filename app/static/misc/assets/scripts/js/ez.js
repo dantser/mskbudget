@@ -1117,12 +1117,12 @@ function dateSlider() {
     }
   });
 
-  $(window).resize(function() {
+  /*$(window).resize(function() {
     $('.steps-details__date-list li').removeClass('active');
     $('.steps-details__date-list li:first-child').addClass('active');
     $('.steps-details__activity').removeClass('active');
     $('.steps-details__activity[data-activity="1"]').addClass('active');
-  });
+  });*/
 }
 
 
