@@ -110,14 +110,16 @@ export default () => {
         maxValue = 0;
     
     column.each(function(){
-      var value = $(this).find('.analityc-graphics__graphic-column-val').text();
+      var value = $(this).find('.analityc-graphics__graphic-column-val').html();
+      value = value.replace(/&nbsp;/g, '');
       value = value.replace(' ', '');
       value = parseFloat(value.replace(',', '.'));
       if (value > maxValue) maxValue = value;
     });
     
     columnFill.each(function(){
-      var value = $(this).find('.analityc-graphics__graphic-column-val').text();
+      var value = $(this).find('.analityc-graphics__graphic-column-val').html();
+      value = value.replace(/&nbsp;/g, '');
       value = value.replace(' ', '');
       value = parseFloat(value.replace(',', '.'));
       var columnHeight = value / maxValue * 100;
