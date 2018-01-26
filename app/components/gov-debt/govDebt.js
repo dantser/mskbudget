@@ -111,12 +111,14 @@ export default () => {
     
     column.each(function(){
       var value = $(this).find('.analityc-graphics__graphic-column-val').text();
+      value = value.replace(' ', '');
       value = parseFloat(value.replace(',', '.'));
       if (value > maxValue) maxValue = value;
     });
     
     columnFill.each(function(){
       var value = $(this).find('.analityc-graphics__graphic-column-val').text();
+      value = value.replace(' ', '');
       value = parseFloat(value.replace(',', '.'));
       var columnHeight = value / maxValue * 100;
       $(this).css('height', columnHeight+'%');
@@ -125,7 +127,7 @@ export default () => {
       }
     });
     
-  })
+  });
 
   
 }
