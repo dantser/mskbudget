@@ -84,6 +84,22 @@ function selectboxItemWidth(el) {
   });
 }
 
+function graphicLines() {
+	$(".analityc-graphics__line").each(function(){
+		  var valWidth = $(this).find('.analityc-graphics__line-bar-value').outerWidth(true),
+			  lineWidth = $(this).find('.analityc-graphics__line-total').width(),
+			  fillWidth = $(this).find('.analityc-graphics__line-fill').width();
+		  
+		  if (valWidth > lineWidth) {
+			$(this).addClass('analityc-graphics__line_short');
+			$(this).find('.analityc-graphics__line-abs').css('left', fillWidth+'px');
+		  } else {
+			$(this).removeClass('analityc-graphics__line_short');
+			$(this).find('.analityc-graphics__line-abs').css('left', '');
+		  }
+	});
+}
+
 //$(document).on('click', '.selectbox ul', function () {
 //  $(this).removeClass('active');
 //  
