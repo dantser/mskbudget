@@ -61,6 +61,12 @@ export default () => {
     $(this).siblings().removeClass('active');
     $(this).addClass('active');
     changeContent('button', $(this));
+    
+    if ($(window).width() <= 900) {
+      var target = $('.analityc-graphics.active').length ? $('.analityc-graphics.active') : $('.analityc-table.active'),
+          targetOffset = target.offset().top - 100;
+      $('html, body').animate({scrollTop: targetOffset}, 1000);
+    }
   });
   
   

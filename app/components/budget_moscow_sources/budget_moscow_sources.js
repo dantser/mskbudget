@@ -176,6 +176,12 @@ export default () => {
       }
       graphicArrowInit();
       checkGraphicVals();
+      
+      if ($(window).width() <= 900) {
+        var target = $('.analityc-widget-sources.active').length ? $('.analityc-widget-sources.active') : $('.analityc-table.active'),
+            targetOffset = target.offset().top - 100;
+        $('html, body').animate({scrollTop: targetOffset}, 1000);
+      }
     });
     
     

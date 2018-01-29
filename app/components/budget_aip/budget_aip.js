@@ -70,6 +70,17 @@ export default () => {
     }
     
     aipSetUnits();
+    
+    if ($(window).width() <= 900) {
+      var target;
+      if ($('.govPrograms:visible').length) {
+        target = $('.govProgram.active .govProgram__content.active').length ? $('.govProgram.active .govProgram__content.active') : $('.govProgram.active .analityc-table.active');
+      } else {
+        target = $('.analityc-graphics.active').length ? $('.analityc-graphics.active') : $('.analityc-table.active');
+      }
+      var targetOffset = target.offset().top - 100;
+      $('html, body').animate({scrollTop: targetOffset}, 1000);
+    }
      
  });
 
