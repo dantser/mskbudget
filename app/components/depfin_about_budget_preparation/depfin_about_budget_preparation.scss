@@ -579,12 +579,12 @@
     white-space: nowrap;
     position: relative;
     transition: all .5s ease-in-out;
-    overflow-x: scroll;
-    overflow-y: hidden;
+    //overflow-x: scroll;
+    //overflow-y: hidden;
     font-size: 0;
     margin-bottom: -20px;
     padding-bottom: 20px;
-    -webkit-overflow-scrolling: touch;
+    //-webkit-overflow-scrolling: touch;
   }
   &__mob-slider-arrow {
     position: absolute;
@@ -1301,6 +1301,8 @@
     }
     .steps.back-round .wrap {
       position: relative;
+      padding-left: 0;
+      padding-right: 0;
 
       &:before, &:after {
         content: '';
@@ -1313,11 +1315,11 @@
         z-index: 1;
       }
       &:before {
-        left: -40px;
+        left: 0;
         box-shadow: 10px 0 35px 20px #282636;
       }
       &:after {
-        right: -40px;
+        right: 0;
         box-shadow: -10px 0 35px 20px #282636;
       }
     }
@@ -1357,13 +1359,13 @@
       white-space: nowrap;
       position: relative;
       transition: all .5s ease-in-out;
-      overflow-x: scroll;
-      overflow-y: hidden;
+      //overflow-x: scroll;
+      //overflow-y: hidden;
       font-size: 0;
       margin: 0;
       margin-bottom: -20px;
       padding-bottom: 20px;
-      -webkit-overflow-scrolling: touch;
+      //-webkit-overflow-scrolling: touch;
     }
     .label {
       line-height: 1;
@@ -1543,8 +1545,8 @@
       font-size: 35px;
     }
     .steps.back-round .wrap {
-      margin-left: 40px;
-      margin-right: 40px;
+      //margin-left: 40px;
+      //margin-right: 40px;
     }
     .step__num {
       margin-bottom: 9px;
@@ -1646,6 +1648,8 @@
     .steps .step {
       padding-top: 41px;
       padding-bottom: 56px;
+      padding-left: 75px;
+      padding-right: 75px;
     }
     .btn-arrow {
       &:after {
@@ -1786,8 +1790,14 @@
       font-size: 22px;
     }
     .steps.back-round .wrap {
-      margin-left: 20px;
-      margin-right: 20px;
+      //margin-left: 20px;
+      //margin-right: 20px;
+      &:before {
+        left: -20px;
+      }
+      &:after {
+        right: -20px;
+      }
     }
     .step__num {
       margin-bottom: 5px;
@@ -1915,6 +1925,8 @@
     .steps .step {
       padding-top: 12px;
       padding-bottom: 26px;
+      padding-left: 40px;
+      padding-right: 40px;
     }
     .section-tabs__head {
       padding: 20px 0 20px;

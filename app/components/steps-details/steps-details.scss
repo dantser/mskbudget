@@ -189,11 +189,32 @@
       }
     }
   }
+  
+  &__activity-wrapper {
+    @media (max-width: 800px) {
+      width: 100%;
+      white-space: nowrap;
+      transition: all .5s ease-in-out;
+    }
+  }
+  
   &__activity {
     margin-top: 61px;
     display: none;
+    
+    @media (max-width: 800px) {
+      width: 100%;
+      display: inline-block;
+      vertical-align: top;
+      white-space: normal;
+    }
+    
     &.active {
       display: block;
+      
+      @media (max-width: 800px) {
+        display: inline-block;
+      }
     }
   }
   .cols__content-holder {
