@@ -408,6 +408,9 @@ function selectTitlesInit() {
   if ($('.widget-card').length) {
     $('.widget-card .selectbox ul').scrollbar();
   }
+  if ($('.search_net').length) {
+    $('.search_net .selectbox ul').scrollbar();
+  }
 }
 
 $(document).on('serviceSliderInited', function(){

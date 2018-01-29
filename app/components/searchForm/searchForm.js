@@ -28,6 +28,7 @@ export default () => {
     e.preventDefault();
     $(this).siblings('.filter-link').removeClass(ACTIVE_CLASS);
     $(this).toggleClass(ACTIVE_CLASS);
+    selectTitlesInit();
   });
 
   // тултип
