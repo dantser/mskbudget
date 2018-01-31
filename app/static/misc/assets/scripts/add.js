@@ -616,6 +616,64 @@ var checkMobile = {
 
 
 
+// график Исполнение на дату
+function dateGraphicLines() {
+  $('.analityc-graphics__lines').each(function(){
+    
+    // определяем максимальное значение
+    var maxValue = 0;
+  
+    $(this).find('.analityc-graphics__line').each(function(){
+      var valueBlock = $(this).find('.analityc-graphics__line-values'),
+          values = valueBlock.text().split('/'),
+          firstValue = parseFloat($.trim(values[0].replace(' ', '').replace(',', '.'))),
+          lastValue = parseFloat($.trim(values[1].replace(' ', '').replace(',', '.'))),
+          curMaxValue;
+      if (firstValue > maxValue) {
+        maxValue = firstValue;
+      }
+      if (lastValue > maxValue) {
+        maxValue = lastValue;
+      }
+      $(this).attr('data-val1', firstValue);
+      $(this).attr('data-val2', lastValue);
+    });
+    
+    // определяем ширину линий
+    $(this).find('.analityc-graphics__line').each(function(){
+      var firstValue = parseFloat($(this).attr('data-val1')),
+          lastValue = parseFloat($(this).attr('data-val2')),
+          fillWidth = firstValue / maxValue * 100,
+          totalWidth = lastValue / maxValue * 100,
+          valPosition = 100 - totalWidth;
+      $(this).find('.analityc-graphics__line-fill').css('width', fillWidth + '%');
+      $(this).find('.analityc-graphics__line-total').css('width', totalWidth + '%');
+      $(this).find('.analityc-graphics__line-bar-value').css('right', valPosition + '%');
+      if (firstValue > lastValue) {
+        $(this).find('.analityc-graphics__line-bar').addClass('analityc-graphics__line-bar_overwidth');
+      } else {
+        $(this).find('.analityc-graphics__line-bar').removeClass('analityc-graphics__line-bar_overwidth');
+      }
+    });
+    
+    // всплывающие окна
+    $(this).find('.analityc-graphics__line').each(function(){
+      var valWidth = $(this).find('.analityc-graphics__line-bar-value').outerWidth(true),
+          lineWidth = $(this).find('.analityc-graphics__line-total').width(),
+          fillWidth = $(this).find('.analityc-graphics__line-fill').width();
+      
+      if (valWidth > lineWidth) {
+        $(this).addClass('analityc-graphics__line_short');
+        $(this).find('.analityc-graphics__line-abs').css('left', fillWidth+'px');
+      } else {
+        $(this).removeClass('analityc-graphics__line_short');
+        $(this).find('.analityc-graphics__line-abs').css('left', '');
+      }
+    });
+  });
+}
+
+
 // смена контента в разделе Аналитика
 function changeAnalitycContent() {
   if (appLoaded) {
