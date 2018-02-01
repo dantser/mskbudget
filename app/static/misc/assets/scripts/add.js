@@ -9,6 +9,36 @@ $(document).on('click', '.selectbox li', function (e) {
   } else {
     var newval = $(this).data('val');
     $(this).parents('.selectbox').find('select').val(newval).change();
+    /*var inputval = $(this).parents('.selectbox').find('select option[value="'+newval+'"]').text();
+    $(this).parents('.selectbox').find('select option').removeAttr('selected');
+    $(this).parents('.selectbox').find('select option[value="'+newval+'"]').attr('selected', 'selected');
+    $(this).parents('.selectbox').find('input').val(inputval);
+
+    if ($(this).parents('.selectbox').hasClass('analityc-widget__selectbox_alt analityc-widget__selectbox_month')) {
+      var optIndex = $(this).index(),
+          monthArray = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+      inputval = monthArray[optIndex];
+    }
+
+    if (!$(this).parents('.selectbox').find('.switchConsolidatedMonth').length  && $('.gov-debt').length == 0){
+        $(this).parents('.selectbox').find('.selectbox__val').text(inputval);
+    }
+
+    // смена картинки
+    if ($(this).find('img').length) {
+      var imgSrc = $(this).find('img').attr('src');
+      $(this).parents('.selectbox').children('img').attr('src', imgSrc);
+    }
+    if ($(this).find('svg').length) {
+      var svgSrc = $(this).find('use').attr('xlink:href');
+      $(this).parents('.selectbox').children('svg').children('use').attr('xlink:href', svgSrc);
+    }*/
+  }
+});
+
+$(document).on('change', '.selectbox select', function(){
+  var newval = $(this).val();
+  $(this).parents('.selectbox').find('li[data-val="'+newval+'"]').each(function(){
     var inputval = $(this).parents('.selectbox').find('select option[value="'+newval+'"]').text();
     $(this).parents('.selectbox').find('select option').removeAttr('selected');
     $(this).parents('.selectbox').find('select option[value="'+newval+'"]').attr('selected', 'selected');
@@ -33,7 +63,7 @@ $(document).on('click', '.selectbox li', function (e) {
       var svgSrc = $(this).find('use').attr('xlink:href');
       $(this).parents('.selectbox').children('svg').children('use').attr('xlink:href', svgSrc);
     }
-  }
+  });
 });
 
 $(document).on('mousedown', '.selectbox select', function (e) {
