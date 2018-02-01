@@ -283,8 +283,7 @@ function overflowDottsInit() {
   if ($('.widget-card').length) {
     overflowDotts(70, '.widget-card-polls .widget-card__info-block-title, .widget-card-quiz .widget-card__info-block-title');
     overflowDotts(45, '.widget-card-polls-pers .widget-card__info-block-title, .widget-card-quiz-pers .widget-card__info-block-title');
-    overflowDotts(127, '.widget-card-social-support .widget-card__info-block-item, .widget-card-gov-programs-result .widget-card__info-block-item');
-    overflowDotts(95, '.widget-card-projects .widget-card__info-block-desc');
+    overflowDotts(127, '.widget-card-social-support .widget-card__info-block-item, .widget-card-gov-programs-result .widget-card__info-block-item, .widget-card-projects .widget-card__info-block-desc');
   }
 
   // depfin-budget-moscow-open
