@@ -263,113 +263,187 @@ $(document).ready(function(){
 
 
 // Обрезание текста троеточием
-function overflowDotts(size, element) {
-  var content = $(element);
+function overflowDotts(size, element, title) {
+  var content = element;
   content.each(function () {
     var contentText = $(this).text();
     if(contentText.length > size){
+      if (title) $(this).attr('title', $(this).text());
       $(this).text((contentText.slice(0, size)).trim() + '...');
     }
   });
 };
 
-function maxHeightDots(element) {
-  if ($(element).length) {
-    $(element).each(function(){
-      var wordArray = $(this).text().split(' '),
-          newText = '',
-          maxHeight = parseFloat($(this).css('max-height'));
-
-      $(this).html('<span></span>');
-
-      var textSpan = $(this).find('span');
-
-      for (var i = 0; i < wordArray.length; i++) {
-
-        if (textSpan.text(newText+wordArray[i]).height() <= maxHeight) {
-          newText += ' '+wordArray[i];
-        } else if (textSpan.text(newText+'...').height() <= maxHeight){
-          newText += '...';
-          i = wordArray.length;
-        } else {
-          newText = newText.substring(0, newText.lastIndexOf(' ')) + '...';
-          i = wordArray.length;
-        }
-
-        textSpan.text(newText);
-      }
-    });
-  }
-}
-
 function overflowDottsInit() {
 
   // teaser-card
   if ($('.teaser-card').length) {
-    overflowDotts(120, '.teaser-card__title');
+    overflowDotts(120, $('.teaser-card__title'));
   }
 
   // widget-card
   if ($('.widget-card').length) {
-    overflowDotts(70, '.widget-card-polls .widget-card__info-block-title, .widget-card-quiz .widget-card__info-block-title');
-    overflowDotts(45, '.widget-card-polls-pers .widget-card__info-block-title, .widget-card-quiz-pers .widget-card__info-block-title');
-    overflowDotts(127, '.widget-card-social-support .widget-card__info-block-item, .widget-card-gov-programs-result .widget-card__info-block-item, .widget-card-projects .widget-card__info-block-desc');
+    overflowDotts(70, $('.widget-card-polls .widget-card__info-block-title, .widget-card-quiz .widget-card__info-block-title'));
+    overflowDotts(127, $('.widget-card-social-support .widget-card__info-block-item, .widget-card-gov-programs-result .widget-card__info-block-item, .widget-card-projects .widget-card__info-block-desc'));
+    
+    $('.widget-card-polls-pers, .widget-card-quiz-pers').each(function(){
+      var contentBlockLength = $(this).find('.widget-card__content').length;
+      if (contentBlockLength > 1) {
+        overflowDotts(45, $(this).find('.widget-card__info-block-title'));
+      } else {
+        overflowDotts(120, $(this).find('.widget-card__info-block-title'));
+      }
+    });
   }
 
   // depfin-budget-moscow-open
   if ($('.depfin-budget-moscow-open').length) {
     if ($(window).width() < 900) {
-      overflowDotts(50, '.depfin-budget-moscow-open__text');
+      overflowDotts(50, $('.depfin-budget-moscow-open__text'), true);
     } else {
-      overflowDotts(70, '.depfin-budget-moscow-open__text');
+      overflowDotts(70, $('.depfin-budget-moscow-open__text'), true);
     }
   }
 
   // media-card
   if ($('.media-card').length) {
     if ($(window).width() < 1140 && $(window).width() >= 401) {
-      overflowDotts(42, '.media-card__text');
+      overflowDotts(42, $('.media-card__text'));
     } else if ($(window).width() < 400) {
-      overflowDotts(80, '.media-card__text');
+      overflowDotts(80, $('.media-card__text'));
     } else {
-      overflowDotts(60, '.media-card__text');
+      overflowDotts(60, $('.media-card__text'));
     }
   }
 
   // section-tabs
   if ($('.section-tabs').length) {
-    overflowDotts(60, '.section-tabs__title');
-    overflowDotts(400, '.section-tabs__text');
-    overflowDotts(165, '.news__title');
+    overflowDotts(60, $('.section-tabs__title'));
+    overflowDotts(400, $('.section-tabs__text'));
+    overflowDotts(165, $('.news__title'));
   }
 
   // document / directory
   if ($('.document').length || $('.directory').length) {
-    overflowDotts(60, '.document__title');
-    overflowDotts(60, '.directory__title');
-    overflowDotts(250, '.document__excerpt');
+    overflowDotts(60, $('.document__title'));
+    overflowDotts(60, $('.directory__title'));
+    overflowDotts(250, $('.document__excerpt'));
   }
 
   // wrapper_main (главная)
   if ($('.wrapper_main').length) {
-    overflowDotts(80, '.news__title');
-    //setTimeout(function(){
-    //  maxHeightDots('.news__title');
-    //}, 500);
+    
+    if ($(window).width() > 1180) {
+      if ($(window).height() > 680) {
+        overflowDotts(120, $('.news__title'));
+      } else if ($(window).height() > 660) {
+        overflowDotts(100, $('.news__title'));
+      } else {
+        overflowDotts(80, $('.news__title'));
+      }
+    } else if ($(window).width() > 700) {
+      if ($(window).height() > 680) {
+        overflowDotts(110, $('.news__title'));
+      } else if ($(window).height() > 660) {
+        overflowDotts(90, $('.news__title'));
+      } else {
+        overflowDotts(70, $('.news__title'));
+      }
+    } else if ($(window).width() > 605) {
+      if ($(window).height() > 630) {
+        overflowDotts(130, $('.news__title'));
+      } else if ($(window).height() > 610) {
+        overflowDotts(110, $('.news__title'));
+      } else if ($(window).height() > 590) {
+        overflowDotts(90, $('.news__title'));
+      } else {
+        overflowDotts(70, $('.news__title'));
+      }
+    } else {
+      if ($(window).height() > 790) {
+        overflowDotts(130, $('.news__title'));
+      } else if ($(window).height() > 630) {
+        overflowDotts(110, $('.news__title'));
+      } else if ($(window).height() > 610) {
+        overflowDotts(90, $('.news__title'));
+      } else if ($(window).height() > 580) {
+        overflowDotts(70, $('.news__title'));
+      } else if ($(window).height() > 570) {
+        overflowDotts(90, $('.news__title'));
+      } else if ($(window).height() > 550) {
+        overflowDotts(70, $('.news__title'));
+      } else if ($(window).height() > 530) {
+        overflowDotts(110, $('.news__title'));
+      } else if ($(window).height() > 510) {
+        overflowDotts(90, $('.news__title'));
+      } else if ($(window).height() > 490) {
+        overflowDotts(70, $('.news__title'));
+      } else {
+        overflowDotts(50, $('.news__title'));
+      }
+    }
   }
 
   // media-main / news-page / news-one
-  if ($('.media-main, .news-page, .news-one').length) {
-    if ($(window).width() > 640) {
-      overflowDotts(140, '.news__title');
+  if ($('.media-main').length) {
+    if ($(window).width() > 1140) {
+      overflowDotts(140, $('.news__title'));
+    } else if ($(window).width() > 1023) {
+      overflowDotts(170, $('.news__title'));
+    } else if ($(window).width() > 900) {
+      overflowDotts(140, $('.news__title'));
+    } else if ($(window).width() > 640) {
+      overflowDotts(700, $('.news__title'));
+    } else if ($(window).width() > 400) {
+      overflowDotts(90, $('.news__title'));
     } else {
-      overflowDotts(85, '.news__title');
+      overflowDotts(110, $('.news__title'));
+    }
+  }
+  
+  if ($('.news-page').length) {
+    if ($(window).width() > 1140) {
+      overflowDotts(140, $('.news__title'));
+    } else if ($(window).width() > 1023) {
+      overflowDotts(170, $('.news__title'));
+    } else if ($(window).width() > 900) {
+      overflowDotts(140, $('.news__title'));
+    } else if ($(window).width() > 740) {
+      overflowDotts(700, $('.news__title'));
+    } else if ($(window).width() > 640) {
+      overflowDotts(600, $('.news__title'));
+    } else if ($(window).width() > 580) {
+      overflowDotts(110, $('.news__title'));
+    } else if ($(window).width() > 400) {
+      overflowDotts(90, $('.news__title'));
+    } else {
+      overflowDotts(110, $('.news__title'));
+    }
+  }
+  
+  if ($('.news-one').length) {
+    if ($(window).width() > 1140) {
+      overflowDotts(140, $('.news__title'));
+    } else if ($(window).width() > 1023) {
+      overflowDotts(170, $('.news__title'));
+    } else if ($(window).width() > 900) {
+      overflowDotts(140, $('.news__title'));
+    } else if ($(window).width() > 740) {
+      overflowDotts(700, $('.news__title'));
+    } else if ($(window).width() > 640) {
+      overflowDotts(600, $('.news__title'));
+    } else if ($(window).width() > 580) {
+      overflowDotts(110, $('.news__title'));
+    } else if ($(window).width() > 400) {
+      overflowDotts(90, $('.news__title'));
+    } else {
+      overflowDotts(110, $('.news__title'));
     }
   }
 
   // d-si__quiz (опросы / викторины)
   if ($('.d-si__quiz').length) {
-    overflowDotts(90, '.d-si__quiz_head');
+    overflowDotts(90, $('.d-si__quiz_head'));
   }
 
 }
