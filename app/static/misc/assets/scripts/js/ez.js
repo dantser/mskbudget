@@ -943,6 +943,9 @@ function stepsDetails() {
           stepsDetails.addClass('active');
           window.scroll = $(window).scrollTop();
           $("body").css('top', -scroll + 'px').toggleClass('noscroll');
+          
+          var activityHeight = $('.steps-details__activity.active:visible').outerHeight(true);
+          $('.steps-details__activity-wrapper').height(activityHeight);
         }
       })
     });
