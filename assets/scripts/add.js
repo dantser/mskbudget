@@ -303,6 +303,12 @@ function overflowDottsInit() {
     } else {
       overflowDotts(70, $('.depfin-budget-moscow-open__text'), true);
     }
+    
+    $('.depfin-budget-moscow-open__category').each(function(){
+      if ($(this).text().length > 27) {
+        $(this).attr('title', $(this).text());
+      }
+    });
   }
 
   // media-card
