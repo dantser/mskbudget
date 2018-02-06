@@ -124,9 +124,9 @@ export default function selectbox(selector) {
     selectTitlesInit();
   }, 500);
   
-  setTimeout(function(){
+  /*setTimeout(function(){
     $('.widget-card .selectbox ul').scrollbar();
-  }, 1000);
+  }, 1000);*/
   
   
   
