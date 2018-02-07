@@ -114,7 +114,7 @@ export default () => {
         var maxlineWidth = 0;
         
         $(this).find('.linear-diagram').each(function(){
-          var lineWidth = $(this).find('.linear-diagram__wrapper').outerWidth();
+          var lineWidth = $(this).find('.linear-diagram__block').outerWidth() + $(this).find('.linear-diagram__value_out').outerWidth(true);
           if (lineWidth > maxlineWidth) maxlineWidth = lineWidth;
         });
         
