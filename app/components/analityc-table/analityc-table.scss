@@ -303,7 +303,7 @@
       text-align: center;
       width: 182px; /**/
       padding: 12px 0 3px;
-      
+
       &_half {
         width: 91px;
       }
@@ -345,7 +345,7 @@
     &:nth-child(5) {
 
       .table__col_subcol {
-        padding-left: 30px!important;
+        padding-left: 30px !important;
       }
 
       .table__icon {
@@ -361,7 +361,7 @@
     &:nth-child(6) {
 
       .table__col_subcol {
-        padding-left: 40px!important;
+        padding-left: 40px !important;
       }
     }
 
@@ -397,7 +397,7 @@
         text-align: left;
         font-size: 14.5px;
       }
-      
+
       &_half {
         width: 91px;
       }
@@ -521,17 +521,14 @@
 }
 
 @media (max-width: 640px) and (min-width: 401px) {
-  
+
   .analityc-table .table__row_caption .table__col:first-child {
-    font-size: 15px;  
+    font-size: 15px;
   }
 }
 
-
-
-
 @mixin table-slider($minwidth) {
-  
+
   @media screen and (max-width: $minwidth) {
     .analityc-table__wrapper {
       overflow-x: auto;
@@ -546,14 +543,13 @@
   }
 }
 
-
 .analityc-table {
   position: relative;
-  
+
   &__scroll-hider {
     overflow: hidden;
   }
-  
+
   &__slide-arrows {
     display: none;
     position: absolute;
@@ -561,14 +557,14 @@
     right: -38px;
     top: 50%;
     margin-top: -25px;
-    
+
     @media screen and (max-width: 580px) {
       left: -23px;
       right: -23px;
       margin-top: -15px;
     }
   }
-  
+
   &_approved, &_date, &_domain, &_work {
     @include table-slider(640px);
   }
@@ -617,7 +613,20 @@
   }
   .table {
     min-width: 0;
+    .table__row {
+      .table__col {
+        font-weight: 400;
+      }
+    }
+    .table__row {
+      &:first-child {
+        .table__col {
+          font-weight: 500;
+        }
+      }
+    }
   }
+
   .analityc-table__slide-arrows {
     display: none;
   }
@@ -633,7 +642,7 @@
       }
     }
   }
-  
+
   .table__row_caption {
     .table__col {
       text-align: left;
@@ -642,7 +651,6 @@
     }
   }
 }
-
 
 //--- таблицы с плавающими стрелками ---//
 .analityc-table_sticky-arrows {
@@ -667,7 +675,7 @@
       bottom: 80px;
     }
   }
-  
+
   //budget_moscow_sources
   .moscow-sources & {
     .analityc-table__slide-arrows {
@@ -679,7 +687,7 @@
       }
     }
   }
-  
+
   //mrelations
   .mrelations-transfer &.analityc-table_date {
     .analityc-table__slide-arrows {
@@ -689,7 +697,7 @@
       }
     }
   }
-  
+
   //раздел Аналитика
   .analityc-widget_params &,
   ._analitycs-income &,
@@ -705,7 +713,7 @@
       }
     }
   }
-  
+
   //depfin-analytics-main
   .analityc-widget_params & {
     .analityc-table__slide-arrows {
@@ -717,7 +725,7 @@
       }
     }
   }
-  
+
   //services_social_significant
   .significant-about & {
     .analityc-table__slide-arrows {
@@ -747,17 +755,17 @@
   top: 100px;
   margin-top: 0;
   z-index: 2;
-  
+
   @media screen and (max-width: 1024px) {
     left: -35px;
     right: -35px;
   }
-  
+
   @media screen and (max-width: 580px) {
     right: -20px;
     left: -20px;
   }
-  
+
   &.fixed {
     position: fixed;
     left: calc(50% - 550px);
@@ -796,21 +804,21 @@
   top: 100px;
   left: -32px;
   right: -32px;
-  
+
   @media (min-width: 901px) {
     display: none;
   }
-  
+
   @media (max-width: 600px) {
     left: -40px;
     right: -40px;
   }
-  
+
   @media (max-width: 580px) {
     left: -19px;
     right: -19px;
   }
-  
+
   &.fixed {
     position: fixed;
     left: -7px;
