@@ -137,8 +137,8 @@ export default () => {
 			LINE_STR.each(function() {
 				var linePers = 0.0;
 				var fillPers = 0.0;
-				var num = parseFloat(($(this).find('.analityc-line__line-value').text()).replace(',', '.'));
-				var barNum = parseFloat(($(this).find('.analityc-line__line-bar-value').text()).replace(',', '.'));
+				var num = parseFloat(($(this).find('.analityc-line__line-value').text()).replace(' ', '').replace(',', '.'));
+				var barNum = parseFloat(($(this).find('.analityc-line__line-bar-value').text()).replace(' ', '').replace(',', '.'));
 
 				// отрицательное значение (Закон о внесении изменений)
 				if (barNum < 0) {
@@ -147,7 +147,7 @@ export default () => {
 						$(this).find('.analityc-line__line-total').addClass('analityc-line__line-total_negative');
 				}
 				else {
-					if ($this.hasClass('.analityc-widget-moscow-gov-program_date'))
+					if ($this.hasClass('analityc-widget-moscow-gov-program_date'))
 						var sum = barNum;
 					else
 						var sum = num + barNum;
@@ -314,6 +314,7 @@ export default () => {
     changeControl(controls, stageVal, levelVal, typeVal);
     
     positionValues();
+    dateGraphicLines();
     $(document).trigger('contentChanged');
   }
   

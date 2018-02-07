@@ -4,6 +4,16 @@
       background-image: linear-gradient(to right, $startcolor 0%, $endcolor 100%);
       filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr=#{$startcolor}, endColorstr=#{$endcolor});
     }
+    .linear-diagram__fill_negative {
+      background: none;
+      filter: none;
+      .linear-diagram__value {
+        color: $midcolor;
+      }
+      .linear-diagram__value_abs {
+        color: #fff;
+      }
+    }
     .linear-diagram__fill-abs {
       &:before {border-right-color: $startcolor;}
       &:after {border-left-color: $endcolor;}
@@ -398,6 +408,7 @@
       display: inline-block;
       vertical-align: middle;
       width: calc(76% - 26px);
+      padding-right: 50px;
     }
 
     &__block {

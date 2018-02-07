@@ -57,20 +57,64 @@ export default () => {
       });
     }
     
-    $('.analityc-widget-sources_date [data-width]').each(function(){
-      var dwidth = $(this).data('width');
-      $(this).css('width', dwidth+'%');
-    });
-    
     function checkDateGraphics() {
       $('.analityc-widget-sources_date .linear-diagrams').each(function(){
+        
+        var cnt = 0,
+            maxValue = 0;
+        
+        $(this).find('.linear-diagram').each(function(){
+          var planValue = parseFloat($(this).find('.linear-diagram__value_out').text().replace(' ', '').replace(',', '.')),
+              factValue = parseFloat($(this).find('.linear-diagram__fill .linear-diagram__value').text().replace(' ', '').replace(',', '.')),
+              blockWidth,
+              fillWidth;
+          
+          if (cnt === 0) {
+            maxValue = planValue;
+          }
+          
+          if (planValue === 0 && factValue > 0) {
+            blockWidth = factValue / maxValue * 100;
+          } else {
+            blockWidth = planValue / maxValue * 100;
+          }
+          
+          if (planValue === 0 && factValue === 0) {
+            fillWidth = 0;
+          } else if ((planValue === 0 && factValue > 0) || factValue < 0 || factValue > planValue) {
+            fillWidth = 100;
+          } else {
+            fillWidth = factValue / planValue * 100;
+          }
+          
+          $(this).find('.linear-diagram__block').css('width', blockWidth+'%');
+          $(this).find('.linear-diagram__fill').css('width', fillWidth+'%');
+          
+          $(this).find('.linear-diagram__fill .linear-diagram__value').removeClass('linear-diagram__value_abs').appendTo($(this).find('.linear-diagram__fill'));
+          $(this).find('.linear-diagram__fill .linear-diagram__fill-hover').remove();
+          $(this).find('.linear-diagram__fill').removeClass('linear-diagram__fill_negative');
+          
+          var valueWidth = $(this).find('.linear-diagram__fill .linear-diagram__value').width() + 16,
+              fillWidth = $(this).find('.linear-diagram__fill').width();          
+          
+          if (valueWidth > fillWidth) {
+            $(this).find('.linear-diagram__fill .linear-diagram__value').addClass('linear-diagram__value_abs').wrap('<div class="linear-diagram__fill-abs"></div>');
+            $(this).find('.linear-diagram__fill .linear-diagram__fill-abs').wrap('<div class="linear-diagram__fill-hover"></div>');
+          }
+          
+          if (factValue < 0) {
+            $(this).find('.linear-diagram__fill').addClass('linear-diagram__fill_negative');
+          }
+          
+          cnt++;
+        });
         
         var wrapperWidth = $(this).find('.linear-diagrams__wrapper').width();
         var titleWidth = $(this).find('.linear-diagram__sources').outerWidth(true);
         var maxlineWidth = 0;
         
         $(this).find('.linear-diagram').each(function(){
-          var lineWidth = $(this).find('.linear-diagram__block').outerWidth();
+          var lineWidth = $(this).find('.linear-diagram__wrapper').outerWidth();
           if (lineWidth > maxlineWidth) maxlineWidth = lineWidth;
         });
         
