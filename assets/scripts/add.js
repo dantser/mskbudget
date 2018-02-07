@@ -783,6 +783,28 @@ function dateGraphicLines() {
       });
     }
   });
+  
+  $('.analityc-js-line__line-bar').each(function(){
+    
+    var values = $(this).find('.analityc-js-line__line-values'),
+        barValue = $(this).find('.analityc-js-line__line-bar-value'),
+        fill = $(this).find('.analityc-js-line__line-fill'),
+        maxValue = parseFloat(barValue.text().replace(' ', '').replace(',', '.')),
+        fillValue = parseFloat(values.text().replace(' ', '').replace(',', '.')),
+        fillWidth = fillValue / maxValue * 100;
+    
+    if (fillWidth > 100) fillWidth = 100;
+    fill.css('width', fillWidth+'%');
+    
+    var valWidth = values.outerWidth(true),
+        fillWidth = fill.width();
+    
+    if (valWidth > fillWidth) {
+      values.addClass('analityc-js-line__line-values--out');
+    } else {
+      values.removeClass('analityc-js-line__line-values--out');
+    }
+  });
 }
 
 
