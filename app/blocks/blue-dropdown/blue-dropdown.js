@@ -1,14 +1,14 @@
 export default function bluedropdown() {
   var blueDropdown = '.blue-dropdown',
-      blueDropdownHeading = '.blue-dropdown__heading',
+      blueDropdownArrow = '.blue-dropdown__arrow',
       blueDropdownList = '.blue-dropdown__list',
       blueDropdownActiveClass = 'active',
       blueDropdownTiming = '321';
 
-  $(document).on('click', blueDropdownHeading, function (e) {
+  $(document).on('click', blueDropdownArrow, function (e) {
     e.preventDefault();
 
-    var ul = $(this).parents(blueDropdown).find(blueDropdownList);
+    var ul = $(this).closest(blueDropdown).find(blueDropdownList);
 
     if ( ul.parents(blueDropdown).hasClass(blueDropdownActiveClass) ) {
       ul.slideUp(blueDropdownTiming).parents(blueDropdown).removeClass(blueDropdownActiveClass);

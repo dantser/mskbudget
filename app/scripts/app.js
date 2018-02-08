@@ -120,6 +120,7 @@ $(() => {
 	  searchForm();
 	  window.sources = sources;
 	  sources();
+	  window.govProgram = govProgram;
 	  govProgram();
 	  window.analyticsMain = analyticsMain;
 	  analyticsMain();
@@ -171,6 +172,7 @@ $(() => {
 	  budgetForecast();
 	  window.servicesMoscow = servicesMoscow;
 	  servicesMoscow();
+	  window.blueDropdown = bluedropdown;
 	  bluedropdown();
 	  documentsCards();
 	  tablesActive();
@@ -199,6 +201,6 @@ $(() => {
     teaserCard();
     footer();
     pollsTask();
-  
+
     window.appLoaded = true;
 });
