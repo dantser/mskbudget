@@ -85,7 +85,7 @@ export default () => {
     }
   });
   //чекбоксы
-  $('.extra-search__checkbox-group').click(function(){
+  $(document).on('click', '.extra-search__checkbox-group', function(){
     isChanging = true;
   var inputCount = $(this).find('.checkbox__control:checked').length,
       checkboxCount = $(this).find('.checkbox').length;
