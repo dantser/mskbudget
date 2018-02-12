@@ -1,9 +1,18 @@
 .depfin-budget-moscow-open {
   display: block;
   background-image: url(../images/depfin-budget-moscow-open/bg.jpg);
-  background-size: cover;
+  background-size: 100% auto;
   background-position: center 0;
+  background-color: #111940;
   padding-bottom: 60px;
+  
+  @media (max-width: 900px) {
+    background-size: 150% auto;
+  }
+  
+  @media (max-width: 580px) {
+    background-size: 180% auto;
+  }
 
   @include respond-to('mobile'){
     padding-bottom: 20px;
