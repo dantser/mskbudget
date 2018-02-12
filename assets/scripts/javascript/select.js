@@ -699,7 +699,7 @@ $('.tab__btn').click(function() {
 
 
 //Dropdown
-$('.dropdown__btn').click(function() {
+$(document).on('click', '.dropdown__btn', function() {
 
 	var _ = $(this);
 
@@ -722,7 +722,7 @@ $('.dropdown__btn').click(function() {
 	return false;
 });
 
-$('.dropdown__close').click(function() {
+$(document).on('click', '.dropdown__close', function() {
 	$(this).parent().slideUp(321).parent().find('.dropdown__btn').removeClass('dropdown__btn_active');
 	return false;
 });
