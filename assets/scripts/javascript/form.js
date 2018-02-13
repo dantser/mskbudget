@@ -99,7 +99,7 @@ $('.form__select-btn').click(function () {
 	return false;
 });
 
-$('.form__select-a').click(function () {
+/*$('.form__select-a').click(function () {
 
 	var _ = $(this);
 	var parent = _.parent().parent().parent();
@@ -111,7 +111,7 @@ $('.form__select-a').click(function () {
 	$('.form__select-btn').removeClass('form__select-btn_act');
 
 	return false;
-});
+});*/
 
 $(document).on('click', function(e) {
 	if (!$(e.target).closest(".form__select").length) {

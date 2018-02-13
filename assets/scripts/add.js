@@ -755,16 +755,11 @@ function dateGraphicLines() {
         var firstValue = parseFloat($(this).attr('data-val1')),
             lastValue = parseFloat($(this).attr('data-val2')),
             fillWidth = firstValue / maxValue * 100,
-            totalWidth = lastValue / maxValue * 100,
+            totalWidth = (firstValue < lastValue) ? lastValue / maxValue * 100 : fillWidth,
             valPosition = 100 - totalWidth;
         $(this).find('.analityc-graphics__line-fill').css('width', fillWidth + '%');
         $(this).find('.analityc-graphics__line-total').css('width', totalWidth + '%');
         $(this).find('.analityc-graphics__line-bar-value').css('right', valPosition + '%');
-        if (firstValue > lastValue) {
-          $(this).find('.analityc-graphics__line-bar').addClass('analityc-graphics__line-bar_overwidth');
-        } else {
-          $(this).find('.analityc-graphics__line-bar').removeClass('analityc-graphics__line-bar_overwidth');
-        }
       });
       
       // всплывающие окна
