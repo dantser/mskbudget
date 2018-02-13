@@ -209,10 +209,17 @@ export default () => {
     });
     
     // переключение по кнопкам график/таблица
-    $(".moscow-sources .analityc-widget_sources .analityc-control-button").on("click", function(e) {
+    $(document).on('click', '.moscow-sources .analityc-widget_sources .analityc-control-button', function(e) {
       e.preventDefault();
       $(this).siblings().removeClass('active');
       $(this).addClass('active');
+      
+      if ($(window).width() <= 900) {
+        var target = $('.analityc-widgethead'),
+            targetOffset = target.offset().top + target.outerHeight() - 100;
+        $('html, body').animate({scrollTop: targetOffset}, 1000);
+      }
+      
       changeContent('button', $(this));
       if ($(window).width() <= 980) {
         approvedGraphSlider.update();
@@ -220,12 +227,6 @@ export default () => {
       }
       graphicArrowInit();
       checkGraphicVals();
-      
-      if ($(window).width() <= 900) {
-        var target = $('.analityc-widget-sources.active').length ? $('.analityc-widget-sources.active') : $('.analityc-table.active'),
-            targetOffset = target.offset().top - 100;
-        $('html, body').animate({scrollTop: targetOffset}, 1000);
-      }
     });
     
     

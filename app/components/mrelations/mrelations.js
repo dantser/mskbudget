@@ -40,17 +40,18 @@ export default () => {
   });
   
   // переключение по кнопкам график/таблица
-  $(".mrelations-transfer .analityc-widget_mrelations .analityc-control-button").on("click", function(e) {
+  $(document).on('click', '.mrelations-transfer .analityc-widget_mrelations .analityc-control-button', function(e) {
     e.preventDefault();
     $(this).siblings().removeClass('active');
     $(this).addClass('active');
-    changeContent('button', $(this));
     
     if ($(window).width() <= 900) {
-      var target = $('.analityc-graphics.active').length ? $('.analityc-graphics.active') : $('.analityc-table.active'),
-          targetOffset = target.offset().top - 100;
+      var target = $('.analityc-widgethead'),
+          targetOffset = target.offset().top + target.outerHeight() - 100;
       $('html, body').animate({scrollTop: targetOffset}, 1000);
     }
+    
+    changeContent('button', $(this));
   });
   
   
