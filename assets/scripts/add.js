@@ -1,3 +1,13 @@
+// checkBrowser
+var browserV = {};
+browserV.edge = /edge/.test(navigator.userAgent.toLowerCase());
+browserV.ie = /msie/.test(navigator.userAgent.toLowerCase());
+browserV.ie11 = /rv:11\.0/.test(navigator.userAgent.toLowerCase());
+browserV.ff = /firefox/.test(navigator.userAgent.toLowerCase());
+browserV.s517 = /version\/5\.1\.7/.test(navigator.userAgent.toLowerCase());
+
+
+
 // Custom selects
 $(document).on('click', '.selectbox li', function (e) {
 
@@ -514,11 +524,19 @@ function selectTitles(el) {
 
 function selectTitlesInit() {
   selectTitles('.selectbox');
+  
   if ($('.widget-card').length) {
-    $('.widget-card .selectbox ul').scrollbar();
+    if (browserV.edge || browserV.ff || browserV.ie || browserV.ie11) {
+      $('.widget-card .selectbox ul').addClass('ieff');
+    }
+    $('.widget-card .selectbox ul:visible').scrollbar();
   }
+  
   if ($('.search_net').length) {
-    $('.search_net .selectbox ul').scrollbar();
+    if (browserV.edge || browserV.ff || browserV.ie || browserV.ie11) {
+      $('.search_net .selectbox ul').addClass('ieff');
+    }
+    $('.search_net .selectbox ul:visible').scrollbar();
   }
 }
 

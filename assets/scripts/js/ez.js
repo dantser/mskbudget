@@ -669,6 +669,7 @@ function tabsLine() {
     sectionTabs.toggleClass('active');
     sectionTabs.find($('.section-tabs__head')).toggleClass('section-tabs__head_closed');
     setImagePosition();
+    selectTitlesInit();
     return false
     /*
     если понадобиться скрывать пункты в навигации табов,
