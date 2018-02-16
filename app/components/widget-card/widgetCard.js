@@ -143,6 +143,10 @@ export default () => {
       widgetCard.find('.widget-card__results-total:last-child').addClass('widget-card__results-total_active');
     }
   });
+  
+  $(document).on('click', '.widget-card .arrow-button_prev, .widget-card .arrow-button_next', function (e) {
+    overflowDottsInit();
+  });
 
 //конец стрелочек в виджетах
 
@@ -162,6 +166,7 @@ export default () => {
           $this.parents('.widget-card').find('.service__diagram-tabs, .service-dots').show();
           selectTitlesInit();
           captionDotsInit();
+          overflowDottsInit();
         }, 321)
       });
 	  
@@ -174,6 +179,7 @@ export default () => {
           $this.parents('.widget-card').find('.service__diagram-tabs, .service-dots').show();
           selectTitlesInit();
           captionDotsInit();
+          overflowDottsInit();
         }, 321)
 	  });
   };
