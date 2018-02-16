@@ -543,6 +543,7 @@ export default () => {
             .html('<span>' + text + '</span>');
         }
       });
+	  
 
       // Корректируем склеивание
       smallVals.each(function(){
@@ -558,6 +559,23 @@ export default () => {
           $(this).addClass('segment-diagram__val_small_'+position+'-after');
         }
       });
+	  
+	  if (smallVals.length > 1) {
+		  var maxSmallVal = 0;
+		  smallVals.each(function() {
+			  var thisVal = parseFloat($(this).text().replace(',', '.'));
+			  if (thisVal > maxSmallVal) {
+				  maxSmallVal = thisVal;
+			  }
+		  });
+		  
+		  smallVals.each(function() {
+			  var thisVal = parseFloat($(this).text().replace(',', '.'));
+			  if (thisVal != maxSmallVal) {
+				  $(this).css({'display': 'none'});
+			  }
+		  });
+	  }
     });
   }
 
