@@ -65,7 +65,11 @@ export default function() {
               if (callbackFunctionName === "budgetCalcRestoreDefaults") {
                 budgetCalcRestoreDefaults(value);
               } else {
-                if (value) {
+                var fn = window[callbackFunctionName];
+                if (fn) {
+                  fn(value);
+                }
+                else if (value) {
                   console.log('yes, set your own callback');
                 } else {
                   console.log('no, set your own callback');
