@@ -943,8 +943,9 @@ function stepsDetails() {
         } else {
           stepsDetails.show();
           stepsDetails.addClass('active');
-          window.scroll = $(window).scrollTop();
-          $("body").css('top', -scroll + 'px').toggleClass('noscroll');
+          //window.scroll = $(window).scrollTop();
+          //$("body").css('top', -scroll + 'px').toggleClass('noscroll');
+          $("html, body").css('overflow', 'hidden');
           
           var activityHeight = $('.steps-details__activity.active:visible').outerHeight(true);
           $('.steps-details__activity-wrapper').height(activityHeight);
@@ -964,8 +965,9 @@ function stepsDetails() {
     if ($(window).width() > 800) {
       $('.steps').css('height', 'auto');
     } else {
-      $("body").css('top', "0").removeClass('noscroll');
-      $(window).scrollTop(scroll);
+      //$("body").css('top', "0").removeClass('noscroll');
+      //$(window).scrollTop(scroll);
+      $("html, body").css('overflow', '');
     }
   });
 }
@@ -1119,17 +1121,20 @@ function dateSlider() {
           }
         }
         
-        dateListWrapper.find('.steps-details__date-list').css('transform', 'translate3d(-' + currentSlide * 100 + '%, 0,0)');
-        activityWrapper.css('transform', 'translate3d(-' + currentSlide * 100 + '%, 0,0)');
+        // translate
+        //dateListWrapper.find('.steps-details__date-list').css('transform', 'translate3d(-' + currentSlide * 100 + '%, 0,0)');
+        //activityWrapper.css('transform', 'translate3d(-' + currentSlide * 100 + '%, 0,0)');
+        
+        // scroll
+        dateListWrapper.find('.steps-details__date-list').animate({scrollLeft: currentSlide * slideWidth}, 300);
+        activityWrapper.animate({scrollLeft: currentSlide * slideWidth}, 300);
+        
+        //
         activityWrapper.find('.steps-details__activity').removeClass('active');
         activityWrapper.find('.steps-details__activity[data-activity="' + (currentSlide + 1) + '"]').addClass('active');
         var activityHeight = activityWrapper.find('.steps-details__activity.active').outerHeight(true);
         activityWrapper.height(activityHeight);
-        //dateListWrapper.find('.steps-details__date-list').animate({scrollLeft: currentSlide * slideWidth}, 300);
-        //var activity = dateListWrapper.find('.steps-details__date-list li').eq(currentSlide).find('a').attr('data-activity');
-        //dateListWrapper.siblings('.steps-details__activity').removeClass('active');
-        //dateListWrapper.siblings('.steps-details__activity[data-activity="' + activity + '"]').addClass('active');
-        dateListWrapper.attr('data-slide', currentSlide);
+        dateListWrapper.attr('data-slide', currentSlide);        
       }
     });
     
@@ -1138,23 +1143,24 @@ function dateSlider() {
       $(document).on('touchstart', '.steps-details__date-list, .steps-details__activity-wrapper', function(e){
         e.stopImmediatePropagation();
         startX = e.pageX || e.originalEvent.touches[0].pageX;
-        startY = $(this).offset().top;
+        startY = $(this).parents('.steps-details__wrapper').scrollTop();
       });
       
       $(document).on('touchmove', '.steps-details__date-list, .steps-details__activity-wrapper', function(e){
         e.stopImmediatePropagation();
         e.stopPropagation();
         endX = e.pageX || e.originalEvent.touches[0].pageX;
-        endY = $(this).offset().top;
+        endY = $(this).parents('.steps-details__wrapper').scrollTop();
       });
       
       $(document).on('touchend', '.steps-details__date-list, .steps-details__activity-wrapper', function(e){
         e.stopImmediatePropagation();
+        var diffX = Math.abs(endX - startX);
         var diffY = Math.abs(endY - startY);
         
-        if (endX < startX && diffY < 20) {
+        if (endX < startX && diffX > 10 && diffY < 1) {
           $(this).parents('.steps-details__content').find('.steps-details__date-list-arrow_next').click();
-        } else if (endX > startX && diffY < 20) {
+        } else if (endX > startX && diffX > 10 && diffY < 1) {
           $(this).parents('.steps-details__content').find('.steps-details__date-list-arrow_prev').click();
         }
       });
