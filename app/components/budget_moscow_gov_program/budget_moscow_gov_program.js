@@ -137,8 +137,8 @@ export default () => {
 			LINE_STR.each(function() {
 				var linePers = 0.0;
 				var fillPers = 0.0;
-				var num = parseFloat(($(this).find('.analityc-line__line-value').text()).replace(',', '.'));
-				var barNum = parseFloat(($(this).find('.analityc-line__line-bar-value').text()).replace(',', '.'));
+				var num = parseFloat(($(this).find('.analityc-line__line-value').text()).replace(' ', '').replace(',', '.'));
+				var barNum = parseFloat(($(this).find('.analityc-line__line-bar-value').text()).replace(' ', '').replace(',', '.'));
 
 				// отрицательное значение (Закон о внесении изменений)
 				if (barNum < 0) {
@@ -147,7 +147,7 @@ export default () => {
 						$(this).find('.analityc-line__line-total').addClass('analityc-line__line-total_negative');
 				}
 				else {
-					if ($this.hasClass('.analityc-widget-moscow-gov-program_date'))
+					if ($this.hasClass('analityc-widget-moscow-gov-program_date'))
 						var sum = barNum;
 					else
 						var sum = num + barNum;
@@ -244,16 +244,22 @@ export default () => {
   });
   
   // переключение по кнопкам график/таблица
-  $(".moscow-gov-program .analityc-widget_moscow-gov-program .analityc-control-button").on("click", function(e) {
+  $(document).on('click', '.moscow-gov-program .analityc-widget_moscow-gov-program .analityc-control-button', function(e) {
     e.preventDefault();
     $(this).siblings().removeClass('active');
     $(this).addClass('active');
+    
+    if ($(window).width() <= 900) {
+      var target = $('.analityc-widgethead'),
+          targetOffset = target.offset().top + target.outerHeight() - 100;
+      $('html, body').animate({scrollTop: targetOffset}, 1000);
+    }
+    
     changeContent('button', $(this));
     grLinePopup();
 
     if ($('.analityc-js-line').length) 
 	  	grJsLine($('.analityc-js-line__wrapper'), $('.analityc-js-line__line_outer.analityc-js-line__line_active'));
-
   });
   
   // переключение по свитчеру гп/структура
@@ -309,6 +315,7 @@ export default () => {
     changeControl(controls, stageVal, levelVal, typeVal);
     
     positionValues();
+    dateGraphicLines();
     $(document).trigger('contentChanged');
   }
   

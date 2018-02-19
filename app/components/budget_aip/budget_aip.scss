@@ -333,9 +333,31 @@
     margin-right: 15px;
   }
 
-  .analityc-table_aip{
-    .table__col{
-      width: 14%;
+  .analityc-table_aip {
+    .table__col {
+      width: 15%;
+      &:first-child {
+        width: 40%;
+      }
+    }
+    .table__periodtext {
+      right: calc(23.5% - 19px);
+      width: 13.5%;
+      
+      @media (max-width: 1100px) {
+        right: calc(15% - 18px);
+        width: 15%;
+      }
+    }
+    .table__period-right {
+      right: calc(100% - 17px);
+    }
+    .table__row {
+      padding-right: 10%;
+      
+      @media (max-width: 1100px) {
+        padding-right: 0;
+      }
     }
   }
 
@@ -345,6 +367,7 @@
       padding-right: 0;
     }
     .table__col{
+      width: 13%;
       &_unit{
         font-size: 13px;
         &_value{
@@ -356,18 +379,19 @@
       }
       &:first-child{
         padding-right: 66px;
-        width: 36.2%;
+        width: 35%;
       }
     }
     .table__arrow{
       right: 40px;
     }
-    .table__period-right{
-      right: 68px;
-    }
     .table__periodtext{
-      width: 15.5%;
-      right: 5.5%;
+      width: 13%;
+      right: calc(13% - 18px);
+      
+      span {
+        padding: 0 5px;
+      }
     }
   }
   

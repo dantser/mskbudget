@@ -49,7 +49,7 @@ export default () => {
 
 
   //переключение таблица-график
-  $(".budget_aip .analityc-widgethead_aip .analityc-control-button").on("click", function (e) {
+  $(document).on('click', '.budget_aip .analityc-widgethead_aip .analityc-control-button', function (e) {
     e.preventDefault();
     
     var $this = $(this);
@@ -60,6 +60,13 @@ export default () => {
     
     $this.siblings().removeClass('active');
     $this.addClass('active');
+    
+    if ($(window).width() <= 900) {
+      var target = $('.analityc-widgethead'),
+          targetOffset = target.offset().top + target.outerHeight() - 100;
+      $('html, body').animate({scrollTop: targetOffset}, 1000);
+    }
+    
     aipGraphics.removeClass('active');
     aipTable.removeClass('active');
     
@@ -69,8 +76,7 @@ export default () => {
       aipTable.addClass('active');
     }
     
-    aipSetUnits();
-     
+    aipSetUnits();     
  });
 
 

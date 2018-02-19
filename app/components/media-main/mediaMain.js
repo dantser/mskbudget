@@ -49,6 +49,7 @@ export default () => {
         observeParents: true
       });
       setImagePosition();
+      overflowDottsInit();
     })
 
     // if ($(".media-main__datepicker" ).length) {

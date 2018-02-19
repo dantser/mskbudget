@@ -1,3 +1,13 @@
+// checkBrowser
+var browserV = {};
+browserV.edge = /edge/.test(navigator.userAgent.toLowerCase());
+browserV.ie = /msie/.test(navigator.userAgent.toLowerCase());
+browserV.ie11 = /rv:11\.0/.test(navigator.userAgent.toLowerCase());
+browserV.ff = /firefox/.test(navigator.userAgent.toLowerCase());
+browserV.s517 = /version\/5\.1\.7/.test(navigator.userAgent.toLowerCase());
+
+
+
 // Custom selects
 $(document).on('click', '.selectbox li', function (e) {
 
@@ -9,6 +19,36 @@ $(document).on('click', '.selectbox li', function (e) {
   } else {
     var newval = $(this).data('val');
     $(this).parents('.selectbox').find('select').val(newval).change();
+    /*var inputval = $(this).parents('.selectbox').find('select option[value="'+newval+'"]').text();
+    $(this).parents('.selectbox').find('select option').removeAttr('selected');
+    $(this).parents('.selectbox').find('select option[value="'+newval+'"]').attr('selected', 'selected');
+    $(this).parents('.selectbox').find('input').val(inputval);
+
+    if ($(this).parents('.selectbox').hasClass('analityc-widget__selectbox_alt analityc-widget__selectbox_month')) {
+      var optIndex = $(this).index(),
+          monthArray = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+      inputval = monthArray[optIndex];
+    }
+
+    if (!$(this).parents('.selectbox').find('.switchConsolidatedMonth').length  && $('.gov-debt').length == 0){
+        $(this).parents('.selectbox').find('.selectbox__val').text(inputval);
+    }
+
+    // смена картинки
+    if ($(this).find('img').length) {
+      var imgSrc = $(this).find('img').attr('src');
+      $(this).parents('.selectbox').children('img').attr('src', imgSrc);
+    }
+    if ($(this).find('svg').length) {
+      var svgSrc = $(this).find('use').attr('xlink:href');
+      $(this).parents('.selectbox').children('svg').children('use').attr('xlink:href', svgSrc);
+    }*/
+  }
+});
+
+$(document).on('change', '.selectbox select', function(){
+  var newval = $(this).val();
+  $(this).parents('.selectbox').find('li[data-val="'+newval+'"]').each(function(){
     var inputval = $(this).parents('.selectbox').find('select option[value="'+newval+'"]').text();
     $(this).parents('.selectbox').find('select option').removeAttr('selected');
     $(this).parents('.selectbox').find('select option[value="'+newval+'"]').attr('selected', 'selected');
@@ -33,7 +73,7 @@ $(document).on('click', '.selectbox li', function (e) {
       var svgSrc = $(this).find('use').attr('xlink:href');
       $(this).parents('.selectbox').children('svg').children('use').attr('xlink:href', svgSrc);
     }
-  }
+  });
 });
 
 $(document).on('mousedown', '.selectbox select', function (e) {
@@ -82,6 +122,22 @@ function selectboxItemWidth(el) {
       $(this).attr('title', $.trim(spanText));
     }
   });
+}
+
+function graphicLines() {
+	$(".analityc-graphics__line").each(function(){
+		  var valWidth = $(this).find('.analityc-graphics__line-bar-value').outerWidth(true),
+			  lineWidth = $(this).find('.analityc-graphics__line-total').width(),
+			  fillWidth = $(this).find('.analityc-graphics__line-fill').width();
+		  
+		  if (valWidth > lineWidth) {
+			$(this).addClass('analityc-graphics__line_short');
+			$(this).find('.analityc-graphics__line-abs').css('left', fillWidth+'px');
+		  } else {
+			$(this).removeClass('analityc-graphics__line_short');
+			$(this).find('.analityc-graphics__line-abs').css('left', '');
+		  }
+	});
 }
 
 //$(document).on('click', '.selectbox ul', function () {
@@ -217,114 +273,158 @@ $(document).ready(function(){
 
 
 // Обрезание текста троеточием
-function overflowDotts(size, element) {
-  var content = $(element);
+function overflowDotts(size, element, title) {
+  var content = element;
   content.each(function () {
     var contentText = $(this).text();
     if(contentText.length > size){
+      if (title) $(this).attr('title', $(this).text());
       $(this).text((contentText.slice(0, size)).trim() + '...');
     }
   });
 };
 
-function maxHeightDots(element) {
-  if ($(element).length) {
-    $(element).each(function(){
-      var wordArray = $(this).text().split(' '),
-          newText = '',
-          maxHeight = parseFloat($(this).css('max-height'));
-
-      $(this).html('<span></span>');
-
-      var textSpan = $(this).find('span');
-
-      for (var i = 0; i < wordArray.length; i++) {
-
-        if (textSpan.text(newText+wordArray[i]).height() <= maxHeight) {
-          newText += ' '+wordArray[i];
-        } else if (textSpan.text(newText+'...').height() <= maxHeight){
-          newText += '...';
-          i = wordArray.length;
-        } else {
-          newText = newText.substring(0, newText.lastIndexOf(' ')) + '...';
-          i = wordArray.length;
-        }
-
-        textSpan.text(newText);
+function overflowDottsInit() {
+  
+  function textTitles(el) {
+    $(el).each(function() {
+      if ($(this).find('.js-shave').length) {
+        var dots = $(this).find('.js-shave-char').text(),
+            title = $(this).text().replace(dots, '').replace(/\s\s+/g, ' ');
+        $(this).attr('title', title);
+      } else {
+        $(this).removeAttr('title');
       }
     });
   }
-}
-
-function overflowDottsInit() {
 
   // teaser-card
   if ($('.teaser-card').length) {
-    overflowDotts(120, '.teaser-card__title');
+    overflowDotts(120, $('.teaser-card__title'));
   }
 
   // widget-card
   if ($('.widget-card').length) {
-    overflowDotts(70, '.widget-card-polls .widget-card__info-block-title, .widget-card-quiz .widget-card__info-block-title');
-    overflowDotts(45, '.widget-card-polls-pers .widget-card__info-block-title, .widget-card-quiz-pers .widget-card__info-block-title');
-    overflowDotts(127, '.widget-card-social-support .widget-card__info-block-item, .widget-card-gov-programs-result .widget-card__info-block-item');
-    overflowDotts(95, '.widget-card-projects .widget-card__info-block-desc');
+    overflowDotts(70, $('.widget-card-polls .widget-card__info-block-title, .widget-card-quiz .widget-card__info-block-title'));
+    overflowDotts(127, $('.widget-card-social-support .widget-card__info-block-item, .widget-card-gov-programs-result .widget-card__info-block-item'));
+    
+    $('.widget-card-polls-pers, .widget-card-quiz-pers').each(function(){
+      
+      var contentBlockLength = $(this).find('.widget-card__content').length,
+          lineHeight = parseFloat($(this).find('.widget-card__info-block-title').css('line-height')),
+          titleMaxHeight;
+      
+      if (contentBlockLength > 1) {
+        titleMaxHeight = Math.ceil(lineHeight * 2);
+      } else {
+        titleMaxHeight = Math.ceil(lineHeight * 7);
+      }
+      
+      $(this).find('.widget-card__info-block-title').shave(titleMaxHeight);
+    });
+    
+    textTitles('.widget-card-polls-pers .widget-card__info-block-title, .widget-card-quiz-pers .widget-card__info-block-title');
+    
+    $('.widget-card-projects').find('.widget-card__info').each(function() {
+      var $this = $(this),
+          card = $this.parents('.widget-card'),
+          head = $this.parents('.widget-card').find('.widget-card__head'),
+          navButtons = $this.parent().siblings('.widget-card__nav-buttons'),
+          blockTitle = $this.find('.widget-card__info-block-title'),
+          blockSubtitle = $this.find('.widget-card__info-block-subtitle'),
+          bottomLink = $this.parents('.widget-card').find('.widget-card__bottom-link'),
+          descMaxHeight;
+      
+      descMaxHeight = card.outerHeight() - head.outerHeight() - navButtons.outerHeight(true) - blockTitle.outerHeight(true) - blockSubtitle.outerHeight(true) - bottomLink.outerHeight() - 15;
+      $this.find('.widget-card__info-block-desc').shave(descMaxHeight);
+    });
+    
+    textTitles('.widget-card-projects .widget-card__info-block-desc');
   }
 
   // depfin-budget-moscow-open
   if ($('.depfin-budget-moscow-open').length) {
-    if ($(window).width() < 900) {
-      overflowDotts(50, '.depfin-budget-moscow-open__text');
-    } else {
-      overflowDotts(70, '.depfin-budget-moscow-open__text');
-    }
+    
+    $('.depfin-budget-moscow-open__text').shave(65);
+    
+    textTitles('.depfin-budget-moscow-open__text');
+    
+    $('.depfin-budget-moscow-open__category').each(function(){
+      if ($(this).text().length > 27) {
+        $(this).attr('title', $(this).text());
+      }
+    });
   }
 
   // media-card
   if ($('.media-card').length) {
     if ($(window).width() < 1140 && $(window).width() >= 401) {
-      overflowDotts(42, '.media-card__text');
+      overflowDotts(42, $('.media-card__text'));
     } else if ($(window).width() < 400) {
-      overflowDotts(80, '.media-card__text');
+      overflowDotts(80, $('.media-card__text'));
     } else {
-      overflowDotts(60, '.media-card__text');
+      overflowDotts(60, $('.media-card__text'));
     }
   }
 
   // section-tabs
   if ($('.section-tabs').length) {
-    overflowDotts(60, '.section-tabs__title');
-    overflowDotts(400, '.section-tabs__text');
-    overflowDotts(165, '.news__title');
+    overflowDotts(60, $('.section-tabs__title'));
+    overflowDotts(400, $('.section-tabs__text'));
+    $('.news__title').shave(180);
+    textTitles('.news__title');
   }
 
   // document / directory
   if ($('.document').length || $('.directory').length) {
-    overflowDotts(60, '.document__title');
-    overflowDotts(60, '.directory__title');
-    overflowDotts(250, '.document__excerpt');
+    
+    $('.document__title, .directory__title').shave(135);
+    
+    $('.document').each(function() {
+      var $this = $(this),
+          cardHeight = $this.height(),
+          textMaxHeight = cardHeight - $this.find('.document__date').outerHeight(true) - $this.find('.document__tit-wrap').outerHeight();
+      $this.find('.document__excerpt').shave(textMaxHeight);
+    });
+    
+    textTitles('.document__title, .document__excerpt, .directory__title');
   }
 
   // wrapper_main (главная)
   if ($('.wrapper_main').length) {
-    overflowDotts(80, '.news__title');
-    //setTimeout(function(){
-    //  maxHeightDots('.news__title');
-    //}, 500);
+    
+    var newsTitleMaxHeight;
+    
+    $('.news:visible').first().each(function() {
+      var $this = $(this),
+          cardHeight = $this.outerHeight();
+      newsTitleMaxHeight = cardHeight - $this.find('.news__thumb').height() - $this.find('.news__category').outerHeight(true) - $this.find('.news__bottom').outerHeight() - 5;
+    });
+    
+    $('.news__title').shave(newsTitleMaxHeight);
+    
+    textTitles('.news__title');
   }
 
   // media-main / news-page / news-one
-  if ($('.media-main, .news-page, .news-one').length) {
-    if ($(window).width() > 640) {
-      overflowDotts(140, '.news__title');
-    } else {
-      overflowDotts(85, '.news__title');
-    }
+  if ($('.media-main').length || $('.news-page').length || $('.news-one').length) {
+    
+    var newsTitleMaxHeight;
+    
+    $('.news:visible').first().each(function() {
+      var $this = $(this),
+          cardHeight = $this.outerHeight();
+      newsTitleMaxHeight = cardHeight - $this.find('.news__thumb').height() - $this.find('.news__category').outerHeight(true) - $this.find('.news__bottom').outerHeight() - 7;
+    });
+    
+    $('.news__title').shave(newsTitleMaxHeight);
+    
+    textTitles('.news__title');
   }
 
   // d-si__quiz (опросы / викторины)
   if ($('.d-si__quiz').length) {
-    overflowDotts(90, '.d-si__quiz_head');
+    overflowDotts(90, $('.d-si__quiz_head'));
   }
 
 }
@@ -389,13 +489,25 @@ function selectTitles(el) {
 
 function selectTitlesInit() {
   selectTitles('.selectbox');
+  
   if ($('.widget-card').length) {
-    $('.widget-card .selectbox ul').scrollbar();
+    if (browserV.edge || browserV.ff || browserV.ie || browserV.ie11) {
+      $('.widget-card .selectbox ul').addClass('ieff');
+    }
+    $('.widget-card .selectbox ul:visible').scrollbar();
+  }
+  
+  if ($('.search_net').length) {
+    if (browserV.edge || browserV.ff || browserV.ie || browserV.ie11) {
+      $('.search_net .selectbox ul').addClass('ieff');
+    }
+    $('.search_net .selectbox ul:visible').scrollbar();
   }
 }
 
 $(document).on('serviceSliderInited', function(){
   selectTitlesInit();
+  overflowDottsInit();
 });
 
 
@@ -597,9 +709,108 @@ var checkMobile = {
 
 
 
+// график Исполнение на дату
+function dateGraphicLines() {
+  
+  $('.analityc-graphics__lines').each(function(){
+    if (!$(this).parents('.services-VMO').length) {
+      
+      // определяем максимальное значение
+      var maxValue = 0;
+      
+      $(this).find('.analityc-graphics__line').each(function(){
+        var valueBlock = $(this).find('.analityc-graphics__line-values'),
+            values = valueBlock.text().split('/'),
+            firstValue = parseFloat($.trim(values[0].replace(' ', '').replace(',', '.'))),
+            lastValue = parseFloat($.trim(values[1].replace(' ', '').replace(',', '.'))),
+            curMaxValue;
+        if (firstValue > maxValue) {
+          maxValue = firstValue;
+        }
+        if (lastValue > maxValue) {
+          maxValue = lastValue;
+        }
+        $(this).attr('data-val1', firstValue);
+        $(this).attr('data-val2', lastValue);
+      });
+      
+      // определяем ширину линий
+      $(this).find('.analityc-graphics__line').each(function(){
+        var firstValue = parseFloat($(this).attr('data-val1')),
+            lastValue = parseFloat($(this).attr('data-val2')),
+            fillWidth = firstValue / maxValue * 100,
+            totalWidth = (firstValue < lastValue) ? lastValue / maxValue * 100 : fillWidth,
+            valPosition = 100 - totalWidth;
+        $(this).find('.analityc-graphics__line-fill').css('width', fillWidth + '%');
+        $(this).find('.analityc-graphics__line-total').css('width', totalWidth + '%');
+        $(this).find('.analityc-graphics__line-bar-value').css('right', valPosition + '%');
+      });
+      
+      // всплывающие окна
+      $(this).find('.analityc-graphics__line').each(function(){
+        var valWidth = $(this).find('.analityc-graphics__line-bar-value').outerWidth(true),
+            lineWidth = $(this).find('.analityc-graphics__line-total').width(),
+            fillWidth = $(this).find('.analityc-graphics__line-fill').width();
+        
+        if (valWidth > lineWidth) {
+          $(this).addClass('analityc-graphics__line_short');
+          $(this).find('.analityc-graphics__line-abs').css('left', fillWidth+'px');
+        } else {
+          $(this).removeClass('analityc-graphics__line_short');
+          $(this).find('.analityc-graphics__line-abs').css('left', '');
+        }
+      });
+    }
+  });
+  
+  $('.analityc-js-line__line-bar').each(function(){
+    
+    var values = $(this).find('.analityc-js-line__line-values'),
+        barValue = $(this).find('.analityc-js-line__line-bar-value'),
+        fill = $(this).find('.analityc-js-line__line-fill'),
+        maxValue = parseFloat(barValue.text().replace(' ', '').replace(',', '.')),
+        fillValue = parseFloat(values.text().replace(' ', '').replace(',', '.')),
+        fillWidth = fillValue / maxValue * 100;
+    
+    if (fillWidth > 100) fillWidth = 100;
+    fill.css('width', fillWidth+'%');
+    
+    var valWidth = values.outerWidth(true),
+        fillWidth = fill.width();
+    
+    if (valWidth > fillWidth) {
+      values.addClass('analityc-js-line__line-values--out');
+    } else {
+      values.removeClass('analityc-js-line__line-values--out');
+    }
+  });
+}
+
+
 // смена контента в разделе Аналитика
 function changeAnalitycContent() {
   if (appLoaded) {
+    analyticsMain();
+    depfin_analytics_income();
+    depfinAnalyticsExpenses();
+    analyticsGovDebt();
+    depfinAnalyticsGP();
+  }
+}
+
+
+
+// Значения графиков в разделах Бюджет Москвы и Аналитика
+function graphicValuesInit() {
+  if (appLoaded) {
+    budgetIncome();
+    budgetExpenses();
+    sources();
+    budget_moscow_gov_program();
+    govDebt();
+    mrelations();
+    aip();
+    budgetForecast();
     analyticsMain();
     depfin_analytics_income();
     depfinAnalyticsExpenses();

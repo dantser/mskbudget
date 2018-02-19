@@ -66,7 +66,7 @@ export default () => {
   			else
   				$(this).removeClass('active');
   		})
-      
+
       scrollUp();
   	})
   })
@@ -207,20 +207,20 @@ export default () => {
       {
         suppressMapOpenBlock: true
       });
-      
+
         smallMap.geoObjects.removeAll();
-        
+
         smallMap.setZoom(14);
-        
+
         var elem = $(this),
             smallMapCoords = [$('#significant-smallmap').data('lat'), $('#significant-smallmap').data('lng')],
             elemText = $('#significant-smallmap').data('name'),
             elemStreet = $('#significant-smallmap').data('address'),
             elemDate = $('#significant-smallmap').data('year');
-        
+
         // переход
         smallMap.panTo( smallMapCoords, { flying: true } );
-        
+
         var smallMapPlacemark = new maps.Placemark(smallMapCoords, {
 
           balloonContentBody:
@@ -230,29 +230,29 @@ export default () => {
         });
 
         smallMap.geoObjects.add(smallMapPlacemark);
-        
+
       const mapOpen = $('.significant-about__map-open');
-      
+
       mapOpen.click(function(e) {
         e.preventDefault();
         if ($(document).width() <= 1024) $("html,body").css("overflow-y","hidden");
         $('.significant').addClass('popupMode');
         smallMap.container.fitToViewport();
-        
+
       });
-      
+
       $('.significant-about__map-close, .significant__mask, .significant-about__back:not(.significantBack)').click(function(e) {
         e.preventDefault();
         if ($(document).width() <= 1024) $("html,body").css("overflow-y","auto");
         $('.significant').removeClass('popupMode');
         smallMap.container.fitToViewport();
       });
-      
+
     })
     .catch(error => console.log('Failed to load Yandex Maps', error));
   }
-  
-  const BACKBTN = $('.significant-about__back');
+
+  const BACKBTN = $('.significant-about__back:not(.significantBack)');
   BACKBTN.click(function() {
     setTimeout(function(){
       const ACTIVE_CLASS = 'button-light--fill';
@@ -264,7 +264,7 @@ export default () => {
       $('.significant .tabs__tab[data-tab="significantOne"]').show();
     }, 1);
   });
-  
+
   function scrollUp() {
     setTimeout(function() {
       $("html,body").animate({
@@ -272,32 +272,32 @@ export default () => {
       }, 350);
     }, 25);
   }
-  
+
   if ($('.significant').length && $(window).width() <= 750) {
-    
+
     $(window).scroll(function(){
-      
+
       if ($('.significant-list_list').is(':visible')) {
-      
+
         var scrollDistance = $(window).scrollTop(),
             block = $('.significant-list_list'),
             blockTopDistance = block.offset().top - $(window).height() / 2 + 100,
             blockHeight = block.height(),
             blockBottomDistance = block.offset().top + blockHeight - $(window).height() / 2 - 100,
             arrows = $('.significant-list__slide-arrows');
-        
+
         if (scrollDistance >= blockTopDistance && scrollDistance <= blockBottomDistance) {
           arrows.fadeIn();
         } else {
           arrows.fadeOut();
         }
-        
+
       } else {
         $('.significant-list__slide-arrows').hide();
       }
-      
+
     });
-    
+
   }
 
 }

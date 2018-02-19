@@ -92,6 +92,7 @@ export default () => {
         grSector,
         grCount,
         grCountLimit,
+        grCoef,
         grStep;
 
     grLine.each(function() {
@@ -108,21 +109,22 @@ export default () => {
     });
     
     if ($(window).width() > 900) {
-      grCountLimit = 17;
+      grCountLimit = 18;
     } else if ($(window).width() > 580) {
       grCountLimit = 12;
     } else {
-      grCountLimit = 7;
+      grCountLimit = 6;
     }
-  
-    grMinVal = Math.floor(grMinVal/10)*10;
-    grMaxVal = Math.ceil(grMaxVal/10)*10;
+    
+    grTotalVal = Math.abs(grMinVal) + grMaxVal;
+    grCoef = Math.ceil(grTotalVal / (grCountLimit*10));
+    
+    grMinVal = Math.floor(grMinVal/(10*grCoef))*(10*grCoef);
+    grMaxVal = Math.ceil(grMaxVal/(10*grCoef))*(10*grCoef);
     grTotalVal = Math.abs(grMinVal) + grMaxVal;
     grNeg = 100 * Math.abs(grMinVal) / grTotalVal; 
-    grCount = grTotalVal / 10;
-    if (grCount > grCountLimit) {
-      grCount = grCountLimit;
-    }
+    grCount = grTotalVal / (10*grCoef);
+    
     grSector = 100 / grCount;
     grStep = grTotalVal / grCount;
     

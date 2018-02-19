@@ -84,7 +84,7 @@ export default () => {
 
   MULTILINE_BAR.each(function() {
     var MULTILINE_BAR_WIDTH = 100;
-    
+
     if ($(document).width() <= 900 && $(document).width() > 580)
       MULTILINE_BAR_WIDTH = 200;
 
@@ -110,11 +110,11 @@ export default () => {
 
   // Темп роста
   window.rateLine = function() {
-    
+
     if ($('.growth-rate').length) {
-      
+
       $('.growth-rate').each(function(){
-        
+
         var graphic = $(this);
         var minRate = parseFloat($(this).data('minrate'));
         var maxRate = parseFloat($(this).data('maxrate'));
@@ -124,21 +124,21 @@ export default () => {
         if (graphic.hasClass('growth-rate_columns')) isColumns = true;
         var coef = graphicHeight / fullRate;
         var visiblegraphCol = graphic.find('.growth-rate__col:visible');
-        
+
         visiblegraphCol.removeClass('growth-rate__col_last');
         visiblegraphCol.last().addClass('growth-rate__col_last');
-        
+
         graphic.height(graphicHeight);
-        
+
         graphic.find('.growth-rate__level').each(function(){
           var rateLevel = parseFloat($(this).data('rate-level'));
           var rateDifference = maxRate - rateLevel;
           $(this).css('top', rateDifference*coef+'px');
         });
-  
+
         graphic.find('.growth-rate__line').each(function(){
           var rateCol = $(this).parents('.growth-rate__col');
-          
+
           if (rateCol.nextAll(':visible').length) {
             var startPoint = $(this).parent().css('top');
             var endPoint = rateCol.nextAll(':visible').first().children().css('top');
@@ -155,29 +155,27 @@ export default () => {
             $(this).css('width', lineWidth+'px');
             $(this).css('transform', 'rotate('+angle+'deg)');
           }
-          
+
         });
-        
+
         if (visiblegraphCol.length == 1) {
           $(this).find('.growth-rate__line').show().width(3);
         }
       });
     }
   }
-  
+
   rateLine();
-  
-  
-  // Графики колонки со сдвигом 
-  $(document).on('contentChanged', function() {
+
+
+  // Графики колонки со сдвигом
     if ($('.analityc-graphics__graphic_column').length) {
       columnAreaHeight();
     }
-  });
-  
+
   function columnAreaHeight() {
-    
-    $('.analityc-graphics__graphic_column').each(function(){ 
+
+    $('.analityc-graphics__graphic_column').each(function(){
       var graphic = $(this),
           column = graphic.find('.column'),
           firstColumn = column.first(),
@@ -185,7 +183,7 @@ export default () => {
           subcolumn = graphic.find('.subcolumn'),
           columnArea = $('.column-area'),
           columnAreaLength = subcolumn.find('.column-area').length;
-      
+
       column.each(function(){
         var curColumnArea = $(this).find(columnArea);
         for (var i = (columnAreaLength - 1); i >= 0; i--) {
@@ -193,38 +191,38 @@ export default () => {
           curColumnArea.eq(i).height(cheight);
         }
       });
-      
+
       subcolumn.each(function(){
         var firstColumnArea = firstColumn.find(columnArea),
             lastColumnArea = lastColumn.find(columnArea),
             subColumnArea = $(this).find($('.subcolumn-area'));
-        
+
         var tranPoint = 0;
-        
+
         for (var i = (columnAreaLength - 1); i >= 0; i--) {
           var firstHeight = firstColumnArea.eq(i).data('height'),
               lastHeight = lastColumnArea.eq(i).data('height'),
               maxHeight;
-          
+
           if (lastHeight >= firstHeight) {
             maxHeight = lastHeight;
           } else {
             maxHeight = firstHeight;
           }
-          
+
           subColumnArea.eq(i).find(columnArea).height(maxHeight);
-          
+
           var startPoint = firstColumnArea.eq(i).position().top,
               endPoint = lastColumnArea.eq(i).position().top,
               pointDiff = endPoint - startPoint,
               heightDiff = Math.abs(lastHeight - firstHeight),
               areaWidth = subColumnArea.width(),
               angle = Math.atan(pointDiff/areaWidth);
-          
+
           if (pointDiff > 0) {
             tranPoint = tranPoint + heightDiff;
           }
-          
+
           angle = angle*180/Math.PI;
           subColumnArea.eq(i).css('transform', 'translateY('+tranPoint+'px)');
           subColumnArea.eq(i).find(columnArea).css('transform', 'skewY('+angle+'deg)');
@@ -233,12 +231,12 @@ export default () => {
       });
     });
   }
-  
-  
+
+
   // Графики analityc-graphics-bars
   window.graphicBars = function() {
     $('.analityc-graphics-bars').each(function(){
-      
+
       if ($(this).find('[data-name]:visible').length && $(this).find('[data-name]:visible').siblings('[data-name]:visible').length < 1) {
         $(this).removeClass('analityc-graphics-bars_empty');
         $(this).addClass('analityc-graphics-bars_singlebar');
@@ -249,40 +247,40 @@ export default () => {
         $(this).removeClass('analityc-graphics-bars_singlebar');
         $(this).removeClass('analityc-graphics-bars_empty');
       }
-      
+
       var line = $(this).find('.analityc-graphics-bars__line'),
           fill = $(this).find('.analityc-graphics-bars__line-fill'),
           rateLine = $(this).find('.analityc-graphics-bars__rate-line'),
           barVal = $(this).find('.analityc-graphics-bars__val'),
           changes = $(this).find('.analityc-graphics-bars__changes'),
           visibleGraphic = $(this).find('.analityc-graphics-bars__graphic:visible').not('[data-rate]');
-      
+
       $(this).find('.analityc-graphics-bars__line-fill-area').parent().addClass('analityc-graphics-bars__line_area');
-      
+
       var fillAreaLine = $(this).find('.analityc-graphics-bars__line_area');
-      
+
       visibleGraphic.removeClass('analityc-graphics-bars__graphic_last');
       visibleGraphic.last().addClass('analityc-graphics-bars__graphic_last').next('[data-rate]').hide();
-      
+
       var totalGraphic = $(this).find('.analityc-graphics-bars__graphic:visible');
-      
+
       var minWidth = 0;
       totalGraphic.each(function(){
         var grWidth = $(this).outerWidth(true);
         minWidth += grWidth;
       });
-      
+
       $(this).css('min-width', minWidth);
       if ($(this).siblings('.analityc-graphics-broken-line').length) {
         $(this).siblings('.analityc-graphics-broken-line').css('min-width', minWidth);
       }
-      
+
       if ($(this).outerWidth() > $(this).parent().width()) {
         $(this).parents('.analityc-graphics-container, .analytics-gov-debt__graphics-container').removeClass('no-arrows');
       } else {
         $(this).parents('.analityc-graphics-container, .analytics-gov-debt__graphics-container').addClass('no-arrows');
       }
-      
+
       fill.each(function(){
         var dheight = $(this).data('height');
         if ($(this).parents('.analityc-graphics-bars').hasClass('analityc-graphics-bars_singlebar')) {
@@ -290,26 +288,26 @@ export default () => {
         }
         $(this).height(dheight);
       });
-      
+
       rateLine.each(function(){
         var barGraphic = '.analityc-graphics-bars__graphic',
             lineFill = '.analityc-graphics-bars__line-fill',
             curLineFill = $(this).parents(lineFill),
             curLineFillName = curLineFill.data('name'),
             nextLineFill = $(this).parents(barGraphic).nextAll(':visible').first().find(lineFill+'[data-name="'+curLineFillName+'"]');
-        
+
         if (nextLineFill.length) {
           var startPoint = curLineFill.offset().top,
               endPoint = nextLineFill.offset().top;
-          
+
           startPoint = parseInt(startPoint);
           endPoint = parseInt(endPoint);
-          
+
           var pointDiffX = nextLineFill.offset().left - curLineFill.offset().left;
           var pointDiffY = endPoint - startPoint;
-          
+
           pointDiffX -= curLineFill.width();
-          
+
           var lineWidth = Math.sqrt(pointDiffX * pointDiffX + pointDiffY * pointDiffY);
           var angle = Math.atan(pointDiffY/pointDiffX);
           angle = angle*180/Math.PI;
@@ -319,45 +317,45 @@ export default () => {
           $(this).css('width', 0);
         }
       });
-      
+
       fillAreaLine.each(function(){
-        
+
         var fillArea = $(this).find('.analityc-graphics-bars__line-fill-area:visible'),
             tranPoint = 0;
-        
+
         for (var i = (fillArea.length - 1); i >= 0; i--) {
-        
+
           var barGraphic = '.analityc-graphics-bars__graphic',
               lineFill = '.analityc-graphics-bars__line-fill',
               fillAreaName = fillArea.eq(i).data('name'),
               prevLineFill = $(this).parents(barGraphic).prevAll(':visible').first().find(lineFill+'[data-name="'+fillAreaName+'"]'),
               nextLineFill = $(this).parents(barGraphic).nextAll(':visible').first().find(lineFill+'[data-name="'+fillAreaName+'"]');
-          
+
           if (nextLineFill.length) {
-            
+
             var prevLineFillHeight = prevLineFill.height(),
                 nextLineFillHeight = nextLineFill.height(),
                 maxLineFillHeight;
-            
+
             if (nextLineFillHeight >= prevLineFillHeight) {
               maxLineFillHeight = nextLineFillHeight;
             } else {
               maxLineFillHeight = prevLineFillHeight;
             }
-            
+
             fillArea.eq(i).height(maxLineFillHeight);
-            
+
             var startPoint = prevLineFill.offset().top,
                 endPoint = nextLineFill.offset().top,
                 pointDiff = endPoint - startPoint,
                 heightDiff = nextLineFillHeight - prevLineFillHeight,
                 areaWidth = $(this).width(),
                 angle = Math.atan(pointDiff/areaWidth);
-            
+
             if (heightDiff < 0) {
               tranPoint += heightDiff * -1;
             }
-            
+
             angle = angle*180/Math.PI;
             fillArea.eq(i).css('top', tranPoint+'px');
             fillArea.eq(i).find(lineFill).css('transform', 'skewY('+angle+'deg)');
@@ -367,12 +365,12 @@ export default () => {
           }
         }
       });
-      
+
       line.each(function(){
         var lineHeight = $(this).height();
         $(this).parent().height(lineHeight);
       });
-      
+
       barVal.each(function(){
         $(this).removeClass('analityc-graphics-bars__val_out');
         var barValHeight = $(this).outerHeight(),
@@ -382,37 +380,37 @@ export default () => {
         }
         if (barValHeight >= barHeight) $(this).addClass('analityc-graphics-bars__val_out');
       });
-      
+
       changes.each(function(){
         var graphic = $(this).parents('.analityc-graphics-bars__graphic'),
             firstLineHeight = graphic.find('.analityc-graphics-bars__lines').height(),
             lastLineHeight = graphic.nextAll('[data-set]:visible').not('[data-rate]').first().find('.analityc-graphics-bars__lines').height(),
             averageLineHeight;
-        
+
         $(this).removeClass('analityc-graphics-bars__changes_neg');
-        
+
         if (lastLineHeight >= firstLineHeight) {
           averageLineHeight = (lastLineHeight - firstLineHeight) / 2 + firstLineHeight;
         } else {
           averageLineHeight = (firstLineHeight - lastLineHeight) / 2 + lastLineHeight;
           $(this).addClass('analityc-graphics-bars__changes_neg');
         }
-        
+
         if ($(this).parents('.analityc-graphics-bars').hasClass('analityc-graphics-bars_singlebar')) {
           averageLineHeight += 20;
         }
-        
+
         $(this).css('bottom', averageLineHeight+'px');
-      });      
+      });
     });
   }
-  
+
   if ($('.analityc-graphics-bars').length) {
     graphicBars();
   }
-  
-  
-  
+
+
+
   // Функция, позиционирующая числовые подписи в графиках
   //////////////////////////////
   window.positionValues = function() {
@@ -422,19 +420,19 @@ export default () => {
         left: 0,
         top: 0
       });
-      
+
       var indexOffset = $(this).parent().find('.segment-diagram__value-num').length > 0 ? -1 : 0,
           index = $(this).index() + indexOffset,
           id = $(this).parents('.segment-diagram').attr('id'),
           diagram = $(this).parents('.segment-diagram').find('#' + id + '-' + index);
-      
+
       if (typeof diagram[0] !== "undefined") {
-        
+
         var thisOffsL = $(this).offset().left,
             thisOffsT = $(this).offset().top,
             elW = $(this).width(),
             elH = $(this).height();
-        
+
         // Вся диаграмма
         var d = $(this).parents('.segment-diagram').get(0),
             defW = 270, // стандартная ширина диаграммы
@@ -445,10 +443,10 @@ export default () => {
             dxcenter = $(d).width() / 2,
             dycenter = $(d).height() / 2,
             dR = dycenter - curSW / 2, // curSW / 2 - это половина толщины линии в диаграмме
-            
+
         // Ищем соответствующий кусок диаграммы
         diagram = diagram.get(0);
-        
+
         //var diagOffsL = diagram.getBBox().x * dcoef,
         //    diagOffsT = diagram.getBBox().y * dcoef,
         //    dW = diagram.getBBox().width * dcoef,
@@ -472,7 +470,7 @@ export default () => {
         //  left: dxcenter - xnew,
         //  top: dycenter - ynew
         //});
-        
+
         var diagPath = $(diagram).attr('d').split(' '),
             diagLong = diagPath[7],
             diagXa = diagPath[1] * dcoef, // X начальной точки (A)
@@ -485,67 +483,68 @@ export default () => {
             OALength = Math.sqrt(OA.x * OA.x + OA.y * OA.y), // длина вектора ОА
             OBLength = Math.sqrt(OB.x * OB.x + OB.y * OB.y), // длина вектора OB
             angleCos = scalar / (OALength * OBLength); // косинус угла между векторами
-        
+
         if (angleCos < -1) angleCos = -1;
         if (angleCos > 1) angleCos = 1;
-        
+
         var halfAngle = Math.acos(angleCos) / 2; // половина угла между векторами
-        
+
         if (diagLong == 1) halfAngle = Math.PI - halfAngle; // если угол сегмента больше 180
-        
+
         var diagXc = dxcenter + OA.x * Math.cos(halfAngle) - OA.y * Math.sin(halfAngle),
             diagYc = dycenter + OA.x * Math.sin(halfAngle) + OA.y * Math.cos(halfAngle);
-        
+
         $(this).css({
           left: diagXc,
           top: diagYc
         });
-        
+
       }
     });
-    
+
     // Определяем сегмент диаграммы с маленьким значением
     // ###############################
     $('.segment-diagram').each(function () {
       var vals = $(this).find('.segment-diagram__val'),
           smallVals = $(this).find('.segment-diagram__val_small');
-      
+
       // Ищем сумму
       var summ = 0;
-      
+
       vals.each(function () {
         summ += +parseInt($(this).text());
       });
-      
+
       // Ищем маленькое значение
       vals.each(function () {
         var val = +parseInt($(this).text()),
             parent = '.segment-diagram__value';
-        
+
         if (val/summ < 0.03) {
           // Добавляем маленький класс
           $(this).addClass('segment-diagram__val_small');
-          
+
           // Определяем позицию и добавляем модификатор позиции
           var left = $(this).position(parent).left,
               top = $(this).position(parent).top,
               wdth = $(this).outerWidth(),
               hght = $(this).outerHeight(),
               classHor, classVert;
-          
+
           left < ($(this).parents(parent).outerWidth() - left - wdth) ? classHor = 'l' : classHor = 'r';
           top < ($(this).parents(parent).outerHeight() - top - hght) ? classVert = 't' : classVert = 'b';
-          
+
           var totalClass = 'segment-diagram__val_small_' + classHor + classVert,
               text = $(this).text();
-          
+
           $(this)
             .removeClass('segment-diagram__val_small_lt segment-diagram__val_small_rt segment-diagram__val_small_lb segment-diagram__val_small_rb')
             .addClass(totalClass)
             .html('<span>' + text + '</span>');
         }
       });
-      
+	  
+
       // Корректируем склеивание
       smallVals.each(function(){
         $(this).removeClass('segment-diagram__val_small_lt-before segment-diagram__val_small_rt-before segment-diagram__val_small_lb-before segment-diagram__val_small_rb-before segment-diagram__val_small_lt-after segment-diagram__val_small_rt-after segment-diagram__val_small_lb-after segment-diagram__val_small_rb-after');
@@ -554,15 +553,32 @@ export default () => {
           var position = smallClass.substr(-2, 2);
           $(this).addClass('segment-diagram__val_small_'+position+'-before');
         }
-        
+
         if (!$(this).next().hasClass(smallClass) && $(this).prev().hasClass(smallClass) && $(this).prev().prev().hasClass(smallClass)) {
           var position = smallClass.substr(-2, 2);
           $(this).addClass('segment-diagram__val_small_'+position+'-after');
         }
       });
+	  
+	  if (smallVals.length > 1) {
+		  var maxSmallVal = 0;
+		  smallVals.each(function() {
+			  var thisVal = parseFloat($(this).text().replace(',', '.'));
+			  if (thisVal > maxSmallVal) {
+				  maxSmallVal = thisVal;
+			  }
+		  });
+		  
+		  smallVals.each(function() {
+			  var thisVal = parseFloat($(this).text().replace(',', '.'));
+			  if (thisVal != maxSmallVal) {
+				  $(this).css({'display': 'none'});
+			  }
+		  });
+	  }
     });
   }
-  
+
   // Инициализация графиков analityc-graphics-line-vertical_slider
   window.grLineVert = [];
 
@@ -579,9 +595,9 @@ export default () => {
   })
 
   positionValues();
-  
-  
-  
+
+
+
   //analityc-graphics-line-vertical()
   window.grLineVertParams = function() {
     $('.analityc-graphics-line-vertical_params').each(function(){
@@ -601,20 +617,20 @@ export default () => {
       }
     });
   }
-  
+
   if ($('.analityc-graphics-line-vertical_params').length) {
     grLineVertParams();
   }
-  
+
   // Графики analityc-graphics-line-vertical-alt
   window.graphicLineVertAlt = function() {
     $('.analityc-graphics-line-vertical_alt').each(function(){
       var line = $(this).find('.analityc-graphics-line-vertical__line'),
           visibleGraphic = $(this).find('.analityc-graphics-line-vertical__graphic:visible');
-      
+
       visibleGraphic.removeClass('analityc-graphics-line-vertical__graphic_last');
       visibleGraphic.last().addClass('analityc-graphics-line-vertical__graphic_last');
-      
+
       var minWidth = 0;
       visibleGraphic.each(function(){
         var grWidth = $(this).outerWidth(true);
@@ -626,7 +642,7 @@ export default () => {
       } else {
         $(this).parents('.analityc-graphics-container').addClass('no-arrows');
       }
-      
+
       line.each(function(){
         var barValue = $(this).find('.analityc-graphics-line-vertical__line-bar-value'),
             lineFill = $(this).find('.analityc-graphics-line-vertical__line-fill'),
@@ -636,12 +652,12 @@ export default () => {
       });
     });
   }
-  
+
   if ($('.analityc-graphics-line-vertical_alt').length) {
     graphicLineVertAlt();
   }
-  
-  
+
+
   // Отображение графиков по чекбоксам
   function checkLegendBoxes() {
     $('.legend_checkbox .checkbox').each(function(){
@@ -650,30 +666,30 @@ export default () => {
           name = $(this).data('name'),
 		  comparison = $(this).parents('.legend_checkbox').data('comparison'),
           graphic = $(this).parent().siblings('.analityc-widget-income[data-comparison="'+comparison+'"]');
-      
+
       if (checkStatus == true) {
         graphic.find('[data-name="'+name+'"]').show();
       } else {
         graphic.find('[data-name="'+name+'"]').hide();
       }
-      
+
     });
-    
+
     $('.legend-icon-a .checkbox').each(function(){
       var checkBox = $(this).find('.checkbox__control'),
           checkStatus = checkBox.is(':checked'),
           name = $(this).data('name'),
           comparison = $(this).parents('.legend-icon-a').data('comparison'),
           graphic = $(this).parent().siblings('.analityc-graphics[data-comparison="'+comparison+'"], .analytics-gov-debt__graphics');
-      
+
       if (checkStatus == true) {
         graphic.find('[data-name="'+name+'"]').show();
       } else {
         graphic.find('[data-name="'+name+'"]').hide();
       }
-      
+
     });
-    
+
     $('.analityc-control-checkboxes .d-smr__add-char-item').each(function(){
       var checkBox = $(this).find('input[data-name]'),
           checkStatus = checkBox.is(':checked'),
@@ -689,7 +705,7 @@ export default () => {
       }
     });
   }
-  
+
   if ($('.legend_checkbox').length) {
     checkLegendBoxes();
     $(document).on('change', '.legend_checkbox .checkbox__control', function(){
@@ -705,7 +721,7 @@ export default () => {
       graphicBars();
     });
   }
-  
+
   if ($('.legend-icon-a .checkbox').length) {
     checkLegendBoxes();
     $(document).on('change', '.legend-icon-a .checkbox__control', function(){
@@ -722,7 +738,7 @@ export default () => {
       rateLine();
     });
   }
-  
+
   if ($('.analityc-control-checkboxes').length) {
     checkLegendBoxes();
     $(document).on('change', '.analityc-control-checkboxes input[data-name]', function(){
@@ -740,22 +756,22 @@ export default () => {
       graphicBars();
     });
   }
-  
+
   $(document).on('click', '.legend_basket .legend__remove', function(){
     var name = $(this).parents('.legend__item').data('name'),
         checkboxes = $(this).parents('.legend_basket').siblings('.analityc-widgethead').find('.analityc-control-checkboxes');
     checkboxes.find('[data-name="'+name+'"]').prop('checked', false).change();
   });
-  
-  
-  
+
+
+
   // Отображение графиков/столбцов таблиц при добавлении/удалении года/этапа
   $(document).on('click', '.analityc-add-group, .analityc-remove-group', function(e){
     var cgroup = $(this).parents('.analityc-control-frame_left').find('.analityc-control-group');
-    
+
     cgroup.each(function(){
       var set = $(this).data('set');
-		
+
       if ($(this).is(':visible')) {
         $('.analityc-widget-income, .analityc-graphics, .analytics-gov-debt__graphics').each(function(){
           $(this).find('[data-set="'+set+'"]').show();
@@ -772,7 +788,7 @@ export default () => {
         });
       }
     });
-    
+
     hideTableSubcol();
     changeTableWidth();
     graphicBars();
@@ -781,7 +797,7 @@ export default () => {
     grLineVertParams();
     grClassic();
   });
-  
+
   // Скрытие второго столбца первого года в таблице
   window.hideTableSubcol = function() {
     $('.analityc-table_rate .table__row').each(function(){
@@ -791,9 +807,9 @@ export default () => {
       $(this).find('.table__col_four[data-set]:visible').eq(0).addClass('table__col_half');
     });
   }
-  
+
   hideTableSubcol();
-  
+
   // Изменение ширины таблицы в аналитике при добавлении/удалении года/этапа
   window.changeTableWidth = function() {
     $('.analityc-table_params, .analityc-table_gp').each(function(){
@@ -819,22 +835,22 @@ export default () => {
       }
     });
   }
-  
+
   setTimeout(function(){
     changeTableWidth();
   },1);
-  
-  
-  
+
+
+
   // Смена данных по селектам выбора года/этапа
   $(document).on('change', '.analityc-control-frame_left .analityc-control-group select', function(e){
-    
+
     var name = $(this).attr('name'),
         selectedVal = $(this).val(),
         set = $(this).parents('[data-set]').data('set');
-    
+
     if (name == 'month' && selectedVal == 'all') selectedVal = '';
-    
+
     if ($(this).parent().attr('data-type')) {
       var type = $(this).parent().data('type');
       $('.analityc-widget-income, .analityc-graphics, .analytics-gov-debt__graphics, .analityc-table').each(function(){
@@ -846,24 +862,24 @@ export default () => {
     } else {
       $('.analityc-widget-income, .analityc-graphics, .analytics-gov-debt__graphics, .analityc-table').find('[data-set="'+set+'"] [data-set-'+name+'], [data-set="'+set+'"][data-set-'+name+']').text(selectedVal);
     }
-    
+
     graphicBars();
     graphicLineVertAlt();
     rateLine();
     grLineVertParams();
     grClassic();
   });
-  
-  
-  
+
+
+
   // График analityc-line - попапы для коротких линий (вызов при отрисовке)
   window.grLinePopup = function() {
-    
+
     const GR_LINE = $('.analityc-widget_moscow-gov-program .analityc-line_line');
-    
+
     GR_LINE.each(function() {
       var LINE_BAR = $(this).find('.analityc-line__line');
-      
+
       LINE_BAR.each(function() {
         var line = $(this).find('.analityc-line__line-wrap');
         var fillPers = $(this).find('.analityc-line__line-fill');
@@ -871,53 +887,53 @@ export default () => {
         var isLong = fillPers.outerWidth() > longLimit ? true : false;
         var val = $(this).find('.analityc-line__line-value');
         var abs = $(this).find('.analityc-line__line-abs');
-        
+
         if (isLong) {
           val.show();
           line.hover(function() {
             abs.hide();
-          })   
+          })
         } else {
           val.hide();
           line.hover(function() {
             abs.show();
           }, function() {
             abs.hide();
-          })            
+          })
         }
       })
-      
+
     })
   }
-  
+
   // Бюджет Москвы - Закон о бюджете утвержденный - выравнивание графиков "Верхний предел государственного долга" и "Предельный объем государственного долга"
   $('.gov-debt__analityc-tab_govdebt .analityc-graphics_approved .analityc-graphics__columns').each(function(){
-    
+
     var cols = $(this),
         col = cols.find('.analityc-graphics__graphic_limitcolumn'),
         maxColHeight = 0,
         minColHeight,
-        colHeightDiff;    
-    
+        colHeightDiff;
+
     col.each(function(){
       var colHeight = $(this).height();
       if (colHeight > maxColHeight) {
         maxColHeight = colHeight;
       }
     });
-    
+
     minColHeight = maxColHeight;
-    
+
     col.each(function(){
       var colHeight = $(this).height();
       if (colHeight < minColHeight) {
         minColHeight = colHeight;
       }
     });
-    
+
     colHeightDiff = maxColHeight - minColHeight;
     cols.css('margin-top', '-'+colHeightDiff+'px');
-    
+
   });
-  
+
 }

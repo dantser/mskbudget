@@ -47,5 +47,6 @@ export default function tabs() {
     positionValues();
     grLinePopup();
     selectTitlesInit();
+    overflowDottsInit();
   });
 }

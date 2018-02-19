@@ -69,7 +69,7 @@
         background-color: #ebebeb;
       }
     }
-    
+
     &.long {
       overflow: hidden;
       text-overflow: ellipsis;
@@ -104,7 +104,7 @@
       border-color: #0d46a1 transparent transparent;
     }
   }
-  
+
   &__tooltip {
     position: absolute;
     left: 0;
@@ -113,7 +113,7 @@
     height: 0;
     opacity: 0;
   }
-  
+
   &__val {
     padding: 0 30px 2px 12px;
     white-space: nowrap;
@@ -131,12 +131,12 @@
       pointer-events: all;
     }
   }
-  
+
   &_cgroup {
     font-size: 14.3px;
     line-height: 30px;
     border-color: #d5d5d5;
-    
+
     .selectbox__select {
       position: absolute;
       left: 0;
@@ -145,18 +145,18 @@
       height: 100%;
       opacity: 0;
     }
-    
+
     .selectbox__arrow {
       background: none;
       width: 10px;
       right: 7px;
     }
-    
+
     ul {
       border-color: #d5d5d5;
       z-index: 20;
     }
-    
+
     .selectbox__val {
       //font-size: 14.5px;
       padding: 0 20px 0 12px;
@@ -164,20 +164,20 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
-    
+
     li {
       padding: 0 20px 0 12px;
     }
-    
+
     @media screen and (min-width: 581px) and (max-width: 900px) {
       font-size: 20px;
       height: 56px;
       line-height: 54px;
-      
+
       .selectbox__val, li {
         padding: 0 30px 0 16px;
       }
-      
+
       .selectbox__arrow {
         width: 14px;
         right: 10px;
@@ -190,39 +190,39 @@
     //@media (max-width: 640px) and (min-width: 401px) {
     //  .selectbox__val, li {
     //    font-size: 15px;
-    //  }      
+    //  }
     //}
-    
+
     @media screen and (max-width: 580px) {
       font-size: 12.5px;
       height: 42px;
       line-height: 40px;
-      
+
       .selectbox__val, li {
         padding: 0 20px 0 10px;
       }
     }
   }
-  
+
   &_disabled {
     cursor: default;
     background-color: #e5e5e5;
-    
+
     .selectbox__select {
       width: 0;
       height: 0;
     }
-    
+
     .selectbox__arrow {
       cursor: default;
     }
   }
-  
+
   &_file {
-    
+
     li {
       padding: 0;
-      
+
       a {
         text-decoration: none;
         display: block;
@@ -230,11 +230,8 @@
       }
     }
   }
-  
+
   // Custom Scrollbar
-  .scroll-wrapper>.scroll-content {
-    overflow-x: hidden !important;
-  }
   .scroll-element,
   .scroll-element div {
     border: none;
@@ -337,3 +334,7 @@ _:-ms-fullscreen, :root .selectbox ul {visibility: visible; transition: all .3s 
 _:-ms-fullscreen, :root .selectbox .scroll-wrapper {visibility: visible; transition: all .3s ease-in-out;}
 _:-ms-fullscreen, :root .selectbox.active ul {visibility: visible;}
 _:-ms-fullscreen, :root .selectbox.active .scroll-wrapper {visibility: visible;}
+
+.ui-helper-hidden-accessible{
+  display: none;
+}
