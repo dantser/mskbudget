@@ -85,12 +85,18 @@ import pollsTask from '../components/polls-task/pollsTask';
 $(() => {
 	  // перезагрузка страниц при изменении разрешения
 	  $(document).ready(function(){
+        
 		window.winWidth = $(window).width();
 		$(window).resize(function(){
 		  if (winWidth !== $(window).width()) {
 			location.reload();
 		  }
 		});
+        
+        window.addEventListener("orientationchange", function() {
+          location.reload();
+        }, false);
+        
 	  });
 
 	  window.basic_budget_figures = basic_budget_figures;
