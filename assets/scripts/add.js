@@ -306,7 +306,14 @@ function overflowDottsInit() {
   // widget-card
   if ($('.widget-card').length) {
     overflowDotts(70, $('.widget-card-polls .widget-card__info-block-title, .widget-card-quiz .widget-card__info-block-title'));
-    overflowDotts(127, $('.widget-card-social-support .widget-card__info-block-item, .widget-card-gov-programs-result .widget-card__info-block-item'));
+    
+    $('.widget-card-social-support .widget-card__info-block-item, .widget-card-gov-programs-result .widget-card__info-block-item').each(function() {
+      var $this = $(this),
+          itemMaxHeight = $this.parent().outerHeight() - 10;
+      $this.shave(itemMaxHeight);
+    });
+    
+    textTitles('.widget-card-social-support .widget-card__info-block-item, .widget-card-gov-programs-result .widget-card__info-block-item');
     
     $('.widget-card-polls-pers, .widget-card-quiz-pers').each(function(){
       
