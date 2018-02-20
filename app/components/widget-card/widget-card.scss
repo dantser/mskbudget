@@ -306,11 +306,18 @@
 
   &__budget-total-count {
     font-size: 24px;
-    margin-left: 27px;
+    margin-left: 10px;
     position: relative;
     color: #ccc;
     display: inline-block;
     vertical-align: middle;
+    text-align: right;
+    min-width: 56px;
+    
+    @media (max-width: 630px) {
+      font-size: 20px;
+      min-width: 48px;
+    }
 
     &_blue {
       background: -webkit-linear-gradient(#004ccf, #00ffff);

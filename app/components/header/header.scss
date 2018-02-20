@@ -340,12 +340,6 @@ body.mobile-menu-is-open {
     &-item {
       float: left;
 
-      &_logout {
-        @media (max-width: $navBreakpointTablet) {
-          display: none;
-        }
-      }
-
       &:not(:last-child),
       &:not('.user-menu2-item') {
         margin-right: 15px;
@@ -372,12 +366,24 @@ body.mobile-menu-is-open {
         &:nth-child(3) {
           padding-right: 10px;
           text-align: right;
+          
+          &.user-menu2-item {
+            padding-right: 20px;
+          }
         }
       }
 
       &.hidden-desktop {
         @media (min-width: $navBreakpointTablet + 1px) {
           display: none;
+        }
+      }
+      
+      &_logout {
+        @media (max-width: $navBreakpointTablet) {
+          position: absolute;
+          right: 0;
+          width: auto;
         }
       }
     }
