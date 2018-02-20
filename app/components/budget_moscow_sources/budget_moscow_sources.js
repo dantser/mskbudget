@@ -74,7 +74,11 @@ export default () => {
           }
           
           if (planValue === 0 && factValue > 0) {
-            blockWidth = factValue / maxValue * 100;
+            if (factValue > maxValue) {
+              blockWidth = 100;
+            } else {
+              blockWidth = factValue / maxValue * 100;
+            }
           } else {
             blockWidth = planValue / maxValue * 100;
           }
