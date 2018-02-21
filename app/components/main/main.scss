@@ -229,7 +229,7 @@
       min-height: 100%;
     }
 
-    &>:nth-child(n+2) {
+    &>:nth-child(n+2):not(script) {
       @media (max-width: 580px) {
         display: block;
       }
@@ -1804,10 +1804,9 @@ body.home {
       // карточка Бюджетная сеть
       .widget-card-budget-web .widget-card__map {
         height: 100px;
-      }
-      @media screen and (max-width: 650px) and (max-height: 550px) {
-        .widget-card-budget-web .widget-card__map {
-          height: 40px;
+        
+        @media screen and (max-width: 650px) and (max-height: 550px) {
+          height: 85px;
         }
       }
       
@@ -1857,10 +1856,17 @@ body.home {
           margin-top: 15px;
         }
       }
-      @media screen and (max-width: 650px) and (max-height: 550px) {
-        .widget-card__info-block-items {
-          height: 67px;
-        } 
+      
+      .widget-card__info-block-items {
+        @media screen and (max-width: 650px) and (max-height: 550px) {
+          height: 120px;
+        }
+        @media screen and (max-width: 650px) and (max-height: 520px) {
+          height: 100px;
+        }
+        @media screen and (max-width: 650px) and (max-height: 500px) {
+          height: 80px;
+        }
       }
       
       // Внутригородские муниципальные образования

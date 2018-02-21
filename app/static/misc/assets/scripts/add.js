@@ -287,7 +287,7 @@ function overflowDotts(size, element, title) {
 function overflowDottsInit() {
   
   function textTitles(el) {
-    $(el).each(function() {
+    $(el).filter(':visible').each(function() {
       if ($(this).find('.js-shave').length) {
         var dots = $(this).find('.js-shave-char').text(),
             title = $(this).text().replace(dots, '').replace(/\s\s+/g, ' ');
@@ -307,7 +307,8 @@ function overflowDottsInit() {
   if ($('.widget-card').length) {
     overflowDotts(70, $('.widget-card-polls .widget-card__info-block-title, .widget-card-quiz .widget-card__info-block-title'));
     
-    $('.widget-card-social-support .widget-card__info-block-item, .widget-card-gov-programs-result .widget-card__info-block-item').each(function() {
+    //
+    $('.widget-card-social-support .widget-card__info-block-item, .widget-card-gov-programs-result .widget-card__info-block-item').filter(':visible').each(function() {
       var $this = $(this),
           itemMaxHeight = $this.parent().outerHeight() - 10;
       $this.shave(itemMaxHeight);
@@ -315,6 +316,7 @@ function overflowDottsInit() {
     
     textTitles('.widget-card-social-support .widget-card__info-block-item, .widget-card-gov-programs-result .widget-card__info-block-item');
     
+    //
     $('.widget-card-polls-pers, .widget-card-quiz-pers').each(function(){
       
       var contentBlockLength = $(this).find('.widget-card__content').length,
@@ -327,12 +329,13 @@ function overflowDottsInit() {
         titleMaxHeight = Math.ceil(lineHeight * 7);
       }
       
-      $(this).find('.widget-card__info-block-title').shave(titleMaxHeight);
+      $(this).find('.widget-card__info-block-title:visible').shave(titleMaxHeight);
     });
     
     textTitles('.widget-card-polls-pers .widget-card__info-block-title, .widget-card-quiz-pers .widget-card__info-block-title');
     
-    $('.widget-card-projects').find('.widget-card__info').each(function() {
+    //
+    $('.widget-card-projects').find('.widget-card__info').filter(':visible').each(function() {
       var $this = $(this),
           card = $this.parents('.widget-card'),
           head = $this.parents('.widget-card').find('.widget-card__head'),

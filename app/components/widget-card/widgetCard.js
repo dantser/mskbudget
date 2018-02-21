@@ -161,7 +161,7 @@ export default () => {
         }
         $this.parents('.widget-card').find('.service__diagram-tabs, .service-dots').hide();
         $this.parents('.widget-card').toggleClass('widget-card_active');
-        $this.parents('.widget-card__head').siblings().slideToggle(321);
+        $this.parents('.widget-card__head').siblings().not('script').slideToggle(321);
         setTimeout(function () {
           $this.parents('.widget-card').find('.service__diagram-tabs, .service-dots').show();
           selectTitlesInit();
