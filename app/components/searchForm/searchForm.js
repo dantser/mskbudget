@@ -44,27 +44,43 @@ export default () => {
   
   
   // Строка поиска в виджетах
-  $(document).on('click', '.search_widget .d-si__search', function(e){
-    e.stopPropagation();
-    $('.search_widget .d-si__search').not($(this)).blur();
-  if (!$(this).hasClass('focused') && !$(this).hasClass('social__search')) {
+  if (browserV.ie || browserV.ie11) {
+    
+    $(document).on('click', '.search_widget .d-si__search', function(e){
+      e.stopPropagation();
+      $('.search_widget .d-si__search').not($(this)).blur();
+      $(this).removeAttr('placeholder');
+      if (!$(this).hasClass('focused') && !$(this).hasClass('social__search')) {
+        $(this).val('');
+        $(this).siblings('.search__tooltip').fadeIn(321);
+        $(this).addClass('focused');
+      }
+    });
+    
+    $(document).on('blur', '.search_widget .d-si__search', function(){
+      $(this).removeClass('focused');
+    });
+    
+    $(document).on('blur keyup change', '.search_widget .d-si__search', function(){
+      $(this).siblings('.search__tooltip').fadeOut(321);
+    });
+    
+    $(document).on('click', function(){
+      $('.search_widget .d-si__search').blur();
+    });
+    
+  } else {
+    
+    $(document).on('focus', '.search_widget .d-si__search', function(){
       $(this).val('');
       $(this).siblings('.search__tooltip').fadeIn(321);
-      $(this).addClass('focused');
-    }
-  });
-  
-  $(document).on('blur', '.search_widget .d-si__search', function(){
-    $(this).removeClass('focused');
-  });
-  
-  $(document).on('blur keyup change', '.search_widget .d-si__search', function(){
-    $(this).siblings('.search__tooltip').fadeOut(321);
-  });
-  
-  $(document).on('click', function(){
-    $('.search_widget .d-si__search').blur();
-  });
+    });
+    
+    $(document).on('blur input', '.search_widget .d-si__search', function(){
+      $(this).siblings('.search__tooltip').fadeOut(321);
+    });
+    
+  }
 
 
   $(document).on('click', function(e) {
