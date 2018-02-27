@@ -284,15 +284,20 @@
 
   & img,
   & svg{
-    @include center-block;
-    transform: translateY(-50%);
+    position: absolute;
+    top: 50%;
     left: 10px;
     width: 26px;
     height: auto;
   }
 
+  & img{
+    transform: translateY(-50%);
+  }
+
   & svg{
     height: 26px;
+    margin-top: -13px;
   }
 
   & i {

@@ -14,17 +14,17 @@ export default () => {
     e.stopPropagation();
     $(this).toggleClass('widget-card__pin_active');
     $(this).parents('.tile__item').toggleClass('tile__item_pinned');
-    
+
     if ($(this).parents('.wrapper_main').length) {
-      
+
       var activeItem = $(this).parents('.tile__item'),
           slider = $(this).parents('.slider'),
           slide = slider.find('.slick-slide'),
           firstSlide = slide.eq(1),
           lastPinnedItem = slider.find('.slick-slide:not(.slick-cloned) .tile__item_pinned').last();
-      
+
       if ( !$(this).parents('.tile__item').hasClass('tile__item_pinned') ) {
-        
+
         var currentSlide = lastPinnedItem.parents('.slick-slide').index();
         var oldSlide = activeItem.parents('.slick-slide').index();
         activeItem.insertAfter(lastPinnedItem);
@@ -35,9 +35,9 @@ export default () => {
             }
           });
         }
-        
+
       } else {
-        
+
         var currentSlide = $(this).parents('.slick-slide').index();
         activeItem.prependTo(firstSlide.find('.tile'));
         slide.each(function(){
@@ -45,18 +45,18 @@ export default () => {
             $(this).find('.tile__item').last().prependTo($(this).next().find('.tile'));
           }
         });
-        
+
       }
-      
+
     } else {
-      
+
       if ( !$(this).parents('.tile__item').hasClass('tile__item_pinned') ) {
         var block = $(this).parents('.tile__item');
         $(this).parents('.serv').find('.tile__item.tile__item_pinned').last().after(block);
       } else {
         $(this).parents('.tile__item').prependTo( $(this).parents('.serv') );
       }
-      
+
     }
   });*/
 
@@ -74,7 +74,7 @@ export default () => {
     .removeClass('widget-card__info-block-item_active')
     .next('.widget-card__info-block-item').addClass('widget-card__info-block-item_active');
 
-    if (!widgetCard.find('.widget-card__info-block-item').is('.widget-card__info-block-item_active')) {
+    if (!widgetCard.find('.widget-card__info-block-item_active').length) {
       widgetCard.find('.widget-card__info-block-item:first-child').addClass('widget-card__info-block-item_active');
     }
   });
@@ -143,7 +143,7 @@ export default () => {
       widgetCard.find('.widget-card__results-total:last-child').addClass('widget-card__results-total_active');
     }
   });
-  
+
   $(document).on('click', '.widget-card .arrow-button_prev, .widget-card .arrow-button_next', function (e) {
     overflowDottsInit();
   });
@@ -169,7 +169,7 @@ export default () => {
           overflowDottsInit();
         }, 321)
       });
-	  
+
 	  $(document).on('click', '.depfin-services-main .widget-card .datepicker__show', function(e){
 		var $this = $(this);
         $this.parents('.widget-card').find('.service__diagram-tabs, .service-dots').hide();
@@ -215,7 +215,7 @@ export default () => {
   $(document).on('click', '.widget-card-gov-programs-result li', function () {
     var newval = $(this).data('val');
     var widgetCard = $(this).parents('.widget-card');
-    widgetCard.find('.widget-card__info-block-items').hide();
+    widgetCard.find('.widget-card__info-block-items').removeClass('widget-card__info-block-items_active').hide();
     widgetCard.find('.widget-card__info-block-items[data-option="'+newval+'"]').show(321).addClass('widget-card__info-block-items_active');
   });
 
@@ -224,7 +224,7 @@ export default () => {
     var newval = $(this).data('val');
     var widgetCard = $(this).parents('.widget-card');
     widgetCard.find('.widget-card__info-block-items').removeClass('widget-card__info-block-items_active').hide();
-    
+
     var l = widgetCard.find('.widget-card__info-block-items[data-option="'+newval+'"]').children().length;
     if (l > 1)
     {
@@ -236,10 +236,10 @@ export default () => {
       $(document).find('.widget-card-social-support .arrow-button_next').hide();
       $(document).find('.widget-card-social-support .arrow-button_prev').hide();
     }
-    
+
     widgetCard.find('.widget-card__info-block-items[data-option="'+newval+'"]').show(321).addClass('widget-card__info-block-items_active');
   });
-  
+
   // виджет внутригородские муниципальные образования
   $(document).on('click', '.widget-card-municipalities li', function () {
     var newval = $(this).data('val');
@@ -247,7 +247,7 @@ export default () => {
     widgetCard.find('.widget-card__results-total').hide();
     widgetCard.find('.widget-card__results-total[data-option="'+newval+'"]').show(321);
   });
-  
+
   // виджет москва и регионы рф
   $(document).on('click', '.widget-card-regions li', function () {
     var newval = $(this).data('val');
@@ -255,7 +255,7 @@ export default () => {
     widgetCard.find('.widget-card__results').slideUp(321);
     widgetCard.find('.widget-card__results[data-option="'+newval+'"]').slideDown(321);
   });
-  
+
   // виджет бюджетная сеть
   $(document).on('click', '.widget-card-budget-web li', function () {
     var newval = $(this).data('val');
@@ -271,7 +271,7 @@ export default () => {
     widgetCard.find('.widget-card__output-calc').removeClass('widget-card__output-calc_active').hide(321);
     widgetCard.find('.widget-card__output-calc[data-option="'+newval+'"]').show(321);
   });
-  
+
   // Выделение регионов на карте
   $(document).on('change', '.widget-card .d-si__search', function () {
     var region = $(this).val(),
@@ -281,18 +281,18 @@ export default () => {
     regionMap.find('[data-name="'+region+'"]').addClass('active');
     $(this).blur();
   });
-  
+
   // Обрезание текста многоточием
-  if ($('.widget-card').length) {    
-    
+  if ($('.widget-card').length) {
+
     function dotText(el, children) {
       $(el).each(function(){
         var textSpan = $(this).find(children),
             wordArray = textSpan.text().split(' '),
             newText = '';
-        
+
         for (var i = 0; i < wordArray.length; i++) {
-          
+
           if (textSpan.text(newText+wordArray[i]).height() <= $(this).height()) {
             newText += ' '+wordArray[i];
           } else if (textSpan.text(newText+'...').height() <= $(this).height()){
@@ -302,15 +302,15 @@ export default () => {
             newText = newText.substring(0, newText.lastIndexOf(' ')) + '...';
             i = wordArray.length;
           }
-          
+
           textSpan.text(newText);
         }
 	 });
     }
-    
+
     //dotText('.widget-card__title', 'h3');
   }
-  
+
   // Фикс шрифта заголовков виджетов в iOS
   var isMobile = {
     iOS: function() {
