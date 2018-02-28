@@ -550,37 +550,28 @@ $(document).ready(function(){
 
 // Позиционирование картинок в новостях и событиях
 function setImagePosition() {
-
-  $('.js-image').each(function(){
-
-    $(this).removeClass('full-height');
-    $(this).css('top', '');
-
-    var imageHeight = $(this).height(), // высота картинки
-        blockHeight = $(this).parent().height(), // высота области под картинку
-        imageBlockHeightDiff = imageHeight - blockHeight; // разность высоты картинки и высоты области под картинку
-
-    if (imageBlockHeightDiff > 0) { // если высота картинки больше высоты области под картинку
-
-      var imageTranslation = imageBlockHeightDiff * parseFloat($(this).attr('data-pos')); // расстояние от верха картинки до нужной зоны
-
-      if (imageTranslation < 0) imageTranslation = 0;
-      if (imageTranslation > imageBlockHeightDiff) imageTranslation = imageBlockHeightDiff;
-
-      $(this).css('top', '-'+imageTranslation+'px');
-
-    } else {
-
-      $(this).addClass('full-height');
-
-    }
-
-  });
-
+  var $img = $(this);
+  $img.removeClass('full-height');
+  $img.css('top', null);
+  var imageHeight = $img.height(), // высота картинки
+    blockHeight = $img.parent().height(), // высота области под картинку
+    imageBlockHeightDiff = imageHeight - blockHeight; // разность высоты картинки и высоты области под картинку
+  if (imageBlockHeightDiff > 0) { // если высота картинки больше высоты области под картинку
+    var imageTranslation = Math.floor(imageBlockHeightDiff * parseFloat($img.data('pos'))); // расстояние от верха картинки до нужной зоны
+    if (imageTranslation < 0) imageTranslation = 0;
+    if (imageTranslation > imageBlockHeightDiff) imageTranslation = imageBlockHeightDiff;
+    $img.css('top', '-'+imageTranslation+'px');
+  } else {
+    $img.addClass('full-height');
+  }
+}
+function setImagesPosition() {
+  $('.js-image').off('load.pos').on('load.pos', setImagePosition).trigger('load.pos');
 }
 
-$(window).resize(setImagePosition);
-$(document).ready(setImagePosition).ajaxSuccess(setImagePosition);
+$(window).resize(setImagesPosition);
+$(document).ready(setImagesPosition).ajaxComplete(setImagesPosition);
+
 
 
 
