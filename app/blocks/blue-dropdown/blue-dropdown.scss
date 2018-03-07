@@ -32,6 +32,10 @@
     margin-bottom: 3px;
     transition: transform .3s ease;
     transform: rotate(0deg);
+    cursor: pointer;
+    &:hover {
+      opacity: .7;
+    }
 
     svg {
       position: absolute;
@@ -49,7 +53,6 @@
   &__heading {
     position: relative;
     transition: opacity .3s ease;
-    cursor: pointer;
 
     &_has-icon {
 
@@ -71,6 +74,12 @@
         margin-right: 5px;
       }
     }
+    &-link{
+      transition: opacity .3s ease;
+      &:hover {
+        opacity: .7;
+      }
+    }
 
     &-text {
       font-family: $PFDinCondensedPro;
@@ -84,10 +93,6 @@
       @media (max-width: 639px) {
         font-size: 15px;
       }
-    }
-
-    &:hover {
-      opacity: .7;
     }
   }
 
